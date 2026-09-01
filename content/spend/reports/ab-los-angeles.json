@@ -1,0 +1,1206 @@
+{
+  "city": "los-angeles",
+  "arms": {
+    "ab-a-": {
+      "sessions": 2,
+      "cost_usd": 3.3701,
+      "requests": 41,
+      "web_searches": 23,
+      "output_tokens": 38238,
+      "cache_read_tokens": 8819568,
+      "cache_write_tokens": 373496,
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "todo_assigned": 13,
+      "saved": 5,
+      "skipped": 9,
+      "resolved": 14,
+      "cost_per_resolved": 0.2407,
+      "cost_per_save": 0.674,
+      "verify": {
+        "verified": 2,
+        "corrected": 3,
+        "unverified": 0,
+        "none": 0
+      },
+      "images_per_save": 1.8,
+      "image_width_median": 1500,
+      "image_width_min": 500,
+      "desc_words_median": 222,
+      "skips": [
+        {
+          "venue": "Anat Ebgi",
+          "reason": "out_of_scope",
+          "detail": "Anat Ebgi has relocated its LA gallery from 2660 S. La Cienega Blvd to 6150 Wilshire Blvd, Suite 5, Los Angeles (Mid-Wilshire/Miracle Mile). The gallery's own exhibitions page lists only \"Wilshire\" (6150 Wilshire Blvd) and \"Tribeca\" (NYC) locations — no Culver City/West Adams space remains, so it no longer belongs in this zone.",
+          "url": "https://anatebgi.com/exhibitions/"
+        },
+        {
+          "venue": "Blum & Poe",
+          "reason": "closed_or_between_shows",
+          "detail": "Blum & Poe (rebranded BLUM) permanently closed its brick-and-mortar Los Angeles gallery at 2727 S. La Cienega Blvd; Tim Blum announced in July 2025 that he was stepping away and shuttering the LA and Tokyo spaces entirely, ceasing public exhibition operations. The gallery's own website is unreachable (expired SSL cert) and Yelp lists the location as \"BLUM - CLOSED.\"",
+          "url": "https://news.artnet.com/market/blum-a-market-force-for-three-decades-will-close-galleries-2663456"
+        },
+        {
+          "venue": "Edward Cella",
+          "reason": "out_of_scope",
+          "detail": "Edward Cella Art & Architecture no longer operates the 2754 S. La Cienega Blvd space; per the gallery's own contact page it now shows work only \"@ Thomas Lavin Showroom\" inside the Pacific Design Center (8687 Melrose Ave / Sunset Blvd mailing address), which is outside the Culver City/West Adams corridor. Its current-exhibitions page also returns no listed shows.",
+          "url": "https://www.edwardcella.com/contact/"
+        },
+        {
+          "venue": "Sixty29 Contemporary",
+          "reason": "appointment_only",
+          "detail": "Sixty29 Contemporary's own contact page states \"OPEN BY APPOINTMENT\" for its 6029 Washington Blvd location; it is described as the private studio of artist Carlo Marcucci with no public walk-in hours, so it doesn't qualify for the public-facing guide.",
+          "url": "https://www.sixty29contemporary.com/contact"
+        },
+        {
+          "venue": "Walter Maciel Gallery",
+          "reason": "low_res_only",
+          "detail": "Confirmed upcoming show on the gallery's own site: Nathan Vincent, \"The Shape of Awareness,\" Sept 8 - Oct 31, 2026, opening reception Sat Sept 19, 4-7pm, at 2642 S. La Cienega Blvd. However the gallery's dated, hotlink-protected website only serves thumbnail-scale artwork images (largest found was 450x600px for the show's hero image; other artist-page images top out around 166x200px), and no higher-resolution version could be found via press, Artsy, or the artist's own site for this specific exhibition.",
+          "url": "http://www.waltermacielgallery.com/exhibitions.html"
+        },
+        {
+          "venue": "Altura Los Angeles",
+          "reason": "unverifiable",
+          "detail": "No independent website; only a Facebook/Instagram presence. The only \"current\" show findable, \"Meet Me At The Boulevard,\" is actually a 2024 group exhibition (confirmed via a participating artist's own events page) — the Facebook post touting it as \"current\" is stale. Could not confirm any real on-view or upcoming show, current hours, or gallery operating status from a primary source.",
+          "url": "https://www.facebook.com/Altura.la/"
+        },
+        {
+          "venue": "Coagula Curatorial",
+          "reason": "unverifiable",
+          "detail": "Gallery's own website (coagulacuratorial.com and its square.site mirror) returns server errors / renders no exhibition content on every page attempted (home, /about, /current). No current or upcoming exhibition could be confirmed from the venue's own site; secondary sources (Artsy, Wikipedia, LA Art Show) only describe the gallery historically with no current show listed.",
+          "url": "https://coagulacuratorial.com/"
+        },
+        {
+          "venue": "Mark Jude Gallery",
+          "reason": "unverifiable",
+          "detail": "Gallery's own domain (markjudegallery.com) displays a \"coming soon\" placeholder with no content. Press coverage from July 2025 describes the grand-opening show (Antonio Kim, Caterina Piccardo, Samuel Scharf, Megan Mueller) but gives no indication of what, if anything, is currently on view over a year later, and hours were only ever \"Saturdays and by appointment.\" Could not confirm a current or upcoming exhibition from a primary source.",
+          "url": "https://www.markjudegallery.com/"
+        },
+        {
+          "venue": "Keystone Art Space",
+          "reason": "closed_or_between_shows",
+          "detail": "Keystone Gallery's own exhibition calendar shows its last listed show (\"Vestiges\" by Alexandra Lopez Iglesias) ran September 12-20, 2026 — wait, this is confirmed and upcoming.",
+          "url": "https://www.keystoneartspace.com/"
+        }
+      ],
+      "saves": [
+        {
+          "slug": "foyer-la-gremlin",
+          "venue": "FOYER-LA",
+          "neighborhood": "Chinatown/East LA",
+          "title": "GREMLIN: Museum of Commerce",
+          "artist": "Nick Herman",
+          "dates": "2026-09-12 to 2026-10-24",
+          "hours": [
+            "Thu - Sat 12pm to 5pm"
+          ],
+          "address": "3920 Fountain Ave",
+          "description": "Nick Herman has spent two decades making sculpture, photography, and books that treat industrial materials and structural systems as raw poetic material — fat solids cast into a lunar-looking frieze, hand-tied nets that sag under their own logic, antennas that double as myth machines. Museum of Commerce, his solo turn at FOYER-LA titled GREMLIN, promises more of that same sleight of hand: taking the leftover vocabulary of manufacturing, retail, and technology and bending it toward something stranger and more bodily.\n\nFOYER-LA is exactly the kind of space this work needs. Founded by artist Connie Walsh in 2019, it operates out of an in-between space — behind a courtyard, in front of a working studio — built for short, dense, experimental projects rather than white-cube spectacle. Herman's MFA is in sculpture from Yale, and his exhibition history runs through Socrates Sculpture Park, LAXART, and the Chinati Foundation's collection, so a project-space outing lets him work at a scale and speed that bigger institutions don't allow.\n\nGiven the title's nod to commerce and gremlins alike, expect a show that pokes at consumer culture and the \"traumatic residue\" — Herman's own phrase — that industry and technology leave on both land and body. It's a compact, single-artist project, which makes it an easy, quick stop for anyone curious about one of LA's more understated sculptor-writers.",
+          "desc_words": 222,
+          "source_urls": [
+            "https://www.foyer-la.com/",
+            "https://www.foyer-la.com/about"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/foyer-la-gremlin/01.jpg",
+              "w": 1200,
+              "h": 1500,
+              "kb": 580
+            }
+          ]
+        },
+        {
+          "slug": "kk-gallery-unbound",
+          "venue": "K&K Gallery",
+          "neighborhood": "Culver City/West Adams",
+          "title": "Unbound",
+          "artist": "Ariane Callender, Julia Deckman, Mel Deva, Shelly Floyd, Kyle Goderwis, Ashley Perez, Mark Rebennack, Sarah J.",
+          "dates": "2026-08-15 to 2026-09-26",
+          "hours": [
+            "Tue - Sat 11am to 5pm"
+          ],
+          "address": "8638 Washington Blvd",
+          "description": "Unbound gathers a roster of K&K's emerging and mid-career artists for a show built entirely around abstraction — work that has, as the gallery puts it, cut loose from realistic representation to chase feeling through layers, color, and line. It's a fitting subject for this Culver City Arts District storefront, which has made a mission of demystifying collecting for first-time buyers rather than chasing museum-scale statements.\n\nExpect a wall of variety rather than a single unifying style: hard-edged geometric compositions next to loose gestural fields, mixed-media surfaces built up in layers, and color-forward pieces that read as much as mood as image. With eight artists sharing the space, the show works like a sampler platter of where non-objective painting is right now among LA's working studio artists — useful for anyone building a collection who wants to see a range of approaches side by side before committing to one.\n\nK&K keeps its shows on a brisk roughly six-week rotation, so Unbound is very much a snapshot rather than a survey — see it while the paint is still fresh on the gallery walls. The opening reception doubled as an informal meet-the-artists mixer, in keeping with the gallery's low-pressure, \"art is for everyone\" ethos.",
+          "desc_words": 203,
+          "source_urls": [
+            "https://kk-gallery.com/show/kk-gallery-unbound",
+            "https://kk-gallery.com/",
+            "https://www.eventbrite.com/e/kk-gallery-opening-reception-unbound-tickets-1995155267112"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/kk-gallery-unbound/01.jpg",
+              "w": 1920,
+              "h": 1920,
+              "kb": 431
+            }
+          ]
+        },
+        {
+          "slug": "keystone-vestiges-lopez-iglesias",
+          "venue": "Keystone Art Space",
+          "neighborhood": "Chinatown/East LA",
+          "title": "Vestiges",
+          "artist": "Alexandra Lopez Iglesias",
+          "dates": "2026-09-12 to 2026-09-20",
+          "hours": [
+            "Tue - Sun 12pm to 5pm"
+          ],
+          "address": "338 South Avenue 16",
+          "description": "Alexandra Lopez Iglesias works in paper and clay, two materials she treats less as substances to be shaped than as stand-ins for skin — things that absorb, scar, and record whatever touches them. Vestiges, her solo show at Keystone Art Space, is built from sculptures that use cutting, piercing, tearing, stitching, and scraping to leave visible traces of contact on their surfaces, insisting throughout that these forms aren't metaphors for bodies so much as bodies themselves.\n\nLopez Iglesias, who was born in Ciudad Juárez and now works in Los Angeles, has built her practice around a fascination with materiality that reportedly goes back to childhood — an early, almost compulsive attention to the textures of the built world around her. That sensitivity to surface and touch carries through into paper especially, a medium she has also taught as a papermaking process in academic settings, giving her sculptures an unusual technical rigor beneath their raw, worked-over look.\n\nThe show takes place in Keystone Art Space's daylit gallery inside the artist-studio complex in Lincoln Heights — a fitting context for work that's this tactile and process-driven. It's a short run, just over a week, so this is very much a catch-it-while-you-can show for anyone interested in sculpture that treats the body's history of being touched, held, or neglected as its actual subject matter.",
+          "desc_words": 221,
+          "source_urls": [
+            "https://www.keystoneartspace.com/calendar/2026/9/12/alexandra-lopez-iglesias-vestiges",
+            "https://www.loveoflines.com/about"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/keystone-vestiges-lopez-iglesias/01.jpg",
+              "w": 2500,
+              "h": 1407,
+              "kb": 666
+            }
+          ]
+        },
+        {
+          "slug": "parrasch-heijnen-charles-dickson",
+          "venue": "Parrasch Heijnen",
+          "neighborhood": "Chinatown/East LA",
+          "title": "Charles Dickson: Select Works, 1966-2026",
+          "artist": "Charles Dickson",
+          "dates": "2026-09-19 to 2026-10-31",
+          "hours": [
+            "Tue - Sat 10am to 5pm"
+          ],
+          "address": "1326 S Boyle Ave",
+          "description": "Charles Dickson has been carving since he was five years old, whittling toy knives under the blankets in South Central Los Angeles, and this survey at Parrasch Heijnen compresses sixty years of that practice into one gallery. Select Works, 1966-2026 pulls from across his career — wood, bronze, concrete, metal, glass, acrylic — tracking a self-taught sculptor who came up alongside Noah Purifoy and John Outterbridge in the Watts arts scene of the late 1960s and never really left it, becoming the longtime artist-in-residence at the Watts Towers Arts Center and groundskeeper of the Towers themselves.\n\nWhat unites the wildly different materials in Dickson's work is a consistent visual language drawn from African sculptural tradition — masks, totemic forms, ritual tools — repurposed to catalog and honor Black life and history in Los Angeles specifically. He's best known publicly for civic commissions like the Mariposa Metro Green Line station and the Martin Luther King Jr. memorial in Watts, but this gallery presentation gets at the more intimate, studio-based side of his output: carved reliefs, assemblages, and figures that read like a private notebook kept over six decades.\n\nA show spanning 1966 to 2026 is essentially a mini-retrospective, and it's a notable get for a Boyle Heights gallery to present a Los Angeles art-world elder statesman whose work usually turns up in museums and public plazas rather than commercial spaces. Worth seeing both for the sculpture itself and as a rare chance to see this much of Dickson's range in one room.",
+          "desc_words": 251,
+          "source_urls": [
+            "https://www.parraschheijnen.com/exhibitions/charles-dickson-selectworks",
+            "https://www.parraschheijnen.com/artists/charles-dickson",
+            "https://www.thedicksonstudio.com/our-story"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/parrasch-heijnen-charles-dickson/01.jpg",
+              "w": 1500,
+              "h": 1875,
+              "kb": 130
+            },
+            {
+              "path": "images/los-angeles/parrasch-heijnen-charles-dickson/02.jpg",
+              "w": 500,
+              "h": 624,
+              "kb": 30
+            },
+            {
+              "path": "images/los-angeles/parrasch-heijnen-charles-dickson/03.jpg",
+              "w": 1500,
+              "h": 1875,
+              "kb": 138
+            },
+            {
+              "path": "images/los-angeles/parrasch-heijnen-charles-dickson/04.jpg",
+              "w": 1500,
+              "h": 1875,
+              "kb": 135
+            },
+            {
+              "path": "images/los-angeles/parrasch-heijnen-charles-dickson/05.jpg",
+              "w": 676,
+              "h": 1012,
+              "kb": 128
+            }
+          ]
+        },
+        {
+          "slug": "wonzimer-earth-elements-paint-and-fire",
+          "venue": "Wonzimer",
+          "neighborhood": "Chinatown/East LA",
+          "title": "Earth Elements: Paint and Fire",
+          "artist": "Cosmas and Damian Brown, David Lloyd, Gary Brewer, Cybele Rowe, Roger Herman, Brad Eberhard, Cheyann Washington, Xu DaRocha, Marco Minaya, Galia Linn, Aaron Sheppard",
+          "dates": "2026-09-04 to 2026-10-09",
+          "hours": [
+            "Thu - Sun 12pm to 7pm"
+          ],
+          "address": "341-B S Avenue 17, Los Angeles, CA 90031",
+          "description": "Earth Elements: Paint and Fire, curated by painter Gary Brewer, sets out to catch a group of established painters in the act of switching mediums. Every artist on the checklist has spent years at the easel before turning to clay, and the show is built around what happens to a painter's instincts once color and gesture have to survive a kiln. Expect glazed surfaces that read like brushwork, lumpy forms that behave like still lifes, and a general disregard for the old high-craft rules that used to separate \"ceramics\" from \"art.\"\n\nThe premise leans on real art history — the show's own framing traces a line from George Ohr and Peter Voulkos's studio-pottery rebellion through the Bay Area funk-ceramics arguments of the 1970s that Brewer lived through firsthand, up to painters today who treat clay as just another canvas. Cybele Rowe and Galia Linn, both long associated with large-scale ceramic sculpture, anchor that conversation from the sculpture side, while Roger Herman, Brad Eberhard, Cheyann Washington and the rest arrive as painters testing the material for the first time or the tenth.\n\nIt's a gallery known for community-minded, artist-heavy group shows in a converted industrial space in Lincoln Heights, and this one continues that pattern — eleven artists, one curatorial thesis, and a lot of room to see how differently people handle the same physical constraints. Worth a visit for anyone curious about the current cross-traffic between painting and clay in Los Angeles.",
+          "desc_words": 242,
+          "source_urls": [
+            "https://www.wonzimer.com/earth-elements-paint-and-fire",
+            "https://www.wonzimer.com/events"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/wonzimer-earth-elements-paint-and-fire/01.jpg",
+              "w": 1080,
+              "h": 1350,
+              "kb": 162
+            }
+          ]
+        }
+      ]
+    },
+    "ab-b-": {
+      "sessions": 2,
+      "cost_usd": 1.7455,
+      "requests": 16,
+      "web_searches": 14,
+      "output_tokens": 16964,
+      "cache_read_tokens": 2261407,
+      "cache_write_tokens": 238300,
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "todo_assigned": 12,
+      "saved": 3,
+      "skipped": 9,
+      "resolved": 12,
+      "cost_per_resolved": 0.1455,
+      "cost_per_save": 0.5818,
+      "verify": {
+        "verified": 3,
+        "corrected": 0,
+        "unverified": 0,
+        "none": 0
+      },
+      "images_per_save": 4.3,
+      "image_width_median": 2560,
+      "image_width_min": 1200,
+      "desc_words_median": 279,
+      "skips": [
+        {
+          "venue": "Arcana",
+          "reason": "out_of_scope",
+          "detail": "Arcana: Books on the Arts is a rare/specialty art-book shop, not a curated exhibition space; its website and events page show book launches and signings rather than art exhibitions.",
+          "url": "https://www.arcanabooks.com/"
+        },
+        {
+          "venue": "Cherry &amp; Martin",
+          "reason": "duplicate",
+          "detail": "Cherry and Martin closed permanently in 2018; the space at 2712 S. La Cienega Blvd was rebranded as Philip Martin Gallery, which is already on the saved-venues list.",
+          "url": "https://www.artforum.com/news/los-angeless-cherry-and-martin-gallery-closes-237707/"
+        },
+        {
+          "venue": "Good Mother Gallery",
+          "reason": "closed_or_between_shows",
+          "detail": "Gallery's own exhibitions page shows its last show (\"And After: Group Exhibition\") ran 3 July - 22 August 2026, now past, with no future exhibition listed or announced as of Sept 1, 2026.",
+          "url": "https://goodmothergallery.com/exhibitions/"
+        },
+        {
+          "venue": "Klowden Mann",
+          "reason": "closed_or_between_shows",
+          "detail": "Klowden Mann permanently closed in 2020; LinkedIn/Facebook and gallery archives confirm it operated 2010-2020 and is no longer an active gallery. Website (klowdenmann.com) is currently unreachable.",
+          "url": "https://www.facebook.com/KlowdenMann/"
+        },
+        {
+          "venue": "Taylor Fine Art",
+          "reason": "appointment_only",
+          "detail": "Site footer states 'Open by appointment only, Tuesday - Saturday 10am-5pm' — no public walk-in hours confirmed, and site functions primarily as an online shop for a single featured artist's works rather than a curated public exhibition.",
+          "url": "https://taylorfineart.art/"
+        },
+        {
+          "venue": "Gallery Sade Los Angeles",
+          "reason": "closed_or_between_shows",
+          "detail": "Most recent show, \"MY KARMA RAN OVER MY DOGMA,\" was a one-weekend pop-up that closed Aug 30, 2026; site's homepage shows no confirmed next exhibition or reopening date as of Sep 1, 2026.",
+          "url": "https://www.sade-la.com/"
+        },
+        {
+          "venue": "LAST Projects",
+          "reason": "closed_or_between_shows",
+          "detail": "Last posted exhibition, \"The Body, As Sculpture, As A Crow,\" ran June 12 - July 12, 2026; no new show or opening date posted on the venue's own site or Facebook page since.",
+          "url": "http://lastprojects.org"
+        },
+        {
+          "venue": "Nous Tous Gallery",
+          "reason": "unverifiable",
+          "detail": "No official website could be located (noustous.co is inaccessible, formal exhibition listings are years out of date); could not confirm any current or upcoming exhibition from a primary source.",
+          "url": "https://www.instagram.com/noustousla/?hl=en"
+        },
+        {
+          "venue": "Phase Gallery",
+          "reason": "closed_or_between_shows",
+          "detail": "Site's \"Current\" exhibition page still shows \"e/Crit-s,\" which ran 03/21/26-04/25/26 and has long closed; no newer show or opening date posted on the gallery's own site as of Sep 1, 2026.",
+          "url": "https://www.phasegallery.com/"
+        }
+      ],
+      "saves": [
+        {
+          "slug": "bel-ami-cars-of-los-angeles",
+          "venue": "Bel Ami",
+          "neighborhood": "Chinatown/East LA",
+          "title": "The Cars of Los Angeles",
+          "artist": "Carlos Agredano, Merlin Carpenter, Fiona Connor, Sylvie Fleury, Max Göran, Jason Hirata, Alan Michael, Josephine Pryde, Ed Ruscha, Lucien Samaha, Nicole-Antonia Spagnola, Angharad Williams",
+          "dates": "2026-07-18 to 2026-09-26",
+          "hours": [
+            "Wed - Sat 11am to 5pm"
+          ],
+          "address": "709 N Hill St #105, Asian Center, Los Angeles, CA 90012",
+          "description": "Curated by Dan Mitchell and Richard Sides as a companion to their own two-person show \"The Woods\" upstairs, this group exhibition treats the automobile as Los Angeles's central cultural artifact and elegy in waiting. The checklist ranges wildly in tone and medium: Carlos Agredano's large canvas built from smog and tire particulate collected off a Lynwood freeway sits near Ed Ruscha photographs and prints of gas stations and studio backlots, while Angharad Williams contributes a sprawling charcoal drawing of a fantasy Maserati and Merlin Carpenter presents a heap of Barbie Ferrari boxes as sculpture. A fabricated \"fake John Chamberlain,\" made from card packaging and spray paint, needles at the market mythology around crushed-car sculpture, and Sylvie Fleury's mixed-media pit-stop installation and vintage beauty-industry video bring her long-running fascination with glamour and speed into the mix.\n\nVideo work anchors the show's emotional register: Nicole-Antonia Spagnola's looping silent-film pastiche \"Ragged Dick\" stages a fatal collision between an early twentieth-century shoeshine boy and a horse-drawn carriage, framing the space to follow as one long meditation on automobility's violence, and Max Göran's \"Nothing Runs Like a Deere\" extends that unease into contemporary machine culture. Jason Hirata's readymade sculpture built from a catalytic converter and cable spacer, and Fiona Connor's graphite skid mark drawn directly onto the gallery wall, ground the show's more theatrical gestures in blunt, sculptural fact.\n\nIt's a smart, dryly funny group show for a city defined by its highways, treating car culture less as subject matter than as a shared American nervous system — one that runs on nostalgia, pollution, and speed in equal measure. The accompanying essay by Sophia Roxane Rohwetter, threading together Gorky's reaction to early cinema and Soviet auto-fiction, gives the show unusual literary heft for what could otherwise read as a novelty theme exhibition.",
+          "desc_words": 297,
+          "source_urls": [
+            "https://belami.info/exhibitions/the-cars-of-los-angeles/",
+            "https://belami.info/info/"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/bel-ami-cars-of-los-angeles/01.jpg",
+              "w": 1200,
+              "h": 849,
+              "kb": 428
+            },
+            {
+              "path": "images/los-angeles/bel-ami-cars-of-los-angeles/02.jpg",
+              "w": 3200,
+              "h": 2400,
+              "kb": 560
+            },
+            {
+              "path": "images/los-angeles/bel-ami-cars-of-los-angeles/03.jpg",
+              "w": 3200,
+              "h": 2400,
+              "kb": 1374
+            },
+            {
+              "path": "images/los-angeles/bel-ami-cars-of-los-angeles/04.jpg",
+              "w": 3200,
+              "h": 3441,
+              "kb": 824
+            },
+            {
+              "path": "images/los-angeles/bel-ami-cars-of-los-angeles/06.jpg",
+              "w": 3200,
+              "h": 2399,
+              "kb": 893
+            }
+          ]
+        },
+        {
+          "slug": "deboer-salvador-dominguez",
+          "venue": "de boer",
+          "neighborhood": "Chinatown/East LA",
+          "title": "Arreglos Artificiales",
+          "artist": "Salvador Domínguez",
+          "dates": "2026-09-12 to 2026-10-31",
+          "hours": [
+            "Tue - Sat 11am to 5pm"
+          ],
+          "address": "3311 E Pico Blvd, Los Angeles, CA 90023",
+          "description": "Salvador Domínguez opens de boer's fall season with \"Arreglos Artificiales\" — \"artificial arrangements\" — a title that plays on the Spanish term for silk-flower bouquets and points toward a practice built on staged, synthetic tableaux. Domínguez, an LA-based painter, works in a hyper-saturated, faintly surreal figurative mode, often placing solitary or paired figures inside interiors thick with pattern, drapery, and decorative objects that feel simultaneously domestic and theatrical.\n\nBased on the works available ahead of the opening, the show looks to continue his interest in the artifice of everyday staging — flowers that don't wilt, rooms arranged for effect rather than comfort — using it as a lens on inherited Latino domestic aesthetics and the performance of hospitality and care. It's a promising follow-up slot after the gallery's summer run of Kash Ford, and a chance to catch an emerging painter's work in a single, focused presentation before the fall art-fair circuit picks up.",
+          "desc_words": 154,
+          "source_urls": [
+            "https://deboergallery.com/exhibitions-forthcoming",
+            "https://deboergallery.com/salvador-domnguez-arreglos-artificiales",
+            "https://deboergallery.com/contact"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/deboer-salvador-dominguez/01.jpg",
+              "w": 2500,
+              "h": 3125,
+              "kb": 1858
+            },
+            {
+              "path": "images/los-angeles/deboer-salvador-dominguez/02.jpg",
+              "w": 2500,
+              "h": 2500,
+              "kb": 1299
+            }
+          ]
+        },
+        {
+          "slug": "wende-sextant",
+          "venue": "Wende Museum",
+          "neighborhood": "Culver City/West Adams",
+          "title": "The Sextant",
+          "artist": "Enrique Martínez Celaya",
+          "dates": "2025-11-08 to 2026-10-11",
+          "hours": [
+            "Fri - Sun 10am to 5pm",
+            "Mon - Tue Closed",
+            "Wed - Thu Open for school tours only"
+          ],
+          "address": "10808 Culver Boulevard",
+          "description": "Enrique Martínez Celaya spent decades as a physicist before turning fully to art, and that background shows in the way he treats memory here less as sentiment than as a structure to be modeled and tested. The Sextant is a scaled-down reconstruction of the modernist house his father built on Cuba's coast between 1957 and 1963 — years that bracketed the Revolution, the Missile Crisis, and the U.S. embargo, and that ended with his family waiting there, never able to leave on their own terms. Rebuilding it as an installation lets Martínez Celaya interrogate what such reconstructions can and cannot recover: the piece is explicit about the gap between the model and the real house, between a childhood remembered and a childhood lived.\n\nHoused at the Wende, a museum built around Cold War-era artifacts and ephemera from behind the Iron Curtain and beyond, the piece fits naturally into the institution's broader project of examining how ordinary lives were shaped by ideological rupture. Rather than photographs or archival objects, though, viewers get an immersive architectural surrogate — a dollhouse-scaled stand-in for a real building that, today, operates as a wedding venue, its political scars mostly invisible to the couples who rent it.\n\nWhat makes the work worth a visit is its refusal to resolve into either nostalgia or polemic. It sits with the discomfort of authenticity questions — is a reconstruction ever equivalent to the thing itself? — while using a deeply personal family story to gesture at the universal experience of utopian dreams curdling into everyday compromise. It's a quiet, contemplative show, best experienced slowly, and it rewards taking one of the museum's docent-led tours if the schedule allows.",
+          "desc_words": 279,
+          "source_urls": [
+            "https://wendemuseum.org/exhibition/sextant/",
+            "https://wendemuseum.org/visit-the-wende/"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/wende-sextant/01.jpg",
+              "w": 1920,
+              "h": 1080,
+              "kb": 296
+            },
+            {
+              "path": "images/los-angeles/wende-sextant/02.jpg",
+              "w": 2560,
+              "h": 1707,
+              "kb": 480
+            },
+            {
+              "path": "images/los-angeles/wende-sextant/03.jpg",
+              "w": 2560,
+              "h": 1707,
+              "kb": 263
+            },
+            {
+              "path": "images/los-angeles/wende-sextant/04.jpg",
+              "w": 2560,
+              "h": 1921,
+              "kb": 314
+            },
+            {
+              "path": "images/los-angeles/wende-sextant/05.jpg",
+              "w": 2560,
+              "h": 1707,
+              "kb": 553
+            },
+            {
+              "path": "images/los-angeles/wende-sextant/06.jpg",
+              "w": 1612,
+              "h": 2560,
+              "kb": 142
+            }
+          ]
+        }
+      ]
+    },
+    "ab-c-": {
+      "sessions": 2,
+      "cost_usd": 0.4371,
+      "requests": 10,
+      "web_searches": 10,
+      "output_tokens": 10151,
+      "cache_read_tokens": 907858,
+      "cache_write_tokens": 141819,
+      "models": [
+        "claude-haiku-4-5"
+      ],
+      "todo_assigned": 11,
+      "saved": 2,
+      "skipped": 9,
+      "resolved": 11,
+      "cost_per_resolved": 0.0397,
+      "cost_per_save": 0.2186,
+      "verify": {
+        "verified": 2,
+        "corrected": 0,
+        "unverified": 0,
+        "none": 0
+      },
+      "images_per_save": 4.0,
+      "image_width_median": 600,
+      "image_width_min": 600,
+      "desc_words_median": 200,
+      "skips": [
+        {
+          "venue": "Espacio 1839",
+          "reason": "closed_or_between_shows",
+          "detail": "Cultural bookstore/community space with no confirmed gallery exhibitions currently or within 60 days",
+          "url": "https://www.instagram.com/espacio1839"
+        },
+        {
+          "venue": "Human Resources",
+          "reason": "closed_or_between_shows",
+          "detail": "Artforum listing shows no exhibitions currently listed; nonprofit performance/exhibition space between shows",
+          "url": "https://www.h-r.la"
+        },
+        {
+          "venue": "Lincoln Heights Youth Arts Center",
+          "reason": "out_of_scope",
+          "detail": "Educational arts center focused on classes and youth programming, not a public exhibition gallery",
+          "url": "https://culture.lacity.gov/cultural-centers/lincoln-heights-youth-arts-center"
+        },
+        {
+          "venue": "NOW SPACE",
+          "reason": "closed_or_between_shows",
+          "detail": "Artist-run space is currently archival with no exhibitions; future page shows outdated content (2020 projects coming soon)",
+          "url": "http://nowspacela.com/"
+        },
+        {
+          "venue": "Self Help Graphics & Art",
+          "reason": "closed_or_between_shows",
+          "detail": "Main venue at 1300 E 1st St closed to public for building renovations; exhibitions are at traveling locations not the home venue",
+          "url": "https://www.selfhelpgraphics.com"
+        },
+        {
+          "venue": "Band of Vices",
+          "reason": "closed_or_between_shows",
+          "detail": "Last exhibition (Streets, Structures & Stories) ended July 25, 2026; no upcoming shows confirmed on site within 60-day window",
+          "url": "https://www.bandofvices.com"
+        },
+        {
+          "venue": "China Art Objects",
+          "reason": "unverifiable",
+          "detail": "Website is stub with no current exhibitions; Wikipedia indicates founder moved to Mexico in 2021; cannot confirm current operations",
+          "url": "https://www.chinaartobjects.com"
+        },
+        {
+          "venue": "Honor Fraser",
+          "reason": "appointment_only",
+          "detail": "Gallery listed as open by appointment only with no public walk-in hours; no current or upcoming exhibitions on programming page",
+          "url": "https://honorfraser.com"
+        },
+        {
+          "venue": "Von Lintel Gallery",
+          "reason": "out_of_scope",
+          "detail": "Gallery located at 2525 Michigan Avenue, Santa Monica, CA (not Culver City/West Adams); also open by appointment only with no confirmed upcoming exhibitions",
+          "url": "https://www.vonlintel.com"
+        }
+      ],
+      "saves": [
+        {
+          "slug": "charlie-james-gallery-lookout-weekend",
+          "venue": "Charlie James Gallery",
+          "neighborhood": "Chinatown/East LA",
+          "title": "Lookout Weekend",
+          "artist": "The Perez Bros",
+          "dates": "2026-09-11 to 2026-10-24",
+          "hours": [
+            "Tuesday - Saturday 11am to 5pm"
+          ],
+          "address": "961 Chung King Road",
+          "description": "The Perez Bros—identical twins Alejandro and Vicente—capture the passion and precision of Los Angeles lowrider culture through painting. This exhibition of new work invites viewers into the garage in the lead-up to a car show or cruise night, featuring scenes of meticulous preparation, tuning, and polishing. The paintings are finished with high-gloss resin and reflective flake, creating a visual surface that mirrors the glossy perfection of the cars themselves and collapses the boundary between subject and medium.\n\nThe exhibition title references a 1984 dance track by Debbie Deb that soundtracked the brothers' childhood, setting a tone of hopeful anticipation. While earlier works focus on the cars themselves, this body of work introduces wider scenes, including a panoramic painting of a car show featuring more than a dozen vehicles surrounded by crowds, shade tents, and the bustling community ecosystem that gathers around them. Other works depict cars as near-celebrities, positioned on tow trucks or posed for the camera like stars on a red carpet.\n\nThe Perez Bros pull from an extensive photographic archive of the LA lowrider scene, distilling images into scenes of pure detail rendered in bright hues. Their meticulous approach to composition and finish reflects a deep knowledge of and obvious love for the cars and the culture surrounding them—a distinctly Los Angeles subject matter treated with the care of fine art painting.",
+          "desc_words": 224,
+          "source_urls": [
+            "https://www.cjamesgallery.com/exhibitions/lookoutweekend"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/charlie-james-gallery-lookout-weekend/01.jpg",
+              "w": 2313,
+              "h": 1510,
+              "kb": 184
+            }
+          ]
+        },
+        {
+          "slug": "philip-martin-a-certain-slant-of-light",
+          "venue": "Philip Martin Gallery",
+          "neighborhood": "Culver City/West Adams",
+          "title": "A Certain Slant of Light",
+          "artist": "Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, Sung Jik Yang",
+          "dates": "2026-08-01 to 2026-09-26",
+          "hours": [
+            "Wednesday - Saturday 11am to 5pm",
+            "Tuesday 10am to 1pm (by appointment)"
+          ],
+          "address": "3342 Verdugo Road",
+          "description": "*A Certain Slant of Light* brings together ten artists of different generations and backgrounds to explore how painting, sculpture, and assemblage can interrogate interiority and personal vision. Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, and Sung Jik Yang each navigate their own visual languages—from Coulis's contemplative still lifes and landscapes to Glabush's evocative gestures, from Morse's engagement with environment and narrative to Schmalix's late works reflecting on color and light.\n\nThe exhibition emphasizes how these artists, separated by geography and artistic practice, share a commitment to the picture plane as a site of experiential investigation. Their works resist simple categorization: paintings layer abstraction and representation; sculptures occupy the space between material presence and visual illusion. Together, they pose quiet, persistent questions about how we see ourselves and the world around us.\n\nDrawn from different moments in each artist's practice—some historic works, many recent—this group show celebrates the sustained conversations happening within the gallery's roster, where careful observation and emotional resonance remain central to contemporary practice.",
+          "desc_words": 176,
+          "source_urls": [
+            "https://philipmartingallery.com/exhibitions/313-a-certain-slant-of-light-carl-cheng-holly-coulis-tim-garwood-sky-glabush/works/",
+            "https://philipmartingallery.com/contact/"
+          ],
+          "images": [
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/01.jpg",
+              "w": 1200,
+              "h": 630,
+              "kb": 84
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/02.jpg",
+              "w": 600,
+              "h": 477,
+              "kb": 41
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/03.jpg",
+              "w": 600,
+              "h": 687,
+              "kb": 80
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/04.jpg",
+              "w": 600,
+              "h": 598,
+              "kb": 28
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/05.jpg",
+              "w": 600,
+              "h": 562,
+              "kb": 112
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/06.jpg",
+              "w": 600,
+              "h": 730,
+              "kb": 42
+            },
+            {
+              "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/07.jpg",
+              "w": 600,
+              "h": 724,
+              "kb": 94
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "overlap_pairs": [
+    {
+      "venue": "Parrasch Heijnen Gallery",
+      "sandbox_arm": "haiku-overlap",
+      "sandbox": {
+        "slug": "charles-dickson-select-works",
+        "venue": "Parrasch Heijnen Gallery",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Charles Dickson: Select Works, 1966–2026",
+        "artist": "Charles Dickson",
+        "dates": "2026-09-19 to 2026-10-31",
+        "hours": [
+          "Tue - Sat 10am to 5pm"
+        ],
+        "address": "1326 S Boyle Ave",
+        "description": "A retrospective spanning six decades of Charles Dickson's practice brings together a selection of works that showcase the artist's evolving vision. Dickson has established himself as a significant figure in contemporary art, working across multiple mediums with a commitment to formal innovation and conceptual rigor. This exhibition presents the breadth of his artistic trajectory, offering viewers an opportunity to trace the continuities and developments that have defined his career from 1966 to the present day. The carefully curated works reveal connections between early investigations and more recent pieces, providing insight into the concerns that have sustained his practice over time.",
+        "desc_words": 100,
+        "source_urls": [
+          "https://www.parraschheijnen.com/exhibitions/charles-dickson-selectworks"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/charles-dickson-select-works/01.jpg",
+            "w": 1602,
+            "h": 1281,
+            "kb": 531
+          }
+        ]
+      },
+      "real": {
+        "slug": "parrasch-heijnen-charles-dickson",
+        "venue": "Parrasch Heijnen",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Charles Dickson: Select Works, 1966-2026",
+        "artist": "Charles Dickson",
+        "dates": "2026-09-19 to 2026-10-31",
+        "hours": [
+          "Tue - Sat 10am to 5pm"
+        ],
+        "address": "1326 S Boyle Ave",
+        "description": "Charles Dickson has been carving since he was five years old, whittling toy knives under the blankets in South Central Los Angeles, and this survey at Parrasch Heijnen compresses sixty years of that practice into one gallery. Select Works, 1966-2026 pulls from across his career — wood, bronze, concrete, metal, glass, acrylic — tracking a self-taught sculptor who came up alongside Noah Purifoy and John Outterbridge in the Watts arts scene of the late 1960s and never really left it, becoming the longtime artist-in-residence at the Watts Towers Arts Center and groundskeeper of the Towers themselves.\n\nWhat unites the wildly different materials in Dickson's work is a consistent visual language drawn from African sculptural tradition — masks, totemic forms, ritual tools — repurposed to catalog and honor Black life and history in Los Angeles specifically. He's best known publicly for civic commissions like the Mariposa Metro Green Line station and the Martin Luther King Jr. memorial in Watts, but this gallery presentation gets at the more intimate, studio-based side of his output: carved reliefs, assemblages, and figures that read like a private notebook kept over six decades.\n\nA show spanning 1966 to 2026 is essentially a mini-retrospective, and it's a notable get for a Boyle Heights gallery to present a Los Angeles art-world elder statesman whose work usually turns up in museums and public plazas rather than commercial spaces. Worth seeing both for the sculpture itself and as a rare chance to see this much of Dickson's range in one room.",
+        "desc_words": 251,
+        "source_urls": [
+          "https://www.parraschheijnen.com/exhibitions/charles-dickson-selectworks",
+          "https://www.parraschheijnen.com/artists/charles-dickson",
+          "https://www.thedicksonstudio.com/our-story"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/parrasch-heijnen-charles-dickson/01.jpg",
+            "w": 1500,
+            "h": 1875,
+            "kb": 130
+          },
+          {
+            "path": "images/los-angeles/parrasch-heijnen-charles-dickson/02.jpg",
+            "w": 500,
+            "h": 624,
+            "kb": 30
+          },
+          {
+            "path": "images/los-angeles/parrasch-heijnen-charles-dickson/03.jpg",
+            "w": 1500,
+            "h": 1875,
+            "kb": 138
+          },
+          {
+            "path": "images/los-angeles/parrasch-heijnen-charles-dickson/04.jpg",
+            "w": 1500,
+            "h": 1875,
+            "kb": 135
+          },
+          {
+            "path": "images/los-angeles/parrasch-heijnen-charles-dickson/05.jpg",
+            "w": 676,
+            "h": 1012,
+            "kb": 128
+          }
+        ]
+      }
+    },
+    {
+      "venue": "de boer",
+      "sandbox_arm": "haiku-overlap",
+      "sandbox": {
+        "slug": "salvador-dominguez-arreglos-artificiales",
+        "venue": "de boer",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Salvador Dominguez: *Arreglos Artificiales*",
+        "artist": "Salvador Dominguez",
+        "dates": "2026-09-12 to 2026-10-31",
+        "hours": [
+          "Tue - Sat 11am to 5pm"
+        ],
+        "address": "3311 E Pico Blvd",
+        "description": "Chicago-based artist Salvador Dominguez presents new work exploring the intersection of domestic culture, identity, and materials. Born in Zacatecas, Mexico, and raised in Greater Los Angeles, Dominguez draws on his lived experience as a first-generation immigrant to create work that engages with language, pattern, and the visual language of everyday life. His practice often references domestic needlepoint patterns and ornamental traditions, translating them into mixed media and encaustic works that occupy a unique space between painting and textile-making. *Arreglos Artificiales* continues this exploration, examining cultural heritage through the lens of decoration and memory. Working between Chicago and Los Angeles, Dominguez's art bridges geographical and cultural divides, asserting the significance of his communities' visual traditions within contemporary art discourse.\n\nThis exhibition marks an important moment in the artist's dialogue with de boer's Los Angeles location, deepening the gallery's commitment to artists engaged with questions of cultural identity and immigrant experience.",
+        "desc_words": 149,
+        "source_urls": [
+          "https://deboergallery.com/salvador-dominguez"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/salvador-dominguez-arreglos-artificiales/01.jpg",
+            "w": 2500,
+            "h": 1667,
+            "kb": 535
+          },
+          {
+            "path": "images/los-angeles/salvador-dominguez-arreglos-artificiales/02.jpg",
+            "w": 2500,
+            "h": 1667,
+            "kb": 245
+          },
+          {
+            "path": "images/los-angeles/salvador-dominguez-arreglos-artificiales/03.jpg",
+            "w": 2500,
+            "h": 1667,
+            "kb": 483
+          },
+          {
+            "path": "images/los-angeles/salvador-dominguez-arreglos-artificiales/04.jpg",
+            "w": 2500,
+            "h": 1667,
+            "kb": 583
+          },
+          {
+            "path": "images/los-angeles/salvador-dominguez-arreglos-artificiales/05.jpg",
+            "w": 2500,
+            "h": 2000,
+            "kb": 771
+          }
+        ]
+      },
+      "real": {
+        "slug": "deboer-salvador-dominguez",
+        "venue": "de boer",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Arreglos Artificiales",
+        "artist": "Salvador Domínguez",
+        "dates": "2026-09-12 to 2026-10-31",
+        "hours": [
+          "Tue - Sat 11am to 5pm"
+        ],
+        "address": "3311 E Pico Blvd, Los Angeles, CA 90023",
+        "description": "Salvador Domínguez opens de boer's fall season with \"Arreglos Artificiales\" — \"artificial arrangements\" — a title that plays on the Spanish term for silk-flower bouquets and points toward a practice built on staged, synthetic tableaux. Domínguez, an LA-based painter, works in a hyper-saturated, faintly surreal figurative mode, often placing solitary or paired figures inside interiors thick with pattern, drapery, and decorative objects that feel simultaneously domestic and theatrical.\n\nBased on the works available ahead of the opening, the show looks to continue his interest in the artifice of everyday staging — flowers that don't wilt, rooms arranged for effect rather than comfort — using it as a lens on inherited Latino domestic aesthetics and the performance of hospitality and care. It's a promising follow-up slot after the gallery's summer run of Kash Ford, and a chance to catch an emerging painter's work in a single, focused presentation before the fall art-fair circuit picks up.",
+        "desc_words": 154,
+        "source_urls": [
+          "https://deboergallery.com/exhibitions-forthcoming",
+          "https://deboergallery.com/salvador-domnguez-arreglos-artificiales",
+          "https://deboergallery.com/contact"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/deboer-salvador-dominguez/01.jpg",
+            "w": 2500,
+            "h": 3125,
+            "kb": 1858
+          },
+          {
+            "path": "images/los-angeles/deboer-salvador-dominguez/02.jpg",
+            "w": 2500,
+            "h": 2500,
+            "kb": 1299
+          }
+        ]
+      }
+    },
+    {
+      "venue": "Wönzimer",
+      "sandbox_arm": "haiku-overlap",
+      "sandbox": {
+        "slug": "earth-elements-paint-and-fire",
+        "venue": "Wönzimer",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Earth Elements: Paint and Fire",
+        "artist": null,
+        "dates": "2026-09-04 to 2026-10-09",
+        "hours": [
+          "Thu - Sun 12pm to 7pm"
+        ],
+        "address": "341-B S Avenue 17",
+        "description": "Curated by Gary Brewer, *Earth Elements: Paint and Fire* brings together painters who have turned to ceramic sculpture and ceramic artists who infuse painterly sensibility into their three-dimensional work. The exhibition draws from the history of ceramic liberation—from George Ohr's early innovations through Peter Voulkos's abstract expressionist ceramics and the irreverent, conceptually sophisticated practice of artists like Viola Frey and Robert Arneson. Rather than remaining bound by craft traditions, the artists in this show approach ceramic material as a tabula rasa, applying a painter's intuition and freedom to the medium.\n\nTwo exceptions prove revealing: Galia Linn, who began as a ceramic sculptor and later expanded into painting, and Cybele Rowe, whose monumental ceramic sculptures integrate decades of painterly sensibility into what she terms \"volumetric paintings.\" The exhibition asserts that the boundaries between painting and sculpture, between art and craft, are increasingly fluid and that the most vital contemporary work emerges when artists move fluidly across these traditional divisions.",
+        "desc_words": 158,
+        "source_urls": [
+          "https://www.wonzimer.com/earth-elements-paint-and-fire"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/earth-elements-paint-and-fire/01.jpg",
+            "w": 1080,
+            "h": 1350,
+            "kb": 170
+          }
+        ]
+      },
+      "real": {
+        "slug": "wonzimer-earth-elements-paint-and-fire",
+        "venue": "Wonzimer",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Earth Elements: Paint and Fire",
+        "artist": "Cosmas and Damian Brown, David Lloyd, Gary Brewer, Cybele Rowe, Roger Herman, Brad Eberhard, Cheyann Washington, Xu DaRocha, Marco Minaya, Galia Linn, Aaron Sheppard",
+        "dates": "2026-09-04 to 2026-10-09",
+        "hours": [
+          "Thu - Sun 12pm to 7pm"
+        ],
+        "address": "341-B S Avenue 17, Los Angeles, CA 90031",
+        "description": "Earth Elements: Paint and Fire, curated by painter Gary Brewer, sets out to catch a group of established painters in the act of switching mediums. Every artist on the checklist has spent years at the easel before turning to clay, and the show is built around what happens to a painter's instincts once color and gesture have to survive a kiln. Expect glazed surfaces that read like brushwork, lumpy forms that behave like still lifes, and a general disregard for the old high-craft rules that used to separate \"ceramics\" from \"art.\"\n\nThe premise leans on real art history — the show's own framing traces a line from George Ohr and Peter Voulkos's studio-pottery rebellion through the Bay Area funk-ceramics arguments of the 1970s that Brewer lived through firsthand, up to painters today who treat clay as just another canvas. Cybele Rowe and Galia Linn, both long associated with large-scale ceramic sculpture, anchor that conversation from the sculpture side, while Roger Herman, Brad Eberhard, Cheyann Washington and the rest arrive as painters testing the material for the first time or the tenth.\n\nIt's a gallery known for community-minded, artist-heavy group shows in a converted industrial space in Lincoln Heights, and this one continues that pattern — eleven artists, one curatorial thesis, and a lot of room to see how differently people handle the same physical constraints. Worth a visit for anyone curious about the current cross-traffic between painting and clay in Los Angeles.",
+        "desc_words": 242,
+        "source_urls": [
+          "https://www.wonzimer.com/earth-elements-paint-and-fire",
+          "https://www.wonzimer.com/events"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/wonzimer-earth-elements-paint-and-fire/01.jpg",
+            "w": 1080,
+            "h": 1350,
+            "kb": 162
+          }
+        ]
+      }
+    },
+    {
+      "venue": "Keystone Art Space",
+      "sandbox_arm": "haiku-overlap",
+      "sandbox": {
+        "slug": "alexandra-lopez-iglesias-vestiges",
+        "venue": "Keystone Art Space",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Alexandra Lopez Iglesias: *Vestiges*",
+        "artist": "Alexandra Lopez Iglesias",
+        "dates": "2026-09-12 to 2026-09-20",
+        "hours": [
+          "Tue - Sat 12pm to 5pm"
+        ],
+        "address": "338 S Avenue 16",
+        "description": "Los Angeles–based artist Alexandra Lopez Iglesias, originally from Ciudad Juárez, Chihuahua, México, presents a new body of work exploring materiality and the body's encounter with materials. Through paper and clay sculptures, Lopez Iglesias creates and investigates remnants—traces left by touch, care, neglect, and time. Her practice is rooted in a lifelong fascination with texture and material properties, a sensibility evident since childhood. Paper and clay function not as metaphors but as bodies themselves, capable of absorbing, archiving, and resisting in equal measure.\n\nThe artist approaches her materials through acts of cutting, piercing, tearing, stitching, scraping, and scarring—gestures that reveal beauty within vulnerability. *Vestiges* invites viewers into intimate encounters where the personal becomes universal, where examining one body illuminates the possibility of transformation in others. The exhibition suggests that the simple act of truly seeing another—materially, emotionally, spiritually—carries profound possibility.",
+        "desc_words": 139,
+        "source_urls": [
+          "http://www.keystoneartspace.com/calendar/2026/9/12/alexandra-lopez-iglesias-vestiges"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/charles-dickson-select-works/01.jpg",
+            "w": 1602,
+            "h": 1281,
+            "kb": 531
+          }
+        ]
+      },
+      "real": {
+        "slug": "keystone-vestiges-lopez-iglesias",
+        "venue": "Keystone Art Space",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Vestiges",
+        "artist": "Alexandra Lopez Iglesias",
+        "dates": "2026-09-12 to 2026-09-20",
+        "hours": [
+          "Tue - Sun 12pm to 5pm"
+        ],
+        "address": "338 South Avenue 16",
+        "description": "Alexandra Lopez Iglesias works in paper and clay, two materials she treats less as substances to be shaped than as stand-ins for skin — things that absorb, scar, and record whatever touches them. Vestiges, her solo show at Keystone Art Space, is built from sculptures that use cutting, piercing, tearing, stitching, and scraping to leave visible traces of contact on their surfaces, insisting throughout that these forms aren't metaphors for bodies so much as bodies themselves.\n\nLopez Iglesias, who was born in Ciudad Juárez and now works in Los Angeles, has built her practice around a fascination with materiality that reportedly goes back to childhood — an early, almost compulsive attention to the textures of the built world around her. That sensitivity to surface and touch carries through into paper especially, a medium she has also taught as a papermaking process in academic settings, giving her sculptures an unusual technical rigor beneath their raw, worked-over look.\n\nThe show takes place in Keystone Art Space's daylit gallery inside the artist-studio complex in Lincoln Heights — a fitting context for work that's this tactile and process-driven. It's a short run, just over a week, so this is very much a catch-it-while-you-can show for anyone interested in sculpture that treats the body's history of being touched, held, or neglected as its actual subject matter.",
+        "desc_words": 221,
+        "source_urls": [
+          "https://www.keystoneartspace.com/calendar/2026/9/12/alexandra-lopez-iglesias-vestiges",
+          "https://www.loveoflines.com/about"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/keystone-vestiges-lopez-iglesias/01.jpg",
+            "w": 2500,
+            "h": 1407,
+            "kb": 666
+          }
+        ]
+      }
+    },
+    {
+      "venue": "Wende Museum",
+      "sandbox_arm": "haiku-overlap",
+      "sandbox": {
+        "slug": "ivana-dama-breathing-alarms",
+        "venue": "Wende Museum",
+        "neighborhood": "Culver City/West Adams",
+        "title": "Ivana Dama: Breathing Alarms",
+        "artist": "Ivana Dama",
+        "dates": "2026-04-26 to 2026-10-11",
+        "hours": [
+          "Fri - Sun 10am to 5pm"
+        ],
+        "address": "10808 Culver Boulevard",
+        "description": "New York–based artist Ivana Dama transforms the Wende Museum's East German guardhouse into an immersive sound installation powered entirely by human breath. At the center of *Breathing Alarms* is a custom air-raid siren, a device historically tied to surveillance and protection, that only sounds when visitors breathe into it. The siren's intensity modulates with each person's breath while simultaneously activating an animation of birds circling inside a bespoke aluminum zoetrope—a collision of mechanical watchfulness and organic life.\n\nDama's research into sirens draws on her own formative experience growing up in post-communist Belgrade during the 1999 NATO bombing, when the sounds and vibrations of air-raid sirens shaped her understanding of how sound carries trauma and memory. *Breathing Alarms* elevates this personal history into a collective experience, inviting visitors to recognize their own breath as a generator of acoustic power. The work reveals how air, sound, and motion underlie the technologies we often take for granted—and how shared physical presence can transform instruments of control into instruments of connection.\n\nDeveloped in collaboration with MIT's Center for Bits and Atoms, the installation merges cutting-edge digital fabrication with analog mechanics, creating a deeply interactive work about perception, surveillance, and the politics of breath in a moment of environmental and social crisis. It's a rare chance to experience contemporary sound art that's simultaneously intimate, politically engaged, and revelatory about the human body's capacity to generate meaning.",
+        "desc_words": 231,
+        "source_urls": [
+          "https://wendemuseum.org/exhibition/ivana-dama-breathing-alarms/",
+          "https://wendemuseum.org/visit-the-wende/"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/ivana-dama-breathing-alarms/01.jpg",
+            "w": 2560,
+            "h": 1440,
+            "kb": 698
+          },
+          {
+            "path": "images/los-angeles/ivana-dama-breathing-alarms/02.jpg",
+            "w": 2560,
+            "h": 1707,
+            "kb": 601
+          },
+          {
+            "path": "images/los-angeles/ivana-dama-breathing-alarms/03.jpg",
+            "w": 1365,
+            "h": 1024,
+            "kb": 193
+          }
+        ]
+      },
+      "real": {
+        "slug": "wende-sextant",
+        "venue": "Wende Museum",
+        "neighborhood": "Culver City/West Adams",
+        "title": "The Sextant",
+        "artist": "Enrique Martínez Celaya",
+        "dates": "2025-11-08 to 2026-10-11",
+        "hours": [
+          "Fri - Sun 10am to 5pm",
+          "Mon - Tue Closed",
+          "Wed - Thu Open for school tours only"
+        ],
+        "address": "10808 Culver Boulevard",
+        "description": "Enrique Martínez Celaya spent decades as a physicist before turning fully to art, and that background shows in the way he treats memory here less as sentiment than as a structure to be modeled and tested. The Sextant is a scaled-down reconstruction of the modernist house his father built on Cuba's coast between 1957 and 1963 — years that bracketed the Revolution, the Missile Crisis, and the U.S. embargo, and that ended with his family waiting there, never able to leave on their own terms. Rebuilding it as an installation lets Martínez Celaya interrogate what such reconstructions can and cannot recover: the piece is explicit about the gap between the model and the real house, between a childhood remembered and a childhood lived.\n\nHoused at the Wende, a museum built around Cold War-era artifacts and ephemera from behind the Iron Curtain and beyond, the piece fits naturally into the institution's broader project of examining how ordinary lives were shaped by ideological rupture. Rather than photographs or archival objects, though, viewers get an immersive architectural surrogate — a dollhouse-scaled stand-in for a real building that, today, operates as a wedding venue, its political scars mostly invisible to the couples who rent it.\n\nWhat makes the work worth a visit is its refusal to resolve into either nostalgia or polemic. It sits with the discomfort of authenticity questions — is a reconstruction ever equivalent to the thing itself? — while using a deeply personal family story to gesture at the universal experience of utopian dreams curdling into everyday compromise. It's a quiet, contemplative show, best experienced slowly, and it rewards taking one of the museum's docent-led tours if the schedule allows.",
+        "desc_words": 279,
+        "source_urls": [
+          "https://wendemuseum.org/exhibition/sextant/",
+          "https://wendemuseum.org/visit-the-wende/"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/wende-sextant/01.jpg",
+            "w": 1920,
+            "h": 1080,
+            "kb": 296
+          },
+          {
+            "path": "images/los-angeles/wende-sextant/02.jpg",
+            "w": 2560,
+            "h": 1707,
+            "kb": 480
+          },
+          {
+            "path": "images/los-angeles/wende-sextant/03.jpg",
+            "w": 2560,
+            "h": 1707,
+            "kb": 263
+          },
+          {
+            "path": "images/los-angeles/wende-sextant/04.jpg",
+            "w": 2560,
+            "h": 1921,
+            "kb": 314
+          },
+          {
+            "path": "images/los-angeles/wende-sextant/05.jpg",
+            "w": 2560,
+            "h": 1707,
+            "kb": 553
+          },
+          {
+            "path": "images/los-angeles/wende-sextant/06.jpg",
+            "w": 1612,
+            "h": 2560,
+            "kb": 142
+          }
+        ]
+      }
+    },
+    {
+      "venue": "Charlie James Gallery",
+      "sandbox_arm": "sonnet-overlap",
+      "sandbox": {
+        "slug": "perez-bros-lookout-weekend",
+        "venue": "Charlie James Gallery",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Lookout Weekend",
+        "artist": "The Perez Bros",
+        "dates": "2026-09-11 to 2026-10-24",
+        "hours": [
+          "Tue - Sat 11am to 5pm"
+        ],
+        "address": "961 Chung King Road",
+        "description": "The Perez Bros — identical twins Alejandro and Vicente Perez, who grew up around their father's car club in South Gate — paint lowriders with the fanatical attention of people who have spent a lifetime looking at them. This second solo show with Charlie James Gallery follows the cars out of the spotlight and into the garage, focusing on the tune-ups, polishes, and quiet rituals of preparation that precede a cruise night or car show. It's a shift from spectacle to labor, though the brothers' signature high-gloss resin and reflective flake finishes still make every canvas look like it just rolled off a detailing table.\n\nThe paintings on view range from intimate two-figure scenes of men polishing club cars in a driveway to a shaped canvas modeled on a lowrider's spare tire, chrome decal and all. Elsewhere the cars themselves become the subject of near-celebrity treatment — a 1964 Impala chauffeured on a tow truck, too precious for LA's potholed streets, or a car posed like it's fielding paparazzi. The show builds toward its largest work yet, a panoramic scene of a car show crowded with parked cars, shade tents, and clustered onlookers, widening the brothers' usual close-up frame to take in the community that lowrider culture actually runs on.\n\nBoth Perez brothers trained in painting at Otis College of Art and Design before turning their shared archive of car-club photography into a collaborative practice, and their work has become a fixture of LA's Chicano art scene precisely because it treats lowriding as culture worth this kind of formal seriousness — mirrors, chrome inlay, and mural-bright color used not as gimmick but as a way of matching a painting's surface to its subject's own obsessive shine. For anyone who knows the difference between a cruise night and a car show, or wants to, this is a rare gallery treatment of a subculture usually seen only in parking lots.",
+        "desc_words": 318,
+        "source_urls": [
+          "https://www.cjamesgallery.com/exhibitions/lookoutweekend",
+          "https://www.cjamesgallery.com/"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/perez-bros-lookout-weekend/01.jpg",
+            "w": 2313,
+            "h": 1510,
+            "kb": 184
+          },
+          {
+            "path": "images/los-angeles/perez-bros-lookout-weekend/02.jpg",
+            "w": 2205,
+            "h": 1761,
+            "kb": 371
+          }
+        ]
+      },
+      "real": {
+        "slug": "charlie-james-gallery-lookout-weekend",
+        "venue": "Charlie James Gallery",
+        "neighborhood": "Chinatown/East LA",
+        "title": "Lookout Weekend",
+        "artist": "The Perez Bros",
+        "dates": "2026-09-11 to 2026-10-24",
+        "hours": [
+          "Tuesday - Saturday 11am to 5pm"
+        ],
+        "address": "961 Chung King Road",
+        "description": "The Perez Bros—identical twins Alejandro and Vicente—capture the passion and precision of Los Angeles lowrider culture through painting. This exhibition of new work invites viewers into the garage in the lead-up to a car show or cruise night, featuring scenes of meticulous preparation, tuning, and polishing. The paintings are finished with high-gloss resin and reflective flake, creating a visual surface that mirrors the glossy perfection of the cars themselves and collapses the boundary between subject and medium.\n\nThe exhibition title references a 1984 dance track by Debbie Deb that soundtracked the brothers' childhood, setting a tone of hopeful anticipation. While earlier works focus on the cars themselves, this body of work introduces wider scenes, including a panoramic painting of a car show featuring more than a dozen vehicles surrounded by crowds, shade tents, and the bustling community ecosystem that gathers around them. Other works depict cars as near-celebrities, positioned on tow trucks or posed for the camera like stars on a red carpet.\n\nThe Perez Bros pull from an extensive photographic archive of the LA lowrider scene, distilling images into scenes of pure detail rendered in bright hues. Their meticulous approach to composition and finish reflects a deep knowledge of and obvious love for the cars and the culture surrounding them—a distinctly Los Angeles subject matter treated with the care of fine art painting.",
+        "desc_words": 224,
+        "source_urls": [
+          "https://www.cjamesgallery.com/exhibitions/lookoutweekend"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/charlie-james-gallery-lookout-weekend/01.jpg",
+            "w": 2313,
+            "h": 1510,
+            "kb": 184
+          }
+        ]
+      }
+    },
+    {
+      "venue": "Philip Martin Gallery",
+      "sandbox_arm": "sonnet-overlap",
+      "sandbox": {
+        "slug": "certain-slant-of-light",
+        "venue": "Philip Martin Gallery",
+        "neighborhood": "Culver City/West Adams",
+        "title": "A Certain Slant of Light",
+        "artist": "Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, Sung Jik Yang",
+        "dates": "2026-08-01 to 2026-09-26",
+        "hours": [
+          "Wed - Sat 11am to 5pm",
+          "Tue by appointment"
+        ],
+        "address": "3342 Verdugo Rd, Ste A",
+        "description": "Philip Martin Gallery has assembled ten painters and sculptors of very different generations and temperaments for a show built around the idea of interior light — literal and psychological. The lineup spans a late Los Angeles conceptualist (Carl Cheng), a group of mid-career West Coast painters known for pattern, color, and landscape (Holly Coulis, Pamela Jorden, David Korty, Sky Glabush), and younger or more recently arrived voices working in miniature realism and collage-inflected fantasy (Sophie Treppendahl, Aaron Morse, Sung Jik Yang), alongside the late Austrian-born painter Hubert Schmalix. It's a deliberately loose curatorial premise, closer to a mood board than a thesis, that lets each artist's handling of light and interiority stand on its own.\n\nAaron Morse's contribution, a large canvas of the volcanic Red Hill cinder cone in the Coso Range, extends his ongoing interest in frontier mythology and 19th-century Romantic landscape painting, while Sophie Treppendahl's jewel-sized, candlelit domestic interiors continue the hushed, still-life intimacy that has become her signature. Pamela Jorden's webbed abstractions and Christy Matson's textile-based work (shown alongside the paintings) bring a tactile, handmade counterpoint to the more illusionistic pieces by Korty and Schmalix.\n\nTaken together, the show reads as a survey of how painters right now are thinking about atmosphere and glow — sunlight through a window, a candle on a table, the volcanic light of a desert landscape — without forcing those disparate approaches into false unity. It's a good entry point into the gallery's roster and a chance to see a late Schmalix painting alongside artists two generations his junior.",
+        "desc_words": 257,
+        "source_urls": [
+          "https://philipmartingallery.com/",
+          "https://www.galleriesnow.net/gallery/philip-martin-gallery/",
+          "https://philipmartingallery.com/contact/"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/certain-slant-of-light/01.jpg",
+            "w": 2000,
+            "h": 920,
+            "kb": 235
+          },
+          {
+            "path": "images/los-angeles/certain-slant-of-light/02.jpg",
+            "w": 1414,
+            "h": 942,
+            "kb": 451
+          },
+          {
+            "path": "images/los-angeles/certain-slant-of-light/03.jpg",
+            "w": 1414,
+            "h": 942,
+            "kb": 240
+          },
+          {
+            "path": "images/los-angeles/certain-slant-of-light/04.jpg",
+            "w": 1414,
+            "h": 942,
+            "kb": 597
+          },
+          {
+            "path": "images/los-angeles/certain-slant-of-light/05.jpg",
+            "w": 1414,
+            "h": 942,
+            "kb": 286
+          }
+        ]
+      },
+      "real": {
+        "slug": "philip-martin-a-certain-slant-of-light",
+        "venue": "Philip Martin Gallery",
+        "neighborhood": "Culver City/West Adams",
+        "title": "A Certain Slant of Light",
+        "artist": "Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, Sung Jik Yang",
+        "dates": "2026-08-01 to 2026-09-26",
+        "hours": [
+          "Wednesday - Saturday 11am to 5pm",
+          "Tuesday 10am to 1pm (by appointment)"
+        ],
+        "address": "3342 Verdugo Road",
+        "description": "*A Certain Slant of Light* brings together ten artists of different generations and backgrounds to explore how painting, sculpture, and assemblage can interrogate interiority and personal vision. Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, and Sung Jik Yang each navigate their own visual languages—from Coulis's contemplative still lifes and landscapes to Glabush's evocative gestures, from Morse's engagement with environment and narrative to Schmalix's late works reflecting on color and light.\n\nThe exhibition emphasizes how these artists, separated by geography and artistic practice, share a commitment to the picture plane as a site of experiential investigation. Their works resist simple categorization: paintings layer abstraction and representation; sculptures occupy the space between material presence and visual illusion. Together, they pose quiet, persistent questions about how we see ourselves and the world around us.\n\nDrawn from different moments in each artist's practice—some historic works, many recent—this group show celebrates the sustained conversations happening within the gallery's roster, where careful observation and emotional resonance remain central to contemporary practice.",
+        "desc_words": 176,
+        "source_urls": [
+          "https://philipmartingallery.com/exhibitions/313-a-certain-slant-of-light-carl-cheng-holly-coulis-tim-garwood-sky-glabush/works/",
+          "https://philipmartingallery.com/contact/"
+        ],
+        "images": [
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/01.jpg",
+            "w": 1200,
+            "h": 630,
+            "kb": 84
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/02.jpg",
+            "w": 600,
+            "h": 477,
+            "kb": 41
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/03.jpg",
+            "w": 600,
+            "h": 687,
+            "kb": 80
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/04.jpg",
+            "w": 600,
+            "h": 598,
+            "kb": 28
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/05.jpg",
+            "w": 600,
+            "h": 562,
+            "kb": 112
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/06.jpg",
+            "w": 600,
+            "h": 730,
+            "kb": 42
+          },
+          {
+            "path": "images/los-angeles/philip-martin-a-certain-slant-of-light/07.jpg",
+            "w": 600,
+            "h": 724,
+            "kb": 94
+          }
+        ]
+      }
+    }
+  ]
+}

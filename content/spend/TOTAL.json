@@ -1,12 +1,166 @@
 {
-  "total_cost_usd": 71.433,
-  "total_requests": 393,
-  "total_web_searches": 769,
-  "total_input_tokens": 2394039,
-  "total_output_tokens": 920666,
-  "total_cache_write_tokens": 5312976,
-  "total_cache_read_tokens": 182329195,
+  "total_cost_usd": 83.3851,
+  "total_requests": 593,
+  "total_web_searches": 896,
+  "total_input_tokens": 2678623,
+  "total_output_tokens": 1130022,
+  "total_cache_write_tokens": 6785712,
+  "total_cache_read_tokens": 210983203,
   "sessions": [
+    {
+      "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
+      "model": "claude-sonnet-5",
+      "requests": 27,
+      "input_tokens": 14513,
+      "output_tokens": 23209,
+      "cache_write_tokens": 233710,
+      "cache_read_tokens": 6479609,
+      "web_searches": 12,
+      "cost_usd": 2.2613
+    },
+    {
+      "session": "ab-a-deep-los-angeles-culver-city-west-adams-1788302179",
+      "model": "claude-sonnet-5",
+      "requests": 14,
+      "input_tokens": 15515,
+      "output_tokens": 15029,
+      "cache_write_tokens": 139786,
+      "cache_read_tokens": 2339959,
+      "web_searches": 11,
+      "cost_usd": 1.1088
+    },
+    {
+      "session": "ab-b-deep-los-angeles-chinatown-east-la-1788302179",
+      "model": "claude-sonnet-5",
+      "requests": 10,
+      "input_tokens": 193917,
+      "output_tokens": 10932,
+      "cache_write_tokens": 150097,
+      "cache_read_tokens": 1852972,
+      "web_searches": 9,
+      "cost_usd": 1.333
+    },
+    {
+      "session": "ab-b-deep-los-angeles-culver-city-west-adams-1788302179",
+      "model": "claude-sonnet-5",
+      "requests": 6,
+      "input_tokens": 16,
+      "output_tokens": 6032,
+      "cache_write_tokens": 88203,
+      "cache_read_tokens": 408435,
+      "web_searches": 5,
+      "cost_usd": 0.4125
+    },
+    {
+      "session": "ab-c-deep-los-angeles-chinatown-east-la-1788302179",
+      "model": "claude-haiku-4-5",
+      "requests": 6,
+      "input_tokens": 18223,
+      "output_tokens": 4012,
+      "cache_write_tokens": 59222,
+      "cache_read_tokens": 539449,
+      "web_searches": 4,
+      "cost_usd": 0.2063
+    },
+    {
+      "session": "ab-c-deep-los-angeles-culver-city-west-adams-1788302179",
+      "model": "claude-haiku-4-5",
+      "requests": 4,
+      "input_tokens": 52,
+      "output_tokens": 6139,
+      "cache_write_tokens": 82597,
+      "cache_read_tokens": 368409,
+      "web_searches": 6,
+      "cost_usd": 0.2308
+    },
+    {
+      "session": "ab-ovh-deep-los-angeles-1788303081-chinatown-ea",
+      "model": "claude-haiku-4-5",
+      "requests": 20,
+      "input_tokens": 156,
+      "output_tokens": 17121,
+      "cache_write_tokens": 95164,
+      "cache_read_tokens": 1633749,
+      "web_searches": 3,
+      "cost_usd": 0.3981
+    },
+    {
+      "session": "ab-ovh-deep-los-angeles-1788303081-culver-city-",
+      "model": "claude-haiku-4-5",
+      "requests": 7,
+      "input_tokens": 95,
+      "output_tokens": 5154,
+      "cache_write_tokens": 42337,
+      "cache_read_tokens": 363860,
+      "web_searches": 3,
+      "cost_usd": 0.1452
+    },
+    {
+      "session": "ab-ovh2-deep-los-angeles-1788303857-chinatown-ea",
+      "model": "claude-haiku-4-5",
+      "requests": 8,
+      "input_tokens": 104,
+      "output_tokens": 7727,
+      "cache_write_tokens": 78531,
+      "cache_read_tokens": 849364,
+      "web_searches": 2,
+      "cost_usd": 0.2418
+    },
+    {
+      "session": "ab-ovh2-deep-los-angeles-1788303857-culver-city-",
+      "model": "claude-haiku-4-5",
+      "requests": 8,
+      "input_tokens": 89,
+      "output_tokens": 3115,
+      "cache_write_tokens": 44847,
+      "cache_read_tokens": 381952,
+      "web_searches": 2,
+      "cost_usd": 0.1299
+    },
+    {
+      "session": "ab-ovs-deep-los-angeles-1788303081-chinatown-ea",
+      "model": "claude-sonnet-5",
+      "requests": 40,
+      "input_tokens": 6465,
+      "output_tokens": 29109,
+      "cache_write_tokens": 93653,
+      "cache_read_tokens": 3274224,
+      "web_searches": 4,
+      "cost_usd": 1.233
+    },
+    {
+      "session": "ab-ovs-deep-los-angeles-1788303081-culver-city-",
+      "model": "claude-sonnet-5",
+      "requests": 6,
+      "input_tokens": 16,
+      "output_tokens": 4379,
+      "cache_write_tokens": 35705,
+      "cache_read_tokens": 173163,
+      "web_searches": 2,
+      "cost_usd": 0.1877
+    },
+    {
+      "session": "ab-ovs2-deep-los-angeles-1788303857-chinatown-ea",
+      "model": "claude-sonnet-5",
+      "requests": 12,
+      "input_tokens": 5548,
+      "output_tokens": 4487,
+      "cache_write_tokens": 54599,
+      "cache_read_tokens": 493923,
+      "web_searches": 3,
+      "cost_usd": 0.3212
+    },
+    {
+      "session": "ab-ovs2-deep-los-angeles-1788303857-culver-city-",
+      "model": "claude-sonnet-5",
+      "requests": 6,
+      "input_tokens": 1071,
+      "output_tokens": 4401,
+      "cache_write_tokens": 24057,
+      "cache_read_tokens": 186583,
+      "web_searches": 2,
+      "cost_usd": 0.1636
+    },
     {
       "session": "berlin-1788146861",
       "model": "claude-sonnet-5",
@@ -39,6 +193,28 @@
       "cache_read_tokens": 4861861,
       "web_searches": 23,
       "cost_usd": 1.7942
+    },
+    {
+      "session": "enum-los-angeles-chinatown-east-la-1788300745",
+      "model": "claude-sonnet-5",
+      "requests": 10,
+      "input_tokens": 148,
+      "output_tokens": 35164,
+      "cache_write_tokens": 85763,
+      "cache_read_tokens": 3969270,
+      "web_searches": 31,
+      "cost_usd": 1.6702
+    },
+    {
+      "session": "enum-los-angeles-culver-city-west-adams-1788300747",
+      "model": "claude-haiku-4-5",
+      "requests": 5,
+      "input_tokens": 28450,
+      "output_tokens": 11335,
+      "cache_write_tokens": 79587,
+      "cache_read_tokens": 564271,
+      "web_searches": 11,
+      "cost_usd": 0.351
     },
     {
       "session": "london-1788148709",
@@ -336,6 +512,17 @@
       "cache_read_tokens": 8969587,
       "web_searches": 49,
       "cost_usd": 2.9336
+    },
+    {
+      "session": "verify-los-angeles-1788303346",
+      "model": "claude-sonnet-5",
+      "requests": 11,
+      "input_tokens": 206,
+      "output_tokens": 22011,
+      "cache_write_tokens": 84878,
+      "cache_read_tokens": 4774816,
+      "web_searches": 17,
+      "cost_usd": 1.5577
     },
     {
       "session": "verify-new-york-1788226376",
