@@ -149,7 +149,8 @@ def _norm_venue(name: str) -> str:
     venue directory, and TODO-list matching. Conservative on purpose: a false
     negative (two spellings of one venue) is advisory-list territory, a false
     positive would wrongly block a save."""
-    s = unicodedata.normalize("NFKD", name)
+    import html as _html
+    s = unicodedata.normalize("NFKD", _html.unescape(name))
     s = "".join(c for c in s if not unicodedata.combining(c))
     s = s.lower().replace("&", " and ")
     s = re.sub(r"[^a-z0-9]+", " ", s).strip()
@@ -750,7 +751,7 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     if record["city"] != city_key:
         problems.append(f"city must be '{city_key}'")
     for img in record["images"]:
-        if not (CONTENT_DIR / img).is_file():
+        if not (_content_root() / img).is_file():
             problems.append(f"image not found on disk: {img}")
     if show_expired(record):
         problems.append("show has already ended (end_date is in the past)")
