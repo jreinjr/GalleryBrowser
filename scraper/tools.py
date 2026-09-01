@@ -516,15 +516,26 @@ LOG_SKIP_SCHEMA = {
 
 def log_skip(args: dict, city_key: str, session: str) -> str:
     """Record a venue the agent decided not to save, with the reason —
-    feeds the post-run outlier report."""
-    if args["city"] != city_key:
+    feeds the post-run outlier report. The tool is declared non-strict
+    (strict-schema complexity budget), so validate here."""
+    missing = [k for k in ("venue", "neighborhood", "reason", "detail")
+               if not (isinstance(args.get(k), str) and args[k].strip())]
+    if missing:
+        raise ValueError(f"log_skip needs non-empty: {', '.join(missing)}")
+    if args.get("city", city_key) != city_key:
         raise ValueError(f"city must be '{city_key}'")
+    reason, detail = args["reason"], args["detail"]
+    if reason not in SKIP_REASONS:
+        detail = f"[reason given: {reason}] {detail}"
+        reason = "other"
+    url = args.get("url")
     _append_jsonl(SKIPS_FILE, {
         "ts": int(time.time()), "session": session, "city": city_key,
         "venue": args["venue"], "neighborhood": args["neighborhood"],
-        "reason": args["reason"], "detail": args["detail"], "url": args.get("url"),
+        "reason": reason, "detail": detail,
+        "url": url if isinstance(url, str) else None,
     })
-    return json.dumps({"result": "logged", "venue": args["venue"], "reason": args["reason"]})
+    return json.dumps({"result": "logged", "venue": args["venue"], "reason": reason})
 
 
 def _directory_file(city_key: str) -> Path:

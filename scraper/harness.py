@@ -250,10 +250,12 @@ CLIENT_TOOLS = [
 ]
 
 
+# Not strict: a fifth strict tool pushes the request past the API's combined
+# strict-schema complexity limit ("Schema is too complex"). The handler
+# validates the fields itself instead.
 LOG_SKIP_TOOL = {
     "name": "log_skip",
     "description": "Record a venue you decided NOT to save a show for, with the reason — every skipped venue must be logged so the coverage report can account for it. Call once per skipped venue.",
-    "strict": True,
     "input_schema": tools.LOG_SKIP_SCHEMA,
 }
 
@@ -451,8 +453,13 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
         all_tools = server_tools + VERIFY_TOOLS
     elif enumerate_zone:
         all_tools = server_tools + [RECORD_VENUE_TOOL]
+    elif deep:
+        # attach_images is enrich-only; dropping it keeps the strict-schema
+        # budget under the limit alongside the non-strict log_skip
+        all_tools = server_tools + [t for t in CLIENT_TOOLS
+                                    if t["name"] != "attach_images"] + [LOG_SKIP_TOOL]
     else:
-        all_tools = server_tools + CLIENT_TOOLS + ([LOG_SKIP_TOOL] if (deep or campaign) else [])
+        all_tools = server_tools + CLIENT_TOOLS
 
     def execute(name: str, args: dict) -> str:
         if name == "extract_image_urls":

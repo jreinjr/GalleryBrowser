@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -167,9 +168,10 @@ def main() -> None:
 
     def run_session(cmd: list[str], log_name: str) -> int:
         log_path = LOG_DIR / log_name
+        env = {**os.environ, "PYTHONUNBUFFERED": "1"}  # logs tail-able live
         with open(log_path, "w") as lf:
             proc = subprocess.run([str(c) for c in cmd], stdout=lf,
-                                  stderr=subprocess.STDOUT)
+                                  stderr=subprocess.STDOUT, env=env)
         return proc.returncode
 
     # ---------- stage 1: enumerate ----------
