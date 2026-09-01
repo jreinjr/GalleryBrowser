@@ -1,0 +1,77 @@
+"""Validate scraped content: every city JSON decodes, matches the schema the
+app expects, and every referenced image exists and is reasonably sized."""
+
+from __future__ import annotations
+
+import json
+import sys
+from datetime import date
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from PIL import Image
+
+import tools
+from cities import CITIES
+
+REQUIRED = set(tools.SAVE_SHOW_SCHEMA["required"])
+VENUE_REQUIRED = set(tools.SAVE_SHOW_SCHEMA["properties"]["venue"]["required"])
+
+
+def main() -> int:
+    problems: list[str] = []
+    summary: list[str] = []
+    for city in CITIES:
+        path = tools.CONTENT_DIR / f"{city}.json"
+        if not path.exists():
+            summary.append(f"{city}: NO CONTENT FILE")
+            continue
+        data = json.loads(path.read_text())
+        shows = data.get("shows", [])
+        n_images = 0
+        for show in shows:
+            sid = f"{city}/{show.get('slug', '?')}"
+            missing = REQUIRED - set(show)
+            if missing:
+                problems.append(f"{sid}: missing keys {sorted(missing)}")
+                continue
+            vmissing = VENUE_REQUIRED - set(show["venue"])
+            if vmissing:
+                problems.append(f"{sid}: venue missing keys {sorted(vmissing)}")
+            for key in ("start_date", "end_date"):
+                try:
+                    date.fromisoformat(show[key])
+                except ValueError:
+                    problems.append(f"{sid}: bad {key} {show[key]!r}")
+            if date.fromisoformat(show["end_date"]) < date.today():
+                problems.append(f"{sid}: already closed ({show['end_date']})")
+            for img in show["images"]:
+                full = tools.CONTENT_DIR / img
+                if not full.is_file():
+                    problems.append(f"{sid}: image missing {img}")
+                    continue
+                n_images += 1
+                with Image.open(full) as im:
+                    if im.size[0] < 500:
+                        problems.append(f"{sid}: image {img} only {im.size[0]}px wide")
+            words = len(show["description"].split())
+            if words < 60:
+                problems.append(f"{sid}: description only {words} words")
+        museums = sum(1 for s in shows if s["venue"]["is_museum"])
+        picks = sum(1 for s in shows if s["editors_pick"])
+        summary.append(
+            f"{city}: {len(shows)} shows, {n_images} images, {museums} museum, {picks} picks"
+        )
+
+    print("\n".join(summary))
+    if problems:
+        print(f"\n{len(problems)} PROBLEMS:")
+        print("\n".join(f"  - {p}" for p in problems))
+        return 1
+    print("\nAll content valid.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

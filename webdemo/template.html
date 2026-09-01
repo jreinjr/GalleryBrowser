@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gallery Browser">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<title>Gallery Browser</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="frame">
+  <div id="app">
+    <main id="screen-featured" class="tab-screen">
+      <div id="pages-featured" class="tab-pages"></div>
+    </main>
+    <main id="screen-list" class="tab-screen">
+      <div id="pages-list" class="tab-pages"></div>
+    </main>
+    <main id="screen-map" class="tab-screen">
+      <div id="maplibre"></div>
+      <div class="map-overlay-top">
+        <button id="map-cities-btn" class="map-pill">Cities</button>
+        <button id="map-filter-btn" class="map-pill" aria-label="Filter shows">Filter</button>
+      </div>
+      <div id="map-menu" class="map-menu" hidden></div>
+    </main>
+    <nav id="tabbar">
+      <button class="tab-btn active" data-tab="featured"><span class="ico"></span><span>Featured</span></button>
+      <button class="tab-btn" data-tab="list"><span class="ico"></span><span>List</span></button>
+      <button class="tab-btn" data-tab="map"><span class="ico"></span><span>Map</span></button>
+    </nav>
+    <div id="sheet-root"></div>
+    <div id="viewer-root"></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="data.js"></script>
+<script src="icons.js"></script>
+<script src="map_maplibre.js"></script>
+<script>
+  // tab bar icons
+  document.querySelectorAll('.tab-btn').forEach(function (b) {
+    var names = { featured: 'star', list: 'list', map: 'map' };
+    b.querySelector('.ico').outerHTML = window.ICONS[names[b.dataset.tab]];
+  });
+</script>
+<script src="app.js"></script>
+</body>
+</html>
