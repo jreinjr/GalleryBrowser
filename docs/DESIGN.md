@@ -68,3 +68,11 @@ Each show: title, optional artist, ISO start/end dates, agent-written
 description (2-4 paragraphs), venue (name, museum flag, address(+detail),
 neighborhood, hours lines, phone, website, lat/lon), reception info, images,
 editor's-pick + featured flags, source URLs.
+
+## Deliberate divergences from See Saw (web demo, 2026-09-01)
+- No emoji anywhere in rendered text: the 🏛 museum prefix (cards, lists, map
+  pin labels) is dropped, and the List-tab white banner shows bold "Museums"
+  text instead of the 🏛 glyph. Favicon/app icon still use 🏛.
+- Feed cards are full-bleed Instagram-style: edge-to-edge (no 16px side
+  margins), square corners (no 24px radius), 1:1 aspect (was 310px fixed),
+  14px gaps (was 22px). Glass card footer unchanged.

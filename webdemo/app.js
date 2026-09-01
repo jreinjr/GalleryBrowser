@@ -34,7 +34,7 @@
   const cityShows = () => showsByCity[state.cityKey] || [];
   const showId = s => s.city + '/' + s.slug;
   const displayName = s => s.artist || s.title;
-  const listLine = v => (v.isMuseum ? '🏛 ' : '') + v.name;
+  const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
 
   function parseDate(str) {
@@ -313,8 +313,8 @@
   }
 
   function makeCarousel(images, opts) {
-    const { height, dots = 'top-left', onTap, expand } = opts;
-    const car = el('div', { class: 'carousel', style: `height:${height}px` });
+    const { height, aspect, dots = 'top-left', onTap, expand } = opts;
+    const car = el('div', { class: 'carousel', style: aspect ? `aspect-ratio:${aspect}` : `height:${height}px` });
     const track = el('div', { class: 'carousel-track' });
     images.forEach((entry, i) => {
       const img = el('img', {
@@ -786,7 +786,7 @@
   function showCard(shows, i) {
     const s = shows[i];
     const car = makeCarousel(s.images, {
-      height: 310, dots: 'top-left',
+      aspect: '1 / 1', dots: 'top-left',
       onTap: () => push(state.tab, showDetailPage(shows, i)),
     });
     const footer = el('div', { class: 'card-footer' },
@@ -989,7 +989,7 @@
     if (museumShows().length) {
       sections.push(el('div', { class: 'museum-banner' },
         el('button', { class: 'row', onclick: () => push('list', museumsPage()) },
-          el('span', { class: 'glyph' }, '🏛'))));
+          el('span', { class: 'label' }, 'Museums'))));
     }
     sections.push(el('div', { class: 'group' },
       row('My Shows', () => push('list', showListPage('My Shows', savedShows(), { emptyState: myShowsEmpty() })), 'bookmarkFill')));

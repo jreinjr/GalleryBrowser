@@ -97,10 +97,10 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .capsule-btn:active { filter: brightness(0.9); }
 
 /* ---- Featured cards ---- */
-.feed { padding: 6px 16px 96px; display: flex; flex-direction: column; gap: 22px; }
+.feed { padding: 6px 0 96px; display: flex; flex-direction: column; gap: 14px; }
 .card {
-  position: relative; border-radius: 24px; overflow: hidden; background: #111;
-  content-visibility: auto; contain-intrinsic-size: 360px;
+  position: relative; border-radius: 0; overflow: hidden; background: #111;
+  content-visibility: auto; contain-intrinsic-size: auto 400px;
 }
 .card-footer {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
@@ -202,7 +202,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .museum-banner { background: #fff; border-radius: 12px; margin: 0 16px 22px; }
 .museum-banner .row { justify-content: center; padding: 14px; }
 .museum-banner .row:active { background: #eee; }
-.museum-banner .glyph { font-size: 34px; }
+.museum-banner .label { font-size: 17px; font-weight: 700; color: #000; }
 
 /* Show rows */
 .show-row { display: flex; align-items: center; gap: 12px; padding: 11px 16px; width: 100%; position: relative; }

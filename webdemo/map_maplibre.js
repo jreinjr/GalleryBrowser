@@ -39,7 +39,7 @@
         dot.className = 'map-pin';
         const label = document.createElement('div');
         label.className = 'map-pin-label';
-        label.textContent = (v.isMuseum ? '🏛 ' : '') + v.name;
+        label.textContent = v.name;
         pin.append(dot, label);
         pin.addEventListener('click', e => { e.stopPropagation(); onPinTap(s); });
         markers.push(new maplibregl.Marker({ element: pin }).setLngLat([v.lng, v.lat]).addTo(map));
