@@ -6,6 +6,7 @@ from __future__ import annotations
 import fcntl
 import io
 import json
+import os
 import re
 from html.parser import HTMLParser
 from pathlib import Path
@@ -267,6 +268,11 @@ def confirm_show(args: dict, city_key: str) -> str:
                 elif field in CORRECTABLE_VENUE_FIELDS:
                     show["venue"][field] = value
                     applied.append(field)
+            # An agent-corrected address or pin is still model-memory geography;
+            # re-anchor to the Google listing for the (possibly new) address.
+            if {"address", "latitude", "longitude"} & set(applied):
+                if _snap_venue_coords(show["venue"], city_key):
+                    applied.append("coords_snapped_to_google")
             out_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     entry = {"ts": int(_time.time()), "city": city_key, "slug": slug,
              "status": args["status"], "reason": args.get("reason"), "applied": applied}
@@ -296,6 +302,33 @@ def attach_images(city_key: str, slug: str) -> str:
     return json.dumps({"result": "attached", "slug": slug, "image_count": len(show["images"])})
 
 
+def _snap_venue_coords(venue: dict, city_key: str) -> str | None:
+    """Replace agent-supplied lat/lng with the Google Places listing pin when
+    the listing confidently matches the venue (crosscheck.listing_matches_venue).
+
+    Agent coordinates come from model memory (venue sites don't publish them)
+    and are wrong at block scale often enough that map pins can't ship without
+    this. Never raises; on any failure the agent's coordinates stand.
+    """
+    key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    if not key:
+        return None
+    try:
+        import crosscheck  # deferred: crosscheck imports tools at module load
+        from cities import CITIES
+        g = crosscheck.google_lookup(key, venue["name"], venue["address"],
+                                     CITIES[city_key]["display_name"])
+        if crosscheck.listing_matches_venue(venue, g):
+            moved = round(crosscheck.haversine_m(
+                venue["latitude"], venue["longitude"], g["lat"], g["lng"]))
+            venue["latitude"], venue["longitude"] = g["lat"], g["lng"]
+            if moved > 25:
+                return f"venue pin snapped to Google Places listing (moved {moved}m)"
+    except Exception:
+        pass
+    return None
+
+
 def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     """Validate and append a show record to content/<city>.json."""
     problems = []
@@ -313,6 +346,8 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     if problems:
         raise ValueError("Not saved. Fix and retry: " + "; ".join(problems))
 
+    snap_note = _snap_venue_coords(record["venue"], city_key)
+
     out_path = CONTENT_DIR / f"{city_key}.json"
     # Exclusive lock: parallel neighborhood-shard sessions of one city share this file.
     lock_path = CONTENT_DIR / f".{city_key}.json.lock"
@@ -329,4 +364,7 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
             data["shows"].append(record)
             action = "saved"
         out_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-    return json.dumps({"result": action, "shows_saved_for_city": len(data["shows"])})
+    result = {"result": action, "shows_saved_for_city": len(data["shows"])}
+    if snap_note:
+        result["note"] = snap_note
+    return json.dumps(result)

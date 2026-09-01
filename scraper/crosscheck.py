@@ -6,18 +6,29 @@ receives this data in its inventory and reconciles it with the venue's site.
 Usage:
     python crosscheck.py --all            # every city with content
     python crosscheck.py --city tokyo
+    python crosscheck.py --all --fix      # also snap bad pins to Google's
 Requires GOOGLE_MAPS_API_KEY in .env (or env) for the Google half; the OSM
 half always runs.
+
+--fix: when a venue's stored pin is >250m from its Google Places listing AND
+the listing confidently matches the venue (listing_matches_venue), the stored
+lat/lng is replaced with the listing pin. Rationale: stored coordinates are
+LLM-supplied from model memory (venue sites don't publish them) and are wrong
+at block scale often enough that Google's own listing pin — which OSM
+independently corroborates where it resolves — is strictly more trustworthy.
 """
 
 from __future__ import annotations
 
 import argparse
+import fcntl
 import json
 import math
 import os
+import re
 import sys
 import time
+import unicodedata
 from pathlib import Path
 
 import requests
@@ -112,6 +123,41 @@ def google_lookup(key: str, name: str, address: str, city_name: str) -> dict:
         return {"error": str(exc)[:200]}
 
 
+GENERIC_NAME_WORDS = {
+    "gallery", "galleries", "galerie", "museum", "art", "arts", "the", "and",
+    "of", "for", "at", "center", "centre", "contemporary", "fine", "projects",
+    "studio", "space", "foundation", "collection",
+}
+
+
+def _digit_groups(text: str) -> list[str]:
+    """Digit runs after NFKC folding (full-width Japanese digits -> ASCII)."""
+    return re.findall(r"\d+", unicodedata.normalize("NFKC", text or ""))
+
+
+def _name_words(text: str) -> set[str]:
+    return set(re.findall(r"[a-z]+", unicodedata.normalize("NFKC", text or "").lower()))
+
+
+def listing_matches_venue(venue: dict, g: dict) -> bool:
+    """True when a Google Places result is confidently the saved venue.
+
+    Requires (a) the two names to share at least one distinctive word, and
+    (b) every digit group of the stored street line (US street number,
+    Japanese chōme-banchi-gō) to appear in the listing's formatted address.
+    Both checks failing closed means a non-matching listing just keeps its
+    COORDS_OFF flag rather than being adopted.
+    """
+    if not g.get("found") or g.get("lat") is None:
+        return False
+    shared = _name_words(venue["name"]) & _name_words(g.get("name", ""))
+    if not (shared - GENERIC_NAME_WORDS):
+        return False
+    stored = _digit_groups(venue["address"])
+    listing = _digit_groups(g.get("address", ""))
+    return bool(stored) and all(d in listing for d in stored)
+
+
 def nominatim_geocode(address: str, city_name: str) -> dict:
     try:
         resp = requests.get(
@@ -130,20 +176,24 @@ def nominatim_geocode(address: str, city_name: str) -> dict:
         time.sleep(1.1)  # Nominatim rate limit
 
 
-def run(city_keys: list[str]) -> dict:
+def run(city_keys: list[str], fix: bool = False) -> dict:
     key = os.environ.get("GOOGLE_MAPS_API_KEY")
     if not key:
         print("  note: GOOGLE_MAPS_API_KEY not set — Google Places half skipped")
     out: dict[str, dict] = {}
     flags_count: dict[str, int] = {}
+    fixed_count = 0
     for city in city_keys:
         path = tools.CONTENT_DIR / f"{city}.json"
         if not path.exists():
             continue
         city_name = CITIES[city]["display_name"]
-        for s in json.loads(path.read_text())["shows"]:
+        data = json.loads(path.read_text())
+        city_changed = False
+        for s in data["shows"]:
             v = s["venue"]
             entry: dict = {"flags": []}
+            fixed = None
             if key:
                 g = google_lookup(key, v["name"], v["address"], city_name)
                 if g.get("found") and g.get("lat") is not None:
@@ -157,6 +207,13 @@ def run(city_keys: list[str]) -> dict:
                     entry["flags"].append("GOOGLE_NOT_FOUND")
                 if g.get("distance_m", 0) > 250:
                     entry["flags"].append(f"COORDS_OFF_GOOGLE_{g['distance_m']}m")
+                    if fix and listing_matches_venue(v, g):
+                        v["latitude"], v["longitude"] = g["lat"], g["lng"]
+                        entry["fixed_coords"] = {"moved_m": g["distance_m"],
+                                                 "lat": g["lat"], "lng": g["lng"]}
+                        fixed = f"FIXED (pin moved {g['distance_m']}m to listing)"
+                        city_changed = True
+                        fixed_count += 1
             o = nominatim_geocode(v["address"], city_name)
             if o.get("found"):
                 o["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
@@ -168,7 +225,16 @@ def run(city_keys: list[str]) -> dict:
             for f in entry["flags"]:
                 flags_count[f.split("_m")[0] if "COORDS" in f else f] = \
                     flags_count.get(f.split("_m")[0] if "COORDS" in f else f, 0) + 1
-            print(f"  {city}/{s['slug']}: {', '.join(entry['flags']) or 'ok'}", flush=True)
+            line = ", ".join(entry["flags"]) or "ok"
+            print(f"  {city}/{s['slug']}: {line}" + (f" -> {fixed}" if fixed else ""),
+                  flush=True)
+        if city_changed:
+            lock_path = tools.CONTENT_DIR / f".{city}.json.lock"
+            with open(lock_path, "w") as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+                path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    if fix:
+        print(f"\n{fixed_count} pin(s) snapped to Google Places listings")
     CROSSCHECK_PATH.parent.mkdir(parents=True, exist_ok=True)
     CROSSCHECK_PATH.write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print(f"\nwrote {CROSSCHECK_PATH} ({len(out)} venues); flags: {flags_count or 'none'}")
@@ -179,12 +245,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--city", choices=sorted(CITIES))
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--fix", action="store_true",
+                        help="snap COORDS_OFF pins to matching Google listings")
     args = parser.parse_args()
     from run_scrape import load_env
     load_env()
     cities = [args.city] if args.city else \
         [c for c in CITIES if (tools.CONTENT_DIR / f"{c}.json").exists()]
-    run(cities)
+    run(cities, fix=args.fix)
 
 
 if __name__ == "__main__":

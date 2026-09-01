@@ -139,9 +139,7 @@
   }
  },
  "seattle/winston-wachter-schultheis": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_447m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Winston Wachter Fine Art",
@@ -160,20 +158,17 @@
    "website": "https://seattle.winstonwachter.com/gallery/",
    "lat": 47.6198394,
    "lng": -122.3429182,
-   "distance_m": 447
+   "distance_m": 10
   },
   "osm": {
    "found": true,
    "lat": 47.6198955,
    "lng": -122.3427625,
-   "distance_m": 439
+   "distance_m": 3
   }
  },
  "seattle/traver-wambaugh": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_928m",
-   "COORDS_OFF_OSM_965m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Traver Gallery",
@@ -192,13 +187,13 @@
    "website": "http://www.travergallery.com/",
    "lat": 47.6563844,
    "lng": -122.37056,
-   "distance_m": 928
+   "distance_m": 18
   },
   "osm": {
    "found": true,
    "lat": 47.6567842,
    "lng": -122.3703778,
-   "distance_m": 965
+   "distance_m": 38
   }
  },
  "seattle/rinehart-as-seen-in": {
@@ -375,10 +370,7 @@
   }
  },
  "los-angeles/karma-vanderlinden-fragmented-thought": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_1005m",
-   "COORDS_OFF_OSM_1012m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Karma Gallery",
@@ -397,19 +389,18 @@
    "website": "https://karmakarma.org/",
    "lat": 34.0908954,
    "lng": -118.3503441,
-   "distance_m": 1005
+   "distance_m": 125
   },
   "osm": {
    "found": true,
    "lat": 34.0910773,
    "lng": -118.3502917,
-   "distance_m": 1012
+   "distance_m": 106
   }
  },
  "los-angeles/ghebaly-patrick-jackson-all-signs-fail": {
   "flags": [
-   "COORDS_OFF_GOOGLE_941m",
-   "COORDS_OFF_OSM_1082m"
+   "COORDS_OFF_OSM_547m"
   ],
   "google": {
    "found": true,
@@ -429,13 +420,13 @@
    "website": "http://ghebaly.com/",
    "lat": 34.0190873,
    "lng": -118.2317395,
-   "distance_m": 941
+   "distance_m": 3
   },
   "osm": {
    "found": true,
-   "lat": 34.0190289,
-   "lng": -118.2332675,
-   "distance_m": 1082
+   "lat": 34.0182981,
+   "lng": -118.2258516,
+   "distance_m": 547
   }
  },
  "los-angeles/tierra-craft-contemporary": {
@@ -556,8 +547,7 @@
  },
  "los-angeles/vielmetter-roberto-diago": {
   "flags": [
-   "COORDS_OFF_GOOGLE_1711m",
-   "COORDS_OFF_OSM_1699m"
+   "COORDS_OFF_GOOGLE_815m"
   ],
   "google": {
    "found": true,
@@ -577,19 +567,22 @@
    "website": "https://vielmetter.com/",
    "lat": 34.0243536,
    "lng": -118.229675,
-   "distance_m": 1711
+   "distance_m": 815
+  },
+  "fixed_coords": {
+   "moved_m": 815,
+   "lat": 34.0243536,
+   "lng": -118.229675
   },
   "osm": {
    "found": true,
    "lat": 34.0242475,
    "lng": -118.2296583,
-   "distance_m": 1699
+   "distance_m": 12
   }
  },
  "los-angeles/peter-fetterman-moriyama": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_747m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Peter Fetterman Photographic",
@@ -608,7 +601,7 @@
    "website": "http://peterfetterman.com/",
    "lat": 34.0283148,
    "lng": -118.4676457,
-   "distance_m": 747
+   "distance_m": 124
   },
   "osm": {
    "found": false
@@ -616,8 +609,7 @@
  },
  "los-angeles/marc-selwyn-wegman": {
   "flags": [
-   "COORDS_OFF_GOOGLE_1157m",
-   "COORDS_OFF_OSM_1017m"
+   "COORDS_OFF_GOOGLE_761m"
   ],
   "google": {
    "found": true,
@@ -637,13 +629,13 @@
    "website": "http://www.marcselwynfineart.com/",
    "lat": 34.0644466,
    "lng": -118.4136087,
-   "distance_m": 1157
+   "distance_m": 761
   },
   "osm": {
    "found": true,
-   "lat": 34.0651812,
-   "lng": -118.4122447,
-   "distance_m": 1017
+   "lat": 34.0689063,
+   "lng": -118.4047501,
+   "distance_m": 238
   }
  },
  "los-angeles/marilyn-monroe-academy-museum": {
@@ -704,64 +696,8 @@
    "distance_m": 30
   }
  },
- "los-angeles/spruth-magers-baldessari": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_275m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Sprüth Magers Gallery",
-   "status": "OPERATIONAL",
-   "address": "5900 Wilshire Blvd, Los Angeles, CA 90036, USA",
-   "hours": null,
-   "phone": "(323) 634-0600",
-   "website": "http://www.spruethmagers.com/",
-   "lat": 34.0621314,
-   "lng": -118.358223,
-   "distance_m": 275
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.0621185,
-   "lng": -118.3586189,
-   "distance_m": 239
-  }
- },
- "los-angeles/chateau-shatto-fiona-connor": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_278m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Château Shatto",
-   "status": "OPERATIONAL",
-   "address": "540 N Western Ave, Los Angeles, CA 90004, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 6:00 PM",
-    "Wednesday: 11:00 AM – 6:00 PM",
-    "Thursday: 11:00 AM – 6:00 PM",
-    "Friday: 11:00 AM – 6:00 PM",
-    "Saturday: 11:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(323) 848-4078",
-   "website": "http://chateaushatto.com/",
-   "lat": 34.0811003,
-   "lng": -118.3087971,
-   "distance_m": 278
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.0807926,
-   "lng": -118.3090349,
-   "distance_m": 312
-  }
- },
  "los-angeles/cordillera-mexicana-louis-stern": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_347m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Louis Stern Fine Arts",
@@ -780,13 +716,13 @@
    "website": "https://www.louissternfinearts.com/",
    "lat": 34.0806614,
    "lng": -118.3878596,
-   "distance_m": 347
+   "distance_m": 1
   },
   "osm": {
    "found": true,
    "lat": 34.080843,
    "lng": -118.3894018,
-   "distance_m": 401
+   "distance_m": 143
   }
  },
  "los-angeles/kohn-object-poetry": {
@@ -820,8 +756,7 @@
  },
  "los-angeles/mb-leo-mock": {
   "flags": [
-   "GOOGLE_CLOSED_TEMPORARILY",
-   "COORDS_OFF_GOOGLE_388m"
+   "GOOGLE_CLOSED_TEMPORARILY"
   ],
   "google": {
    "found": true,
@@ -833,139 +768,13 @@
    "website": "http://www.mbart.com/",
    "lat": 34.0811853,
    "lng": -118.3874832,
-   "distance_m": 388
+   "distance_m": 0
   },
   "osm": {
    "found": true,
    "lat": 34.081072,
    "lng": -118.3876065,
-   "distance_m": 403
-  }
- },
- "los-angeles/regen-elliott-hundley": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_861m",
-   "COORDS_OFF_OSM_879m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Regen Projects",
-   "status": "OPERATIONAL",
-   "address": "6750 Santa Monica Blvd, Los Angeles, CA 90038, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 10:00 AM – 6:00 PM",
-    "Wednesday: 10:00 AM – 6:00 PM",
-    "Thursday: 10:00 AM – 6:00 PM",
-    "Friday: 10:00 AM – 6:00 PM",
-    "Saturday: 10:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(310) 276-5424",
-   "website": "http://www.regenprojects.com/",
-   "lat": 34.0904579,
-   "lng": -118.3376159,
-   "distance_m": 861
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.0906293,
-   "lng": -118.3378737,
-   "distance_m": 879
-  }
- },
- "los-angeles/nonaka-hard-line-women": {
-  "flags": [
-   "COORDS_OFF_OSM_23247m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Nonaka-Hill",
-   "status": "OPERATIONAL",
-   "address": "720 Highland Ave, Los Angeles, CA 90038, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 6:00 PM",
-    "Wednesday: 11:00 AM – 6:00 PM",
-    "Thursday: 11:00 AM – 6:00 PM",
-    "Friday: 11:00 AM – 6:00 PM",
-    "Saturday: 11:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(323) 450-9409",
-   "website": "http://www.nonaka-hill.com/",
-   "lat": 34.0841853,
-   "lng": -118.338273,
-   "distance_m": 100
-  },
-  "osm": {
-   "found": true,
-   "lat": 33.8825215,
-   "lng": -118.408111,
-   "distance_m": 23247
-  }
- },
- "los-angeles/lisson-oliver-lee-jackson": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_352m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Lisson Gallery",
-   "status": "OPERATIONAL",
-   "address": "1037 N Sycamore Ave, Los Angeles, CA 90038, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 10:00 AM – 6:00 PM",
-    "Wednesday: 10:00 AM – 6:00 PM",
-    "Thursday: 10:00 AM – 6:00 PM",
-    "Friday: 10:00 AM – 6:00 PM",
-    "Saturday: 10:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(213) 224-7550",
-   "website": "https://www.lissongallery.com/",
-   "lat": 34.0899906,
-   "lng": -118.343294,
-   "distance_m": 352
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.0895913,
-   "lng": -118.3428817,
-   "distance_m": 331
-  }
- },
- "los-angeles/matthewmarks-thomas-demand": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_872m",
-   "COORDS_OFF_OSM_871m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Matthew Marks Gallery",
-   "status": "OPERATIONAL",
-   "address": "1062 N Orange Grove Ave, West Hollywood, CA 90046, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 10:00 AM – 6:00 PM",
-    "Wednesday: 10:00 AM – 6:00 PM",
-    "Thursday: 10:00 AM – 6:00 PM",
-    "Friday: 10:00 AM – 6:00 PM",
-    "Saturday: 10:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(323) 654-1830",
-   "website": "http://www.matthewmarks.com/",
-   "lat": 34.0904233,
-   "lng": -118.3604289,
-   "distance_m": 872
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.090477,
-   "lng": -118.360444,
-   "distance_m": 871
+   "distance_m": 17
   }
  },
  "los-angeles/getty-odilon-redon": {
@@ -997,34 +806,8 @@
    "distance_m": 189
   }
  },
- "los-angeles/moca-geffen-collection": {
-  "flags": [
-   "GOOGLE_CLOSED_TEMPORARILY"
-  ],
-  "google": {
-   "found": true,
-   "name": "The Geffen Contemporary at MOCA",
-   "status": "CLOSED_TEMPORARILY",
-   "address": "152 N Central Ave, Los Angeles, CA 90012, USA",
-   "hours": null,
-   "phone": "(213) 625-4390",
-   "website": "http://moca.org/",
-   "lat": 34.0504464,
-   "lng": -118.238555,
-   "distance_m": 173
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.0497757,
-   "lng": -118.2389449,
-   "distance_m": 231
-  }
- },
  "los-angeles/caam-gordon-parks": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_526m",
-   "COORDS_OFF_OSM_532m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "California African American Museum",
@@ -1043,13 +826,13 @@
    "website": "http://www.caamuseum.org/",
    "lat": 34.0158846,
    "lng": -118.2834839,
-   "distance_m": 526
+   "distance_m": 9
   },
   "osm": {
    "found": true,
    "lat": 34.0159515,
    "lng": -118.2835134,
-   "distance_m": 532
+   "distance_m": 17
   }
  },
  "los-angeles/autry-life-liberty": {
@@ -1082,10 +865,7 @@
   }
  },
  "los-angeles/skirball-punk": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_2716m",
-   "COORDS_OFF_OSM_2672m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Skirball Cultural Center",
@@ -1104,19 +884,18 @@
    "website": "http://www.skirball.org/",
    "lat": 34.1249893,
    "lng": -118.4791719,
-   "distance_m": 2716
+   "distance_m": 49
   },
   "osm": {
    "found": true,
    "lat": 34.12454,
    "lng": -118.4791313,
-   "distance_m": 2672
+   "distance_m": 6
   }
  },
  "los-angeles/corey-helford-20th": {
   "flags": [
-   "COORDS_OFF_GOOGLE_1166m",
-   "COORDS_OFF_OSM_1112m"
+   "COORDS_OFF_GOOGLE_1166m"
   ],
   "google": {
    "found": true,
@@ -1138,17 +917,21 @@
    "lng": -118.2246243,
    "distance_m": 1166
   },
+  "fixed_coords": {
+   "moved_m": 1166,
+   "lat": 34.0397077,
+   "lng": -118.2246243
+  },
   "osm": {
    "found": true,
    "lat": 34.0392559,
    "lng": -118.2243705,
-   "distance_m": 1112
+   "distance_m": 55
   }
  },
  "los-angeles/thinkspace-grabelsky": {
   "flags": [
-   "COORDS_OFF_GOOGLE_1229m",
-   "COORDS_OFF_OSM_1241m"
+   "COORDS_OFF_GOOGLE_1229m"
   ],
   "google": {
    "found": true,
@@ -1170,11 +953,16 @@
    "lng": -118.3424052,
    "distance_m": 1229
   },
+  "fixed_coords": {
+   "moved_m": 1229,
+   "lat": 34.0258086,
+   "lng": -118.3424052
+  },
   "osm": {
    "found": true,
    "lat": 34.0256383,
    "lng": -118.3419832,
-   "distance_m": 1241
+   "distance_m": 43
   }
  },
  "los-angeles/deitch-urs-fischer": {
@@ -1201,11 +989,16 @@
    "lng": -118.3419249,
    "distance_m": 288
   },
+  "fixed_coords": {
+   "moved_m": 288,
+   "lat": 34.0878515,
+   "lng": -118.3419249
+  },
   "osm": {
    "found": true,
    "lat": 34.0875902,
    "lng": -118.3416997,
-   "distance_m": 307
+   "distance_m": 36
   }
  },
  "los-angeles/fahey-klein-witkin": {
@@ -1266,38 +1059,6 @@
    "distance_m": 220
   }
  },
- "los-angeles/marciano-transmissions": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_787m",
-   "COORDS_OFF_OSM_728m"
-  ],
-  "google": {
-   "found": true,
-   "name": "Marciano Art Foundation",
-   "status": "OPERATIONAL",
-   "address": "4357 Wilshire Blvd, Los Angeles, CA 90010, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 6:00 PM",
-    "Wednesday: 11:00 AM – 6:00 PM",
-    "Thursday: 11:00 AM – 6:00 PM",
-    "Friday: 11:00 AM – 6:00 PM",
-    "Saturday: 11:00 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(424) 204-7555",
-   "website": "http://www.marcianoartfoundation.org/",
-   "lat": 34.062149,
-   "lng": -118.3236385,
-   "distance_m": 787
-  },
-  "osm": {
-   "found": true,
-   "lat": 34.061898,
-   "lng": -118.323005,
-   "distance_m": 728
-  }
- },
  "los-angeles/induction-hallauer": {
   "flags": [],
   "google": {
@@ -1321,8 +1082,7 @@
  },
  "los-angeles/musichead-madonna": {
   "flags": [
-   "COORDS_OFF_GOOGLE_899m",
-   "COORDS_OFF_OSM_900m"
+   "COORDS_OFF_GOOGLE_899m"
   ],
   "google": {
    "found": true,
@@ -1344,11 +1104,16 @@
    "lng": -118.3525417,
    "distance_m": 899
   },
+  "fixed_coords": {
+   "moved_m": 899,
+   "lat": 34.0977422,
+   "lng": -118.3525417
+  },
   "osm": {
    "found": true,
    "lat": 34.0978329,
    "lng": -118.3525559,
-   "distance_m": 900
+   "distance_m": 10
   }
  },
  "los-angeles/noon-projects-chaves": {
@@ -1375,11 +1140,16 @@
    "lng": -118.2385443,
    "distance_m": 289
   },
+  "fixed_coords": {
+   "moved_m": 289,
+   "lat": 34.0660812,
+   "lng": -118.2385443
+  },
   "osm": {
    "found": true,
    "lat": 34.0659959,
    "lng": -118.2386384,
-   "distance_m": 277
+   "distance_m": 13
   }
  },
  "los-angeles/f8-group-photography-show": {
@@ -1413,8 +1183,7 @@
  },
  "los-angeles/david-hicks-trophies": {
   "flags": [
-   "COORDS_OFF_GOOGLE_1180m",
-   "COORDS_OFF_OSM_1169m"
+   "COORDS_OFF_GOOGLE_1180m"
   ],
   "google": {
    "found": true,
@@ -1436,11 +1205,16 @@
    "lng": -118.3526823,
    "distance_m": 1180
   },
+  "fixed_coords": {
+   "moved_m": 1180,
+   "lat": 34.0983991,
+   "lng": -118.3526823
+  },
   "osm": {
    "found": true,
    "lat": 34.0982108,
    "lng": -118.3527333,
-   "distance_m": 1169
+   "distance_m": 21
   }
  },
  "los-angeles/brad-eberhard-building-an-audience": {
@@ -1499,34 +1273,6 @@
    "lat": 34.0818139,
    "lng": -118.3092371,
    "distance_m": 6
-  }
- },
- "los-angeles/autumn-enchantment-bg": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_429m"
-  ],
-  "google": {
-   "found": true,
-   "name": "bG Gallery",
-   "status": "OPERATIONAL",
-   "address": "2525 Michigan Ave #A2, Santa Monica, CA 90404, USA",
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:30 AM – 6:00 PM",
-    "Wednesday: 11:30 AM – 6:00 PM",
-    "Thursday: 11:30 AM – 6:00 PM",
-    "Friday: 11:30 AM – 6:00 PM",
-    "Saturday: 11:30 AM – 6:00 PM",
-    "Sunday: Closed"
-   ],
-   "phone": "(310) 906-4211",
-   "website": "https://santamonica.bgartdealings.com/",
-   "lat": 34.0283148,
-   "lng": -118.4676457,
-   "distance_m": 429
-  },
-  "osm": {
-   "found": false
   }
  },
  "tokyo/ron-mueck-mori": {
@@ -1643,9 +1389,7 @@
   }
  },
  "tokyo/kei-takemura-taka-ishii": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_340m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Taka Ishii Gallery Tokyo",
@@ -1664,16 +1408,14 @@
    "website": "https://www.takaishiigallery.com/jp/",
    "lat": 35.6615289,
    "lng": 139.7310734,
-   "distance_m": 340
+   "distance_m": 0
   },
   "osm": {
    "found": false
   }
  },
  "tokyo/sugimoto-seascapes-koyanagi": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_490m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Gallery Koyanagi",
@@ -1692,16 +1434,14 @@
    "website": "http://www.gallerykoyanagi.com/",
    "lat": 35.6747569,
    "lng": 139.7681076,
-   "distance_m": 490
+   "distance_m": 0
   },
   "osm": {
    "found": false
   }
  },
  "tokyo/group-show-4-artists-kosaku": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_956m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "KOSAKU KANECHIKA",
@@ -1720,17 +1460,14 @@
    "website": "http://kosakukanechika.com/",
    "lat": 35.619168,
    "lng": 139.7465994,
-   "distance_m": 956
+   "distance_m": 0
   },
   "osm": {
    "found": false
   }
  },
  "tokyo/hogalee-liminal-kana-kawanishi": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_787m",
-   "COORDS_OFF_OSM_699m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "KANA KAWANISHI GALLERY/ART OFFICE",
@@ -1749,13 +1486,13 @@
    "website": "http://www.kanakawanishi.com/",
    "lat": 35.6835883,
    "lng": 139.8090022,
-   "distance_m": 787
+   "distance_m": 0
   },
   "osm": {
    "found": true,
    "lat": 35.682886,
    "lng": 139.808205,
-   "distance_m": 699
+   "distance_m": 106
   }
  },
  "tokyo/rina-banerjee-espace-lv": {
@@ -1785,9 +1522,7 @@
   }
  },
  "berlin/hbf-shilpa-gupta": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_474m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "Hamburger Bahnhof - Contemporary Art National Gallery",
@@ -1806,20 +1541,17 @@
    "website": "https://www.smb.museum/museen-einrichtungen/hamburger-bahnhof/home/",
    "lat": 52.5283411,
    "lng": 13.372137,
-   "distance_m": 474
+   "distance_m": 11
   },
   "osm": {
    "found": true,
    "lat": 52.5277698,
    "lng": 13.3715736,
-   "distance_m": 479
+   "distance_m": 83
   }
  },
  "berlin/konig-jordy-kerwick": {
-  "flags": [
-   "COORDS_OFF_GOOGLE_581m",
-   "COORDS_OFF_OSM_559m"
-  ],
+  "flags": [],
   "google": {
    "found": true,
    "name": "KÖNIG GALERIE",
@@ -1838,13 +1570,13 @@
    "website": "http://www.koeniggalerie.com/",
    "lat": 52.5006336,
    "lng": 13.4009082,
-   "distance_m": 581
+   "distance_m": 28
   },
   "osm": {
    "found": true,
    "lat": 52.500689,
    "lng": 13.4005587,
-   "distance_m": 559
+   "distance_m": 5
   }
  },
  "berlin/kw-kyiv-biennial": {
@@ -1965,8 +1697,7 @@
  },
  "paris/kiefer-nymphaeum": {
   "flags": [
-   "COORDS_OFF_GOOGLE_546m",
-   "COORDS_OFF_OSM_9336m"
+   "COORDS_OFF_OSM_9822m"
   ],
   "google": {
    "found": true,
@@ -1986,13 +1717,13 @@
    "website": "https://ropac.net/",
    "lat": 48.8995819,
    "lng": 2.4078455,
-   "distance_m": 546
+   "distance_m": 21
   },
   "osm": {
    "found": true,
    "lat": 48.8285201,
    "lng": 2.3277806,
-   "distance_m": 9336
+   "distance_m": 9822
   }
  },
  "paris/virgin-turns": {
