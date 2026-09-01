@@ -103,7 +103,7 @@ LANGUAGE & FORMATTING:
 - Artist and venue names: standard romanized form; add native script in parentheses only where genuinely helpful, e.g. "Tomio Koyama Gallery (小山登美夫ギャラリー)" — never script-only.
 - Exhibition titles: use the venue's official English title when one exists; otherwise romanize and add a short English gloss.
 - venue.hours: English lines in the app's format, e.g. "Tue - Sat 10:30am to 5:30pm".
-- venue.address: romanized, Western display order (street/building, district, city) suitable for an English-language app; latitude/longitude must still be street-level accurate."""
+- venue.address: romanized, Western display order (street/building, district, city) suitable for an English-language app. It must still be geocodable — keep the street number / chōme-banchi-gō block intact."""
 
 
 def build_system_prompt(city_key: str, cfg: dict, target_shows: int, campaign: bool = False) -> str:
@@ -131,7 +131,7 @@ QUALITY BAR:
 - Real shows, currently on view, with dates verified against the venue's site. Never invent shows, dates, addresses, or images.
 - Mix of venues (do not save two shows from the same venue). Include at least one museum show when the city has one on view (venue.is_museum = true).
 - {"Follow CAMPAIGN MODE below for featured and editors_pick." if campaign else "Mark 1-2 of the strongest entries editors_pick = true. Set featured = true for all saved shows."}
-- venue.latitude/longitude: your best estimate of the venue's actual location (street-level accuracy).
+- Map pins are geocoded automatically from venue.address — never estimate coordinates; get the address exactly right from the venue's own site instead. Saved shows enter a pending pool and are displayed only after a verification pass confirms them.
 - Keep going until you have saved {target_shows} shows; then stop and reply with a one-paragraph summary of what you saved.
 - Be efficient with searches and fetches — you have limited uses. Do not fetch the same page twice.{ACCURACY_BLOCK}{LANGUAGE_BLOCK}{CAMPAIGN_BLOCK if campaign else ''}"""
 
@@ -284,12 +284,12 @@ For EACH show, in order:
 
 CROSS-CHECK RULES (each show may carry a "cross-check ->" line of Google Maps / OSM data gathered today):
 - Google businessStatus CLOSED_PERMANENTLY or CLOSED_TEMPORARILY: mark the show unverified, unless the venue's own site currently and explicitly says it is open (explain in reason).
-- Google NOT FOUND or a COORDS_OFF flag: apply extra scrutiny — the address and coordinates must be confirmed on the venue's own site; correct coordinates using Google's location when the saved ones are off by more than ~250m.
+- Google NOT FOUND, a COORDS_OFF flag, or COORDS_UNRESOLVED: apply extra scrutiny — confirm the address on the venue's own site and correct it if it differs (pins are geocoded automatically from the confirmed address; there is no coordinates field to correct). For galleries with multiple spaces, make sure the address is the space hosting THIS show.
 - Hours: the venue's own current visit/hours page is primary. If the venue site posts no hours, adopt Google's hours as the correction. If the two conflict, prefer the venue site only when its page is demonstrably current; note the conflict in reason.
 - Second source for the SHOW itself: besides the venue's own site, look for it on {second_source} or the venue's official press page; note in reason when a show rests on the venue site alone.
 
 RULES:
-- Never invent data; corrections must come from the venue's own pages (or Google Maps data above, for hours/coordinates as described).
+- Never invent data; corrections must come from the venue's own pages (or Google Maps data above, for hours as described).
 - A show that appears only on aggregators/press but not the venue's own site is unverified, unless the venue site is clearly broken or JS-only AND two independent authoritative sources agree on the details.
 - Do not modify anything except through confirm_show. Work through every show, then reply with one line: counts of verified / corrected / unverified."""
 
@@ -340,8 +340,7 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
         raise ValueError(f"unknown tool {name}")
 
     if verify:
-        saved_path = tools.CONTENT_DIR / f"{city_key}.json"
-        saved_shows = json.loads(saved_path.read_text())["shows"]
+        saved_shows = tools.all_city_shows(city_key)
         if neighborhoods:
             saved_shows = [s for s in saved_shows if s["venue"]["neighborhood"] in neighborhoods]
         system = build_verify_prompt(city_key, cfg, saved_shows)
@@ -351,8 +350,7 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                        "following your instructions.",
         }]
     elif enrich_min_images is not None:
-        saved_path = tools.CONTENT_DIR / f"{city_key}.json"
-        saved_shows = json.loads(saved_path.read_text())["shows"]
+        saved_shows = tools.all_city_shows(city_key)
         system = build_enrich_prompt(city_key, cfg, saved_shows, enrich_min_images)
         messages = [{
             "role": "user",
@@ -362,16 +360,14 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
     else:
         system = build_system_prompt(city_key, cfg, target_shows, campaign=campaign)
         existing_note = ""
-        saved_path = tools.CONTENT_DIR / f"{city_key}.json"
-        if saved_path.exists():
-            prior = json.loads(saved_path.read_text()).get("shows", [])
-            if prior:
-                lines = "\n".join(f'- "{s["title"]}" at {s["venue"]["name"]}' for s in prior)
-                existing_note = (
-                    f"\n\nALREADY SAVED for this city (do NOT research or re-save these shows, "
-                    f"and do NOT save any show at these venues — add {target_shows} NEW shows "
-                    f"at OTHER venues only):\n{lines}"
-                )
+        prior = tools.all_city_shows(city_key)  # published + pending
+        if prior:
+            lines = "\n".join(f'- "{s["title"]}" at {s["venue"]["name"]}' for s in prior)
+            existing_note = (
+                f"\n\nALREADY SAVED for this city (do NOT research or re-save these shows, "
+                f"and do NOT save any show at these venues — add {target_shows} NEW shows "
+                f"at OTHER venues only):\n{lines}"
+            )
         messages = [{
             "role": "user",
             "content": f"Populate the {cfg['display_name']} section: research and save "

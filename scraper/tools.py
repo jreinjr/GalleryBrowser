@@ -17,6 +17,10 @@ from PIL import Image
 
 CONTENT_DIR = Path(__file__).resolve().parent.parent / "content"
 IMAGES_DIR = CONTENT_DIR / "images"
+# Pending pool: scraped shows waiting for verification. Lives in a
+# subdirectory so the web build's content/*.json glob and the iOS app's
+# "<city>.json" lookup never see it — only verified shows are displayed.
+PENDING_DIR = CONTENT_DIR / "pending"
 
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
@@ -183,18 +187,16 @@ SAVE_SHOW_SCHEMA = {
             "type": "object",
             "additionalProperties": False,
             "required": ["name", "is_museum", "address", "address_detail", "neighborhood",
-                          "hours", "phone", "website", "latitude", "longitude"],
+                          "hours", "phone", "website"],
             "properties": {
                 "name": {"type": "string"},
                 "is_museum": {"type": "boolean"},
-                "address": {"type": "string", "description": "Street address, e.g. '212 Third Ave S'"},
+                "address": {"type": "string", "description": "Street address, e.g. '212 Third Ave S'. Must match the venue's own site exactly — the map pin is geocoded from it."},
                 "address_detail": {"type": ["string", "null"], "description": "Suite/floor, or null"},
                 "neighborhood": {"type": "string", "description": "One of the city's configured neighborhoods"},
                 "hours": {"type": "array", "items": {"type": "string"}, "description": "Lines like 'Tue - Sat 10:30am to 5:30pm'"},
                 "phone": {"type": ["string", "null"]},
                 "website": {"type": ["string", "null"]},
-                "latitude": {"type": "number"},
-                "longitude": {"type": "number"},
             },
         },
     },
@@ -217,8 +219,8 @@ CONFIRM_SHOW_SCHEMA = {
             "type": ["object", "null"],
             "additionalProperties": False,
             "required": ["start_date", "end_date", "hours", "address", "address_detail",
-                          "phone", "website", "latitude", "longitude", "reception"],
-            "description": "Only for status=corrected: pass the corrected values, null for every field that is already right",
+                          "phone", "website", "reception"],
+            "description": "Only for status=corrected: pass the corrected values, null for every field that is already right. There is no coordinates field — pins are geocoded from the address, so correct the address instead.",
             "properties": {
                 "start_date": {"type": ["string", "null"]},
                 "end_date": {"type": ["string", "null"]},
@@ -227,8 +229,6 @@ CONFIRM_SHOW_SCHEMA = {
                 "address_detail": {"type": ["string", "null"]},
                 "phone": {"type": ["string", "null"]},
                 "website": {"type": ["string", "null"]},
-                "latitude": {"type": ["number", "null"]},
-                "longitude": {"type": ["number", "null"]},
                 "reception": {"type": ["string", "null"]},
             },
         },
@@ -237,24 +237,30 @@ CONFIRM_SHOW_SCHEMA = {
 
 VERIFY_RESULTS = CONTENT_DIR / "spend" / "verify_results.jsonl"
 
-CORRECTABLE_VENUE_FIELDS = ("hours", "address", "address_detail", "phone", "website",
-                             "latitude", "longitude")
+CORRECTABLE_VENUE_FIELDS = ("hours", "address", "address_detail", "phone", "website")
 CORRECTABLE_SHOW_FIELDS = ("start_date", "end_date", "reception")
 
 
 def confirm_show(args: dict, city_key: str) -> str:
-    """Record a verification verdict; apply corrections to the saved record."""
+    """Record a verification verdict; apply corrections; move the record
+    between the pending pool and the published city file.
+
+    Promotion to the published (displayed) file requires BOTH a
+    verified/corrected verdict AND deterministically resolved coordinates.
+    An unverified verdict demotes a published show back to pending
+    (non-destructive — nothing is deleted).
+    """
     import time as _time
     if args["city"] != city_key:
         raise ValueError(f"city must be '{city_key}'")
     slug = args["slug"]
-    out_path = CONTENT_DIR / f"{city_key}.json"
     lock_path = CONTENT_DIR / f".{city_key}.json.lock"
     applied = []
     with open(lock_path, "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        data = json.loads(out_path.read_text())
-        matching = [s for s in data["shows"] if s["slug"] == slug]
+        main = _load_shows_file(_city_file(city_key))
+        pending = _load_shows_file(_pending_file(city_key))
+        matching = [s for s in main["shows"] + pending["shows"] if s["slug"] == slug]
         if not matching:
             raise ValueError(f"no saved show with slug '{slug}' in {city_key}")
         show = matching[0]
@@ -268,18 +274,42 @@ def confirm_show(args: dict, city_key: str) -> str:
                 elif field in CORRECTABLE_VENUE_FIELDS:
                     show["venue"][field] = value
                     applied.append(field)
-            # An agent-corrected address or pin is still model-memory geography;
-            # re-anchor to the Google listing for the (possibly new) address.
-            if {"address", "latitude", "longitude"} & set(applied):
-                if _snap_venue_coords(show["venue"], city_key):
-                    applied.append("coords_snapped_to_google")
-            out_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+        # Coordinates are deterministic, never agent memory: re-resolve when
+        # the address changed or the pin is still unresolved from scrape time.
+        v = show["venue"]
+        if ("address" in applied
+                or v.get("latitude") is None or v.get("longitude") is None):
+            if resolve_venue_coords(v, city_key):
+                applied.append("coords_resolved")
+            elif "address" in applied:
+                v["latitude"] = v["longitude"] = None
+
+        coords_ok = v.get("latitude") is not None and v.get("longitude") is not None
+        publish = args["status"] in ("verified", "corrected") and coords_ok
+        target = main if publish else pending
+        other = pending if publish else main
+        if any(s["slug"] == slug for s in target["shows"]):
+            # staying in its pool: keep file position (feed order follows it)
+            target["shows"] = [show if s["slug"] == slug else s for s in target["shows"]]
+        else:
+            other["shows"] = [s for s in other["shows"] if s["slug"] != slug]
+            target["shows"].append(show)
+        _write_shows_file(_city_file(city_key), main)
+        _write_shows_file(_pending_file(city_key), pending)
+    placement = "published" if publish else "pending"
     entry = {"ts": int(_time.time()), "city": city_key, "slug": slug,
-             "status": args["status"], "reason": args.get("reason"), "applied": applied}
+             "status": args["status"], "reason": args.get("reason"),
+             "applied": applied, "placement": placement}
     with open(VERIFY_RESULTS, "a") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-    return json.dumps({"result": args["status"], "slug": slug, "corrections_applied": applied})
+    result = {"result": args["status"], "slug": slug,
+              "corrections_applied": applied, "placement": placement}
+    if args["status"] in ("verified", "corrected") and not coords_ok:
+        result["note"] = ("kept in pending: coordinates could not be resolved from the "
+                         "address — if the venue's site shows a more standard street "
+                         "address, call confirm_show again with it as a correction")
+    return json.dumps(result)
 
 
 def attach_images(city_key: str, slug: str) -> str:
@@ -302,31 +332,128 @@ def attach_images(city_key: str, slug: str) -> str:
     return json.dumps({"result": "attached", "slug": slug, "image_count": len(show["images"])})
 
 
-def _snap_venue_coords(venue: dict, city_key: str) -> str | None:
-    """Replace agent-supplied lat/lng with the Google Places listing pin when
-    the listing confidently matches the venue (crosscheck.listing_matches_venue).
+def _city_file(city_key: str) -> Path:
+    return CONTENT_DIR / f"{city_key}.json"
 
-    Agent coordinates come from model memory (venue sites don't publish them)
-    and are wrong at block scale often enough that map pins can't ship without
-    this. Never raises; on any failure the agent's coordinates stand.
+
+def _pending_file(city_key: str) -> Path:
+    return PENDING_DIR / f"{city_key}.json"
+
+
+def _load_shows_file(path: Path) -> dict:
+    return json.loads(path.read_text()) if path.exists() else {"shows": []}
+
+
+def _write_shows_file(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+
+
+def all_city_shows(city_key: str) -> list[dict]:
+    """Published + pending shows for a city (published first)."""
+    return (_load_shows_file(_city_file(city_key))["shows"]
+            + _load_shows_file(_pending_file(city_key))["shows"])
+
+
+GEOCODE_OK_TYPES = {"ROOFTOP", "RANGE_INTERPOLATED", "GEOMETRIC_CENTER"}
+
+
+def _geocode_address(key: str, address: str, city_name: str) -> dict | None:
+    """Google Geocoding API for a street address, failing closed.
+
+    Accepts only a precise result (no APPROXIMATE locality fallbacks) whose
+    formatted address still contains every digit group of the stored street
+    line — the geocoder invents partial matches on other streets otherwise.
+    partial_match alone is not a rejection: it also fires on unmatched
+    building-name prefixes (e.g. "Koyanagi Bldg.") over a correct pin.
+    """
+    import crosscheck  # deferred: crosscheck imports tools at module load
+    resp = requests.get(
+        "https://maps.googleapis.com/maps/api/geocode/json",
+        params={"address": f"{address}, {city_name}", "key": key},
+        timeout=20).json()
+    if resp.get("status") != "OK" or not resp.get("results"):
+        return None
+    res = resp["results"][0]
+    geo = res.get("geometry", {})
+    loc = geo.get("location", {})
+    if geo.get("location_type") not in GEOCODE_OK_TYPES or loc.get("lat") is None:
+        return None
+    stored = crosscheck._digit_groups(address)
+    found = crosscheck._digit_groups(res.get("formatted_address", ""))
+    if not stored or not all(d in found for d in stored):
+        return None
+    return {"lat": loc["lat"], "lng": loc["lng"],
+            "precision": geo["location_type"],
+            "formatted": res.get("formatted_address")}
+
+
+def resolve_venue_coords(venue: dict, city_key: str) -> str | None:
+    """Deterministically resolve venue lat/lng; agent-supplied pins never ship.
+
+    Authority rules (each validated against a real failure this pipeline hit):
+    - Geocoded address and matching listing agreeing (<=250m): use the geocode
+      (rooftop precision).
+    - They disagree: use the LISTING. A geocoder only places an address
+      string, and metro areas reuse street names/numbers (2525 Michigan Ave
+      exists in Santa Monica and East LA; Ropac Pantin's street also exists in
+      Paris 14e). The wrong-branch listing danger is fenced off separately:
+      another branch's address fails listing_matches_venue's digit check, so
+      a matching listing is the venue's own space.
+    - Only one side resolves: use it.
+    Returns a note on success, None when unresolved (the caller nulls the
+    coordinates and the show stays in the pending pool). Never raises.
     """
     key = os.environ.get("GOOGLE_MAPS_API_KEY")
     if not key:
         return None
     try:
-        import crosscheck  # deferred: crosscheck imports tools at module load
+        import crosscheck
         from cities import CITIES
-        g = crosscheck.google_lookup(key, venue["name"], venue["address"],
-                                     CITIES[city_key]["display_name"])
-        if crosscheck.listing_matches_venue(venue, g):
+        city_name = CITIES[city_key]["display_name"]
+        prior = (venue.get("latitude"), venue.get("longitude"))
+        geo = _geocode_address(key, venue["address"], city_name)
+        listing = crosscheck.google_lookup(key, venue["name"], venue["address"],
+                                           city_name)
+        listing_ok = crosscheck.listing_matches_venue(venue, listing)
+        if geo and listing_ok:
+            gap = round(crosscheck.haversine_m(
+                geo["lat"], geo["lng"], listing["lat"], listing["lng"]))
+            if gap <= 250:
+                venue["latitude"], venue["longitude"] = geo["lat"], geo["lng"]
+                note = f"coords geocoded from address ({geo['precision']}, listing agrees)"
+            else:
+                venue["latitude"], venue["longitude"] = listing["lat"], listing["lng"]
+                note = (f"coords from the venue's Google listing; WARNING: geocoding the "
+                        f"address alone landed {gap}m away ({geo['formatted']}) — "
+                        "double-check the address names the right street and city")
+        elif geo:
+            # No listing to corroborate; ask OSM. Micro-addresses (Venice
+            # sestiere numbering) can geocode ROOFTOP onto the wrong building,
+            # so an uncorroborated geocode ships with a warning for the verify
+            # pass — and the crosscheck flags it if a listing disagrees later.
+            venue["latitude"], venue["longitude"] = geo["lat"], geo["lng"]
+            note = f"coords geocoded from address ({geo['precision']}; no matching listing"
+            osm = crosscheck.nominatim_geocode(venue["address"], city_name)
+            if osm.get("found"):
+                osm_gap = round(crosscheck.haversine_m(
+                    geo["lat"], geo["lng"], osm["lat"], osm["lng"]))
+                note += f"; OSM {'agrees' if osm_gap <= 500 else f'disagrees by {osm_gap}m — WARNING: verify the address is unambiguous'})"
+            else:
+                note += "; no OSM corroboration — WARNING: verify the address is unambiguous)"
+        elif listing_ok:
+            venue["latitude"], venue["longitude"] = listing["lat"], listing["lng"]
+            note = "coords from the venue's Google listing (address did not geocode)"
+        else:
+            return None
+        if prior[0] is not None and prior[1] is not None:
             moved = round(crosscheck.haversine_m(
-                venue["latitude"], venue["longitude"], g["lat"], g["lng"]))
-            venue["latitude"], venue["longitude"] = g["lat"], g["lng"]
+                prior[0], prior[1], venue["latitude"], venue["longitude"]))
             if moved > 25:
-                return f"venue pin snapped to Google Places listing (moved {moved}m)"
+                note += f" (moved {moved}m)"
+        return note
     except Exception:
-        pass
-    return None
+        return None
 
 
 def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
@@ -346,25 +473,35 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     if problems:
         raise ValueError("Not saved. Fix and retry: " + "; ".join(problems))
 
-    snap_note = _snap_venue_coords(record["venue"], city_key)
+    coord_note = resolve_venue_coords(record["venue"], city_key)
+    if coord_note is None:
+        # Agent-supplied pins never ship; unresolved coordinates block promotion.
+        record["venue"]["latitude"] = record["venue"]["longitude"] = None
 
-    out_path = CONTENT_DIR / f"{city_key}.json"
-    # Exclusive lock: parallel neighborhood-shard sessions of one city share this file.
+    # New and re-saved shows always land in the pending pool; only a verify
+    # pass promotes them to the published <city>.json that the apps display.
+    # Exclusive lock: parallel neighborhood-shard sessions of one city share it.
     lock_path = CONTENT_DIR / f".{city_key}.json.lock"
     with open(lock_path, "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        data = {"shows": []}
-        if out_path.exists():
-            data = json.loads(out_path.read_text())
-        existing = [s for s in data["shows"] if s["slug"] == record["slug"]]
-        if existing:
-            data["shows"] = [record if s["slug"] == record["slug"] else s for s in data["shows"]]
+        main = _load_shows_file(_city_file(city_key))
+        pending = _load_shows_file(_pending_file(city_key))
+        was_published = any(s["slug"] == record["slug"] for s in main["shows"])
+        if was_published:
+            main["shows"] = [s for s in main["shows"] if s["slug"] != record["slug"]]
+            _write_shows_file(_city_file(city_key), main)
+        if any(s["slug"] == record["slug"] for s in pending["shows"]):
+            pending["shows"] = [record if s["slug"] == record["slug"] else s
+                                for s in pending["shows"]]
             action = "updated"
         else:
-            data["shows"].append(record)
-            action = "saved"
-        out_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-    result = {"result": action, "shows_saved_for_city": len(data["shows"])}
-    if snap_note:
-        result["note"] = snap_note
+            pending["shows"].append(record)
+            action = "updated (moved back to pending)" if was_published else "saved"
+        _write_shows_file(_pending_file(city_key), pending)
+    result = {"result": action,
+              "queue": "pending verification (displayed only after a verify pass confirms it)",
+              "shows_saved_for_city": len(main["shows"]) + len(pending["shows"])}
+    result["note"] = coord_note or (
+        "coordinates could not be resolved from this address — the show is saved "
+        "but cannot be published until the address geocodes; double-check it")
     return json.dumps(result)

@@ -1,5 +1,8 @@
-"""Fact-check audit of saved shows: verify each against the venue's own site,
-apply corrections, and REMOVE shows that could not be verified.
+"""Fact-check audit of saved shows: verify each against the venue's own site
+and apply corrections. Verdicts drive placement (in tools.confirm_show):
+verified/corrected shows with resolved coordinates are promoted to the
+published <city>.json the apps display; everything else stays in — or is
+demoted to — content/pending/<city>.json. Nothing is deleted.
 
 Usage:
     python run_verify.py --all
@@ -10,7 +13,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 import threading
 import time
@@ -27,8 +29,7 @@ SHARD_THRESHOLD = 12  # cities with more shows than this verify one neighborhood
 
 
 def city_shows(city: str) -> list[dict]:
-    p = tools.CONTENT_DIR / f"{city}.json"
-    return json.loads(p.read_text())["shows"] if p.exists() else []
+    return tools.all_city_shows(city)  # published + pending both need verdicts
 
 
 def main() -> None:
@@ -40,7 +41,7 @@ def main() -> None:
 
     load_env()
     cities = [args.city] if args.city else \
-        [c for c in CITIES if (tools.CONTENT_DIR / f"{c}.json").exists()] if args.all else \
+        [c for c in CITIES if city_shows(c)] if args.all else \
         sys.exit("pass --city or --all")
 
     # deterministic cross-check first (Google Places + OSM); agent sessions read its output
@@ -105,40 +106,27 @@ def main() -> None:
             if e.get("ts", 0) >= start_ts:
                 verdicts[(e["city"], e["slug"])] = e
 
-    removed_backup = []
+    # placement already happened inside confirm_show; report the outcome
     summary = {}
     for c in cities:
-        p = tools.CONTENT_DIR / f"{c}.json"
-        if not p.exists():
+        published = tools._load_shows_file(tools._city_file(c))["shows"]
+        pending = tools._load_shows_file(tools._pending_file(c))["shows"]
+        if not published and not pending:
             continue
-        data = json.loads(p.read_text())
-        keep, removed, unchecked = [], [], []
         counts = {"verified": 0, "corrected": 0, "unverified": 0}
-        for s in data["shows"]:
+        unchecked = []
+        for s in published + pending:
             v = verdicts.get((c, s["slug"]))
             if v is None:
                 unchecked.append(s["slug"])
-                keep.append(s)
-            elif v["status"] == "unverified":
-                counts["unverified"] += 1
-                removed.append({"slug": s["slug"], "venue": s["venue"]["name"],
-                                "reason": v.get("reason")})
-                removed_backup.append(s)
-                shutil.rmtree(tools.IMAGES_DIR / c / tools._slugify(s["slug"]),
-                              ignore_errors=True)
             else:
                 counts[v["status"]] += 1
-                keep.append(s)
-        if removed:
-            data["shows"] = keep
-            p.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-        summary[c] = {**counts, "unchecked": unchecked, "removed": removed,
-                      "remaining": len(keep)}
-
-    if removed_backup:
-        backup = tools.CONTENT_DIR / "spend" / f"removed-shows-{start_ts}.json"
-        backup.write_text(json.dumps({"shows": removed_backup}, indent=2, ensure_ascii=False))
-        print(f"\nremoved records backed up to {backup}")
+        summary[c] = {
+            **counts, "unchecked": unchecked, "published": len(published),
+            "pending": [{"slug": s["slug"], "venue": s["venue"]["name"],
+                         "reason": (verdicts.get((c, s["slug"])) or {}).get("reason")}
+                        for s in pending],
+        }
 
     spend_report()
     print(json.dumps({"sessions": session_reports, "cities": summary}, indent=2,

@@ -184,55 +184,66 @@ def run(city_keys: list[str], fix: bool = False) -> dict:
     flags_count: dict[str, int] = {}
     fixed_count = 0
     for city in city_keys:
-        path = tools.CONTENT_DIR / f"{city}.json"
-        if not path.exists():
-            continue
         city_name = CITIES[city]["display_name"]
-        data = json.loads(path.read_text())
-        city_changed = False
-        for s in data["shows"]:
-            v = s["venue"]
-            entry: dict = {"flags": []}
-            fixed = None
-            if key:
-                g = google_lookup(key, v["name"], v["address"], city_name)
-                if g.get("found") and g.get("lat") is not None:
-                    g["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
-                                                        g["lat"], g["lng"]))
-                entry["google"] = g
-                status = g.get("status")
-                if status and status != "OPERATIONAL":
-                    entry["flags"].append(f"GOOGLE_{status}")
-                if g.get("found") is False:
-                    entry["flags"].append("GOOGLE_NOT_FOUND")
-                if g.get("distance_m", 0) > 250:
-                    entry["flags"].append(f"COORDS_OFF_GOOGLE_{g['distance_m']}m")
-                    if fix and listing_matches_venue(v, g):
-                        v["latitude"], v["longitude"] = g["lat"], g["lng"]
-                        entry["fixed_coords"] = {"moved_m": g["distance_m"],
-                                                 "lat": g["lat"], "lng": g["lng"]}
-                        fixed = f"FIXED (pin moved {g['distance_m']}m to listing)"
-                        city_changed = True
+        for pool, path in (("published", tools._city_file(city)),
+                           ("pending", tools._pending_file(city))):
+            if not path.exists():
+                continue
+            data = json.loads(path.read_text())
+            pool_changed = False
+            for s in data["shows"]:
+                v = s["venue"]
+                entry: dict = {"flags": []}
+                if pool == "pending":
+                    entry["pending"] = True
+                fixed = None
+                if v.get("latitude") is None or v.get("longitude") is None:
+                    entry["flags"].append("COORDS_UNRESOLVED")
+                    if fix and tools.resolve_venue_coords(v, city):
+                        entry["fixed_coords"] = {"lat": v["latitude"], "lng": v["longitude"]}
+                        fixed = "FIXED (coords resolved from address)"
+                        pool_changed = True
                         fixed_count += 1
-            o = nominatim_geocode(v["address"], city_name)
-            if o.get("found"):
-                o["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
-                                                    o["lat"], o["lng"]))
-                if o["distance_m"] > 500:
-                    entry["flags"].append(f"COORDS_OFF_OSM_{o['distance_m']}m")
-            entry["osm"] = o
-            out[f"{city}/{s['slug']}"] = entry
-            for f in entry["flags"]:
-                flags_count[f.split("_m")[0] if "COORDS" in f else f] = \
-                    flags_count.get(f.split("_m")[0] if "COORDS" in f else f, 0) + 1
-            line = ", ".join(entry["flags"]) or "ok"
-            print(f"  {city}/{s['slug']}: {line}" + (f" -> {fixed}" if fixed else ""),
-                  flush=True)
-        if city_changed:
-            lock_path = tools.CONTENT_DIR / f".{city}.json.lock"
-            with open(lock_path, "w") as lock:
-                fcntl.flock(lock, fcntl.LOCK_EX)
-                path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+                has_coords = v.get("latitude") is not None and v.get("longitude") is not None
+                if key:
+                    g = google_lookup(key, v["name"], v["address"], city_name)
+                    if g.get("found") and g.get("lat") is not None and has_coords:
+                        g["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
+                                                            g["lat"], g["lng"]))
+                    entry["google"] = g
+                    status = g.get("status")
+                    if status and status != "OPERATIONAL":
+                        entry["flags"].append(f"GOOGLE_{status}")
+                    if g.get("found") is False:
+                        entry["flags"].append("GOOGLE_NOT_FOUND")
+                    if g.get("distance_m", 0) > 250:
+                        entry["flags"].append(f"COORDS_OFF_GOOGLE_{g['distance_m']}m")
+                        if fix and listing_matches_venue(v, g):
+                            v["latitude"], v["longitude"] = g["lat"], g["lng"]
+                            entry["fixed_coords"] = {"moved_m": g["distance_m"],
+                                                     "lat": g["lat"], "lng": g["lng"]}
+                            fixed = f"FIXED (pin moved {g['distance_m']}m to listing)"
+                            pool_changed = True
+                            fixed_count += 1
+                o = nominatim_geocode(v["address"], city_name)
+                if o.get("found") and has_coords:
+                    o["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
+                                                        o["lat"], o["lng"]))
+                    if o["distance_m"] > 500:
+                        entry["flags"].append(f"COORDS_OFF_OSM_{o['distance_m']}m")
+                entry["osm"] = o
+                out[f"{city}/{s['slug']}"] = entry
+                for f in entry["flags"]:
+                    flags_count[f.split("_m")[0] if "COORDS" in f else f] = \
+                        flags_count.get(f.split("_m")[0] if "COORDS" in f else f, 0) + 1
+                line = ", ".join(entry["flags"]) or "ok"
+                print(f"  {city}/{s['slug']}: {line}" + (f" -> {fixed}" if fixed else ""),
+                      flush=True)
+            if pool_changed:
+                lock_path = tools.CONTENT_DIR / f".{city}.json.lock"
+                with open(lock_path, "w") as lock:
+                    fcntl.flock(lock, fcntl.LOCK_EX)
+                    path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     if fix:
         print(f"\n{fixed_count} pin(s) snapped to Google Places listings")
     CROSSCHECK_PATH.parent.mkdir(parents=True, exist_ok=True)
