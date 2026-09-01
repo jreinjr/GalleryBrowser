@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import tools  # noqa: E402
 from cities import CITIES  # noqa: E402
-from harness import SPEND_DIR, run_city  # noqa: E402
+from harness import DEFAULT_MODEL, MODELS, SPEND_DIR, run_city  # noqa: E402
 
 
 def load_env() -> None:
@@ -55,6 +55,29 @@ def spend_report() -> dict:
     return total
 
 
+def format_todo_message(city_display: str, zone: str, venues: list[dict],
+                        saved_venues: list[str]) -> str:
+    """First user message for a deep session: the zone's TODO batch plus a
+    compact city-wide saved-venues exclusion list."""
+    lines = []
+    for i, v in enumerate(venues, 1):
+        bits = [v["name"]]
+        if v.get("address"):
+            bits.append(v["address"])
+        if v.get("website"):
+            bits.append(v["website"])
+        kind = f" ({v['kind']})" if v.get("kind") else ""
+        lines.append(f"{i}. {' — '.join(bits)}{kind}")
+    msg = (f"Work your TODO list for the {zone} zone of {city_display}.\n\n"
+           "TODO — attempt each of these venues this session, in order:\n"
+           + "\n".join(lines)
+           + "\n\nEvery TODO venue must end in exactly one save_show or log_skip.")
+    if saved_venues:
+        msg += ("\n\nSAVED VENUES city-wide — never save a show at any of these:\n"
+                + "; ".join(saved_venues))
+    return msg
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--city", choices=sorted(CITIES))
@@ -76,6 +99,29 @@ def main() -> None:
     parser.add_argument("--no-verify", action="store_true",
                         help="skip the automatic post-scrape verification pass "
                              "(scraped shows then stay in the pending pool)")
+    parser.add_argument("--deep", action="store_true",
+                        help="exhaustive mode: work a venue TODO list (requires --todo-file); "
+                             "every TODO venue ends in save_show or log_skip")
+    parser.add_argument("--todo-file", default=None,
+                        help="JSON file with {zone, venues, saved_venues, session_label?} "
+                             "for a --deep session (written by run_deep.py)")
+    parser.add_argument("--enumerate-zone", default=None, metavar="ZONE",
+                        help="enumeration session: build the venue directory for one zone "
+                             "instead of scraping shows")
+    parser.add_argument("--model", default=DEFAULT_MODEL, choices=sorted(MODELS),
+                        help="model for this session")
+    parser.add_argument("--fetch-tokens", type=int, default=20000,
+                        help="max_content_tokens per web_fetch (context-cost lever)")
+    parser.add_argument("--effort", default=None,
+                        choices=["low", "medium", "high", "xhigh", "max"],
+                        help="output_config.effort (models that support it)")
+    parser.add_argument("--context-editing", action="store_true",
+                        help="enable clear_tool_uses context editing (beta)")
+    parser.add_argument("--session-label", default=None,
+                        help="explicit spend-ledger label (e.g. deep-los-angeles-hollywood-3)")
+    parser.add_argument("--ab-sandbox", default=None, metavar="DIR",
+                        help="A/B sandbox: write shows/images under DIR instead of content/ "
+                             "and skip coordinate resolution")
     args = parser.parse_args()
 
     if args.report:
@@ -85,6 +131,15 @@ def main() -> None:
     load_env()
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("ANTHROPIC_API_KEY is not set (add it to .env or the environment)")
+
+    if args.ab_sandbox:
+        tools.set_sandbox(args.ab_sandbox)
+
+    todo = None
+    if args.deep:
+        if not args.todo_file:
+            sys.exit("--deep requires --todo-file")
+        todo = json.loads(Path(args.todo_file).read_text())
 
     runs: list[tuple[str, int]] = []
     if args.all_secondary:
@@ -96,28 +151,67 @@ def main() -> None:
 
     results = []
     for city, target in runs:
-        big = target >= 6 or (args.enrich is not None and city == "seattle")
-        budget = args.budget if args.budget is not None else (8.0 if big else 3.0)
-        mode = f"enrich to {args.enrich}+ images" if args.enrich else f"target {target} shows"
-        print(f"=== {city} ({mode}, budget ${budget:.2f}) ===")
-        result = run_city(
-            city_key=city,
-            target_shows=target,
-            max_searches=max(12, 4 * target),
-            max_fetches=max(18, 6 * target),
-            max_iterations=max(45, 10 * target),
-            budget_usd=budget,
-            enrich_min_images=args.enrich,
-            neighborhoods=[n.strip() for n in args.neighborhoods.split(",")]
-                          if args.neighborhoods else None,
-            campaign=args.campaign,
+        common = dict(
+            model=args.model,
+            fetch_content_tokens=args.fetch_tokens,
+            effort=args.effort,
+            context_editing=args.context_editing,
+            session_label=args.session_label or (todo or {}).get("session_label"),
         )
+        if args.enumerate_zone:
+            budget = args.budget if args.budget is not None else 1.5
+            print(f"=== {city} (enumerate {args.enumerate_zone}, budget ${budget:.2f}) ===")
+            result = run_city(
+                city_key=city, target_shows=0,
+                max_searches=14, max_fetches=10, max_iterations=25,
+                budget_usd=budget,
+                neighborhoods=[args.enumerate_zone],
+                enumerate_zone=args.enumerate_zone,
+                **common,
+            )
+        elif args.deep:
+            venues = todo["venues"]
+            target = len(venues)
+            budget = args.budget if args.budget is not None else 4.5
+            msg = format_todo_message(CITIES[city]["display_name"], todo["zone"],
+                                      venues, todo.get("saved_venues", []))
+            print(f"=== {city} (deep {todo['zone']}: {target} TODO venues, "
+                  f"budget ${budget:.2f}, model {args.model}) ===")
+            result = run_city(
+                city_key=city, target_shows=target,
+                max_searches=max(12, 3 * target),
+                max_fetches=max(18, 5 * target),
+                max_iterations=max(45, 9 * target),
+                budget_usd=budget,
+                neighborhoods=[todo["zone"]],
+                deep=True, first_user_message=msg,
+                **common,
+            )
+        else:
+            big = target >= 6 or (args.enrich is not None and city == "seattle")
+            budget = args.budget if args.budget is not None else (8.0 if big else 3.0)
+            mode = f"enrich to {args.enrich}+ images" if args.enrich else f"target {target} shows"
+            print(f"=== {city} ({mode}, budget ${budget:.2f}) ===")
+            result = run_city(
+                city_key=city,
+                target_shows=target,
+                max_searches=max(12, 4 * target),
+                max_fetches=max(18, 6 * target),
+                max_iterations=max(45, 10 * target),
+                budget_usd=budget,
+                enrich_min_images=args.enrich,
+                neighborhoods=[n.strip() for n in args.neighborhoods.split(",")]
+                              if args.neighborhoods else None,
+                campaign=args.campaign,
+                **common,
+            )
         results.append(result)
         print(json.dumps(result, indent=2))
 
     # Scraped shows land in content/pending/ and are displayed only once a
     # verification pass promotes them, so verifying is part of scraping.
-    if not args.no_verify and args.enrich is None:
+    if (not args.no_verify and args.enrich is None
+            and not args.deep and not args.enumerate_zone):
         from run_verify import verify_cities
         print("\n=== POST-SCRAPE VERIFICATION (pending pool) ===", flush=True)
         verify_summary = verify_cities(sorted({c for c, _ in runs}), pending_only=True)

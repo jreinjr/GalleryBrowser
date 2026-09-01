@@ -38,22 +38,96 @@ CITIES = {
         "display_name": "Los Angeles",
         "center": {"latitude": 34.0622, "longitude": -118.3080},
         "span": {"latitudeDelta": 0.55, "longitudeDelta": 0.55},
+        # Greater LA core: LA city + Santa Monica/Venice, Culver City, WeHo,
+        # Beverly Hills, Pasadena/Glendale. Long Beach and Orange County are
+        # out of scope. Zone-keyed guidance: shards see only their zones' notes.
         "neighborhoods": [
-            "Downtown/Eastside",
+            "Downtown/Arts District",
+            "Chinatown/East LA",
+            "Los Feliz/NELA",
             "Hollywood",
-            "Beverly Hills/West Hollywood",
-            "Mid City/Westside",
+            "West Hollywood/Fairfax",
+            "Beverly Hills",
+            "Mid-Wilshire/Koreatown",
+            "Culver City/West Adams",
+            "Santa Monica/Venice",
+            "Westside/Brentwood",
+            "South LA/Inglewood",
+            "Pasadena/San Gabriel",
         ],
-        "guidance": (
-            "LA's scene spans Downtown/Eastside (Hauser & Wirth DTLA, François Ghebaly, "
-            "Night Gallery, Vielmetter, The Box, MOCA, The Broad, ICA LA), Hollywood "
-            "(Regen Projects, Jeffrey Deitch, Various Small Fires, Nonaka-Hill, Tanya "
-            "Bonakdar, Sea View, Hannah Hoffman), Beverly Hills/West Hollywood (Gagosian, "
-            "Sprüth Magers, Matthew Marks, Karma LA, Morán Morán, Michael Kohn, LACMA), "
-            "and Mid City/Westside (David Kordansky, David Zwirner, Blum, Anat Ebgi, "
-            "Roberts Projects, Commonwealth & Council, Château Shatto, the Hammer Museum, "
-            "Marian Goodman). Verify current dates on the venues' own sites."
-        ),
+        "guidance": {
+            "*": (
+                "Greater LA core (excludes Long Beach/Orange County). Verify current "
+                "dates on the venues' own sites."
+            ),
+            "Downtown/Arts District": (
+                "Grand Ave (The Broad, MOCA Grand Avenue), Little Tokyo (JANM, LA "
+                "Artcore), the Arts District (Hauser & Wirth, ICA LA, The Box), the "
+                "Fashion District (Château Shatto, Track 16), and the Santa Fe Ave/"
+                "Washington Blvd corridor (Vielmetter, Night Gallery, François Ghebaly, "
+                "Wilding Cran). Dense with project spaces beyond the anchors."
+            ),
+            "Chinatown/East LA": (
+                "Chung King Road and Chinatown (Charlie James Gallery, NOON Projects, "
+                "Bel Ami, Human Resources), Lincoln Heights, Boyle Heights (Corey "
+                "Helford, Parrasch Heijnen, Self Help Graphics), El Sereno."
+            ),
+            "Los Feliz/NELA": (
+                "Los Feliz, Silver Lake, Echo Park, Frogtown/Elysian Valley, Highland "
+                "Park and Glassell Park (Gattopardo, La Loma Projects, Odd Ark LA), "
+                "Eagle Rock, Glendale, plus the Autry Museum in Griffith Park."
+            ),
+            "Hollywood": (
+                "Hollywood and the Highland/Santa Monica Blvd gallery row (Regen "
+                "Projects, Jeffrey Deitch, Various Small Fires, Nonaka-Hill, Lisson, "
+                "David Zwirner, Tanya Bonakdar, Sea View, Hannah Hoffman, Morán Morán, "
+                "Michael Kohn, Diane Rosenstein, Shulamit Nazarian), the La Brea "
+                "corridor (Fahey/Klein), Sunset Blvd (Musichead), East Hollywood/"
+                "Western Ave (Reisig and Taylor)."
+            ),
+            "West Hollywood/Fairfax": (
+                "West Hollywood, Melrose Ave (Louis Stern, Steve Turner), the Almont/"
+                "Robertson cluster (M+B), Fairfax and Beverly Grove (Karma, Matthew "
+                "Marks, Timothy Hawkinson Gallery, Nino Mier spaces)."
+            ),
+            "Beverly Hills": (
+                "Gagosian Beverly Hills, Marc Selwyn Fine Art, UTA Artist Space, "
+                "Almine Rech, Christie's/Sotheby's exhibition spaces, Gary Snyder."
+            ),
+            "Mid-Wilshire/Koreatown": (
+                "Miracle Mile museum row (LACMA, Academy Museum, Craft Contemporary), "
+                "Marciano Art Foundation, Hancock Park, Koreatown (Commonwealth & "
+                "Council, Park View/Paul Soto), Westlake/MacArthur Park (induction "
+                "gallery), and David Kordansky on La Brea south of Wilshire."
+            ),
+            "Culver City/West Adams": (
+                "The La Cienega/Washington corridor (Blum, Anat Ebgi, Philip Martin, "
+                "Luis De Jesus), Culver City proper (Arcana, Von Lintel), West Adams "
+                "and Jefferson Park (Thinkspace Projects, Band of Vices, Chris Sharp "
+                "Gallery)."
+            ),
+            "Santa Monica/Venice": (
+                "Bergamot Station Arts Center (Peter Fetterman, Rosegallery, Craig "
+                "Krull, William Turner and many more under one roof), bG Gallery, "
+                "18th Street Arts Center, Venice (LA Louver), Mar Vista, Malibu."
+            ),
+            "Westside/Brentwood": (
+                "Westwood (Hammer Museum, UCLA galleries), Brentwood (Getty Center), "
+                "Skirball Cultural Center on Sepulveda, Century City, Sawtelle, "
+                "Marian Goodman's LA space if active."
+            ),
+            "South LA/Inglewood": (
+                "Exposition Park (California African American Museum, USC Fisher "
+                "Museum), Leimert Park (Art + Practice, Band of Vices' roots), "
+                "Crenshaw, Inglewood (Residency Art Gallery)."
+            ),
+            "Pasadena/San Gabriel": (
+                "Pasadena (Norton Simon Museum, USC Pacific Asia Museum, Armory "
+                "Center for the Arts, ArtCenter's galleries), the Huntington in San "
+                "Marino, Vincent Price Art Museum in Monterey Park, Alhambra, "
+                "Altadena."
+            ),
+        },
     },
     "tokyo": {
         "display_name": "Tokyo",

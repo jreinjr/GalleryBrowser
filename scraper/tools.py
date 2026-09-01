@@ -9,6 +9,7 @@ import json
 import os
 import re
 import time
+import unicodedata
 from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
@@ -23,6 +24,24 @@ IMAGES_DIR = CONTENT_DIR / "images"
 # subdirectory so the web build's content/*.json glob and the iOS app's
 # "<city>.json" lookup never see it — only verified shows are displayed.
 PENDING_DIR = CONTENT_DIR / "pending"
+
+# A/B sandbox: when set (via set_sandbox), show records and images are written
+# under this directory instead of the real content tree, and coordinate
+# resolution is skipped. Lets two model arms scrape the SAME venues for
+# side-by-side comparison without touching real data or tripping the
+# one-show-per-venue rule against the live pools.
+SANDBOX_DIR: Path | None = None
+
+
+def set_sandbox(path: str | Path | None) -> None:
+    global SANDBOX_DIR
+    SANDBOX_DIR = Path(path).resolve() if path else None
+    if SANDBOX_DIR:
+        SANDBOX_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _content_root() -> Path:
+    return SANDBOX_DIR or CONTENT_DIR
 
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
@@ -122,6 +141,27 @@ def _slugify(text: str) -> str:
     return slug[:60] or "untitled"
 
 
+_NORM_STRIP_SUFFIXES = (" gallery", " galleries", " fine art", " fine arts")
+
+
+def _norm_venue(name: str) -> str:
+    """Normalized venue-name key shared by the one-show-per-venue dedup, the
+    venue directory, and TODO-list matching. Conservative on purpose: a false
+    negative (two spellings of one venue) is advisory-list territory, a false
+    positive would wrongly block a save."""
+    s = unicodedata.normalize("NFKD", name)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = s.lower().replace("&", " and ")
+    s = re.sub(r"[^a-z0-9]+", " ", s).strip()
+    if s.startswith("the "):
+        s = s[4:]
+    for suf in _NORM_STRIP_SUFFIXES:
+        if s.endswith(suf) and len(s) > len(suf) + 2:
+            s = s[: -len(suf)]
+            break
+    return s.strip()
+
+
 def download_image(url: str, city: str, show_slug: str) -> str:
     """Download an image, verify resolution, normalize to JPEG, store it under
     content/images/<city>/<show_slug>/ and return the stored relative path."""
@@ -145,13 +185,13 @@ def download_image(url: str, city: str, show_slug: str) -> str:
     if width > MAX_STORED_WIDTH:
         img = img.resize((MAX_STORED_WIDTH, int(height * MAX_STORED_WIDTH / width)), Image.LANCZOS)
 
-    show_dir = IMAGES_DIR / city / _slugify(show_slug)
+    show_dir = _content_root() / "images" / city / _slugify(show_slug)
     show_dir.mkdir(parents=True, exist_ok=True)
     idx = len(list(show_dir.glob("*.jpg"))) + 1
     path = show_dir / f"{idx:02d}.jpg"
     img.save(path, "JPEG", quality=88, optimize=True)
 
-    rel = str(path.relative_to(CONTENT_DIR))
+    rel = str(path.relative_to(_content_root()))
     note = "high-res" if width >= GOOD_WIDTH else "acceptable but below ideal resolution"
     return json.dumps(
         {"stored": rel, "original_px": [width, height], "quality": note, "images_for_show": idx}
@@ -340,11 +380,11 @@ def attach_images(city_key: str, slug: str) -> str:
 
 
 def _city_file(city_key: str) -> Path:
-    return CONTENT_DIR / f"{city_key}.json"
+    return _content_root() / f"{city_key}.json"
 
 
 def _pending_file(city_key: str) -> Path:
-    return PENDING_DIR / f"{city_key}.json"
+    return _content_root() / "pending" / f"{city_key}.json"
 
 
 def _load_shows_file(path: Path) -> dict:
@@ -364,6 +404,9 @@ def all_city_shows(city_key: str) -> list[dict]:
 
 OPEN_WINDOW_DAYS = 7    # publish only shows on view now or opening within this
 VERDICT_FRESH_DAYS = 14  # placement sweep trusts a verdict at most this old
+FUTURE_SAVE_DAYS = 60   # deep runs may save confirmed shows opening up to this
+                        # far out (they wait in pending; the sweep publishes
+                        # them when the OPEN_WINDOW_DAYS window arrives)
 
 
 def _parse_iso(d: str | None) -> date | None:
@@ -414,6 +457,141 @@ def awaiting_window_only(city_key: str, show: dict,
                 and time.time() - v.get("ts", 0) <= VERDICT_FRESH_DAYS * 86400
                 and show["venue"].get("latitude") is not None
                 and show["venue"].get("longitude") is not None)
+
+
+def pending_reason(city_key: str, show: dict, verdicts: dict | None = None) -> str:
+    """One line on why a pending show isn't published (report/summary use)."""
+    verdicts = verdicts if verdicts is not None else latest_verdicts()
+    if awaiting_window_only(city_key, show, verdicts):
+        return ("verified; publishes when its opening window arrives"
+                if not show_expired(show) else "verified but ended")
+    v = verdicts.get((city_key, show["slug"]))
+    if v and v.get("reason"):
+        return f"{v['status']}: {v['reason']}"
+    if v:
+        return v["status"]
+    return "awaiting verification"
+
+
+# --- deep-run ledgers: skips, session events, venue directory -----------------
+
+SKIPS_FILE = CONTENT_DIR / "spend" / "skips.jsonl"
+EVENTS_FILE = CONTENT_DIR / "spend" / "session_events.jsonl"
+
+SKIP_REASONS = ["no_image", "low_res_only", "unverifiable", "closed_or_between_shows",
+                "appointment_only", "out_of_scope", "duplicate", "other"]
+
+
+def _append_jsonl(path: Path, entry: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def log_event(entry: dict) -> None:
+    """Harness-side session event ledger (tool errors, refusals, budget stops,
+    session ends) — the outlier report's safety net for everything the model
+    never explicitly log_skip'ed."""
+    _append_jsonl(EVENTS_FILE, {"ts": int(time.time()), **entry})
+
+
+LOG_SKIP_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["city", "venue", "neighborhood", "reason", "detail", "url"],
+    "properties": {
+        "city": {"type": "string"},
+        "venue": {"type": "string", "description": "Venue name as it appears on your TODO list (or as you found it)"},
+        "neighborhood": {"type": "string", "description": "The zone you are working"},
+        "reason": {
+            "type": "string", "enum": SKIP_REASONS,
+            "description": "no_image: no downloadable image at all; low_res_only: images exist but none reach 500px wide; unverifiable: venue/show could not be confirmed on a primary source; closed_or_between_shows: venue operating but nothing on view and no confirmed upcoming show; appointment_only: no public walk-in hours; out_of_scope: not an art-viewing venue (or outside this city's scope); duplicate: venue already has a saved show (possibly under another name); other: explain in detail",
+        },
+        "detail": {"type": "string", "description": "One line of specifics: what you found and why it can't be saved (e.g. 'site shows Fall show opening Nov 14, beyond the 60-day horizon' or 'largest image on site is 400px')"},
+        "url": {"type": ["string", "null"], "description": "Most relevant URL you checked, or null"},
+    },
+}
+
+
+def log_skip(args: dict, city_key: str, session: str) -> str:
+    """Record a venue the agent decided not to save, with the reason —
+    feeds the post-run outlier report."""
+    if args["city"] != city_key:
+        raise ValueError(f"city must be '{city_key}'")
+    _append_jsonl(SKIPS_FILE, {
+        "ts": int(time.time()), "session": session, "city": city_key,
+        "venue": args["venue"], "neighborhood": args["neighborhood"],
+        "reason": args["reason"], "detail": args["detail"], "url": args.get("url"),
+    })
+    return json.dumps({"result": "logged", "venue": args["venue"], "reason": args["reason"]})
+
+
+def _directory_file(city_key: str) -> Path:
+    return CONTENT_DIR / "spend" / f"venue_directory-{city_key}.jsonl"
+
+
+RECORD_VENUE_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["city", "name", "neighborhood", "kind", "address", "website", "note"],
+    "properties": {
+        "city": {"type": "string"},
+        "name": {"type": "string", "description": "Venue name in its standard form"},
+        "neighborhood": {"type": "string", "description": "The zone being enumerated"},
+        "kind": {"type": "string",
+                 "enum": ["gallery", "museum", "nonprofit", "project_space", "university", "other"]},
+        "address": {"type": ["string", "null"], "description": "Street address when the directory page shows one, else null"},
+        "website": {"type": ["string", "null"], "description": "Venue website URL when shown, else null"},
+        "note": {"type": ["string", "null"], "description": "Anything useful: district, focus, 'inside Bergamot Station', etc."},
+    },
+}
+
+
+def record_venue(args: dict, city_key: str, neighborhoods: list[str], session: str) -> str:
+    """Append one venue to the city's durable directory (enumeration pass)."""
+    if args["city"] != city_key:
+        raise ValueError(f"city must be '{city_key}'")
+    if args["neighborhood"] not in neighborhoods:
+        raise ValueError(
+            f"neighborhood '{args['neighborhood']}' is not one of {neighborhoods}")
+    _append_jsonl(_directory_file(city_key), {
+        "ts": int(time.time()), "session": session, "city": city_key,
+        "name": args["name"], "neighborhood": args["neighborhood"],
+        "kind": args["kind"], "address": args.get("address"),
+        "website": args.get("website"), "note": args.get("note"),
+    })
+    zone_count = sum(1 for v in load_directory(city_key).values()
+                     if v["neighborhood"] == args["neighborhood"])
+    return json.dumps({"result": "recorded", "venue": args["name"], "zone_count": zone_count})
+
+
+def load_directory(city_key: str) -> dict[str, dict]:
+    """The city's venue directory: latest record per normalized venue name."""
+    out: dict[str, dict] = {}
+    p = _directory_file(city_key)
+    if p.exists():
+        for line in p.read_text().splitlines():
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            out[_norm_venue(e["name"])] = e
+    return out
+
+
+def load_skips(city_key: str) -> list[dict]:
+    """All log_skip entries for a city, oldest first."""
+    out = []
+    if SKIPS_FILE.exists():
+        for line in SKIPS_FILE.read_text().splitlines():
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if e.get("city") == city_key:
+                out.append(e)
+    return out
 
 
 def sweep_placements(cities: list[str], today: date | None = None) -> dict:
@@ -565,6 +743,11 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
             problems.append(f"image not found on disk: {img}")
     if show_expired(record):
         problems.append("show has already ended (end_date is in the past)")
+    start = _parse_iso(record.get("start_date"))
+    if start and start > date.today() + timedelta(days=FUTURE_SAVE_DAYS):
+        problems.append(
+            f"show opens more than {FUTURE_SAVE_DAYS} days out — too far ahead to save; "
+            "log_skip it with reason 'closed_or_between_shows' instead")
     if record["venue"]["neighborhood"] not in neighborhoods:
         problems.append(
             f"neighborhood '{record['venue']['neighborhood']}' is not one of {neighborhoods}"
@@ -574,7 +757,11 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     if problems:
         raise ValueError("Not saved. Fix and retry: " + "; ".join(problems))
 
-    coord_note = resolve_venue_coords(record["venue"], city_key)
+    if SANDBOX_DIR is None:
+        coord_note = resolve_venue_coords(record["venue"], city_key)
+    else:
+        record["venue"]["latitude"] = record["venue"]["longitude"] = None
+        coord_note = "sandbox: coordinate resolution skipped"
     if coord_note is None:
         # Agent-supplied pins never ship; unresolved coordinates block promotion.
         record["venue"]["latitude"] = record["venue"]["longitude"] = None
@@ -587,6 +774,18 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         fcntl.flock(lock, fcntl.LOCK_EX)
         main = _load_shows_file(_city_file(city_key))
         pending = _load_shows_file(_pending_file(city_key))
+        # One show per venue, enforced (the ALREADY SAVED prompt list is
+        # advisory only, and parallel shards never see each other's saves
+        # mid-flight). Same-slug re-saves still upsert.
+        new_key = _norm_venue(record["venue"]["name"])
+        clash = next((s for s in main["shows"] + pending["shows"]
+                      if s["slug"] != record["slug"]
+                      and _norm_venue(s["venue"]["name"]) == new_key), None)
+        if clash:
+            raise ValueError(
+                f"Not saved: venue '{record['venue']['name']}' already has saved show "
+                f"'{clash['slug']}' — one show per venue. If this venue was on your TODO "
+                "list, call log_skip with reason 'duplicate' and move on.")
         was_published = any(s["slug"] == record["slug"] for s in main["shows"])
         if was_published:
             main["shows"] = [s for s in main["shows"] if s["slug"] != record["slug"]]

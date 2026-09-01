@@ -18,21 +18,32 @@ import anthropic
 import tools
 from cities import CITIES
 
-MODEL = "claude-sonnet-5"
+DEFAULT_MODEL = "claude-sonnet-5"
 
-# Claude Sonnet 5 pricing (USD per million tokens) + web search surcharge.
-PRICE_IN = 2.00
-PRICE_OUT = 10.00
-PRICE_CACHE_WRITE = 2.50   # 1.25x input
-PRICE_CACHE_READ = 0.20    # 0.1x input
+# Per-model pricing (USD per million tokens) and capabilities. web_tools
+# "20260209" = the dynamic-filtering search/fetch variants (run code execution
+# under the hood — the container-id echo below); "basic" = the older variants
+# for models without them (Haiku 4.5).
+MODELS = {
+    "claude-sonnet-5": {
+        "in": 2.00, "out": 10.00, "cache_write": 2.50, "cache_read": 0.20,
+        "web_tools": "20260209", "supports_effort": True,
+    },
+    "claude-haiku-4-5": {
+        "in": 1.00, "out": 5.00, "cache_write": 1.25, "cache_read": 0.10,
+        "web_tools": "basic", "supports_effort": False,
+    },
+}
 PRICE_PER_SEARCH = 10.00 / 1000.0
 
 SPEND_DIR = tools.CONTENT_DIR / "spend"
 
 
 class CostMeter:
-    def __init__(self, label: str):
+    def __init__(self, label: str, model: str = DEFAULT_MODEL):
         self.label = label
+        self.model = model
+        self.prices = MODELS[model]
         self.requests = 0
         self.input_tokens = 0
         self.output_tokens = 0
@@ -53,17 +64,17 @@ class CostMeter:
     @property
     def dollars(self) -> float:
         return (
-            self.input_tokens / 1e6 * PRICE_IN
-            + self.output_tokens / 1e6 * PRICE_OUT
-            + self.cache_write_tokens / 1e6 * PRICE_CACHE_WRITE
-            + self.cache_read_tokens / 1e6 * PRICE_CACHE_READ
+            self.input_tokens / 1e6 * self.prices["in"]
+            + self.output_tokens / 1e6 * self.prices["out"]
+            + self.cache_write_tokens / 1e6 * self.prices["cache_write"]
+            + self.cache_read_tokens / 1e6 * self.prices["cache_read"]
             + self.web_searches * PRICE_PER_SEARCH
         )
 
     def summary(self) -> dict:
         return {
             "session": self.label,
-            "model": MODEL,
+            "model": self.model,
             "requests": self.requests,
             "input_tokens": self.input_tokens,
             "output_tokens": self.output_tokens,
@@ -87,13 +98,30 @@ CAMPAIGN MODE — this session is part of a wider effort to cover this city's ga
 - Set featured = true only for roughly the best 1 in 6 shows you save (the Featured feed is curated; the List and Map tabs carry everything). Use editors_pick sparingly for true standouts."""
 
 
-ACCURACY_BLOCK = """
+EXHAUSTIVE_BLOCK = f"""
+
+EXHAUSTIVE MODE — this session is part of a sweep of this city's ENTIRE publicly viewable art scene:
+- Cover EVERY kind of space on your TODO list: blue-chip and mid-size galleries, artist-run and project spaces, nonprofits, university and photography galleries, museums. Small or obscure is GOOD — the only out-of-scope spaces are ones the public cannot walk into (private dealers and appointment-only viewing rooms with no public hours).
+- Work venue by venue through the TODO list in your first message. For each venue: check its own website for the current or next exhibition; if it qualifies, save it; if it does not, call log_skip with the closest reason and one line of detail. EVERY TODO venue must end in exactly one of save_show or log_skip — no silent skips.
+- One show per venue, ever: never save at a venue on the SAVED VENUES list; if a TODO venue turns out to be one already saved under another name, log_skip it with reason "duplicate".
+- Imagery is a hard requirement: if a show has no downloadable image at least 500px wide (1400px+ ideal), log_skip with reason "no_image" or "low_res_only" and move on — do not fight the image validator.
+- A venue between shows with a confirmed exhibition opening within the next {tools.FUTURE_SAVE_DAYS} days: SAVE that future show (it is published automatically once its opening window arrives). Between shows with nothing confirmed: log_skip with reason "closed_or_between_shows" and note any reopening info you found.
+- Set featured = true for roughly the best 1 in 6 shows you save; editors_pick only for true standouts."""
+
+
+def accuracy_block(horizon_days: int = 7) -> str:
+    on_view = ("it is on view now (or opens within 7 days)" if horizon_days <= 7 else
+               f"it is on view now or has a confirmed opening date within the next {horizon_days} days")
+    return f"""
 
 ACCURACY — NON-NEGOTIABLE:
-- The venue's OWN website is ground truth. Before saving any show you must have fetched the venue's own page for that exhibition and confirmed: the exact dates, that it is on view now (or opens within 7 days), the street address, and the venue's current opening hours from its visit/hours page.
+- The venue's OWN website is ground truth. Before saving any show you must have fetched the venue's own page for that exhibition and confirmed: the exact dates, that {on_view}, the street address, and the venue's current opening hours from its visit/hours page.
 - Never trust aggregators, old press coverage, or search snippets for dates, hours, addresses, or phone numbers — they are frequently stale.
 - Confirm the gallery is currently operating (no closure notice, not "by appointment only" unless you record that as its hours).
 - If you cannot verify the venue and its show this way, DO NOT save it — skip it and move on. An accurate shorter list beats a padded inaccurate one."""
+
+
+ACCURACY_BLOCK = accuracy_block()
 
 
 LANGUAGE_BLOCK = """
@@ -106,18 +134,55 @@ LANGUAGE & FORMATTING:
 - venue.address: romanized, Western display order (street/building, district, city) suitable for an English-language app. It must still be geocodable — keep the street number / chōme-banchi-gō block intact."""
 
 
-def build_system_prompt(city_key: str, cfg: dict, target_shows: int, campaign: bool = False) -> str:
+def _guidance_text(cfg: dict) -> str:
+    """City guidance; zone-keyed dicts render only the (possibly sharded)
+    neighborhoods in cfg, so a shard never reads other zones' venue notes."""
+    g = cfg["guidance"]
+    if isinstance(g, str):
+        return g
+    parts = [g["*"]] if "*" in g else []
+    parts += [f"{hood} — {g[hood]}" for hood in cfg["neighborhoods"] if hood in g]
+    return " ".join(parts)
+
+
+def build_system_prompt(city_key: str, cfg: dict, target_shows: int,
+                        campaign: bool = False, deep: bool = False) -> str:
+    if deep:
+        goal = (f"GOAL: work through the venue TODO list in your first message — save a show for "
+                f"every venue that qualifies (on view now, or confirmed to open within the next "
+                f"{tools.FUTURE_SAVE_DAYS} days), log_skip every venue that does not. The list has "
+                f"{target_shows} venues; resolving every one of them matters more than the save count.")
+        step1 = ("1. For each TODO venue, go to its own website first (the TODO line lists it when "
+                 "known) and find the current or next exhibition. web_search only when the site is "
+                 "missing, broken, or unhelpful.")
+        finish = ("- Work until every TODO venue is resolved (save_show or log_skip), then stop and "
+                  "reply with a one-paragraph summary of what you saved and skipped.")
+        mix = "- One show per venue, ever (see EXHAUSTIVE MODE below)."
+        curation = "Follow EXHAUSTIVE MODE below for featured and editors_pick."
+    else:
+        goal = (f"GOAL: research and save {target_shows} notable gallery/museum exhibitions that "
+                "are ON VIEW right now (or opening within the next week) in this city, each with "
+                "high-resolution imagery and accurate venue facts.")
+        step1 = ("1. web_search for current exhibitions (listings sites, the venue's own site, art "
+                 "press). Prefer the venue's own exhibition page as ground truth for titles and dates.")
+        finish = (f"- Keep going until you have saved {target_shows} shows; then stop and reply "
+                  "with a one-paragraph summary of what you saved.")
+        mix = ("- Mix of venues (do not save two shows from the same venue). Include at least one "
+               "museum show when the city has one on view (venue.is_museum = true).")
+        curation = ("Follow CAMPAIGN MODE below for featured and editors_pick." if campaign else
+                    "Mark 1-2 of the strongest entries editors_pick = true. Set featured = true for all saved shows.")
+    mode_block = EXHAUSTIVE_BLOCK if deep else (CAMPAIGN_BLOCK if campaign else "")
     return f"""You are an art-world research agent populating a gallery-guide iOS app.
 Today is {date.today().strftime('%A, %B %d, %Y')}.
 
 CITY: {cfg['display_name']} (city key: "{city_key}")
-GOAL: research and save {target_shows} notable gallery/museum exhibitions that are ON VIEW right now (or opening within the next week) in this city, each with high-resolution imagery and accurate venue facts.
+{goal}
 
-CITY NOTES: {cfg['guidance']}
+CITY NOTES: {_guidance_text(cfg)}
 NEIGHBORHOODS (each venue must be assigned to exactly one): {', '.join(cfg['neighborhoods'])}
 
 WORKFLOW for each show:
-1. web_search for current exhibitions (listings sites, the venue's own site, art press). Prefer the venue's own exhibition page as ground truth for titles and dates.
+{step1}
 2. web_fetch the exhibition page to gather facts: exact title, artist(s), start/end dates, venue address, hours, phone, opening reception if any.
 3. extract_image_urls on the exhibition page (and related pages: artwork checklists, artist pages, press pages) to find imagery. IMAGERY IS A TOP PRIORITY: aim for 4-7 images per show that together cover as much of the art in the show as possible — individual artworks especially, plus 1-2 installation views. Users will view these full screen and zoom in, so always pick the highest-resolution version of each image you can find (1400px+ wide is the bar; bigger is better).
 4. download_image each candidate. The tool rejects low-resolution files and reports the pixel size of what it stored; if a version is small, hunt for the original/full-size file (og:image, srcset largest, linked originals) before settling.
@@ -128,12 +193,12 @@ WRITING THE DESCRIPTION — important:
 - Synthesize facts from your research. Do NOT copy or lightly paraphrase the venue's press release or any article. If sources offer little text, write the description yourself from what the images and listings tell you.
 
 QUALITY BAR:
-- Real shows, currently on view, with dates verified against the venue's site. Never invent shows, dates, addresses, or images.
-- Mix of venues (do not save two shows from the same venue). Include at least one museum show when the city has one on view (venue.is_museum = true).
-- {"Follow CAMPAIGN MODE below for featured and editors_pick." if campaign else "Mark 1-2 of the strongest entries editors_pick = true. Set featured = true for all saved shows."}
+- Real shows, with dates verified against the venue's site. Never invent shows, dates, addresses, or images.
+{mix}
+- {curation}
 - Map pins are geocoded automatically from venue.address — never estimate coordinates; get the address exactly right from the venue's own site instead. Saved shows enter a pending pool and are displayed only after a verification pass confirms them.
-- Keep going until you have saved {target_shows} shows; then stop and reply with a one-paragraph summary of what you saved.
-- Be efficient with searches and fetches — you have limited uses. Do not fetch the same page twice.{ACCURACY_BLOCK}{LANGUAGE_BLOCK}{CAMPAIGN_BLOCK if campaign else ''}"""
+{finish}
+- Be efficient with searches and fetches — you have limited uses. Do not fetch the same page twice.{accuracy_block(tools.FUTURE_SAVE_DAYS if deep else 7)}{LANGUAGE_BLOCK}{mode_block}"""
 
 
 CLIENT_TOOLS = [
@@ -183,6 +248,44 @@ CLIENT_TOOLS = [
         },
     },
 ]
+
+
+LOG_SKIP_TOOL = {
+    "name": "log_skip",
+    "description": "Record a venue you decided NOT to save a show for, with the reason — every skipped venue must be logged so the coverage report can account for it. Call once per skipped venue.",
+    "strict": True,
+    "input_schema": tools.LOG_SKIP_SCHEMA,
+}
+
+RECORD_VENUE_TOOL = {
+    "name": "record_venue",
+    "description": "Add one venue to the city's durable venue directory. Call once per distinct venue you find while enumerating; a later pass researches its shows.",
+    "strict": True,
+    "input_schema": tools.RECORD_VENUE_SCHEMA,
+}
+
+
+def build_enumerate_prompt(city_key: str, cfg: dict, zone: str,
+                           known_names: list[str]) -> str:
+    g = cfg["guidance"]
+    zone_notes = g.get(zone, "") if isinstance(g, dict) else g
+    known = ("\nALREADY KNOWN in this zone (do NOT record these again):\n"
+             + "; ".join(sorted(known_names))) if known_names else ""
+    return f"""You are building a complete directory of publicly viewable art venues for a gallery-guide app.
+Today is {date.today().strftime('%A, %B %d, %Y')}.
+
+CITY: {cfg['display_name']} (city key: "{city_key}")
+ZONE: {zone}{' — ' + zone_notes if zone_notes else ''}
+
+GOAL: enumerate EVERY venue in this zone where the public can walk in and see art: commercial galleries of every size, museums, nonprofits, university galleries, photography galleries, artist-run and project spaces.
+
+METHOD:
+1. web_search broad queries ("{zone} Los Angeles art galleries", "art galleries {zone} 2026", district gallery guides, art-walk sites) and web_fetch 2-4 good directory/listing pages (e.g. Gallery Platform LA, Artsy's gallery lists, neighborhood art-walk guides). Directory pages beat individual venue sites here.
+2. record_venue once per venue, with address/website when the page shows them. Do NOT fetch each venue's own site — a later pass researches shows and verifies details. Completeness beats precision: recording a venue that turns out closed is fine; MISSING one is the failure mode.
+3. EXCLUDE: appointment-only private dealers with no public hours, framers/art-supply shops, tattoo/design studios, one-off pop-ups that already ended, and venues outside this zone (record only venues actually located in {zone}).
+{known}
+
+Stop when further searches stop yielding new names. Then reply with one line: how many venues you recorded."""
 
 
 def build_enrich_prompt(city_key: str, cfg: dict, shows: list[dict], min_images: int) -> str:
@@ -309,7 +412,14 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
              max_iterations: int, budget_usd: float, api_key: str | None = None,
              enrich_min_images: int | None = None, neighborhoods: list[str] | None = None,
              campaign: bool = False, verify: bool = False,
-             verify_pending_only: bool = False) -> dict:
+             verify_pending_only: bool = False,
+             model: str = DEFAULT_MODEL, deep: bool = False,
+             first_user_message: str | None = None,
+             enumerate_zone: str | None = None,
+             fetch_content_tokens: int = 20000,
+             effort: str | None = None,
+             context_editing: bool = False,
+             session_label: str | None = None) -> dict:
     cfg = dict(CITIES[city_key])
     if neighborhoods:
         bad = [n for n in neighborhoods if n not in cfg["neighborhoods"]]
@@ -319,14 +429,30 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
         # save_show validates against this list, so the shard is hard-enforced
         cfg["neighborhoods"] = list(neighborhoods)
     client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
-    meter = CostMeter(f"{'verify-' if verify else ''}{city_key}-{int(time.time())}")
+    mcfg = MODELS[model]
+    meter = CostMeter(
+        session_label or f"{'verify-' if verify else ''}{city_key}-{int(time.time())}",
+        model=model)
+    shows_before = len(tools.all_city_shows(city_key))
 
-    server_tools = [
-        {"type": "web_search_20260209", "name": "web_search", "max_uses": max_searches},
-        {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": max_fetches,
-         "max_content_tokens": 20000},
-    ]
-    all_tools = server_tools + (VERIFY_TOOLS if verify else CLIENT_TOOLS)
+    if mcfg["web_tools"] == "20260209":
+        server_tools = [
+            {"type": "web_search_20260209", "name": "web_search", "max_uses": max_searches},
+            {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": max_fetches,
+             "max_content_tokens": fetch_content_tokens},
+        ]
+    else:  # models without the 20260209 tools (Haiku 4.5) use the basic variants
+        server_tools = [
+            {"type": "web_search_20250305", "name": "web_search", "max_uses": max_searches},
+            {"type": "web_fetch_20250910", "name": "web_fetch", "max_uses": max_fetches,
+             "max_content_tokens": fetch_content_tokens},
+        ]
+    if verify:
+        all_tools = server_tools + VERIFY_TOOLS
+    elif enumerate_zone:
+        all_tools = server_tools + [RECORD_VENUE_TOOL]
+    else:
+        all_tools = server_tools + CLIENT_TOOLS + ([LOG_SKIP_TOOL] if (deep or campaign) else [])
 
     def execute(name: str, args: dict) -> str:
         if name == "extract_image_urls":
@@ -339,6 +465,10 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             return tools.attach_images(city_key, args["slug"])
         if name == "confirm_show":
             return tools.confirm_show(args, city_key)
+        if name == "log_skip":
+            return tools.log_skip(args, city_key, meter.label)
+        if name == "record_venue":
+            return tools.record_venue(args, city_key, cfg["neighborhoods"], meter.label)
         raise ValueError(f"unknown tool {name}")
 
     if verify:
@@ -365,45 +495,93 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             "content": f"Enrich the imagery for the saved {cfg['display_name']} shows "
                        "following your instructions.",
         }]
-    else:
-        system = build_system_prompt(city_key, cfg, target_shows, campaign=campaign)
-        existing_note = ""
-        prior = tools.all_city_shows(city_key)  # published + pending
-        if prior:
-            lines = "\n".join(f'- "{s["title"]}" at {s["venue"]["name"]}' for s in prior)
-            existing_note = (
-                f"\n\nALREADY SAVED for this city (do NOT research or re-save these shows, "
-                f"and do NOT save any show at these venues — add {target_shows} NEW shows "
-                f"at OTHER venues only):\n{lines}"
-            )
+    elif enumerate_zone:
+        known = sorted(
+            {v["name"] for v in tools.load_directory(city_key).values()
+             if v["neighborhood"] == enumerate_zone}
+            | {s["venue"]["name"] for s in tools.all_city_shows(city_key)
+               if s["venue"]["neighborhood"] == enumerate_zone})
+        system = build_enumerate_prompt(city_key, cfg, enumerate_zone, known)
         messages = [{
             "role": "user",
-            "content": f"Populate the {cfg['display_name']} section: research and save "
-                       f"{target_shows} current shows following your instructions." + existing_note,
+            "content": f"Enumerate the {enumerate_zone} zone of {cfg['display_name']} "
+                       "following your instructions.",
         }]
+    else:
+        system = build_system_prompt(city_key, cfg, target_shows,
+                                     campaign=campaign, deep=deep)
+        if first_user_message is not None:
+            messages = [{"role": "user", "content": first_user_message}]
+        else:
+            existing_note = ""
+            prior = tools.all_city_shows(city_key)  # published + pending
+            if prior:
+                lines = "\n".join(f'- "{s["title"]}" at {s["venue"]["name"]}' for s in prior)
+                existing_note = (
+                    f"\n\nALREADY SAVED for this city (do NOT research or re-save these shows, "
+                    f"and do NOT save any show at these venues — add {target_shows} NEW shows "
+                    f"at OTHER venues only):\n{lines}"
+                )
+            messages = [{
+                "role": "user",
+                "content": f"Populate the {cfg['display_name']} section: research and save "
+                           f"{target_shows} current shows following your instructions." + existing_note,
+            }]
 
     nudged = False
     final_text = ""
     container_id = None
+    stop_reason = "not_started"
     for iteration in range(max_iterations):
         def create(cid: str | None):
-            extra = {"container": cid} if cid else {}
-            return client.messages.create(
-                model=MODEL,
-                max_tokens=8000,
-                system=system,
-                messages=messages,
-                tools=all_tools,
-                cache_control={"type": "ephemeral"},
-                **extra,
-            )
+            kwargs: dict = {
+                "model": model,
+                "max_tokens": 8000,
+                "system": system,
+                "messages": messages,
+                "tools": all_tools,
+                "cache_control": {"type": "ephemeral"},
+            }
+            if cid:
+                kwargs["container"] = cid
+            if effort and mcfg["supports_effort"]:
+                kwargs["output_config"] = {"effort": effort}
+            if mcfg["web_tools"] == "basic":
+                # the basic web_fetch variant still gates on its original beta flag
+                kwargs["extra_headers"] = {"anthropic-beta": "web-fetch-2025-09-10"}
+            if context_editing:
+                kwargs["context_management"] = {
+                    "edits": [{"type": "clear_tool_uses_20250919"}]}
+                kwargs["betas"] = ["context-management-2025-06-27"]
+                return client.beta.messages.create(**kwargs)
+            return client.messages.create(**kwargs)
+
+        def create_with_retry(cid: str | None):
+            # transient failures (connection drops, 429s, 5xx) get 3 attempts;
+            # anything else — including the container-expiry 400 handled by the
+            # caller — propagates immediately
+            for attempt in range(3):
+                try:
+                    return create(cid)
+                except anthropic.APIConnectionError as exc:
+                    if attempt == 2:
+                        raise
+                    err = type(exc).__name__
+                except anthropic.APIStatusError as exc:
+                    if attempt == 2 or not (exc.status_code == 429 or exc.status_code >= 500):
+                        raise
+                    err = f"{type(exc).__name__} {exc.status_code}"
+                wait = 5 * (2 ** attempt)
+                print(f"  [{city_key}] transient API error ({err}); retrying in {wait}s",
+                      flush=True)
+                time.sleep(wait)
 
         try:
-            response = create(container_id)
+            response = create_with_retry(container_id)
         except anthropic.BadRequestError as exc:
             if container_id and "container" in str(exc).lower():
                 container_id = None  # expired container — retry without it
-                response = create(None)
+                response = create_with_retry(None)
             else:
                 raise
         meter.record(response.usage)
@@ -423,12 +601,15 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             elif block.type == "tool_use":
                 print(f"  [{city_key} #{iteration}] tool:{block.name} {json.dumps(block.input)[:140]}")
 
+        stop_reason = response.stop_reason
         if response.stop_reason == "pause_turn":
             messages.append({"role": "assistant", "content": response.content})
             continue
 
         if response.stop_reason == "refusal":
             print(f"  [{city_key}] refusal: {response.stop_details}")
+            tools.log_event({"session": meter.label, "city": city_key, "kind": "refusal",
+                             "detail": str(response.stop_details)})
             break
 
         if response.stop_reason != "tool_use":
@@ -445,10 +626,22 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             except Exception as exc:
                 results.append({"type": "tool_result", "tool_use_id": block.id,
                                 "content": f"Error: {exc}", "is_error": True})
+                ctx = {k: block.input[k] for k in ("slug", "show_slug", "url")
+                       if isinstance(block.input.get(k), str)}
+                v = block.input.get("venue")
+                if isinstance(v, dict) and isinstance(v.get("name"), str):
+                    ctx["venue"] = v["name"]
+                elif isinstance(v, str):
+                    ctx["venue"] = v
+                tools.log_event({"session": meter.label, "city": city_key,
+                                 "kind": "tool_error", "tool": block.name,
+                                 "error": str(exc)[:400], **ctx})
         messages.append({"role": "user", "content": results})
 
         if meter.dollars > budget_usd and not nudged:
             nudged = True
+            tools.log_event({"session": meter.label, "city": city_key,
+                             "kind": "budget_nudge", "spent": round(meter.dollars, 4)})
             messages.append({
                 "role": "user",
                 "content": "SYSTEM BUDGET NOTICE: your research budget is nearly exhausted. "
@@ -457,12 +650,16 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             })
         if meter.dollars > budget_usd * 1.5:
             print(f"  [{city_key}] hard budget stop at ${meter.dollars:.2f}")
+            tools.log_event({"session": meter.label, "city": city_key,
+                             "kind": "budget_hard_stop", "spent": round(meter.dollars, 4)})
+            stop_reason = "budget_hard_stop"
             break
 
     meter.save()
-    saved = 0
-    out_path = tools.CONTENT_DIR / f"{city_key}.json"
-    if out_path.exists():
-        saved = len(json.loads(out_path.read_text())["shows"])
-    return {"city": city_key, "shows_saved": saved, "final_message": final_text,
-            **meter.summary()}
+    shows_total = len(tools.all_city_shows(city_key))
+    shows_added = shows_total - shows_before
+    tools.log_event({"session": meter.label, "city": city_key, "kind": "session_end",
+                     "stop_reason": stop_reason, "shows_added": shows_added,
+                     "cost_usd": round(meter.dollars, 4)})
+    return {"city": city_key, "shows_saved": shows_total, "shows_added": shows_added,
+            "final_message": final_text, **meter.summary()}
