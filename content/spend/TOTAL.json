@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 69.4942,
-  "total_requests": 376,
-  "total_web_searches": 744,
-  "total_input_tokens": 2393873,
-  "total_output_tokens": 889645,
-  "total_cache_write_tokens": 5163687,
-  "total_cache_read_tokens": 177303980,
+  "total_cost_usd": 71.433,
+  "total_requests": 393,
+  "total_web_searches": 769,
+  "total_input_tokens": 2394039,
+  "total_output_tokens": 920666,
+  "total_cache_write_tokens": 5312976,
+  "total_cache_read_tokens": 182329195,
   "sessions": [
     {
       "session": "berlin-1788146861",
@@ -28,6 +28,17 @@
       "cache_read_tokens": 2676375,
       "web_searches": 14,
       "cost_usd": 1.6422
+    },
+    {
+      "session": "berlin-1788294686",
+      "model": "claude-sonnet-5",
+      "requests": 15,
+      "input_tokens": 142,
+      "output_tokens": 28582,
+      "cache_write_tokens": 122292,
+      "cache_read_tokens": 4861861,
+      "web_searches": 23,
+      "cost_usd": 1.7942
     },
     {
       "session": "london-1788148709",
@@ -259,6 +270,17 @@
       "cache_read_tokens": 1014729,
       "web_searches": 8,
       "cost_usd": 0.4729
+    },
+    {
+      "session": "verify-berlin-1788295343",
+      "model": "claude-sonnet-5",
+      "requests": 2,
+      "input_tokens": 24,
+      "output_tokens": 2439,
+      "cache_write_tokens": 26997,
+      "cache_read_tokens": 163354,
+      "web_searches": 2,
+      "cost_usd": 0.1446
     },
     {
       "session": "verify-london-1788226481",

@@ -11,7 +11,10 @@ scraper/.venv/bin/python webdemo/build.py          # -> webdemo/dist/gallery-bro
 cd webdemo/dist/gallery-browser-demo && vercel deploy --prod --yes
 ```
 
-Re-run both commands after any scrape to refresh the live demo (same URL). Image
+Normally you don't run these by hand: `scraper/pipeline.py` chains
+scrape -> verify -> build -> deploy in one command (see the root README).
+Only published (verified) shows in `content/<city>.json` are built;
+`content/pending/` is ignored. Same URL on every deploy. Image
 recompression and map tiles are cached in `webdemo/.cache/`, so rebuilds are fast.
 
 Knobs: `--img-cap 7` (images per show), `--max-width 1080`, `--quality 78` (WebP),

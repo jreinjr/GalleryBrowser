@@ -73,6 +73,9 @@ def main() -> None:
     parser.add_argument("--campaign", action="store_true",
                         help="campaign mode: prioritize notable venues, curate featured, "
                              "skip image-poor galleries")
+    parser.add_argument("--no-verify", action="store_true",
+                        help="skip the automatic post-scrape verification pass "
+                             "(scraped shows then stay in the pending pool)")
     args = parser.parse_args()
 
     if args.report:
@@ -111,6 +114,14 @@ def main() -> None:
         )
         results.append(result)
         print(json.dumps(result, indent=2))
+
+    # Scraped shows land in content/pending/ and are displayed only once a
+    # verification pass promotes them, so verifying is part of scraping.
+    if not args.no_verify and args.enrich is None:
+        from run_verify import verify_cities
+        print("\n=== POST-SCRAPE VERIFICATION (pending pool) ===", flush=True)
+        verify_summary = verify_cities(sorted({c for c, _ in runs}), pending_only=True)
+        print(json.dumps(verify_summary["cities"], indent=2, ensure_ascii=False))
 
     total = spend_report()
     print(f"\n=== RUN COMPLETE — total spend so far: ${total['total_cost_usd']:.2f} "

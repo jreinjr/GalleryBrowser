@@ -291,6 +291,7 @@ CROSS-CHECK RULES (each show may carry a "cross-check ->" line of Google Maps / 
 RULES:
 - Never invent data; corrections must come from the venue's own pages (or Google Maps data above, for hours as described).
 - A show that appears only on aggregators/press but not the venue's own site is unverified, unless the venue site is clearly broken or JS-only AND two independent authoritative sources agree on the details.
+- A real, confirmed show that has not opened yet is "verified" (or "corrected"), never "unverified" — publication timing (the on-view/opening-soon window) is enforced automatically after your verdict.
 - Do not modify anything except through confirm_show. Work through every show, then reply with one line: counts of verified / corrected / unverified."""
 
 
@@ -307,7 +308,8 @@ VERIFY_TOOLS = [
 def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: int,
              max_iterations: int, budget_usd: float, api_key: str | None = None,
              enrich_min_images: int | None = None, neighborhoods: list[str] | None = None,
-             campaign: bool = False, verify: bool = False) -> dict:
+             campaign: bool = False, verify: bool = False,
+             verify_pending_only: bool = False) -> dict:
     cfg = dict(CITIES[city_key])
     if neighborhoods:
         bad = [n for n in neighborhoods if n not in cfg["neighborhoods"]]
@@ -340,7 +342,13 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
         raise ValueError(f"unknown tool {name}")
 
     if verify:
-        saved_shows = tools.all_city_shows(city_key)
+        saved_shows = (tools._load_shows_file(tools._pending_file(city_key))["shows"]
+                       if verify_pending_only else tools.all_city_shows(city_key))
+        saved_shows = [s for s in saved_shows if not tools.show_expired(s)]
+        if verify_pending_only:
+            verdicts_now = tools.latest_verdicts()
+            saved_shows = [s for s in saved_shows
+                           if not tools.awaiting_window_only(city_key, s, verdicts_now)]
         if neighborhoods:
             saved_shows = [s for s in saved_shows if s["venue"]["neighborhood"] in neighborhoods]
         system = build_verify_prompt(city_key, cfg, saved_shows)

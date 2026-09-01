@@ -8,6 +8,8 @@ import io
 import json
 import os
 import re
+import time
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -285,7 +287,8 @@ def confirm_show(args: dict, city_key: str) -> str:
                 v["latitude"] = v["longitude"] = None
 
         coords_ok = v.get("latitude") is not None and v.get("longitude") is not None
-        publish = args["status"] in ("verified", "corrected") and coords_ok
+        in_window = show_in_window(show)
+        publish = args["status"] in ("verified", "corrected") and coords_ok and in_window
         target = main if publish else pending
         other = pending if publish else main
         if any(s["slug"] == slug for s in target["shows"]):
@@ -309,6 +312,10 @@ def confirm_show(args: dict, city_key: str) -> str:
         result["note"] = ("kept in pending: coordinates could not be resolved from the "
                          "address — if the venue's site shows a more standard street "
                          "address, call confirm_show again with it as a correction")
+    elif args["status"] in ("verified", "corrected") and not in_window:
+        result["note"] = ("kept in pending: the show is verified but not yet within "
+                         f"the {OPEN_WINDOW_DAYS}-day publication window (or it has "
+                         "ended); placement is automatic — no action needed")
     return json.dumps(result)
 
 
@@ -353,6 +360,98 @@ def all_city_shows(city_key: str) -> list[dict]:
     """Published + pending shows for a city (published first)."""
     return (_load_shows_file(_city_file(city_key))["shows"]
             + _load_shows_file(_pending_file(city_key))["shows"])
+
+
+OPEN_WINDOW_DAYS = 7    # publish only shows on view now or opening within this
+VERDICT_FRESH_DAYS = 14  # placement sweep trusts a verdict at most this old
+
+
+def _parse_iso(d: str | None) -> date | None:
+    try:
+        return date.fromisoformat(d) if d else None
+    except ValueError:
+        return None
+
+
+def show_expired(show: dict, today: date | None = None) -> bool:
+    today = today or date.today()
+    end = _parse_iso(show.get("end_date"))
+    return end is not None and end < today
+
+
+def show_in_window(show: dict, today: date | None = None) -> bool:
+    """The publication rule: on view now, or opening within OPEN_WINDOW_DAYS.
+    Enforced in code, not prompts — agents have rationalized around it."""
+    today = today or date.today()
+    if show_expired(show, today):
+        return False
+    start = _parse_iso(show.get("start_date"))
+    return start is None or start <= today + timedelta(days=OPEN_WINDOW_DAYS)
+
+
+def latest_verdicts() -> dict[tuple[str, str], dict]:
+    """Last confirm_show verdict per (city, slug) from the verify ledger."""
+    verdicts: dict[tuple[str, str], dict] = {}
+    if VERIFY_RESULTS.exists():
+        for line in VERIFY_RESULTS.read_text().splitlines():
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            verdicts[(e["city"], e["slug"])] = e
+    return verdicts
+
+
+def awaiting_window_only(city_key: str, show: dict,
+                         verdicts: dict | None = None) -> bool:
+    """Pending show that holds a fresh positive verdict and resolved coords —
+    nothing left to audit; only the publication window (time) holds it back,
+    and the placement sweep will promote it. Skipped by pending-only verifies
+    so cron runs don't re-audit (and re-pay for) the same show every pass."""
+    v = (verdicts if verdicts is not None else latest_verdicts()).get(
+        (city_key, show["slug"]))
+    return bool(v and v["status"] in ("verified", "corrected")
+                and time.time() - v.get("ts", 0) <= VERDICT_FRESH_DAYS * 86400
+                and show["venue"].get("latitude") is not None
+                and show["venue"].get("longitude") is not None)
+
+
+def sweep_placements(cities: list[str], today: date | None = None) -> dict:
+    """Deterministic, API-free publication sweep run before each verify pass:
+    demote published shows now outside the window (ended, or opening too far
+    out); promote pending shows that entered the window already holding a
+    fresh verified verdict with resolved coordinates. This is what lets an
+    unattended cron loop retire and release shows on time by itself."""
+    today = today or date.today()
+    verdicts = latest_verdicts()
+    actions: dict = {"demoted": [], "promoted": []}
+    for c in cities:
+        lock_path = CONTENT_DIR / f".{c}.json.lock"
+        with open(lock_path, "w") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            main = _load_shows_file(_city_file(c))
+            pending = _load_shows_file(_pending_file(c))
+            changed = False
+            for s in list(main["shows"]):
+                if not show_in_window(s, today):
+                    main["shows"].remove(s)
+                    pending["shows"].append(s)
+                    changed = True
+                    actions["demoted"].append({
+                        "city": c, "slug": s["slug"],
+                        "reason": "ended" if show_expired(s, today)
+                        else f"opens more than {OPEN_WINDOW_DAYS} days out"})
+            for s in list(pending["shows"]):
+                if (show_in_window(s, today)
+                        and awaiting_window_only(c, s, verdicts)):
+                    pending["shows"].remove(s)
+                    main["shows"].append(s)
+                    changed = True
+                    actions["promoted"].append({"city": c, "slug": s["slug"]})
+            if changed:
+                _write_shows_file(_city_file(c), main)
+                _write_shows_file(_pending_file(c), pending)
+    return actions
 
 
 GEOCODE_OK_TYPES = {"ROOFTOP", "RANGE_INTERPOLATED", "GEOMETRIC_CENTER"}
@@ -464,6 +563,8 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     for img in record["images"]:
         if not (CONTENT_DIR / img).is_file():
             problems.append(f"image not found on disk: {img}")
+    if show_expired(record):
+        problems.append("show has already ended (end_date is in the past)")
     if record["venue"]["neighborhood"] not in neighborhoods:
         problems.append(
             f"neighborhood '{record['venue']['neighborhood']}' is not one of {neighborhoods}"
@@ -504,4 +605,8 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     result["note"] = coord_note or (
         "coordinates could not be resolved from this address — the show is saved "
         "but cannot be published until the address geocodes; double-check it")
+    if not show_in_window(record):
+        result["window_note"] = (
+            f"show opens more than {OPEN_WINDOW_DAYS} days out; it will be "
+            "published automatically once within the window")
     return json.dumps(result)

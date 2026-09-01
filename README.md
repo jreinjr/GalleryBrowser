@@ -10,7 +10,8 @@ New York, Los Angeles, Berlin, London, Paris, and Venice.
 GalleryBrowser.xcodeproj   Xcode project (iOS 17+, SwiftUI)
 GalleryBrowser/            App source
 content/                   Scraped data bundled into the app (folder reference)
-  <city>.json              Show records per city
+  <city>.json              PUBLISHED (verified) show records per city
+  pending/<city>.json      Scraped shows awaiting verification (never displayed)
   images/<city>/<slug>/    Downloaded high-res show imagery (JPEG)
   spend/                   Per-session API cost ledgers + TOTAL.json
 scraper/                   Claude-powered research agent + harness
@@ -27,11 +28,29 @@ refreshes the in-app data.
 
 ## Running the scraper agent
 
+The one-command pipeline scrapes, verifies, rebuilds the web demo, and
+deploys — safe to run unattended because only verified shows are published:
+
 ```
-scraper/.venv/bin/python scraper/run_scrape.py --city seattle --target 9
-scraper/.venv/bin/python scraper/run_scrape.py --all-secondary   # other cities, 3 shows each
-scraper/.venv/bin/python scraper/run_scrape.py --report          # spend report
+scraper/.venv/bin/python scraper/pipeline.py --city seattle --target 9
+scraper/.venv/bin/python scraper/pipeline.py --all-secondary        # other cities
+scraper/.venv/bin/python scraper/pipeline.py --campaign --city los-angeles --max-shows 50
+scraper/.venv/bin/python scraper/pipeline.py --verify-only          # promote pending + ship
+scraper/.venv/bin/python scraper/pipeline.py --verify-only --full   # re-audit everything
 ```
+
+Add `--no-deploy` / `--no-build` to stop earlier. The underlying stages remain
+runnable on their own (`run_scrape.py`, `run_campaign.py`, `run_verify.py`,
+`webdemo/build.py`); a bare `run_scrape.py`/`run_campaign.py` auto-verifies
+what it scraped unless passed `--no-verify`. `run_scrape.py --report` prints
+the spend ledger.
+
+New shows land in `content/pending/<city>.json` and are promoted to the
+published `content/<city>.json` only when a fact-check agent verifies them
+against the venue's own site AND their pin resolves deterministically
+(Google Geocoding cross-checked against the venue's Places listing — the
+LLM never supplies coordinates). Unverified shows are demoted back to
+pending, never deleted.
 
 The agent (Claude Sonnet 5) drives Anthropic server-side web search/fetch plus
 local tools that extract candidate image URLs from pages, download and

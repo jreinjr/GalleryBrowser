@@ -4,8 +4,12 @@ verified/corrected shows with resolved coordinates are promoted to the
 published <city>.json the apps display; everything else stays in — or is
 demoted to — content/pending/<city>.json. Nothing is deleted.
 
+Also importable: run_scrape/run_campaign/pipeline call verify_cities() to
+verify automatically after scraping (pending pool only, the cheap default).
+
 Usage:
-    python run_verify.py --all
+    python run_verify.py --all              # full audit, published + pending
+    python run_verify.py --all --pending    # only shows awaiting promotion
     python run_verify.py --city tokyo
 """
 
@@ -32,30 +36,47 @@ def city_shows(city: str) -> list[dict]:
     return tools.all_city_shows(city)  # published + pending both need verdicts
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--city", choices=sorted(CITIES))
-    parser.add_argument("--all", action="store_true")
-    parser.add_argument("--stagger", type=float, default=15.0)
-    args = parser.parse_args()
+def verify_cities(cities: list[str], pending_only: bool = False,
+                  stagger: float = 15.0) -> dict:
+    """Cross-check + agent-verify shows for the given cities; placement
+    (promote/demote between pending and published) happens in confirm_show.
 
-    load_env()
-    cities = [args.city] if args.city else \
-        [c for c in CITIES if city_shows(c)] if args.all else \
-        sys.exit("pass --city or --all")
-
-    # deterministic cross-check first (Google Places + OSM); agent sessions read its output
+    pending_only audits just the pending pool — the automation default after
+    a scrape, since that is what blocks publication. A full audit (False)
+    re-verifies published shows too. Returns {"sessions": [...], "cities":
+    {...}} and is a cheap no-op when there is nothing to verify.
+    """
     import crosscheck
-    print("=== cross-check pass ===", flush=True)
-    crosscheck.run(cities)
-    print("=== agent verification pass ===", flush=True)
+
+    # free deterministic pass first: retire ended shows, release window-blocked
+    # ones that already hold a fresh verdict
+    sweep = tools.sweep_placements(list(cities))
+    for a in sweep["demoted"]:
+        print(f"sweep: demoted {a['city']}/{a['slug']} ({a['reason']})", flush=True)
+    for a in sweep["promoted"]:
+        print(f"sweep: promoted {a['city']}/{a['slug']}", flush=True)
+
+    verdicts_now = tools.latest_verdicts()
+
+    def inventory(c: str) -> list[dict]:
+        shows = (tools._load_shows_file(tools._pending_file(c))["shows"]
+                 if pending_only else tools.all_city_shows(c))
+        shows = [s for s in shows if not tools.show_expired(s)]
+        if pending_only:
+            # skip shows only waiting out the publication window — nothing to
+            # audit, and cron runs must not re-pay to re-verify them each pass
+            shows = [s for s in shows
+                     if not tools.awaiting_window_only(c, s, verdicts_now)]
+        return shows
 
     # build jobs: (city, neighborhoods-or-None, n_shows)
     jobs: list[tuple[str, list[str] | None, int]] = []
+    audited: dict[str, list[str]] = {}
     for c in cities:
-        shows = city_shows(c)
+        shows = inventory(c)
         if not shows:
             continue
+        audited[c] = [s["slug"] for s in shows]
         if len(shows) > SHARD_THRESHOLD:
             for hood in CITIES[c]["neighborhoods"]:
                 n = sum(1 for s in shows if s["venue"]["neighborhood"] == hood)
@@ -63,13 +84,24 @@ def main() -> None:
                     jobs.append((c, [hood], n))
         else:
             jobs.append((c, None, len(shows)))
+    if not jobs:
+        print("nothing to verify" + (" (pending pool empty or only awaiting "
+                                     "its publication window)" if pending_only else ""),
+              flush=True)
+        return {"sessions": [], "cities": {}, "sweep": sweep}
+
+    affected = sorted({c for c, _, _ in jobs})
+    # deterministic cross-check first (Google Places + OSM); agent sessions read its output
+    print("=== cross-check pass ===", flush=True)
+    crosscheck.run(affected)
+    print("=== agent verification pass ===", flush=True)
 
     start_ts = int(time.time())
     results_lock = threading.Lock()
-    session_reports = []
+    session_reports: list[dict] = []
 
     def worker(idx: int, city: str, hoods: list[str] | None, n: int) -> None:
-        time.sleep(idx * args.stagger)
+        time.sleep(idx * stagger)
         label = f"{city}" + (f"/{hoods[0]}" if hoods else "")
         print(f"[verify {label}] {n} shows", flush=True)
         try:
@@ -79,6 +111,7 @@ def main() -> None:
                 max_iterations=max(30, 8 * n),
                 budget_usd=max(1.5, 0.30 * n),
                 neighborhoods=hoods, verify=True,
+                verify_pending_only=pending_only,
             )
             with results_lock:
                 session_reports.append({"job": label, "cost": r["cost_usd"]})
@@ -108,29 +141,42 @@ def main() -> None:
 
     # placement already happened inside confirm_show; report the outcome
     summary = {}
-    for c in cities:
+    for c in affected:
         published = tools._load_shows_file(tools._city_file(c))["shows"]
         pending = tools._load_shows_file(tools._pending_file(c))["shows"]
-        if not published and not pending:
-            continue
         counts = {"verified": 0, "corrected": 0, "unverified": 0}
-        unchecked = []
-        for s in published + pending:
-            v = verdicts.get((c, s["slug"]))
-            if v is None:
-                unchecked.append(s["slug"])
-            else:
+        for (vc, _slug), v in verdicts.items():
+            if vc == c and v["status"] in counts:
                 counts[v["status"]] += 1
         summary[c] = {
-            **counts, "unchecked": unchecked, "published": len(published),
+            **counts,
+            "unchecked": [slug for slug in audited.get(c, [])
+                          if (c, slug) not in verdicts],
+            "published": len(published),
             "pending": [{"slug": s["slug"], "venue": s["venue"]["name"],
                          "reason": (verdicts.get((c, s["slug"])) or {}).get("reason")}
                         for s in pending],
         }
+    return {"sessions": session_reports, "cities": summary, "sweep": sweep}
 
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--city", choices=sorted(CITIES))
+    parser.add_argument("--all", action="store_true")
+    parser.add_argument("--pending", action="store_true",
+                        help="audit only the pending pool (what blocks publication)")
+    parser.add_argument("--stagger", type=float, default=15.0)
+    args = parser.parse_args()
+
+    load_env()
+    cities = [args.city] if args.city else \
+        [c for c in CITIES if city_shows(c)] if args.all else \
+        sys.exit("pass --city or --all")
+
+    out = verify_cities(cities, pending_only=args.pending, stagger=args.stagger)
     spend_report()
-    print(json.dumps({"sessions": session_reports, "cities": summary}, indent=2,
-                     ensure_ascii=False))
+    print(json.dumps(out, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

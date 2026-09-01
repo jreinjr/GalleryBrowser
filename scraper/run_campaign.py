@@ -29,10 +29,9 @@ LOG_DIR = tools.CONTENT_DIR / "spend" / "logs"
 
 
 def show_count(city: str) -> int:
-    path = tools.CONTENT_DIR / f"{city}.json"
-    if not path.exists():
-        return 0
-    return len(json.loads(path.read_text()).get("shows", []))
+    # published + pending: fresh scrapes land in the pending pool, so campaign
+    # progress/saturation tracking must count both
+    return len(tools.all_city_shows(city))
 
 
 def campaign_spend(city: str, since_ts: int) -> float:
@@ -67,7 +66,12 @@ def main() -> None:
                         help="number of parallel shards (default: one per neighborhood)")
     parser.add_argument("--stagger", type=float, default=30.0,
                         help="seconds between shard starts")
+    parser.add_argument("--no-verify", action="store_true",
+                        help="skip the automatic end-of-campaign verification pass")
     args = parser.parse_args()
+
+    from run_scrape import load_env
+    load_env()
 
     hoods = CITIES[args.city]["neighborhoods"]
     n_shards = min(args.shards or len(hoods), len(hoods))
@@ -112,6 +116,7 @@ def main() -> None:
                 "--target", str(target),
                 "--budget", str(args.session_budget),
                 "--campaign",
+                "--no-verify",  # one verification pass at campaign end, not per session
             ]
             print(f"[shard {shard_slug}] session {session_n}: target {target} -> {log_path.name}",
                   flush=True)
@@ -134,11 +139,18 @@ def main() -> None:
     for t in threads:
         t.join()
 
+    verify_summary = None
+    if not args.no_verify:
+        from run_verify import verify_cities
+        print("\n=== POST-CAMPAIGN VERIFICATION (pending pool) ===", flush=True)
+        verify_summary = verify_cities([args.city], pending_only=True)
+
     summary = {
         "city": args.city,
         "final_show_count": show_count(args.city),
         "campaign_spend_usd": round(campaign_spend(args.city, start_ts), 4),
         "sessions": log,
+        "verification": (verify_summary or {}).get("cities"),
     }
     print(json.dumps(summary, indent=2))
 
