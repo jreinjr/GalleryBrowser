@@ -183,6 +183,9 @@ def run(city_keys: list[str], fix: bool = False) -> dict:
     out: dict[str, dict] = {}
     flags_count: dict[str, int] = {}
     fixed_count = 0
+    # A venue may hold several shows: one Places / one Nominatim call per venue.
+    google_memo: dict[tuple, dict] = {}
+    osm_memo: dict[tuple, dict] = {}
     for city in city_keys:
         city_name = CITIES[city]["display_name"]
         for pool, path in (("published", tools._city_file(city)),
@@ -206,11 +209,15 @@ def run(city_keys: list[str], fix: bool = False) -> dict:
                         fixed_count += 1
                 has_coords = v.get("latitude") is not None and v.get("longitude") is not None
                 if key:
-                    g = google_lookup(key, v["name"], v["address"], city_name)
+                    gk = (tools._norm_venue(v["name"]), (v.get("address") or "").strip().lower(), city)
+                    if gk not in google_memo:
+                        google_memo[gk] = google_lookup(key, v["name"], v["address"], city_name)
+                    g = dict(google_memo[gk])
                     if g.get("found") and g.get("lat") is not None and has_coords:
                         g["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
                                                             g["lat"], g["lng"]))
                     entry["google"] = g
+                    tools._registry_hook("on_crosscheck", city, v["name"], g)
                     status = g.get("status")
                     if status and status != "OPERATIONAL":
                         entry["flags"].append(f"GOOGLE_{status}")
@@ -225,7 +232,10 @@ def run(city_keys: list[str], fix: bool = False) -> dict:
                             fixed = f"FIXED (pin moved {g['distance_m']}m to listing)"
                             pool_changed = True
                             fixed_count += 1
-                o = nominatim_geocode(v["address"], city_name)
+                ok_ = ((v.get("address") or "").strip().lower(), city)
+                if ok_ not in osm_memo:
+                    osm_memo[ok_] = nominatim_geocode(v["address"], city_name)
+                o = dict(osm_memo[ok_])
                 if o.get("found") and has_coords:
                     o["distance_m"] = round(haversine_m(v["latitude"], v["longitude"],
                                                         o["lat"], o["lng"]))
@@ -248,7 +258,8 @@ def run(city_keys: list[str], fix: bool = False) -> dict:
         print(f"\n{fixed_count} pin(s) snapped to Google Places listings")
     CROSSCHECK_PATH.parent.mkdir(parents=True, exist_ok=True)
     CROSSCHECK_PATH.write_text(json.dumps(out, indent=1, ensure_ascii=False))
-    print(f"\nwrote {CROSSCHECK_PATH} ({len(out)} venues); flags: {flags_count or 'none'}")
+    print(f"\nwrote {CROSSCHECK_PATH} ({len(out)} shows, {len(google_memo) or len(osm_memo)} "
+          f"venue lookups); flags: {flags_count or 'none'}")
     return out
 
 

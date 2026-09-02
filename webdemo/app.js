@@ -33,6 +33,15 @@
   const city = () => cityByKey[state.cityKey];
   const cityShows = () => showsByCity[state.cityKey] || [];
   const showId = s => s.city + '/' + s.slug;
+  // Shows embed their own venue copy; this key identifies "the same venue"
+  // across shows (normalized name + coordinate to ~1 m) so several concurrent
+  // shows collapse into one map pin / one venue page.
+  const venueKey = v => {
+    const name = (v.name || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const pos = Number(v.lat).toFixed(5) + ',' + Number(v.lng).toFixed(5);
+    return name ? name + '@' + pos : pos;
+  };
+  const venueShows = v => { const k = venueKey(v); return cityShows().filter(s => venueKey(s.venue) === k); };
   const displayName = s => s.artist || s.title;
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
@@ -827,9 +836,13 @@
         height: 340, dots: 'bottom', expand: true,
         onTap: i => openViewer(s.images, i),
       });
+      // opts.subPage: pushed on top of another page inside a sheet, so the
+      // leading button reads as "back" rather than "close".
       const leading = asSheet
         ? el('button', {
-            class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close',
+            class: 'circle-btn',
+            html: opts.subPage ? ICONS.chevronLeft : ICONS.xmark,
+            'aria-label': opts.subPage ? 'Back' : 'Close',
             onclick: () => (opts.onClose ? opts.onClose() : closeSheet()),
           })
         : backBtn(state.tab);
@@ -849,7 +862,10 @@
         onclick: () => toggleSaved(showId(s)),
       }, el('span', null, state.saved.has(showId(s)) ? 'Added to My Shows' : 'Add to My Shows'));
 
-      const venueBlock = el('button', { class: 'venue-block', onclick: () => pushOrSheet(venuePage(s.venue)) },
+      const venueBlock = el('button', {
+        class: 'venue-block',
+        onclick: () => pushOrSheet(venuePage(s.venue, asSheet ? { inSheet: true } : undefined)),
+      },
         el('div', { class: 'vb-text' },
           el('div', { class: 'vb-name' }, listLine(s.venue)),
           el('div', { class: 'vb-line' }, fullAddress(s.venue)),
@@ -881,7 +897,20 @@
     return page;
   }
 
-  function venuePage(v) {
+  // Opens a show detail as a sub-page inside an already-open sheet (the map
+  // tab has no page stack of its own, so sheet pages layer instead of pushing).
+  function pushShowInSheet(sheetEl, s) {
+    const p = showDetailPage([s], 0, { asSheet: true, subPage: true, onClose: () => p.remove() });
+    p.dataset.sheetSub = '1';
+    sheetEl.appendChild(p);
+  }
+
+  // opts.asSheet: this page is the root of a sheet (X closes the sheet).
+  // opts.inSheet: pushed inside a sheet (back button is rewired by the caller).
+  // In either sheet case, show rows layer a show detail inside the same sheet.
+  function venuePage(v, opts) {
+    const asSheet = !!(opts && opts.asSheet);
+    const inSheet = asSheet || !!(opts && opts.inSheet);
     const cty = city();
     const mapCard = el('div', { class: 'map-card' });
     const img = el('img', { class: 'map-crop', src: cty.map.src, alt: '' });
@@ -905,21 +934,38 @@
       v.phone ? el('a', { class: 'capsule-btn', href: 'tel:' + v.phone.replace(/[^\d+]/g, '') },
         icon('phone'), el('span', null, 'Call venue')) : null);
 
+    const page = el('div', { class: 'page' });
+    const shows = venueShows(v);
+    const openShow = inSheet ? s => pushShowInSheet(page.parentElement, s) : pushDetailFromRow;
+    const showsSection = shows.length
+      ? el('div', { class: 'venue-shows' },
+          el('div', { class: 'group-header' }, 'Shows'),
+          el('div', { class: 'group' }, ...shows.map(s => showRow(s, openShow))))
+      : null;
+
+    const leading = asSheet
+      ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close' })
+      : backBtn(state.tab);
+    if (asSheet) leading.onclick = () => closeSheet();
+
     const scroll = el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' }, backBtn(state.tab), el('span')),
+      el('div', { class: 'navrow' }, leading, el('span')),
       el('div', { class: 'venue-body' },
         el('div', { class: 'venue-title' }, v.name),
         el('div', { class: 'venue-lines' },
           el('div', null, fullAddress(v)),
           ...v.hours.map(h => el('div', null, h))),
+        showsSection,
         mapCard,
         actions));
-    return el('div', { class: 'page' }, scroll);
+    page.appendChild(scroll);
+    return page;
   }
 
-  function showRow(s) {
+  // onOpen(show) overrides the default push-to-detail (used inside sheets).
+  function showRow(s, onOpen) {
     const row = el('div', { class: 'show-row' },
-      el('button', { class: 'sr-text', onclick: () => pushDetailFromRow(s) },
+      el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
         el('div', { class: 'sr-name' }, displayName(s)),
         el('div', { class: 'sr-venue' }, listLine(s.venue)),
         el('div', { class: 'sr-addr' }, s.venue.address)),
@@ -1078,9 +1124,13 @@
       if (state.mapFilter === 'receptions') return receptionShows();
       return cityShows();
     },
+    venueKey,
     onPinTap: s => {
       const p = showDetailPage([s], 0, { asSheet: true });
       openSheet(p);
+    },
+    onVenueTap: v => {
+      openSheet(venuePage(v, { asSheet: true }));
     },
   });
 

@@ -2,6 +2,13 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+/// Decodes to nil instead of throwing, so one malformed record in an array is
+/// dropped rather than failing the whole array.
+struct Failable<T: Decodable>: Decodable {
+    let value: T?
+    init(from decoder: Decoder) throws { value = try? T(from: decoder) }
+}
+
 /// Loads bundled show content (scraped JSON + images) and holds app state:
 /// selected city and the user's saved ("My Shows") list.
 @MainActor
@@ -44,8 +51,10 @@ final class ContentStore: ObservableObject {
         }
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        struct Payload: Codable { let shows: [Show] }
-        let shows = (try? decoder.decode(Payload.self, from: data))?.shows ?? []
+        // One bad record must not empty the whole city: decode each show
+        // failably and keep the ones that parse.
+        struct Payload: Decodable { let shows: [Failable<Show>] }
+        let shows = (try? decoder.decode(Payload.self, from: data))?.shows.compactMap(\.value) ?? []
         cache[cityKey] = shows
         return shows
     }
@@ -82,6 +91,12 @@ final class ContentStore: ObservableObject {
     }
 
     var museumShows: [Show] { currentShows.filter { $0.venue.isMuseum } }
+
+    /// All current shows at the given venue (matched by name + coordinate).
+    func shows(at venue: Venue) -> [Show] {
+        let key = venue.groupingKey
+        return currentShows.filter { $0.venue.groupingKey == key }
+    }
 
     var openingThisWeek: [Show] {
         let now = Date()

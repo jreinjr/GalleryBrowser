@@ -184,6 +184,9 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
   background: rgba(0, 0, 0, 0.35); padding: 1px 5px; border-radius: 4px;
 }
 .venue-actions { display: flex; flex-direction: column; gap: 12px; }
+.venue-shows { margin-top: 20px; }
+.venue-shows .group-header { padding: 0 16px 7px; }
+.venue-shows .group { margin: 0; }
 
 /* ---- Lists ---- */
 .group { background: var(--row); border-radius: 12px; margin: 0 16px 22px; overflow: hidden; }
@@ -292,9 +295,19 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .map-menu button + button { border-top: 0.5px solid var(--sep); }
 .map-menu svg { width: 15px; height: 15px; color: #fff; }
 .map-pin {
+  position: relative;
   width: 22px; height: 22px; border-radius: 50%;
   background: rgba(97, 173, 242, 0.85); border: 1px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
+}
+/* Count of concurrent shows at a venue, shown when a pin stands for more than one. */
+.map-pin-count {
+  position: absolute; top: -7px; right: -9px;
+  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px;
+  background: #fff; color: #000;
+  font-size: 10px; font-weight: 700; line-height: 17px; text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 .map-pin-label {
   position: absolute; top: 24px; left: 50%; transform: translateX(-50%);

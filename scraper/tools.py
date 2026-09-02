@@ -29,7 +29,7 @@ PENDING_DIR = CONTENT_DIR / "pending"
 # under this directory instead of the real content tree, and coordinate
 # resolution is skipped. Lets two model arms scrape the SAME venues for
 # side-by-side comparison without touching real data or tripping the
-# one-show-per-venue rule against the live pools.
+# same-show dedup against the live pools.
 SANDBOX_DIR: Path | None = None
 
 
@@ -42,6 +42,34 @@ def set_sandbox(path: str | Path | None) -> None:
 
 def _content_root() -> Path:
     return SANDBOX_DIR or CONTENT_DIR
+
+
+# Current agent session's trace (venues.SessionTrace), set by the harness.
+# Registry hooks use it for URL attribution, per-venue cost slices and image
+# provenance. None outside a session (CLI tools, tests).
+SESSION = None
+
+
+def set_session(trace) -> None:
+    global SESSION
+    SESSION = trace
+
+
+def _registry_hook(fn_name: str, *args, **kwargs):
+    """Call venues.<fn_name> without letting registry trouble break a save.
+    No-op in A/B sandbox mode (registry is real-data only)."""
+    if SANDBOX_DIR is not None:
+        return None
+    try:
+        import venues
+        return getattr(venues, fn_name)(*args, **kwargs)
+    except Exception as exc:  # never fail the agent tool over bookkeeping
+        try:
+            log_event({"session": getattr(SESSION, "label", None), "kind": "registry_error",
+                       "hook": fn_name, "error": str(exc)[:300]})
+        except Exception:
+            pass
+        return None
 
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
@@ -116,6 +144,16 @@ def extract_image_urls(url: str) -> str:
     resp.raise_for_status()
     if "charset" not in resp.headers.get("Content-Type", "").lower():
         resp.encoding = resp.apparent_encoding
+    if SESSION is not None:
+        SESSION.add_url(resp.url, "client_fetch")
+        _registry_hook("write_evidence", SESSION.city, resp.url, "client_html",
+                       resp.text[:300_000], SESSION.label)
+        try:
+            from cities import CITIES as _CITIES
+            _registry_hook("on_fetch", SESSION.city, resp.url, resp.text[:300_000], SESSION,
+                           _CITIES.get(SESSION.city, {}))
+        except Exception:
+            pass
     parser = _ImgParser(resp.url)
     try:
         parser.parse_error = None
@@ -163,6 +201,18 @@ def _norm_venue(name: str) -> str:
     return s.strip()
 
 
+def _norm_title(title: str | None) -> str:
+    """Normalized show-title key for same-show dedup at one venue (a venue may
+    hold several concurrent shows; the same show re-saved under a new slug
+    must not)."""
+    import html as _html
+    s = unicodedata.normalize("NFKD", _html.unescape(title or ""))
+    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
+    s = re.sub(r"[^a-z0-9]+", " ", s).strip()
+    s = re.sub(r"^(the|a|an) ", "", s)
+    return re.sub(r"\s+", " ", s)
+
+
 def download_image(url: str, city: str, show_slug: str) -> str:
     """Download an image, verify resolution, normalize to JPEG, store it under
     content/images/<city>/<show_slug>/ and return the stored relative path."""
@@ -193,6 +243,8 @@ def download_image(url: str, city: str, show_slug: str) -> str:
     img.save(path, "JPEG", quality=88, optimize=True)
 
     rel = str(path.relative_to(_content_root()))
+    if SESSION is not None:
+        SESSION.image_sources[rel] = {"url": url, "px": [width, height]}
     note = "high-res" if width >= GOOD_WIDTH else "acceptable but below ideal resolution"
     return json.dumps(
         {"stored": rel, "original_px": [width, height], "quality": note, "images_for_show": idx}
@@ -203,7 +255,7 @@ SAVE_SHOW_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "required": [
-        "city", "slug", "title", "artist", "start_date", "end_date", "description",
+        "city", "slug", "title", "artist", "start_date", "end_date", "dates_note", "description",
         "editors_pick", "featured", "reception", "images", "source_urls", "venue",
     ],
     "properties": {
@@ -211,8 +263,9 @@ SAVE_SHOW_SCHEMA = {
         "slug": {"type": "string", "description": "Short kebab-case id unique within the city; must match the show_slug used when downloading this show's images"},
         "title": {"type": "string", "description": "Exhibition title (shown in italics)"},
         "artist": {"type": ["string", "null"], "description": "Artist name(s), or null when the exhibition title stands alone (e.g. a themed group show)"},
-        "start_date": {"type": "string", "description": "ISO date YYYY-MM-DD"},
-        "end_date": {"type": "string", "description": "ISO date YYYY-MM-DD (last day on view)"},
+        "start_date": {"type": ["string", "null"], "description": "ISO date YYYY-MM-DD (opening day). null ONLY when the venue's own page confirms the show is on view now but publishes no opening date."},
+        "end_date": {"type": ["string", "null"], "description": "ISO date YYYY-MM-DD (last day on view). null when the venue publishes no closing date — never guess one; the show is held until a later pass fills it."},
+        "dates_note": {"type": ["string", "null"], "description": "null when the venue publishes exact opening AND closing dates. Otherwise one line quoting what its page shows, e.g. \"page says 'on view now', no closing date\" or \"listed under 'August exhibitions' only (saved as Aug 1-31)\"."},
         "description": {
             "type": "string",
             "description": "2-4 paragraphs separated by blank lines. YOUR OWN original writing synthesizing what the show is, what's in it, and why it matters. Never paste or lightly rephrase the venue's press release.",
@@ -317,6 +370,10 @@ def confirm_show(args: dict, city_key: str) -> str:
                 elif field in CORRECTABLE_VENUE_FIELDS:
                     show["venue"][field] = value
                     applied.append(field)
+            if "end_date" in applied and show.get("end_date"):
+                show["dates_note"] = None   # the correction is authoritative
+        show.setdefault("dates_note", None)
+        _set_dates_meta(show, int(_time.time()) if args["status"] in ("verified", "corrected") else None)
         # Coordinates are deterministic, never agent memory: re-resolve when
         # the address changed or the pin is still unresolved from scrape time.
         v = show["venue"]
@@ -329,7 +386,9 @@ def confirm_show(args: dict, city_key: str) -> str:
 
         coords_ok = v.get("latitude") is not None and v.get("longitude") is not None
         in_window = show_in_window(show)
-        publish = args["status"] in ("verified", "corrected") and coords_ok and in_window
+        dates_known = dates_ok(show)
+        publish = (args["status"] in ("verified", "corrected") and coords_ok and in_window
+                   and dates_known)
         target = main if publish else pending
         other = pending if publish else main
         if any(s["slug"] == slug for s in target["shows"]):
@@ -341,9 +400,11 @@ def confirm_show(args: dict, city_key: str) -> str:
         _write_shows_file(_city_file(city_key), main)
         _write_shows_file(_pending_file(city_key), pending)
     placement = "published" if publish else "pending"
+    _registry_hook("on_confirm_show", show, city_key, placement)
     entry = {"ts": int(_time.time()), "city": city_key, "slug": slug,
              "status": args["status"], "reason": args.get("reason"),
              "applied": applied, "placement": placement}
+    VERIFY_RESULTS.parent.mkdir(parents=True, exist_ok=True)
     with open(VERIFY_RESULTS, "a") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -353,6 +414,10 @@ def confirm_show(args: dict, city_key: str) -> str:
         result["note"] = ("kept in pending: coordinates could not be resolved from the "
                          "address — if the venue's site shows a more standard street "
                          "address, call confirm_show again with it as a correction")
+    elif args["status"] in ("verified", "corrected") and not dates_known:
+        result["note"] = ("kept in pending: closing date unknown — pass corrections.end_date "
+                         "(and start_date) once the venue's own site or two independent "
+                         "listings publish it; never estimate")
     elif args["status"] in ("verified", "corrected") and not in_window:
         result["note"] = ("kept in pending: the show is verified but not yet within "
                          f"the {OPEN_WINDOW_DAYS}-day publication window (or it has "
@@ -410,16 +475,65 @@ FUTURE_SAVE_DAYS = 60   # deep runs may save confirmed shows opening up to this
                         # them when the OPEN_WINDOW_DAYS window arrives)
 
 
+# Shows saved without a closing date (the venue publishes none) are held in
+# pending and re-checked weekly; for scheduling/retirement they get an
+# estimated end measured from the last time a primary source confirmed them.
+DATE_RETRY_DAYS = 7
+NULL_END_GALLERY_DAYS, NULL_END_MUSEUM_DAYS = 45, 120    # from last confirmation
+NULL_END_GALLERY_CAP, NULL_END_MUSEUM_CAP = 90, 365      # from start_date, when known
+
+
 def _parse_iso(d: str | None) -> date | None:
     try:
         return date.fromisoformat(d) if d else None
-    except ValueError:
+    except (ValueError, TypeError):
         return None
+
+
+def dates_ok(show: dict) -> bool:
+    """Both dates present and parseable — required for publication."""
+    return _parse_iso(show.get("start_date")) is not None and \
+        _parse_iso(show.get("end_date")) is not None
+
+
+def effective_end(show: dict, today: date | None = None) -> date | None:
+    """end_date, or an estimate for shows saved without one (scheduling and
+    retirement only — never displayed)."""
+    end = _parse_iso(show.get("end_date"))
+    if end is not None:
+        return end
+    ts = show.get("dates_confirmed_ts")
+    confirmed = date.fromtimestamp(ts) if ts else (today or date.today())
+    museum = bool((show.get("venue") or {}).get("is_museum"))
+    est = confirmed + timedelta(days=NULL_END_MUSEUM_DAYS if museum else NULL_END_GALLERY_DAYS)
+    start = _parse_iso(show.get("start_date"))
+    if start is not None:
+        est = min(est, start + timedelta(days=NULL_END_MUSEUM_CAP if museum else NULL_END_GALLERY_CAP))
+    return est
+
+
+def _set_dates_meta(show: dict, confirmed_ts: int | None = None) -> None:
+    """Handler-derived date metadata (never agent-set): dates_confidence in
+    exact | approximate | unknown_end | unknown, and dates_confirmed_ts."""
+    start, end = _parse_iso(show.get("start_date")), _parse_iso(show.get("end_date"))
+    if start is None:
+        conf = "unknown"
+    elif end is None:
+        conf = "unknown_end"
+    elif show.get("dates_note"):
+        conf = "approximate"
+    else:
+        conf = "exact"
+    show["dates_confidence"] = conf
+    if confirmed_ts:
+        show["dates_confirmed_ts"] = int(confirmed_ts)
+    elif not show.get("dates_confirmed_ts"):
+        show["dates_confirmed_ts"] = int(time.time())
 
 
 def show_expired(show: dict, today: date | None = None) -> bool:
     today = today or date.today()
-    end = _parse_iso(show.get("end_date"))
+    end = effective_end(show, today)
     return end is not None and end < today
 
 
@@ -457,12 +571,37 @@ def awaiting_window_only(city_key: str, show: dict,
     return bool(v and v["status"] in ("verified", "corrected")
                 and time.time() - v.get("ts", 0) <= VERDICT_FRESH_DAYS * 86400
                 and show["venue"].get("latitude") is not None
-                and show["venue"].get("longitude") is not None)
+                and show["venue"].get("longitude") is not None
+                and dates_ok(show))
+
+
+def date_fill_cooldown(city_key: str, show: dict, verdicts: dict | None = None) -> bool:
+    """A dateless show that was audited within DATE_RETRY_DAYS: don't re-pay
+    to look for its closing date again this pass."""
+    if dates_ok(show):
+        return False
+    v = (verdicts if verdicts is not None else latest_verdicts()).get(
+        (city_key, show["slug"]))
+    return bool(v and time.time() - v.get("ts", 0) <= DATE_RETRY_DAYS * 86400)
+
+
+def verify_candidate(city_key: str, show: dict, verdicts: dict | None = None,
+                     today: date | None = None) -> bool:
+    """Should a pending-only verify pass audit this show now?"""
+    verdicts = verdicts if verdicts is not None else latest_verdicts()
+    return (not show_expired(show, today)
+            and not awaiting_window_only(city_key, show, verdicts)
+            and not date_fill_cooldown(city_key, show, verdicts))
 
 
 def pending_reason(city_key: str, show: dict, verdicts: dict | None = None) -> str:
     """One line on why a pending show isn't published (report/summary use)."""
     verdicts = verdicts if verdicts is not None else latest_verdicts()
+    if not dates_ok(show):
+        v = verdicts.get((city_key, show["slug"]))
+        ref = (v or {}).get("ts") or show.get("dates_confirmed_ts") or time.time()
+        age = int((time.time() - ref) // 86400)
+        return f"needs dates ({show.get('dates_confidence') or 'unknown'}; last check {age}d ago)"
     if awaiting_window_only(city_key, show, verdicts):
         return ("verified; publishes when its opening window arrives"
                 if not show_expired(show) else "verified but ended")
@@ -480,7 +619,7 @@ SKIPS_FILE = CONTENT_DIR / "spend" / "skips.jsonl"
 EVENTS_FILE = CONTENT_DIR / "spend" / "session_events.jsonl"
 
 SKIP_REASONS = ["no_image", "low_res_only", "unverifiable", "closed_or_between_shows",
-                "appointment_only", "out_of_scope", "duplicate", "other"]
+                "appointment_only", "out_of_scope", "duplicate", "unchanged", "other"]
 
 
 def _append_jsonl(path: Path, entry: dict) -> None:
@@ -507,7 +646,7 @@ LOG_SKIP_SCHEMA = {
         "neighborhood": {"type": "string", "description": "The zone you are working"},
         "reason": {
             "type": "string", "enum": SKIP_REASONS,
-            "description": "no_image: no downloadable image at all; low_res_only: images exist but none reach 500px wide; unverifiable: venue/show could not be confirmed on a primary source; closed_or_between_shows: venue operating but nothing on view and no confirmed upcoming show; appointment_only: no public walk-in hours; out_of_scope: not an art-viewing venue (or outside this city's scope); duplicate: venue already has a saved show (possibly under another name); other: explain in detail",
+            "description": "no_image: no downloadable image at all; low_res_only: images exist but none reach 500px wide; unverifiable: venue/show could not be confirmed on any primary source even after render_fetch — NOT for shows the venue's own site confirms but without exact dates (save those with end_date null + dates_note); closed_or_between_shows: venue operating but nothing on view and no confirmed upcoming show; appointment_only: no public walk-in hours; out_of_scope: not an art-viewing venue (or outside this city's scope); duplicate: this TODO venue is the same physical space as a venue already on the list/saved under another name; unchanged: every current show at this venue is already saved with the same dates; other: explain in detail",
         },
         "detail": {"type": "string", "description": "One line of specifics: what you found and why it can't be saved (e.g. 'site shows Fall show opening Nov 14, beyond the 60-day horizon' or 'largest image on site is 400px')"},
         "url": {"type": ["string", "null"], "description": "Most relevant URL you checked, or null"},
@@ -530,12 +669,14 @@ def log_skip(args: dict, city_key: str, session: str) -> str:
         detail = f"[reason given: {reason}] {detail}"
         reason = "other"
     url = args.get("url")
-    _append_jsonl(SKIPS_FILE, {
+    entry = {
         "ts": int(time.time()), "session": session, "city": city_key,
         "venue": args["venue"], "neighborhood": args["neighborhood"],
         "reason": reason, "detail": detail,
         "url": url if isinstance(url, str) else None,
-    })
+    }
+    _append_jsonl(SKIPS_FILE, entry)
+    _registry_hook("on_log_skip", entry, city_key, SESSION)
     return json.dumps({"result": "logged", "venue": args["venue"], "reason": reason})
 
 
@@ -560,26 +701,66 @@ RECORD_VENUE_SCHEMA = {
 }
 
 
+def normalize_zone(name: str | None, neighborhoods: list[str]) -> str | None:
+    """Map an agent-written zone name onto the city's zone list: exact match,
+    else the single zone whose "/"-separated parts contain it (case- and
+    punctuation-insensitive), e.g. 'Pasadena' -> 'Pasadena/San Gabriel',
+    'Los Feliz' -> 'Los Feliz/NELA'. None when ambiguous or unknown."""
+    if not isinstance(name, str):
+        return None
+    if name in neighborhoods:
+        return name
+    key = _norm_venue(name)
+    parts_by_zone = {z: [_norm_venue(part) for part in z.split("/")] + [_norm_venue(z)]
+                     for z in neighborhoods}
+    exact = [z for z, parts in parts_by_zone.items() if key in parts]
+    if len(exact) == 1:
+        return exact[0]
+    loose = [z for z, parts in parts_by_zone.items()
+             if any(key and len(key) >= 4 and (key in part or part in key) for part in parts)]
+    return loose[0] if len(loose) == 1 else None
+
+
 def record_venue(args: dict, city_key: str, neighborhoods: list[str], session: str) -> str:
     """Append one venue to the city's durable directory (enumeration pass)."""
-    if args["city"] != city_key:
+    if _norm_venue(str(args.get("city", ""))) not in (_norm_venue(city_key), _norm_venue(city_key.replace("-", " "))):
         raise ValueError(f"city must be '{city_key}'")
-    if args["neighborhood"] not in neighborhoods:
+    zone = normalize_zone(args.get("neighborhood"), neighborhoods)
+    if zone is None:
         raise ValueError(
             f"neighborhood '{args['neighborhood']}' is not one of {neighborhoods}")
-    _append_jsonl(_directory_file(city_key), {
+    args = {**args, "neighborhood": zone}
+    if SANDBOX_DIR is None:
+        # Known venue in this zone: enforce the ALREADY KNOWN list instead of
+        # trusting the prompt (repeat searches for known names wasted whole
+        # enumeration budgets).
+        try:
+            import venues
+            known = venues.find_venue(venues.load_registry(city_key), args["name"],
+                                      args.get("website"), add_alias=False)
+        except Exception:
+            known = None
+        if known is not None and known.get("neighborhood") == zone and known.get("website"):
+            return json.dumps({"result": "already_known", "venue": known["name"],
+                               "venue_id": known["id"],
+                               "note": "already in the directory — do not search for it again"})
+    entry = {
         "ts": int(time.time()), "session": session, "city": city_key,
         "name": args["name"], "neighborhood": args["neighborhood"],
         "kind": args["kind"], "address": args.get("address"),
         "website": args.get("website"), "note": args.get("note"),
-    })
+    }
+    _append_jsonl(_directory_file(city_key), entry)
+    _registry_hook("on_record_venue", entry, city_key)
     zone_count = sum(1 for v in load_directory(city_key).values()
                      if v["neighborhood"] == args["neighborhood"])
     return json.dumps({"result": "recorded", "venue": args["name"], "zone_count": zone_count})
 
 
 def load_directory(city_key: str) -> dict[str, dict]:
-    """The city's venue directory: latest record per normalized venue name."""
+    """The city's venue directory: latest record per normalized venue name.
+    Once the venue registry exists (content/venues/<city>.json) it is the
+    directory — same dict shape, plus venue_id/status/exhibitions_url."""
     out: dict[str, dict] = {}
     p = _directory_file(city_key)
     if p.exists():
@@ -589,6 +770,13 @@ def load_directory(city_key: str) -> dict[str, dict]:
             except json.JSONDecodeError:
                 continue
             out[_norm_venue(e["name"])] = e
+    if SANDBOX_DIR is None:
+        try:
+            import venues
+            if venues.registry_exists(city_key):
+                out.update(venues.directory_view(city_key))
+        except Exception:
+            pass
     return out
 
 
@@ -623,14 +811,15 @@ def sweep_placements(cities: list[str], today: date | None = None) -> dict:
             pending = _load_shows_file(_pending_file(c))
             changed = False
             for s in list(main["shows"]):
-                if not show_in_window(s, today):
+                if not show_in_window(s, today) or not dates_ok(s):
                     main["shows"].remove(s)
                     pending["shows"].append(s)
                     changed = True
-                    actions["demoted"].append({
-                        "city": c, "slug": s["slug"],
-                        "reason": "ended" if show_expired(s, today)
-                        else f"opens more than {OPEN_WINDOW_DAYS} days out"})
+                    reason = ("needs dates" if not dates_ok(s)
+                              else "ended" if show_expired(s, today)
+                              else f"opens more than {OPEN_WINDOW_DAYS} days out")
+                    actions["demoted"].append({"city": c, "slug": s["slug"], "reason": reason})
+                    _registry_hook("on_sweep_demoted", c, s["slug"], reason)
             for s in list(pending["shows"]):
                 if (show_in_window(s, today)
                         and awaiting_window_only(c, s, verdicts)):
@@ -755,19 +944,33 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
             problems.append(f"image not found on disk: {img}")
     if show_expired(record):
         problems.append("show has already ended (end_date is in the past)")
+    for k in ("start_date", "end_date"):
+        val = record.get(k)
+        if val is not None and _parse_iso(val) is None:
+            problems.append(f"{k} must be ISO YYYY-MM-DD or null (got {val!r}); for a month-only "
+                            "listing use the month's first/last day and explain in dates_note")
+    note = record.get("dates_note")
+    if record.get("end_date") is None and not (isinstance(note, str) and note.strip()):
+        problems.append("end_date is null but dates_note is empty — quote what the venue's page "
+                        "shows about dates (or pass the exact closing date)")
     start = _parse_iso(record.get("start_date"))
     if start and start > date.today() + timedelta(days=FUTURE_SAVE_DAYS):
         problems.append(
             f"show opens more than {FUTURE_SAVE_DAYS} days out — too far ahead to save; "
             "log_skip it with reason 'closed_or_between_shows' instead")
-    if record["venue"]["neighborhood"] not in neighborhoods:
+    zone = normalize_zone(record["venue"].get("neighborhood"), neighborhoods)
+    if zone is None:
         problems.append(
             f"neighborhood '{record['venue']['neighborhood']}' is not one of {neighborhoods}"
         )
+    else:
+        record["venue"]["neighborhood"] = zone
     if len(record["description"].split()) < 60:
         problems.append("description is too short — write 2-4 substantial paragraphs")
     if problems:
         raise ValueError("Not saved. Fix and retry: " + "; ".join(problems))
+    record.setdefault("dates_note", None)
+    _set_dates_meta(record, int(time.time()))   # saving = the venue confirmed it today
 
     if SANDBOX_DIR is None:
         coord_note = resolve_venue_coords(record["venue"], city_key)
@@ -778,6 +981,13 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         # Agent-supplied pins never ship; unresolved coordinates block promotion.
         record["venue"]["latitude"] = record["venue"]["longitude"] = None
 
+    # Venue identity for the registry (harness-side; not part of the agent's
+    # schema). The embedded venue object stays exactly as the apps expect.
+    vid = _registry_hook("resolve_id", city_key, record["venue"]["name"],
+                         record["venue"].get("website"))
+    if vid:
+        record["venue_id"] = vid
+
     # New and re-saved shows always land in the pending pool; only a verify
     # pass promotes them to the published <city>.json that the apps display.
     # Exclusive lock: parallel neighborhood-shard sessions of one city share it.
@@ -786,18 +996,21 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         fcntl.flock(lock, fcntl.LOCK_EX)
         main = _load_shows_file(_city_file(city_key))
         pending = _load_shows_file(_pending_file(city_key))
-        # One show per venue, enforced (the ALREADY SAVED prompt list is
-        # advisory only, and parallel shards never see each other's saves
-        # mid-flight). Same-slug re-saves still upsert.
+        # A venue may hold any number of concurrent shows; only the SAME show
+        # (same venue + same normalized title) under a different slug is a
+        # duplicate (parallel shards never see each other's saves mid-flight).
+        # Same-slug re-saves still upsert.
         new_key = _norm_venue(record["venue"]["name"])
+        new_title = _norm_title(record.get("title"))
         clash = next((s for s in main["shows"] + pending["shows"]
-                      if s["slug"] != record["slug"]
-                      and _norm_venue(s["venue"]["name"]) == new_key), None)
+                      if s["slug"] != record["slug"] and not show_expired(s)
+                      and _norm_venue(s["venue"]["name"]) == new_key
+                      and _norm_title(s.get("title")) == new_title), None)
         if clash:
             raise ValueError(
-                f"Not saved: venue '{record['venue']['name']}' already has saved show "
-                f"'{clash['slug']}' — one show per venue. If this venue was on your TODO "
-                "list, call log_skip with reason 'duplicate' and move on.")
+                f"Not saved: this show is already saved at '{record['venue']['name']}' as "
+                f"slug '{clash['slug']}' — re-save under that slug to update it, or move on "
+                "to the venue's OTHER current shows.")
         was_published = any(s["slug"] == record["slug"] for s in main["shows"])
         if was_published:
             main["shows"] = [s for s in main["shows"] if s["slug"] != record["slug"]]
@@ -810,6 +1023,8 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
             pending["shows"].append(record)
             action = "updated (moved back to pending)" if was_published else "saved"
         _write_shows_file(_pending_file(city_key), pending)
+    _registry_hook("on_save_show", record, city_key,
+                   getattr(SESSION, "label", None), SESSION, "pending")
     result = {"result": action,
               "queue": "pending verification (displayed only after a verify pass confirms it)",
               "shows_saved_for_city": len(main["shows"]) + len(pending["shows"])}
@@ -820,4 +1035,85 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         result["window_note"] = (
             f"show opens more than {OPEN_WINDOW_DAYS} days out; it will be "
             "published automatically once within the window")
+    if not dates_ok(record):
+        result["dates_note"] = ("saved without exact dates; held in pending until a verify "
+                                "pass fills them (re-checked weekly) — no action needed now")
     return json.dumps(result)
+
+
+# --- rendered fetch (JS-only pages) --------------------------------------------
+
+RENDER_SCRIPT = Path(__file__).resolve().parent / "render_fetch.js"
+RENDER_MAX_CHARS = 12000
+RENDER_TIMEOUT_S = 45
+_ISO_DATE_RE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
+
+
+def _scan_dates(text: str, html_: str, limit: int = 40) -> list[str]:
+    """Every date-looking string in the rendered text AND the raw HTML (script
+    payloads such as Next.js RSC data carry exact ISO dates the visible page
+    only renders client-side), each with a little context."""
+    import refresh  # deferred: refresh imports tools at module load
+    out: list[str] = []
+    seen: set[str] = set()
+    for src, label in ((text or "", "text"), (html_ or "", "html")):
+        for m in list(_ISO_DATE_RE.finditer(src)) + list(refresh.DATE_RE.finditer(src)):
+            key = m.group(0).strip().lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            ctx = re.sub(r"\s+", " ", src[max(0, m.start() - 60): m.end() + 60]).strip()
+            out.append(f"{m.group(0).strip()}  [{label}: …{ctx}…]")
+            if len(out) >= limit:
+                return out
+    return out
+
+
+def render_fetch(url: str, max_chars: int = RENDER_MAX_CHARS) -> str:
+    """Load a page in a headless browser (Playwright via node) and return its
+    rendered text plus every date string found in text or raw HTML. Never
+    raises: failures come back as an actionable {"error": ...}."""
+    import subprocess
+    decide = (" — decide from web_fetch instead; if the venue's own page confirms the show "
+              "but shows no dates, save it with end_date null and a dates_note")
+    if not RENDER_SCRIPT.exists():
+        return json.dumps({"error": "render_fetch unavailable (render_fetch.js missing)" + decide})
+    env = {**os.environ,
+           "NODE_PATH": os.environ.get("GALLERY_NODE_PATH", "/opt/homebrew/lib/node_modules")}
+    try:
+        proc = subprocess.run(["node", str(RENDER_SCRIPT), url, str(max_chars)],
+                              capture_output=True, text=True, timeout=RENDER_TIMEOUT_S, env=env)
+    except FileNotFoundError:
+        return json.dumps({"error": "render_fetch unavailable (node/Chrome missing)" + decide})
+    except subprocess.TimeoutExpired:
+        return json.dumps({"error": f"renderer timed out after {RENDER_TIMEOUT_S}s; treat the "
+                                    "page as unreadable" + decide})
+    lines = [ln for ln in (proc.stdout or "").splitlines() if ln.strip()]
+    data = None
+    if lines:
+        try:
+            data = json.loads(lines[-1])
+        except json.JSONDecodeError:
+            data = None
+    if not isinstance(data, dict):
+        tail = (proc.stderr or proc.stdout or "")[-300:].strip()
+        return json.dumps({"error": f"renderer failed: {tail or 'no output'}" + decide})
+    if data.get("error"):
+        return json.dumps({"error": f"renderer error: {data['error']}" + decide})
+    html_ = data.pop("html", "") or ""
+    text = data.get("text") or ""
+    result = {
+        "final_url": data.get("final_url") or url,
+        "renderer": data.get("renderer"),
+        "title": data.get("title"),
+        "text": text[:max_chars],
+        "time_elements": (data.get("times") or [])[:40],
+        "date_strings": _scan_dates(text, html_),
+        "note": "date_strings scans the rendered text AND raw HTML/script data (JSON payloads "
+                "often carry the exact opening/closing dates the page renders client-side)",
+    }
+    if SESSION is not None:
+        SESSION.add_url(result["final_url"], "render_fetch")
+        _registry_hook("write_evidence", SESSION.city, result["final_url"], "render",
+                       json.dumps(result, ensure_ascii=False), SESSION.label)
+    return json.dumps(result, ensure_ascii=False)

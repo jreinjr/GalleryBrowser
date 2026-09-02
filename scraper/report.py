@@ -153,7 +153,7 @@ def generate_report(city: str, since_ts: int, out: Path | None = None) -> Path:
         for s in sorted(shows, key=lambda x: x["venue"]["name"].lower()):
             mark = " *(new this run)*" if s["slug"] in new_slugs else ""
             w(f"- {s['venue']['name']} — \"{s['title']}\" "
-              f"({s['start_date']} to {s['end_date']}){mark}")
+              f"({s.get('start_date') or '?'} to {s.get('end_date') or '?'}){mark}")
         w("")
 
     # ---- pending with reasons ----
@@ -241,17 +241,17 @@ def generate_report(city: str, since_ts: int, out: Path | None = None) -> Path:
     # ---- coverage accounting ----
     w("## Coverage by zone")
     w("")
-    w("| zone | directory | saved (all-time) | skipped this run | remaining TODO |")
-    w("|---|---|---|---|---|")
+    w("| zone | directory | venues saved (all-time) | shows saved | skipped this run | remaining TODO |")
+    w("|---|---|---|---|---|---|")
     for zone in zones:
         dir_n = sum(1 for v in directory.values() if v["neighborhood"] == zone)
-        saved_n = sum(1 for s in published + pending
-                      if s["venue"]["neighborhood"] == zone)
+        zone_shows = [s for s in published + pending if s["venue"]["neighborhood"] == zone]
+        venues_n = len({tools._norm_venue(s["venue"]["name"]) for s in zone_shows})
         skip_n = sum(1 for s in skips if s.get("neighborhood") == zone)
         remaining = sum(1 for key, v in directory.items()
                         if v["neighborhood"] == zone
                         and key not in saved_keys and key not in skip_keys)
-        w(f"| {zone} | {dir_n} | {saved_n} | {skip_n} | {remaining} |")
+        w(f"| {zone} | {dir_n} | {venues_n} | {len(zone_shows)} | {skip_n} | {remaining} |")
     w("")
     reason_counts: dict[str, int] = defaultdict(int)
     for s in skips:

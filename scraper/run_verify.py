@@ -63,10 +63,9 @@ def verify_cities(cities: list[str], pending_only: bool = False,
                  if pending_only else tools.all_city_shows(c))
         shows = [s for s in shows if not tools.show_expired(s)]
         if pending_only:
-            # skip shows only waiting out the publication window — nothing to
-            # audit, and cron runs must not re-pay to re-verify them each pass
-            shows = [s for s in shows
-                     if not tools.awaiting_window_only(c, s, verdicts_now)]
+            # skip shows only waiting out the publication window, and dateless
+            # shows audited within the last week — cron runs must not re-pay
+            shows = [s for s in shows if tools.verify_candidate(c, s, verdicts_now)]
         return shows
 
     # build jobs: (city, neighborhoods-or-None, n_shows)

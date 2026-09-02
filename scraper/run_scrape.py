@@ -56,9 +56,11 @@ def spend_report() -> dict:
 
 
 def format_todo_message(city_display: str, zone: str, venues: list[dict],
-                        saved_venues: list[str]) -> str:
-    """First user message for a deep session: the zone's TODO batch plus a
-    compact city-wide saved-venues exclusion list."""
+                        saved_venues: list[str] | None = None) -> str:
+    """First user message for a deep session: the zone's TODO batch. Each
+    venue line carries its already-saved shows (save the OTHER current ones),
+    a CANDIDATE tag for auto-discovered unconfirmed venues, and a render hint
+    for JS-only sites. `saved_venues` is accepted for old TODO files and ignored."""
     lines = []
     for i, v in enumerate(venues, 1):
         bits = [v["name"]]
@@ -66,16 +68,30 @@ def format_todo_message(city_display: str, zone: str, venues: list[dict],
             bits.append(v["address"])
         if v.get("website"):
             bits.append(v["website"])
+        if v.get("exhibitions_url") and v["exhibitions_url"] != v.get("website"):
+            bits.append(f"exhibitions page: {v['exhibitions_url']}")
         kind = f" ({v['kind']})" if v.get("kind") else ""
-        lines.append(f"{i}. {' — '.join(bits)}{kind}")
-    msg = (f"Work your TODO list for the {zone} zone of {city_display}.\n\n"
-           "TODO — attempt each of these venues this session, in order:\n"
-           + "\n".join(lines)
-           + "\n\nEvery TODO venue must end in exactly one save_show or log_skip.")
-    if saved_venues:
-        msg += ("\n\nSAVED VENUES city-wide — never save a show at any of these:\n"
-                + "; ".join(saved_venues))
-    return msg
+        tags = []
+        if v.get("status") == "candidate":
+            tags.append("[CANDIDATE: unconfirmed — verify it is a public art venue in this "
+                        "zone, else log_skip out_of_scope]")
+        if v.get("fetch_mode") == "js":
+            tags.append("[JS-rendered site: use render_fetch on its exhibitions page]")
+        line = f"{i}. {' — '.join(bits)}{kind}" + (" " + " ".join(tags) if tags else "")
+        saved = v.get("already_saved") or []
+        if saved:
+            shown = "; ".join(
+                f"\"{x.get('title')}\"" + (f" ({x['artist']})" if x.get("artist") else "")
+                + (f" through {x['end']}" if x.get("end") else "")
+                for x in saved)
+            line += (f"\n   already saved here: {shown} — do not re-save; save any OTHER "
+                     "current or upcoming show this venue lists")
+        lines.append(line)
+    return (f"Work your TODO list for the {zone} zone of {city_display}.\n\n"
+            "TODO — attempt each of these venues this session, in order:\n"
+            + "\n".join(lines)
+            + "\n\nEvery TODO venue must end in at least one save_show or exactly one "
+              "log_skip. A venue with several concurrent exhibitions gets one save_show per show.")
 
 
 def main() -> None:
@@ -108,6 +124,9 @@ def main() -> None:
     parser.add_argument("--enumerate-zone", default=None, metavar="ZONE",
                         help="enumeration session: build the venue directory for one zone "
                              "instead of scraping shows")
+    parser.add_argument("--missing-anchors", default=None,
+                        help="enumeration: ';'-separated known venue names the zone coverage "
+                             "check could not find — the prompt asks for them by name")
     parser.add_argument("--model", default=DEFAULT_MODEL, choices=sorted(MODELS),
                         help="model for this session")
     parser.add_argument("--fetch-tokens", type=int, default=20000,
@@ -119,6 +138,9 @@ def main() -> None:
                         help="enable clear_tool_uses context editing (beta)")
     parser.add_argument("--session-label", default=None,
                         help="explicit spend-ledger label (e.g. deep-los-angeles-hollywood-3)")
+    parser.add_argument("--keyword-signals", action="store_true",
+                        help="deep sessions: also record significance claims read on venue "
+                             "pages via record_signal (curation evidence; no extra searches)")
     parser.add_argument("--ab-sandbox", default=None, metavar="DIR",
                         help="A/B sandbox: write shows/images under DIR instead of content/ "
                              "and skip coordinate resolution")
@@ -163,10 +185,12 @@ def main() -> None:
             print(f"=== {city} (enumerate {args.enumerate_zone}, budget ${budget:.2f}) ===")
             result = run_city(
                 city_key=city, target_shows=0,
-                max_searches=14, max_fetches=10, max_iterations=25,
+                max_searches=16, max_fetches=18, max_iterations=30,
                 budget_usd=budget,
                 neighborhoods=[args.enumerate_zone],
                 enumerate_zone=args.enumerate_zone,
+                missing_anchors=[a.strip() for a in args.missing_anchors.split(";") if a.strip()]
+                if args.missing_anchors else None,
                 **common,
             )
         elif args.deep:
@@ -175,16 +199,23 @@ def main() -> None:
             budget = args.budget if args.budget is not None else 4.5
             msg = format_todo_message(CITIES[city]["display_name"], todo["zone"],
                                       venues, todo.get("saved_venues", []))
-            print(f"=== {city} (deep {todo['zone']}: {target} TODO venues, "
+            # Limits scale with the shows a batch may hold, not just its
+            # venue count: museums run many concurrent exhibitions.
+            expected = sum(
+                max(8, len(v.get("already_saved") or []) + 2) if v.get("kind") == "museum"
+                else max(2, len(v.get("already_saved") or []) + 1)
+                for v in venues)
+            print(f"=== {city} (deep {todo['zone']}: {target} TODO venues, ~{expected} shows, "
                   f"budget ${budget:.2f}, model {args.model}) ===")
             result = run_city(
                 city_key=city, target_shows=target,
                 max_searches=max(12, 3 * target),
-                max_fetches=max(18, 5 * target),
-                max_iterations=max(45, 9 * target),
+                max_fetches=max(18, 5 * expected),
+                max_iterations=max(45, 9 * expected),
                 budget_usd=budget,
                 neighborhoods=[todo["zone"]],
                 deep=True, first_user_message=msg,
+                keyword_signals=args.keyword_signals,
                 **common,
             )
         else:

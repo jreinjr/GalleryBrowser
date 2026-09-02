@@ -6,8 +6,10 @@ struct Show: Identifiable, Codable, Hashable {
     let slug: String
     let title: String
     let artist: String?
-    let startDate: String
-    let endDate: String
+    // Either date can be missing in scraped content (the scraper holds such
+    // shows back as pending, but published files must never break the app).
+    let startDate: String?
+    let endDate: String?
     let description: String
     let editorsPick: Bool
     let featured: Bool
@@ -21,8 +23,8 @@ struct Show: Identifiable, Codable, Hashable {
     /// The name shown on feed cards and list rows: artist when present, else title.
     var displayName: String { artist ?? title }
 
-    var start: Date? { Self.isoDay.date(from: startDate) }
-    var end: Date? { Self.isoDay.date(from: endDate) }
+    var start: Date? { startDate.flatMap { Self.isoDay.date(from: $0) } }
+    var end: Date? { endDate.flatMap { Self.isoDay.date(from: $0) } }
 
     var dateLine: String {
         guard let end else { return "" }
@@ -71,6 +73,19 @@ struct Venue: Codable, Hashable {
 
     /// List-row venue line, with the museum glyph the way See Saw draws it.
     var listLine: String { isMuseum ? "🏛 \(name)" : name }
+
+    /// Every show embeds its own copy of the venue, so "same venue" is decided
+    /// by normalized name plus coordinate rounded to ~1 m. Used to collapse
+    /// several concurrent shows into one map pin / one venue page.
+    var groupingKey: String {
+        let normalized = name
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .split(whereSeparator: { $0.isWhitespace })
+            .joined(separator: " ")
+        let position = String(format: "%.5f,%.5f", latitude, longitude)
+        return normalized.isEmpty ? position : "\(normalized)@\(position)"
+    }
 }
 
 struct City: Identifiable, Hashable {

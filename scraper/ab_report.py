@@ -59,7 +59,7 @@ def _show_record(city: str, show: dict, root: Path) -> dict:
         "neighborhood": show["venue"]["neighborhood"],
         "title": show["title"],
         "artist": show.get("artist"),
-        "dates": f"{show['start_date']} to {show['end_date']}",
+        "dates": f"{show.get('start_date') or '?'} to {show.get('end_date') or '?'}",
         "hours": show["venue"].get("hours"),
         "address": show["venue"].get("address"),
         "description": show["description"],
@@ -73,7 +73,9 @@ def collect(city: str, arm_prefixes: list[str],
             sandboxes: dict[str, Path]) -> dict:
     pools = (tools._load_shows_file(tools._city_file(city))["shows"]
              + tools._load_shows_file(tools._pending_file(city))["shows"])
-    by_venue = {tools._norm_venue(s["venue"]["name"]): s for s in pools}
+    by_venue: dict[str, list[dict]] = {}
+    for s in pools:   # a venue may hold several shows
+        by_venue.setdefault(tools._norm_venue(s["venue"]["name"]), []).append(s)
     verdicts = tools.latest_verdicts()
     skips = tools.load_skips(city)
 
@@ -92,7 +94,7 @@ def collect(city: str, arm_prefixes: list[str],
             todo_names += [v["name"] for v in t["venues"]]
         todo_keys = {tools._norm_venue(n) for n in todo_names}
         arm_skips = [s for s in skips if s.get("session", "").startswith(prefix)]
-        saved = [by_venue[k] for k in sorted(todo_keys) if k in by_venue]
+        saved = [s for k in sorted(todo_keys) for s in by_venue.get(k, [])]
         saved_records = [_show_record(city, s, tools.CONTENT_DIR) for s in saved]
         arm_verdicts = {s["slug"]: verdicts.get((city, s["slug"])) for s in saved}
         vstat = {"verified": 0, "corrected": 0, "unverified": 0, "none": 0}
@@ -135,7 +137,7 @@ def collect(city: str, arm_prefixes: list[str],
                     + tools._load_shows_file(root / "pending" / f"{city}.json")["shows"])
         for s in sb_shows:
             key = tools._norm_venue(s["venue"]["name"])
-            real = by_venue.get(key)
+            real = (by_venue.get(key) or [None])[0]
             pairs.append({
                 "venue": s["venue"]["name"],
                 "sandbox_arm": name,

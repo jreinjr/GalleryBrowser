@@ -1,13 +1,22 @@
 import SwiftUI
 import MapKit
 
+/// One map pin: a venue and every visible show running there.
+private struct VenuePin: Identifiable {
+    let venue: Venue
+    var shows: [Show]
+    var id: String { venue.groupingKey }
+}
+
 /// The Map tab: full-bleed map of the selected city's venues with a shows
-/// filter menu; tapping a pin presents the show detail as a sheet.
+/// filter menu; tapping a pin presents the show detail as a sheet, or the
+/// venue page when several shows share the venue.
 struct MapTabView: View {
     @EnvironmentObject private var store: ContentStore
     @State private var filter: MapFilter = .all
     @State private var showCitySheet = false
     @State private var selectedShow: Show?
+    @State private var selectedVenue: VenuePin?
     @State private var camera: MapCameraPosition = .automatic
 
     enum MapFilter: String, CaseIterable {
@@ -24,18 +33,50 @@ struct MapTabView: View {
         }
     }
 
+    /// Shows grouped by venue, in first-seen order: one pin per venue.
+    private var venuePins: [VenuePin] {
+        var pins: [VenuePin] = []
+        var indexByKey: [String: Int] = [:]
+        for show in visibleShows {
+            let key = show.venue.groupingKey
+            if let i = indexByKey[key] {
+                pins[i].shows.append(show)
+            } else {
+                indexByKey[key] = pins.count
+                pins.append(VenuePin(venue: show.venue, shows: [show]))
+            }
+        }
+        return pins
+    }
+
     var body: some View {
         Map(position: $camera) {
-            ForEach(visibleShows) { show in
-                Annotation(show.venue.isMuseum ? "🏛 \(show.venue.name)" : show.venue.name,
-                           coordinate: show.venue.coordinate) {
+            ForEach(venuePins) { pin in
+                Annotation(pin.venue.isMuseum ? "🏛 \(pin.venue.name)" : pin.venue.name,
+                           coordinate: pin.venue.coordinate) {
                     Button {
-                        selectedShow = show
+                        if pin.shows.count > 1 {
+                            selectedVenue = pin
+                        } else {
+                            selectedShow = pin.shows.first
+                        }
                     } label: {
                         Circle()
                             .fill(Color.guideBlue.opacity(0.85))
                             .frame(width: 22, height: 22)
                             .overlay(Circle().stroke(.white.opacity(0.6), lineWidth: 1))
+                            .overlay(alignment: .topTrailing) {
+                                if pin.shows.count > 1 {
+                                    Text("\(pin.shows.count)")
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundStyle(.black)
+                                        .padding(.horizontal, 4)
+                                        .frame(minWidth: 17, minHeight: 17)
+                                        .background(.white, in: Capsule())
+                                        .shadow(color: .black.opacity(0.6), radius: 1.5, y: 1)
+                                        .offset(x: 8, y: -7)
+                                }
+                            }
                     }
                     .buttonStyle(.plain)
                 }
@@ -81,6 +122,15 @@ struct MapTabView: View {
         .sheet(item: $selectedShow) { show in
             NavigationStack {
                 ShowDetailView(shows: [show], index: 0, presentedAsSheet: true)
+            }
+            .preferredColorScheme(.dark)
+            #if os(macOS)
+            .frame(width: 380, height: 720)
+            #endif
+        }
+        .sheet(item: $selectedVenue) { pin in
+            NavigationStack {
+                VenueDetailView(venue: pin.venue, presentedAsSheet: true)
             }
             .preferredColorScheme(.dark)
             #if os(macOS)

@@ -1,13 +1,19 @@
 import SwiftUI
 import MapKit
 
-/// Venue page: name/address/hours, a non-interactive map card with the venue
-/// pin, and Directions / Open website / Call venue actions.
+/// Venue page: name/address/hours, the venue's current shows, a
+/// non-interactive map card with the venue pin, and Directions / Open website /
+/// Call venue actions. Pushed from a show detail (back chevron) or presented
+/// as a sheet from the map when a venue has several shows (X to close).
 struct VenueDetailView: View {
     let venue: Venue
+    var presentedAsSheet = false
 
+    @EnvironmentObject private var store: ContentStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
+
+    private var shows: [Show] { store.shows(at: venue) }
 
     var body: some View {
         ScrollView {
@@ -22,6 +28,10 @@ struct VenueDetailView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
+                }
+
+                if !shows.isEmpty {
+                    showsSection
                 }
 
                 mapCard
@@ -55,9 +65,38 @@ struct VenueDetailView: View {
         .hideBackButton()
         .toolbar {
             ToolbarItem(placement: .guideLeading) {
-                CircleIconButton(systemName: "chevron.left") { dismiss() }
+                CircleIconButton(systemName: presentedAsSheet ? "xmark" : "chevron.left") { dismiss() }
             }
         }
+    }
+
+    /// Every current show at this venue; each row pushes its show detail.
+    private var showsSection: some View {
+        VStack(alignment: .leading, spacing: 7) {
+            Text("Shows")
+                .font(.caption)
+                .textCase(.uppercase)
+                .foregroundStyle(.secondary)
+                .padding(.leading, 16)
+            VStack(spacing: 0) {
+                ForEach(Array(shows.enumerated()), id: \.element.id) { index, show in
+                    if index > 0 {
+                        Divider()
+                            .padding(.leading, 16)
+                    }
+                    NavigationLink {
+                        ShowDetailView(shows: [show], index: 0)
+                    } label: {
+                        ShowRow(show: show)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 11)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .background(Color(white: 0.11), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+        .padding(.top, 6)
     }
 
     private var mapCard: some View {

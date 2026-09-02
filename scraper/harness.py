@@ -9,6 +9,7 @@ show records. Every API response's token usage is metered and priced.
 from __future__ import annotations
 
 import json
+import re
 import time
 from datetime import date
 from pathlib import Path
@@ -16,9 +17,13 @@ from pathlib import Path
 import anthropic
 
 import tools
+import curation_store
 from cities import CITIES
 
 DEFAULT_MODEL = "claude-sonnet-5"
+# Output cap per response. Exhaustive sessions batch dozens of tool calls in
+# one turn (an enumeration hit 23K output tokens); 8000 truncated them.
+MAX_TOKENS = 16000
 
 # Per-model pricing (USD per million tokens) and capabilities. web_tools
 # "20260209" = the dynamic-filtering search/fetch variants (run code execution
@@ -33,6 +38,11 @@ MODELS = {
         "in": 1.00, "out": 5.00, "cache_write": 1.25, "cache_read": 0.10,
         "web_tools": "basic", "supports_effort": False,
     },
+    # Judge A/B arm (curation); not used for scraping (user preference: Sonnet).
+    "claude-opus-5": {
+        "in": 5.00, "out": 25.00, "cache_write": 6.25, "cache_read": 0.50,
+        "web_tools": "20260209", "supports_effort": True,
+    },
 }
 PRICE_PER_SEARCH = 10.00 / 1000.0
 
@@ -40,9 +50,10 @@ SPEND_DIR = tools.CONTENT_DIR / "spend"
 
 
 class CostMeter:
-    def __init__(self, label: str, model: str = DEFAULT_MODEL):
+    def __init__(self, label: str, model: str = DEFAULT_MODEL, batch: bool = False):
         self.label = label
         self.model = model
+        self.batch = batch  # Message Batches API: 50% off every token price
         self.prices = MODELS[model]
         self.requests = 0
         self.input_tokens = 0
@@ -63,18 +74,19 @@ class CostMeter:
 
     @property
     def dollars(self) -> float:
-        return (
+        tokens = (
             self.input_tokens / 1e6 * self.prices["in"]
             + self.output_tokens / 1e6 * self.prices["out"]
             + self.cache_write_tokens / 1e6 * self.prices["cache_write"]
             + self.cache_read_tokens / 1e6 * self.prices["cache_read"]
-            + self.web_searches * PRICE_PER_SEARCH
         )
+        return tokens * (0.5 if self.batch else 1.0) + self.web_searches * PRICE_PER_SEARCH
 
     def summary(self) -> dict:
         return {
             "session": self.label,
             "model": self.model,
+            "batch": self.batch,
             "requests": self.requests,
             "input_tokens": self.input_tokens,
             "output_tokens": self.output_tokens,
@@ -93,7 +105,7 @@ CAMPAIGN_BLOCK = """
 
 CAMPAIGN MODE — this session is part of a wider effort to cover this city's gallery scene:
 - Prioritize the city's BEST, most popular, and most interesting venues that have exhibitions on view right now: blue-chip and institutionally notable spaces first, then well-regarded mid-size galleries. Skip obscure or weak programs.
-- Distinct venues only — never save a second show from a venue that already has one saved (including the ALREADY SAVED list in the first message).
+- Spread saves across venues, but a venue running several concurrent exhibitions may contribute more than one; never re-save a show on the ALREADY SAVED list.
 - Imagery is a hard requirement: if a show has no downloadable image at least 500px wide (ideally 1400px+), SKIP that venue entirely and move on — do not save image-poor entries and do not waste budget fighting the image validator.
 - Set featured = true only for roughly the best 1 in 6 shows you save (the Featured feed is curated; the List and Map tabs carry everything). Use editors_pick sparingly for true standouts."""
 
@@ -102,11 +114,43 @@ EXHAUSTIVE_BLOCK = f"""
 
 EXHAUSTIVE MODE — this session is part of a sweep of this city's ENTIRE publicly viewable art scene:
 - Cover EVERY kind of space on your TODO list: blue-chip and mid-size galleries, artist-run and project spaces, nonprofits, university and photography galleries, museums. Small or obscure is GOOD — the only out-of-scope spaces are ones the public cannot walk into (private dealers and appointment-only viewing rooms with no public hours).
-- Work venue by venue through the TODO list in your first message. For each venue: check its own website for the current or next exhibition; if it qualifies, save it; if it does not, call log_skip with the closest reason and one line of detail. EVERY TODO venue must end in exactly one of save_show or log_skip — no silent skips.
-- One show per venue, ever: never save at a venue on the SAVED VENUES list; if a TODO venue turns out to be one already saved under another name, log_skip it with reason "duplicate".
+- Work venue by venue through the TODO list in your first message. For each venue: open its own exhibitions page and save EVERY distinct exhibition it lists that is on view now or opens within {tools.FUTURE_SAVE_DAYS} days — multi-room galleries and museums often run several at once, and each is its own save_show with its own slug and images. If nothing qualifies, call log_skip with the closest reason and one line of detail. EVERY TODO venue must end in at least one save_show or exactly one log_skip — no silent skips.
+- Rotating exhibitions only: skip permanent-collection displays, long-term installations with no end date, gift-shop or online-only presentations.
+- A TODO venue may list shows ALREADY SAVED (shown under it): do not re-save those; save its other current shows. If a TODO venue turns out to be the same physical space as one already listed under another name, log_skip it with reason "duplicate".
+- A confirmed current or upcoming show whose venue page publishes no closing date STILL qualifies: save it with end_date null and a dates_note quoting the page (it is held in pending, not displayed, until the date is filled). Never log_skip such a show as unverifiable and never invent a date.
+- RENDER_FETCH: if web_fetch of a venue's exhibitions or show page returns no exhibition content, or exhibition text with no dates, call render_fetch on that URL once before deciding — many gallery sites render dates with JavaScript.
+- A TODO venue tagged CANDIDATE was discovered automatically from a fetched domain and is unconfirmed: first confirm it is a public art venue located in this zone; if not, log_skip it with reason "out_of_scope".
 - Imagery is a hard requirement: if a show has no downloadable image at least 500px wide (1400px+ ideal), log_skip with reason "no_image" or "low_res_only" and move on — do not fight the image validator.
 - A venue between shows with a confirmed exhibition opening within the next {tools.FUTURE_SAVE_DAYS} days: SAVE that future show (it is published automatically once its opening window arrives). Between shows with nothing confirmed: log_skip with reason "closed_or_between_shows" and note any reopening info you found.
 - Set featured = true for roughly the best 1 in 6 shows you save; editors_pick only for true standouts."""
+
+
+def _fetch_text(block) -> tuple[str | None, str | None]:
+    """(url, plain text) from a web_fetch_tool_result block, else (url, None)."""
+    c = getattr(block, "content", None)
+    if c is None or getattr(c, "type", "") != "web_fetch_result":
+        return None, None
+    url = getattr(c, "url", None)
+    src = getattr(getattr(c, "content", None), "source", None)
+    data = getattr(src, "data", None)
+    if isinstance(data, str) and getattr(src, "type", "") == "text":
+        return url, data
+    return url, None
+
+
+def _search_results(block, server_inputs: dict) -> dict | None:
+    """{query, results[{url,title,page_age}]} from a web_search_tool_result."""
+    c = getattr(block, "content", None)
+    if not isinstance(c, list):
+        return None  # error object, not a result list
+    q = (server_inputs.get(getattr(block, "tool_use_id", ""), {}) or {}).get("query")
+    return {"query": q, "results": [
+        {"url": r.url, "title": r.title, "page_age": getattr(r, "page_age", None)}
+        for r in c if getattr(r, "type", "") == "web_search_result"]}
+
+
+PAUSE_RE = re.compile(r"next (turn|message|reply)|resume|continue (in|with)|call limit|"
+                      r"tool limit|rate limit", re.I)
 
 
 def accuracy_block(horizon_days: int = 7) -> str:
@@ -115,7 +159,8 @@ def accuracy_block(horizon_days: int = 7) -> str:
     return f"""
 
 ACCURACY — NON-NEGOTIABLE:
-- The venue's OWN website is ground truth. Before saving any show you must have fetched the venue's own page for that exhibition and confirmed: the exact dates, that {on_view}, the street address, and the venue's current opening hours from its visit/hours page.
+- The venue's OWN website is ground truth. Before saving any show you must have fetched the venue's own page for that exhibition and confirmed: the dates the venue publishes (exact when it gives them), that {on_view}, the street address, and the venue's current opening hours from its visit/hours page.
+- If the venue's OWN page confirms the show is on view now (or gives its opening date) but publishes no closing date — including when dates only render via JavaScript and render_fetch still shows none — SAVE it with end_date null (start_date null too if unknown) and a one-line dates_note quoting the page. Do NOT log_skip it as unverifiable, and never guess a date; a later pass fills the closing date.
 - Never trust aggregators, old press coverage, or search snippets for dates, hours, addresses, or phone numbers — they are frequently stale.
 - Confirm the gallery is currently operating (no closure notice, not "by appointment only" unless you record that as its hours).
 - If you cannot verify the venue and its show this way, DO NOT save it — skip it and move on. An accurate shorter list beats a padded inaccurate one."""
@@ -157,7 +202,7 @@ def build_system_prompt(city_key: str, cfg: dict, target_shows: int,
                  "missing, broken, or unhelpful.")
         finish = ("- Work until every TODO venue is resolved (save_show or log_skip), then stop and "
                   "reply with a one-paragraph summary of what you saved and skipped.")
-        mix = "- One show per venue, ever (see EXHAUSTIVE MODE below)."
+        mix = "- Multiple shows per venue are expected — save every qualifying exhibition a TODO venue lists (see EXHAUSTIVE MODE below)."
         curation = "Follow EXHAUSTIVE MODE below for featured and editors_pick."
     else:
         goal = (f"GOAL: research and save {target_shows} notable gallery/museum exhibitions that "
@@ -167,8 +212,9 @@ def build_system_prompt(city_key: str, cfg: dict, target_shows: int,
                  "press). Prefer the venue's own exhibition page as ground truth for titles and dates.")
         finish = (f"- Keep going until you have saved {target_shows} shows; then stop and reply "
                   "with a one-paragraph summary of what you saved.")
-        mix = ("- Mix of venues (do not save two shows from the same venue). Include at least one "
-               "museum show when the city has one on view (venue.is_museum = true).")
+        mix = ("- Mix of venues (spread saves across venues; a venue with several concurrent "
+               "shows may contribute more than one). Include at least one museum show when "
+               "the city has one on view (venue.is_museum = true).")
         curation = ("Follow CAMPAIGN MODE below for featured and editors_pick." if campaign else
                     "Mark 1-2 of the strongest entries editors_pick = true. Set featured = true for all saved shows.")
     mode_block = EXHAUSTIVE_BLOCK if deep else (CAMPAIGN_BLOCK if campaign else "")
@@ -259,6 +305,16 @@ LOG_SKIP_TOOL = {
     "input_schema": tools.LOG_SKIP_SCHEMA,
 }
 
+RENDER_FETCH_TOOL = {   # non-strict (strict-schema complexity budget)
+    "name": "render_fetch",
+    "description": "Load a page in a headless browser and return its rendered text plus every date string on it — including dates hidden in script data that web_fetch strips. Use once per page when web_fetch shows no exhibition content or exhibition text without dates.",
+    "input_schema": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {"url": {"type": "string", "description": "Page URL to render"}},
+    },
+}
+
 RECORD_VENUE_TOOL = {
     "name": "record_venue",
     "description": "Add one venue to the city's durable venue directory. Call once per distinct venue you find while enumerating; a later pass researches its shows.",
@@ -268,11 +324,18 @@ RECORD_VENUE_TOOL = {
 
 
 def build_enumerate_prompt(city_key: str, cfg: dict, zone: str,
-                           known_names: list[str]) -> str:
+                           known_names: list[str],
+                           missing_anchors: list[str] | None = None) -> str:
     g = cfg["guidance"]
     zone_notes = g.get(zone, "") if isinstance(g, dict) else g
-    known = ("\nALREADY KNOWN in this zone (do NOT record these again):\n"
+    known = ("\nALREADY KNOWN in this zone (do NOT record these again, and do NOT web_search "
+             "for them — record_venue rejects them anyway):\n"
              + "; ".join(sorted(known_names))) if known_names else ""
+    areas = ((cfg.get("zones") or {}).get(zone) or {}).get("areas") or []
+    plan = ("\nSEARCH PLAN — run each of these once, then the directory fetches:\n"
+            + "\n".join(f'- "art galleries {a} {cfg["display_name"]}"' for a in areas)) if areas else ""
+    missing = ("\nKNOWN VENUES NOT FOUND YET — find each one (its address/website) and the "
+               "venues around it:\n- " + "\n- ".join(missing_anchors)) if missing_anchors else ""
     return f"""You are building a complete directory of publicly viewable art venues for a gallery-guide app.
 Today is {date.today().strftime('%A, %B %d, %Y')}.
 
@@ -282,10 +345,11 @@ ZONE: {zone}{' — ' + zone_notes if zone_notes else ''}
 GOAL: enumerate EVERY venue in this zone where the public can walk in and see art: commercial galleries of every size, museums, nonprofits, university galleries, photography galleries, artist-run and project spaces.
 
 METHOD:
-1. web_search broad queries ("{zone} Los Angeles art galleries", "art galleries {zone} 2026", district gallery guides, art-walk sites) and web_fetch 2-4 good directory/listing pages (e.g. Gallery Platform LA, Artsy's gallery lists, neighborhood art-walk guides). Directory pages beat individual venue sites here.
+1. web_search broad queries ("{zone} {cfg['display_name']} art galleries", "art galleries {zone} {date.today().year}", district gallery guides, art-walk sites) and web_fetch at least 3 good directory/listing pages (e.g. Gallery Platform LA, Contemporary Art Review LA's venue list, neighborhood art-walk guides) BEFORE your first record_venue. Directory pages beat individual venue sites here.
 2. record_venue once per venue, with address/website when the page shows them. Do NOT fetch each venue's own site — a later pass researches shows and verifies details. Completeness beats precision: recording a venue that turns out closed is fine; MISSING one is the failure mode.
-3. EXCLUDE: appointment-only private dealers with no public hours, framers/art-supply shops, tattoo/design studios, one-off pop-ups that already ended, and venues outside this zone (record only venues actually located in {zone}).
-{known}
+3. web_search is for discovering NEW names only — never search a name you have already recorded or one on the ALREADY KNOWN list, and never run the same query twice.
+4. EXCLUDE: appointment-only private dealers with no public hours, framers/art-supply shops, tattoo/design studios, one-off pop-ups that already ended, and venues outside this zone (record only venues actually located in {zone}).
+{plan}{missing}{known}
 
 Stop when further searches stop yielding new names. Then reply with one line: how many venues you recorded."""
 
@@ -359,7 +423,9 @@ def build_verify_prompt(city_key: str, cfg: dict, shows: list[dict]) -> str:
         crosscheck = json.loads(cc_path.read_text())
     inventory = "\n".join(
         f"- slug: {s['slug']} | {s.get('artist') or ''} \"{s['title']}\" at {s['venue']['name']}"
-        f" | {s['start_date']}..{s['end_date']} | {s['venue']['address']}"
+        f" | {s.get('start_date') or '?'}..{s.get('end_date') or 'END UNKNOWN'}"
+        + (f" | dates_note: {s['dates_note']}" if s.get('dates_note') else "")
+        + f" | {s['venue']['address']}"
         f" | hours: {' / '.join(s['venue']['hours'])} | phone: {s['venue'].get('phone')}"
         f" | site: {s['venue'].get('website')} | sources: {', '.join(s['source_urls'][:2])}"
         + _crosscheck_line(city_key, s['slug'], crosscheck)
@@ -393,11 +459,31 @@ CROSS-CHECK RULES (each show may carry a "cross-check ->" line of Google Maps / 
 - Hours: the venue's own current visit/hours page is primary. If the venue site posts no hours, adopt Google's hours as the correction. If the two conflict, prefer the venue site only when its page is demonstrably current; note the conflict in reason.
 - Second source for the SHOW itself: besides the venue's own site, look for it on {second_source} or the venue's official press page; note in reason when a show rests on the venue site alone.
 
+DATE FILL (shows whose inventory line says END UNKNOWN or '?'):
+1. web_fetch the venue's own page for the show; if it shows no dates or looks JS-rendered, call render_fetch on it once and read date_strings (script payloads often carry exact ISO dates).
+2. If the venue page still gives no closing date, look for the show on {second_source}: two independent listings agreeing on the same dates count as confirmation.
+3. Found: status "corrected" with corrections.end_date (and start_date if it was '?'); say the source in reason.
+4. Still unknown but the venue page confirms the show is on view: status "verified", corrections null, reason "venue site still lists no closing date" — it stays held. NEVER estimate a date.
+
 RULES:
 - Never invent data; corrections must come from the venue's own pages (or Google Maps data above, for hours as described).
 - A show that appears only on aggregators/press but not the venue's own site is unverified, unless the venue site is clearly broken or JS-only AND two independent authoritative sources agree on the details.
 - A real, confirmed show that has not opened yet is "verified" (or "corrected"), never "unverified" — publication timing (the on-view/opening-soon window) is enforced automatically after your verdict.
 - Do not modify anything except through confirm_show. Work through every show, then reply with one line: counts of verified / corrected / unverified."""
+
+
+RECORD_SIGNAL_TOOL = {
+    "name": "record_signal",
+    "description": "Record one press/curatorial signal about one show (or one venue-level "
+                   "fair signal) into the curation evidence store. One call per (source page, "
+                   "show) mention. Returns whether it matched a pooled show or became a "
+                   "scrape-gap candidate.",
+    "strict": True,
+    "input_schema": curation_store.RECORD_SIGNAL_SCHEMA,
+}
+# Non-strict twin for deep scrape sessions (strict-schema complexity budget);
+# the handler validates.
+RECORD_SIGNAL_TOOL_LOOSE = {k: v for k, v in RECORD_SIGNAL_TOOL.items() if k != "strict"}
 
 
 VERIFY_TOOLS = [
@@ -407,6 +493,7 @@ VERIFY_TOOLS = [
         "strict": True,
         "input_schema": tools.CONFIRM_SHOW_SCHEMA,
     },
+    RENDER_FETCH_TOOL,
 ]
 
 
@@ -421,7 +508,18 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
              fetch_content_tokens: int = 20000,
              effort: str | None = None,
              context_editing: bool = False,
-             session_label: str | None = None) -> dict:
+             session_label: str | None = None,
+             signal_variant: str | None = None,
+             signal_ctx: dict | None = None,
+             search_domains: dict | None = None,
+             keyword_signals: bool = False,
+             missing_anchors: list[str] | None = None) -> dict:
+    """Run one agent session. Modes (first match wins): verify, enrich,
+    enumerate_zone, signal_variant (curation signal collection), else scrape
+    (deep when `deep`). `search_domains` = {"allowed_domains": [...]} or
+    {"blocked_domains": [...]} applied to both server web tools.
+    `keyword_signals` adds the non-strict record_signal tool + prompt block to
+    deep sessions so agents log significance claims they already read."""
     cfg = dict(CITIES[city_key])
     if neighborhoods:
         bad = [n for n in neighborhoods if n not in cfg["neighborhoods"]]
@@ -449,19 +547,30 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             {"type": "web_fetch_20250910", "name": "web_fetch", "max_uses": max_fetches,
              "max_content_tokens": fetch_content_tokens},
         ]
+    if search_domains:
+        for t in server_tools:
+            for k in ("allowed_domains", "blocked_domains"):
+                if search_domains.get(k):
+                    t[k] = list(search_domains[k])
     if verify:
         all_tools = server_tools + VERIFY_TOOLS
     elif enumerate_zone:
         all_tools = server_tools + [RECORD_VENUE_TOOL]
+    elif signal_variant:
+        all_tools = server_tools + [RECORD_SIGNAL_TOOL]   # single strict tool
     elif deep:
         # attach_images is enrich-only; dropping it keeps the strict-schema
         # budget under the limit alongside the non-strict log_skip
         all_tools = server_tools + [t for t in CLIENT_TOOLS
-                                    if t["name"] != "attach_images"] + [LOG_SKIP_TOOL]
+                                    if t["name"] != "attach_images"] + [LOG_SKIP_TOOL,
+                                                                        RENDER_FETCH_TOOL]
+        if keyword_signals:
+            all_tools.append(RECORD_SIGNAL_TOOL_LOOSE)
     else:
         all_tools = server_tools + CLIENT_TOOLS
 
     def execute(name: str, args: dict) -> str:
+        trace.cost_now, trace.searches_now = meter.dollars, meter.web_searches
         if name == "extract_image_urls":
             return tools.extract_image_urls(args["url"])
         if name == "download_image":
@@ -474,8 +583,18 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             return tools.confirm_show(args, city_key)
         if name == "log_skip":
             return tools.log_skip(args, city_key, meter.label)
+        if name == "render_fetch":
+            return tools.render_fetch(args["url"])
         if name == "record_venue":
             return tools.record_venue(args, city_key, cfg["neighborhoods"], meter.label)
+        if name == "record_signal":
+            import curation_prompts
+            if signal_variant:
+                variant, phash = signal_variant, curation_prompts.VARIANTS[signal_variant].prompt_hash()
+            else:
+                variant, phash = curation_prompts.KEYWORD_VARIANT, curation_prompts.keyword_prompt_hash()
+            return curation_store.record_signal(args, city_key, run_id=meter.label,
+                                                variant=variant, model=model, prompt_hash=phash)
         raise ValueError(f"unknown tool {name}")
 
     if verify:
@@ -485,7 +604,7 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
         if verify_pending_only:
             verdicts_now = tools.latest_verdicts()
             saved_shows = [s for s in saved_shows
-                           if not tools.awaiting_window_only(city_key, s, verdicts_now)]
+                           if tools.verify_candidate(city_key, s, verdicts_now)]
         if neighborhoods:
             saved_shows = [s for s in saved_shows if s["venue"]["neighborhood"] in neighborhoods]
         system = build_verify_prompt(city_key, cfg, saved_shows)
@@ -508,15 +627,23 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
              if v["neighborhood"] == enumerate_zone}
             | {s["venue"]["name"] for s in tools.all_city_shows(city_key)
                if s["venue"]["neighborhood"] == enumerate_zone})
-        system = build_enumerate_prompt(city_key, cfg, enumerate_zone, known)
+        system = build_enumerate_prompt(city_key, cfg, enumerate_zone, known,
+                                        missing_anchors=missing_anchors)
         messages = [{
             "role": "user",
             "content": f"Enumerate the {enumerate_zone} zone of {cfg['display_name']} "
                        "following your instructions.",
         }]
+    elif signal_variant:
+        import curation_prompts
+        system, first = curation_prompts.render(signal_variant, city_key, cfg, signal_ctx or {})
+        messages = [{"role": "user", "content": first}]
     else:
         system = build_system_prompt(city_key, cfg, target_shows,
                                      campaign=campaign, deep=deep)
+        if keyword_signals and deep:
+            import curation_prompts
+            system += curation_prompts.KEYWORD_SIGNALS_BLOCK
         if first_user_message is not None:
             messages = [{"role": "user", "content": first_user_message}]
         else:
@@ -525,9 +652,9 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             if prior:
                 lines = "\n".join(f'- "{s["title"]}" at {s["venue"]["name"]}' for s in prior)
                 existing_note = (
-                    f"\n\nALREADY SAVED for this city (do NOT research or re-save these shows, "
-                    f"and do NOT save any show at these venues — add {target_shows} NEW shows "
-                    f"at OTHER venues only):\n{lines}"
+                    f"\n\nALREADY SAVED SHOWS for this city (do NOT research or re-save these; "
+                    f"other shows at the same venues are welcome — add {target_shows} NEW "
+                    f"shows):\n{lines}"
                 )
             messages = [{
                 "role": "user",
@@ -535,15 +662,25 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                            f"{target_shows} current shows following your instructions." + existing_note,
             }]
 
+    import venues
+    trace = venues.SessionTrace(meter.label, city_key)
+    trace.zone = enumerate_zone or (cfg["neighborhoods"][0] if len(cfg["neighborhoods"]) == 1 else None)
+    tools.set_session(trace)
+    repeat_queries: list[str] = []   # advisory: the model re-ran a search
+    server_inputs: dict[str, dict] = {}   # server_tool_use id -> input (queries)
+    evidence_ok = tools.SANDBOX_DIR is None
+
     nudged = False
+    continue_nudges = 0
     final_text = ""
     container_id = None
     stop_reason = "not_started"
     for iteration in range(max_iterations):
+        trace.iteration = iteration
         def create(cid: str | None):
             kwargs: dict = {
                 "model": model,
-                "max_tokens": 8000,
+                "max_tokens": MAX_TOKENS,
                 "system": system,
                 "messages": messages,
                 "tools": all_tools,
@@ -605,8 +742,44 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                 print(f"  [{city_key} #{iteration}] {final_text[:200]}")
             elif block.type == "server_tool_use":
                 print(f"  [{city_key} #{iteration}] server:{block.name} {json.dumps(block.input)[:140]}")
+                inp = block.input if isinstance(block.input, dict) else {}
+                server_inputs[block.id] = inp
+                if block.name == "web_fetch":
+                    trace.add_url(inp.get("url"), "web_fetch")
+                elif block.name == "web_search":
+                    q = str(inp.get("query", ""))
+                    qn = re.sub(r"\s+", " ", q.strip().lower())
+                    if qn and qn in {re.sub(r"\s+", " ", x.strip().lower()) for x in trace.queries}:
+                        repeat_queries.append(q)
+                    trace.queries.append(q)
             elif block.type == "tool_use":
                 print(f"  [{city_key} #{iteration}] tool:{block.name} {json.dumps(block.input)[:140]}")
+            elif block.type == "web_fetch_tool_result" and evidence_ok:
+                # Already paid for: keep the fetched text for refresh/curation reuse.
+                url, text = _fetch_text(block)
+                if url and text:
+                    try:
+                        venues.write_evidence(city_key, url, "web_fetch", text, meter.label)
+                    except Exception as exc:
+                        print(f"  [{city_key}] evidence write failed: {exc}")
+                    # unknown venue domain fetched -> registry candidate (never fails a turn)
+                    try:
+                        hit = venues.on_fetch(city_key, url, text, trace, cfg)
+                        if hit:
+                            print(f"  [{city_key}] registry {hit} from {url[:80]}")
+                    except Exception as exc:
+                        tools.log_event({"session": meter.label, "city": city_key,
+                                         "kind": "registry_error", "hook": "on_fetch",
+                                         "error": str(exc)[:300]})
+            elif block.type == "web_search_tool_result" and evidence_ok:
+                res = _search_results(block, server_inputs)
+                if res and res["results"]:
+                    try:
+                        venues.write_evidence(city_key, "search:" + (res["query"] or ""),
+                                              "web_search", json.dumps(res, ensure_ascii=False),
+                                              meter.label)
+                    except Exception as exc:
+                        print(f"  [{city_key}] evidence write failed: {exc}")
 
         stop_reason = response.stop_reason
         if response.stop_reason == "pause_turn":
@@ -619,8 +792,24 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                              "detail": str(response.stop_details)})
             break
 
-        if response.stop_reason != "tool_use":
-            break  # end_turn / max_tokens — session over
+        cut_off = response.stop_reason == "max_tokens"
+        has_tool_calls = any(b.type == "tool_use" for b in response.content)
+        if response.stop_reason == "end_turn" and not has_tool_calls and continue_nudges < 2 \
+                and meter.dollars < budget_usd and PAUSE_RE.search(final_text or ""):
+            # The web tools have a per-turn call cap; the model sometimes stops
+            # and says it will "resume next turn". Give it that turn (twice max).
+            continue_nudges += 1
+            print(f"  [{city_key}] model paused for a new turn; nudging ({continue_nudges}/2)")
+            tools.log_event({"session": meter.label, "city": city_key, "kind": "continue_nudge"})
+            messages.append({"role": "assistant", "content": response.content})
+            messages.append({"role": "user", "content": "Continue — this is your next turn; the tool "
+                             "limits have reset. Keep working through your instructions."})
+            continue
+        if response.stop_reason != "tool_use" and not (cut_off and has_tool_calls):
+            break  # end_turn (or max_tokens with nothing to execute) — session over
+        # A max_tokens response still carries every complete tool_use block the
+        # model emitted; execute them and let it continue rather than losing
+        # a whole batch of saves/records.
 
         messages.append({"role": "assistant", "content": response.content})
         results = []
@@ -643,6 +832,19 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                 tools.log_event({"session": meter.label, "city": city_key,
                                  "kind": "tool_error", "tool": block.name,
                                  "error": str(exc)[:400], **ctx})
+        if repeat_queries:
+            qs = "; ".join(f"'{q}'" for q in repeat_queries[-3:])
+            results.append({"type": "text", "text": f"NOTE: you already ran the search {qs} "
+                            "earlier this session — never repeat a search; move on to new names "
+                            "or directory pages."})
+            repeat_queries.clear()
+        if cut_off:
+            print(f"  [{city_key}] output limit hit with {len(results)} tool call(s) executed; continuing")
+            tools.log_event({"session": meter.label, "city": city_key, "kind": "max_tokens_continue",
+                             "tool_calls": len(results)})
+            results.append({"type": "text", "text": "NOTE: your previous turn was cut off by the output "
+                            "limit after the tool calls above. Continue from where you left off; "
+                            "issue fewer tool calls per turn."})
         messages.append({"role": "user", "content": results})
 
         if meter.dollars > budget_usd and not nudged:
@@ -663,10 +865,11 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             break
 
     meter.save()
+    tools.set_session(None)
     shows_total = len(tools.all_city_shows(city_key))
     shows_added = shows_total - shows_before
     tools.log_event({"session": meter.label, "city": city_key, "kind": "session_end",
                      "stop_reason": stop_reason, "shows_added": shows_added,
                      "cost_usd": round(meter.dollars, 4)})
     return {"city": city_key, "shows_saved": shows_total, "shows_added": shows_added,
-            "final_message": final_text, **meter.summary()}
+            "final_message": final_text, "stop_reason": stop_reason, **meter.summary()}

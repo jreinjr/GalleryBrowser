@@ -144,12 +144,9 @@ def main() -> None:
         verdicts_now = tools.latest_verdicts()
 
         def why(s: dict) -> str:
-            if reasons.get(s["slug"]):
+            if reasons.get(s["slug"]) and tools.dates_ok(s):
                 return reasons[s["slug"]]
-            if tools.awaiting_window_only(c, s, verdicts_now):
-                return ("verified; publishes when its opening window arrives"
-                        if not tools.show_expired(s) else "verified but ended")
-            return "awaiting verification"
+            return tools.pending_reason(c, s, verdicts_now)
 
         line = f"  {c}: {published} published, {len(pending)} pending"
         if pending:

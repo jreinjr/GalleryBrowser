@@ -32,7 +32,7 @@ def main() -> int:
         n_images = 0
         for show in shows:
             sid = f"{city}/{show.get('slug', '?')}"
-            missing = REQUIRED - set(show)
+            missing = REQUIRED - set(show) - {"dates_note"}   # legacy records: note = null
             if missing:
                 problems.append(f"{sid}: missing keys {sorted(missing)}")
                 continue
@@ -40,11 +40,15 @@ def main() -> int:
             if vmissing:
                 problems.append(f"{sid}: venue missing keys {sorted(vmissing)}")
             for key in ("start_date", "end_date"):
+                if show.get(key) is None:
+                    problems.append(f"{sid}: null {key} in a PUBLISHED file (must stay pending)")
+                    continue
                 try:
                     date.fromisoformat(show[key])
-                except ValueError:
+                except (ValueError, TypeError):
                     problems.append(f"{sid}: bad {key} {show[key]!r}")
-            if date.fromisoformat(show["end_date"]) < date.today():
+            end = tools._parse_iso(show.get("end_date"))
+            if end is not None and end < date.today():
                 problems.append(f"{sid}: already closed ({show['end_date']})")
             for img in show["images"]:
                 full = tools.CONTENT_DIR / img

@@ -2,7 +2,10 @@
 (function () {
   'use strict';
 
-  window.DemoMap = function ({ getCity, getShows, onPinTap }) {
+  // venueKey(venue) -> string groups shows that share a venue (one pin per venue).
+  // onPinTap(show) opens a single show; onVenueTap(venue, shows) opens a venue
+  // that has several concurrent shows.
+  window.DemoMap = function ({ getCity, getShows, venueKey, onPinTap, onVenueTap }) {
     let map = null;
     let markers = [];
 
@@ -32,16 +35,36 @@
       if (!map) return;
       markers.forEach(m => m.remove());
       markers = [];
+      // Several shows can run at one venue: group them so each venue gets a
+      // single pin instead of a stack of identically labelled markers.
+      const groups = new Map();
       getShows().forEach(s => {
-        const v = s.venue;
+        const key = venueKey(s.venue);
+        const g = groups.get(key);
+        if (g) g.shows.push(s);
+        else groups.set(key, { venue: s.venue, shows: [s] });
+      });
+      groups.forEach(({ venue: v, shows }, key) => {
         const pin = document.createElement('div');
+        pin.dataset.venueKey = key;
+        pin.dataset.count = String(shows.length);
         const dot = document.createElement('div');
         dot.className = 'map-pin';
+        if (shows.length > 1) {
+          const count = document.createElement('div');
+          count.className = 'map-pin-count';
+          count.textContent = String(shows.length);
+          dot.appendChild(count);
+        }
         const label = document.createElement('div');
         label.className = 'map-pin-label';
         label.textContent = v.name;
         pin.append(dot, label);
-        pin.addEventListener('click', e => { e.stopPropagation(); onPinTap(s); });
+        pin.addEventListener('click', e => {
+          e.stopPropagation();
+          if (shows.length > 1) onVenueTap(v, shows);
+          else onPinTap(shows[0]);
+        });
         markers.push(new maplibregl.Marker({ element: pin }).setLngLat([v.lng, v.lat]).addTo(map));
       });
     }
