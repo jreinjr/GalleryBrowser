@@ -105,10 +105,12 @@ class RegistryScheduleTests(unittest.TestCase):
     def test_backfill_todo_and_museum_batching(self):
         one = self.venue("one", shows=("2026-10-15",))
         two = self.venue("two", shows=("2026-10-15", "2026-11-01"))
+        done = self.venue("done", shows=("2026-10-15",))
+        done["last_outcome"], done["last_scraped"] = "skipped:unchanged", int(time.time())
         m1 = self.venue("m1", shows=("2026-10-15",), kind="museum")
         m2 = self.venue("m2", shows=("2026-10-15",), kind="museum")
         m3 = self.venue("m3", shows=("2026-10-15",), kind="museum")
-        self.write(one, two, m1, m2, m3)
+        self.write(one, two, m1, m2, m3, done)
         todo = run_deep.zone_todo("los-angeles", "Hollywood", only_with_saves=True)
         self.assertEqual([v["id"] for v in todo], ["m1", "m2", "m3", "one"])
         batch = run_deep.pick_batch(todo, 8)
