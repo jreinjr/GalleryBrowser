@@ -1,0 +1,609 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "notes": "Publication registry for LA curation signals (plan 2.1). weight = per-signal multiplier in the press/artist-heat features; 0 = venue-tier or artist-heat only (fairs, institutions). query_hints are what the pubsweep sessions actually run; entry URLs are fetched first. Hand-edit freely; signals keep their own provenance.",
+ "sources": [
+  {
+   "id": "latimes-arts",
+   "name": "Los Angeles Times — Arts & Culture",
+   "kind": "publication_picks",
+   "urls": [
+    "https://www.latimes.com/entertainment-arts/visual-arts"
+   ],
+   "domains": [
+    "latimes.com"
+   ],
+   "weight": 1.0,
+   "cadence": "weekly",
+   "active": false,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Los Angeles Times art exhibitions to see September 2026",
+    "site:latimes.com gallery exhibition review Los Angeles September 2026",
+    "Los Angeles Times \"must-see\" art shows Los Angeles 2026"
+   ],
+   "notes": "Weekly picks column + reviews; strongest LA-specific pick source. DEACTIVATED 2026-09-01: latimes.com blocks Anthropic's fetcher (permission errors; allowed_domains 400). 0 signals for ~$1 of searching. Re-enable only with a different access path."
+  },
+  {
+   "id": "artforum-mustsee",
+   "name": "Artforum — Must See",
+   "kind": "publication_picks",
+   "urls": [
+    "https://www.artforum.com/must-see/"
+   ],
+   "domains": [
+    "artforum.com"
+   ],
+   "weight": 1.0,
+   "cadence": "weekly",
+   "active": false,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Artforum must see Los Angeles September 2026",
+    "site:artforum.com must-see Los Angeles"
+   ],
+   "notes": "City-filtered must-see list; treat each Los Angeles entry as kind=pick. DEACTIVATED 2026-09-01: artforum.com/must-see failed to load on every attempt (web_fetch); 0 signals. Try again later or via search snippets only."
+  },
+  {
+   "id": "artforum-critics-picks",
+   "name": "Artforum — Critics' Picks",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.artforum.com/critics-picks/"
+   ],
+   "domains": [
+    "artforum.com"
+   ],
+   "weight": 1.0,
+   "cadence": "weekly",
+   "active": false,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Artforum critics picks Los Angeles 2026",
+    "site:artforum.com critics-picks Los Angeles September 2026"
+   ],
+   "notes": "Short reviews; kind=review, strength=headline. DEACTIVATED 2026-09-01: artforum.com/critics-picks failed to load on every attempt; 0 signals."
+  },
+  {
+   "id": "carla",
+   "name": "Contemporary Art Review Los Angeles (Carla)",
+   "kind": "review_outlet",
+   "urls": [
+    "https://contemporaryartreview.la/"
+   ],
+   "domains": [
+    "contemporaryartreview.la"
+   ],
+   "weight": 1.0,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Carla contemporary art review Los Angeles September 2026",
+    "site:contemporaryartreview.la review 2026",
+    "contemporaryartreview.la snap reviews September 2026"
+   ],
+   "notes": "LA-only review outlet; also runs short 'snap' reviews."
+  },
+  {
+   "id": "hyperallergic-la",
+   "name": "Hyperallergic — Los Angeles",
+   "kind": "publication_picks",
+   "urls": [
+    "https://hyperallergic.com/tag/los-angeles/"
+   ],
+   "domains": [
+    "hyperallergic.com"
+   ],
+   "weight": 0.9,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Hyperallergic Los Angeles art shows to see September 2026",
+    "site:hyperallergic.com Los Angeles exhibition review 2026"
+   ],
+   "notes": "Monthly 'shows to see in LA' roundup + reviews."
+  },
+  {
+   "id": "frieze-magazine",
+   "name": "Frieze",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.frieze.com/"
+   ],
+   "domains": [
+    "frieze.com"
+   ],
+   "weight": 0.9,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "frieze.com Los Angeles exhibition review 2026",
+    "Frieze must-see shows Los Angeles September 2026"
+   ],
+   "notes": "Reviews + occasional LA must-see lists."
+  },
+  {
+   "id": "kcrw-art-talk",
+   "name": "KCRW — Art Talk (Edward Goldman)",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.kcrw.com/culture/shows/art-talk"
+   ],
+   "domains": [
+    "kcrw.com"
+   ],
+   "weight": 0.8,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "KCRW Art Talk September 2026",
+    "site:kcrw.com art talk exhibition Los Angeles 2026"
+   ],
+   "notes": "Weekly radio column with transcripts; usually 1-3 shows per episode."
+  },
+  {
+   "id": "artillery",
+   "name": "Artillery Magazine",
+   "kind": "review_outlet",
+   "urls": [
+    "https://artillerymag.com/"
+   ],
+   "domains": [
+    "artillerymag.com"
+   ],
+   "weight": 0.7,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Artillery magazine Los Angeles gallery review September 2026",
+    "site:artillerymag.com pick of the week 2026"
+   ],
+   "notes": "LA-based; 'Pick of the Week' = pick, reviews = review."
+  },
+  {
+   "id": "artnews",
+   "name": "ARTnews",
+   "kind": "news",
+   "urls": [
+    "https://www.artnews.com/"
+   ],
+   "domains": [
+    "artnews.com"
+   ],
+   "weight": 0.6,
+   "cadence": "daily",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "ARTnews Los Angeles gallery exhibition September 2026",
+    "site:artnews.com Los Angeles show 2026"
+   ],
+   "notes": "News + artist profiles; also an artist-heat source."
+  },
+  {
+   "id": "artnet-news",
+   "name": "Artnet News",
+   "kind": "news",
+   "urls": [
+    "https://news.artnet.com/"
+   ],
+   "domains": [
+    "artnet.com"
+   ],
+   "weight": 0.6,
+   "cadence": "daily",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "artnet news Los Angeles exhibitions to see September 2026",
+    "site:news.artnet.com Los Angeles gallery 2026"
+   ],
+   "notes": "News + 'shows to see' lists."
+  },
+  {
+   "id": "art-in-america",
+   "name": "Art in America",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.artnews.com/c/art-in-america/"
+   ],
+   "domains": [
+    "artnews.com"
+   ],
+   "weight": 0.6,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Art in America review Los Angeles 2026",
+    "site:artnews.com art-in-america Los Angeles exhibition 2026"
+   ],
+   "notes": "Hosted on artnews.com."
+  },
+  {
+   "id": "timeout-la",
+   "name": "Time Out Los Angeles — Art",
+   "kind": "listing",
+   "urls": [
+    "https://www.timeout.com/los-angeles/art"
+   ],
+   "domains": [
+    "timeout.com"
+   ],
+   "weight": 0.5,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Time Out Los Angeles best art exhibitions September 2026",
+    "site:timeout.com los-angeles art exhibitions 2026"
+   ],
+   "notes": "Listings roundups; kind=listing unless clearly editorial."
+  },
+  {
+   "id": "la-weekly",
+   "name": "LA Weekly — Arts",
+   "kind": "listing",
+   "urls": [
+    "https://www.laweekly.com/category/arts/"
+   ],
+   "domains": [
+    "laweekly.com"
+   ],
+   "weight": 0.5,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "LA Weekly art shows this week September 2026",
+    "site:laweekly.com gallery exhibition Los Angeles 2026"
+   ],
+   "notes": "Weekly arts calendar."
+  },
+  {
+   "id": "x-tra",
+   "name": "X-TRA Contemporary Art Journal",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.x-traonline.org/"
+   ],
+   "domains": [
+    "x-traonline.org"
+   ],
+   "weight": 0.5,
+   "cadence": "monthly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "X-TRA review Los Angeles exhibition 2026",
+    "site:x-traonline.org review 2026"
+   ],
+   "notes": "LA-based quarterly; slow cadence, long reviews."
+  },
+  {
+   "id": "cultured",
+   "name": "Cultured Magazine",
+   "kind": "culture",
+   "urls": [
+    "https://www.culturedmag.com/"
+   ],
+   "domains": [
+    "culturedmag.com"
+   ],
+   "weight": 0.4,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Cultured magazine Los Angeles artist show September 2026",
+    "site:culturedmag.com Los Angeles artist 2026"
+   ],
+   "notes": "Artist-heat source (profiles); picks are occasional."
+  },
+  {
+   "id": "flaunt",
+   "name": "Flaunt Magazine",
+   "kind": "culture",
+   "urls": [
+    "https://flaunt.com/"
+   ],
+   "domains": [
+    "flaunt.com"
+   ],
+   "weight": 0.4,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Flaunt magazine artist exhibition Los Angeles 2026",
+    "site:flaunt.com art Los Angeles 2026"
+   ],
+   "notes": "Artist-heat source."
+  },
+  {
+   "id": "artsy-editorial",
+   "name": "Artsy Editorial",
+   "kind": "publication_picks",
+   "urls": [
+    "https://www.artsy.net/articles"
+   ],
+   "domains": [
+    "artsy.net"
+   ],
+   "weight": 0.4,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Artsy shows to see Los Angeles September 2026",
+    "site:artsy.net article Los Angeles gallery 2026"
+   ],
+   "notes": "Editorial picks; the marketplace listings are not signals."
+  },
+  {
+   "id": "diversions-la",
+   "name": "DiversionsLA",
+   "kind": "listing",
+   "urls": [
+    "https://diversionsla.com/"
+   ],
+   "domains": [
+    "diversionsla.com"
+   ],
+   "weight": 0.3,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "DiversionsLA art exhibitions September 2026",
+    "site:diversionsla.com gallery opening 2026"
+   ],
+   "notes": "Openings roundups."
+  },
+  {
+   "id": "gallery-platform-la",
+   "name": "Gallery Platform LA",
+   "kind": "listing",
+   "urls": [
+    "https://galleryplatform.la/"
+   ],
+   "domains": [
+    "galleryplatform.la"
+   ],
+   "weight": 0.3,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Gallery Platform LA current exhibitions September 2026",
+    "site:galleryplatform.la exhibition 2026"
+   ],
+   "notes": "Gallery-run listings; doubles as a scrape-gap source (candidates)."
+  },
+  {
+   "id": "contemporary-art-daily",
+   "name": "Contemporary Art Daily",
+   "kind": "publication_picks",
+   "urls": [
+    "https://contemporaryartdaily.com/"
+   ],
+   "domains": [
+    "contemporaryartdaily.com"
+   ],
+   "weight": 0.9,
+   "cadence": "daily",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Contemporary Art Daily Los Angeles 2026",
+    "site:contemporaryartdaily.com Los Angeles September 2026"
+   ],
+   "notes": "Selection is the signal: a documented LA show = pick/featured."
+  },
+  {
+   "id": "nyt-art",
+   "name": "The New York Times — Art & Design",
+   "kind": "culture",
+   "urls": [
+    "https://www.nytimes.com/section/arts/design"
+   ],
+   "domains": [
+    "nytimes.com"
+   ],
+   "weight": 0.7,
+   "cadence": "daily",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "New York Times review Los Angeles exhibition 2026",
+    "site:nytimes.com artist profile Los Angeles 2026"
+   ],
+   "notes": "Artist heat only (national reach); LA show reviews are rare but count."
+  },
+  {
+   "id": "new-yorker",
+   "name": "The New Yorker — Goings On (Art)",
+   "kind": "culture",
+   "urls": [
+    "https://www.newyorker.com/goings-on-about-town/art"
+   ],
+   "domains": [
+    "newyorker.com"
+   ],
+   "weight": 0.7,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "New Yorker artist profile 2026",
+    "site:newyorker.com art review 2026"
+   ],
+   "notes": "Artist heat only."
+  },
+  {
+   "id": "frieze-la-exhibitors",
+   "name": "Frieze Los Angeles — exhibitors",
+   "kind": "fair",
+   "urls": [
+    "https://www.frieze.com/fairs/frieze-los-angeles"
+   ],
+   "domains": [
+    "frieze.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Frieze Los Angeles 2026 exhibitor list",
+    "Frieze Los Angeles 2026 galleries participating"
+   ],
+   "notes": "Venue-tier signal (fair_exhibitor); no show weight."
+  },
+  {
+   "id": "felix-la",
+   "name": "Felix Art Fair — exhibitors",
+   "kind": "fair",
+   "urls": [
+    "https://www.felixfair.com/"
+   ],
+   "domains": [
+    "felixfair.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Felix Art Fair 2026 exhibitors Los Angeles",
+    "site:felixfair.com exhibitors 2026"
+   ],
+   "notes": "Venue-tier signal."
+  },
+  {
+   "id": "abmb-exhibitors",
+   "name": "Art Basel Miami Beach — exhibitors",
+   "kind": "fair",
+   "urls": [
+    "https://www.artbasel.com/miami-beach"
+   ],
+   "domains": [
+    "artbasel.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Art Basel Miami Beach 2025 exhibitor list Los Angeles galleries",
+    "site:artbasel.com miami-beach galleries 2025"
+   ],
+   "notes": "Venue-tier signal; filter to LA galleries."
+  },
+  {
+   "id": "untitled-miami",
+   "name": "Untitled Art, Miami Beach — exhibitors",
+   "kind": "fair",
+   "urls": [
+    "https://untitledartfairs.com/"
+   ],
+   "domains": [
+    "untitledartfairs.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Untitled Art Miami Beach 2025 exhibitors Los Angeles",
+    "site:untitledartfairs.com exhibitors"
+   ],
+   "notes": "Venue-tier signal; filter to LA galleries."
+  },
+  {
+   "id": "adaa-art-show",
+   "name": "ADAA The Art Show — exhibitors",
+   "kind": "fair",
+   "urls": [
+    "https://www.artdealers.org/the-art-show"
+   ],
+   "domains": [
+    "artdealers.org"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "ADAA The Art Show 2026 exhibitors Los Angeles galleries",
+    "site:artdealers.org the-art-show exhibitors"
+   ],
+   "notes": "Venue-tier signal; ADAA membership is itself a tier hint."
+  },
+  {
+   "id": "made-in-la",
+   "name": "Hammer Museum — Made in L.A. biennial",
+   "kind": "institution",
+   "urls": [
+    "https://hammer.ucla.edu/made-in-la"
+   ],
+   "domains": [
+    "hammer.ucla.edu"
+   ],
+   "weight": 0,
+   "cadence": "biennial",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Made in L.A. 2025 artists list",
+    "Made in L.A. 2026 artists announced Hammer"
+   ],
+   "notes": "Artist heat (artist_activity) for included artists."
+  },
+  {
+   "id": "whitney-biennial",
+   "name": "Whitney Biennial",
+   "kind": "institution",
+   "urls": [
+    "https://whitney.org/exhibitions"
+   ],
+   "domains": [
+    "whitney.org"
+   ],
+   "weight": 0,
+   "cadence": "biennial",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Whitney Biennial 2026 artists list",
+    "Whitney Biennial 2026 Los Angeles artists"
+   ],
+   "notes": "Artist heat."
+  },
+  {
+   "id": "venice-biennale",
+   "name": "La Biennale di Venezia — Art",
+   "kind": "institution",
+   "urls": [
+    "https://www.labiennale.org/en/art"
+   ],
+   "domains": [
+    "labiennale.org"
+   ],
+   "weight": 0,
+   "cadence": "biennial",
+   "active": true,
+   "added": "2026-09-01",
+   "query_hints": [
+    "Venice Biennale 2026 artists list",
+    "Venice Biennale 2026 Los Angeles artist"
+   ],
+   "notes": "Artist heat."
+  }
+ ]
+}

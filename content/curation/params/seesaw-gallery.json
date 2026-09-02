@@ -1,0 +1,67 @@
+{
+ "version": 1,
+ "city": null,
+ "today": null,
+ "max_n": 7,
+ "threshold": 0.12,
+ "max_per_venue": 1,
+ "include_pending": false,
+ "editors_pick_top": 3,
+ "exclude_museums": true,
+ "max_per_neighborhood": null,
+ "max_museum_share": null,
+ "weights": {
+  "press": 0.4,
+  "judge": 0.25,
+  "venue": 0.2,
+  "artist_heat": 0.1,
+  "museum": 0.0,
+  "keyword": 0.03,
+  "wiki_heat": 0.02,
+  "opening_recency": 0.03,
+  "closing_soon": 0.02,
+  "quality": 0
+ },
+ "half_life_days": {
+  "press": 21,
+  "artist": 180,
+  "opening": 30
+ },
+ "press_ref": 4,
+ "artist_ref": 3,
+ "cap_per_source": 1.5,
+ "wiki_ref": 20000,
+ "default_source_weight": 0.3,
+ "kind_weights": {
+  "pick": 1,
+  "review": 0.9,
+  "news": 0.6,
+  "listing": 0.3,
+  "press_release_claim": 0.3,
+  "artist_activity": 1,
+  "award": 1.2
+ },
+ "strength_weights": {
+  "headline": 1,
+  "featured": 0.7,
+  "mentioned": 0.4,
+  "passing": 0.2
+ },
+ "sources": {},
+ "venue_tier_map": {
+  "1": 1,
+  "2": 0.7,
+  "3": 0.4,
+  "4": 0.15,
+  "unknown": 0.2
+ },
+ "judge": {
+  "variant": "judge_v1",
+  "model": "sonnet"
+ },
+ "overrides": {
+  "pin": [],
+  "exclude": []
+ },
+ "_note": "Workshop preset 2026-09-01: galleries only (See Saw's Featured feed had 0 museums), press .40 / judge .25 (Sonnet) / venue tier .20 / artist heat .10, threshold .12, max 7. On the 2026-09-01 snapshot: 4/4 in-pool See Saw shows ranked, ranking_recall 1.0; misses are scrape gaps."
+}

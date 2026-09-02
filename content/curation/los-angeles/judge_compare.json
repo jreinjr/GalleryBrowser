@@ -1,0 +1,3671 @@
+{
+ "variant": "judge_v1",
+ "city": "los-angeles",
+ "generated_at": "2026-09-02T02:17:20+00:00",
+ "n": 48,
+ "spearman": 0.9528,
+ "mean_abs_delta": 0.417,
+ "precision_at_n": {
+  "sonnet": 0.0,
+  "opus": 0.0,
+  "mean": 0.0
+ },
+ "overlap": {
+  "sonnet": 0,
+  "opus": 0,
+  "mean": 0
+ },
+ "cost_per_verdict": {
+  "sonnet": 0.008138958333333333,
+  "opus": 0.021125833333333333
+ },
+ "total_cost_compared": 1.4047,
+ "total_cost_variant": 1.5693,
+ "suggestion": "claude-sonnet-5",
+ "suggestion_basis": "rho 0.95 >= 0.85 and See Saw overlap within 1 (0 vs 0)",
+ "n_top": 12,
+ "snapshot_id": "los-angeles-2026-09-01",
+ "params_hash": "ed4d67949009",
+ "top": [
+  {
+   "slug": "skirball-punk",
+   "title": "Outsiders, Outcasts, Rebels + Weirdos: Punk Culture 1976–86",
+   "artist": null,
+   "venue": "Skirball Cultural Center",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 6,
+     "timeliness": 3
+    },
+    "overall": 4,
+    "confidence": 0.4,
+    "rationale": "Unnamed group/collection show, so artist_significance is low despite named figures like Cliff Roman in programming. Skirball is a respected mid-tier museum but not an encyclopedic powerhouse, giving moderate venue credit. No signals on file means critical_reception defaults low per rubric. The curatorial angle (Jewish contributors to LA punk) is a genuinely novel framing, boosting ambition_novelty. Show closes in 5 days, which cuts both ways—timely urgency but very late to feature. No evidence of press pickup or reviews despite a 104-day run, a concern.",
+    "red_flags": [
+     "no independent coverage/signals despite long run",
+     "closes in 5 days - low value for a 'must-see this week' feature",
+     "unnamed group/collection show limits artist-significance scoring"
+    ],
+    "cost_usd": 0.00582,
+    "ts": 1788315273
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 7
+    },
+    "overall": 5,
+    "confidence": 0.6,
+    "rationale": "No signals on file, so coverage cannot be credited beyond the venue's own framing. The premise — LA punk ephemera with a specific lens on Jewish scene-builders — is a genuinely researched thematic survey rather than a rental show, and the Masque/Whisky flyer material has real local resonance, but no individual artist anchors it and archival-ephemera surveys are a familiar format. Skirball is an accredited museum yet sits well below the Broad/LACMA/Hammer/Getty tier in this week's pool, and Westside cultural-campus programming rarely draws the insider crowd. Closing in five days is the strongest argument for now; a fun last-weekend tip, not a must-see over Yoko Ono, Quarles, or Fischer.",
+    "red_flags": [
+     "no independent coverage on file after 104 days on view",
+     "unnamed group/collection show — no artist stature to assess",
+     "description reads partly as press-release framing (curatorial 'scrappiness' claim unverified)",
+     "closes in 5 days: verify hours/last-weekend access before featuring"
+    ],
+    "cost_usd": 0.022,
+    "ts": 1788315370
+   },
+   "delta": 1,
+   "max_sub_delta": 4,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 18,
+    "opus": 14,
+    "mean": 15
+   },
+   "cutoff_proximity": 0.25,
+   "relevance": 3.125
+  },
+  {
+   "slug": "peter-fetterman-moriyama",
+   "title": "The Hunter",
+   "artist": "Daido Moriyama",
+   "venue": "Peter Fetterman Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 4,
+     "critical_reception": 6,
+     "ambition_novelty": 6,
+     "timeliness": 3
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Moriyama is a canonical postwar Japanese photographer, currently active with major international activity: group show at National Museum of Art Osaka [S1], a Fondation HCB solo [S2], and a KYOTOGRAPHIE retrospective [S3], confirming ongoing critical relevance though none are LA-specific. Peter Fetterman is a respected but mid-tier LA gallery, not top-flight (venue_significance capped). Description claims 'first major LA exhibition' but this is a commercial gallery survey, not a museum retrospective - ambition is real but scale modest. Show closes in 4 days, limiting timeliness despite artist's global moment.",
+    "red_flags": [
+     "closes in 4 days - urgency but little runway for a 'must-see' recommendation",
+     "no LA-specific press coverage signals, only international artist activity"
+    ],
+    "cost_usd": 0.00697,
+    "ts": 1788315249
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 5,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 8
+    },
+    "overall": 6,
+    "confidence": 0.7,
+    "rationale": "Moriyama is canonical — Provoke-era are-bure-boke, collected by MoMA/Tate, and 2026 is clearly a Moriyama year (Osaka group show [S1], Fondation HCB solo [S2], KYOTOGRAPHIE retrospective [S3]). But all three signals are activity elsewhere; nothing independent covers this Bergamot Station presentation. Peter Fetterman is a respected but conservative photography dealer, and the format here reads as a curated selection of vintage/later prints rather than a survey or new body of work — the \"first major Los Angeles exhibition\" line is unverified and questionable given LA's photo history. Closing Sept 5 gives it real urgency, which is the strongest argument for a slot this week. A recommend, not a headline.",
+    "red_flags": [
+     "\"first major Los Angeles exhibition\" claim unverified and likely overstated",
+     "no independent coverage of this specific show; all signals are artist activity abroad",
+     "commercial print show framed as a survey"
+    ],
+    "cost_usd": 0.024,
+    "ts": 1788315342
+   },
+   "delta": 0,
+   "max_sub_delta": 5,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 14,
+    "opus": 13,
+    "mean": 13
+   },
+   "cutoff_proximity": 0.5,
+   "relevance": 2.75
+  },
+  {
+   "slug": "fahey-klein-witkin",
+   "title": "Joel-Peter Witkin: Selected Works 1974–2018",
+   "artist": "Joel-Peter Witkin",
+   "venue": "Fahey/Klein Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 6,
+     "critical_reception": 4,
+     "ambition_novelty": 7,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Witkin is a canonical, museum-collected photographer with a five-decade practice; [S1] confirms a concurrent Prague museum solo, evidence of ongoing international relevance though not tied to this specific show. Fahey/Klein is a respected, longstanding LA photography specialist gallery but not a major institution. The survey format (1974-2018) gives real ambition and scholarly framing, but no direct press coverage of this exhibition was found, so critical reception rests on artist reputation rather than confirmed reviews. Mid-run timing tempers timeliness.",
+    "red_flags": [
+     "No independent coverage specific to this exhibition, only artist activity elsewhere [S1]",
+     "Venue registry tier unknown, relying on general reputation"
+    ],
+    "cost_usd": 0.0108,
+    "ts": 1788315285
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 4
+    },
+    "overall": 5,
+    "confidence": 0.68,
+    "rationale": "Witkin is a genuinely significant, widely collected photographer (MoMA, Getty) whose staged mortality tableaux remain divisive, and [S1] confirms continuing museum-level activity abroad (DOX Prague) — but that is artist activity, not coverage of this LA show, of which there are no signals. Fahey/Klein is a long-running, respected commercial photography gallery rather than a destination kunsthalle. A dealer survey of vintage prints 1974–2018 is a career overview assembled from existing work, not new production or a scholarly retrospective despite the description's framing. Mid-run, closing in three weeks: worth a mention for photography people, not a top-of-week insider pick.",
+    "red_flags": [
+     "Description reads partly as press-release advocacy ('scholarly care usually reserved for painting retrospectives') with no independent coverage of this show",
+     "Only signal concerns a different (Prague) exhibition, not this presentation"
+    ],
+    "cost_usd": 0.02181,
+    "ts": 1788315378
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 15,
+    "opus": 18,
+    "mean": 16
+   },
+   "cutoff_proximity": 0.2,
+   "relevance": 2.6
+  },
+  {
+   "slug": "marilyn-monroe-academy-museum",
+   "title": "Marilyn Monroe: Hollywood Icon",
+   "artist": null,
+   "venue": "Academy Museum of Motion Pictures",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 7,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 3
+    },
+    "overall": 5,
+    "confidence": 0.4,
+    "rationale": "Academy Museum is a legitimate, high-traffic institution and Monroe's cultural stature is undeniable, but this is a costume/ephemera collection show, not a living artist's career statement, and no signals confirm any critical engagement despite the show having run for three months already. It reads as a popular blockbuster for tourists rather than an art-world must-see; mid-run timing weakens the 'this week' case. No [S#] coverage on file to substantiate press attention.",
+    "red_flags": [
+     "no independent signals despite high public profile - coverage should exist, worth checking",
+     "mid-run show (opened 93 days ago), weak timeliness hook",
+     "description reads as promotional press-release language",
+     "not really an artist-driven exhibition, more a collection/memorabilia show"
+    ],
+    "cost_usd": 0.01572,
+    "ts": 1788315263
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 6,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 3
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "No signals on file, so coverage is unverified — though a Monroe centennial show at the Academy Museum will get lifestyle and entertainment press, that is not the art-world attention this feed rewards. As a curated archival/costume exhibition there is no artist stature to score: the subject is a film star, not a maker, and the show is credited to a curator and studio loans. Scale (hundreds of objects, first-time-shown ephemera, Travilla and Orry-Kelly costumes) gives real ambition, and the Academy Museum is a serious institution, but this is a tourist-facing blockbuster mid-run with six months left. An insider would send a visiting friend to Yoko Ono or Quarles first.",
+    "red_flags": [
+     "no independent coverage on file; description reads close to a press release",
+     "unnamed group/collection show — no artist stature to assess",
+     "long run with 180 days remaining, no urgency this week",
+     "curator name and 'first time shown' claims unverified"
+    ],
+    "cost_usd": 0.02345,
+    "ts": 1788315349
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 16,
+    "opus": 19,
+    "mean": 19
+   },
+   "cutoff_proximity": 0.125,
+   "relevance": 2.5625
+  },
+  {
+   "slug": "musichead-madonna",
+   "title": "Madonna: The Rise of the Material Girl (1980–1985)",
+   "artist": null,
+   "venue": "Musichead Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 2,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.5,
+    "rationale": "Madonna is a canonical pop figure, but this is a photography survey by seven commercial photographers, not a Madonna-authored show, capping ambition. Musichead is a niche rock-photography retail gallery on Sunset, not a program with critical or institutional weight. No independent coverage or reviews are on file, and the description reads as press-release framing (tied to album release/Grindr partnership) rather than curatorial ambition. Mid-run timing offers modest currency. This sits well below LA's museum and top-gallery tier this week.",
+    "red_flags": [
+     "no signals/independent coverage found",
+     "venue tier unknown/likely low (retail/commercial photography gallery)",
+     "description reads as promotional tie-in to unrelated album/brand partnership"
+    ],
+    "cost_usd": 0.00599,
+    "ts": 1788315287
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.75,
+    "rationale": "No signals. Musichead is a Sunset Blvd rock-photography retail gallery with celebrity-memorabilia appeal rather than an art-world program (tier unknown, effectively low). The named photographers (Mick Rock, Deborah Feingold, Richard Corman) are recognizable music-photo figures but not museum-stature subjects of critical attention; the show is unnamed-subject/collection in structure, built around Madonna's fame rather than an artistic proposition. Familiar archival prints, no new scholarship or commission. Mid-run with a month left and a topical album/Grindr tie-in gives modest urgency. Fun for a fan, not what an LA insider sends a visiting friend to this week.",
+    "red_flags": [
+     "no independent coverage on file",
+     "unnamed group/collection show organized around a celebrity subject",
+     "description echoes gallery press-release framing including curator quote and album/brand tie-in",
+     "retail/memorabilia-oriented venue we have not rated"
+    ],
+    "cost_usd": 0.01724,
+    "ts": 1788315386
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 39,
+    "opus": 43,
+    "mean": 42
+   },
+   "cutoff_proximity": 0.0323,
+   "relevance": 2.5161
+  },
+  {
+   "slug": "lacma-christina-quarles",
+   "title": "Now We're There (And We' Only Just Begun)",
+   "artist": "Christina Quarles",
+   "venue": "Los Angeles County Museum of Art (LACMA)",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 9,
+     "critical_reception": 4,
+     "ambition_novelty": 6,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Quarles is a nationally significant painter with concurrent major shows abroad and at Hauser & Wirth LA [S1][S2], confirming she's having a moment - but neither signal reviews this specific LACMA installation. The show itself is a single acquired painting inaugurating a new deep-dive gallery series: institutionally notable but modest in scale, mid-run (opened 121 days ago), not urgent this week. LACMA's stature carries it, but thin, indirect evidence for this particular presentation.",
+    "red_flags": [
+     "No direct critical coverage found for this specific installation, only concurrent shows elsewhere",
+     "Mid-run show, not a fresh opening or closing-soon event"
+    ],
+    "cost_usd": 0.01266,
+    "ts": 1788315261
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 9,
+     "critical_reception": 3,
+     "ambition_novelty": 4,
+     "timeliness": 3
+    },
+    "overall": 5,
+    "confidence": 0.72,
+    "rationale": "Quarles is genuinely major — Whitney Biennial, Hauser & Wirth representation, international museum solos ([S1] Kistefos, [S2] the H&W LA show that arguably eclipses this) — and LACMA is the city's encyclopedic anchor. But the signals attach to her activity elsewhere, not to this presentation: no reviews or picks for it. A single recently acquired canvas inaugurating the Keck gallery is institutionally interesting yet slight in footprint, not a survey or new body of work. Four months into a seven-month run with no closing urgency. The kind of thing an insider mentions as a stop within a LACMA visit rather than a standalone recommendation this week.",
+    "red_flags": [
+     "No independent coverage of this specific installation; both signals are for other exhibitions",
+     "Single-painting display — description's institutional framing reads close to press-release language",
+     "Mid-run, long-dated show with no this-week hook"
+    ],
+    "cost_usd": 0.02395,
+    "ts": 1788315351
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 7,
+    "opus": 10,
+    "mean": 9
+   },
+   "cutoff_proximity": 0.25,
+   "relevance": 2.125
+  },
+  {
+   "slug": "noon-projects-chaves",
+   "title": "The Development Center: A Clownache Store",
+   "artist": "Alex Chaves",
+   "venue": "NOON Projects",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 6
+    },
+    "overall": 3,
+    "confidence": 0.55,
+    "rationale": "Small Chung King Road storefront show; NOON Projects is an unrated, scrappy gallery, not a major program. Chaves has no evident museum/biennial profile - scores low on artist significance. Only evidence is a single listing mention [S1], not a review or critical pick, so reception stays minimal. Concept (residency/retail hybrid, in-progress installation) is mildly novel but modest in scale. Closing in 4 days gives it some timeliness, but this reads as a scrappy, low-stakes gallery event rather than a must-see.",
+    "red_flags": [
+     "only one listing-level signal, no reviews or critical coverage",
+     "venue tier unknown/unrated",
+     "closes in 4 days - narrow window"
+    ],
+    "cost_usd": 0.00583,
+    "ts": 1788315287
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 3,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 7
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "Chaves is a familiar LA painter with a scrappy, well-liked practice (356 Mission-era orbit, Martos), but no museum-level stature; NOON Projects is a small Chung King Road storefront, respectable but minor next to the Broad/LACMA/Deitch tier in this week's pool. Only evidence is a bare weekly listing [S1], not a review or pick, so reception stays low. The live-residency, retail-hybrid format gives real novelty and the ten-day run closing in four days creates genuine urgency — a good insider tip, not a must-see anchor. Note [S1] gives a Sept 6 close vs. our Sept 5.",
+    "red_flags": [
+     "Closing date discrepancy: listing [S1] says Sept 6, our record says Sept 5",
+     "Only signal is a calendar listing, no independent criticism",
+     "Description's press-release framing of the retail/gallery 'flattening' is unverified",
+     "Venue not in registry; small storefront space"
+    ],
+    "cost_usd": 0.02305,
+    "ts": 1788315390
+   },
+   "delta": 1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 32,
+    "opus": 27,
+    "mean": 30
+   },
+   "cutoff_proximity": 0.0526,
+   "relevance": 2.0263
+  },
+  {
+   "slug": "artifacts-from-an-unborn-empire",
+   "title": "Artifacts from an Unborn Empire",
+   "artist": null,
+   "venue": "Brand Library & Art Center",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 5,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.6,
+    "rationale": "Group show with no marquee names beyond locally-known artists (Ben Cuevas, Elana Mann, Kristine Schomaker) - solid regional roster but not museum-tier. Brand Library is a modest nonprofit venue (tier 3), not a major kunsthalle. No independent coverage or press signals exist to confirm the described ambition; description reads as press-release prose. Timeliness is decent (opens soon, ties to national anniversary) but the long 3-month run dilutes urgency. Conceptually engaged and materially varied, but nothing here rises above a solid community-minded local show.",
+    "red_flags": [
+     "no independent signals/coverage to verify claims",
+     "unnamed 'more than twenty' artists beyond the six named, effectively a large unnamed group show",
+     "description reads as press release"
+    ],
+    "cost_usd": 0.00621,
+    "ts": 1788315320
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 2
+    },
+    "overall": 2,
+    "confidence": 0.72,
+    "rationale": "No signals, no independent coverage on file. Brand Library is a respected Glendale civic art space with a genuine community program, but it sits well below the commercial and museum venues competing for this feed (tier 3, nonprofit). The roster is a wide L.A.-based group — Elana Mann, Ben Cuevas, Rubén Esparza are locally known, none is a draw a visiting insider would be steered toward. Curatorial premise (semiquincentennial skepticism) is timely in theme but the show does not open for another 25 days, so it is not a this-week recommendation, and the anniversary moment itself has already passed. Description reads as press-release advocacy with no external validation.",
+    "red_flags": [
+     "Unnamed group show — no single anchor artist; strongest names are regional",
+     "Opens 2026-09-26, not currently on view (25 days out)",
+     "Description reads as press-release prose with unverified curatorial claims",
+     "No independent coverage on file"
+    ],
+    "cost_usd": 0.01989,
+    "ts": 1788315436
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 30,
+    "opus": 33,
+    "mean": 31
+   },
+   "cutoff_proximity": 0.05,
+   "relevance": 2.025
+  },
+  {
+   "slug": "ace121-all-unfinished",
+   "title": "All Unfinished",
+   "artist": "Nic Gregory",
+   "venue": "ace/121 Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 2,
+    "confidence": 0.5,
+    "rationale": "No signals found; artist Nic Gregory has no evident national profile, and ace/121 is a small, artist-colony-style Glendale Arts space with no museum-level standing (registry tier unknown, kind: gallery). Description reads as routine press-release framing of a single-artist show in a 'modest footprint' venue; no keyword hits for retrospective, first solo, or commission. Show opens in 24 days, giving mild timeliness once live, but nothing suggests this rises above a solid but minor local gallery presentation.",
+    "red_flags": [
+     "no independent coverage or signals on file",
+     "venue tier unrated ('unknown') and no museum flag",
+     "hype language ('spotlight,' 'fitting complement') unsupported by evidence"
+    ],
+    "cost_usd": 0.00549,
+    "ts": 1788315319
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 2,
+     "critical_reception": 0,
+     "ambition_novelty": 2,
+     "timeliness": 2
+    },
+    "overall": 1,
+    "confidence": 0.75,
+    "rationale": "No signals and no trace of Nic Gregory in national or LA critical discourse; ace/121 is a small community gallery run by Glendale Arts, not a program insiders track. The premise — process-forward acrylic panels foregrounding incompleteness — is a familiar painterly conceit with no survey scale, commission, or institutional framing to elevate it. The show has not opened yet (24 days out), so there is no current reason to send a visiting friend, and nothing in the description beyond venue-page-derived prose supports urgency.",
+    "red_flags": [
+     "opens 24 days after today — not viewable this week",
+     "no independent coverage on file",
+     "artist unplaceable in wider LA/national discourse",
+     "description reads close to venue program copy"
+    ],
+    "cost_usd": 0.01498,
+    "ts": 1788315432
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 41,
+    "opus": 44,
+    "mean": 44
+   },
+   "cutoff_proximity": 0.0303,
+   "relevance": 2.0152
+  },
+  {
+   "slug": "7811-pretty-on-the-inside",
+   "title": "Pretty on the Inside",
+   "artist": "Faidra Koutsouri (Ghost Girl)",
+   "venue": "7811 Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 1,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 2,
+    "confidence": 0.6,
+    "rationale": "No independent signals exist for this show or clear evidence of the artist's broader career stature beyond the moniker Ghost Girl. 7811 is an unrated, storefront-style community gallery, not a program with an international profile. The description's emotional framing reads as press-release prose rather than evidence of critical traction. Mid-run timing (opened 23 days ago, no urgency) offers no special hook. This fits the profile of a solid but very local, low-visibility show rather than one an insider would flag citywide.",
+    "red_flags": [
+     "no independent coverage/signals on file",
+     "venue significance unclear/unrated",
+     "claims of raw psychological depth unverified by outside sources"
+    ],
+    "cost_usd": 0.00546,
+    "ts": 1788315305
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 1,
+     "critical_reception": 0,
+     "ambition_novelty": 2,
+     "timeliness": 2
+    },
+    "overall": 1,
+    "confidence": 0.72,
+    "rationale": "No signals and no trace of Faidra Koutsouri / \"Ghost Girl\" in national or LA critical discourse. 7811 Gallery is an unrated storefront space I cannot place among LA's programmatic galleries; description itself frames it as low-key, community-facing rather than ambitious. The work described — diaristic self-portraiture on mental health — is sincere but not novel in scale or form, with no survey, commission, or institutional framing. Mid-run (opened three weeks ago, six weeks to close) gives no urgency hook. Nothing here an insider would route a visiting friend to over the Broad's Ono, LACMA's Quarles, or Bel Ami/Ghebaly.",
+    "red_flags": [
+     "unplaceable venue with no registry tier",
+     "artist has no verifiable exhibition record",
+     "descriptive superlatives sourced from press release with no independent coverage"
+    ],
+    "cost_usd": 0.01612,
+    "ts": 1788315411
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 45,
+    "opus": 47,
+    "mean": 45
+   },
+   "cutoff_proximity": 0.0294,
+   "relevance": 2.0147
+  }
+ ],
+ "all": [
+  {
+   "slug": "skirball-punk",
+   "title": "Outsiders, Outcasts, Rebels + Weirdos: Punk Culture 1976–86",
+   "artist": null,
+   "venue": "Skirball Cultural Center",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 6,
+     "timeliness": 3
+    },
+    "overall": 4,
+    "confidence": 0.4,
+    "rationale": "Unnamed group/collection show, so artist_significance is low despite named figures like Cliff Roman in programming. Skirball is a respected mid-tier museum but not an encyclopedic powerhouse, giving moderate venue credit. No signals on file means critical_reception defaults low per rubric. The curatorial angle (Jewish contributors to LA punk) is a genuinely novel framing, boosting ambition_novelty. Show closes in 5 days, which cuts both ways—timely urgency but very late to feature. No evidence of press pickup or reviews despite a 104-day run, a concern.",
+    "red_flags": [
+     "no independent coverage/signals despite long run",
+     "closes in 5 days - low value for a 'must-see this week' feature",
+     "unnamed group/collection show limits artist-significance scoring"
+    ],
+    "cost_usd": 0.00582,
+    "ts": 1788315273
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 7
+    },
+    "overall": 5,
+    "confidence": 0.6,
+    "rationale": "No signals on file, so coverage cannot be credited beyond the venue's own framing. The premise — LA punk ephemera with a specific lens on Jewish scene-builders — is a genuinely researched thematic survey rather than a rental show, and the Masque/Whisky flyer material has real local resonance, but no individual artist anchors it and archival-ephemera surveys are a familiar format. Skirball is an accredited museum yet sits well below the Broad/LACMA/Hammer/Getty tier in this week's pool, and Westside cultural-campus programming rarely draws the insider crowd. Closing in five days is the strongest argument for now; a fun last-weekend tip, not a must-see over Yoko Ono, Quarles, or Fischer.",
+    "red_flags": [
+     "no independent coverage on file after 104 days on view",
+     "unnamed group/collection show — no artist stature to assess",
+     "description reads partly as press-release framing (curatorial 'scrappiness' claim unverified)",
+     "closes in 5 days: verify hours/last-weekend access before featuring"
+    ],
+    "cost_usd": 0.022,
+    "ts": 1788315370
+   },
+   "delta": 1,
+   "max_sub_delta": 4,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 18,
+    "opus": 14,
+    "mean": 15
+   },
+   "cutoff_proximity": 0.25,
+   "relevance": 3.125
+  },
+  {
+   "slug": "peter-fetterman-moriyama",
+   "title": "The Hunter",
+   "artist": "Daido Moriyama",
+   "venue": "Peter Fetterman Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 4,
+     "critical_reception": 6,
+     "ambition_novelty": 6,
+     "timeliness": 3
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Moriyama is a canonical postwar Japanese photographer, currently active with major international activity: group show at National Museum of Art Osaka [S1], a Fondation HCB solo [S2], and a KYOTOGRAPHIE retrospective [S3], confirming ongoing critical relevance though none are LA-specific. Peter Fetterman is a respected but mid-tier LA gallery, not top-flight (venue_significance capped). Description claims 'first major LA exhibition' but this is a commercial gallery survey, not a museum retrospective - ambition is real but scale modest. Show closes in 4 days, limiting timeliness despite artist's global moment.",
+    "red_flags": [
+     "closes in 4 days - urgency but little runway for a 'must-see' recommendation",
+     "no LA-specific press coverage signals, only international artist activity"
+    ],
+    "cost_usd": 0.00697,
+    "ts": 1788315249
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 5,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 8
+    },
+    "overall": 6,
+    "confidence": 0.7,
+    "rationale": "Moriyama is canonical — Provoke-era are-bure-boke, collected by MoMA/Tate, and 2026 is clearly a Moriyama year (Osaka group show [S1], Fondation HCB solo [S2], KYOTOGRAPHIE retrospective [S3]). But all three signals are activity elsewhere; nothing independent covers this Bergamot Station presentation. Peter Fetterman is a respected but conservative photography dealer, and the format here reads as a curated selection of vintage/later prints rather than a survey or new body of work — the \"first major Los Angeles exhibition\" line is unverified and questionable given LA's photo history. Closing Sept 5 gives it real urgency, which is the strongest argument for a slot this week. A recommend, not a headline.",
+    "red_flags": [
+     "\"first major Los Angeles exhibition\" claim unverified and likely overstated",
+     "no independent coverage of this specific show; all signals are artist activity abroad",
+     "commercial print show framed as a survey"
+    ],
+    "cost_usd": 0.024,
+    "ts": 1788315342
+   },
+   "delta": 0,
+   "max_sub_delta": 5,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 14,
+    "opus": 13,
+    "mean": 13
+   },
+   "cutoff_proximity": 0.5,
+   "relevance": 2.75
+  },
+  {
+   "slug": "fahey-klein-witkin",
+   "title": "Joel-Peter Witkin: Selected Works 1974–2018",
+   "artist": "Joel-Peter Witkin",
+   "venue": "Fahey/Klein Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 6,
+     "critical_reception": 4,
+     "ambition_novelty": 7,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Witkin is a canonical, museum-collected photographer with a five-decade practice; [S1] confirms a concurrent Prague museum solo, evidence of ongoing international relevance though not tied to this specific show. Fahey/Klein is a respected, longstanding LA photography specialist gallery but not a major institution. The survey format (1974-2018) gives real ambition and scholarly framing, but no direct press coverage of this exhibition was found, so critical reception rests on artist reputation rather than confirmed reviews. Mid-run timing tempers timeliness.",
+    "red_flags": [
+     "No independent coverage specific to this exhibition, only artist activity elsewhere [S1]",
+     "Venue registry tier unknown, relying on general reputation"
+    ],
+    "cost_usd": 0.0108,
+    "ts": 1788315285
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 4
+    },
+    "overall": 5,
+    "confidence": 0.68,
+    "rationale": "Witkin is a genuinely significant, widely collected photographer (MoMA, Getty) whose staged mortality tableaux remain divisive, and [S1] confirms continuing museum-level activity abroad (DOX Prague) — but that is artist activity, not coverage of this LA show, of which there are no signals. Fahey/Klein is a long-running, respected commercial photography gallery rather than a destination kunsthalle. A dealer survey of vintage prints 1974–2018 is a career overview assembled from existing work, not new production or a scholarly retrospective despite the description's framing. Mid-run, closing in three weeks: worth a mention for photography people, not a top-of-week insider pick.",
+    "red_flags": [
+     "Description reads partly as press-release advocacy ('scholarly care usually reserved for painting retrospectives') with no independent coverage of this show",
+     "Only signal concerns a different (Prague) exhibition, not this presentation"
+    ],
+    "cost_usd": 0.02181,
+    "ts": 1788315378
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 15,
+    "opus": 18,
+    "mean": 16
+   },
+   "cutoff_proximity": 0.2,
+   "relevance": 2.6
+  },
+  {
+   "slug": "marilyn-monroe-academy-museum",
+   "title": "Marilyn Monroe: Hollywood Icon",
+   "artist": null,
+   "venue": "Academy Museum of Motion Pictures",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 7,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 3
+    },
+    "overall": 5,
+    "confidence": 0.4,
+    "rationale": "Academy Museum is a legitimate, high-traffic institution and Monroe's cultural stature is undeniable, but this is a costume/ephemera collection show, not a living artist's career statement, and no signals confirm any critical engagement despite the show having run for three months already. It reads as a popular blockbuster for tourists rather than an art-world must-see; mid-run timing weakens the 'this week' case. No [S#] coverage on file to substantiate press attention.",
+    "red_flags": [
+     "no independent signals despite high public profile - coverage should exist, worth checking",
+     "mid-run show (opened 93 days ago), weak timeliness hook",
+     "description reads as promotional press-release language",
+     "not really an artist-driven exhibition, more a collection/memorabilia show"
+    ],
+    "cost_usd": 0.01572,
+    "ts": 1788315263
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 6,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 3
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "No signals on file, so coverage is unverified — though a Monroe centennial show at the Academy Museum will get lifestyle and entertainment press, that is not the art-world attention this feed rewards. As a curated archival/costume exhibition there is no artist stature to score: the subject is a film star, not a maker, and the show is credited to a curator and studio loans. Scale (hundreds of objects, first-time-shown ephemera, Travilla and Orry-Kelly costumes) gives real ambition, and the Academy Museum is a serious institution, but this is a tourist-facing blockbuster mid-run with six months left. An insider would send a visiting friend to Yoko Ono or Quarles first.",
+    "red_flags": [
+     "no independent coverage on file; description reads close to a press release",
+     "unnamed group/collection show — no artist stature to assess",
+     "long run with 180 days remaining, no urgency this week",
+     "curator name and 'first time shown' claims unverified"
+    ],
+    "cost_usd": 0.02345,
+    "ts": 1788315349
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 16,
+    "opus": 19,
+    "mean": 19
+   },
+   "cutoff_proximity": 0.125,
+   "relevance": 2.5625
+  },
+  {
+   "slug": "musichead-madonna",
+   "title": "Madonna: The Rise of the Material Girl (1980–1985)",
+   "artist": null,
+   "venue": "Musichead Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 2,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.5,
+    "rationale": "Madonna is a canonical pop figure, but this is a photography survey by seven commercial photographers, not a Madonna-authored show, capping ambition. Musichead is a niche rock-photography retail gallery on Sunset, not a program with critical or institutional weight. No independent coverage or reviews are on file, and the description reads as press-release framing (tied to album release/Grindr partnership) rather than curatorial ambition. Mid-run timing offers modest currency. This sits well below LA's museum and top-gallery tier this week.",
+    "red_flags": [
+     "no signals/independent coverage found",
+     "venue tier unknown/likely low (retail/commercial photography gallery)",
+     "description reads as promotional tie-in to unrelated album/brand partnership"
+    ],
+    "cost_usd": 0.00599,
+    "ts": 1788315287
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.75,
+    "rationale": "No signals. Musichead is a Sunset Blvd rock-photography retail gallery with celebrity-memorabilia appeal rather than an art-world program (tier unknown, effectively low). The named photographers (Mick Rock, Deborah Feingold, Richard Corman) are recognizable music-photo figures but not museum-stature subjects of critical attention; the show is unnamed-subject/collection in structure, built around Madonna's fame rather than an artistic proposition. Familiar archival prints, no new scholarship or commission. Mid-run with a month left and a topical album/Grindr tie-in gives modest urgency. Fun for a fan, not what an LA insider sends a visiting friend to this week.",
+    "red_flags": [
+     "no independent coverage on file",
+     "unnamed group/collection show organized around a celebrity subject",
+     "description echoes gallery press-release framing including curator quote and album/brand tie-in",
+     "retail/memorabilia-oriented venue we have not rated"
+    ],
+    "cost_usd": 0.01724,
+    "ts": 1788315386
+   },
+   "delta": -1,
+   "max_sub_delta": 3,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 39,
+    "opus": 43,
+    "mean": 42
+   },
+   "cutoff_proximity": 0.0323,
+   "relevance": 2.5161
+  },
+  {
+   "slug": "lacma-christina-quarles",
+   "title": "Now We're There (And We' Only Just Begun)",
+   "artist": "Christina Quarles",
+   "venue": "Los Angeles County Museum of Art (LACMA)",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 9,
+     "critical_reception": 4,
+     "ambition_novelty": 6,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Quarles is a nationally significant painter with concurrent major shows abroad and at Hauser & Wirth LA [S1][S2], confirming she's having a moment - but neither signal reviews this specific LACMA installation. The show itself is a single acquired painting inaugurating a new deep-dive gallery series: institutionally notable but modest in scale, mid-run (opened 121 days ago), not urgent this week. LACMA's stature carries it, but thin, indirect evidence for this particular presentation.",
+    "red_flags": [
+     "No direct critical coverage found for this specific installation, only concurrent shows elsewhere",
+     "Mid-run show, not a fresh opening or closing-soon event"
+    ],
+    "cost_usd": 0.01266,
+    "ts": 1788315261
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 9,
+     "critical_reception": 3,
+     "ambition_novelty": 4,
+     "timeliness": 3
+    },
+    "overall": 5,
+    "confidence": 0.72,
+    "rationale": "Quarles is genuinely major — Whitney Biennial, Hauser & Wirth representation, international museum solos ([S1] Kistefos, [S2] the H&W LA show that arguably eclipses this) — and LACMA is the city's encyclopedic anchor. But the signals attach to her activity elsewhere, not to this presentation: no reviews or picks for it. A single recently acquired canvas inaugurating the Keck gallery is institutionally interesting yet slight in footprint, not a survey or new body of work. Four months into a seven-month run with no closing urgency. The kind of thing an insider mentions as a stop within a LACMA visit rather than a standalone recommendation this week.",
+    "red_flags": [
+     "No independent coverage of this specific installation; both signals are for other exhibitions",
+     "Single-painting display — description's institutional framing reads close to press-release language",
+     "Mid-run, long-dated show with no this-week hook"
+    ],
+    "cost_usd": 0.02395,
+    "ts": 1788315351
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 7,
+    "opus": 10,
+    "mean": 9
+   },
+   "cutoff_proximity": 0.25,
+   "relevance": 2.125
+  },
+  {
+   "slug": "noon-projects-chaves",
+   "title": "The Development Center: A Clownache Store",
+   "artist": "Alex Chaves",
+   "venue": "NOON Projects",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 6
+    },
+    "overall": 3,
+    "confidence": 0.55,
+    "rationale": "Small Chung King Road storefront show; NOON Projects is an unrated, scrappy gallery, not a major program. Chaves has no evident museum/biennial profile - scores low on artist significance. Only evidence is a single listing mention [S1], not a review or critical pick, so reception stays minimal. Concept (residency/retail hybrid, in-progress installation) is mildly novel but modest in scale. Closing in 4 days gives it some timeliness, but this reads as a scrappy, low-stakes gallery event rather than a must-see.",
+    "red_flags": [
+     "only one listing-level signal, no reviews or critical coverage",
+     "venue tier unknown/unrated",
+     "closes in 4 days - narrow window"
+    ],
+    "cost_usd": 0.00583,
+    "ts": 1788315287
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 3,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 7
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "Chaves is a familiar LA painter with a scrappy, well-liked practice (356 Mission-era orbit, Martos), but no museum-level stature; NOON Projects is a small Chung King Road storefront, respectable but minor next to the Broad/LACMA/Deitch tier in this week's pool. Only evidence is a bare weekly listing [S1], not a review or pick, so reception stays low. The live-residency, retail-hybrid format gives real novelty and the ten-day run closing in four days creates genuine urgency — a good insider tip, not a must-see anchor. Note [S1] gives a Sept 6 close vs. our Sept 5.",
+    "red_flags": [
+     "Closing date discrepancy: listing [S1] says Sept 6, our record says Sept 5",
+     "Only signal is a calendar listing, no independent criticism",
+     "Description's press-release framing of the retail/gallery 'flattening' is unverified",
+     "Venue not in registry; small storefront space"
+    ],
+    "cost_usd": 0.02305,
+    "ts": 1788315390
+   },
+   "delta": 1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 32,
+    "opus": 27,
+    "mean": 30
+   },
+   "cutoff_proximity": 0.0526,
+   "relevance": 2.0263
+  },
+  {
+   "slug": "artifacts-from-an-unborn-empire",
+   "title": "Artifacts from an Unborn Empire",
+   "artist": null,
+   "venue": "Brand Library & Art Center",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 5,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.6,
+    "rationale": "Group show with no marquee names beyond locally-known artists (Ben Cuevas, Elana Mann, Kristine Schomaker) - solid regional roster but not museum-tier. Brand Library is a modest nonprofit venue (tier 3), not a major kunsthalle. No independent coverage or press signals exist to confirm the described ambition; description reads as press-release prose. Timeliness is decent (opens soon, ties to national anniversary) but the long 3-month run dilutes urgency. Conceptually engaged and materially varied, but nothing here rises above a solid community-minded local show.",
+    "red_flags": [
+     "no independent signals/coverage to verify claims",
+     "unnamed 'more than twenty' artists beyond the six named, effectively a large unnamed group show",
+     "description reads as press release"
+    ],
+    "cost_usd": 0.00621,
+    "ts": 1788315320
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 2
+    },
+    "overall": 2,
+    "confidence": 0.72,
+    "rationale": "No signals, no independent coverage on file. Brand Library is a respected Glendale civic art space with a genuine community program, but it sits well below the commercial and museum venues competing for this feed (tier 3, nonprofit). The roster is a wide L.A.-based group — Elana Mann, Ben Cuevas, Rubén Esparza are locally known, none is a draw a visiting insider would be steered toward. Curatorial premise (semiquincentennial skepticism) is timely in theme but the show does not open for another 25 days, so it is not a this-week recommendation, and the anniversary moment itself has already passed. Description reads as press-release advocacy with no external validation.",
+    "red_flags": [
+     "Unnamed group show — no single anchor artist; strongest names are regional",
+     "Opens 2026-09-26, not currently on view (25 days out)",
+     "Description reads as press-release prose with unverified curatorial claims",
+     "No independent coverage on file"
+    ],
+    "cost_usd": 0.01989,
+    "ts": 1788315436
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 30,
+    "opus": 33,
+    "mean": 31
+   },
+   "cutoff_proximity": 0.05,
+   "relevance": 2.025
+  },
+  {
+   "slug": "ace121-all-unfinished",
+   "title": "All Unfinished",
+   "artist": "Nic Gregory",
+   "venue": "ace/121 Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 2,
+    "confidence": 0.5,
+    "rationale": "No signals found; artist Nic Gregory has no evident national profile, and ace/121 is a small, artist-colony-style Glendale Arts space with no museum-level standing (registry tier unknown, kind: gallery). Description reads as routine press-release framing of a single-artist show in a 'modest footprint' venue; no keyword hits for retrospective, first solo, or commission. Show opens in 24 days, giving mild timeliness once live, but nothing suggests this rises above a solid but minor local gallery presentation.",
+    "red_flags": [
+     "no independent coverage or signals on file",
+     "venue tier unrated ('unknown') and no museum flag",
+     "hype language ('spotlight,' 'fitting complement') unsupported by evidence"
+    ],
+    "cost_usd": 0.00549,
+    "ts": 1788315319
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 2,
+     "critical_reception": 0,
+     "ambition_novelty": 2,
+     "timeliness": 2
+    },
+    "overall": 1,
+    "confidence": 0.75,
+    "rationale": "No signals and no trace of Nic Gregory in national or LA critical discourse; ace/121 is a small community gallery run by Glendale Arts, not a program insiders track. The premise — process-forward acrylic panels foregrounding incompleteness — is a familiar painterly conceit with no survey scale, commission, or institutional framing to elevate it. The show has not opened yet (24 days out), so there is no current reason to send a visiting friend, and nothing in the description beyond venue-page-derived prose supports urgency.",
+    "red_flags": [
+     "opens 24 days after today — not viewable this week",
+     "no independent coverage on file",
+     "artist unplaceable in wider LA/national discourse",
+     "description reads close to venue program copy"
+    ],
+    "cost_usd": 0.01498,
+    "ts": 1788315432
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 41,
+    "opus": 44,
+    "mean": 44
+   },
+   "cutoff_proximity": 0.0303,
+   "relevance": 2.0152
+  },
+  {
+   "slug": "7811-pretty-on-the-inside",
+   "title": "Pretty on the Inside",
+   "artist": "Faidra Koutsouri (Ghost Girl)",
+   "venue": "7811 Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 1,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 2,
+    "confidence": 0.6,
+    "rationale": "No independent signals exist for this show or clear evidence of the artist's broader career stature beyond the moniker Ghost Girl. 7811 is an unrated, storefront-style community gallery, not a program with an international profile. The description's emotional framing reads as press-release prose rather than evidence of critical traction. Mid-run timing (opened 23 days ago, no urgency) offers no special hook. This fits the profile of a solid but very local, low-visibility show rather than one an insider would flag citywide.",
+    "red_flags": [
+     "no independent coverage/signals on file",
+     "venue significance unclear/unrated",
+     "claims of raw psychological depth unverified by outside sources"
+    ],
+    "cost_usd": 0.00546,
+    "ts": 1788315305
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 1,
+     "critical_reception": 0,
+     "ambition_novelty": 2,
+     "timeliness": 2
+    },
+    "overall": 1,
+    "confidence": 0.72,
+    "rationale": "No signals and no trace of Faidra Koutsouri / \"Ghost Girl\" in national or LA critical discourse. 7811 Gallery is an unrated storefront space I cannot place among LA's programmatic galleries; description itself frames it as low-key, community-facing rather than ambitious. The work described — diaristic self-portraiture on mental health — is sincere but not novel in scale or form, with no survey, commission, or institutional framing. Mid-run (opened three weeks ago, six weeks to close) gives no urgency hook. Nothing here an insider would route a visiting friend to over the Broad's Ono, LACMA's Quarles, or Bel Ami/Ghebaly.",
+    "red_flags": [
+     "unplaceable venue with no registry tier",
+     "artist has no verifiable exhibition record",
+     "descriptive superlatives sourced from press release with no independent coverage"
+    ],
+    "cost_usd": 0.01612,
+    "ts": 1788315411
+   },
+   "delta": -1,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 45,
+    "opus": 47,
+    "mean": 45
+   },
+   "cutoff_proximity": 0.0294,
+   "relevance": 2.0147
+  },
+  {
+   "slug": "moran-moran-tuazon",
+   "title": "Circle House",
+   "artist": "Oscar Tuazon",
+   "venue": "Morán Morán",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 4,
+     "ambition_novelty": 6,
+     "timeliness": 3
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Tuazon is an internationally exhibited artist (MAXXI curatorial project, Palais de Tokyo inclusion) [S1][S2], giving real artist-significance despite no direct reviews of this show. Morán Morán is a solid mid-tier LA gallery [S3 fair exhibitor], not top-tier venue. The work's ambition - an inhabitable sculptural structure exploring architecture/Zen philosophy - is genuinely novel for Tuazon's practice. However, no independent critical coverage of Circle House itself exists, and its year-long run undercuts urgency/timeliness; it's mid-run with no clear reason to see it 'this week.' Solid but not a must-see standout.",
+    "red_flags": [
+     "No direct critical coverage of this specific show",
+     "Long-running installation mid-run reduces timeliness",
+     "Signals are about artist's other projects, not this exhibition"
+    ],
+    "cost_usd": 0.00698,
+    "ts": 1788315239
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 2
+    },
+    "overall": 5,
+    "confidence": 0.7,
+    "rationale": "Tuazon is a genuinely notable sculptor (Whitney Biennial, Venice, museum commissions), and [S1] Palais de Tokyo inclusion and [S2] his curated MAXXI project confirm ongoing international standing — but neither touches this show. [S3] is a venue-only Felix listing, not coverage. No independent review or pick of Circle House exists in the evidence. Morán Morán is a strong LA gallery with an international roster, though below the Deitch/Ghebaly/Vielmetter tier for must-see pull this week. The installation is ambitious as a habitable structure, yet it opened six months ago and runs to year-end; the description itself concedes there is no reason to rush. That kills the 'this week' argument.",
+    "red_flags": [
+     "Ten-month run, mid-cycle: no timeliness hook this week",
+     "Signals document the artist's activity elsewhere, not this exhibition — no reviews or picks on file",
+     "Description's 'low-key must-see' is unsupported agent prose"
+    ],
+    "cost_usd": 0.02515,
+    "ts": 1788315332
+   },
+   "delta": -1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 13,
+    "opus": 16,
+    "mean": 14
+   },
+   "cutoff_proximity": 0.3333,
+   "relevance": 1.6667
+  },
+  {
+   "slug": "bel-ami-cars-of-los-angeles",
+   "title": "The Cars of Los Angeles",
+   "artist": "Carlos Agredano, Merlin Carpenter, Fiona Connor, Sylvie Fleury, Max Göran, Jason Hirata, Alan Michael, Josephine Pryde, Ed Ruscha, Lucien Samaha, Nicole-Antonia Spagnola, Angharad Williams",
+   "venue": "Bel Ami",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 4,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 5
+    },
+    "overall": 6,
+    "confidence": 0.5,
+    "rationale": "Ed Ruscha's inclusion (concurrent Museum Brandhorst survey [S1]) anchors artist significance, though this LA show itself isn't the Brandhorst exhibition. Bel Ami's Frieze LA Focus exhibitor status [S2] signals rising gallery credibility beyond typical tier-3 status. No direct reviews of this specific show; description reads as press release with curatorial ambition (thematic group show, commissioned essay) but unverified critical traction. Strong conceptual coherence and named-artist depth (Fleury, Connor, Carpenter) support mid-tier ambition/novelty. Closing in 25 days keeps some timeliness relevance, though not fresh news.",
+    "red_flags": [
+     "No independent reviews or press coverage of this specific show found",
+     "Ruscha signal [S1] refers to a different institution/exhibition, not directly this show",
+     "Description's literary/curatorial framing reads as promotional copy"
+    ],
+    "cost_usd": 0.0081,
+    "ts": 1788315296
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 3,
+     "ambition_novelty": 7,
+     "timeliness": 5
+    },
+    "overall": 7,
+    "confidence": 0.6,
+    "rationale": "Bel Ami is a small but critically respected Chinatown gallery whose program punches above its size — confirmed by inclusion in Frieze LA 2026's Focus sector [S2], though that is venue-only evidence, not coverage of this show. [S1] merely tracks Ed Ruscha's Brandhorst survey and says nothing about this exhibition, so effectively no signals for this show. The roster is genuinely strong (Ruscha, Pryde, Fleury, Carpenter, Connor) and the artist-curated conceit plus site-specific Connor wall drawing and commissioned essay give it real curatorial ambition rather than theme-show novelty. Mid-run with a month left; a plausible insider recommendation but not a citywide event.",
+    "red_flags": [
+     "No independent coverage of this specific show; S1 is unrelated Ruscha museum activity, S2 is venue-only",
+     "Description reads partly as advocacy/press-release prose",
+     "Large unnamed-curator conceit: check whether the companion show 'The Woods' is also on view"
+    ],
+    "cost_usd": 0.03085,
+    "ts": 1788315403
+   },
+   "delta": 1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": true,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 20,
+    "opus": 15,
+    "mean": 17
+   },
+   "cutoff_proximity": 0.1667,
+   "relevance": 1.5833
+  },
+  {
+   "slug": "wende-sextant",
+   "title": "The Sextant",
+   "artist": "Enrique Martínez Celaya",
+   "venue": "Wende Museum",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 7,
+     "ambition_novelty": 8,
+     "timeliness": 6
+    },
+    "overall": 7,
+    "confidence": 0.75,
+    "rationale": "Martínez Celaya is a mid-career artist with real institutional traction; this is the closing chapter of a trilogy shown at Havana's national museum and NYC's Hispanic Society [S1][S2], with a forthcoming Hatje Cantz book and LA Opera tie-in — genuine ambition and a rare architectural-reconstruction concept, not a routine gallery hang. Wende Museum is a niche but well-regarded Cold War-focused institution (tier 3), which caps venue score below major-museum level. Coverage from The Art Newspaper and Cultured gives solid, independent critical validation. Closing in 40 days after a long run tempers timeliness somewhat.",
+    "red_flags": [
+     "Long run (297 days open) means most urgency is self-generated by the approaching close rather than a fresh opening"
+    ],
+    "cost_usd": 0.01221,
+    "ts": 1788315303
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 6,
+     "ambition_novelty": 7,
+     "timeliness": 6
+    },
+    "overall": 6,
+    "confidence": 0.72,
+    "rationale": "Martínez Celaya is a nationally recognized artist with museum solos; [S1] The Art Newspaper and [S2] Cultured confirm this as the culminating chapter of a trilogy after Havana's Museo Nacional de Bellas Artes and NY's Hispanic Society, with a Hatje Cantz book and LA Opera collaboration pending. That's real, independent coverage and genuine ambition: a site-built architectural reconstruction, not a sales show. The Wende is a small, well-regarded but specialist Cold War museum rather than a major kunsthalle, and the show has been open nearly ten months, so the urgency is a 40-day closing window plus the October Carmen tie-in rather than a fresh opening. A solid recommend, not a top-tier must-see.",
+    "red_flags": [
+     "Nearly year-long run, mid/late-run rather than newly opened - only the 40-day closing window gives it urgency",
+     "Description's interpretive claims (dollhouse scale, house now a wedding venue) unverified by signals"
+    ],
+    "cost_usd": 0.01954,
+    "ts": 1788315398
+   },
+   "delta": -1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 6,
+    "opus": 9,
+    "mean": 7
+   },
+   "cutoff_proximity": 0.1667,
+   "relevance": 1.5833
+  },
+  {
+   "slug": "tierra-craft-contemporary",
+   "title": "tierra",
+   "artist": "Jackie Amézquita, Natalia Arbelaez, Syd Carpenter, Teresa Castro, Armando Guadalupe Cortés, rafa esparza, Miguel Fernández de Castro, Adebunmi Gbadebo, Karla García, Christine Howard Sandoval, Joanna Keane Lopez, Ruben Olguin, Iman Person, Jeri Redcorn (group exhibition)",
+   "venue": "Craft Contemporary",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 4,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 4
+    },
+    "overall": 5,
+    "confidence": 0.5,
+    "rationale": "A thoughtful, well-curated biennial reimagining at a respected but mid-tier craft museum. Group includes recognizable LA/Indigenous figures (rafa esparza, Jeri Redcorn, Joanna Keane Lopez) giving it real substance, but no breakout star artist. Only independent evidence is a local announcement [S1], not a review or critical pick, so critical reception is thin. Ambition is genuine—expanding a ceramics biennial into earth-based materials with a strong curatorial framework—but the show is mid-run (opened 93 days ago), reducing urgency. Solid but not a must-see outlier.",
+    "red_flags": [
+     "Only one signal, a announcement rather than a review",
+     "Mid-run show reduces timeliness urgency"
+    ],
+    "cost_usd": 0.01041,
+    "ts": 1788315241
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 5,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.65,
+    "rationale": "Craft Contemporary's fourth clay biennial, expanded past ceramics — a curated museum exhibition with a genuinely strong roster: rafa esparza (Whitney Biennial), Adebunmi Gbadebo, Christine Howard Sandoval, Jackie Amezquita, Joanna Keane Lopez, Jeri Redcorn. Curation by Andres Payan Estrada with Cannupa Hanska Luger on the committee adds credibility, and the earth-materials framing is a real curatorial argument rather than a medium survey. But Craft Contemporary is a modest museum by LA standards (tier 3), and the only matched coverage is a local announcement piece [S1] rather than a review or critic's pick — no Artforum/Carla trace on file. Mid-run at three months in, though the October close gives a reason to mention it. A confident second-tier recommendation, not a headline.",
+    "red_flags": [
+     "Only signal is a venue-sourced announcement in a neighborhood paper, not independent criticism",
+     "Large unranked group show — quality depends on works not verifiable here",
+     "Mid-run (opened 93 days ago); needs a closing-soon hook to justify featuring"
+    ],
+    "cost_usd": 0.02779,
+    "ts": 1788315332
+   },
+   "delta": 1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 9,
+    "opus": 6,
+    "mean": 6
+   },
+   "cutoff_proximity": 0.1429,
+   "relevance": 1.5714
+  },
+  {
+   "slug": "kohn-object-poetry",
+   "title": "Object Poetry",
+   "artist": null,
+   "venue": "Michael Kohn Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 3
+    },
+    "overall": 4,
+    "confidence": 0.35,
+    "rationale": "Group show anchored by two genuinely significant names (Bruce Conner, Tony Oursler) gives artist_significance some lift, but the rest of the checklist is unnamed/generic. Kohn is a solid, long-running Hollywood gallery (tier 3) but not top-tier internationally. No independent coverage of this specific show; the only signal [S1] is a generic ADAA fair-exhibitor listing for the gallery, not evidence of critical attention to 'Object Poetry.' Framing as a survey of 'objecthood' is curatorial prose, not a novel curatorial thesis. Show is in its final days, limiting timeliness.",
+    "red_flags": [
+     "Unnamed/loosely defined group show beyond two headline artists",
+     "Signal [S1] is a fair-exhibitor match, not a review or pick tied to this exhibition",
+     "Show closes in 11 days, reducing urgency for a 'this week' recommendation"
+    ],
+    "cost_usd": 0.01093,
+    "ts": 1788315267
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 5,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.7,
+    "rationale": "A summer-length gallery group show built around assemblage, anchored by Bruce Conner (canonical) and Tony Oursler (museum-level), but the checklist is otherwise unspecified and the format is a familiar inventory-driven thematic hang rather than a curated argument or new work. Michael Kohn is a long-standing, respectable Hollywood dealer (tier 3) without the international profile of the city's top galleries. The only signal [S1] is a venue-only ADAA exhibitor listing for a November fair — no coverage of this exhibition. Closing in 11 days gives mild urgency, but after nearly three months on view an insider would not route a visitor here over the Broad, LACMA, Getty or Deitch shows.",
+    "red_flags": [
+     "Unnamed group show — full checklist not disclosed; only two artists cited in our own prose",
+     "Only signal is a venue-level fair listing, not coverage of this show",
+     "Description reads close to gallery press-release framing (\"four decades\" keyword hit is about the gallery, not a survey)"
+    ],
+    "cost_usd": 0.02364,
+    "ts": 1788315359
+   },
+   "delta": -1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 17,
+    "opus": 23,
+    "mean": 20
+   },
+   "cutoff_proximity": 0.1111,
+   "relevance": 1.5556
+  },
+  {
+   "slug": "charlie-james-gallery-lookout-weekend",
+   "title": "Lookout Weekend",
+   "artist": "The Perez Bros",
+   "venue": "Charlie James Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 5
+    },
+    "overall": 4,
+    "confidence": 0.4,
+    "rationale": "Charlie James is a respected, established Chinatown gallery with a strong local/regional program (venue tier ~5). The Perez Bros are known within LA's lowrider-culture art niche but lack broad museum-level stature. No independent signals confirm coverage of this specific show, so critical reception is capped low per rubric. The description claims new panoramic works and expanded scope, suggesting modest ambition beyond prior output, but this is unverified press-release language. Timely (opens soon, runs 6+ weeks). Solid regional show, not a must-see for a citywide list without corroborating press.",
+    "red_flags": [
+     "no independent signals/coverage on file",
+     "claims of novelty ('new work') unverified beyond gallery description"
+    ],
+    "cost_usd": 0.00582,
+    "ts": 1788315309
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 6
+    },
+    "overall": 5,
+    "confidence": 0.6,
+    "rationale": "No signals on file. Charlie James is a well-regarded Chinatown gallery with a strong Chicanx/Latinx program and real local press history, but not an international-program blue chip; the Perez Bros are a rising duo with genuine following in the lowrider/Chicano art conversation rather than museum-level stature. The show is a coherent new body of work that widens scope from single cars to panoramic car-show scenes — a real development, not a survey or institutional first. Opens 11 Sept, so it is fresh this month and thematically rhymes with Bel Ami's Cars of Los Angeles, which could make it a critic's pairing, but nothing confirms coverage yet. Solid gallery-tier recommendation, not a must-see anchor.",
+    "red_flags": [
+     "no independent coverage on file",
+     "show has not yet opened at time of scoring",
+     "description reads close to press-release prose"
+    ],
+    "cost_usd": 0.02156,
+    "ts": 1788315422
+   },
+   "delta": 1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 28,
+    "opus": 25,
+    "mean": 26
+   },
+   "cutoff_proximity": 0.0667,
+   "relevance": 1.5333
+  },
+  {
+   "slug": "induction-hallauer",
+   "title": "New Skies",
+   "artist": "Severin Hallauer",
+   "venue": "induction gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 5,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.35,
+    "rationale": "No signals; venue is an unrated small gallery, artist early-career with first LA solo. Description suggests thoughtful, personal, well-crafted installation work (Bloodlines, LONG HAUL) with some conceptual ambition, but no independent press or critical validation exists to confirm impact. Closing in 4 days adds mild urgency, but this reads as a solid but modest gallery show rather than a must-see. Scored low on artist/venue stature, moderate on novelty given genuine formal ambition.",
+    "red_flags": [
+     "no independent coverage/signals",
+     "venue tier unknown/unrated",
+     "claims of significance rest solely on press-release-style description"
+    ],
+    "cost_usd": 0.00564,
+    "ts": 1788315283
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.72,
+    "rationale": "No signals, and no trace of Severin Hallauer in my knowledge of museum solos, biennials or major gallery programs — an artist explicitly described as early in his exhibition history. induction gallery is an unrated small Mid-Wilshire space with no international program I can place. The work itself sounds sincere and materially inventive (the 355 stained-glass slide genealogy wall), which lifts ambition modestly, but a first LA solo of intimate autobiographical objects in a micro-venue is not what an insider sends a visitor to see against Yoko Ono at The Broad, Quarles at LACMA or Redon at the Getty. Closing in four days gives mild urgency only.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Venue standing unverified/unplaceable in the LA gallery landscape",
+     "Description reads close to press-release framing; 'first LA solo' unconfirmed",
+     "Closes in 4 days — short runway if featured"
+    ],
+    "cost_usd": 0.01711,
+    "ts": 1788315381
+   },
+   "delta": -1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 26,
+    "opus": 30,
+    "mean": 29
+   },
+   "cutoff_proximity": 0.0556,
+   "relevance": 1.5278
+  },
+  {
+   "slug": "corey-helford-20th",
+   "title": "20th Anniversary Group Show",
+   "artist": null,
+   "venue": "Corey Helford Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 4,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.4,
+    "rationale": "Unnamed group show with no named artists, so artist_significance is scored low per rubric despite CHG's strong reputation within the New Contemporary/lowbrow niche. Corey Helford is a well-known, established gallery with a loyal following and 20-year track record, but not part of the blue-chip or museum tier — mid-range venue score. No signals on file, so critical_reception defaults low per evidence rules. Anniversary framing offers some novelty but 'new work by roster artists' is fairly routine gallery programming. Closing in 11 days gives moderate timeliness. No prior knowledge of specific coverage for this show.",
+    "red_flags": [
+     "unnamed group show",
+     "no independent coverage/signals found",
+     "description reads as promotional press-release framing"
+    ],
+    "cost_usd": 0.00578,
+    "ts": 1788315275
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.75,
+    "rationale": "No signals. Corey Helford is a long-running, commercially successful home for New Contemporary/pop-surrealism with a large downtown footprint, but it sits outside the critical circuit an LA insider would steer a visitor toward, and it draws essentially no coverage in Artforum/Carla-type venues. No artists are named, so stature cannot be credited; an anniversary roster show of new-but-familiar gallery work is a sales/celebration format rather than a curatorial proposition. Only real hook is that it closes in 11 days with a part two following. Description reads as gallery advocacy (\"institution of its own\") without independent support.",
+    "red_flags": [
+     "unnamed group show - no artists listed, so stature unverifiable",
+     "no independent coverage on file",
+     "description reads as press-release advocacy for the gallery's importance"
+    ],
+    "cost_usd": 0.01679,
+    "ts": 1788315368
+   },
+   "delta": -1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 31,
+    "opus": 37,
+    "mean": 33
+   },
+   "cutoff_proximity": 0.0455,
+   "relevance": 1.5227
+  },
+  {
+   "slug": "barnsdall-threads-of-creativity",
+   "title": "2026 Student Showcase: Threads of Creativity",
+   "artist": null,
+   "venue": "Barnsdall Junior Arts Center Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 0,
+     "venue_significance": 1,
+     "critical_reception": 0,
+     "ambition_novelty": 1,
+     "timeliness": 2
+    },
+    "overall": 0,
+    "confidence": 0.9,
+    "rationale": "A student showcase at a community arts education annex, explicitly a low-stakes, no-thesis group show of student work spanning skill levels. No named artists, no signals, no press, and venue is a civic art-education space rather than an exhibiting gallery of note. Description itself frames this as sincerity-over-polish community programming, not a must-see. Nothing here rises above hyperlocal community-interest level; unsuitable for a curated insider list.",
+    "red_flags": [
+     "unnamed group/student show",
+     "no independent coverage",
+     "venue not rated / community education space, not a competitive exhibition venue"
+    ],
+    "cost_usd": 0.00514,
+    "ts": 1788315308
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 0,
+     "venue_significance": 2,
+     "critical_reception": 0,
+     "ambition_novelty": 1,
+     "timeliness": 3
+    },
+    "overall": 1,
+    "confidence": 0.85,
+    "rationale": "An unnamed community student showcase at a municipal arts-education facility — no professional artists, no curatorial thesis, no signals. Barnsdall Art Park is civic infrastructure of local value, but the Junior Arts Center Gallery is not a venue with a program an insider would route a visiting friend to; the adjacent LA Municipal Art Gallery is the draw. Recently opened gives minor timeliness credit, but a 53-day run of student work carries no urgency. Bottom of this inventory relative to LACMA/Broad/Getty/Hammer offerings and the serious commercial shows (Bel Ami, Ghebaly, Deitch).",
+    "red_flags": [
+     "unnamed group show — student work, no named artists",
+     "venue is a community arts-education gallery, not an exhibiting program",
+     "no independent coverage on file"
+    ],
+    "cost_usd": 0.01531,
+    "ts": 1788315415
+   },
+   "delta": 1,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 48,
+    "opus": 45,
+    "mean": 47
+   },
+   "cutoff_proximity": 0.0278,
+   "relevance": 1.5139
+  },
+  {
+   "slug": "marc-selwyn-wegman",
+   "title": "Private Show",
+   "artist": "William Wegman",
+   "venue": "Marc Selwyn Fine Art",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 5
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Wegman is a genuine conceptual-photography figure with recent MoMA and Sperone Westwater group inclusion [S2][S4], and Marc Selwyn is a solid Beverly Hills program with fair presence [S1][S3]. But none of the signals address this specific show - no reviews or picks for 'Private Show' itself, so critical reception is thin. The premise (early vintage work vs. dog Polaroids) is a smart curatorial angle but not groundbreaking. Closing in 4 days gives it a 'catch it now' timeliness case rather than a fresh-opening one.",
+    "red_flags": [
+     "No direct coverage or reviews found for this specific exhibition, only artist's activity elsewhere",
+     "Show closes in 4 days, limiting window for a 'see this week' recommendation"
+    ],
+    "cost_usd": 0.0121,
+    "ts": 1788315256
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 7
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Wegman is a genuinely canonical figure of 1970s conceptual photography with deep museum representation — [S4] MoMA inclusion and [S2] a Sperone Westwater group show confirm continued institutional currency, though both are artist activity elsewhere, not coverage of this show. [S1]/[S3] only establish Marc Selwyn's fair-level standing (ADAA, Art Basel Miami), consistent with a strong tier-2 Beverly Hills program. No reviews or picks for 'Private Show' itself, so reception stays low. Pairing early vintage prints/video with later Polaroids is a smart curatorial framing but remains a gallery survey of familiar material rather than new work. Closing in four days gives it real urgency for a visiting friend.",
+    "red_flags": [
+     "Closes in 4 days — verify hours before featuring",
+     "All signals are venue-level fair listings or the artist's activity at other institutions; no independent coverage of this exhibition",
+     "Description reads partly as press-release framing (e.g. Ruscha/Baldessari/Ruppersberg circle) unverified by signals"
+    ],
+    "cost_usd": 0.02564,
+    "ts": 1788315348
+   },
+   "delta": 0,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 8,
+    "opus": 7,
+    "mean": 8
+   },
+   "cutoff_proximity": 0.2,
+   "relevance": 1.1
+  },
+  {
+   "slug": "deitch-urs-fischer",
+   "title": "Yes and LA Dust",
+   "artist": "Urs Fischer",
+   "venue": "Jeffrey Deitch",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 6,
+     "critical_reception": 7,
+     "ambition_novelty": 8,
+     "timeliness": 6
+    },
+    "overall": 8,
+    "confidence": 0.75,
+    "rationale": "Urs Fischer is a blue-chip, museum-level artist (MOCA 2013 project, international biennial/museum history) [prior knowledge: artist]. Jeffrey Deitch is a leading LA commercial gallery with strong international program, though not museum-tier [venue tier]. [S1] confirms independent critical coverage - a full review discussing both venues' projects, tying back to the 2013 MOCA happening. Two-site presentation of sculpture and dust-paintings shows real ambition and scale, though the works themselves are revivals/afterlives rather than new bodies of work. Show closes in 32 days, still timely but past its opening buzz.",
+    "red_flags": [
+     "Description reads promotionally ('rare chance', 'blue-chip') - treat superlatives as claims",
+     "Only one signal found despite artist's stature; broader press coverage not confirmed"
+    ],
+    "cost_usd": 0.00679,
+    "ts": 1788315280
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 8,
+     "venue_significance": 6,
+     "critical_reception": 5,
+     "ambition_novelty": 7,
+     "timeliness": 6
+    },
+    "overall": 8,
+    "confidence": 0.72,
+    "rationale": "Fischer is a genuinely international figure (Venice, New Museum, MOCA's 2013 \"YES\"), and Deitch's Hollywood spaces, while commercial, operate at near-kunsthalle scale in LA. Two simultaneous venues — nineteen bronzes from the MOCA clay happening plus the LA Dust metal panels — is more than a routine sales show, and the local backstory gives it real LA specificity. Coverage is thinner than the stature suggests: [S1] is a substantive review but from a single online outlet, not LA press. Mid-to-late run, closing in a month, which argues for featuring it now rather than later. A defensible top-tier pick for a visiting friend, short of blockbuster.",
+    "red_flags": [
+     "Only one independent mention, from a niche online outlet; no LA-press pick or review confirming the show's local impact",
+     "Description's two-venue framing and 'nineteen bronzes' details come from the press release — confirm both spaces are still open through October 3"
+    ],
+    "cost_usd": 0.02273,
+    "ts": 1788315376
+   },
+   "delta": 0,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": true,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 5,
+    "opus": 5,
+    "mean": 5
+   },
+   "cutoff_proximity": 0.125,
+   "relevance": 1.0625
+  },
+  {
+   "slug": "caam-gordon-parks",
+   "title": "The Sound of Gordon Parks",
+   "artist": "Gordon Parks",
+   "venue": "California African American Museum",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 4,
+     "critical_reception": 4,
+     "ambition_novelty": 7,
+     "timeliness": 6
+    },
+    "overall": 7,
+    "confidence": 0.5,
+    "rationale": "Gordon Parks is a canonical American artist with major institutional stature [prior knowledge: artist], lifting this well above typical CAAM programming despite the venue's modest tier 3 standing [venue tier]. The show's angle - Parks as composer, built with the Gordon Parks Foundation - is a genuine curatorial novelty rather than a routine survey. [S1] confirms Foundation-level activity and concurrent international programming, suggesting real institutional weight, though it's not direct press coverage of this specific show, so critical reception stays modest. Closing in 12 days gives real timeliness urgency. No independent reviews found, so confidence is moderate.",
+    "red_flags": [
+     "No independent review or press pick specifically for this CAAM show, only Foundation-level activity from a concurrent unrelated exhibition abroad",
+     "Show closes in 12 days, worth flagging urgency to visitors"
+    ],
+    "cost_usd": 0.00651,
+    "ts": 1788315269
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 7,
+     "timeliness": 7
+    },
+    "overall": 7,
+    "confidence": 0.6,
+    "rationale": "Parks is canonical [prior knowledge], and the premise — his music career treated as primary subject, built with the Gordon Parks Foundation and collaborator Mario Sprouse — is genuinely novel rather than another greatest-hits print show. CAAM is a real museum but tier 3 with modest citywide draw. The only signal [S1] is foundation activity for an unrelated São Paulo solo, not coverage of this show, so reception stays low; I have no knowledge of LA reviews or picks after five months on view. Closing in 12 days gives clear urgency, which is the strongest case for featuring it now. Solid recommendation, not a top-of-list blockbuster.",
+    "red_flags": [
+     "Only signal [S1] concerns a different Parks exhibition abroad; no independent coverage of this show found",
+     "Long run nearly over — verify audio/video components still fully functioning and confirm closing date"
+    ],
+    "cost_usd": 0.01634,
+    "ts": 1788315360
+   },
+   "delta": 0,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 4,
+    "opus": 4,
+    "mean": 4
+   },
+   "cutoff_proximity": 0.1111,
+   "relevance": 1.0556
+  },
+  {
+   "slug": "milano-chow-fantasy-street",
+   "title": "Fantasy Street / The Lifted Veil",
+   "artist": "Milano Chow / Deborah Turbeville",
+   "venue": "Hollyhock House",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 7,
+     "timeliness": 7
+    },
+    "overall": 6,
+    "confidence": 0.5,
+    "rationale": "Turbeville has real international standing (traveling retrospective per [S1], though at Moderna Museet/Photo Elysée, not this show); Chow is a respected but mid-career LA artist. Hollyhock House is a UNESCO-listed historic site (tier 3) but not a major contemporary art venue, giving unusual institutional weight. The curated pairing and site-specific installation show genuine ambition, and the near-term opening is timely. No signal directly reviews this exhibition, so critical reception is inferred rather than confirmed.",
+    "red_flags": [
+     "S1 concerns a different Turbeville retrospective abroad, not direct coverage of this LA show",
+     "no independent press or reviews of this specific exhibition found"
+    ],
+    "cost_usd": 0.01191,
+    "ts": 1788315327
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 7,
+     "timeliness": 7
+    },
+    "overall": 7,
+    "confidence": 0.6,
+    "rationale": "A genuinely site-specific commission inside a Wright UNESCO house is exactly the kind of non-white-box show insiders send visitors to, and the artist-curated Turbeville pairing gives it added weight — Turbeville's stature is corroborated by a European touring retrospective [S1], though that signal concerns her Moderna Museet survey, not this show. Milano Chow is a respected mid-career LA draughtsperson (Chapter NY, Mary Mary) rather than a museum-survey name. Hollyhock House is a landmark but a modest, intermittently programmed exhibition space, not a kunsthalle. Opens in nine days, so freshness is real. No independent coverage of this presentation yet, hence capped reception and moderate confidence.",
+    "red_flags": [
+     "No independent coverage of this specific show; [S1] documents Turbeville's separate European retrospective",
+     "Description reads partly as advocacy/press-release framing ('smart, quiet two-hander')",
+     "Small single-room installation at a house museum — verify scale before featuring"
+    ],
+    "cost_usd": 0.02614,
+    "ts": 1788315439
+   },
+   "delta": 1,
+   "max_sub_delta": 0,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 2,
+    "opus": 2,
+    "mean": 2
+   },
+   "cutoff_proximity": 0.0909,
+   "relevance": 1.0455
+  },
+  {
+   "slug": "karma-vanderlinden-fragmented-thought",
+   "title": "Fragmented Thought",
+   "artist": "Carole Vanderlinden",
+   "venue": "Karma",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 4
+    },
+    "overall": 5,
+    "confidence": 0.5,
+    "rationale": "Karma is a well-regarded international gallery, and Vanderlinden currently has a concurrent museum solo at S.M.A.K. Ghent [S1], lending real career weight. But the signal concerns that museum show, not this LA exhibition, so independent critical coverage of 'Fragmented Thought' itself is unproven. Second Karma LA solo plus a first monograph suggest steady but not novel programming. Show is mid-to-late run (closes in 11 days), giving moderate timeliness. A solid, credible gallery show rather than a must-see event.",
+    "red_flags": [
+     "Only one signal, and it pertains to a different (museum) exhibition abroad rather than this LA show",
+     "No independent reviews or press picks specific to this exhibition"
+    ],
+    "cost_usd": 0.00985,
+    "ts": 1788315242
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 7,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 6
+    },
+    "overall": 5,
+    "confidence": 0.65,
+    "rationale": "Karma's LA outpost is a serious international program, which carries this. Vanderlinden is a credible Belgian painter with an institutional profile — the one signal [S1] is her concurrent S.M.A.K. solo in Ghent, but it comes from Karma's own artist bio, so it speaks to career standing, not to coverage of this show. No independent LA picks or reviews surfaced. Format is a second gallery solo of recent paintings plus a first monograph: respectable, not a survey or LA debut. Closing in 11 days is the main urgency argument. A good painting stop for insiders, but below the handful a visitor must see.",
+    "red_flags": [
+     "Sole signal is the gallery's own bio page, not independent coverage of this exhibition",
+     "No press or critical pickup found for the show itself",
+     "Description reads close to press-release framing (monograph, 'refusal is the point')"
+    ],
+    "cost_usd": 0.02222,
+    "ts": 1788315330
+   },
+   "delta": 0,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 24,
+    "opus": 24,
+    "mean": 24
+   },
+   "cutoff_proximity": 0.0769,
+   "relevance": 1.0385
+  },
+  {
+   "slug": "thinkspace-grabelsky",
+   "title": "Kiddos",
+   "artist": "Matthew Grabelsky",
+   "venue": "Thinkspace Projects",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.4,
+    "rationale": "Grabelsky is a known figure in pop-surrealist/illustration circles with a recognizable signature style, but not museum-tier or broadly canonical. Thinkspace is a respected niche gallery for this genre, not a top-tier program. No signals of independent coverage exist, so critical reception is scored low per rubric. The show is a continuation of established themes/technique rather than a major new direction. Closing in 4 days gives modest timeliness relevance. This reads as a solid, well-crafted regional gallery show rather than a must-see citywide pick.",
+    "red_flags": [
+     "no independent coverage/signals found",
+     "closes in 4 days - narrow window for a feature"
+    ],
+    "cost_usd": 0.00553,
+    "ts": 1788315278
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.75,
+    "rationale": "No signals. Grabelsky is a commercially successful pop-surrealist with a strong collector/Instagram following but essentially no museum or critical footprint; Thinkspace is a well-run lowbrow/new-contemporary gallery with international art-fair presence yet outside the discourse an LA insider would point a visiting friend toward. \"Kiddos\" is a routine new-paintings sales show extending a familiar signature device rather than a departure. Closing in four days gives modest urgency, but nothing here competes with the Broad's Ono, LACMA's Quarles, Getty's Redon or Bel Ami/Ghebaly-level gallery programming in this inventory. Description reads close to press-release framing.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Descriptive superlatives (\"technically dazzling\") unverified; reads press-release adjacent",
+     "Closes in 4 days - short runway for a feature"
+    ],
+    "cost_usd": 0.01618,
+    "ts": 1788315371
+   },
+   "delta": -1,
+   "max_sub_delta": 0,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 35,
+    "opus": 39,
+    "mean": 38
+   },
+   "cutoff_proximity": 0.037,
+   "relevance": 1.0185
+  },
+  {
+   "slug": "avenue50-sonsonetes",
+   "title": "Sonsonetes y Menjurges (Tunes and Concoctions)",
+   "artist": "Rigoberto Soltero",
+   "venue": "Avenue 50 Studio",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 4
+    },
+    "overall": 2,
+    "confidence": 0.5,
+    "rationale": "A solo show at Avenue 50 Studio, a respected but small nonprofit space in Highland Park with a long community-focused history. No signals or independent coverage on file, and no keyword hits suggesting scale or novelty. Artist Rigoberto Soltero has no evident national profile. Show is timely (opens soon) but modest in ambition per its own description. Typical, worthwhile neighborhood programming, not a citywide must-see.",
+    "red_flags": [
+     "no independent coverage found",
+     "venue registry tier unknown, relying on general knowledge",
+     "artist significance unverified beyond description"
+    ],
+    "cost_usd": 0.00509,
+    "ts": 1788315303
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 6
+    },
+    "overall": 2,
+    "confidence": 0.7,
+    "rationale": "No signals and no independent trace of Rigoberto Soltero beyond the venue's own announcement; I have no prior knowledge of museum solos, biennials or press for him. Avenue 50 Studio is a long-running, genuinely valuable NELA nonprofit for Chicano/Latino art, but it sits well below the commercial and museum venues in this pool (Deitch, Ghebaly, Karma, Broad, LACMA, Getty). The description itself concedes the show is \"modest in scale, rooted in community\" and speculates about content (\"expect work that...\"), suggesting the writer had little more than a title. A newly opening solo earns timeliness credit, but nothing here makes it a week's must-see for a visiting insider.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Description speculates about the work rather than describing it — writer appears not to have seen checklist or press release detail",
+     "Artist unplaceable in wider record"
+    ],
+    "cost_usd": 0.01767,
+    "ts": 1788315418
+   },
+   "delta": 0,
+   "max_sub_delta": 2,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 42,
+    "opus": 40,
+    "mean": 40
+   },
+   "cutoff_proximity": 0.0345,
+   "relevance": 1.0172
+  },
+  {
+   "slug": "getty-odilon-redon",
+   "title": "Odilon Redon: Otherworldly Visions",
+   "artist": "Odilon Redon",
+   "venue": "Getty Center",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 8,
+     "critical_reception": 3,
+     "ambition_novelty": 4,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "Redon is a canonical Symbolist figure whose stature is undisputed, and the Getty is a world-class encyclopedic institution, so artist and venue scores are high. However, this is explicitly a collection-drawn survey, not a rare loan show or first-of-its-kind presentation, limiting ambition/novelty. The only signal [S1] concerns a different Redon show at the Art Institute of Chicago, not direct coverage of this Getty exhibition, so critical reception for THIS show is unconfirmed. Mid-run timing (47 days left, no special event) keeps timeliness moderate. A worthwhile, well-pedigreed show but not a must-see blockbuster this week.",
+    "red_flags": [
+     "No direct press coverage found for this specific Getty exhibition; S1 refers to a different institution's Redon show",
+     "Description frames it as a quieter collection show, tempering blockbuster claims"
+    ],
+    "cost_usd": 0.01132,
+    "ts": 1788315273
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 9,
+     "critical_reception": 3,
+     "ambition_novelty": 4,
+     "timeliness": 4
+    },
+    "overall": 6,
+    "confidence": 0.66,
+    "rationale": "Redon is canonical — the noirs are foundational to Symbolism and proto-Surrealism — and the Getty is a top-tier LA institution with free admission, so the baseline is strong. But this is a collection-driven works-on-paper presentation rather than a loan survey or new scholarship, which caps ambition. No independent coverage of this show: the single signal [S1] is unrelated artist activity at the Art Institute of Chicago in 2025, not a review or pick here. Mid-run (opened 7 weeks ago, ~6 weeks left) gives it no particular urgency beyond a closing date. A confident recommendation for a visitor who likes drawing, not a citywide must-see.",
+    "red_flags": [
+     "Only signal [S1] concerns a different exhibition at another museum, not coverage of this show",
+     "Description's framing (\"quieter counterpart to blockbuster shows\") reads as press-release paraphrase; checklist scale and loan content unverified"
+    ],
+    "cost_usd": 0.02226,
+    "ts": 1788315363
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 12,
+    "opus": 12,
+    "mean": 12
+   },
+   "cutoff_proximity": 1.0,
+   "relevance": 1.0
+  },
+  {
+   "slug": "vielmetter-roberto-diago",
+   "title": "Presence",
+   "artist": "Roberto Diago",
+   "venue": "Vielmetter Los Angeles",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 6,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 6
+    },
+    "overall": 6,
+    "confidence": 0.5,
+    "rationale": "Diago's institutional history (Halsey Institute, Art Museum of the Americas) and his selection to represent Cuba at the 2026 Venice Biennale [S1] give real career weight, though [S1] concerns the Biennale, not this LA show specifically - no independent review of 'Presence' itself. Vielmetter is a respected, internationally connected LA gallery, a step below top-tier blue-chip. Framed as his West Coast debut with a distinct material language (nails, reclaimed wood) tied to Afro-Cuban history, giving it genuine novelty. Closing in four days adds urgency for a visitor list.",
+    "red_flags": [
+     "Only one signal found, and it concerns the Venice Biennale presentation rather than this specific LA gallery show",
+     "No independent critical coverage of the Vielmetter exhibition itself"
+    ],
+    "cost_usd": 0.01145,
+    "ts": 1788315253
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 7,
+     "critical_reception": 3,
+     "ambition_novelty": 6,
+     "timeliness": 7
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Vielmetter is a leading LA gallery with an international program, and Diago is a genuinely significant Afro-Cuban artist with US institutional history (Halsey, AMA) — his 2026 Cuban pavilion selection is confirmed by [S1], though that signal is about Venice, not this show. No reviews or LA picks for the exhibition itself, so reception stays low. A West Coast debut of new mixed-media work gives real novelty, and the closing date (4 days) makes it urgent to recommend now. Solid, insider-worthy but not a citywide event against LACMA/Quarles, Broad/Ono or Deitch/Fischer in this pool.",
+    "red_flags": [
+     "Only signal documents the Venice Biennale, not this exhibition — no independent coverage of the LA show",
+     "Closes in 4 days; short window for a feature",
+     "'West Coast debut' and biennial framing are description claims, partially corroborated"
+    ],
+    "cost_usd": 0.01735,
+    "ts": 1788315341
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 11,
+    "opus": 11,
+    "mean": 11
+   },
+   "cutoff_proximity": 0.5,
+   "relevance": 0.75
+  },
+  {
+   "slug": "parrasch-heijnen-charles-dickson",
+   "title": "Charles Dickson: Select Works, 1966-2026",
+   "artist": "Charles Dickson",
+   "venue": "Parrasch Heijnen",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 4,
+     "critical_reception": 2,
+     "ambition_novelty": 7,
+     "timeliness": 6
+    },
+    "overall": 6,
+    "confidence": 0.4,
+    "rationale": "Dickson is a genuine figure of the Watts arts lineage (alongside Purifoy, Outterbridge) with real public commissions, giving artist significance beyond purely local status, but he's not a widely known national name. Parrasch Heijnen is a solid mid-tier Boyle Heights gallery (tier 3), not a major kunsthalle. [S1] only confirms the gallery's presence at Felix Art Fair, not coverage of this specific show, so critical reception is thin/unconfirmed. The 60-year survey framing and rarity of seeing Dickson's studio work commercially is a strong ambition claim, and the show is freshly opening. Worth a look but not a must-see blockbuster.",
+    "red_flags": [
+     "No independent review or press coverage specific to this show, only a tangential fair-exhibitor mention",
+     "Claims of 60-year retrospective scope rely entirely on gallery description"
+    ],
+    "cost_usd": 0.0115,
+    "ts": 1788315320
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 7,
+     "timeliness": 5
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "Dickson is a genuinely important figure of the post-Watts LA Black art scene — Watts Towers Arts Center resident, contemporary of Purifoy and Outterbridge, included in the Now Dig This!-era reappraisals and known for civic commissions — so a six-decade gallery survey is a real occasion and the kind of overdue-elder show insiders champion. Parrasch Heijnen is a respected mid-tier program (Chinatown/Boyle Heights) but not a destination institution. Only signal is [S1], a venue-only Felix exhibitor listing with no bearing on this show, so coverage is unproven. It also doesn't open until 19 Sept, so it can't anchor a this-week list yet; revisit at opening.",
+    "red_flags": [
+     "Opens 18 days out — not viewable this week",
+     "Only signal is a venue-level fair listing, not coverage of this show",
+     "'Mini-retrospective' framing is the agent's characterization, not a stated curatorial claim"
+    ],
+    "cost_usd": 0.02486,
+    "ts": 1788315433
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 10,
+    "opus": 8,
+    "mean": 10
+   },
+   "cutoff_proximity": 0.3333,
+   "relevance": 0.6667
+  },
+  {
+   "slug": "autry-life-liberty",
+   "title": "Life, Liberty, and Los Angeles",
+   "artist": null,
+   "venue": "Autry Museum of the American West",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 3
+    },
+    "overall": 3,
+    "confidence": 0.4,
+    "rationale": "Unnamed group/collection show with no named artists to anchor stature; scores low on artist significance per rubric. Autry is a respected mid-tier LA museum but not encyclopedic or a major kunsthalle. No independent coverage or press signals found, so critical reception is capped low per evidence rules. Description claims commissions and new work, suggesting some ambition, but this reads as a long-running thematic survey rather than a novel event. Mid-run (94 days in, 152 remaining) blunts urgency despite semiquincentennial tie-in.",
+    "red_flags": [
+     "unnamed group show",
+     "no independent coverage/signals on file",
+     "long mid-run show, reduces urgency/timeliness"
+    ],
+    "cost_usd": 0.00661,
+    "ts": 1788315274
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 2
+    },
+    "overall": 3,
+    "confidence": 0.7,
+    "rationale": "No signals and no named artists — a thematic collection show drawing on the Autry's Western-history holdings with unspecified contemporary commissions, so stature can't be verified. The Autry is a genuine museum but a second-tier LA destination for contemporary-art audiences; tier 3 fits. Semiquincentennial framing gives modest topical hook, but the show opened three months ago and runs into January, so there's no urgency this week. The description's ambition claims (commissions, new work) are unbacked press-release language. Worth a general-audience visit, not an insider's must-see list against Ono at the Broad, Quarles at LACMA, or Fischer at Deitch.",
+    "red_flags": [
+     "unnamed group/collection show — no artists identified",
+     "no independent coverage on file",
+     "long run, mid-run: weak this-week rationale",
+     "description reads partly as press-release advocacy"
+    ],
+    "cost_usd": 0.01635,
+    "ts": 1788315365
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 19,
+    "opus": 17,
+    "mean": 18
+   },
+   "cutoff_proximity": 0.1429,
+   "relevance": 0.5714
+  },
+  {
+   "slug": "brad-eberhard-building-an-audience",
+   "title": "Building an Audience",
+   "artist": "Brad Eberhard",
+   "venue": "Timothy Hawkinson Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 3,
+     "critical_reception": 4,
+     "ambition_novelty": 5,
+     "timeliness": 5
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "Small West Hollywood gallery (tier 3) showing a regionally known painter-ceramicist. [S2] lainsider pick confirms independent coverage matching the show's own framing (hand-built frames as single object), giving modest critical traction beyond the press release. [S1] shows gallery's fair presence but not artist-specific significance. No museum history, biennial, or major press cited for Eberhard. The frame/painting conceit is a genuine if modest formal novelty. Mid-run timing with several weeks left keeps timeliness moderate. Solid, well-regarded local show, not a must-see.",
+    "red_flags": [
+     "thin critical record beyond one local pick",
+     "no independent confirmation of artist's broader reputation"
+    ],
+    "cost_usd": 0.00643,
+    "ts": 1788315292
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 4,
+     "critical_reception": 4,
+     "ambition_novelty": 4,
+     "timeliness": 6
+    },
+    "overall": 4,
+    "confidence": 0.7,
+    "rationale": "Eberhard is a respected LA painter/ceramicist with a regional exhibition history rather than museum stature. Timothy Hawkinson Gallery is a younger Fairfax-area space with real ambition — its Felix 2026 exhibitor slot [S1] is venue-level, not show-level, evidence. The only show-specific coverage is a local weekly roundup mention [S2], which confirms the hand-built-frame conceit but is not a review or a national pick. New body of work with an integrated painting/frame gesture is a genuine but modest formal move, not a survey or first solo of note. Mid-run with a month left; nothing makes this the week's must-see for a visiting friend.",
+    "red_flags": [
+     "S1 is a venue-only fair listing, not coverage of this show",
+     "description leans on Matisse/Johns/Twombly comparisons drawn from the press release"
+    ],
+    "cost_usd": 0.023,
+    "ts": 1788315396
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 21,
+    "opus": 20,
+    "mean": 21
+   },
+   "cutoff_proximity": 0.1,
+   "relevance": 0.55
+  },
+  {
+   "slug": "hammer-space-is-the-place",
+   "title": "SPACE IS THE PLACE: Selections from the Hammer Contemporary Collection",
+   "artist": null,
+   "venue": "Hammer Museum",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 8,
+     "critical_reception": 2,
+     "ambition_novelty": 5,
+     "timeliness": 8
+    },
+    "overall": 6,
+    "confidence": 0.45,
+    "rationale": "Strong roster (Jafa, Saar, Eversley, Halsey, Price, Cauleen Smith) drawn from a major encyclopedic museum's collection gives real artist and venue weight, but this is a collection-survey rather than new commissioned work, capping ambition. No independent coverage or press signals found, so critical reception defaults low per rubric despite plausible institutional quality. Closing in 5 days gives it a timeliness boost as a last-chance-to-see. No unnamed-group-show concern since artists are specified, but lack of press coverage is notable given the show's near-six-month run.",
+    "red_flags": [
+     "no independent critical coverage on file despite long run",
+     "closing very soon (5 days) - verify still open"
+    ],
+    "cost_usd": 0.01784,
+    "ts": 1788315226
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 8,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 7
+    },
+    "overall": 6,
+    "confidence": 0.6,
+    "rationale": "No signals on file. The Hammer is a top-flight LA institution and the roster the description names (Jafa, Betye Saar, Eversley, Halsey, Huxtable, Cauleen Smith, Thomas J Price) is genuinely museum-grade, but this is a thematic collection rehang rather than a new commission or survey — the format that the rubric discounts for ambition, and the kind of show insiders rarely send a visitor to over a Yoko Ono, Quarles or Fischer. Its case this week is purely that it closes 6 Sept, which does make it a legitimate \"last chance\" line item. Free admission and depth of holdings help; absence of any independent coverage caps reception.",
+    "red_flags": [
+     "No independent coverage matched — reception score rests on venue standing alone",
+     "Unnamed collection/group show; the artist list comes only from our own prose",
+     "Closes 2026-09-06, so any feature must run immediately"
+    ],
+    "cost_usd": 0.05388,
+    "ts": 1788315232
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 3,
+    "opus": 3,
+    "mean": 3
+   },
+   "cutoff_proximity": 0.1,
+   "relevance": 0.55
+  },
+  {
+   "slug": "moca-expanding-field",
+   "title": "The Expanding Field: MOCA's Collection from the 1940s to 1970s",
+   "artist": null,
+   "venue": "MOCA Grand Avenue",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 7,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 4,
+    "confidence": 0.35,
+    "rationale": "MOCA is a major LA contemporary art museum (registry tier 3, museum flag yes), giving this collection survey solid venue weight, but it's an unnamed group/collection show with no headline artist and no independent coverage on file, so artist significance and critical reception stay low. Description reads as a standard permanent-collection rehang rather than a novel curatorial event; closing in 19 days offers modest timeliness. Worth noting for Downtown visitors but not a must-see against citywide competition this week.",
+    "red_flags": [
+     "unnamed group/collection show, no headline artist",
+     "no independent coverage or signals on file",
+     "claims of significance rest on description only"
+    ],
+    "cost_usd": 0.01251,
+    "ts": 1788315246
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 8,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 4,
+    "confidence": 0.72,
+    "rationale": "No signals. A permanent-collection rehang at MOCA Grand: the institution is top-tier for postwar art and the holdings (Rothko, Rauschenberg, Nevelson-era material) are genuinely strong, but no artists are named and nothing here is new scholarship, a commission, or a loan-driven survey. Collection shows of this type rarely draw independent reviews, and none are on file after four months open. The only urgency is the 19-day closing window, which lifts timeliness slightly above a mid-run default. Useful primer for a visiting friend already at MOCA, not the show an insider sends them across town for.",
+    "red_flags": [
+     "unnamed group/collection show - no artist list to verify",
+     "no independent coverage on file after 4+ months open",
+     "description's 'mission statement' framing is venue-page rhetoric, unverified"
+    ],
+    "cost_usd": 0.02078,
+    "ts": 1788315337
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 22,
+    "opus": 21,
+    "mean": 22
+   },
+   "cutoff_proximity": 0.0909,
+   "relevance": 0.5455
+  },
+  {
+   "slug": "broad-yoko-ono",
+   "title": "Yoko Ono: Music of the Mind",
+   "artist": "Yoko Ono",
+   "venue": "The Broad",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 10,
+     "venue_significance": 8,
+     "critical_reception": 8,
+     "ambition_novelty": 9,
+     "timeliness": 7
+    },
+    "overall": 9,
+    "confidence": 0.85,
+    "rationale": "Yoko Ono is a canonical figure - Fluxus pioneer, decades of museum-level significance - and this is her first SoCal museum survey [S2 Alta review confirms]. Touring retrospective from Chicago MCA per [S1 Smithsonian]. Live restaging of Cut Piece by MPA generated ongoing news coverage [S3 ARTnews]. The Broad is a major LA museum with strong public draw, though not top-tier encyclopedic. Show closes in 40 days, still very much a live must-see with fresh press through July. Clear blockbuster-tier artist and show for LA this week.",
+    "red_flags": [
+     "rationale cites no [S#] label although signals were supplied"
+    ],
+    "cost_usd": 0.00654,
+    "ts": 1788315244
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 9,
+     "venue_significance": 8,
+     "critical_reception": 8,
+     "ambition_novelty": 8,
+     "timeliness": 7
+    },
+    "overall": 9,
+    "confidence": 0.9,
+    "rationale": "Ono is a canonical Fluxus/conceptual figure and this is the touring Tate-originated survey's first Southern California museum solo, confirmed by [S2] Alta review (Shana Nys Dambrot) and [S1] Smithsonian coverage of the touring retrospective. [S3] ARTnews/Guardian coverage of MPA's live re-stagings of Cut Piece adds ongoing news currency and a reason to go now. The Broad is a major, high-traffic contemporary museum (registry tier 3 undersells its citywide draw). Seven decades, participatory installations and timed ticketing make it the blockbuster of this inventory; closing in 40 days sharpens urgency, though it is past mid-run. Easily a top recommendation for a visiting friend.",
+    "red_flags": [
+     "Mid-to-late run (opened 101 days ago) — verify remaining timed-ticket availability",
+     "Touring show originated elsewhere (Tate/MCA Chicago), so not an LA-organized survey"
+    ],
+    "cost_usd": 0.01935,
+    "ts": 1788315337
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": true,
+    "opus": true,
+    "mean": true
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 1,
+    "opus": 1,
+    "mean": 1
+   },
+   "cutoff_proximity": 0.0833,
+   "relevance": 0.5417
+  },
+  {
+   "slug": "david-hicks-trophies",
+   "title": "Trophies",
+   "artist": "David Hicks",
+   "venue": "Diane Rosenstein Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 4,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 6
+    },
+    "overall": 4,
+    "confidence": 0.35,
+    "rationale": "Diane Rosenstein is a solid, established Hollywood gallery (tier 3) but not a major kunsthalle; Hicks is a known ceramic sculptor with a decent regional following, this being his third solo there. [S1] is only a venue-level fair-exhibitor match, not show-specific coverage, so critical reception is weak. Description reads as press-release prose with no independent reviews. The show is closing in 3 days, giving it some urgency, but nothing suggests a career-defining or ambitious leap beyond his established glaze/vessel practice.",
+    "red_flags": [
+     "Signal S1 is venue-only match to a fair list, not specific to this exhibition",
+     "No independent critical coverage found",
+     "Closing in 3 days"
+    ],
+    "cost_usd": 0.00922,
+    "ts": 1788315293
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 4,
+    "confidence": 0.66,
+    "rationale": "David Hicks is a well-regarded Central Valley ceramic sculptor with a solid West Coast gallery following (Rosenstein, Mindy Solomon) but no museum survey or biennial profile that would put him on an insider's must-see shortlist. Diane Rosenstein is a credible Hollywood gallery, tier 3, with fair presence — but the only signal [S1] is a venue-only Art Basel Miami exhibitor listing, not coverage of this show, so critical reception scores near the floor. A third solo of new vessels is a genuine new body of work rather than a survey or first-anything. Closing in three days gives modest urgency; otherwise a strong regional gallery show, not a citywide recommendation.",
+    "red_flags": [
+     "Only signal is a venue-level art fair listing unrelated to this exhibition — no independent coverage of the show",
+     "Closes in 3 days; short window if featured"
+    ],
+    "cost_usd": 0.02146,
+    "ts": 1788315390
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": true,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 25,
+    "opus": 26,
+    "mean": 25
+   },
+   "cutoff_proximity": 0.0714,
+   "relevance": 0.5357
+  },
+  {
+   "slug": "through-the-sun-cyrous",
+   "title": "Through the Sun",
+   "artist": "Shaghayegh Cyrous",
+   "venue": "Reisig and Taylor Contemporary",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 3,
+     "critical_reception": 2,
+     "ambition_novelty": 6,
+     "timeliness": 5
+    },
+    "overall": 4,
+    "confidence": 0.4,
+    "rationale": "Cyrous has a genuine exhibition history (Tehran MOCA, British Museum per description) and a distinct thematic project translating Persian epic into immersive installation, giving some ambition and novelty. But venue is a modest, unrated Hollywood gallery, and the only signal [S1] is a bare listing, not a review or pick - so critical reception is thin. Concurrent SF show suggests some traction but isn't independently verified. Solid, specific, but not yet a must-see by citywide standards.",
+    "red_flags": [
+     "only one signal, a mention not a review",
+     "venue registry tier unknown, standing unverified independently"
+    ],
+    "cost_usd": 0.00587,
+    "ts": 1788315292
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 3,
+     "critical_reception": 3,
+     "ambition_novelty": 5,
+     "timeliness": 6
+    },
+    "overall": 4,
+    "confidence": 0.6,
+    "rationale": "Cyrous is a credible mid-career Iranian-American artist working in video/sound installation with real diasporic-art visibility (Bay Area residencies, public billboard projects), but no museum solo or biennial-level stature that would pull an insider across town. Reisig and Taylor is a small Hollywood commercial gallery outside the city's leading program tier. Coverage is a bare weekly-listing mention [S1] — no review or critic's pick. The Shahnameh-derived installation with the Bagh centerpiece and a concurrent SF presentation is ambitious for the room but not survey-scale; description reads close to press release. Mid-run, closing 19 Sept, which gives modest urgency. A worthwhile regional show, not a top-of-feed recommendation.",
+    "red_flags": [
+     "Only signal is a passive weekly listing, not independent criticism",
+     "Venue standing unrated in registry; likely below leading-gallery tier",
+     "Description's superlatives (British Museum, Tehran MOCA) unverified as solo presentations"
+    ],
+    "cost_usd": 0.02299,
+    "ts": 1788315398
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 27,
+    "opus": 28,
+    "mean": 27
+   },
+   "cutoff_proximity": 0.0625,
+   "relevance": 0.5312
+  },
+  {
+   "slug": "cordillera-mexicana-louis-stern",
+   "title": "Cordillera Mexicana: Alfredo Ramos Martínez and the Mexican Landscape",
+   "artist": "Alfredo Ramos Martínez",
+   "venue": "Louis Stern Fine Arts",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 7,
+     "venue_significance": 4,
+     "critical_reception": 3,
+     "ambition_novelty": 4,
+     "timeliness": 4
+    },
+    "overall": 5,
+    "confidence": 0.55,
+    "rationale": "Martínez is a historically important figure (\"father of Mexican Modernism\"), corroborated by [S1] showing recent scholarly/institutional interest (Scripps College exhibition, 2025). Louis Stern is an established but mid-tier LA gallery, not a major kunsthalle. No direct press coverage of this specific show; [S1] is related but not a review of this exhibition. Estate-based landscape show is historically interesting but not novel in format—more of a scholarly survey than a new body of work. Closing in 18 days gives moderate timeliness. Overall: a solid, LA-relevant historical show worth noting but not a must-see blockbuster.",
+    "red_flags": [
+     "No independent critical coverage specifically of this exhibition",
+     "Venue tier unrated in registry; relying on general knowledge of Louis Stern Fine Arts",
+     "Description leans on estate/gallery framing rather than independent verification"
+    ],
+    "cost_usd": 0.00684,
+    "ts": 1788315259
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 6,
+     "venue_significance": 4,
+     "critical_reception": 2,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 5,
+    "confidence": 0.7,
+    "rationale": "Ramos Martínez is a genuinely significant figure in Mexican modernism with real museum holdings (LACMA, and the 2025 Scripps/Williamson Gallery show of newly discovered works cited in [S1]) — but [S1] documents a different exhibition elsewhere, so there is effectively no independent coverage of this show. Louis Stern is a respected, long-running West Hollywood gallery holding the estate; its program is historical rather than internationally agenda-setting. A thematically curated estate-stock hang of tempera landscapes is a good scholarly-flavored show, not a survey or a revelation, and the gallery has mounted similar Ramos Martínez presentations before. Closing in under three weeks gives it modest urgency. Worth a visit; not one of the week's few essentials.",
+    "red_flags": [
+     "S1 refers to a separate 2025 Scripps College exhibition, not to this show — no coverage of this presentation",
+     "estate-representing gallery show drawn from inventory; description leans on press-release framing (\"father of Mexican Modernism\")",
+     "registry tier unknown for venue"
+    ],
+    "cost_usd": 0.02443,
+    "ts": 1788315352
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 29,
+    "opus": 29,
+    "mean": 28
+   },
+   "cutoff_proximity": 0.0588,
+   "relevance": 0.5294
+  },
+  {
+   "slug": "track16-john-collins",
+   "title": "Graven Images to the Major Deities",
+   "artist": "John Collins",
+   "venue": "Track 16",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 3,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.5,
+    "rationale": "No independent signals on file; assessment rests on description alone. Collins is a locally-known artist without evident museum-level stature; Track 16 is a respected but mid-tier Arts District gallery, not a major kunsthalle. The project's daily-devotional concept and new drypoint/material experiments show genuine ambition and personal novelty, but this is Collins's second iteration of the same series at the same venue, limiting freshness. Show is mid-run, closing in 11 days, giving moderate timeliness. Without press coverage or broader critical validation, this reads as a solid regional gallery show rather than a must-see.",
+    "red_flags": [
+     "no independent critical coverage found",
+     "artist significance and reception unverifiable beyond description",
+     "venue registry tier unknown, treated as established local gallery"
+    ],
+    "cost_usd": 0.00606,
+    "ts": 1788315282
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 4,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.66,
+    "rationale": "No signals and no evidence of coverage. John Collins is not a nationally visible figure; the Moonlight Graham project is an appealing local obsession but reads as a devotional social-media practice rather than a body of work with institutional or critical traction, and this is his second outing with the same project at the same gallery. Track 16 is a long-standing LA gallery (Bendix Building) with a niche, idiosyncratic program — solid regional standing, not an international one. Some novelty in the new drypoint prints and paper shift, and it closes in 11 days, which is the strongest argument for it. Not a show an insider would send a visitor to over LACMA/Broad/Bel Ami this week.",
+    "red_flags": [
+     "No independent coverage on file; description leans on charm and biography rather than verifiable stature",
+     "Second show of the same project at the same venue — check whether the 'mid-evolution' framing is more than a sales show"
+    ],
+    "cost_usd": 0.01642,
+    "ts": 1788315379
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 33,
+    "opus": 31,
+    "mean": 32
+   },
+   "cutoff_proximity": 0.0476,
+   "relevance": 0.5238
+  },
+  {
+   "slug": "mb-leo-mock",
+   "title": "You want to hear echoes",
+   "artist": "Leo Mock",
+   "venue": "M+B",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 5,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.3,
+    "rationale": "No independent signals confirm coverage or critical traction; description reads as standard gallery press copy with no claims of retrospective, first solo, or major career markers. M+B is a respected mid-tier LA gallery, though Casa MB is its smaller satellite space, suggesting a modest presentation. Closing in 4 days gives some timeliness, but without buzz this reads as a routine painting show rather than a must-see.",
+    "red_flags": [
+     "no independent coverage on file",
+     "unnamed critical reception relies entirely on venue's own framing",
+     "show closes in 4 days with no prior buzz noted"
+    ],
+    "cost_usd": 0.00843,
+    "ts": 1788315268
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 6,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 6
+    },
+    "overall": 3,
+    "confidence": 0.6,
+    "rationale": "No signals and no trace of Leo Mock in my knowledge of museum solos, biennials or notable press — reads as an emerging painter. M+B is a solid, internationally active LA gallery (art fairs, photography and painting program), but this is at Casa MB, its smaller domestic annex, which typically hosts lower-stakes projects. Description offers atmospheric painting language with no claims of first solo, new direction or site-specific ambition; keyword scan finds nothing. Closing Sept 5 gives real urgency, the strongest thing going for it. Not the show an insider would send a visiting friend to over Yoko Ono, Quarles, Fischer or Redon.",
+    "red_flags": [
+     "No independent coverage on file; artist stature unverified",
+     "Description reads close to press-release/atmospheric prose",
+     "Satellite space (Casa MB) rather than main gallery program",
+     "Closes in 4 days — very short window"
+    ],
+    "cost_usd": 0.01581,
+    "ts": 1788315357
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 34,
+    "opus": 32,
+    "mean": 34
+   },
+   "cutoff_proximity": 0.0435,
+   "relevance": 0.5217
+  },
+  {
+   "slug": "deboer-salvador-dominguez",
+   "title": "Arreglos Artificiales",
+   "artist": "Salvador Domínguez",
+   "venue": "de boer",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 4,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 3
+    },
+    "overall": 3,
+    "confidence": 0.35,
+    "rationale": "Emerging LA painter with no cited museum history, awards, or biennial inclusion; de boer is a respectable but non-blue-chip Chinatown gallery. No independent signals exist to confirm critical traction, so reception is capped low per rubric. Description reads as gallery press-release prose emphasizing thematic continuity rather than any new curatorial ambition, site-specificity, or commission. Show has not yet opened (11 days out), limiting immediate timeliness relevance. This reads as a solid but unremarkable regional gallery slot, not a must-see.",
+    "red_flags": [
+     "no independent coverage/signals on file",
+     "show not yet open, claims unverified",
+     "emerging artist significance based solely on gallery's own framing"
+    ],
+    "cost_usd": 0.01031,
+    "ts": 1788315315
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 4,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.6,
+    "rationale": "No signals and no coverage on file. de boer is a credible Chinatown gallery with an emerging international program (Antwerp roots), but it sits below the city's leading commercial spaces; Domínguez is an early-career LA painter without museum solos or biennial history I can confirm. The description is essentially a preview drafted from gallery material — it even concedes it is writing \"based on the works available ahead of the opening.\" A focused solo of new paintings is standard gallery fare rather than a survey or commission. The show also does not open for another 11 days, so it cannot anchor a this-week list. Worth revisiting if reviews land.",
+    "red_flags": [
+     "Show has not opened yet (opens in 11 days) — not viewable this week",
+     "Description written pre-opening from press material; claims about the work are speculative",
+     "No independent coverage on file"
+    ],
+    "cost_usd": 0.01923,
+    "ts": 1788315425
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 36,
+    "opus": 34,
+    "mean": 35
+   },
+   "cutoff_proximity": 0.0417,
+   "relevance": 0.5208
+  },
+  {
+   "slug": "foyer-la-gremlin",
+   "title": "GREMLIN: Museum of Commerce",
+   "artist": "Nick Herman",
+   "venue": "FOYER-LA",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.35,
+    "rationale": "No independent signals; relying on description and prior knowledge of Herman's exhibition history (Socrates Sculpture Park, LAXART, Chinati collection) suggests a credible mid-career sculptor, but FOYER-LA is an unrated, tiny project space with no press track record. Opens soon (11d), giving timeliness a boost, but nothing indicates critical buzz or citywide relevance. Description reads as press-release framing with strong claims about Herman's stature that aren't corroborated. Solid but minor, locally-scaled show, not a must-see.",
+    "red_flags": [
+     "no independent signals or coverage found",
+     "venue registry tier unknown, small project space",
+     "claims about artist's institutional history unverified by signals"
+    ],
+    "cost_usd": 0.00578,
+    "ts": 1788315314
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.62,
+    "rationale": "No signals on file. Nick Herman is a respected but understated LA sculptor-writer with credible line items (LAXART, Socrates, Chinati collection) rather than museum solos or biennials — regional stature at best. FOYER-LA is an artist-run project space behind a courtyard in Chinatown; valuable for the ecosystem, but not a venue an insider sends a visitor to over Yoko Ono at The Broad, Quarles at LACMA, or Fischer at Deitch. The description's claims about the work are prospective (\"promises,\" \"expect\") — the show hasn't opened and no press exists. Timeliness gets modest credit for a fresh opening within the window. Worth a note for sculpture followers, not a Featured slot.",
+    "red_flags": [
+     "Show opens 11 days out; description is speculative about unseen work",
+     "Artist-run project space with no registry tier and no independent coverage",
+     "Prose reads partly as press-release framing (\"exactly the kind of space this work needs\")"
+    ],
+    "cost_usd": 0.01796,
+    "ts": 1788315425
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 37,
+    "opus": 35,
+    "mean": 36
+   },
+   "cutoff_proximity": 0.04,
+   "relevance": 0.52
+  },
+  {
+   "slug": "wonzimer-earth-elements-paint-and-fire",
+   "title": "Earth Elements: Paint and Fire",
+   "artist": "Cosmas and Damian Brown, David Lloyd, Gary Brewer, Cybele Rowe, Roger Herman, Brad Eberhard, Cheyann Washington, Xu DaRocha, Marco Minaya, Galia Linn, Aaron Sheppard",
+   "venue": "Wonzimer",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 3,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 5
+    },
+    "overall": 3,
+    "confidence": 0.4,
+    "rationale": "No signals; relying on description and general knowledge of LA gallery scene. Wonzimer is a small artist-run Lincoln Heights space, not a major program. Roger Herman and Cybele Rowe have regional recognition; rest are mid-career/local. Curatorial premise (painters turning to clay, Ohr/Voulkos lineage) is thoughtful and mildly novel, but this is a modest group show with no independent press. Opens this week, so timely, but scale and stature keep it in the solid-local-show tier rather than must-see.",
+    "red_flags": [
+     "no independent coverage found",
+     "unnamed/uncertain venue tier (registry unknown)",
+     "claims of art-historical lineage unverified by outside sources"
+    ],
+    "cost_usd": 0.00601,
+    "ts": 1788315298
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 4,
+     "timeliness": 6
+    },
+    "overall": 3,
+    "confidence": 0.72,
+    "rationale": "No signals. Wonzimer is an artist-run-style Lincoln Heights warehouse space with a community, artist-heavy program — not a destination a visiting insider would be steered to. Strongest name is Roger Herman (respected LA painter, UCLA); Galia Linn and Cybele Rowe are locally known ceramic sculptors; the rest are regional. Curator-painter Gary Brewer's painting-to-clay thesis is coherent and topical given LA's ceramics moment, but the framing (Ohr, Voulkos, funk ceramics) is well-trodden and the show is an eleven-artist survey of new-ish work rather than a substantive survey. Timeliness is the main plus: opens in three days. Not a featured-feed pick against LACMA/Broad/Deitch competition.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Venue not in registry; artist-run/community-scale space",
+     "Large group show with no dominant name; description reads partly from press-release framing"
+    ],
+    "cost_usd": 0.0184,
+    "ts": 1788315407
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 38,
+    "opus": 36,
+    "mean": 37
+   },
+   "cutoff_proximity": 0.0385,
+   "relevance": 0.5192
+  },
+  {
+   "slug": "philip-martin-a-certain-slant-of-light",
+   "title": "A Certain Slant of Light",
+   "artist": "Carl Cheng, Holly Coulis, Tim Garwood, Sky Glabush, Pamela Jorden, David Korty, Aaron Morse, Hubert Schmalix, Sophie Treppendahl, Sung Jik Yang",
+   "venue": "Philip Martin Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 4,
+     "venue_significance": 4,
+     "critical_reception": 2,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.5,
+    "rationale": "A roster group show at a solid but mid-tier Culver City gallery; Carl Cheng has real historical standing (LACMA-adjacent, Center for Land Use Interpretation lineage) and Korty/Coulis/Schmalix have national gallery careers, lifting artist significance modestly. No signals on file means critical reception defaults low per rubric. Description reads as press-release framing ('celebrates conversations within the gallery's roster') rather than evidence of ambition—this is a roster survey, not a curated thesis show or premiere. Mid-run timing (opened 31 days ago, closes in 25) gives some but not urgent timeliness. Solid but not a must-see relative to LA's stronger institutional and gallery offerings this week.",
+    "red_flags": [
+     "no independent critical coverage found",
+     "description leans on promotional language ('celebrates the sustained conversations happening within the gallery's roster')"
+    ],
+    "cost_usd": 0.00667,
+    "ts": 1788315299
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 5,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 4
+    },
+    "overall": 3,
+    "confidence": 0.72,
+    "rationale": "No signals. This is a ten-artist roster survey at an established but second-tier LA gallery — the classic summer group show, explicitly framed as \"sustained conversations within the gallery's roster\" and mixing historic with recent work rather than presenting a new body of work. The names carry real weight individually (Carl Cheng's ICA LA survey and Hammer/Pacific Standard Time presence, David Korty, Holly Coulis, Hubert Schmalix), which lifts artist stature to solid regional-plus, but a shared-theme sampler about light and the picture plane offers little that would make an insider redirect a visiting friend. Mid-run, closing in three-plus weeks, so no urgency hook either.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Thematically loose group show of gallery-roster artists — reads as a press release for a summer sampler",
+     "Description's claims of intergenerational interrogation unverified"
+    ],
+    "cost_usd": 0.02306,
+    "ts": 1788315407
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 40,
+    "opus": 38,
+    "mean": 39
+   },
+   "cutoff_proximity": 0.0357,
+   "relevance": 0.5179
+  },
+  {
+   "slug": "keystone-vestiges-lopez-iglesias",
+   "title": "Vestiges",
+   "artist": "Alexandra Lopez Iglesias",
+   "venue": "Keystone Art Space",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 1,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.5,
+    "rationale": "No signals found; this is an emerging artist's solo show at an artist-studio project space in Lincoln Heights, not a venue with an international program. Description reads as press-release prose with no corroborating coverage. Short, imminent run gives modest timeliness, but nothing here indicates the kind of citywide or nationally notable stakes the feed is looking for. Purely local-interest show at best.",
+    "red_flags": [
+     "no independent coverage/signals on file",
+     "venue tier unrated/unknown, likely small project space",
+     "hype language in description ('bodies themselves', technical rigor) unverified",
+     "very short 8-day run"
+    ],
+    "cost_usd": 0.00541,
+    "ts": 1788315313
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 2,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 3,
+     "timeliness": 5
+    },
+    "overall": 2,
+    "confidence": 0.75,
+    "rationale": "No signals and no trace of this artist in national or LA critical discourse; Keystone Art Space is an artist-studio complex in Lincoln Heights whose gallery runs short, largely self-organized shows rather than a curated program with press reach. The work described — worked-over paper and clay as skin — is a sincere but familiar material register, with no survey, commission, or first-museum framing to raise ambition. Nine-day run and imminent opening give modest timeliness, but nothing here would make an insider's short list against The Broad's Yoko Ono, LACMA's Quarles, or Deitch's Fischer. Description reads close to press-release prose ('reportedly').",
+    "red_flags": [
+     "no independent coverage on file",
+     "unrated/low-visibility project space",
+     "description relies on unverified biographical claims ('reportedly')",
+     "very short nine-day run, not yet open"
+    ],
+    "cost_usd": 0.01595,
+    "ts": 1788315427
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 43,
+    "opus": 41,
+    "mean": 41
+   },
+   "cutoff_proximity": 0.0333,
+   "relevance": 0.5167
+  },
+  {
+   "slug": "f8-group-photography-show",
+   "title": "f8 Group Photography Show",
+   "artist": "Cyndi Bemel, Steve Hymon, Richard Johnston, Dennis Lee, Krishna Malhotra, Jim Staub, and Bill Wishner",
+   "venue": "LA Artcore Union Center for the Arts",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 3
+    },
+    "overall": 1,
+    "confidence": 0.6,
+    "rationale": "A community photo-salon show at a scrappy nonprofit space, not a market or museum venue. No named artist has notable career stature; no signals or independent coverage exist. The description itself frames this as modest and unglamorous, amateur/semi-professional in orientation, not a thesis-driven or ambitious presentation. Currently running (closes in 10 days) gives minor timeliness credit, but nothing here suggests insider must-see status. This is a nice community event, not a citywide highlight.",
+    "red_flags": [
+     "no independent coverage/signals found",
+     "unnamed relative significance of individual artists unclear",
+     "venue standing unverified beyond community nonprofit status"
+    ],
+    "cost_usd": 0.00549,
+    "ts": 1788315289
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 3,
+     "critical_reception": 0,
+     "ambition_novelty": 2,
+     "timeliness": 4
+    },
+    "overall": 1,
+    "confidence": 0.82,
+    "rationale": "No signals. A photo-salon group show of largely unknown semi-professional photographers; none of the seven names carries museum or biennial-level stature. LA Artcore is a long-standing (since 1979) community nonprofit with real local credibility but no international program or critical footprint — not a venue an insider sends a visitor to for this kind of show. No curatorial thesis, no new commission or survey ambition per the description itself. Mid-run with a near closing date gives modest urgency, nothing more. Well below the threshold for a Featured/Must-See list in a city where LACMA/Broad/Deitch shows are competing.",
+    "red_flags": [
+     "No independent coverage on file",
+     "Group show of little-known artists; strongest name (Bill Wishner) unplaceable nationally",
+     "Dates fall in 2026 — verify against current calendar"
+    ],
+    "cost_usd": 0.01568,
+    "ts": 1788315387
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 44,
+    "opus": 42,
+    "mean": 43
+   },
+   "cutoff_proximity": 0.0312,
+   "relevance": 0.5156
+  },
+  {
+   "slug": "kk-gallery-unbound",
+   "title": "Unbound",
+   "artist": "Ariane Callender, Julia Deckman, Mel Deva, Shelly Floyd, Kyle Goderwis, Ashley Perez, Mark Rebennack, Sarah J.",
+   "venue": "K&K Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 1,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 4
+    },
+    "overall": 1,
+    "confidence": 0.6,
+    "rationale": "No signals on file and no named artist rises above local/emerging status; description itself frames this as a sampler/collector-entry show, not a museum-level statement. K&K is an unrated, small storefront gallery explicitly targeting first-time buyers rather than critical attention. Ambition is modest (group abstraction survey, no site-specificity or major claims). Mid-run six-week rotation gives some timeliness but nothing event-like. This sits well below the bar for an insider's must-see list.",
+    "red_flags": [
+     "no independent coverage or press signals",
+     "venue tier unknown/unplaceable at national level",
+     "description reads as promotional gallery copy"
+    ],
+    "cost_usd": 0.00539,
+    "ts": 1788315303
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 1,
+     "critical_reception": 0,
+     "ambition_novelty": 1,
+     "timeliness": 3
+    },
+    "overall": 1,
+    "confidence": 0.8,
+    "rationale": "No signals. Eight artists with no discernible exhibition record beyond local studio practice; K&K is an unrated Culver City storefront whose stated mission is entry-level collecting rather than curatorial ambition, so venue standing is minimal. A thematically generic abstraction sampler on a six-week sales rotation offers no survey, commission or new-body-of-work claim (keyword scan: none). Mid-run with a month left gives only mild urgency. Nothing here an LA insider would route a visiting friend to against Broad/Ono, LACMA/Quarles or Deitch/Fischer.",
+    "red_flags": [
+     "venue not in registry and hard to place in critical landscape",
+     "group show of largely unrecorded artists",
+     "description reads close to gallery press release/collector marketing",
+     "no independent coverage on file"
+    ],
+    "cost_usd": 0.01564,
+    "ts": 1788315408
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 46,
+    "opus": 46,
+    "mean": 46
+   },
+   "cutoff_proximity": 0.0286,
+   "relevance": 0.5143
+  },
+  {
+   "slug": "cactus-loteria-xii",
+   "title": "Lotería XII",
+   "artist": null,
+   "venue": "Cactus Gallery",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 3
+    },
+    "overall": 1,
+    "confidence": 0.6,
+    "rationale": "Community group show at a small, unrated Los Feliz gallery; no named artist of note, no independent coverage found (no signals). Annual, recurring format (12th edition) reads as a beloved local tradition rather than a citywide must-see. Mid-run with 44 days left, so timeliness is mild. Reflects Cactus Gallery's long-standing identity in accessible folk/outsider art, but nothing here rises to nationally notable stature or critical buzz.",
+    "red_flags": [
+     "unnamed/collective group show with no single notable artist",
+     "no independent critical coverage or signals on file",
+     "venue tier unknown in registry, small commercial gallery"
+    ],
+    "cost_usd": 0.00556,
+    "ts": 1788315308
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 1,
+     "venue_significance": 2,
+     "critical_reception": 1,
+     "ambition_novelty": 2,
+     "timeliness": 2
+    },
+    "overall": 1,
+    "confidence": 0.8,
+    "rationale": "No signals. Cactus Gallery is a small NELA folk/outsider art space with an affordable-collectibles model; no national program or critical footprint. The annual Lotería format is a community tradition rather than a curatorial proposition, and no named participant has museum-level stature. Mid-run (45 days in, 44 to go) with nothing tying it to this week. Charming neighborhood stop, not a show an LA insider sends a visiting friend to over Yoko Ono at The Broad, Quarles at LACMA or Fischer at Deitch.",
+    "red_flags": [
+     "unnamed group show with no career-defining participants",
+     "no independent coverage on file",
+     "mid-run, no timeliness hook"
+    ],
+    "cost_usd": 0.01485,
+    "ts": 1788315416
+   },
+   "delta": 0,
+   "max_sub_delta": 1,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": false,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 47,
+    "opus": 48,
+    "mean": 48
+   },
+   "cutoff_proximity": 0.027,
+   "relevance": 0.5135
+  },
+  {
+   "slug": "ghebaly-patrick-jackson-all-signs-fail",
+   "title": "All Signs Fail",
+   "artist": "Patrick Jackson",
+   "venue": "François Ghebaly",
+   "sonnet": {
+    "model": "claude-sonnet-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 7,
+     "critical_reception": 2,
+     "ambition_novelty": 7,
+     "timeliness": 8
+    },
+    "overall": 6,
+    "confidence": 0.4,
+    "rationale": "Patrick Jackson is a known LA sculptor with Hammer/Huntington history, showing at François Ghebaly, a genuinely international-program gallery — solid venue and artist footing. But no signals confirm the show's claimed ambition (44ft billboard, scaffold memorial); description reads as press-release prose and must be discounted. Closing in 3 days gives real timeliness value. Absent independent critical coverage, reception score stays low per rubric default.",
+    "red_flags": [
+     "no independent signals/coverage found",
+     "description is promotional in tone, claims unverified"
+    ],
+    "cost_usd": 0.00969,
+    "ts": 1788312472
+   },
+   "opus": {
+    "model": "claude-opus-5",
+    "scores": {
+     "artist_significance": 5,
+     "venue_significance": 7,
+     "critical_reception": 2,
+     "ambition_novelty": 7,
+     "timeliness": 8
+    },
+    "overall": 6,
+    "confidence": 0.55,
+    "rationale": "No signals on file, so reception is capped low despite the description's enthusiasm. Ghebaly is one of LA's strongest internationally programmed galleries (Downtown, plus NY/Paris activity), which carries the show. Patrick Jackson is a respected LA sculptor with institutional appearances (Hammer, Huntington) but no major museum solo — solid mid-career rather than must-see-level stature. The installation itself is the strongest argument: a 44-foot re-photographed public-health billboard, doll tableau, and a walkthrough scaffold memorial read as a genuinely ambitious, site-built environment rather than a sales hang. Closing in three days makes it a legitimate \"go now\" item for a visiting friend, which lifts the holistic call to the upper-middle of this inventory.",
+    "red_flags": [
+     "No independent coverage on file for a show described as one of the artist's most ambitious — verify with a review or pick",
+     "Closes in 3 days; feature only if published immediately",
+     "Description reads partly as press-release advocacy (\"undersells how strange and effective\")"
+    ],
+    "cost_usd": 0.02318,
+    "ts": 1788312479
+   },
+   "delta": 0,
+   "max_sub_delta": 0,
+   "membership": {
+    "sonnet": false,
+    "opus": false,
+    "mean": false
+   },
+   "membership_flip": false,
+   "on_seesaw": true,
+   "seesaw_flip": false,
+   "rank": {
+    "sonnet": 23,
+    "opus": 22,
+    "mean": 23
+   },
+   "cutoff_proximity": 0.0833,
+   "relevance": 0.0417
+  }
+ ]
+}

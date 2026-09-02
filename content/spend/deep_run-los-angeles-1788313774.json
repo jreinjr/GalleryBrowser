@@ -1,0 +1,41 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1788313774,
+  "zones": [
+    "Downtown/Arts District",
+    "Chinatown/East LA",
+    "Los Feliz/NELA",
+    "Hollywood",
+    "West Hollywood/Fairfax",
+    "Beverly Hills",
+    "Mid-Wilshire/Koreatown",
+    "Culver City/West Adams",
+    "Santa Monica/Venice",
+    "Westside/Brentwood",
+    "South LA/Inglewood",
+    "Pasadena/San Gabriel"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 4,
+    "stagger": 20.0,
+    "total_budget": 100.0,
+    "max_shows": 300,
+    "min_zone_venues": 8,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 8000,
+    "effort": "medium",
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": true,
+    "skip_enumeration": false,
+    "no_verify": false,
+    "no_report": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1788311438,
+  "zones": [
+    "Los Feliz/NELA"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": "Los Feliz/NELA",
+    "session_todo": 4,
+    "session_budget": 1.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 1,
+    "stagger": 20.0,
+    "total_budget": 4.0,
+    "max_shows": 300,
+    "min_zone_venues": 4,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 8000,
+    "effort": "medium",
+    "context_editing": false,
+    "arm_label": null,
+    "skip_enumeration": false,
+    "no_verify": false,
+    "no_report": false
+  }
+}
