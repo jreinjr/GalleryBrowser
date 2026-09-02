@@ -241,8 +241,16 @@ def generate_report(city: str, since_ts: int, out: Path | None = None) -> Path:
     # ---- coverage accounting ----
     w("## Coverage by zone")
     w("")
-    w("| zone | directory | venues saved (all-time) | shows saved | skipped this run | remaining TODO |")
-    w("|---|---|---|---|---|---|")
+    # "due now" is the registry scheduler's own answer (venues.due_venues), not
+    # every directory row never touched — that column counted the ~470 parked
+    # Places-only venues and read 854 when 208 were actually schedulable.
+    try:
+        import venues
+        due_now = {z: len(venues.due_venues(city, z)) for z in zones}
+    except Exception:
+        due_now = {}
+    w("| zone | directory | venues saved (all-time) | shows saved | skipped this run | never attempted | due now |")
+    w("|---|---|---|---|---|---|---|")
     for zone in zones:
         dir_n = sum(1 for v in directory.values() if v["neighborhood"] == zone)
         zone_shows = [s for s in published + pending if s["venue"]["neighborhood"] == zone]
@@ -251,7 +259,8 @@ def generate_report(city: str, since_ts: int, out: Path | None = None) -> Path:
         remaining = sum(1 for key, v in directory.items()
                         if v["neighborhood"] == zone
                         and key not in saved_keys and key not in skip_keys)
-        w(f"| {zone} | {dir_n} | {venues_n} | {len(zone_shows)} | {skip_n} | {remaining} |")
+        w(f"| {zone} | {dir_n} | {venues_n} | {len(zone_shows)} | {skip_n} | {remaining} | "
+          f"{due_now.get(zone, '?')} |")
     w("")
     reason_counts: dict[str, int] = defaultdict(int)
     for s in skips:

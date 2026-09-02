@@ -57,6 +57,7 @@ from datetime import date
 from pathlib import Path
 
 import requests
+from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -689,7 +690,11 @@ def commit(ctx: Ctx, rep: dict, entries: list[dict], source_label: str) -> None:
         v, created = venues._upsert_in(ctx.reg, row["name"], row["patch"], row["source"], row["website"])
         e["id"], e["created"] = v["id"], created
     if ctx.apply and rows:
-        res = venues.bulk_upsert(ctx.city, rows)
+        # The "new vs existing" call above ran against ctx.reg, a working copy
+        # that can lag the on-disk registry (a parallel session may have added
+        # an alias or website since). Protect the schedule at the locked write
+        # too, or a re-seed silently resets next_check/status on a live venue.
+        res = venues.bulk_upsert(ctx.city, rows, protect_existing=NEW_ONLY_FIELDS)
         remaining = list(res["new"])
         for e in entries:
             if e["id"] in remaining:
@@ -1445,6 +1450,98 @@ def run(city: str, sources: list[str] | tuple[str, ...] = (), zones: list[str] |
     return out
 
 
+# --- vouch parked Places-only venues by their own website ($0) -------------------
+
+def vouch_parked(city: str, zones: list[str] | None = None, apply: bool = False,
+                 limit: int | None = None, workers: int = 8, quiet: bool = False) -> dict:
+    """Let a parked Places-only venue's OWN website vouch for it. The name
+    regex (venues.places_plausible) parked ~470 venues, among them real
+    galleries with unusual names (ADVOCARTSY: Places type art_gallery, its own
+    domain, an /exhibitions page listing 23 dated shows). HTTP only, no LLM:
+    probe the common listing paths (refresh.discover_exhibitions_url); a page
+    with >= 2 date strings vouches, else a homepage whose text reads like an
+    art venue AND shows a date does. Vouched venues get sources.site (so they
+    stop being "Places-only"), next_check today, and the listing page as
+    exhibitions_url when found."""
+    reg = venues.load_registry(city)
+    targets = []
+    for v in reg["venues"]:
+        places = ((v.get("sources") or {}).get("seed") or {}).get("places") or {}
+        if places.get("plausible") is not False or not venues.seed_only_places(v):
+            continue
+        if zones and v.get("neighborhood") not in zones:
+            continue
+        if v.get("status") not in ("unknown", "active", None):
+            continue
+        if not venues.registrable_domain(v.get("website")):
+            continue
+        targets.append(v)
+    if limit:
+        targets = targets[:limit]
+    fetcher = refresh.Fetcher()
+
+    def probe(v: dict) -> dict:
+        res = {"id": v["id"], "name": v["name"], "vouched": False, "why": None,
+               "url": None, "dates": 0}
+        try:
+            url, page = refresh.discover_exhibitions_url(fetcher, v)
+            n_dates = len(page["fp"]["date_strings"]) if page else 0
+            if url and n_dates >= 2:
+                res.update(vouched=True, why="listing_page", url=url, dates=n_dates)
+                return res
+            site = v["website"] if v["website"].startswith("http") else "https://" + v["website"]
+            r = fetcher.get(site)
+            if r["status"] == 200 and r["html"]:
+                text, title = refresh.extract_main_text(r["html"])
+                blob = f"{title or ''}\n{text}"
+                dated = len(refresh.fingerprint(text)["date_strings"])
+                if (venues.VENUE_RE.search(blob) and dated >= 1
+                        and not venues.NOT_VENUE_RE.search(v["name"])
+                        and not venues.NOT_VENUE_RE.search(title or "")):
+                    res.update(vouched=True, why="homepage_text", url=r["final_url"], dates=dated)
+                    return res
+                res["why"] = "no_venue_signal"
+            else:
+                res["why"] = r["error"] or f"http_{r['status']}"
+        except Exception as exc:   # one bad site never stops the sweep
+            res["why"] = f"error:{str(exc)[:80]}"
+        return res
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        results = list(ex.map(probe, targets))
+    vouched = [r for r in results if r["vouched"]]
+    if apply and vouched:
+        now, today = int(time.time()), date.today().isoformat()
+        with venues.locked_registry(city) as reg2:
+            idx = venues.index_by_id(reg2)
+            for r in vouched:
+                v = idx.get(r["id"])
+                if not v:
+                    continue
+                src = v.setdefault("sources", {})
+                src["site"] = {"ts": now, "url": r["url"], "why": r["why"],
+                               "date_strings": r["dates"]}
+                src.setdefault("seed", {}).setdefault("places", {})["plausible"] = True
+                v["next_check"] = today
+                if r["why"] == "listing_page" and not v.get("exhibitions_url"):
+                    v["exhibitions_url"], v["exhibitions_url_source"] = r["url"], "discovered"
+    if not quiet:
+        print(f"vouch-parked: {len(targets)} parked Places-only venue(s) with a website probed; "
+              f"{len(vouched)} vouched")
+        for r in vouched:
+            print(f"  + {r['id']:40s} {r['why']:14s} dates={r['dates']:<3d} {r['url']}")
+        why = {}
+        for r in results:
+            if not r["vouched"]:
+                why[r["why"]] = why.get(r["why"], 0) + 1
+        if why:
+            print("  not vouched by reason: " + ", ".join(f"{k}={n}" for k, n in sorted(why.items())))
+        if not apply and vouched:
+            print("dry run — pass --apply to write sources.site / next_check / exhibitions_url")
+    return {"targets": len(targets), "vouched": [r["id"] for r in vouched],
+            "not_vouched": [r["id"] for r in results if not r["vouched"]], "results": results}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--city", required=True, choices=sorted(CITIES))
@@ -1463,13 +1560,21 @@ def main() -> None:
     ap.add_argument("--max-places-requests", type=int, default=None,
                     help="cap on paid nearby requests; in dry-run this is the ONLY way paid Places calls happen")
     ap.add_argument("--refetch", action="store_true", help="ignore the 1-day HTML cache (GPLA/Carla)")
+    ap.add_argument("--vouch-parked", action="store_true",
+                    help="probe parked Places-only venues' own websites ($0); an exhibitions "
+                         "page with dates unparks them (--apply to write)")
+    ap.add_argument("--limit", type=int, default=None, help="--vouch-parked: probe at most N venues")
     args = ap.parse_args()
     from run_scrape import load_env
     load_env()
     sources = [s.strip() for s in args.sources.split(",") if s.strip()]
     zones = [z.strip() for z in args.zones.split(",")] if args.zones else None
-    if not sources and not args.status and not args.resolve_zones:
-        ap.error("nothing to do: pass --sources, --status and/or --resolve-zones")
+    if not sources and not args.status and not args.resolve_zones and not args.vouch_parked:
+        ap.error("nothing to do: pass --sources, --status, --resolve-zones and/or --vouch-parked")
+    if args.vouch_parked:
+        vouch_parked(args.city, zones, apply=args.apply, limit=args.limit)
+        if not sources and not args.status and not args.resolve_zones:
+            return
     try:
         run(args.city, sources, zones, apply=args.apply, places_api=args.places_api,
             lookup=args.lookup, resolve=args.resolve_zones,

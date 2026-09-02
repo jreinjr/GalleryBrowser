@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "city": null,
+ "today": null,
+ "max_n": null,
+ "threshold": 0.5,
+ "max_per_venue": 2,
+ "include_pending": false,
+ "published_only": true,
+ "require_open": true,
+ "editors_pick_top": 5,
+ "exclude_museums": true,
+ "max_per_neighborhood": null,
+ "max_museum_share": null,
+ "weights": {
+  "judge": 0.62,
+  "quality": 0.14,
+  "venue": 0.12,
+  "press": 0.06,
+  "closing_soon": 0.06,
+  "artist_heat": 0.0,
+  "wiki_heat": 0.0,
+  "keyword": 0.0,
+  "opening_recency": 0.0,
+  "museum": 0.0
+ },
+ "half_life_days": {
+  "press": 21,
+  "artist": 180,
+  "opening": 30
+ },
+ "press_ref": 4,
+ "artist_ref": 3,
+ "cap_per_source": 1.5,
+ "wiki_ref": 20000,
+ "default_source_weight": 0.3,
+ "kind_weights": {
+  "pick": 1,
+  "review": 0.9,
+  "news": 0.6,
+  "listing": 0.3,
+  "press_release_claim": 0.3,
+  "artist_activity": 1,
+  "award": 1.2
+ },
+ "strength_weights": {
+  "headline": 1,
+  "featured": 0.7,
+  "mentioned": 0.4,
+  "passing": 0.2
+ },
+ "sources": {},
+ "venue_tier_map": {
+  "1": 1,
+  "2": 0.8,
+  "3": 0.6,
+  "4": 0.3,
+  "unknown": 0.45
+ },
+ "judge": {
+  "variant": "judge_v1",
+  "model": "sonnet"
+ },
+ "overrides": {
+  "pin": [],
+  "exclude": []
+ },
+ "_note": "PUBLICATION preset for the LA web app (2026-09-02) - what actually ships, as opposed to the benchmark-fitting presets. Scoring is identical to seesaw-taste.json (judge .62 / quality .14 / venue .12 / press .06 / closing_soon .06 on the Sonnet judge, threshold .5); read that file's note for how the weights were fitted and for the held-out caveats. Three differences, all about what may reach the built site rather than about ranking: (1) max_n null - publish EVERYTHING above the cutoff, not a top 12; (2) published_only - the pending pool is ranked but webdemo/build.py reads only content/<city>.json, so a pending show that won a feed slot would silently leave the Featured tab short (22 in-window shows are in that pool today); (3) require_open - tools.show_in_window admits shows opening within OPEN_WINDOW_DAYS=7, and 21 published shows today are not yet open; the app's Featured tab should only carry shows a visitor can actually go and see. exclude_museums stays true by the user's explicit choice 2026-09-02: the Featured tab mirrors See Saw and is galleries-only, dropping 17 museum shows including the pool's top-scoring one (The Broad / Yoko Ono, 0.764, judge 9/10). Museums still appear in the app's List and Map tabs - they are simply never featured. Requires full Sonnet judge coverage: judge carries .62 of the score, so judge new shows before every apply or they score near zero and vanish. Result on 2026-09-02: 24 featured, 5 editors picks."
+}

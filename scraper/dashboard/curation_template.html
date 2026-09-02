@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Curation Workshop</title>
+<style>
+/* ---- tokens: dark by default (webdemo house style), light via prefers-color-scheme ---- */
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0c; --surface: #161618; --surface-2: #1e1e21; --surface-3: #26262a;
+  --text: #f3f3f1; --text-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,.10);
+  --accent: #61adf2; --accent-soft: rgba(97,173,242,.16); --on-accent: #0b0b0c;
+  --good: #0ca30c; --warn: #fab219; --serious: #ec835a; --crit: #d03b3b;
+  /* categorical slots (dataviz reference palette, dark steps, validated on #161618) */
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --div-mid: #383835;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f9f9f7; --surface: #fcfcfb; --surface-2: #f0efec; --surface-3: #e6e5e0;
+    --text: #0b0b0b; --text-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,.10);
+    --accent: #1c6fc4; --accent-soft: rgba(42,120,214,.12); --on-accent: #fff;
+    --good: #006300;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+    --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7; --s8: #e34948;
+    --div-mid: #f0efec;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 17px; font-weight: 650; margin: 0; }
+h2 { font-size: 14px; font-weight: 650; margin: 18px 0 8px; }
+h3 { font-size: 13px; font-weight: 650; margin: 14px 0 6px; color: var(--text-2); }
+code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+button { font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+button:hover { background: var(--surface-3); }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+button.small { padding: 2px 7px; font-size: 12px; }
+button.on { outline: 2px solid var(--accent); }
+input, select { font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 5px; padding: 3px 6px; }
+input[type=number] { width: 68px; text-align: right; font-variant-numeric: tabular-nums; }
+input[type=range] { flex: 1; min-width: 60px; accent-color: var(--accent); padding: 0; background: transparent; border: 0; }
+input[type=checkbox] { accent-color: var(--accent); }
+.muted { color: var(--muted); }
+.dim { color: var(--text-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---- layout ---- */
+header.top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; padding: 10px 18px; background: var(--bg); border-bottom: 1px solid var(--border); }
+header .sub { color: var(--muted); font-size: 12px; margin-left: 10px; }
+nav.tabs { display: flex; gap: 4px; }
+nav.tabs button { background: transparent; border-color: transparent; color: var(--text-2); padding: 5px 12px; }
+nav.tabs button.on { background: var(--accent-soft); color: var(--text); }
+.hdr-kpis { margin-left: auto; display: flex; gap: 14px; font-size: 12px; color: var(--text-2); white-space: nowrap; }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid var(--border); }
+.badge.ok { background: rgba(12,163,12,.15); color: var(--good); border-color: rgba(12,163,12,.35); }
+.badge.bad { background: rgba(208,59,59,.18); color: var(--crit); border-color: rgba(208,59,59,.45); }
+.layout { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 18px; padding: 14px 18px 60px; }
+aside#controls { position: sticky; top: 52px; align-self: start; max-height: calc(100vh - 66px); overflow: auto; padding-right: 4px; }
+main { min-width: 0; }
+.tab { display: none; }
+.tab.on { display: block; }
+@media (max-width: 1000px) {
+  .layout { grid-template-columns: 1fr; }
+  aside#controls { position: static; max-height: none; }
+  .hdr-kpis { display: none; }
+}
+
+/* ---- controls ---- */
+details.sec { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+details.sec > summary { cursor: pointer; padding: 7px 10px; font-weight: 600; font-size: 12.5px; list-style: none; display: flex; align-items: center; gap: 6px; }
+details.sec > summary::before { content: "▸"; color: var(--muted); font-size: 10px; }
+details.sec[open] > summary::before { content: "▾"; }
+details.sec > .body { padding: 2px 10px 10px; }
+.row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.row label { flex: 0 0 138px; font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 6px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+tr.rat td { background: var(--surface-2); }
+.flip { color: var(--warn); font-weight: 600; }
+.row.wide label { flex: 1 1 auto; }
+.row select { flex: 1; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex: 0 0 10px; }
+.sw.hatch { background-image: repeating-linear-gradient(45deg, var(--c) 0 2px, transparent 2px 4px); background-color: color-mix(in srgb, var(--c) 30%, transparent); }
+.hint { font-size: 11px; color: var(--muted); margin: 4px 0 2px; }
+table.src { width: 100%; border-collapse: collapse; font-size: 12px; }
+table.src td { padding: 2px 3px; border-top: 1px solid var(--border); vertical-align: middle; }
+table.src input[type=number] { width: 56px; padding: 1px 4px; }
+.srcwrap { max-height: 280px; overflow: auto; }
+.btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ovlist { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0; }
+.ovlist .chip { cursor: pointer; }
+
+/* ---- kpis ---- */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 4px 0 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+.kpi .l { font-size: 11px; color: var(--muted); }
+.kpi .v { font-size: 20px; font-weight: 600; line-height: 1.2; }
+.kpi .d { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+
+/* ---- ranked list ---- */
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-2); margin: 6px 0 10px; align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin-bottom: 6px; }
+.card.feat { border-left: 3px solid var(--accent); }
+.card.gated { opacity: .82; }
+.card .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.card .rank { font-variant-numeric: tabular-nums; color: var(--muted); width: 26px; flex: 0 0 26px; font-size: 12px; }
+.card .ttl { font-weight: 600; }
+.card .art { color: var(--text-2); }
+.card .score { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; }
+.chip { display: inline-block; padding: 0 6px; border-radius: 999px; font-size: 11px; line-height: 17px; background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border); white-space: nowrap; }
+.chip.venue { background: var(--surface-3); color: var(--text); }
+.chip.f { background: var(--accent-soft); color: var(--text); border-color: transparent; font-weight: 600; }
+.chip.warn { color: var(--warn); }
+.chip.bad { color: var(--crit); }
+.chip.pin { color: var(--accent); }
+.chips { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.track { position: relative; height: 12px; background: var(--surface-2); border-radius: 3px; margin: 7px 0 5px 36px; }
+.stack { position: absolute; left: 0; top: 0; height: 100%; display: flex; gap: 2px; }
+.seg { height: 100%; background: var(--c); cursor: default; }
+.seg.hatch { background-image: repeating-linear-gradient(45deg, var(--c) 0 3px, transparent 3px 6px); background-color: color-mix(in srgb, var(--c) 35%, transparent); }
+.stack .seg:last-child { border-radius: 0 4px 4px 0; }
+.seg:hover { filter: brightness(1.2); }
+.thr { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--muted); }
+.thr::after { content: "t"; position: absolute; top: -13px; left: -3px; font-size: 9px; color: var(--muted); }
+.why { font-size: 12px; color: var(--text-2); margin-left: 36px; }
+.lift { font-size: 12px; margin-left: 36px; color: var(--text-2); }
+.lift b { color: var(--text); font-weight: 600; }
+.card .foot { display: flex; gap: 8px; align-items: center; margin: 4px 0 0 36px; }
+.cutoff { display: flex; align-items: center; gap: 10px; margin: 10px 0; color: var(--text-2); font-size: 12px; }
+.cutoff::before, .cutoff::after { content: ""; flex: 1; border-top: 2px dashed var(--axis); }
+.drawer { margin: 8px 0 2px 36px; padding-top: 8px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px 20px; font-size: 12px; }
+.drawer h4 { margin: 0 0 4px; font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+table.t { border-collapse: collapse; width: 100%; font-size: 12px; }
+table.t th { text-align: left; font-weight: 600; color: var(--muted); padding: 3px 6px; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+table.t td { padding: 3px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+table.t tr.hi td { background: var(--accent-soft); }
+.scroll { overflow-x: auto; max-width: 100%; }
+.sig { padding: 4px 0; border-bottom: 1px solid var(--border); }
+.sig .meta { color: var(--muted); font-size: 11px; }
+.sig .snip { color: var(--text-2); }
+.mini { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.mini .lbl { flex: 0 0 120px; color: var(--text-2); }
+.mini .bar { flex: 1; height: 6px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
+.mini .bar span { display: block; height: 100%; background: var(--s1); border-radius: 0 3px 3px 0; }
+.mini .val { width: 22px; text-align: right; font-variant-numeric: tabular-nums; }
+.rationale { color: var(--text-2); white-space: pre-wrap; }
+.divbar { position: relative; height: 8px; width: 90px; background: var(--surface-2); border-radius: 2px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+.divbar::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--axis); }
+.divbar span { position: absolute; top: 0; height: 100%; }
+.divbar .up { background: var(--s1); left: 50%; border-radius: 0 3px 3px 0; }
+.divbar .dn { background: var(--s8); right: 50%; border-radius: 3px 0 0 3px; }
+.notice { background: var(--surface); border: 1px dashed var(--axis); border-radius: 8px; padding: 12px 14px; color: var(--text-2); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px 12px; margin-bottom: 14px; }
+.panel h2 { margin-top: 2px; }
+svg.sweep { width: 100%; height: auto; display: block; }
+svg.sweep text { font: 10.5px system-ui, sans-serif; fill: var(--muted); }
+svg.sweep .grid { stroke: var(--grid); stroke-width: 1; }
+svg.sweep .axis { stroke: var(--axis); stroke-width: 1; }
+svg.sweep .l1 { fill: none; stroke: var(--s1); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+svg.sweep .l2 { fill: none; stroke: var(--s2); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+svg.sweep .cur { stroke: var(--accent); stroke-width: 1.5; }
+svg.sweep .x { stroke: var(--text-2); stroke-width: 1; }
+svg.sweep circle { stroke: var(--surface); stroke-width: 2; }
+.lk { display: inline-block; width: 14px; height: 2px; vertical-align: middle; border-radius: 1px; }
+#tip { position: fixed; z-index: 50; pointer-events: none; background: var(--surface-3); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 12px; max-width: 320px; white-space: pre-line; box-shadow: 0 4px 16px rgba(0,0,0,.35); }
+#tip b { font-weight: 650; }
+.slugline { font-size: 11px; color: var(--muted); }
+.lint { color: var(--muted); font-size: 11px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div><h1>Curation workshop</h1><span class="sub" id="hdr-meta"></span></div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="ranking" class="on">Ranking</button>
+      <button data-tab="benchmark">Benchmark</button>
+      <button data-tab="runs">Runs</button>
+      <button data-tab="judge">Judge</button>
+    </nav>
+    <div class="hdr-kpis" id="hdr-kpis"></div>
+  </header>
+  <div class="layout">
+    <aside id="controls"></aside>
+    <main>
+      <section id="tab-ranking" class="tab on">
+        <div class="kpis" id="kpis"></div>
+        <div class="legend" id="legend"></div>
+        <div id="list"></div>
+        <div id="candidates"></div>
+      </section>
+      <section id="tab-benchmark" class="tab"></section>
+      <section id="tab-runs" class="tab"></section>
+      <section id="tab-judge" class="tab"></section>
+    </main>
+  </div>
+  <div id="tip" hidden></div>
+</div>
+<!-- CURATION_DATA -->
+<script>
+'use strict';
+<!-- CURATION_CORE -->
+
+let params = normalizeParams(clone(R.params_default || {}));
+const ui = { tab: 'ranking', hideCandidates: false, expanded: new Set(), snapshot: SEESAW.snapshot_id || null };
+const state = { rows: [], ss: null, common: null, sweep: [], parity: null, cands: [] };
+const PRESET_KEY = 'curation-presets:' + CITY;
+const FILE_PRESETS = R.presets || {};   // content/curation/params/*.json, embedded at render time
+
+function currentEntries() { return (ui.snapshot && ui.snapshot === SEESAW.snapshot_id) ? (SEESAW.entries || []) : []; }
+
+function recompute() {
+  state.rows = rank(SHOWS, params);
+  state.ss = seesawMetrics(state.rows, currentEntries());
+  state.common = commonality(state.rows, state.ss);
+  state.sweep = currentEntries().length ? sweepData(state.rows, params, currentEntries()) : [];
+  state.cands = candidateScores(params);
+}
+function renderAll() {
+  recompute();
+  renderHeader(); renderKPIs(); renderLegend(); renderList(); renderCandidates(); renderBenchmark();
+}
+
+// ---- helpers for rows ----
+function cutoffInfo() {
+  const feat = state.rows.filter(r => r.featured);
+  if (!feat.length) return { row: null, score: +(params.threshold || 0), n: 0 };
+  const row = feat.reduce((m, r) => (r.score < m.score ? r : m), feat[0]);
+  return { row, score: row.score, n: feat.length };
+}
+// "what would lift it": gap to the cutoff show + the two features where this show lags it most
+function liftHint(r) {
+  const c = cutoffInfo();
+  const w = params.weights || {};
+  let gap, lags, basis;
+  if (c.row && c.row.slug !== r.slug) {
+    gap = c.row.score - r.score; basis = `cutoff show #${c.row.rank}`;
+    lags = FEATURES.map(f => [f, c.row.contrib[f] - r.contrib[f]]).filter(x => x[1] > 1e-12).sort((a, b) => b[1] - a[1]).slice(0, 2);
+  } else {
+    gap = +(params.threshold || 0) - r.score; basis = 'threshold';
+    lags = FEATURES.map(f => [f, +(w[f] ?? 0) * ((FEATURE_CAP[f] || 1) - r.features[f])]).filter(x => x[1] > 1e-12).sort((a, b) => b[1] - a[1]).slice(0, 2);
+  }
+  return { gap, lags, basis };
+}
+function liftHTML(r) {
+  if (!r.gate || r.gate === 'excluded' || r.gate === 'out_of_window') return '';
+  const { gap, lags, basis } = liftHint(r);
+  if (gap <= 0) return `<div class="lift">above the cutoff score but gated: <b>${esc(r.gate_detail || r.gate)}</b></div>`;
+  const lift = lags.length ? lags.map(([f, d]) => `${FEATURE_LABEL[f]} +${d.toFixed(2)}`).join(', ') : 'no single feature closes it';
+  return `<div class="lift">gap to ${esc(basis)}: <b>${gap.toFixed(3)}</b> · what would lift it: <b>${esc(lift)}</b></div>`;
+}
+function chipsHTML(r) {
+  const c = [];
+  if (r.featured) c.push(`<span class="chip f">F${r.featured_rank}${r.editors_pick ? " · editors' pick" : ''}</span>`);
+  if (r.pinned) c.push('<span class="chip pin">pinned</span>');
+  if (r.gate === 'excluded') c.push('<span class="chip bad">excluded</span>');
+  if (r.venue.is_museum) c.push('<span class="chip">museum</span>');
+  if (r.venue.tier != null) c.push(`<span class="chip">tier ${esc(r.venue.tier)}</span>`);
+  if (r.pool === 'pending') c.push('<span class="chip warn">pending</span>');
+  if (!r.in_window) c.push('<span class="chip warn">out of window</span>');
+  if (r.venue.neighborhood) c.push(`<span class="chip">${esc(r.venue.neighborhood)}</span>`);
+  return c.join('');
+}
+function barHTML(r, scale) {
+  const total = Math.max(0, r.score);
+  let segs = '';
+  for (const f of STACK_ORDER) {
+    const v = r.contrib[f];
+    if (!(v > 0)) continue;
+    const [slot, hatch] = FEATURE_SLOT[f];
+    const tip = `${FEATURE_LABEL[f]}: ${v.toFixed(3)}\nfeature ${r.features[f].toFixed(3)} × weight ${(+(params.weights[f] ?? 0)).toFixed(2)}`;
+    segs += `<div class="seg${hatch ? ' hatch' : ''}" style="--c:var(--s${slot});flex:${v} 0 0" data-tip="${esc(tip)}"></div>`;
+  }
+  const w = scale > 0 ? Math.min(100, 100 * total / scale) : 0;
+  const t = +(params.threshold || 0);
+  const thr = (scale > 0 && t <= scale) ? `<div class="thr" style="left:${(100 * t / scale).toFixed(2)}%" data-tip="threshold ${t.toFixed(2)}"></div>` : '';
+  return `<div class="track"><div class="stack" style="width:${w.toFixed(2)}%">${segs}</div>${thr}</div>`;
+}
+function miniBars(scores) {
+  return Object.entries(scores || {}).map(([k, v]) => `<div class="mini"><span class="lbl">${esc(k.replace(/_/g, ' '))}</span><div class="bar"><span style="width:${Math.max(0, Math.min(100, 10 * (+v || 0)))}%"></span></div><span class="val">${esc(v)}</span></div>`).join('');
+}
+function drawerHTML(r) {
+  const d = r._detail;
+  let h = '<div class="drawer">';
+  // contributions (the table-view twin of the stacked bar)
+  h += '<div><h4>Score breakdown</h4><table class="t"><tr><th>feature</th><th class="n">value</th><th class="n">weight</th><th class="n">contrib</th></tr>';
+  for (const f of STACK_ORDER) {
+    const [slot, hatch] = FEATURE_SLOT[f];
+    h += `<tr><td><span class="sw${hatch ? ' hatch' : ''}" style="--c:var(--s${slot});background-color:${hatch ? '' : `var(--s${slot})`}"></span> ${FEATURE_LABEL[f]}</td><td class="n">${fmt(r.features[f])}</td><td class="n">${fmt(params.weights[f], 2)}</td><td class="n">${fmt(r.contrib[f])}</td></tr>`;
+  }
+  h += `<tr><td><b>score</b></td><td></td><td></td><td class="n"><b>${fmt(r.score)}</b></td></tr></table>`;
+  h += `<div class="hint">dates ${esc(r.dates && r.dates.start)} → ${esc(r.dates && r.dates.end)} · opened ${r.days_since_open} d ago · closes in ${r.days_to_close} d · ${r.n_images} images · ${r.desc_words} words · venue norm <code>${esc(r.venue.norm)}</code>${r.venue.id ? ` · id <code>${esc(r.venue.id)}</code>` : ''}</div></div>`;
+  // signals grouped by source
+  h += '<div><h4>Signals</h4>';
+  if (!d.signals.length) h += '<div class="muted">no signals matched to this show</div>';
+  else {
+    const groups = {};
+    for (const s of d.signals) { const sid = (s.source && s.source.id) || 'unknown'; (groups[sid] = groups[sid] || []).push(s); }
+    for (const [sid, sigs] of Object.entries(groups)) {
+      const src = SOURCE_BY_ID[sid] || {};
+      const w = sourceWeight(sigs[0], params);
+      h += `<div><b>${esc(src.name || sid)}</b> <span class="muted">${esc(sid)} · source weight ${fmt(w, 2)}${src.kind ? ' · ' + esc(src.kind) : ''}</span></div>`;
+      for (const s of sigs) {
+        const hl = ARTIST_KINDS.has(s.kind) ? +(params.half_life_days.artist ?? 180) : +(params.half_life_days.press ?? 21);
+        const sw = signalWeight(s, params, hl);
+        h += `<div class="sig"><div class="meta">${esc(s.date || '?')} · <b>${esc(s.kind)}</b> / ${esc(s.strength)} · sig weight ${fmt(sw)} (age ${signalAgeDays(s)} d)${s.n_rows > 1 ? ` · seen in ${s.n_rows} runs` : ''}${s.match_confidence != null ? ` · match ${esc(s.match_method)} ${fmt(s.match_confidence, 2)}` : ''}<br>run <code>${esc(s.run || '')}</code>${s.variant ? ' · ' + esc(s.variant) : ''}${s.model ? ' · ' + esc(s.model) : ''}</div>`;
+        if (s.snippet) h += `<div class="snip">“${esc(s.snippet)}”</div>`;
+        if (s.url) h += `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a>`;
+        h += '</div>';
+      }
+    }
+  }
+  h += '</div>';
+  // judge
+  h += '<div><h4>Judge</h4>';
+  const jv = r.judge || {};
+  if (!Object.keys(jv).length) h += '<div class="muted">no verdicts for this show</div>';
+  for (const [variant, models] of Object.entries(jv)) {
+    for (const [mid, row] of Object.entries(models || {})) {
+      const used = (params.judge.model !== 'none') && (params.judge.variant === variant) && (params.judge.model === 'mean' || mid.toLowerCase().includes(params.judge.model));
+      h += `<div style="margin-bottom:8px"><b>${esc(mid)}</b> <span class="muted">${esc(variant)} · overall ${esc(row.overall)}/10${row.confidence != null ? ` · confidence ${esc(row.confidence)}` : ''}${row.cost_usd != null ? ` · $${fmt(row.cost_usd, 4)}` : ''}${used ? ' · <span class="chip f">in score</span>' : ''}</span>`;
+      h += miniBars(row.scores);
+      if (row.rationale) h += `<div class="rationale">${esc(row.rationale)}</div>`;
+      if (row.red_flags && row.red_flags.length) h += `<div class="muted">red flags: ${esc(row.red_flags.join('; '))}</div>`;
+      h += '</div>';
+    }
+  }
+  h += '</div>';
+  // keywords + wiki + actions
+  h += '<div><h4>Keywords</h4>';
+  h += d.keyword_hits.length ? d.keyword_hits.map(k => `<div><b>${esc(k.label)}</b> <span class="muted">(${esc(k.weight)}) “${esc(k.term)}” in ${esc(k.where)}</span></div>`).join('') : '<div class="muted">no lexicon hits</div>';
+  h += '<h4 style="margin-top:10px">Wikipedia</h4>';
+  h += (r.wiki && r.wiki.title) ? `<div><a href="${esc(r.wiki.url)}" target="_blank" rel="noopener">${esc(r.wiki.title)}</a> <span class="muted">${esc(r.wiki.pageviews_90d)} views / 90 d → wiki heat ${fmt(r.features.wiki_heat)}</span></div>` : `<div class="muted">${r.artist ? 'no article found for ' + esc(r.artist) : 'no artist'}</div>`;
+  const pinned = params.overrides.pin.includes(r.slug), excluded = params.overrides.exclude.includes(r.slug);
+  h += `<div class="btns"><button class="small${pinned ? ' on' : ''}" data-act="pin" data-slug="${esc(r.slug)}">${pinned ? 'unpin' : 'pin'}</button><button class="small${excluded ? ' on' : ''}" data-act="exclude" data-slug="${esc(r.slug)}">${excluded ? 'un-exclude' : 'exclude'}</button></div>`;
+  h += '</div></div>';
+  return h;
+}
+function rowHTML(r, scale) {
+  const open = ui.expanded.has(r.slug);
+  return `<div class="card${r.featured ? ' feat' : ''}${r.gate ? ' gated' : ''}" id="row-${esc(r.slug)}">
+    <div class="head"><span class="rank">#${r.rank}</span><span class="ttl">${esc(r.title || r.slug)}</span>${r.artist ? `<span class="art">${esc(r.artist)}</span>` : ''}
+      <span class="chips"><span class="chip venue">${esc(r.venue.name || '?')}</span>${chipsHTML(r)}</span><span class="score num">${fmt(r.score)}</span></div>
+    ${barHTML(r, scale)}
+    <div class="why">${esc(r.reasons.join(' · '))}</div>
+    ${liftHTML(r)}
+    <div class="foot"><button class="small" data-act="toggle" data-slug="${esc(r.slug)}">${open ? 'hide evidence' : 'evidence'}</button><span class="slugline"><code>${esc(r.slug)}</code></span></div>
+    ${open ? drawerHTML(r) : ''}</div>`;
+}
+
+function renderList() {
+  const rows = state.rows;
+  const t = +(params.threshold || 0);
+  const scale = Math.max(...rows.map(r => r.score), t, 0.05) * 1.05;
+  let h = '';
+  const featIdx = rows.reduce((m, r, i) => (r.featured ? i : m), -1);
+  const c = cutoffInfo();
+  if (featIdx < 0) h += `<div class="cutoff">no show passes the gates — threshold ${t.toFixed(2)}, top score ${fmt(rows.length ? rows[0].score : null)}</div>`;
+  rows.forEach((r, i) => {
+    h += rowHTML(r, scale);
+    if (i === featIdx) h += `<div class="cutoff">cutoff · ${c.n} featured above · lowest featured score ${fmt(c.score)} · threshold ${t.toFixed(2)}</div>`;
+  });
+  if (!rows.length) h = '<div class="notice">No shows in the report. Run <code>curate.py score --city ' + esc(CITY) + '</code> then regenerate this page.</div>';
+  $('#list').innerHTML = h;
+}
+function renderLegend() {
+  let h = '<span class="muted">score = </span>';
+  for (const f of STACK_ORDER) {
+    const [slot, hatch] = FEATURE_SLOT[f];
+    h += `<span><span class="sw${hatch ? ' hatch' : ''}" style="--c:var(--s${slot});${hatch ? '' : `background:var(--s${slot})`}"></span>${FEATURE_LABEL[f]} <span class="muted num">×${fmt(params.weights[f], 2)}</span></span>`;
+  }
+  h += '<span class="muted">hatched = proxy of the same hue family · tick = threshold · hover a segment for its value</span>';
+  $('#legend').innerHTML = h;
+}
+function kpi(label, value, desc) { return `<div class="kpi"><div class="l">${esc(label)}</div><div class="v">${value}</div>${desc ? `<div class="d">${desc}</div>` : ''}</div>`; }
+function renderKPIs() {
+  const m = (state.ss && state.ss.metrics) || {};
+  const nFeat = state.rows.filter(r => r.featured).length;
+  let h = kpi('Featured', `${nFeat}<span class="muted" style="font-size:12px"> / ${params.max_n || '∞'}</span>`, `${state.rows.filter(r => r.editors_pick).length} editors' picks · ${state.rows.filter(r => r.in_window).length} in window of ${state.rows.length}`);
+  if (state.ss && state.ss.metrics) {
+    h += kpi('Precision', fmt(m.precision, 2), `${m.tp} of ${m.n_top} picks on See Saw`);
+    h += kpi('Recall', fmt(m.recall, 2), `${m.tp} of ${m.n_snapshot} See Saw shows`);
+    h += kpi('Jaccard', fmt(m.jaccard, 2), 'overlap ÷ union');
+    h += kpi('nDCG', fmt(m.ndcg, 2), 'See Saw position as relevance');
+    h += kpi('Pool coverage', fmt(m.pool_coverage, 2), 'See Saw shows we scraped (scrape gap)');
+    h += kpi('Ranking recall', fmt(m.ranking_recall, 2), 'of those, how many we feature (ranking gap)');
+  } else {
+    h += kpi('See Saw', '–', ui.snapshot ? 'snapshot not embedded in this report' : 'no snapshot');
+  }
+  $('#kpis').innerHTML = h;
+}
+function renderHeader() {
+  $('#hdr-meta').textContent = `${CITY} · today ${R.today || '?'} · generated ${(R.generated_at || '').replace('T', ' ').slice(0, 16)} · ${SHOWS.length} shows · ${SOURCES.length} sources · registry ${R.venue_registry_present ? 'yes' : 'no'}`;
+  const m = (state.ss && state.ss.metrics) || null;
+  const p = state.parity;
+  $('#hdr-kpis').innerHTML = (m ? `<span>P ${fmt(m.precision, 2)} · R ${fmt(m.recall, 2)} · J ${fmt(m.jaccard, 2)}</span>` : '') +
+    (p ? `<span class="badge ${p.ok ? 'ok' : 'bad'}" data-tip="Python/JS parity under params_default: max |Δscore| ${p.max_score_diff.toExponential(2)}, max |Δfeature| ${p.max_feature_diff.toExponential(2)}">parity ${p.ok ? '✓' : '✗'} ${p.max_score_diff.toExponential(1)}</span>` : '');
+}
+function renderCandidates() {
+  const el = $('#candidates');
+  if (ui.hideCandidates || !state.cands.length) { el.innerHTML = state.cands.length ? '' : ''; return; }
+  let h = `<h2>Candidates — seen by signals, not in the pool (${state.cands.length})</h2><div class="hint">Scored on press / artist heat only; never counted in the ranking. Use <code>curate.py candidates --city ${esc(CITY)} --unresolved</code> for a scrape TODO.</div><div class="scroll"><table class="t"><tr><th>key</th><th>venue</th><th>artist / title</th><th>event</th><th>venue in pool</th><th class="n">signals</th><th class="n">press</th><th class="n">artist heat</th><th class="n">score</th><th>url</th></tr>`;
+  for (const c of state.cands) {
+    h += `<tr id="cand-${esc(c.key)}"><td><code>${esc(c.key)}</code></td><td>${esc(c.venue)}</td><td>${esc(c.artist || c.title || '')}</td><td>${esc(c.event)}${c.resolved_slug ? ` → <code>${esc(c.resolved_slug)}</code>` : ''}</td><td>${c.venue_in_pool ? 'yes (different show → refresh hint)' : '–'}</td><td class="n">${c.n_signals ?? (c.signals || []).length}</td><td class="n">${fmt(c.features.press)}</td><td class="n">${fmt(c.features.artist_heat)}</td><td class="n">${fmt(c.score)}</td><td>${c.best_url ? `<a href="${esc(c.best_url)}" target="_blank" rel="noopener">link</a>` : ''}</td></tr>`;
+  }
+  el.innerHTML = h + '</table></div>';
+}
+
+// ---- benchmark tab ----
+function sweepSVG() {
+  const pts = state.sweep;
+  if (!pts.length) return '';
+  const W = 640, H = 200, L = 34, Rm = 12, T = 12, B = 26;
+  const x = t => L + t * (W - L - Rm), y = v => T + (1 - v) * (H - T - B);
+  const path = key => { let d = '', pen = false; for (const p of pts) { if (p[key] == null) { pen = false; continue; } d += (pen ? 'L' : 'M') + x(p.t).toFixed(1) + ' ' + y(p[key]).toFixed(1); pen = true; } return d; };
+  const t = +(params.threshold || 0);
+  let g = '';
+  for (const v of [0, 0.25, 0.5, 0.75, 1]) g += `<line class="${v === 0 ? 'axis' : 'grid'}" x1="${L}" x2="${W - Rm}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 3.5}" text-anchor="end">${v}</text>`;
+  for (const v of [0, 0.25, 0.5, 0.75, 1]) g += `<text x="${x(v)}" y="${H - 8}" text-anchor="middle">${v.toFixed(2)}</text>`;
+  const cur = t <= 1 ? `<line class="cur" x1="${x(t)}" x2="${x(t)}" y1="${T}" y2="${H - B}"/><text x="${x(t) + 4}" y="${T + 9}">t = ${t.toFixed(2)}</text>` : '';
+  return `<div class="legend"><span><span class="lk" style="background:var(--s1)"></span>precision</span><span><span class="lk" style="background:var(--s2)"></span>recall</span><span class="muted">threshold sweep 0 → 1 at the current weights · hover for values</span></div>
+  <svg class="sweep" viewBox="0 0 ${W} ${H}" id="sweep">${g}<path class="l1" d="${path('precision')}"/><path class="l2" d="${path('recall')}"/>${cur}<g id="sweep-hover"></g><rect x="${L}" y="${T}" width="${W - L - Rm}" height="${H - T - B}" fill="transparent" id="sweep-hit"/></svg>`;
+}
+function liftBar(lift) {
+  if (lift == null) return '<span class="divbar"></span>';
+  const v = Math.max(-2, Math.min(2, Math.log2(lift <= 0 ? 1e-6 : lift)));
+  const w = Math.abs(v) / 2 * 50;
+  return `<span class="divbar"><span class="${v >= 0 ? 'up' : 'dn'}" style="width:${w.toFixed(1)}%"></span></span>`;
+}
+function fmtCommon(v, kind) { if (v == null) return '–'; return kind === 'share' ? pct(v) : (kind === 'median' ? fmt(v, 1) : fmt(v, 2)); }
+function renderBenchmark() {
+  const el = $('#tab-benchmark');
+  const snaps = SEESAW.all_snapshots || [];
+  let h = `<div class="row" style="margin-bottom:8px"><label style="flex:0 0 auto">See Saw snapshot</label><select id="snap-sel" style="flex:0 0 auto">${snaps.length ? '' : '<option value="">(none)</option>'}${snaps.map(s => `<option value="${esc(s)}"${s === ui.snapshot ? ' selected' : ''}>${esc(s)}${s === SEESAW.snapshot_id ? '' : ' (not embedded)'}</option>`).join('')}</select><span class="hint">Only the snapshot the report was scored against is embedded; rerun <code>curate.py score --city ${esc(CITY)} --snapshot &lt;id&gt;</code> and regenerate to switch.</span></div>`;
+  if (!state.ss || !state.ss.metrics) {
+    el.innerHTML = h + `<div class="notice">${ui.snapshot ? 'This snapshot is not embedded in the report.' : 'No See Saw snapshot on disk — capture one with <code>seesaw_snapshot.py</code>.'}</div>`;
+    return;
+  }
+  const m = state.ss.metrics;
+  h += '<div class="kpis">' + kpi('Precision', fmt(m.precision, 2), `${m.tp} / ${m.n_top} featured`) + kpi('Recall', fmt(m.recall, 2), `${m.tp} / ${m.n_snapshot} See Saw`) + kpi('Jaccard', fmt(m.jaccard, 2), 'TP ÷ (top ∪ See Saw)') + kpi('nDCG', fmt(m.ndcg, 2), 'graded by See Saw position') +
+    kpi('Pool coverage', fmt(m.pool_coverage, 2), '<b>scrape gap</b>: See Saw shows matched to any pool slug ÷ |See Saw|') + kpi('Ranking recall', fmt(m.ranking_recall, 2), '<b>ranking gap</b>: featured ÷ See Saw shows that are in the pool') + '</div>';
+  h += `<div class="panel"><h2>Precision / recall vs threshold</h2>${sweepSVG()}</div>`;
+  // misses
+  const mi = state.ss.misses;
+  h += '<div class="two">';
+  h += `<div class="panel"><h2>See Saw misses — not in pool (${mi.not_in_pool.length})</h2><div class="hint">Scrape gaps. A candidate row means a signal already saw the show.</div>`;
+  if (!mi.not_in_pool.length) h += '<div class="muted">none</div>';
+  for (const e of mi.not_in_pool) {
+    const ck = e.match.candidate_key;
+    const cand = ck ? CANDIDATES.find(c => c.key === ck) : null;
+    h += `<div class="sig"><b>#${esc(e.position)} ${esc(e.venue)}</b> — ${esc(e.artist || e.title || e.raw)}<div class="meta">${e.match.venue_in_pool ? 'venue is in the pool with a different show (refresh hint)' : 'venue not in the pool'}${ck ? ` · candidate key <code>${esc(ck)}</code>` : ''}${cand ? ` · <a href="#cand-${esc(ck)}" data-act="goto-cand" data-key="${esc(ck)}">candidate seen by ${cand.n_signals} signal(s)</a>${cand.best_url ? ` · <a href="${esc(cand.best_url)}" target="_blank" rel="noopener">source</a>` : ''}` : ' · no signal has seen it yet'}</div></div>`;
+  }
+  h += '</div>';
+  h += `<div class="panel"><h2>See Saw misses — in pool, below cutoff (${mi.in_pool_below_cutoff.length})</h2><div class="hint">Ranking gaps: we have the show but do not feature it.</div>`;
+  if (!mi.in_pool_below_cutoff.length) h += '<div class="muted">none</div>';
+  for (const e of mi.in_pool_below_cutoff) {
+    const row = state.rows.find(r => r.slug === e.match.slug);
+    const lh = row ? liftHint(row) : null;
+    h += `<div class="sig"><b>#${esc(e.position)} ${esc(e.venue)}</b> — ${esc(e.artist || e.title || '')} → <a href="#row-${esc(e.match.slug)}" data-act="goto" data-slug="${esc(e.match.slug)}"><code>${esc(e.match.slug)}</code></a><div class="meta">rank ${e.match.rank} · score ${fmt(e.match.score)} · gate ${esc(e.match.gate)}${lh && lh.gap > 0 ? ` · gap ${fmt(lh.gap)} to ${esc(lh.basis)} · lift: ${esc(lh.lags.map(([f, d]) => `${FEATURE_LABEL[f]} +${d.toFixed(2)}`).join(', ') || '–')}` : ''}</div></div>`;
+  }
+  h += '</div>';
+  h += `<div class="panel"><h2>Our picks not on See Saw (${mi.our_picks_not_on_seesaw.length})</h2>`;
+  if (!mi.our_picks_not_on_seesaw.length) h += '<div class="muted">none</div>';
+  for (const s of mi.our_picks_not_on_seesaw) { const row = state.rows.find(r => r.slug === s); h += `<div class="sig"><b>F${row ? row.featured_rank : '?'}</b> <a href="#row-${esc(s)}" data-act="goto" data-slug="${esc(s)}">${esc(row ? row.title : s)}</a> <span class="muted">${esc(row ? row.venue.name : '')} · score ${fmt(row && row.score)}</span></div>`; }
+  h += '</div>';
+  // snapshot entries table
+  h += `<div class="panel"><h2>Snapshot entries — ${esc(ui.snapshot)}</h2><div class="scroll"><table class="t"><tr><th class="n">#</th><th>venue</th><th>artist / title</th><th>match</th><th>slug</th><th class="n">rank</th><th class="n">score</th><th>status</th></tr>`;
+  for (const e of state.ss.entries) {
+    const mm = e.match;
+    h += `<tr class="${mm.featured ? 'hi' : ''}"><td class="n">${esc(e.position)}</td><td>${esc(e.venue)}</td><td>${esc(e.artist || '')}${e.artist && e.title ? ' — ' : ''}${esc(e.title || '')}</td><td>${esc(mm.method || '')} ${mm.confidence != null ? fmt(mm.confidence, 2) : ''}</td><td>${mm.slug ? `<a href="#row-${esc(mm.slug)}" data-act="goto" data-slug="${esc(mm.slug)}"><code>${esc(mm.slug)}</code></a>` : '<span class="muted">–</span>'}</td><td class="n">${mm.rank ?? '–'}</td><td class="n">${fmt(mm.score)}</td><td>${mm.featured ? '<span class="chip f">featured</span>' : (mm.slug ? esc(mm.gate || '') : '<span class="chip warn">not in pool</span>')}</td></tr>`;
+  }
+  h += '</table></div></div></div>';
+  // commonality
+  const c = state.common;
+  h += `<div class="panel"><h2>What See Saw picks have in common</h2><div class="hint">In-window pool shows matched to See Saw (n=${c.n_matched}) vs the rest (n=${c.n_rest}); recomputed live from the current features. Lift = See Saw ÷ rest; bar is log₂(lift) clipped to ±2.${R.commonality && R.commonality.rows ? ' Python block seeded the same rows at report time.' : ''}</div><div class="scroll"><table class="t"><tr><th>feature</th><th>stat</th><th class="n">See Saw</th><th class="n">rest</th><th class="n">lift</th></tr>`;
+  for (const row of c.rows) h += `<tr><td>${esc(row.name)}</td><td class="muted">${esc(row.kind)}</td><td class="n">${fmtCommon(row.seesaw, row.kind)}</td><td class="n">${fmtCommon(row.rest, row.kind)}</td><td class="n">${liftBar(row.lift)}${row.lift == null ? '–' : fmt(row.lift, 2)}</td></tr>`;
+  h += '</table></div></div>';
+  el.innerHTML = h;
+  wireSweep();
+}
+function wireSweep() {
+  const svg = $('#sweep'); if (!svg) return;
+  const hit = $('#sweep-hit'), hov = $('#sweep-hover');
+  const W = 640, H = 200, L = 34, Rm = 12, T = 12, B = 26;
+  const x = t => L + t * (W - L - Rm), y = v => T + (1 - v) * (H - T - B);
+  hit.addEventListener('mousemove', e => {
+    const bb = svg.getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, ((e.clientX - bb.left) / bb.width * W - L) / (W - L - Rm)));
+    const p = state.sweep[Math.round(t * 100)];
+    if (!p) return;
+    hov.innerHTML = `<line class="x" x1="${x(p.t)}" x2="${x(p.t)}" y1="${T}" y2="${H - B}"/>` + (p.precision == null ? '' : `<circle cx="${x(p.t)}" cy="${y(p.precision)}" r="4" fill="var(--s1)"/>`) + (p.recall == null ? '' : `<circle cx="${x(p.t)}" cy="${y(p.recall)}" r="4" fill="var(--s2)"/>`);
+    showTip(`threshold ${p.t.toFixed(2)} · ${p.n_top} featured\nprecision ${fmt(p.precision, 2)} · recall ${fmt(p.recall, 2)} · jaccard ${fmt(p.jaccard, 2)}`, e);
+  });
+  hit.addEventListener('mouseleave', () => { hov.innerHTML = ''; hideTip(); });
+  hit.addEventListener('click', e => {
+    const bb = svg.getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, ((e.clientX - bb.left) / bb.width * W - L) / (W - L - Rm)));
+    params.threshold = Math.round(t * 100) / 100; syncInputs('threshold'); renderAll();
+  });
+}
+
+// ---- runs tab ----
+function renderRuns() {
+  const el = $('#tab-runs');
+  let h = '';
+  const p = state.parity;
+  h += `<div class="panel"><h2>Python / JS parity <span class="badge ${p.ok ? 'ok' : 'bad'}" id="parity-badge">${p.ok ? 'OK' : 'MISMATCH'} · max |JS − Python| = ${p.max_score_diff.toExponential(3)}</span></h2><div class="hint">Every show re-scored in this page under <code>params_default</code> and compared with the report's Python scores and features (${p.n} shows; max feature diff ${p.max_feature_diff.toExponential(3)}; must be &lt; 1e-9).</div><div class="scroll"><table class="t"><tr><th>slug</th><th class="n">JS score</th><th class="n">Python score</th><th class="n">|Δ|</th><th class="n">max |Δ feature|</th><th>feature</th></tr>`;
+  for (const r of p.rows) h += `<tr><td><code>${esc(r.slug)}</code></td><td class="n">${r.js.toFixed(12)}</td><td class="n">${(+r.py).toFixed(12)}</td><td class="n">${r.diff.toExponential(2)}</td><td class="n">${r.feat_diff.toExponential(2)}</td><td>${esc(r.feat)}</td></tr>`;
+  h += '</table></div></div>';
+  // runs table
+  h += `<div class="panel"><h2>Runs (${RUNS.length})</h2><div class="scroll"><table class="t"><tr><th>when</th><th>run</th><th>stage</th><th>variant</th><th>model</th><th class="n">sources</th><th class="n">signals</th><th class="n">cands</th><th class="n">requests</th><th class="n">searches</th><th class="n">cost $</th><th class="n">dur s</th><th>notes</th></tr>`;
+  const runs = RUNS.slice().sort((a, b) => (b.ts || 0) - (a.ts || 0));
+  for (const r of runs) {
+    const when = r.ts ? new Date(r.ts * 1000).toISOString().replace('T', ' ').slice(0, 16) : '';
+    h += `<tr><td class="num">${esc(when)}</td><td><code>${esc(r.run_id)}</code></td><td>${esc(r.stage)}</td><td>${esc(r.prompt_variant || '')}</td><td>${esc(r.model || '')}</td><td class="n">${(r.sources_seen || []).length}/${(r.sources_planned || []).length}</td><td class="n">${r.signals_recorded ?? ''}</td><td class="n">${r.candidates_new ?? ''}</td><td class="n">${r.requests ?? ''}</td><td class="n">${r.web_searches ?? ''}</td><td class="n">${fmt(r.cost_usd, 3)}</td><td class="n">${fmt(r.duration_s, 0)}</td><td class="dim">${esc(r.notes || '')}${r.stop_reason ? ` <span class="muted">(${esc(r.stop_reason)})</span>` : ''}</td></tr>`;
+  }
+  h += '</table></div>';
+  // totals per variant
+  const tot = {};
+  for (const r of RUNS) {
+    const k = r.prompt_variant || r.stage || '?';
+    const t = tot[k] = tot[k] || { runs: 0, signals: 0, cands: 0, searches: 0, cost: 0, dur: 0, models: new Set() };
+    t.runs++; t.signals += r.signals_recorded || 0; t.cands += r.candidates_new || 0; t.searches += r.web_searches || 0; t.cost += r.cost_usd || 0; t.dur += r.duration_s || 0; if (r.model) t.models.add(r.model);
+  }
+  h += '<h3>Totals per variant / stage</h3><div class="scroll"><table class="t"><tr><th>variant</th><th>models</th><th class="n">runs</th><th class="n">signals</th><th class="n">candidates</th><th class="n">searches</th><th class="n">cost $</th><th class="n">$ / signal</th><th class="n">duration s</th></tr>';
+  for (const [k, t] of Object.entries(tot)) h += `<tr><td>${esc(k)}</td><td>${esc([...t.models].join(', '))}</td><td class="n">${t.runs}</td><td class="n">${t.signals}</td><td class="n">${t.cands}</td><td class="n">${t.searches}</td><td class="n">${fmt(t.cost, 3)}</td><td class="n">${t.signals ? fmt(t.cost / t.signals, 3) : '–'}</td><td class="n">${fmt(t.dur, 0)}</td></tr>`;
+  h += '</table></div></div>';
+  // wiki summary
+  if (R.wiki) h += `<div class="panel"><h2>Wikipedia lookups</h2><div class="hint">${R.wiki.n_with_article} of ${R.wiki.n_artists} shows with an artist have an article (${(R.wiki.rows || []).length} cached rows).</div>${(R.wiki.rows || []).filter(w => w.title).map(w => `<div class="sig"><a href="${esc(w.url)}" target="_blank" rel="noopener">${esc(w.title)}</a> <span class="muted">${esc(w.artist)} · ${esc(w.pageviews_90d)} views/90d${w.description ? ' · ' + esc(w.description) : ''}</span></div>`).join('')}</div>`;
+  el.innerHTML = h;
+}
+
+// ---- judge tab ----
+function judgeCell(v) {
+  if (v == null) return '<span class="muted">–</span>';
+  if (typeof v === 'boolean') return v ? '✓' : '–';
+  if (typeof v === 'number') return `<span class="num">${Number.isInteger(v) ? v : fmt(v, 3)}</span>`;
+  if (Array.isArray(v)) return esc(v.map(x => (typeof x === 'object' ? JSON.stringify(x) : x)).join(', '));
+  if (typeof v === 'object') {
+    const vals = Object.values(v);
+    if (vals.length && vals.every(x => typeof x === 'number')) return miniBars(v);
+    return `<code>${esc(JSON.stringify(v))}</code>`;
+  }
+  const s = String(v);
+  return s.length > 60 ? `<div class="rationale" style="min-width:260px">${esc(s)}</div>` : esc(s);
+}
+function judgeTable(rows) {
+  if (!Array.isArray(rows) || !rows.length) return '<div class="muted">empty</div>';
+  const cols = []; for (const r of rows) for (const k of Object.keys(r)) if (!cols.includes(k)) cols.push(k);
+  let h = '<div class="scroll"><table class="t"><tr>' + cols.map(c => `<th>${esc(c)}</th>`).join('') + '</tr>';
+  for (const r of rows) h += '<tr>' + cols.map(c => `<td>${c === 'slug' && r[c] ? `<a href="#row-${esc(r[c])}" data-act="goto" data-slug="${esc(r[c])}"><code>${esc(r[c])}</code></a>` : judgeCell(r[c])}</td>`).join('') + '</tr>';
+  return h + '</table></div>';
+}
+// judge.py compare shape: {variant, n, spearman, mean_abs_delta, precision_at_n{sonnet,opus,mean}, overlap{},
+//   cost_per_verdict{}, total_cost_compared, suggestion, suggestion_basis, n_top, snapshot_id, top[], all[]}
+// rows: {slug, title, artist, venue, sonnet{scores,overall,confidence,rationale,red_flags,cost_usd}, opus{…},
+//   delta, max_sub_delta, membership{sonnet,opus,mean}, membership_flip, on_seesaw, seesaw_flip, rank{…}, cutoff_proximity, relevance}
+function verdictCell(v) {
+  if (!v) return '<span class="muted">no verdict</span>';
+  return `<div><b>${esc(v.overall)}</b><span class="muted">/10 · conf ${fmt(v.confidence, 2)}${v.cost_usd != null ? ` · $${fmt(v.cost_usd, 4)}` : ''}</span></div>${miniBars(v.scores)}`;
+}
+function triCell(o, fmtFn) {
+  if (!o || typeof o !== 'object') return '<span class="muted">–</span>';
+  return ['sonnet', 'opus', 'mean'].map(k => `<span class="muted">${k[0].toUpperCase()}</span> ${fmtFn(o[k])}`).join(' · ');
+}
+const yesNo = v => v === true ? '✓' : (v === false ? '–' : esc(v ?? '–'));
+function judgeSpecific(jc) {
+  const p = jc.precision_at_n || {}, ov = jc.overlap || {}, cpv = jc.cost_per_verdict || {};
+  let h = '<div class="kpis">' + kpi('Shows compared', esc(jc.n ?? '–'), `${esc(jc.variant || '')} · snapshot ${esc(jc.snapshot_id || '–')} · params ${esc(jc.params_hash || '')}`) +
+    kpi('Spearman ρ', fmt(jc.spearman, 2), 'rank agreement, sonnet vs opus') + kpi('Mean |Δ|', fmt(jc.mean_abs_delta, 2), 'opus − sonnet overall, /10') +
+    kpi('Precision@N', `<span style="font-size:15px">${fmt(p.sonnet, 2)} / ${fmt(p.opus, 2)} / ${fmt(p.mean, 2)}</span>`, `sonnet / opus / mean vs See Saw, top ${esc(jc.n_top ?? '')}`) +
+    kpi('Top-N overlap', `<span style="font-size:15px">${esc(ov.sonnet ?? '–')} / ${esc(ov.opus ?? '–')} / ${esc(ov.mean ?? '–')}</span>`, 'sonnet / opus / mean') +
+    kpi('$ / verdict', `<span style="font-size:15px">${fmt(cpv.sonnet, 3)} / ${fmt(cpv.opus, 3)}</span>`, `sonnet / opus · $${fmt(jc.total_cost_compared, 3)} compared, $${fmt(jc.total_cost_variant, 3)} variant total`) +
+    kpi('Auto-suggestion', `<span style="font-size:15px">${esc(jc.suggestion || '–')}</span>`, esc(jc.suggestion_basis || '') + ' · starting point only; read the rationales') + '</div>';
+  if (R.judge_compare_source) h += `<div class="hint">embedded from <code>${esc(R.judge_compare_source)}</code> · generated ${esc(jc.generated_at || '')}</div>`;
+  const top = jc.top || [];
+  h += `<div class="panel"><h2>Top ${top.length} decision-relevant comparisons</h2><div class="hint">relevance = |Δ| + 3·membership flip + 4·See Saw flip + 0.5·max sub-score Δ + 0.5·cutoff proximity. Rows with a flip are highlighted; rationales side by side underneath.</div><div class="scroll"><table class="t"><tr><th class="n">#</th><th>show</th><th>claude-sonnet-5</th><th>claude-opus-5</th><th class="n">Δ overall</th><th class="n">max sub Δ</th><th>in top-N</th><th>rank</th><th>See Saw</th><th class="n">cutoff prox.</th><th class="n">relevance</th></tr>`;
+  top.forEach((r, i) => {
+    const flip = r.membership_flip || r.seesaw_flip;
+    h += `<tr class="${flip ? 'hi' : ''}"><td class="n">${i + 1}</td><td><a href="#row-${esc(r.slug)}" data-act="goto" data-slug="${esc(r.slug)}"><b>${esc(r.title || r.slug)}</b></a><div class="muted">${esc(r.artist || '')}${r.artist ? ' · ' : ''}${esc(r.venue || '')}</div><div class="slugline"><code>${esc(r.slug)}</code></div></td><td>${verdictCell(r.sonnet)}</td><td>${verdictCell(r.opus)}</td><td class="n">${r.delta > 0 ? '+' : ''}${esc(r.delta ?? '–')}</td><td class="n">${esc(r.max_sub_delta ?? '–')}</td><td>${triCell(r.membership, yesNo)}${r.membership_flip ? ' <span class="flip">flip</span>' : ''}</td><td>${triCell(r.rank, v => esc(v ?? '–'))}</td><td>${yesNo(r.on_seesaw)}${r.seesaw_flip ? ' <span class="flip">flip</span>' : ''}</td><td class="n">${fmt(r.cutoff_proximity, 3)}</td><td class="n">${fmt(r.relevance, 2)}</td></tr>`;
+    const rat = v => v ? `<div class="rationale">${esc(v.rationale || '')}</div>${v.red_flags && v.red_flags.length ? `<div class="muted">red flags: ${esc(v.red_flags.join('; '))}</div>` : ''}` : '<span class="muted">–</span>';
+    h += `<tr class="rat"><td></td><td colspan="10"><div class="two"><div><h4 style="margin:0 0 3px;font-size:11px;color:var(--muted)">SONNET</h4>${rat(r.sonnet)}</div><div><h4 style="margin:0 0 3px;font-size:11px;color:var(--muted)">OPUS</h4>${rat(r.opus)}</div></div></td></tr>`;
+  });
+  h += '</table></div></div>';
+  const all = jc.all || [];
+  h += `<div class="panel"><h2>Full agreement table (${all.length})</h2><div class="scroll"><table class="t"><tr><th>slug</th><th class="n">sonnet</th><th class="n">opus</th><th class="n">Δ</th><th class="n">max sub Δ</th><th>in top-N (S/O/M)</th><th>rank (S/O/M)</th><th>See Saw</th><th class="n">relevance</th></tr>`;
+  for (const r of all) h += `<tr class="${r.membership_flip || r.seesaw_flip ? 'hi' : ''}"><td><a href="#row-${esc(r.slug)}" data-act="goto" data-slug="${esc(r.slug)}"><code>${esc(r.slug)}</code></a></td><td class="n">${esc(r.sonnet ? r.sonnet.overall : '–')}</td><td class="n">${esc(r.opus ? r.opus.overall : '–')}</td><td class="n">${r.delta > 0 ? '+' : ''}${esc(r.delta ?? '–')}</td><td class="n">${esc(r.max_sub_delta ?? '–')}</td><td>${triCell(r.membership, yesNo)}${r.membership_flip ? ' <span class="flip">flip</span>' : ''}</td><td>${triCell(r.rank, v => esc(v ?? '–'))}</td><td>${yesNo(r.on_seesaw)}${r.seesaw_flip ? ' <span class="flip">flip</span>' : ''}</td><td class="n">${fmt(r.relevance, 2)}</td></tr>`;
+  h += '</table></div></div>';
+  return h;
+}
+function renderJudge() {
+  const el = $('#tab-judge');
+  const jc = R.judge_compare;
+  if (jc && Array.isArray(jc.top) && jc.top.length && jc.top[0] && (jc.top[0].sonnet || jc.top[0].opus)) { el.innerHTML = judgeSpecific(jc); return; }
+  if (!jc || !Object.keys(jc).length) {
+    el.innerHTML = `<div class="notice"><b>No judge comparison yet.</b><br>Generate it with<br><code>scraper/.venv/bin/python scraper/judge.py run --city ${esc(CITY)} --models claude-sonnet-5,claude-opus-5</code><br><code>scraper/.venv/bin/python scraper/judge.py compare --city ${esc(CITY)}</code><br>then <code>curate.py score --city ${esc(CITY)}</code> and <code>curation_dashboard.py --city ${esc(CITY)}</code>. The dashboard embeds <code>content/curation/${esc(CITY)}/judge_compare.json</code> automatically when it exists.</div>`;
+    return;
+  }
+  let h = '';
+  const scalars = {};
+  const summary = jc.summary || jc.header || jc.stats || {};
+  for (const [k, v] of Object.entries(Object.assign({}, jc, summary))) if (v == null || ['number', 'string', 'boolean'].includes(typeof v)) scalars[k] = v;
+  if (Object.keys(scalars).length) h += '<div class="kpis">' + Object.entries(scalars).map(([k, v]) => kpi(k.replace(/_/g, ' '), typeof v === 'number' ? fmt(v, 3) : `<span style="font-size:13px">${esc(String(v))}</span>`)).join('') + '</div>';
+  if (R.judge_compare_source) h += `<div class="hint">embedded from <code>${esc(R.judge_compare_source)}</code></div>`;
+  const top = jc.top || jc.top10 || jc.top_rows || jc.decision_relevant || (Array.isArray(jc.rows) ? jc.rows.slice(0, 10) : null);
+  const all = jc.rows || jc.all || jc.agreement || jc.shows || jc.per_show;
+  if (jc.recommendation || jc.suggestion) h += `<div class="panel"><h2>Recommendation</h2><div class="rationale">${esc(jc.recommendation || jc.suggestion)}</div></div>`;
+  if (top) h += `<div class="panel"><h2>Top ${top.length} decision-relevant comparisons</h2>${judgeTable(top)}</div>`;
+  if (all && all !== top) h += `<div class="panel"><h2>Full agreement table (${all.length})</h2>${judgeTable(all)}</div>`;
+  for (const [k, v] of Object.entries(jc)) if (Array.isArray(v) && v !== top && v !== all && v.length && typeof v[0] === 'object') h += `<div class="panel"><h2>${esc(k)}</h2>${judgeTable(v)}</div>`;
+  el.innerHTML = h || '<div class="notice">judge_compare present but empty.</div>';
+}
+
+/* =====================================================================
+ * 4. CONTROLS
+ * ===================================================================*/
+function numInput(path, o) {
+  o = o || {};
+  const v = getPath(params, path);
+  const kind = o.nullable ? 'nullnum' : (o.int ? 'int' : 'num');
+  return `<input type="number" data-path="${path}" data-kind="${kind}" value="${v == null ? '' : v}"${o.min != null ? ` min="${o.min}"` : ''}${o.max != null ? ` max="${o.max}"` : ''} step="${o.step ?? 'any'}"${o.nullable ? ' placeholder="off"' : ''}>`;
+}
+function numRow(label, path, o) { return `<div class="row"><label title="${esc(path)}">${esc(label)}</label>${numInput(path, o)}</div>`; }
+function rangeRow(label, path, o, swatch) {
+  const v = getPath(params, path) ?? 0;
+  let sw = '';
+  if (swatch) { const [slot, hatch] = FEATURE_SLOT[swatch]; sw = `<span class="sw${hatch ? ' hatch' : ''}" style="--c:var(--s${slot});${hatch ? '' : `background:var(--s${slot})`}"></span>`; }
+  return `<div class="row"><label title="${esc(path)}">${sw}${esc(label)}</label><input type="range" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}">${numInput(path, o)}</div>`;
+}
+function boolRow(label, path) { return `<div class="row wide"><label title="${esc(path)}"><input type="checkbox" data-path="${path}" data-kind="bool"${getPath(params, path) ? ' checked' : ''}> ${esc(label)}</label></div>`; }
+function selectRow(label, path, opts) { const v = getPath(params, path); return `<div class="row"><label title="${esc(path)}">${esc(label)}</label><select data-path="${path}" data-kind="str">${opts.map(([val, lab]) => `<option value="${esc(val)}"${String(val) === String(v) ? ' selected' : ''}>${esc(lab)}</option>`).join('')}</select></div>`; }
+function section(title, body, open) { return `<details class="sec"${open === false ? '' : ' open'}><summary>${esc(title)}</summary><div class="body">${body}</div></details>`; }
+function effSource(id) {
+  const p = params.sources[id] || {}, src = SOURCE_BY_ID[id] || {};
+  const enabled = ('enabled' in p) ? p.enabled !== false : (src.active !== false);
+  const weight = p.weight != null ? p.weight : (src.weight != null ? src.weight : (params.default_source_weight ?? 0.3));
+  return { enabled, weight };
+}
+function judgeVariants() {
+  const set = new Set();
+  for (const s of SHOWS) for (const k of Object.keys(s.judge || {})) set.add(k);
+  if (params.judge.variant) set.add(params.judge.variant);
+  if (!set.size) set.add('judge_v1');
+  return [...set];
+}
+function overridesHTML() {
+  const list = (kind) => params.overrides[kind].length ? params.overrides[kind].map(s => `<span class="chip ${kind === 'pin' ? 'pin' : 'bad'}" data-act="rm-override" data-kind="${kind}" data-slug="${esc(s)}" title="remove">${esc(s)} ×</span>`).join('') : '<span class="muted">none</span>';
+  return `<div class="hint">Pins skip threshold / venue / diversity gates and go first; excludes are dropped. Use the buttons in a show's evidence drawer.</div><div>pin</div><div class="ovlist">${list('pin')}</div><div>exclude</div><div class="ovlist">${list('exclude')}</div>`;
+}
+function presetsHTML() {
+  const fileNames = Object.keys(FILE_PRESETS), localNames = Object.keys(loadPresets());
+  const opt = (kind, n) => `<option value="${esc(kind + ':' + n)}"${kind === 'file' && FILE_PRESETS[n].note ? ` title="${esc(FILE_PRESETS[n].note)}"` : ''}>${esc(n)}</option>`;
+  const groups = (fileNames.length ? `<optgroup label="content/curation/params/">${fileNames.map(n => opt('file', n)).join('')}</optgroup>` : '')
+    + (localNames.length ? `<optgroup label="this browser">${localNames.map(n => opt('local', n)).join('')}</optgroup>` : '');
+  return `<div class="row"><select id="preset-sel" style="flex:1">${groups || '<option value="">(no presets)</option>'}</select><button class="small" data-act="preset-load">Load</button><button class="small" data-act="preset-del">Delete</button></div>
+  <div class="row"><input type="text" id="preset-name" placeholder="preset name" style="flex:1"><button class="small" data-act="preset-save">Save</button></div>
+  <div class="btns"><button class="primary" data-act="export">Export params JSON</button><label><button class="small" data-act="import-click">Import…</button><input type="file" id="import-file" accept="application/json,.json" hidden></label><button class="small" data-act="reset">Reset to default</button></div>
+  <div class="hint">The first group is <code>content/curation/params/*.json</code>, embedded when this page was rendered — re-run <code>curation_dashboard.py</code> to pick up new files. Save writes to this browser's localStorage (second group); Delete only removes those. Export writes <code>params</code> in the curate.py schema; run <code>curate.py score --city ${esc(CITY)} --params &lt;file&gt;</code> to reproduce this ranking, or <code>apply</code> to write it to the feeds.</div>`;
+}
+function renderControls() {
+  let h = '';
+  h += section('Gates', numRow('Max shows (max_n)', 'max_n', { min: 0, step: 1, int: true, nullable: true }) + rangeRow('Score threshold', 'threshold', { min: 0, max: 1, step: 0.01 }) +
+    numRow('Max per venue', 'max_per_venue', { min: 0, step: 1, int: true, nullable: true }) + numRow("Editors' picks (top n)", 'editors_pick_top', { min: 0, step: 1, int: true }) +
+    boolRow('Include pending / out-of-window shows', 'include_pending') +
+    boolRow('Published pool only (drop pending)', 'published_only') + boolRow('Open today only (drop not-yet-open)', 'require_open') +
+    boolRow('Exclude museums (hard filter)', 'exclude_museums') +
+    numRow('Max per neighborhood', 'max_per_neighborhood', { min: 0, step: 1, int: true, nullable: true }) + numRow('Max museum share', 'max_museum_share', { min: 0, max: 1, step: 0.05, nullable: true }) +
+    `<div class="row wide"><label><input type="checkbox" id="hide-cands"${ui.hideCandidates ? ' checked' : ''}> Hide candidates (not-in-pool shows)</label></div>`);
+  h += section('Feature weights', FEATURES.map(f => rangeRow(FEATURE_LABEL[f], `weights.${f}`, { min: 0, max: 1, step: 0.01 }, f)).join('') + '<div class="hint">museum bonus = the museum weight × 1 for museum venues</div>');
+  h += section('Judge', selectRow('Variant', 'judge.variant', judgeVariants().map(v => [v, v])) + selectRow('Model', 'judge.model', JUDGE_MODELS) + rangeRow('Judge weight', 'weights.judge', { min: 0, max: 1, step: 0.01 }, 'judge') + `<div class="hint">${SHOWS.filter(s => Object.keys(s.judge || {}).length).length} of ${SHOWS.length} shows have a verdict</div>`);
+  h += section('Signal kind weights', Object.keys(params.kind_weights).map(k => rangeRow(k.replace(/_/g, ' '), `kind_weights.${k}`, { min: 0, max: 2, step: 0.05 })).join('') + '<div class="hint" style="margin-top:6px">strength</div>' + Object.keys(params.strength_weights).map(k => rangeRow(k, `strength_weights.${k}`, { min: 0, max: 1, step: 0.05 })).join(''), false);
+  h += section('Half-lives & references', numRow('Press half-life (d)', 'half_life_days.press', { min: 0, step: 1 }) + numRow('Artist half-life (d)', 'half_life_days.artist', { min: 0, step: 1 }) + numRow('Opening half-life (d)', 'half_life_days.opening', { min: 0, step: 1 }) +
+    numRow('press_ref', 'press_ref', { min: 0, step: 0.5 }) + numRow('artist_ref', 'artist_ref', { min: 0, step: 0.5 }) + numRow('cap_per_source', 'cap_per_source', { min: 0, step: 0.1 }) + numRow('wiki_ref (views/90d)', 'wiki_ref', { min: 0, step: 1000 }) + numRow('default source weight', 'default_source_weight', { min: 0, max: 1, step: 0.05 }), false);
+  h += section('Venue tier map', Object.keys(params.venue_tier_map).map(k => rangeRow(k === 'unknown' ? 'unknown / no tier' : `tier ${k}`, `venue_tier_map.${k}`, { min: 0, max: 1, step: 0.05 })).join('') + `<div class="hint">registry ${R.venue_registry_present ? 'present' : 'absent'} · ${SHOWS.filter(s => s.venue && s.venue.tier != null).length} shows have a tier; the rest use the unknown value (or fair listings / museum fallback)</div>`, false);
+  let srcRows = '';
+  for (const s of SOURCES) { const e = effSource(s.id); srcRows += `<tr><td><input type="checkbox" data-src="${esc(s.id)}" data-field="enabled"${e.enabled ? ' checked' : ''}></td><td title="${esc(s.name)} · ${esc(s.kind)}">${esc(s.id)}<div class="lint">${esc(s.kind || '')}${s.active === false ? ' · inactive' : ''}</div></td><td><input type="number" data-src="${esc(s.id)}" data-field="weight" min="0" max="2" step="0.05" value="${e.weight}"></td></tr>`; }
+  h += section(`Sources (${SOURCES.length})`, `<div class="srcwrap"><table class="src">${srcRows || '<tr><td class="muted">no sources.json</td></tr>'}</table></div><div class="hint">Unchecked = weight 0. Changed rows are exported as <code>params.sources[id]</code>.</div>`, false);
+  h += section('Overrides', `<div id="overrides">${overridesHTML()}</div>`);
+  h += section('Presets & export', presetsHTML());
+  $('#controls').innerHTML = h;
+}
+function syncInputs(path, except) {
+  const v = getPath(params, path);
+  document.querySelectorAll(`[data-path="${path}"]`).forEach(el => {
+    if (el === except) return;
+    if (el.type === 'checkbox') el.checked = !!v;
+    else el.value = v == null ? '' : v;
+  });
+}
+function readInput(el) {
+  const kind = el.dataset.kind;
+  if (kind === 'bool') return !!el.checked;
+  if (kind === 'str') return el.value;
+  if (el.value === '' || el.value == null) return kind === 'nullnum' ? null : 0;
+  const n = kind === 'int' ? parseInt(el.value, 10) : parseFloat(el.value);
+  return Number.isNaN(n) ? (kind === 'nullnum' ? null : 0) : n;
+}
+function onControlInput(e) {
+  const el = e.target;
+  if (el.dataset && el.dataset.path) {
+    setPath(params, el.dataset.path, readInput(el));
+    syncInputs(el.dataset.path, el);
+    renderAll();
+  } else if (el.dataset && el.dataset.src) {
+    const id = el.dataset.src;
+    const cur = effSource(id);
+    params.sources[id] = { enabled: cur.enabled, weight: cur.weight };
+    if (el.dataset.field === 'enabled') params.sources[id].enabled = !!el.checked;
+    else params.sources[id].weight = parseFloat(el.value) || 0;
+    renderAll();
+  } else if (el.id === 'hide-cands') {
+    ui.hideCandidates = !!el.checked; renderCandidates();
+  }
+}
+
+// ---- presets / export / import ----
+function loadPresets() { try { return JSON.parse(localStorage.getItem(PRESET_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function savePresets(p) { try { localStorage.setItem(PRESET_KEY, JSON.stringify(p)); } catch (e) { alert('localStorage unavailable: ' + e.message); } }
+function exportParams() { return orderedParams(clone(params)); }
+function exportParamsJSON() { return JSON.stringify(exportParams(), null, 2); }
+function downloadParams() {
+  const blob = new Blob([exportParamsJSON()], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `params-${CITY}-${(R.today || 'today')}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+function importParams(obj) {
+  params = normalizeParams(mergeParams(normalizeParams(clone(R.params_default || {})), obj));
+  renderControls(); renderAll();
+}
+function resetParams() { params = normalizeParams(clone(R.params_default || {})); renderControls(); renderAll(); }
+
+// ---- global wiring ----
+function toggleOverride(kind, slug) {
+  const list = params.overrides[kind];
+  const i = list.indexOf(slug);
+  if (i >= 0) list.splice(i, 1); else list.push(slug);
+  if (kind === 'pin') { const j = params.overrides.exclude.indexOf(slug); if (i < 0 && j >= 0) params.overrides.exclude.splice(j, 1); }
+  if (kind === 'exclude') { const j = params.overrides.pin.indexOf(slug); if (i < 0 && j >= 0) params.overrides.pin.splice(j, 1); }
+  $('#overrides').innerHTML = overridesHTML();
+  renderAll();
+}
+function gotoRow(slug) {
+  ui.expanded.add(slug);
+  showTab('ranking'); renderList();
+  const el = document.getElementById('row-' + slug); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+function showTab(name) {
+  ui.tab = name;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+  document.querySelectorAll('.tab').forEach(s => s.classList.toggle('on', s.id === 'tab-' + name));
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if (!b) { const t = e.target.closest('nav.tabs button'); if (t) showTab(t.dataset.tab); return; }
+  const act = b.dataset.act;
+  if (act === 'toggle') { const s = b.dataset.slug; if (ui.expanded.has(s)) ui.expanded.delete(s); else ui.expanded.add(s); renderList(); }
+  else if (act === 'pin' || act === 'exclude') toggleOverride(act, b.dataset.slug);
+  else if (act === 'rm-override') toggleOverride(b.dataset.kind, b.dataset.slug);
+  else if (act === 'goto') { e.preventDefault(); gotoRow(b.dataset.slug); }
+  else if (act === 'goto-cand') { e.preventDefault(); ui.hideCandidates = false; const cb = $('#hide-cands'); if (cb) cb.checked = false; showTab('ranking'); renderCandidates(); const el = document.getElementById('cand-' + b.dataset.key); if (el) el.scrollIntoView({ block: 'center' }); }
+  else if (act === 'export') downloadParams();
+  else if (act === 'import-click') $('#import-file').click();
+  else if (act === 'reset') resetParams();
+  else if (act === 'preset-save') { const name = ($('#preset-name').value || '').trim(); if (!name) { alert('name the preset first'); return; } const p = loadPresets(); p[name] = exportParams(); savePresets(p); $('#controls').querySelector('details.sec:last-of-type .body').innerHTML = presetsHTML(); $('#preset-sel').value = 'local:' + name; }
+  else if (act === 'preset-load') { const sel = $('#preset-sel').value; if (!sel) return; const i = sel.indexOf(':'), kind = sel.slice(0, i), name = sel.slice(i + 1);
+    const obj = kind === 'file' ? (FILE_PRESETS[name] || {}).params : loadPresets()[name];
+    if (obj) importParams(obj); }
+  else if (act === 'preset-del') { const sel = $('#preset-sel').value; if (!sel) return; const i = sel.indexOf(':'), kind = sel.slice(0, i), name = sel.slice(i + 1);
+    if (kind === 'file') { alert(`"${name}" is a file preset (${(FILE_PRESETS[name] || {}).file}) — delete it on disk, not here.`); return; }
+    const p = loadPresets(); delete p[name]; savePresets(p); $('#controls').querySelector('details.sec:last-of-type .body').innerHTML = presetsHTML(); }
+});
+document.addEventListener('input', e => { if (e.target.closest('#controls')) onControlInput(e); });
+document.addEventListener('change', e => {
+  if (e.target.id === 'import-file') {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { try { importParams(JSON.parse(rd.result)); } catch (err) { alert('import failed: ' + err.message); } };
+    rd.readAsText(f); e.target.value = '';
+  } else if (e.target.id === 'snap-sel') { ui.snapshot = e.target.value || null; renderAll(); }
+  else if (e.target.closest('#controls') && (e.target.type === 'checkbox' || e.target.tagName === 'SELECT')) { /* input already handled */ }
+});
+
+// tooltip
+const tipEl = $('#tip');
+function showTip(text, e) { tipEl.textContent = text; tipEl.hidden = false; moveTip(e); }
+function hideTip() { tipEl.hidden = true; }
+function moveTip(e) { const x = Math.min(e.clientX + 14, window.innerWidth - 330), y = e.clientY + 16; tipEl.style.left = x + 'px'; tipEl.style.top = y + 'px'; }
+document.addEventListener('mouseover', e => { const el = e.target.closest('[data-tip]'); if (el) showTip(el.dataset.tip, e); else if (!e.target.closest('#sweep')) hideTip(); });
+document.addEventListener('mousemove', e => { if (!tipEl.hidden && e.target.closest('[data-tip]')) moveTip(e); });
+
+// public surface for tests / console: window.dashboard
+window.exportParams = exportParams;
+window.dashboard = {
+  get params() { return params; },
+  set(path, value) { setPath(params, path, value); syncInputs(path); renderAll(); },
+  rows: () => state.rows, metrics: () => (state.ss && state.ss.metrics) || null, parity: () => state.parity,
+  top: (n) => state.rows.filter(r => r.featured).sort((a, b) => a.featured_rank - b.featured_rank).slice(0, n || 12).map(r => r.slug),
+  exportJSON: exportParamsJSON, importParams, resetParams, recompute: renderAll,
+  fn: { computeFeatures, scoreShow, applyGates, rank, seesawMetrics, commonality, decay, logSaturate },
+};
+
+// boot
+state.parity = parityCheck();
+renderControls();
+renderAll();
+renderRuns();
+renderJudge();
+if (!SHOWS.length && !window.CURATION) $('#list').innerHTML = '<div class="notice">No data: open the generated <code>content/spend/reports/curation-&lt;city&gt;.html</code> (this file is the template).</div>';
+</script>
+</body>
+</html>

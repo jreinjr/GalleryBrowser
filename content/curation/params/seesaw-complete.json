@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "city": null,
+ "today": null,
+ "max_n": null,
+ "threshold": 0.22,
+ "max_per_venue": 2,
+ "include_pending": false,
+ "published_only": true,
+ "require_open": true,
+ "editors_pick_top": 5,
+ "exclude_museums": false,
+ "max_per_neighborhood": null,
+ "max_museum_share": null,
+ "weights": {
+  "judge": 0.44,
+  "venue": 0.14,
+  "quality": 0.08,
+  "closing_soon": 0.04,
+  "press": 0.04,
+  "museum": -0.2,
+  "artist_heat": 0.0,
+  "wiki_heat": 0.0,
+  "keyword": 0.0,
+  "opening_recency": 0.0
+ },
+ "half_life_days": {
+  "press": 21,
+  "artist": 180,
+  "opening": 30
+ },
+ "press_ref": 4,
+ "artist_ref": 3,
+ "cap_per_source": 1.5,
+ "wiki_ref": 20000,
+ "default_source_weight": 0.3,
+ "kind_weights": {
+  "pick": 1,
+  "review": 0.9,
+  "news": 0.6,
+  "listing": 0.3,
+  "press_release_claim": 0.3,
+  "artist_activity": 1,
+  "award": 1.2
+ },
+ "strength_weights": {
+  "headline": 1,
+  "featured": 0.7,
+  "mentioned": 0.4,
+  "passing": 0.2
+ },
+ "sources": {},
+ "venue_tier_map": {
+  "1": 1,
+  "2": 0.8,
+  "3": 0.6,
+  "4": 0.3,
+  "unknown": 0.45
+ },
+ "judge": {
+  "variant": "judge_v1",
+  "model": "sonnet"
+ },
+ "overrides": {
+  "pin": [],
+  "exclude": []
+ },
+ "_note": "Fitted 2026-09-02 for COMPLETION + graded PRECISION against See Saw, using the 09-01 and 09-02 LA captures. Two goals at once: every show See Saw lists must survive the gates, and See Saw's shows must rank high with Featured above Editor's Picks above merely-listed. Target grades: Featured (union of both captures, 6 in pool) = 3, Editor's Picks not Featured (4) = 2, on All Current Shows only (15) = 1, everything else 0; scored by nDCG over those grades plus precision@k. RESULT: completion 25/25 (every in-pool See Saw show is in the feed), all 6 Featured and all 9 in-pool Editor's Picks in, nDCG@5 0.581, nDCG@10 0.717, nDCG@25 0.751, P@5 1.00, P@10 1.00 - the first ten feed slots are ten See Saw shows. Feed length 76. THE MUSEUM TRICK: exclude_museums is FALSE but the museum weight is -0.20. Completion requires museums, because See Saw lists The Broad's Yoko Ono; the negative weight keeps them in the feed while pushing them down (Yoko Ono lands at feed #30 despite a judge 9). This is what beat every galleries-only variant - a hard museum filter caps completion at 24/25. Note this DIFFERS from publish-la.json, where the user chose a hard galleries-only Featured tab on 2026-09-02; use that preset for the app unless you want museums back in. THE COST OF COMPLETION is the cutoff: threshold 0.22 is set by the single weakest See Saw show (Monte Vista Projects 'Moth To A Flame', judge 2/10, score 0.227), and carrying it means a 76-show feed. Tradeoff curve, same weights, measured through curate.rank with published_only and require_open on: thr 0.22 -> 76 shows, 25/25, Featured 6/6; 0.26 -> 59, 24/25, 6/6; 0.30 -> 40, 21/25, 6/6; 0.34 -> 28, 16/25, 6/6; 0.38 -> 21, 13/25, 5/6; 0.42 -> 10, 10/25, 4/6. All six Featured survive up to thr 0.34, so raise the threshold if you want a shorter feed and will accept losing the tail. Weights: judge 0.44 does the ranking (it is the only feature that separates See Saw's picks from the shows it passed over - see seesaw-taste.json's note for the per-feature AUCs); venue 0.14, quality 0.08, closing_soon 0.04, press 0.04 are small tie-breakers; artist_heat, wiki_heat, keyword and opening_recency are at or below chance on this target and stay zeroed. Requires full Sonnet judge coverage - judge new shows before scoring or they score near zero. HELD OUT: leave-one-venue-out (refit without a venue's shows, then score only that venue) gives mean 1/log2(1+position) 0.253 against 0.303 fitted, a +0.050 optimism gap. CAVEAT on the fit: the 09-01 and 09-02 captures resolve to the SAME 10-show taste set and the same 26-show list, so this is one sample of 25 positives, not two. It is not an out-of-sample validation. See Saw's Featured feed also carried a closed show (1301PE 'Lull Between Storms', ended June 13 per the gallery's own rendered site) at position 1 on both days, so the benchmark itself is not error-free."
+}

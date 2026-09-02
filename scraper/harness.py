@@ -114,14 +114,14 @@ EXHAUSTIVE_BLOCK = f"""
 
 EXHAUSTIVE MODE — this session is part of a sweep of this city's ENTIRE publicly viewable art scene:
 - Cover EVERY kind of space on your TODO list: blue-chip and mid-size galleries, artist-run and project spaces, nonprofits, university and photography galleries, museums. Small or obscure is GOOD — the only out-of-scope spaces are ones the public cannot walk into (private dealers and appointment-only viewing rooms with no public hours).
-- Work venue by venue through the TODO list in your first message. For each venue: open its own exhibitions page and save EVERY distinct exhibition it lists that is on view now or opens within {tools.FUTURE_SAVE_DAYS} days — multi-room galleries and museums often run several at once, and each is its own save_show with its own slug and images. If nothing qualifies, call log_skip with the closest reason and one line of detail. EVERY TODO venue must end in at least one save_show or exactly one log_skip — no silent skips.
+- Work venue by venue through the TODO list in your first message. For each venue: open its own exhibitions page and save EVERY distinct exhibition it lists that is on view now or opens within {tools.FUTURE_SAVE_DAYS} days — multi-room galleries and museums often run several at once, and each is its own save_show with its own slug and images. If nothing qualifies, call log_skip with the closest reason and one line of detail. EVERY TODO venue must end in at least one save_show of a show on view NOW, or exactly one log_skip — no silent skips. The CURRENT show is mandatory; an upcoming show is saved in addition to it, never instead of it, and a save of an UPCOMING show alone does not resolve the venue.
 - Rotating exhibitions only: skip permanent-collection displays, long-term installations with no end date, gift-shop or online-only presentations.
 - A TODO venue may list shows ALREADY SAVED (shown under it): do not re-save those; save its other current shows. If a TODO venue turns out to be the same physical space as one already listed under another name, log_skip it with reason "duplicate".
 - A confirmed current or upcoming show whose venue page publishes no closing date STILL qualifies: save it with end_date null and a dates_note quoting the page (it is held in pending, not displayed, until the date is filled). Never log_skip such a show as unverifiable and never invent a date.
 - RENDER_FETCH: if web_fetch of a venue's exhibitions or show page returns no exhibition content, or exhibition text with no dates, call render_fetch on that URL once before deciding — many gallery sites render dates with JavaScript.
 - A TODO venue tagged CANDIDATE was discovered automatically from a fetched domain and is unconfirmed: first confirm it is a public art venue located in this zone; if not, log_skip it with reason "out_of_scope".
 - Imagery is a hard requirement: if a show has no downloadable image at least 500px wide (1400px+ ideal), log_skip with reason "no_image" or "low_res_only" and move on — do not fight the image validator.
-- A venue between shows with a confirmed exhibition opening within the next {tools.FUTURE_SAVE_DAYS} days: SAVE that future show (it is published automatically once its opening window arrives). Between shows with nothing confirmed: log_skip with reason "closed_or_between_shows" and note any reopening info you found.
+- A venue between shows with a confirmed exhibition opening within the next {tools.FUTURE_SAVE_DAYS} days: SAVE that future show (it is published automatically once its opening window arrives) AND ALSO log_skip the venue closed_or_between_shows noting the opening date, so the record says nothing is on view now. Between shows with nothing confirmed: log_skip with reason "closed_or_between_shows" and note any reopening info you found.
 - Set featured = true for roughly the best 1 in 6 shows you save; editors_pick only for true standouts."""
 
 
@@ -151,6 +151,21 @@ def _search_results(block, server_inputs: dict) -> dict | None:
 
 PAUSE_RE = re.compile(r"next (turn|message|reply)|resume|continue (in|with)|call limit|"
                       r"tool limit|rate limit", re.I)
+
+
+def _resolution_nudge_text(pending: list[tuple[dict, str]]) -> str:
+    """User turn listing TODO venues the deep-session contract still considers
+    open (venues.SessionTrace.unresolved)."""
+    lines = []
+    for v, status in pending:
+        if status == "upcoming_only":
+            lines.append(f"- {v['name']} (only an upcoming show saved — what is on view NOW? save "
+                         "it, or log_skip closed_or_between_shows with the reopening date)")
+        else:
+            lines.append(f"- {v['name']} (nothing saved or skipped)")
+    return ("These TODO venues are unresolved:\n" + "\n".join(lines)
+            + "\n\nResolve each one now with save_show or log_skip, then stop with your summary. "
+              "If you already resolved one of them under a different venue name, say which in one line.")
 
 
 def accuracy_block(horizon_days: int = 7) -> str:
@@ -193,10 +208,11 @@ def _guidance_text(cfg: dict) -> str:
 def build_system_prompt(city_key: str, cfg: dict, target_shows: int,
                         campaign: bool = False, deep: bool = False) -> str:
     if deep:
-        goal = (f"GOAL: work through the venue TODO list in your first message — save a show for "
-                f"every venue that qualifies (on view now, or confirmed to open within the next "
-                f"{tools.FUTURE_SAVE_DAYS} days), log_skip every venue that does not. The list has "
-                f"{target_shows} venues; resolving every one of them matters more than the save count.")
+        goal = (f"GOAL: work through the venue TODO list in your first message — for every venue, "
+                f"save each show on view NOW (plus any confirmed show opening within the next "
+                f"{tools.FUTURE_SAVE_DAYS} days), and log_skip every venue with nothing on view. "
+                f"The list has {target_shows} venues; resolving every one of them matters more "
+                f"than the save count.")
         step1 = ("1. For each TODO venue, go to its own website first (the TODO line lists it when "
                  "known) and find the current or next exhibition. web_search only when the site is "
                  "missing, broken, or unhelpful.")
@@ -513,7 +529,8 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
              signal_ctx: dict | None = None,
              search_domains: dict | None = None,
              keyword_signals: bool = False,
-             missing_anchors: list[str] | None = None) -> dict:
+             missing_anchors: list[str] | None = None,
+             todo_venues: list[dict] | None = None) -> dict:
     """Run one agent session. Modes (first match wins): verify, enrich,
     enumerate_zone, signal_variant (curation signal collection), else scrape
     (deep when `deep`). `search_domains` = {"allowed_domains": [...]} or
@@ -665,6 +682,7 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
     import venues
     trace = venues.SessionTrace(meter.label, city_key)
     trace.zone = enumerate_zone or (cfg["neighborhoods"][0] if len(cfg["neighborhoods"]) == 1 else None)
+    trace.todo_venues = list(todo_venues or [])
     tools.set_session(trace)
     repeat_queries: list[str] = []   # advisory: the model re-ran a search
     server_inputs: dict[str, dict] = {}   # server_tool_use id -> input (queries)
@@ -672,6 +690,7 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
 
     nudged = False
     continue_nudges = 0
+    resolution_nudges = 0
     final_text = ""
     container_id = None
     stop_reason = "not_started"
@@ -805,6 +824,21 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
             messages.append({"role": "user", "content": "Continue — this is your next turn; the tool "
                              "limits have reset. Keep working through your instructions."})
             continue
+        if (response.stop_reason == "end_turn" and not has_tool_calls and deep and todo_venues
+                and resolution_nudges < 1 and meter.dollars < budget_usd):
+            # Deep-session contract: every TODO venue ends in a save of a show
+            # on view NOW or a log_skip. An upcoming-only save (1301PE) or a
+            # venue the model simply forgot gets one more turn.
+            pending_v = trace.unresolved(todo_venues)
+            if pending_v:
+                resolution_nudges += 1
+                print(f"  [{city_key}] {len(pending_v)} TODO venue(s) unresolved; nudging")
+                tools.log_event({"session": meter.label, "city": city_key, "kind": "resolution_nudge",
+                                 "venues": [{"name": v["name"], "status": st}
+                                            for v, st in pending_v][:20]})
+                messages.append({"role": "assistant", "content": response.content})
+                messages.append({"role": "user", "content": _resolution_nudge_text(pending_v)})
+                continue
         if response.stop_reason != "tool_use" and not (cut_off and has_tool_calls):
             break  # end_turn (or max_tokens with nothing to execute) — session over
         # A max_tokens response still carries every complete tool_use block the
@@ -870,6 +904,8 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
     shows_added = shows_total - shows_before
     tools.log_event({"session": meter.label, "city": city_key, "kind": "session_end",
                      "stop_reason": stop_reason, "shows_added": shows_added,
-                     "cost_usd": round(meter.dollars, 4)})
+                     "cost_usd": round(meter.dollars, 4),
+                     "unresolved": ([v["name"] for v, _ in trace.unresolved(todo_venues)]
+                                    if (deep and todo_venues) else None)})
     return {"city": city_key, "shows_saved": shows_total, "shows_added": shows_added,
             "final_message": final_text, "stop_reason": stop_reason, **meter.summary()}

@@ -1,0 +1,1147 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1788361596,
+  "zones": [
+    "Downtown/Arts District",
+    "Chinatown/East LA",
+    "Los Feliz/NELA",
+    "Hollywood",
+    "West Hollywood/Fairfax",
+    "Beverly Hills",
+    "Mid-Wilshire/Koreatown",
+    "Culver City/West Adams",
+    "Santa Monica/Venice",
+    "Westside/Brentwood",
+    "South LA/Inglewood",
+    "Pasadena/San Gabriel"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": null,
+    "session_todo": 6,
+    "session_budget": 3.0,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 6,
+    "stagger": 20.0,
+    "total_budget": 30.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": true,
+    "only_venues_with_saves": false,
+    "venue_ids": null,
+    "force_due": false,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 8000,
+    "effort": "medium",
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": false
+  },
+  "updated_ts": 1788362802,
+  "queue": {
+    "Downtown/Arts District": {
+      "zone": "Downtown/Arts District",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 6,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Chinatown/East LA": {
+      "zone": "Chinatown/East LA",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 6,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Los Feliz/NELA": {
+      "zone": "Los Feliz/NELA",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 5,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Hollywood": {
+      "zone": "Hollywood",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 6,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "West Hollywood/Fairfax": {
+      "zone": "West Hollywood/Fairfax",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Beverly Hills": {
+      "zone": "Beverly Hills",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Mid-Wilshire/Koreatown": {
+      "zone": "Mid-Wilshire/Koreatown",
+      "order": 6,
+      "due": 0,
+      "sessions_run": 6,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Culver City/West Adams": {
+      "zone": "Culver City/West Adams",
+      "order": 7,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Santa Monica/Venice": {
+      "zone": "Santa Monica/Venice",
+      "order": 8,
+      "due": 0,
+      "sessions_run": 4,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Westside/Brentwood": {
+      "zone": "Westside/Brentwood",
+      "order": 9,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "South LA/Inglewood": {
+      "zone": "South LA/Inglewood",
+      "order": 10,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Pasadena/San Gabriel": {
+      "zone": "Pasadena/San Gabriel",
+      "order": 11,
+      "due": 0,
+      "sessions_run": 10,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "max_sessions"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788361597",
+      "venue_ids": [
+        "ces",
+        "ibid-gallery-ibid-projects-la",
+        "lala",
+        "little-big-man",
+        "los-angeles-center-for-digital-art",
+        "norbertellen"
+      ],
+      "started_ts": 1788361597,
+      "ended_ts": 1788361764
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 1,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788361637",
+      "venue_ids": [
+        "one-trick-pony",
+        "unrepd",
+        "nazarian-curcio",
+        "ochi",
+        "rajiv-menon-contemporary",
+        "regen-projects"
+      ],
+      "started_ts": 1788361637,
+      "ended_ts": 1788361800
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788361697",
+      "venue_ids": [
+        "north-loop-west",
+        "coagula-curatorial",
+        "nous-tous",
+        "foyer-la",
+        "keystone-art-space",
+        "wonzimer"
+      ],
+      "started_ts": 1788361697,
+      "ended_ts": 1788361820
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 1,
+      "todo": 6,
+      "saved": 4,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1788361617",
+      "venue_ids": [
+        "vdl",
+        "heavy-manners-library",
+        "la-loma-projects",
+        "smart-objects",
+        "yart-yard-art",
+        "avenue-50-studio"
+      ],
+      "started_ts": 1788361617,
+      "ended_ts": 1788361861
+    },
+    {
+      "stage": "scrape",
+      "zone": "Santa Monica/Venice",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-santa-monica-venice-1788361800",
+      "venue_ids": [
+        "green-bus-artspace-e2-artspace",
+        "ten-women",
+        "craig-krull",
+        "nuart",
+        "richard-heller",
+        "alov-art"
+      ],
+      "started_ts": 1788361800,
+      "ended_ts": 1788361911
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 1,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788361657",
+      "venue_ids": [
+        "o-town-house",
+        "perrotin",
+        "poetic-research-bureau",
+        "roberts-projects-la",
+        "spruth-magers",
+        "wilshire-art"
+      ],
+      "started_ts": 1788361657,
+      "ended_ts": 1788361931
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Hollywood/Fairfax",
+      "session": 1,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-west-hollywood-fairfax-1788361764",
+      "venue_ids": [
+        "helen-j",
+        "babst",
+        "megan-mulrooney",
+        "839",
+        "art-angels",
+        "denenberg-fine-arts-co"
+      ],
+      "started_ts": 1788361764,
+      "ended_ts": 1788361958
+    },
+    {
+      "stage": "scrape",
+      "zone": "Westside/Brentwood",
+      "session": 1,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-westside-brentwood-1788361911",
+      "venue_ids": [
+        "new-wight",
+        "d2-art-westwood",
+        "los-angeles-fine-arts-and-wine-storage-company"
+      ],
+      "started_ts": 1788361911,
+      "ended_ts": 1788361962
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 1,
+      "todo": 6,
+      "saved": 3,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788361677",
+      "venue_ids": [
+        "artworks",
+        "city-hall-lobby-art",
+        "fulcrum-arts",
+        "gallery-nucleus",
+        "gamble-house",
+        "h-foundation-for-the-arts"
+      ],
+      "started_ts": 1788361677,
+      "ended_ts": 1788361963
+    },
+    {
+      "stage": "scrape",
+      "zone": "Beverly Hills",
+      "session": 1,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-beverly-hills-1788361931",
+      "venue_ids": [
+        "art-one-gallery-s-official-website",
+        "michael-werner"
+      ],
+      "started_ts": 1788361931,
+      "ended_ts": 1788361979
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 2,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788361958",
+      "venue_ids": [
+        "phantom-galleries-l-a",
+        "spring-arts-collective",
+        "aabee-bleue-project",
+        "as-is-la",
+        "gallery-at-redcat",
+        "hauser-and-wirth"
+      ],
+      "started_ts": 1788361958,
+      "ended_ts": 1788362074
+    },
+    {
+      "stage": "scrape",
+      "zone": "Culver City/West Adams",
+      "session": 1,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-culver-city-west-adams-1788361861",
+      "venue_ids": [
+        "billis-williams",
+        "currency-exchange",
+        "harkawik",
+        "landing",
+        "st-elmo-village",
+        "ysasi"
+      ],
+      "started_ts": 1788361861,
+      "ended_ts": 1788362083
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 2,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788361963",
+      "venue_ids": [
+        "sebastian-gladstone",
+        "tyler-park-presents",
+        "aran-cravey",
+        "charlotte-call",
+        "earl",
+        "ehrlich-steinberg"
+      ],
+      "started_ts": 1788361963,
+      "ended_ts": 1788362083
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 2,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1788361962",
+      "venue_ids": [
+        "vdl",
+        "brand-library-and-art-center",
+        "clockshop",
+        "dominique-porter",
+        "forest-lawn-museum",
+        "ggla"
+      ],
+      "started_ts": 1788361962,
+      "ended_ts": 1788362095
+    },
+    {
+      "stage": "scrape",
+      "zone": "South LA/Inglewood",
+      "session": 1,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-south-la-inglewood-1788361821",
+      "venue_ids": [
+        "d2-art",
+        "serious-topics",
+        "african-american-cultural-center-soppaac",
+        "aziz-gallerie",
+        "residency-art",
+        "new-wing-of-nhm"
+      ],
+      "started_ts": 1788361821,
+      "ended_ts": 1788362104
+    },
+    {
+      "stage": "scrape",
+      "zone": "South LA/Inglewood",
+      "session": 2,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-south-la-inglewood-1788362104",
+      "venue_ids": [
+        "space-shuttle-endeavour",
+        "art-practice"
+      ],
+      "started_ts": 1788362104,
+      "ended_ts": 1788362178
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 2,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788361979",
+      "venue_ids": [
+        "artlounge-collective",
+        "lee-and-lee",
+        "1301-pe",
+        "david-kordansky",
+        "korean-cultural-center-los-angeles-kccla",
+        "marciano-art-foundation"
+      ],
+      "started_ts": 1788361979,
+      "ended_ts": 1788362189
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Hollywood/Fairfax",
+      "session": 2,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-west-hollywood-fairfax-1788362083",
+      "venue_ids": [
+        "edward-cella-art-and-architecture",
+        "hostler-burrows",
+        "libertine",
+        "maryam-taba-studios",
+        "meliksetian-briggs",
+        "phillips-los-angeles"
+      ],
+      "started_ts": 1788362083,
+      "ended_ts": 1788362205
+    },
+    {
+      "stage": "scrape",
+      "zone": "Culver City/West Adams",
+      "session": 2,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-culver-city-west-adams-1788362178",
+      "venue_ids": [
+        "r-and-company-la"
+      ],
+      "started_ts": 1788362178,
+      "ended_ts": 1788362212
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 2,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362074",
+      "venue_ids": [
+        "jinks",
+        "shumei-hall",
+        "simchowitz-pasadena",
+        "vander-molen",
+        "vincent-price-art-museum",
+        "amphi"
+      ],
+      "started_ts": 1788362074,
+      "ended_ts": 1788362215
+    },
+    {
+      "stage": "scrape",
+      "zone": "Beverly Hills",
+      "session": 2,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-beverly-hills-1788362189",
+      "venue_ids": [
+        "art-one-gallery-s-official-website"
+      ],
+      "started_ts": 1788362189,
+      "ended_ts": 1788362224
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 3,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1788362212",
+      "venue_ids": [
+        "ggla-guerrero",
+        "la-luz-de-jesus",
+        "mek-contemporary",
+        "pit",
+        "3-d-space",
+        "adjunct-positions"
+      ],
+      "started_ts": 1788362212,
+      "ended_ts": 1788362307
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 3,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788362205",
+      "venue_ids": [
+        "spring-arts-collective",
+        "ica-la-institute-of-contemporary-art-los-angeles",
+        "japanese-american-cultural-and-community-center-jaccc-george",
+        "luis-de-jesus-los-angeles",
+        "night",
+        "advocartsy-dtla"
+      ],
+      "started_ts": 1788362205,
+      "ended_ts": 1788362313
+    },
+    {
+      "stage": "scrape",
+      "zone": "Santa Monica/Venice",
+      "session": 2,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-los-angeles-santa-monica-venice-1788362095",
+      "venue_ids": [
+        "art-client-services",
+        "leisure-piece",
+        "craig-krull",
+        "santa-monica-city",
+        "sparc-social-and-public-art-resource-center",
+        "copro"
+      ],
+      "started_ts": 1788362095,
+      "ended_ts": 1788362336
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Hollywood/Fairfax",
+      "session": 3,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-west-hollywood-fairfax-1788362313",
+      "venue_ids": [
+        "so-too",
+        "stroll-garden"
+      ],
+      "started_ts": 1788362313,
+      "ended_ts": 1788362350
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 2,
+      "todo": 6,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788362083",
+      "venue_ids": [
+        "north-loop-west",
+        "actual-size-los-angeles",
+        "ambient-occlusion-desired-paths",
+        "as-it-stands",
+        "leiminspace",
+        "seasons"
+      ],
+      "started_ts": 1788362083,
+      "ended_ts": 1788362357
+    },
+    {
+      "stage": "scrape",
+      "zone": "Santa Monica/Venice",
+      "session": 3,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-santa-monica-venice-1788362336",
+      "venue_ids": [
+        "craig-krull",
+        "copro"
+      ],
+      "started_ts": 1788362336,
+      "ended_ts": 1788362378
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 3,
+      "todo": 6,
+      "saved": 5,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788362215",
+      "venue_ids": [
+        "frankfurt-ordorica",
+        "gobi",
+        "japan-house-los-angeles",
+        "jonas-lund",
+        "launch-la",
+        "matthew-brown"
+      ],
+      "started_ts": 1788362215,
+      "ended_ts": 1788362386
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 3,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788362224",
+      "venue_ids": [
+        "official-welcome",
+        "pace",
+        "roberts-projects",
+        "art-and-living",
+        "new-low",
+        "gallery-do-arte"
+      ],
+      "started_ts": 1788362224,
+      "ended_ts": 1788362411
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 3,
+      "todo": 5,
+      "saved": 2,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362307",
+      "venue_ids": [
+        "vpam",
+        "california-art-club",
+        "sigrid-burton",
+        "vincent-price-art-museum",
+        "boone-art-gallery-pasadena-city-college"
+      ],
+      "started_ts": 1788362307,
+      "ended_ts": 1788362423
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 4,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788362350",
+      "venue_ids": [
+        "art-space-114",
+        "beach",
+        "jimin-the-truth-untold-exhibition",
+        "ladies-room",
+        "mateo-studio",
+        "miguel-osuna-art-studio"
+      ],
+      "started_ts": 1788362350,
+      "ended_ts": 1788362460
+    },
+    {
+      "stage": "scrape",
+      "zone": "Santa Monica/Venice",
+      "session": 4,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-santa-monica-venice-1788362423",
+      "venue_ids": [
+        "copro"
+      ],
+      "started_ts": 1788362423,
+      "ended_ts": 1788362474
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 4,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362460",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362460,
+      "ended_ts": 1788362483
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 5,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362484",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362484,
+      "ended_ts": 1788362496
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 6,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362496",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362496,
+      "ended_ts": 1788362512
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 7,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362512",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362512,
+      "ended_ts": 1788362526
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 4,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788362411",
+      "venue_ids": [
+        "new-low",
+        "official-welcome",
+        "korean-cultural-center-los-angeles-kccla"
+      ],
+      "started_ts": 1788362411,
+      "ended_ts": 1788362539
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 8,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362526",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362526,
+      "ended_ts": 1788362539
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 3,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788362357",
+      "venue_ids": [
+        "timeshare",
+        "mutmuz",
+        "as-it-stands",
+        "wonzimer"
+      ],
+      "started_ts": 1788362357,
+      "ended_ts": 1788362547
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 9,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362539",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362539,
+      "ended_ts": 1788362554
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pasadena/San Gabriel",
+      "session": 10,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-pasadena-san-gabriel-1788362554",
+      "venue_ids": [
+        "vincent-price-art-museum"
+      ],
+      "started_ts": 1788362554,
+      "ended_ts": 1788362567
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 4,
+      "todo": 5,
+      "saved": 1,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788362386",
+      "venue_ids": [
+        "chris-sharp",
+        "jeni-abramson",
+        "launch-la",
+        "brick-formerly-laxart",
+        "diane-rosenstein"
+      ],
+      "started_ts": 1788362386,
+      "ended_ts": 1788362588
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 4,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788362547",
+      "venue_ids": [
+        "wonzimer",
+        "mutmuz"
+      ],
+      "started_ts": 1788362547,
+      "ended_ts": 1788362607
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 5,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788362474",
+      "venue_ids": [
+        "paper-agency",
+        "peimbert-art",
+        "q-pop-shop",
+        "tooneyverse",
+        "water-and-power",
+        "webber"
+      ],
+      "started_ts": 1788362474,
+      "ended_ts": 1788362607
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 4,
+      "todo": 6,
+      "saved": 3,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1788362378",
+      "venue_ids": [
+        "armenian-arts",
+        "atla",
+        "face-guts",
+        "soot",
+        "tom-of-finland-house",
+        "winslow-garage"
+      ],
+      "started_ts": 1788362378,
+      "ended_ts": 1788362610
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 5,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788362539",
+      "venue_ids": [
+        "new-low",
+        "official-welcome",
+        "korean-cultural-center-los-angeles-kccla"
+      ],
+      "started_ts": 1788362539,
+      "ended_ts": 1788362633
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 5,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788362588",
+      "venue_ids": [
+        "launch-la",
+        "diane-rosenstein"
+      ],
+      "started_ts": 1788362588,
+      "ended_ts": 1788362640
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 5,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788362607",
+      "venue_ids": [
+        "wonzimer",
+        "mutmuz"
+      ],
+      "started_ts": 1788362607,
+      "ended_ts": 1788362677
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 6,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788362640",
+      "venue_ids": [
+        "launch-la",
+        "diane-rosenstein"
+      ],
+      "started_ts": 1788362640,
+      "ended_ts": 1788362688
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 6,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1788362633",
+      "venue_ids": [
+        "new-low",
+        "official-welcome",
+        "korean-cultural-center-los-angeles-kccla"
+      ],
+      "started_ts": 1788362633,
+      "ended_ts": 1788362706
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 6,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1788362677",
+      "venue_ids": [
+        "wonzimer",
+        "mutmuz"
+      ],
+      "started_ts": 1788362677,
+      "ended_ts": 1788362725
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 6,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788362607",
+      "venue_ids": [
+        "aabee-bleue-project",
+        "art-space-114",
+        "art-share-l-a",
+        "tiger-strikes-asteroid",
+        "canary-test",
+        "francois-ghebaly"
+      ],
+      "started_ts": 1788362607,
+      "ended_ts": 1788362739
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 5,
+      "todo": 4,
+      "saved": 1,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1788362610",
+      "venue_ids": [
+        "ace-121",
+        "los-angeles-municipal-art-gallery-lamag",
+        "avenue-50-studio",
+        "oxy-arts-occidental-college"
+      ],
+      "started_ts": 1788362610,
+      "ended_ts": 1788362770
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 7,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1788362739",
+      "venue_ids": [
+        "aabee-bleue-project",
+        "art-space-114",
+        "canary-test"
+      ],
+      "started_ts": 1788362739,
+      "ended_ts": 1788362802
+    }
+  ]
+}

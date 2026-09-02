@@ -150,6 +150,16 @@ class ProgressAndMessageTests(TempContent):
         self.assertIn("render_fetch", msg)
         self.assertNotIn("SAVED VENUES", msg)
         self.assertIn("one save_show per show", msg)
+        self.assertIn("UPCOMING show does not resolve", msg)
+
+    def test_todo_message_flags_upcoming_only_venue(self):
+        msg = run_scrape.format_todo_message("Los Angeles", "Mid-Wilshire/Koreatown", [
+            {"name": "1301PE", "website": "https://www.1301pe.com", "kind": "gallery",
+             "already_saved": [{"title": "As the Moonbird Flies", "artist": None,
+                                "start": "2099-09-25", "end": "2099-11-07"}]},
+        ])
+        self.assertIn("(UPCOMING, opens 2099-09-25)", msg)
+        self.assertIn("nothing CURRENT is saved here", msg)
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@ import argparse
 import json
 import os
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -80,18 +81,36 @@ def format_todo_message(city_display: str, zone: str, venues: list[dict],
         line = f"{i}. {' — '.join(bits)}{kind}" + (" " + " ".join(tags) if tags else "")
         saved = v.get("already_saved") or []
         if saved:
-            shown = "; ".join(
-                f"\"{x.get('title')}\"" + (f" ({x['artist']})" if x.get("artist") else "")
-                + (f" through {x['end']}" if x.get("end") else "")
-                for x in saved)
+            today = date.today().isoformat()
+
+            def _fmt(x: dict) -> str:
+                s = f"\"{x.get('title')}\"" + (f" ({x['artist']})" if x.get("artist") else "")
+                if x.get("start") and x["start"] > today:
+                    return s + f" (UPCOMING, opens {x['start']})"
+                return s + (f" through {x['end']}" if x.get("end") else "")
+
+            shown = "; ".join(_fmt(x) for x in saved)
             line += (f"\n   already saved here: {shown} — do not re-save; save any OTHER "
                      "current or upcoming show this venue lists")
+            if not any(not x.get("start") or x["start"] <= today for x in saved):
+                line += ("\n   nothing CURRENT is saved here — find the show on view NOW; if the "
+                         "venue is between shows, log_skip closed_or_between_shows with the "
+                         "opening date")
         lines.append(line)
     return (f"Work your TODO list for the {zone} zone of {city_display}.\n\n"
             "TODO — attempt each of these venues this session, in order:\n"
             + "\n".join(lines)
-            + "\n\nEvery TODO venue must end in at least one save_show or exactly one "
-              "log_skip. A venue with several concurrent exhibitions gets one save_show per show.")
+            + "\n\nEvery TODO venue must end in at least one save_show of a show on view NOW, "
+              "or exactly one log_skip. Saving only an UPCOMING show does not resolve a venue — "
+              "also log_skip it closed_or_between_shows with the opening date. A venue with "
+              "several concurrent exhibitions gets one save_show per show.")
+
+
+def todo_venue_keys(venues: list[dict]) -> list[dict]:
+    """{name, key, venue_id} per TODO venue for the harness's end-of-session
+    resolution check (venues.SessionTrace.unresolved)."""
+    return [{"name": v["name"], "key": tools._norm_venue(v["name"]),
+             "venue_id": v.get("venue_id")} for v in venues]
 
 
 def main() -> None:
@@ -216,6 +235,7 @@ def main() -> None:
                 neighborhoods=[todo["zone"]],
                 deep=True, first_user_message=msg,
                 keyword_signals=args.keyword_signals,
+                todo_venues=todo_venue_keys(venues),
                 **common,
             )
         else:

@@ -258,16 +258,22 @@ def merge_patch(v: dict, patch: dict) -> dict:
 
 
 def _upsert_in(reg: dict, name: str, patch: dict, source: str,
-               website: str | None = None) -> tuple[dict, bool]:
+               website: str | None = None,
+               protect_existing: tuple[str, ...] = ()) -> tuple[dict, bool]:
     """Find (id/alias/domain) or create inside an already-loaded registry,
-    merge the patch, record the source. Returns (venue, created)."""
+    merge the patch, record the source. Returns (venue, created).
+    `protect_existing`: keys dropped from the patch when the venue already
+    exists (seeding must never reset a scheduled venue's status/next_check)."""
     v = find_venue(reg, name, website or patch.get("website"))
     created = v is None
     if created:
         v = empty_venue(venue_id(name), name)
         reg["venues"].append(v)
-    elif name != v["name"] and name not in v["aliases"]:
-        v["aliases"].append(name)
+    else:
+        if name != v["name"] and name not in v["aliases"]:
+            v["aliases"].append(name)
+        if protect_existing:
+            patch = {k: val for k, val in patch.items() if k not in protect_existing}
     merge_patch(v, patch)
     tb = v.setdefault("sources", {}).setdefault("touched_by", [])
     if source not in tb:
@@ -283,14 +289,17 @@ def upsert(city: str, name: str, patch: dict, source: str,
         return json.loads(json.dumps(v))
 
 
-def bulk_upsert(city: str, rows: list[dict]) -> dict:
+def bulk_upsert(city: str, rows: list[dict], protect_existing: tuple[str, ...] = ()) -> dict:
     """Upsert many venues under ONE lock. rows: [{"name", "patch", "source",
-    "website"?}]. Returns {"new": [ids], "updated": [ids]} in row order."""
+    "website"?}]. Returns {"new": [ids], "updated": [ids]} in row order.
+    `protect_existing` keys are never written onto a venue that already exists
+    (resolved against the LOCKED on-disk registry, not a caller's stale copy)."""
     out: dict[str, list[str]] = {"new": [], "updated": []}
     with locked_registry(city) as reg:
         for r in rows:
             v, created = _upsert_in(reg, r["name"], r.get("patch") or {},
-                                    r.get("source", "seed"), r.get("website"))
+                                    r.get("source", "seed"), r.get("website"),
+                                    protect_existing=protect_existing)
             out["new" if created else "updated"].append(v["id"])
     return out
 
@@ -362,6 +371,28 @@ def active_show(v: dict, today: date | None = None) -> dict | None:
     return live[0] if live else None
 
 
+def current_shows(v: dict, today: date | None = None) -> list[dict]:
+    """Live shows that have OPENED (start <= today; a null start counts as
+    open). A venue whose only live show is upcoming has nothing on view yet."""
+    today = today or date.today()
+    return [s for s in active_shows(v, today) if (_parse_date(s.get("start")) or today) <= today]
+
+
+def upcoming_shows(v: dict, today: date | None = None) -> list[dict]:
+    """Live shows that have not opened yet (start > today)."""
+    today = today or date.today()
+    return [s for s in active_shows(v, today) if (_parse_date(s.get("start")) or today) > today]
+
+
+def future_only_saved(v: dict, today: date | None = None) -> bool:
+    """Every save at this venue is UPCOMING and the last session ended on a
+    save — no log_skip said what is on view now, so its current state is
+    unconfirmed (the 1301PE miss: the current show was never looked for)."""
+    today = today or date.today()
+    return (not current_shows(v, today) and bool(upcoming_shows(v, today))
+            and v.get("last_outcome") == "saved")
+
+
 def compute_next_check(v: dict, today: date | None = None) -> date | None:
     """When this venue should next be looked at (None = never)."""
     today = today or date.today()
@@ -374,14 +405,29 @@ def compute_next_check(v: dict, today: date | None = None) -> date | None:
         return base + timedelta(days=90)
     if status == "appointment_only":
         return base + timedelta(days=120)
+    if future_only_saved(v, today):
+        # Only an upcoming show is saved and nothing said what is on view now:
+        # look again soon instead of snoozing until that show's turnover.
+        return max(base + timedelta(days=2), today + timedelta(days=1))
     show = active_show(v, today)
     if show:
         end = _parse_date(show.get("end"))
         by_cadence = base + timedelta(days=cadence_days(v))
-        return min(end - timedelta(days=2), by_cadence) if end else by_cadence
+        if not end:
+            return max(by_cadence, today + timedelta(days=1))
+        return min(_turnover_check(end, today), by_cadence)
     if not scraped:
         return today
-    return base + timedelta(days=cadence_days(v))
+    return max(base + timedelta(days=cadence_days(v)), today + timedelta(days=1))
+
+
+def _turnover_check(end: date, today: date) -> date:
+    """When to look at a venue whose show ends on `end`: two days before the
+    close, or — if that is already today or past — the day after it closes.
+    Never today: a check that lands on today re-queues the venue every
+    session (Copro was batched three times in one run)."""
+    d = end - timedelta(days=2)
+    return d if d > today else max(end + timedelta(days=1), today + timedelta(days=1))
 
 
 def parse_reopen_date(detail: str | None, today: date | None = None) -> date | None:
@@ -418,8 +464,14 @@ def apply_skip(v: dict, skip: dict, today: date | None = None) -> None:
         else:
             v["status"] = "active"
             reopen = parse_reopen_date(detail, today)
-            v["next_check"] = _iso(reopen - timedelta(days=3)) if reopen \
-                else _iso(today + timedelta(days=21))
+            if reopen and reopen - timedelta(days=3) > today:
+                v["next_check"] = _iso(reopen - timedelta(days=3))
+            elif reopen and reopen > today:
+                v["next_check"] = _iso(reopen + timedelta(days=1))   # opens within 3 days: look after
+            else:
+                # "reopened Sept 1 with only the permanent collection" parses to a
+                # date already past — that is not a reopening to wait for.
+                v["next_check"] = _iso(today + timedelta(days=21))
     elif reason == "appointment_only":
         v["status"] = "appointment_only"
         v["next_check"] = _iso(today + timedelta(days=120))
@@ -428,7 +480,10 @@ def apply_skip(v: dict, skip: dict, today: date | None = None) -> None:
         v["next_check"] = None
     elif reason == "unverifiable":
         v["status"] = v.get("status") if v.get("status") not in (None, "unknown") else "unknown"
-        v["next_check"] = _iso(today + timedelta(days=30))
+        # "The venue confirms a show but its dates are missing/JS-rendered" is
+        # a save waiting to happen (nullable dates): retry in a week, not a month.
+        retry = 7 if tools.confirmed_show_skip(detail) else 30
+        v["next_check"] = _iso(today + timedelta(days=retry))
         if re.search(r"javascript|js[- ]rendered|rendered|dynamic", detail, re.I):
             v.setdefault("page", {})["fetch_mode"] = "js"
     elif reason in ("no_image", "low_res_only"):
@@ -442,9 +497,13 @@ def apply_skip(v: dict, skip: dict, today: date | None = None) -> None:
         show = active_show(v, today)
         end = _parse_date(show.get("end")) if show else None
         v["status"] = "active"
-        v["next_check"] = _iso(end - timedelta(days=2)) if end else _iso(today + timedelta(days=14))
+        v["next_check"] = _iso(_turnover_check(end, today)) if end else _iso(today + timedelta(days=14))
     else:  # other
         v["next_check"] = _iso(today + timedelta(days=14))
+    # Safety net: a skip logged today must never leave the venue due today.
+    nxt = _parse_date(v.get("next_check"))
+    if nxt is not None and nxt <= today:
+        v["next_check"] = _iso(today + timedelta(days=1))
     if skip.get("url") and registrable_domain(skip["url"]) and \
             registrable_domain(skip["url"]) == registrable_domain(v.get("website")):
         merge_patch(v, {"exhibitions_url_candidates": [skip["url"]]})
@@ -458,12 +517,21 @@ PLAUSIBLE_VENUE_RE = re.compile(
 
 def seed_only_places(v: dict) -> bool:
     """True when Google Places is the venue's ONLY provenance — no curated
-    list, enumeration session, saved show or candidate hit backs it."""
+    list, enumeration session, saved show, candidate hit or a probe of its
+    own website (`sources.site`, seed_venues --vouch-parked) backs it."""
     src = v.get("sources") or {}
     seed = src.get("seed") or {}
     return bool(seed.get("places")) and not (
         seed.get("gpla") or seed.get("carla") or src.get("directory_session")
-        or src.get("shows") or src.get("candidate"))
+        or src.get("shows") or src.get("candidate") or src.get("site"))
+
+
+def curated_source(v: dict) -> bool:
+    """Backed by a curated list (Gallery Platform LA, Carla) or an LLM
+    enumeration of its zone — a real art venue by someone's judgement."""
+    src = v.get("sources") or {}
+    seed = src.get("seed") or {}
+    return bool(seed.get("gpla") or seed.get("carla") or src.get("directory_session"))
 
 
 def places_plausible(v: dict) -> bool:
@@ -515,6 +583,9 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
         past_due = nxt is not None and nxt <= today
         never = not scraped
         live = active_shows(v, today)
+        current = current_shows(v, today)
+        unconfirmed = future_only_saved(v, today)   # only upcoming saves, no skip
+        requeued = bool(v.get("requeue_reasons"))   # `venues.py requeue` cohorts
         soon_ends = [(_parse_date(x.get("end")) or today) for x in live
                      if (_parse_date(x.get("end")) or today) <= today + timedelta(days=7)]
         # A show's last week re-queues its venue ONCE: only if we have not
@@ -522,39 +593,57 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
         # yesterday must not be re-picked every session until the show ends).
         ending_soon = bool(soon_ends) and (
             not scraped or date.fromtimestamp(scraped) < min(soon_ends) - timedelta(days=7))
-        if not (never or nxt is None or past_due or changed or ending_soon):
+        if not (never or nxt is None or past_due or changed or ending_soon
+                or unconfirmed or requeued):
             continue
         pr, reasons = 0, []
         places_only = seed_only_places(v)
         if places_only and not include_places_only:
             continue
-        if never and places_only:
+        if never and places_only and not places_plausible(v):
             # Google Places alone is a weak signal (framers, studios, decor
-            # shops share its "art_gallery" type): scrape these last.
-            if not places_plausible(v):
-                continue
-            pr += 10; reasons.append("places_only")
-        elif never:
+            # shops share its "art_gallery" type); an implausible name parks it
+            # until another source vouches (seed_venues --vouch-parked).
+            continue
+        if never:
             pr += 40; reasons.append("never_scraped")
         if changed:
             if page.get("date_sig"):
                 pr += 30; reasons.append("dates_changed")
             else:
                 pr += 10; reasons.append("page_changed")
-        if not live:
-            pr += 25; reasons.append("no_active_show")
+        if unconfirmed:
+            # Only an upcoming show saved at a known gallery and nobody looked
+            # for the current one: as urgent as a never-scraped venue (+40),
+            # above freshly vouched unknowns.
+            pr += 40; reasons.append("future_only_saved")
+        elif not current:
+            pr += 25; reasons.append("no_current_show" if live else "no_active_show")
         if ending_soon:
             pr += 15; reasons.append("show_ending_soon")
         if past_due:
-            pr += 15; reasons.append("past_next_check")
+            # Ageing: a venue that keeps losing the race climbs 3/day (cap +15).
+            pr += 15 + min(15, 3 * (today - nxt).days); reasons.append("past_next_check")
         if v.get("status") == "candidate":
             pr += 20; reasons.append("candidate")
         if v.get("curation_flag"):
             pr += 15; reasons.append("curation_flag")
+        if requeued:
+            pr += 20; reasons.append("requeued")
+        last_skip = v.get("last_skip") or {}
+        if (last_skip.get("reason") == "unverifiable"
+                and tools.confirmed_show_skip(last_skip.get("detail"))):
+            pr += 20; reasons.append("retry_confirmed_show")
+        if curated_source(v):
+            pr += 10; reasons.append("curated_source")
         if v.get("tier") == 1:
             pr += 10
         elif v.get("tier") == 2:
             pr += 5
+        if never and places_only:
+            # Never let a Places-only unknown outrank any venue someone vouched
+            # for: they used to land at 50 and beat real galleries at 40.
+            pr = min(pr, 10); reasons.append("places_only")
         rec = dict(v)
         rec["_priority"], rec["_reasons"] = pr, reasons
         out.append(rec)
@@ -564,10 +653,18 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
 
 # --- URL attribution (learn each venue's exhibitions page for free) -------------
 
+NON_CURRENT_PATH_RE = re.compile(r"(future|upcoming|forthcoming|past|archive|previous)", re.I)
+
+
 def _path_score(url: str) -> tuple[int, str | None]:
     """(score, parent_candidate). 3 listing page, 2 exhibition-ish shallow page,
-    1 homepage, 0 detail page (its listing-like parent becomes a candidate)."""
+    1 homepage or a future/past-only page, 0 detail page (its listing-like
+    parent becomes a candidate)."""
     path = (urlparse(url).path or "/").rstrip("/") or "/"
+    if path != "/" and NON_CURRENT_PATH_RE.search(path):
+        # /future-exhibitions, /exhibitions/upcoming, /past: never the "what is
+        # on NOW" page — 1301PE's exhibitions_url got pinned to one of these.
+        return 1, None
     if LISTING_RE.search(path):
         return 3, None
     depth = path.count("/")
@@ -633,6 +730,54 @@ class SessionTrace:
         self.zone: str | None = None          # single-zone sessions: candidate zone hint
         self.seen_domains: set[str] = set()   # domains already considered as candidates
         self.current_key: str | None = None   # venue key of the last save (multi-show runs)
+        # Deep-session contract ledger: norm venue -> {name, current, upcoming,
+        # skip, venue_id, rejected_once}. A TODO venue is resolved by a save of
+        # a show on view NOW or a log_skip; an upcoming-only save is not.
+        self.resolutions: dict[str, dict] = {}
+        self.todo_venues: list[dict] = []     # [{name, key, venue_id}] this session's TODO
+
+    def todo_venue_id(self, name: str) -> str | None:
+        """The TODO venue a tool call names with a shortened or variant
+        spelling ('Art One Gallery' for the TODO's "Art One Gallery's Official
+        Website"): one TODO key that starts with, or is a prefix of, the
+        normalized name. None when ambiguous or unknown."""
+        key = tools._norm_venue(name)
+        if not key or len(key) < 4:
+            return None
+        hits = [t for t in self.todo_venues
+                if t.get("venue_id") and (t["key"] == key or t["key"].startswith(key + " ")
+                                          or key.startswith(t["key"] + " "))]
+        return hits[0]["venue_id"] if len(hits) == 1 else None
+
+    def resolution(self, name: str, venue_id: str | None = None) -> dict:
+        """Ledger entry for a venue, by normalized name, else by registry id
+        (the agent may spell a TODO venue differently)."""
+        key = tools._norm_venue(name)
+        r = self.resolutions.get(key)
+        if r is None and venue_id:
+            r = next((x for x in self.resolutions.values() if x.get("venue_id") == venue_id), None)
+        if r is None:
+            r = self.resolutions[key] = {"name": name, "current": 0, "upcoming": 0,
+                                         "skip": None, "venue_id": None, "rejected_once": False}
+        if venue_id and not r["venue_id"]:
+            r["venue_id"] = venue_id
+        return r
+
+    def unresolved(self, todo_venues: list[dict]) -> list[tuple[dict, str]]:
+        """TODO venues ({name, key, venue_id}) still open under the contract:
+        'nothing' (no save, no skip) or 'upcoming_only' (a future show saved,
+        nothing on view now recorded, no skip)."""
+        out = []
+        for v in todo_venues:
+            r = self.resolutions.get(v["key"])
+            if r is None and v.get("venue_id"):
+                r = next((x for x in self.resolutions.values()
+                          if x.get("venue_id") == v["venue_id"]), None)
+            if r is None or (not r["current"] and not r["upcoming"] and not r["skip"]):
+                out.append((v, "nothing"))
+            elif not r["current"] and not r["skip"]:
+                out.append((v, "upcoming_only"))
+        return out
 
     def add_url(self, url: str, kind: str) -> None:
         if isinstance(url, str) and url.startswith("http"):
@@ -977,10 +1122,18 @@ def on_save_show(record: dict, city: str, session: str | None,
             merge_patch(v, {"exhibitions_url_candidates": cands})
         v["last_scraped"] = int(time.time())
         v["last_outcome"] = "saved"
+        v.pop("requeue_reasons", None)
         v["scrape_history"].append({"ts": v["last_scraped"], "session": session,
                                     "outcome": "saved", "slug": record["slug"], **deltas})
         del v["scrape_history"][:-40]
-        v["next_check"] = _iso(compute_next_check(v, today))
+        skip = v.get("last_skip") or {}
+        if session and skip.get("session") == session and not current_shows(v, today):
+            # The agent already said what is on view now this session (e.g.
+            # log_skip closed_or_between_shows with a reopening date) and is
+            # adding an UPCOMING show: keep that outcome and schedule.
+            v["last_outcome"] = f"skipped:{skip.get('reason')}"
+        else:
+            v["next_check"] = _iso(compute_next_check(v, today))
         return v["id"]
 
 
@@ -989,11 +1142,19 @@ def on_log_skip(entry: dict, city: str, trace: SessionTrace | None) -> str | Non
     deltas = trace.advance() if trace else {}
     with locked_registry(city) as reg:
         v = find_venue(reg, entry["venue"], entry.get("url"))
+        if v is None and trace is not None:
+            # The agent shortened/renamed a TODO venue in its skip: land the
+            # skip on that record (else it would stay due and be re-picked).
+            tid = trace.todo_venue_id(entry["venue"])
+            v = index_by_id(reg).get(tid) if tid else None
+            if v is not None and entry["venue"] not in v["aliases"] and entry["venue"] != v["name"]:
+                v["aliases"].append(entry["venue"])
         if v is None:
             v = empty_venue(venue_id(entry["venue"]), entry["venue"])
             v["neighborhood"] = entry.get("neighborhood")
             reg["venues"].append(v)
         apply_skip(v, entry)
+        v.pop("requeue_reasons", None)
         if entry.get("reason") == "duplicate" and entry.get("url"):
             dom = registrable_domain(entry["url"])
             for other in reg["venues"]:
@@ -1068,3 +1229,85 @@ def on_crosscheck(city: str, venue_name: str, google: dict | None) -> None:
         if google.get("status") == "CLOSED_PERMANENTLY":
             v["status"] = "closed"
             v["next_check"] = _iso(compute_next_check(v))
+
+
+# --- requeue: deterministic cohorts from registry state (never from See Saw) ----
+
+def requeue_cohorts(city: str, today: date | None = None) -> dict[str, list[str]]:
+    """Venue ids whose own registry state says a re-visit is worth paying for:
+      future_only_saved     every save is UPCOMING and no skip said what is on now
+      retry_confirmed_show  last outcome 'unverifiable' although the page confirmed
+                            a show (dates missing / JS) — a save with nullable dates
+      single_save_backfill  exactly one current show at a non-gallery/museum kind
+                            (nonprofits, project spaces, universities — the old
+                            multi-show backfill only looked at galleries/museums)
+    """
+    today = today or date.today()
+    reg = load_registry(city)
+    out: dict[str, list[str]] = {"future_only_saved": [], "retry_confirmed_show": [],
+                                 "single_save_backfill": []}
+    for v in reg.get("venues", []):
+        if v.get("status") not in ("active", "unknown", None):
+            continue
+        if future_only_saved(v, today):
+            out["future_only_saved"].append(v["id"])
+        skip = v.get("last_skip") or {}
+        if (v.get("last_outcome") == "skipped:unverifiable"
+                and tools.confirmed_show_skip(skip.get("detail"))):
+            out["retry_confirmed_show"].append(v["id"])
+        recent_unchanged = (v.get("last_outcome") == "skipped:unchanged"
+                            and (v.get("last_scraped") or 0) > time.time() - 7 * 86400)
+        if (v.get("kind") not in ("gallery", "museum") and len(current_shows(v, today)) == 1
+                and not recent_unchanged):
+            out["single_save_backfill"].append(v["id"])
+    return out
+
+
+def apply_requeue(city: str, cohorts: dict[str, list[str]], today: date | None = None) -> int:
+    """next_check = today + `requeue_reasons` for every cohort member (+20 in
+    due_venues); the venue's next save/skip hook clears the tag. Returns the
+    number of venues touched."""
+    today = today or date.today()
+    by_id: dict[str, set[str]] = {}
+    for reason, ids in cohorts.items():
+        for vid in ids:
+            by_id.setdefault(vid, set()).add(reason)
+    n = 0
+    with locked_registry(city) as reg:
+        for v in reg["venues"]:
+            reasons = by_id.get(v["id"])
+            if not reasons:
+                continue
+            v["next_check"] = _iso(today)
+            v["requeue_reasons"] = sorted(set(v.get("requeue_reasons") or []) | reasons)
+            n += 1
+    return n
+
+
+def main() -> None:
+    import argparse
+    from cities import CITIES
+    ap = argparse.ArgumentParser(description="venue registry maintenance")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    rq = sub.add_parser("requeue", help="mark registry-derived cohorts due today (dry-run by default)")
+    rq.add_argument("--city", required=True, choices=sorted(CITIES))
+    rq.add_argument("--apply", action="store_true", help="write next_check/requeue_reasons")
+    rq.add_argument("--cohorts", default=None, help="comma subset of the cohort names")
+    args = ap.parse_args()
+    if args.cmd == "requeue":
+        cohorts = requeue_cohorts(args.city)
+        if args.cohorts:
+            keep = {c.strip() for c in args.cohorts.split(",")}
+            cohorts = {k: v for k, v in cohorts.items() if k in keep}
+        for k, ids in cohorts.items():
+            print(f"{k:22s} {len(ids):4d}  " + ", ".join(ids[:8]) + (" …" if len(ids) > 8 else ""))
+        union = {i for ids in cohorts.values() for i in ids}
+        print(f"{'total venues':22s} {len(union):4d}")
+        if args.apply:
+            print(f"requeued {apply_requeue(args.city, cohorts)} venue(s): next_check = today")
+        else:
+            print("dry run — pass --apply to write")
+
+
+if __name__ == "__main__":
+    main()

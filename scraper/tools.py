@@ -55,6 +55,22 @@ def set_session(trace) -> None:
     SESSION = trace
 
 
+def _note_resolution(name: str, bucket: str, reason: str | None = None,
+                     venue_id: str | None = None) -> dict | None:
+    """Record a save ('current' / 'upcoming') or a skip in the session's
+    venue-resolution ledger (venues.SessionTrace.resolutions). Deliberately
+    NOT behind _registry_hook: sandbox A/B sessions keep the contract too.
+    No-op outside a session (CLI tools, tests)."""
+    if SESSION is None or not hasattr(SESSION, "resolution"):
+        return None
+    r = SESSION.resolution(name, venue_id)
+    if bucket == "skip":
+        r["skip"] = reason
+    else:
+        r[bucket] += 1
+    return r
+
+
 def _registry_hook(fn_name: str, *args, **kwargs):
     """Call venues.<fn_name> without letting registry trouble break a save.
     No-op in A/B sandbox mode (registry is real-data only)."""
@@ -621,6 +637,18 @@ EVENTS_FILE = CONTENT_DIR / "spend" / "session_events.jsonl"
 SKIP_REASONS = ["no_image", "low_res_only", "unverifiable", "closed_or_between_shows",
                 "appointment_only", "out_of_scope", "duplicate", "unchanged", "other"]
 
+# 'unverifiable' misuse: the venue's own page CONFIRMS a show but its dates
+# are missing or JS-rendered. With nullable dates that is a save (end_date
+# null + dates_note), not a skip — the handler pushes back once, and the
+# scheduler retries such venues in a week instead of a month.
+_UNVERIFIABLE_CLAIM_RE = re.compile(r"(confirm|current(ly)?|on view|on-view)", re.I)
+_UNVERIFIABLE_DATES_RE = re.compile(r"(date|javascript|js\b|render|dynamic)", re.I)
+
+
+def confirmed_show_skip(detail: str | None) -> bool:
+    d = detail or ""
+    return bool(_UNVERIFIABLE_CLAIM_RE.search(d) and _UNVERIFIABLE_DATES_RE.search(d))
+
 
 def _append_jsonl(path: Path, entry: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -646,7 +674,7 @@ LOG_SKIP_SCHEMA = {
         "neighborhood": {"type": "string", "description": "The zone you are working"},
         "reason": {
             "type": "string", "enum": SKIP_REASONS,
-            "description": "no_image: no downloadable image at all; low_res_only: images exist but none reach 500px wide; unverifiable: venue/show could not be confirmed on any primary source even after render_fetch — NOT for shows the venue's own site confirms but without exact dates (save those with end_date null + dates_note); closed_or_between_shows: venue operating but nothing on view and no confirmed upcoming show; appointment_only: no public walk-in hours; out_of_scope: not an art-viewing venue (or outside this city's scope); duplicate: this TODO venue is the same physical space as a venue already on the list/saved under another name; unchanged: every current show at this venue is already saved with the same dates; other: explain in detail",
+            "description": "no_image: no downloadable image at all; low_res_only: images exist but none reach 500px wide; unverifiable: venue/show could not be confirmed on any primary source even after render_fetch — NOT for shows the venue's own site confirms but without exact dates (save those with end_date null + dates_note); closed_or_between_shows: venue operating but nothing on view NOW (use it too after saving a venue's only UPCOMING show, noting the opening date); appointment_only: no public walk-in hours; out_of_scope: not an art-viewing venue (or outside this city's scope); duplicate: this TODO venue is the same physical space as a venue already on the list/saved under another name; unchanged: every current show at this venue is already saved with the same dates; other: explain in detail",
         },
         "detail": {"type": "string", "description": "One line of specifics: what you found and why it can't be saved (e.g. 'site shows Fall show opening Nov 14, beyond the 60-day horizon' or 'largest image on site is 400px')"},
         "url": {"type": ["string", "null"], "description": "Most relevant URL you checked, or null"},
@@ -668,6 +696,18 @@ def log_skip(args: dict, city_key: str, session: str) -> str:
     if reason not in SKIP_REASONS:
         detail = f"[reason given: {reason}] {detail}"
         reason = "other"
+    if reason == "unverifiable" and SESSION is not None and confirmed_show_skip(detail):
+        r = SESSION.resolution(args["venue"])
+        if not r["rejected_once"]:
+            r["rejected_once"] = True   # push back once per venue; never loop
+            raise ValueError(
+                "Not logged: 'unverifiable' is not for a show the venue's own page confirms "
+                "but whose dates are missing or JS-rendered. If the page confirms the show is "
+                "on view now (or gives its opening date), save_show it with end_date null "
+                "(start_date null if unknown) and a dates_note quoting the page — run "
+                "render_fetch on that page first if you have not. Only if the show cannot be "
+                "confirmed on ANY primary source, call log_skip again with the same reason "
+                "and say so in detail.")
     url = args.get("url")
     entry = {
         "ts": int(time.time()), "session": session, "city": city_key,
@@ -676,7 +716,8 @@ def log_skip(args: dict, city_key: str, session: str) -> str:
         "url": url if isinstance(url, str) else None,
     }
     _append_jsonl(SKIPS_FILE, entry)
-    _registry_hook("on_log_skip", entry, city_key, SESSION)
+    vid = _registry_hook("on_log_skip", entry, city_key, SESSION)
+    _note_resolution(args["venue"], "skip", reason, venue_id=vid)
     return json.dumps({"result": "logged", "venue": args["venue"], "reason": reason})
 
 
@@ -1032,6 +1073,11 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         _write_shows_file(_pending_file(city_key), pending)
     _registry_hook("on_save_show", record, city_key,
                    getattr(SESSION, "label", None), SESSION, "pending")
+    # Contract ledger: a save only resolves its TODO venue when the show is on
+    # view NOW (null start counts as open); an upcoming show does not.
+    upcoming = start is not None and start > date.today()
+    _note_resolution(record["venue"]["name"], "upcoming" if upcoming else "current",
+                     venue_id=record.get("venue_id"))
     result = {"result": action,
               "queue": "pending verification (displayed only after a verify pass confirms it)",
               "shows_saved_for_city": len(main["shows"]) + len(pending["shows"])}
@@ -1045,6 +1091,10 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     if not dates_ok(record):
         result["dates_note"] = ("saved without exact dates; held in pending until a verify "
                                 "pass fills them (re-checked weekly) — no action needed now")
+    if upcoming:
+        result["venue_note"] = ("this is an UPCOMING show; the venue still needs its CURRENT "
+                                "show saved, or a log_skip closed_or_between_shows noting the "
+                                "opening date if nothing is on view now")
     return json.dumps(result)
 
 

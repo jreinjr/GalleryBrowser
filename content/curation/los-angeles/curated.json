@@ -1,0 +1,1614 @@
+{
+ "ts": 1788385220,
+ "city": "los-angeles",
+ "today": "2026-09-02",
+ "params_hash": "c9703353b073",
+ "params": {
+  "version": 1,
+  "city": "los-angeles",
+  "today": "2026-09-02",
+  "max_n": null,
+  "threshold": 0.22,
+  "max_per_venue": 2,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": false,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.04,
+   "judge": 0.44,
+   "venue": 0.14,
+   "artist_heat": 0.0,
+   "museum": -0.2,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.04,
+   "quality": 0.08
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.45
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "_note": "Fitted 2026-09-02 for COMPLETION + graded PRECISION against See Saw, using the 09-01 and 09-02 LA captures. Two goals at once: every show See Saw lists must survive the gates, and See Saw's shows must rank high with Featured above Editor's Picks above merely-listed. Target grades: Featured (union of both captures, 6 in pool) = 3, Editor's Picks not Featured (4) = 2, on All Current Shows only (15) = 1, everything else 0; scored by nDCG over those grades plus precision@k. RESULT: completion 25/25 (every in-pool See Saw show is in the feed), all 6 Featured and all 9 in-pool Editor's Picks in, nDCG@5 0.581, nDCG@10 0.717, nDCG@25 0.751, P@5 1.00, P@10 1.00 - the first ten feed slots are ten See Saw shows. Feed length 76. THE MUSEUM TRICK: exclude_museums is FALSE but the museum weight is -0.20. Completion requires museums, because See Saw lists The Broad's Yoko Ono; the negative weight keeps them in the feed while pushing them down (Yoko Ono lands at feed #30 despite a judge 9). This is what beat every galleries-only variant - a hard museum filter caps completion at 24/25. Note this DIFFERS from publish-la.json, where the user chose a hard galleries-only Featured tab on 2026-09-02; use that preset for the app unless you want museums back in. THE COST OF COMPLETION is the cutoff: threshold 0.22 is set by the single weakest See Saw show (Monte Vista Projects 'Moth To A Flame', judge 2/10, score 0.227), and carrying it means a 76-show feed. Tradeoff curve, same weights, measured through curate.rank with published_only and require_open on: thr 0.22 -> 76 shows, 25/25, Featured 6/6; 0.26 -> 59, 24/25, 6/6; 0.30 -> 40, 21/25, 6/6; 0.34 -> 28, 16/25, 6/6; 0.38 -> 21, 13/25, 5/6; 0.42 -> 10, 10/25, 4/6. All six Featured survive up to thr 0.34, so raise the threshold if you want a shorter feed and will accept losing the tail. Weights: judge 0.44 does the ranking (it is the only feature that separates See Saw's picks from the shows it passed over - see seesaw-taste.json's note for the per-feature AUCs); venue 0.14, quality 0.08, closing_soon 0.04, press 0.04 are small tie-breakers; artist_heat, wiki_heat, keyword and opening_recency are at or below chance on this target and stay zeroed. Requires full Sonnet judge coverage - judge new shows before scoring or they score near zero. HELD OUT: leave-one-venue-out (refit without a venue's shows, then score only that venue) gives mean 1/log2(1+position) 0.253 against 0.303 fitted, a +0.050 optimism gap. CAVEAT on the fit: the 09-01 and 09-02 captures resolve to the SAME 10-show taste set and the same 26-show list, so this is one sample of 25 positives, not two. It is not an out-of-sample validation. See Saw's Featured feed also carried a closed show (1301PE 'Lull Between Storms', ended June 13 per the gallery's own rendered site) at position 1 on both days, so the benchmark itself is not error-free."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "deitch-urs-fischer",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.49760052829230433,
+   "editors_pick": true
+  },
+  {
+   "slug": "marc-selwyn-wegman",
+   "rank": 2,
+   "featured_rank": 2,
+   "score": 0.48416000000000003,
+   "editors_pick": true
+  },
+  {
+   "slug": "the-page-before-me",
+   "rank": 5,
+   "featured_rank": 3,
+   "score": 0.46051842078250566,
+   "editors_pick": true
+  },
+  {
+   "slug": "lee-mullican-silent-shades",
+   "rank": 6,
+   "featured_rank": 4,
+   "score": 0.452,
+   "editors_pick": true
+  },
+  {
+   "slug": "art-practice-rahim-fortune",
+   "rank": 7,
+   "featured_rank": 5,
+   "score": 0.4477184207825057,
+   "editors_pick": true
+  },
+  {
+   "slug": "ghebaly-patrick-jackson-all-signs-fail",
+   "rank": 8,
+   "featured_rank": 6,
+   "score": 0.447,
+   "editors_pick": false
+  },
+  {
+   "slug": "ghebaly-alexis-smith-rapido",
+   "rank": 9,
+   "featured_rank": 7,
+   "score": 0.44252,
+   "editors_pick": false
+  },
+  {
+   "slug": "vielmetter-roberto-diago",
+   "rank": 10,
+   "featured_rank": 8,
+   "score": 0.43916000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "karma-dictation-from-the-other-side",
+   "rank": 13,
+   "featured_rank": 9,
+   "score": 0.43356000000000006,
+   "editors_pick": false
+  },
+  {
+   "slug": "bel-ami-cars-of-los-angeles",
+   "rank": 17,
+   "featured_rank": 10,
+   "score": 0.42800000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "oxy-arts-hold-each-others-hands",
+   "rank": 22,
+   "featured_rank": 11,
+   "score": 0.41738325623506306,
+   "editors_pick": false
+  },
+  {
+   "slug": "peter-fetterman-moriyama",
+   "rank": 24,
+   "featured_rank": 12,
+   "score": 0.40380000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "fahey-klein-witkin",
+   "rank": 25,
+   "featured_rank": 13,
+   "score": 0.403,
+   "editors_pick": false
+  },
+  {
+   "slug": "ira-gershwin-great-wall",
+   "rank": 26,
+   "featured_rank": 14,
+   "score": 0.40236,
+   "editors_pick": false
+  },
+  {
+   "slug": "karma-vanderlinden-fragmented-thought",
+   "rank": 28,
+   "featured_rank": 15,
+   "score": 0.3982,
+   "editors_pick": false
+  },
+  {
+   "slug": "canary-small-hours",
+   "rank": 33,
+   "featured_rank": 16,
+   "score": 0.39324000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "sparc-1980s-taste-bitter-fruit",
+   "rank": 34,
+   "featured_rank": 17,
+   "score": 0.391,
+   "editors_pick": false
+  },
+  {
+   "slug": "william-turner-moses100",
+   "rank": 35,
+   "featured_rank": 18,
+   "score": 0.3886,
+   "editors_pick": false
+  },
+  {
+   "slug": "fernberger-dorothy-hood",
+   "rank": 36,
+   "featured_rank": 19,
+   "score": 0.38748000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "moran-moran-tuazon",
+   "rank": 38,
+   "featured_rank": 20,
+   "score": 0.384,
+   "editors_pick": false
+  },
+  {
+   "slug": "vielmetter-ongoingness",
+   "rank": 40,
+   "featured_rank": 21,
+   "score": 0.38092000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "david-hicks-trophies",
+   "rank": 41,
+   "featured_rank": 22,
+   "score": 0.37648000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "kohn-object-poetry",
+   "rank": 42,
+   "featured_rank": 23,
+   "score": 0.37584,
+   "editors_pick": false
+  },
+  {
+   "slug": "marilyn-monroe-silent-life",
+   "rank": 52,
+   "featured_rank": 24,
+   "score": 0.35900000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "cordillera-mexicana-louis-stern",
+   "rank": 55,
+   "featured_rank": 25,
+   "score": 0.3582,
+   "editors_pick": false
+  },
+  {
+   "slug": "broad-yoko-ono",
+   "rank": 57,
+   "featured_rank": 26,
+   "score": 0.3566182392072367,
+   "editors_pick": false
+  },
+  {
+   "slug": "roger-herman-california-poppies",
+   "rank": 58,
+   "featured_rank": 27,
+   "score": 0.35436,
+   "editors_pick": false
+  },
+  {
+   "slug": "rusha-we-breathe-same-air",
+   "rank": 61,
+   "featured_rank": 28,
+   "score": 0.34188,
+   "editors_pick": false
+  },
+  {
+   "slug": "kinship-community",
+   "rank": 63,
+   "featured_rank": 29,
+   "score": 0.33996000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "bel-ami-the-woods",
+   "rank": 65,
+   "featured_rank": 30,
+   "score": 0.33520000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "brad-eberhard-building-an-audience",
+   "rank": 66,
+   "featured_rank": 31,
+   "score": 0.333905129659875,
+   "editors_pick": false
+  },
+  {
+   "slug": "to-share-a-stomach",
+   "rank": 67,
+   "featured_rank": 32,
+   "score": 0.33084,
+   "editors_pick": false
+  },
+  {
+   "slug": "nucleus-lorena-alvarez-gomez",
+   "rank": 77,
+   "featured_rank": 33,
+   "score": 0.315,
+   "editors_pick": false
+  },
+  {
+   "slug": "track16-john-collins",
+   "rank": 78,
+   "featured_rank": 34,
+   "score": 0.315,
+   "editors_pick": false
+  },
+  {
+   "slug": "luisotti-1911-sunset-boulevard",
+   "rank": 83,
+   "featured_rank": 35,
+   "score": 0.31228,
+   "editors_pick": false
+  },
+  {
+   "slug": "francis-summer-show",
+   "rank": 84,
+   "featured_rank": 36,
+   "score": 0.31164000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "leslie-sacks-focus-female",
+   "rank": 89,
+   "featured_rank": 37,
+   "score": 0.30828,
+   "editors_pick": false
+  },
+  {
+   "slug": "nucleus-portraits-wildly-polite",
+   "rank": 90,
+   "featured_rank": 38,
+   "score": 0.30732000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "mb-leo-mock",
+   "rank": 91,
+   "featured_rank": 39,
+   "score": 0.30332000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "thinkspace-grabelsky",
+   "rank": 93,
+   "featured_rank": 40,
+   "score": 0.30108,
+   "editors_pick": false
+  },
+  {
+   "slug": "pony-ma-bitter-sweet",
+   "rank": 94,
+   "featured_rank": 41,
+   "score": 0.29964,
+   "editors_pick": false
+  },
+  {
+   "slug": "artangels-marilyn-100",
+   "rank": 95,
+   "featured_rank": 42,
+   "score": 0.29724,
+   "editors_pick": false
+  },
+  {
+   "slug": "hammer-space-is-the-place",
+   "rank": 96,
+   "featured_rank": 43,
+   "score": 0.29504,
+   "editors_pick": false
+  },
+  {
+   "slug": "through-the-sun-cyrous",
+   "rank": 97,
+   "featured_rank": 44,
+   "score": 0.2936558316549867,
+   "editors_pick": false
+  },
+  {
+   "slug": "noon-projects-chaves",
+   "rank": 98,
+   "featured_rank": 45,
+   "score": 0.29333583165498667,
+   "editors_pick": false
+  },
+  {
+   "slug": "induction-hallauer",
+   "rank": 99,
+   "featured_rank": 46,
+   "score": 0.28988,
+   "editors_pick": false
+  },
+  {
+   "slug": "lola-surface-tension",
+   "rank": 103,
+   "featured_rank": 47,
+   "score": 0.28604,
+   "editors_pick": false
+  },
+  {
+   "slug": "caam-gordon-parks",
+   "rank": 104,
+   "featured_rank": 48,
+   "score": 0.28559999999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "tsa-la-to-witness-is-never-entirely-passive",
+   "rank": 111,
+   "featured_rank": 49,
+   "score": 0.2806,
+   "editors_pick": false
+  },
+  {
+   "slug": "corey-helford-20th",
+   "rank": 112,
+   "featured_rank": 50,
+   "score": 0.27996000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "armory-tenderland",
+   "rank": 113,
+   "featured_rank": 51,
+   "score": 0.27932,
+   "editors_pick": false
+  },
+  {
+   "slug": "tierra-del-sol-words-matter",
+   "rank": 117,
+   "featured_rank": 52,
+   "score": 0.27532,
+   "editors_pick": false
+  },
+  {
+   "slug": "eastern-projects-faces-explained-away",
+   "rank": 118,
+   "featured_rank": 53,
+   "score": 0.275,
+   "editors_pick": false
+  },
+  {
+   "slug": "musichead-madonna",
+   "rank": 119,
+   "featured_rank": 54,
+   "score": 0.275,
+   "editors_pick": false
+  },
+  {
+   "slug": "japan-house-washoku",
+   "rank": 120,
+   "featured_rank": 55,
+   "score": 0.27372,
+   "editors_pick": false
+  },
+  {
+   "slug": "wende-sextant",
+   "rank": 122,
+   "featured_rank": 56,
+   "score": 0.272,
+   "editors_pick": false
+  },
+  {
+   "slug": "advocartsy-gaze-through-time",
+   "rank": 123,
+   "featured_rank": 57,
+   "score": 0.27196000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "h4arts-shen-yongji-what-materials-know",
+   "rank": 125,
+   "featured_rank": 58,
+   "score": 0.26796000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "philip-martin-a-certain-slant-of-light",
+   "rank": 127,
+   "featured_rank": 59,
+   "score": 0.26316,
+   "editors_pick": false
+  },
+  {
+   "slug": "matter-hibiscus-tv",
+   "rank": 136,
+   "featured_rank": 60,
+   "score": 0.25836000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "copro-helena-reis-duskborn",
+   "rank": 137,
+   "featured_rank": 61,
+   "score": 0.25788000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "copro-america-dreaming",
+   "rank": 138,
+   "featured_rank": 62,
+   "score": 0.25756,
+   "editors_pick": false
+  },
+  {
+   "slug": "kp-projects-silveira-itibere",
+   "rank": 139,
+   "featured_rank": 63,
+   "score": 0.25564000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "hammer-mike-cloud",
+   "rank": 147,
+   "featured_rank": 64,
+   "score": 0.24544000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "chg-ornelie-devlin",
+   "rank": 153,
+   "featured_rank": 65,
+   "score": 0.24108000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "smc-city-gallery-case-study-adapt",
+   "rank": 156,
+   "featured_rank": 66,
+   "score": 0.23836000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "huntington-de-waal",
+   "rank": 161,
+   "featured_rank": 67,
+   "score": 0.23404,
+   "editors_pick": false
+  },
+  {
+   "slug": "art-share-la-alumni-4",
+   "rank": 169,
+   "featured_rank": 68,
+   "score": 0.23036,
+   "editors_pick": false
+  },
+  {
+   "slug": "montevista-moth-to-a-flame",
+   "rank": 175,
+   "featured_rank": 69,
+   "score": 0.22732000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "kccla-calligraphy-2026",
+   "rank": 177,
+   "featured_rank": 70,
+   "score": 0.22476000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "lakaye-beautiful-nature",
+   "rank": 179,
+   "featured_rank": 71,
+   "score": 0.22444000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "durden-ray-shadow-side-pt3",
+   "rank": 180,
+   "featured_rank": 72,
+   "score": 0.22412000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "denenberg-picturing-the-arts",
+   "rank": 181,
+   "featured_rank": 73,
+   "score": 0.22396000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "lacma-picasso-portraits-disguise",
+   "rank": 184,
+   "featured_rank": 74,
+   "score": 0.22208,
+   "editors_pick": false
+  },
+  {
+   "slug": "bg-gallery-autumn-enchantment",
+   "rank": 185,
+   "featured_rank": 75,
+   "score": 0.22188000000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "shatto-ji-oh-unlimited",
+   "rank": 187,
+   "featured_rank": 76,
+   "score": 0.22092,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "deitch-urs-fischer",
+   "rank": 1,
+   "score": 0.49760052829230433,
+   "gate": null
+  },
+  {
+   "slug": "marc-selwyn-wegman",
+   "rank": 2,
+   "score": 0.48416000000000003,
+   "gate": null
+  },
+  {
+   "slug": "the-page-before-me",
+   "rank": 5,
+   "score": 0.46051842078250566,
+   "gate": null
+  },
+  {
+   "slug": "lee-mullican-silent-shades",
+   "rank": 6,
+   "score": 0.452,
+   "gate": null
+  },
+  {
+   "slug": "art-practice-rahim-fortune",
+   "rank": 7,
+   "score": 0.4477184207825057,
+   "gate": null
+  },
+  {
+   "slug": "ghebaly-patrick-jackson-all-signs-fail",
+   "rank": 8,
+   "score": 0.447,
+   "gate": null
+  },
+  {
+   "slug": "ghebaly-alexis-smith-rapido",
+   "rank": 9,
+   "score": 0.44252,
+   "gate": null
+  },
+  {
+   "slug": "vielmetter-roberto-diago",
+   "rank": 10,
+   "score": 0.43916000000000005,
+   "gate": null
+  },
+  {
+   "slug": "karma-dictation-from-the-other-side",
+   "rank": 13,
+   "score": 0.43356000000000006,
+   "gate": null
+  },
+  {
+   "slug": "bel-ami-cars-of-los-angeles",
+   "rank": 17,
+   "score": 0.42800000000000005,
+   "gate": null
+  },
+  {
+   "slug": "oxy-arts-hold-each-others-hands",
+   "rank": 22,
+   "score": 0.41738325623506306,
+   "gate": null
+  },
+  {
+   "slug": "peter-fetterman-moriyama",
+   "rank": 24,
+   "score": 0.40380000000000005,
+   "gate": null
+  },
+  {
+   "slug": "fahey-klein-witkin",
+   "rank": 25,
+   "score": 0.403,
+   "gate": null
+  },
+  {
+   "slug": "ira-gershwin-great-wall",
+   "rank": 26,
+   "score": 0.40236,
+   "gate": null
+  },
+  {
+   "slug": "ckg-gronk-x-reason",
+   "rank": 27,
+   "score": 0.40179842078250566,
+   "gate": "not_open"
+  },
+  {
+   "slug": "karma-vanderlinden-fragmented-thought",
+   "rank": 28,
+   "score": 0.3982,
+   "gate": null
+  },
+  {
+   "slug": "canary-small-hours",
+   "rank": 33,
+   "score": 0.39324000000000003,
+   "gate": null
+  },
+  {
+   "slug": "sparc-1980s-taste-bitter-fruit",
+   "rank": 34,
+   "score": 0.391,
+   "gate": null
+  },
+  {
+   "slug": "william-turner-moses100",
+   "rank": 35,
+   "score": 0.3886,
+   "gate": null
+  },
+  {
+   "slug": "fernberger-dorothy-hood",
+   "rank": 36,
+   "score": 0.38748000000000005,
+   "gate": null
+  },
+  {
+   "slug": "moran-moran-tuazon",
+   "rank": 38,
+   "score": 0.384,
+   "gate": null
+  },
+  {
+   "slug": "vielmetter-ongoingness",
+   "rank": 40,
+   "score": 0.38092000000000004,
+   "gate": null
+  },
+  {
+   "slug": "david-hicks-trophies",
+   "rank": 41,
+   "score": 0.37648000000000004,
+   "gate": null
+  },
+  {
+   "slug": "kohn-object-poetry",
+   "rank": 42,
+   "score": 0.37584,
+   "gate": null
+  },
+  {
+   "slug": "armory-nurtured-flames",
+   "rank": 45,
+   "score": 0.3701075129788067,
+   "gate": "not_open"
+  },
+  {
+   "slug": "broken-sleeps",
+   "rank": 49,
+   "score": 0.36300000000000004,
+   "gate": "not_open"
+  },
+  {
+   "slug": "matthew-brown-carroll-dunham",
+   "rank": 50,
+   "score": 0.36076,
+   "gate": "not_open"
+  },
+  {
+   "slug": "marilyn-monroe-silent-life",
+   "rank": 52,
+   "score": 0.35900000000000004,
+   "gate": null
+  },
+  {
+   "slug": "cordillera-mexicana-louis-stern",
+   "rank": 55,
+   "score": 0.3582,
+   "gate": null
+  },
+  {
+   "slug": "broad-yoko-ono",
+   "rank": 57,
+   "score": 0.3566182392072367,
+   "gate": null
+  },
+  {
+   "slug": "roger-herman-california-poppies",
+   "rank": 58,
+   "score": 0.35436,
+   "gate": null
+  },
+  {
+   "slug": "rusha-we-breathe-same-air",
+   "rank": 61,
+   "score": 0.34188,
+   "gate": null
+  },
+  {
+   "slug": "kinship-community",
+   "rank": 63,
+   "score": 0.33996000000000004,
+   "gate": null
+  },
+  {
+   "slug": "bel-ami-the-woods",
+   "rank": 65,
+   "score": 0.33520000000000005,
+   "gate": null
+  },
+  {
+   "slug": "brad-eberhard-building-an-audience",
+   "rank": 66,
+   "score": 0.333905129659875,
+   "gate": null
+  },
+  {
+   "slug": "to-share-a-stomach",
+   "rank": 67,
+   "score": 0.33084,
+   "gate": null
+  },
+  {
+   "slug": "scott-hove-take-your-sweet-time",
+   "rank": 76,
+   "score": 0.31564000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nucleus-lorena-alvarez-gomez",
+   "rank": 77,
+   "score": 0.315,
+   "gate": null
+  },
+  {
+   "slug": "track16-john-collins",
+   "rank": 78,
+   "score": 0.315,
+   "gate": null
+  },
+  {
+   "slug": "luisotti-1911-sunset-boulevard",
+   "rank": 83,
+   "score": 0.31228,
+   "gate": null
+  },
+  {
+   "slug": "francis-summer-show",
+   "rank": 84,
+   "score": 0.31164000000000003,
+   "gate": null
+  },
+  {
+   "slug": "leslie-sacks-focus-female",
+   "rank": 89,
+   "score": 0.30828,
+   "gate": null
+  },
+  {
+   "slug": "nucleus-portraits-wildly-polite",
+   "rank": 90,
+   "score": 0.30732000000000004,
+   "gate": null
+  },
+  {
+   "slug": "mb-leo-mock",
+   "rank": 91,
+   "score": 0.30332000000000003,
+   "gate": null
+  },
+  {
+   "slug": "thinkspace-grabelsky",
+   "rank": 93,
+   "score": 0.30108,
+   "gate": null
+  },
+  {
+   "slug": "pony-ma-bitter-sweet",
+   "rank": 94,
+   "score": 0.29964,
+   "gate": null
+  },
+  {
+   "slug": "artangels-marilyn-100",
+   "rank": 95,
+   "score": 0.29724,
+   "gate": null
+  },
+  {
+   "slug": "hammer-space-is-the-place",
+   "rank": 96,
+   "score": 0.29504,
+   "gate": null
+  },
+  {
+   "slug": "through-the-sun-cyrous",
+   "rank": 97,
+   "score": 0.2936558316549867,
+   "gate": null
+  },
+  {
+   "slug": "noon-projects-chaves",
+   "rank": 98,
+   "score": 0.29333583165498667,
+   "gate": null
+  },
+  {
+   "slug": "induction-hallauer",
+   "rank": 99,
+   "score": 0.28988,
+   "gate": null
+  },
+  {
+   "slug": "craig-krull-jacqueline-valenzuela-sanctified-steel",
+   "rank": 102,
+   "score": 0.28604,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lola-surface-tension",
+   "rank": 103,
+   "score": 0.28604,
+   "gate": null
+  },
+  {
+   "slug": "caam-gordon-parks",
+   "rank": 104,
+   "score": 0.28559999999999997,
+   "gate": null
+  },
+  {
+   "slug": "tsa-la-to-witness-is-never-entirely-passive",
+   "rank": 111,
+   "score": 0.2806,
+   "gate": null
+  },
+  {
+   "slug": "corey-helford-20th",
+   "rank": 112,
+   "score": 0.27996000000000004,
+   "gate": null
+  },
+  {
+   "slug": "armory-tenderland",
+   "rank": 113,
+   "score": 0.27932,
+   "gate": null
+  },
+  {
+   "slug": "tierra-del-sol-words-matter",
+   "rank": 117,
+   "score": 0.27532,
+   "gate": null
+  },
+  {
+   "slug": "eastern-projects-faces-explained-away",
+   "rank": 118,
+   "score": 0.275,
+   "gate": null
+  },
+  {
+   "slug": "musichead-madonna",
+   "rank": 119,
+   "score": 0.275,
+   "gate": null
+  },
+  {
+   "slug": "japan-house-washoku",
+   "rank": 120,
+   "score": 0.27372,
+   "gate": null
+  },
+  {
+   "slug": "wende-sextant",
+   "rank": 122,
+   "score": 0.272,
+   "gate": null
+  },
+  {
+   "slug": "advocartsy-gaze-through-time",
+   "rank": 123,
+   "score": 0.27196000000000004,
+   "gate": null
+  },
+  {
+   "slug": "vielmetter-patrick-wilson",
+   "rank": 124,
+   "score": 0.26988,
+   "gate": "not_open"
+  },
+  {
+   "slug": "h4arts-shen-yongji-what-materials-know",
+   "rank": 125,
+   "score": 0.26796000000000003,
+   "gate": null
+  },
+  {
+   "slug": "philip-martin-a-certain-slant-of-light",
+   "rank": 127,
+   "score": 0.26316,
+   "gate": null
+  },
+  {
+   "slug": "leica-grace-mchugh",
+   "rank": 128,
+   "score": 0.26284,
+   "gate": "not_open"
+  },
+  {
+   "slug": "matter-hibiscus-tv",
+   "rank": 136,
+   "score": 0.25836000000000003,
+   "gate": null
+  },
+  {
+   "slug": "copro-helena-reis-duskborn",
+   "rank": 137,
+   "score": 0.25788000000000005,
+   "gate": null
+  },
+  {
+   "slug": "copro-america-dreaming",
+   "rank": 138,
+   "score": 0.25756,
+   "gate": null
+  },
+  {
+   "slug": "kp-projects-silveira-itibere",
+   "rank": 139,
+   "score": 0.25564000000000003,
+   "gate": null
+  },
+  {
+   "slug": "copro-dale-sizer",
+   "rank": 146,
+   "score": 0.24556000000000003,
+   "gate": "max_per_venue"
+  },
+  {
+   "slug": "hammer-mike-cloud",
+   "rank": 147,
+   "score": 0.24544000000000002,
+   "gate": null
+  },
+  {
+   "slug": "wonzimer-earth-elements-paint-and-fire",
+   "rank": 151,
+   "score": 0.24172000000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "chg-ornelie-devlin",
+   "rank": 153,
+   "score": 0.24108000000000002,
+   "gate": null
+  },
+  {
+   "slug": "smc-city-gallery-case-study-adapt",
+   "rank": 156,
+   "score": 0.23836000000000002,
+   "gate": null
+  },
+  {
+   "slug": "welcome-thornycroft",
+   "rank": 159,
+   "score": 0.23612000000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "huntington-de-waal",
+   "rank": 161,
+   "score": 0.23404,
+   "gate": null
+  },
+  {
+   "slug": "art-share-la-alumni-4",
+   "rank": 169,
+   "score": 0.23036,
+   "gate": null
+  },
+  {
+   "slug": "montevista-moth-to-a-flame",
+   "rank": 175,
+   "score": 0.22732000000000002,
+   "gate": null
+  },
+  {
+   "slug": "chg-deep-dive-archive",
+   "rank": 176,
+   "score": 0.22716000000000003,
+   "gate": "max_per_venue"
+  },
+  {
+   "slug": "kccla-calligraphy-2026",
+   "rank": 177,
+   "score": 0.22476000000000002,
+   "gate": null
+  },
+  {
+   "slug": "lakaye-beautiful-nature",
+   "rank": 179,
+   "score": 0.22444000000000003,
+   "gate": null
+  },
+  {
+   "slug": "durden-ray-shadow-side-pt3",
+   "rank": 180,
+   "score": 0.22412000000000004,
+   "gate": null
+  },
+  {
+   "slug": "denenberg-picturing-the-arts",
+   "rank": 181,
+   "score": 0.22396000000000002,
+   "gate": null
+  },
+  {
+   "slug": "smol-3",
+   "rank": 182,
+   "score": 0.22380000000000003,
+   "gate": "max_per_venue"
+  },
+  {
+   "slug": "lacma-picasso-portraits-disguise",
+   "rank": 184,
+   "score": 0.22208,
+   "gate": null
+  },
+  {
+   "slug": "bg-gallery-autumn-enchantment",
+   "rank": 185,
+   "score": 0.22188000000000002,
+   "gate": null
+  },
+  {
+   "slug": "shatto-ji-oh-unlimited",
+   "rank": 187,
+   "score": 0.22092,
+   "gate": null
+  },
+  {
+   "slug": "aguanta-dama",
+   "rank": 190,
+   "score": 0.21996000000000004,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "not-there-abstract-group",
+   "rank": 192,
+   "score": 0.21932000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lldj-susie-ketchum-long-way-home",
+   "rank": 194,
+   "score": 0.21724000000000004,
+   "gate": "not_open"
+  },
+  {
+   "slug": "dataland-machine-dreams-rainforest",
+   "rank": 196,
+   "score": 0.2159352292957099,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "fresh-session-sixteen",
+   "rank": 197,
+   "score": 0.21500000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "fab-la-not-so-fine-art-show",
+   "rank": 198,
+   "score": 0.21436000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "blue-muse-delicate-dynamic",
+   "rank": 199,
+   "score": 0.21356000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "getty-odilon-redon",
+   "rank": 203,
+   "score": 0.20976,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-barbie-anna-karenina",
+   "rank": 205,
+   "score": 0.20528000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "7811-pretty-on-the-inside",
+   "rank": 207,
+   "score": 0.20476000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "aabee-hiva-alizadeh",
+   "rank": 210,
+   "score": 0.19996000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mak-superflex-rainbows-sponges",
+   "rank": 214,
+   "score": 0.199,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "welcome-ippolito",
+   "rank": 215,
+   "score": 0.19884000000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "getty-instante-revelacion",
+   "rank": 217,
+   "score": 0.19790177020567065,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "f8-group-photography-show",
+   "rank": 218,
+   "score": 0.19564000000000004,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "gobi-follow-the-feather",
+   "rank": 219,
+   "score": 0.19484,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "silton-diving-into-the-wreck",
+   "rank": 221,
+   "score": 0.19380352397923392,
+   "gate": "not_open"
+  },
+  {
+   "slug": "aint-it-fun-always-being-on-the-run",
+   "rank": 222,
+   "score": 0.19164000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "aabee-anali-taherian",
+   "rank": 223,
+   "score": 0.19068000000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "craig-krull-walking-venice",
+   "rank": 224,
+   "score": 0.19068000000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "avenue50-boards-choice",
+   "rank": 229,
+   "score": 0.18764000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "getty-every-minute-is-history",
+   "rank": 230,
+   "score": 0.18688,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-christina-quarles",
+   "rank": 233,
+   "score": 0.18624000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "avenue50-sonsonetes",
+   "rank": 234,
+   "score": 0.18492000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tag-hass-cohen-cohen",
+   "rank": 236,
+   "score": 0.18428000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "cactus-loteria-xii",
+   "rank": 237,
+   "score": 0.18300000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "tierra-craft-contemporary",
+   "rank": 239,
+   "score": 0.1822240733509351,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lldj-wini-brewer-aesthetic-strategies",
+   "rank": 242,
+   "score": 0.18092000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "cac-american-road-trip",
+   "rank": 244,
+   "score": 0.18044000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "junior-high-all-true-friends",
+   "rank": 246,
+   "score": 0.17900000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "marilyn-monroe-academy-museum",
+   "rank": 252,
+   "score": 0.17696,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-bong-joon-ho",
+   "rank": 255,
+   "score": 0.16448,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "usc-fisher-paul-r-williams",
+   "rank": 256,
+   "score": 0.163,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "autry-revolt-1680-2180",
+   "rank": 258,
+   "score": 0.16032,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "hammer-grunwald-70-part-ii",
+   "rank": 260,
+   "score": 0.15968000000000004,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-ponyo",
+   "rank": 263,
+   "score": 0.15456,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "asu-fidm-adrian",
+   "rank": 264,
+   "score": 0.15028149578677966,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "hollyhock-teske-on-olive-hill",
+   "rank": 265,
+   "score": 0.14880000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "aabee-elika-hedayat",
+   "rank": 266,
+   "score": 0.14780000000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kk-gallery-unbound",
+   "rank": 267,
+   "score": 0.14748000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-glow",
+   "rank": 269,
+   "score": 0.14544,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-eileen-cowin",
+   "rank": 272,
+   "score": 0.14368,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "skirball-punk",
+   "rank": 273,
+   "score": 0.14336000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "tag-light",
+   "rank": 275,
+   "score": 0.14060000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "wende-mobile-churches",
+   "rank": 276,
+   "score": 0.14,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "getty-stendahls-world",
+   "rank": 277,
+   "score": 0.1392,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-fashioning-chinese-women",
+   "rank": 278,
+   "score": 0.13856000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-deep-cuts",
+   "rank": 280,
+   "score": 0.13312000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "fowler-begumpura",
+   "rank": 282,
+   "score": 0.12988,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "moca-expanding-field",
+   "rank": 283,
+   "score": 0.12976000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "autry-creative-continuities",
+   "rank": 285,
+   "score": 0.12608000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "craft-earthen-comforts",
+   "rank": 286,
+   "score": 0.12272000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "craft-amezquita-mir",
+   "rank": 287,
+   "score": 0.12160000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "skirball-a-palace-in-time",
+   "rank": 289,
+   "score": 0.11984,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "california-heritage-some-assemblage-required",
+   "rank": 290,
+   "score": 0.11900000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "michael-flechtner-ecce-artifex",
+   "rank": 291,
+   "score": 0.1144,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "huntington-this-land-is",
+   "rank": 292,
+   "score": 0.10860000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "fowler-belongings",
+   "rank": 293,
+   "score": 0.10620000000000003,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "wende-breathing-alarms",
+   "rank": 294,
+   "score": 0.10448000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "barnsdall-threads-of-creativity",
+   "rank": 295,
+   "score": 0.10060000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "skirball-inventing-america-comic-book-revolution",
+   "rank": 296,
+   "score": 0.0936,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-danse-macabre",
+   "rank": 297,
+   "score": 0.09088000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-collecting-impressionism",
+   "rank": 298,
+   "score": 0.09024000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lapca-we-belong-here",
+   "rank": 299,
+   "score": 0.08940000000000002,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "lacma-alfonso-gonzalez-jr",
+   "rank": 300,
+   "score": 0.08912,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "getty-lost-found-returned",
+   "rank": 302,
+   "score": 0.08720000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "getty-medieval-manuscript",
+   "rank": 304,
+   "score": 0.08528000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "caam-free-and-queer",
+   "rank": 306,
+   "score": 0.072,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "fowler-mountain-spirits",
+   "rank": 307,
+   "score": 0.05804000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "autry-life-liberty",
+   "rank": 308,
+   "score": 0.05168,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "weisman-sebastian-thomas",
+   "rank": 309,
+   "score": 0.051320000000000005,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-screenwriting-la-noir",
+   "rank": 310,
+   "score": 0.049760000000000006,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "vhm-vanished-venice-ship-cafe",
+   "rank": 311,
+   "score": 0.04828000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "cam-bespoken",
+   "rank": 312,
+   "score": 0.04076000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "seasons-in-cosmos",
+   "rank": 313,
+   "score": 0.03724000000000001,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "maaa-50th-anniversary",
+   "rank": 315,
+   "score": 0.021400000000000016,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "academy-19-branches",
+   "rank": 317,
+   "score": 0.0027200000000000037,
+   "gate": "below_threshold"
+  },
+  {
+   "slug": "recollection-of-communities",
+   "rank": 321,
+   "score": -0.03908,
+   "gate": "below_threshold"
+  }
+ ]
+}

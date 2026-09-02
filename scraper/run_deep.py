@@ -7,10 +7,12 @@ Stages:
                   Gallery Platform LA, Carla), then venues.zone_coverage decides which
                   zones need an LLM enumeration session (missing anchors, too few
                   venues, weak overlap with Places); up to --max-enum-rounds rounds
-  2. scrape     — workers round-robin zones; each zone loops deep sessions over its
-                  TODO list (venues.due_venues: never scraped, past next_check, page
-                  changed, a show ending soon) until the TODO is empty, progress
-                  stalls, or budget runs out. A venue may yield several shows.
+  2. scrape     — workers pull zones breadth-first from a shared queue (the zone with
+                  the fewest sessions so far goes next, so no zone starves behind a big
+                  one); each session works the zone's TODO (venues.due_venues: never
+                  scraped, past next_check, page changed, a show ending soon, only an
+                  upcoming show saved, requeued) until the TODO is empty, progress
+                  stalls, or the budget headroom is gone. A venue may yield several shows.
   3. verify     — one pending-pool verification pass (promotes publishable shows)
   4. report     — scraper/report.py coverage + outlier report
 
@@ -51,47 +53,137 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
-def zone_todo(city: str, zone: str, only_with_saves: bool = False) -> list[dict]:
-    """Venues due for a scrape session in this zone (venues.due_venues: status,
-    next_check, page-change signals, shows ending soon). `only_with_saves`
-    is the multi-show backfill: every active gallery/museum in the zone that
-    holds exactly one live saved show, regardless of schedule."""
+def parse_venue_ids(spec: str | None) -> set[str] | None:
+    """--venue-ids 'a,b' or '@file' (one per line or comma-separated, '#'
+    comments). Tokens go through venues.venue_id, so registry ids and names
+    that normalize to them both work ('Hammer Museum' -> 'hammer-museum');
+    unknown ids are reported at startup."""
+    if not spec:
+        return None
+    text = Path(spec[1:]).read_text() if spec.startswith("@") else spec
     import venues
+    toks = [t.strip() for line in text.splitlines() for t in line.split("#")[0].split(",")]
+    return {venues.venue_id(t) for t in toks if t}
+
+
+def zone_todo(city: str, zone: str, only_with_saves: bool = False,
+              venue_ids: set[str] | None = None, force_due: bool = False) -> list[dict]:
+    """Venues due for a scrape session in this zone (venues.due_venues: status,
+    next_check, page-change signals, shows ending soon, upcoming-only saves,
+    requeues). `only_with_saves` is the multi-show backfill: every active venue
+    of ANY kind (galleries, museums, nonprofits, project spaces, universities)
+    holding exactly one show on view now, regardless of schedule. `venue_ids`
+    restricts the result to those registry ids; with `force_due` they are
+    included regardless of schedule or status (priority 100, reason 'forced')."""
+    import venues
+    if venue_ids and force_due:
+        out = []
+        for v in venues.load_registry(city).get("venues", []):
+            if v.get("neighborhood") == zone and v.get("id") in venue_ids:
+                rec = dict(v)
+                rec["_priority"], rec["_reasons"] = 100, ["forced"]
+                out.append(rec)
+        return sorted(out, key=lambda r: r["id"])
     if only_with_saves:
         out = []
         for v in venues.load_registry(city).get("venues", []):
             if v.get("neighborhood") != zone or v.get("status") not in ("active", None):
                 continue
-            if v.get("kind") not in ("gallery", "museum"):
-                continue
             if (v.get("last_outcome") == "skipped:unchanged"
                     and (v.get("last_scraped") or 0) > time.time() - 86400):
                 continue   # a multi-show session already confirmed nothing else is on: no re-pay
-            if len(venues.active_shows(v)) == 1:
+            if len(venues.current_shows(v)) == 1:
                 rec = dict(v)
                 rec["_priority"], rec["_reasons"] = 50, ["multishow_backfill"]
                 out.append(rec)
-        return sorted(out, key=lambda r: r["id"])
-    return venues.due_venues(city, zone, include_places_only=not EXCLUDE_PLACES_ONLY)
+        todo = sorted(out, key=lambda r: r["id"])
+    else:
+        todo = venues.due_venues(city, zone, include_places_only=not EXCLUDE_PLACES_ONLY)
+    if venue_ids:
+        todo = [v for v in todo if v.get("id") in venue_ids]
+    return todo
 
 
 EXCLUDE_PLACES_ONLY = False   # set from --exclude-places-only
 
 
-def pick_batch(todo: list[dict], n: int, max_museums: int = 2) -> list[dict]:
+def pick_batch(todo: list[dict], n: int, max_museums: int = 2,
+               max_places_only: int = 2) -> list[dict]:
     """Next session's venues in priority order, but at most `max_museums`
-    museums per batch: a museum can run 8+ concurrent exhibitions and would
-    otherwise eat a whole session's budget."""
-    batch, museums = [], 0
+    museums per batch (a museum can run 8+ concurrent exhibitions and would
+    otherwise eat a whole session's budget) and at most `max_places_only`
+    Google-Places-only venues (framers and decor shops share Places'
+    art_gallery type; they must never fill a batch)."""
+    batch, museums, places = [], 0, 0
     for v in todo:
         if len(batch) >= n:
             break
-        if v.get("kind") == "museum" or v.get("is_museum"):
-            if museums >= max_museums:
-                continue
-            museums += 1
+        is_museum = bool(v.get("kind") == "museum" or v.get("is_museum"))
+        is_places = "places_only" in (v.get("_reasons") or [])
+        if is_museum and museums >= max_museums:
+            continue
+        if is_places and places >= max_places_only:
+            continue
+        museums += is_museum
+        places += is_places
         batch.append(v)
     return batch
+
+
+class ZoneQueue:
+    """Breadth-first zone scheduler shared by the scrape workers: the next
+    session goes to the zone with the FEWEST sessions so far (ties: most due
+    venues, then config order), so every zone gets its first session before
+    any zone gets its third. One in-flight session per zone — parallel sessions
+    on one zone would batch overlapping TODOs (due_venues only sees a session's
+    saves/skips once they land)."""
+
+    def __init__(self, zones: list[str], max_sessions: int,
+                 due_counts: dict[str, int] | None = None):
+        self.lock = threading.Lock()
+        self.max_sessions = max_sessions
+        self.zones: dict[str, dict] = {
+            z: {"zone": z, "order": i, "due": (due_counts or {}).get(z, 0),
+                "sessions_run": 0, "zero_progress": 0, "exhausted": False,
+                "active": False, "why": None}
+            for i, z in enumerate(zones)}
+
+    def claim(self) -> dict | None:
+        """Snapshot of the zone to run next (marked in flight), or None when
+        every non-exhausted zone is already in flight / nothing is left."""
+        with self.lock:
+            free = [s for s in self.zones.values() if not s["exhausted"] and not s["active"]]
+            if not free:
+                return None
+            s = min(free, key=lambda s: (s["sessions_run"], -s["due"], s["order"]))
+            s["active"] = True
+            return dict(s)
+
+    def release(self, zone: str, progress: int, todo_empty: bool,
+                due_left: int | None = None) -> dict:
+        with self.lock:
+            s = self.zones[zone]
+            s["active"] = False
+            if todo_empty:
+                s["exhausted"], s["why"] = True, "todo_empty"
+                return dict(s)
+            s["sessions_run"] += 1
+            if due_left is not None:
+                s["due"] = due_left
+            s["zero_progress"] = s["zero_progress"] + 1 if progress == 0 else 0
+            if s["zero_progress"] >= 2:
+                s["exhausted"], s["why"] = True, "zero_progress"
+            elif s["sessions_run"] >= self.max_sessions:
+                s["exhausted"], s["why"] = True, "max_sessions"
+            return dict(s)
+
+    def any_active(self) -> bool:
+        with self.lock:
+            return any(s["active"] for s in self.zones.values())
+
+    def snapshot(self) -> dict[str, dict]:
+        with self.lock:
+            return {z: dict(s) for z, s in self.zones.items()}
 
 
 def zone_progress_snapshot(city: str, zone: str) -> tuple[int, int]:
@@ -106,7 +198,8 @@ def zone_progress_snapshot(city: str, zone: str) -> tuple[int, int]:
 
 def _already_saved(v: dict) -> list[dict]:
     import venues
-    return [{"title": x.get("title"), "artist": x.get("artist"), "end": x.get("end")}
+    return [{"title": x.get("title"), "artist": x.get("artist"),
+             "start": x.get("start"), "end": x.get("end")}
             for x in venues.active_shows(v)]
 
 
@@ -165,8 +258,20 @@ def main() -> None:
     parser.add_argument("--exclude-places-only", action="store_true",
                         help="TODO never includes venues whose only provenance is Google Places")
     parser.add_argument("--only-venues-with-saves", action="store_true",
-                        help="multi-show backfill: TODO = active galleries/museums holding "
-                             "exactly one live saved show (ignores the schedule)")
+                        help="multi-show backfill: TODO = active venues of any kind holding "
+                             "exactly one show on view now (ignores the schedule)")
+    parser.add_argument("--venue-ids", default=None,
+                        help="restrict the TODO to these registry ids/names (comma list or "
+                             "@file); zones default to the ones holding them; implies "
+                             "--skip-enumeration")
+    parser.add_argument("--force-due", action="store_true",
+                        help="with --venue-ids: include them regardless of schedule AND status "
+                             "(priority 100, reason 'forced'); each is batched at most once")
+    parser.add_argument("--budget-reserve", type=float, default=None,
+                        help="do not start a session unless spent + reserve <= --total-budget "
+                             "(default 1.5 x --session-budget, the harness hard-stop)")
+    parser.add_argument("--max-places-per-batch", type=int, default=2,
+                        help="cap on Google-Places-only venues per session batch")
     parser.add_argument("--model", default=DEFAULT_MODEL, choices=sorted(MODELS))
     parser.add_argument("--enum-model", default=None, choices=sorted(MODELS),
                         help="model for enumeration sessions (default: --model)")
@@ -198,6 +303,20 @@ def main() -> None:
     else:
         zones = list(all_zones)
 
+    venue_ids = parse_venue_ids(args.venue_ids)
+    if args.force_due and not venue_ids:
+        sys.exit("--force-due requires --venue-ids")
+    if venue_ids:
+        import venues
+        by_id = venues.index_by_id(venues.load_registry(args.city))
+        missing = sorted(venue_ids - set(by_id))
+        if missing:
+            print(f"warning: --venue-ids not in registry: {missing}", flush=True)
+        if not args.zones:   # only the zones holding a requested venue
+            hit = {by_id[i].get("neighborhood") for i in venue_ids if i in by_id}
+            zones = [z for z in all_zones if z in hit]
+        args.skip_enumeration = True   # a targeted re-scrape never enumerates
+
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     TODO_DIR.mkdir(parents=True, exist_ok=True)
     start_ts = int(time.time())
@@ -211,10 +330,18 @@ def main() -> None:
     state_lock = threading.Lock()
     session_log: list[dict] = []
 
+    # Sessions are metered per API response, so run_spend sees in-flight ones;
+    # the reserve covers the session about to start (harness hard-stops a
+    # session at 1.5x its budget). Worst case with W workers still overshoots
+    # by up to (W-1) x 0.5 x session_budget — raise --budget-reserve when tight.
+    reserve = (args.budget_reserve if args.budget_reserve is not None
+               else args.session_budget * 1.5)
+
     def over_limits() -> str | None:
         spent = run_spend(args.city, start_ts)
-        if spent >= args.total_budget:
-            return f"total budget spent (${spent:.2f})"
+        if spent + reserve > args.total_budget:
+            return (f"budget headroom gone (${spent:.2f} spent + ${reserve:.2f} reserve "
+                    f"> ${args.total_budget:.2f})")
         if len(tools.all_city_shows(args.city)) >= args.max_shows:
             return f"max shows reached ({args.max_shows})"
         return None
@@ -311,85 +438,110 @@ def main() -> None:
 
     # ---------- stage 2: scrape ----------
     print("=== STAGE 2: scrape ===", flush=True)
-    shards: list[list[str]] = [[] for _ in range(min(args.workers, len(zones)))]
-    for i, z in enumerate(zones):
-        shards[i % len(shards)].append(z)
+    todo_kw = dict(only_with_saves=args.only_venues_with_saves,
+                   venue_ids=venue_ids, force_due=args.force_due)
+    once_per_run = args.only_venues_with_saves or args.force_due   # one batch per venue per run
+    queue = ZoneQueue(zones, args.max_sessions_per_zone,
+                      {z: len(zone_todo(args.city, z, **todo_kw)) for z in zones})
+    print("[queue] due venues per zone: " + ", ".join(
+        f"{z}={s['due']}" for z, s in queue.snapshot().items()), flush=True)
 
-    def scrape_worker(shard_idx: int, shard_zones: list[str]) -> None:
-        time.sleep(shard_idx * args.stagger)
-        for zone in shard_zones:
-            zslug = slugify(zone)
-            zero_progress = 0
-            for session_n in range(1, args.max_sessions_per_zone + 1):
-                with state_lock:
-                    limit = over_limits()
-                    if stop.is_set() or limit:
-                        if limit:
-                            stop.set()
-                            print(f"[{zslug}] stopping: {limit}", flush=True)
-                        return
-                todo = zone_todo(args.city, zone, only_with_saves=args.only_venues_with_saves)
-                if args.only_venues_with_saves:
-                    # a backfill session per venue at most: drop ones this run already visited
-                    done_ids = {x.get("venue_id") for x in session_log if x.get("stage") == "backfill"}
-                    todo = [v for v in todo if v.get("id") not in done_ids]
-                if not todo:
-                    print(f"[{zslug}] TODO empty after {session_n - 1} session(s)",
-                          flush=True)
-                    break
-                batch = pick_batch(todo, args.session_todo)
-                if args.only_venues_with_saves:
-                    with state_lock:
-                        session_log.extend({"stage": "backfill", "venue_id": v.get("id")}
-                                           for v in batch)
-                label = f"{arm}deep-{args.city}-{zslug}-{int(time.time())}"
-                todo_path = TODO_DIR / f"{label}.json"
-                todo_path.write_text(json.dumps({
-                    "zone": zone, "session_label": label,
-                    "venues": [{"name": v["name"], "address": v.get("address"),
-                                "website": v.get("website"), "kind": v.get("kind"),
-                                "exhibitions_url": v.get("exhibitions_url"),
-                                "venue_id": v.get("id") or v.get("venue_id"),
-                                "status": v.get("status"),
-                                "fetch_mode": (v.get("page") or {}).get("fetch_mode"),
-                                "already_saved": _already_saved(v),
-                                "priority": v.get("_priority"),
-                                "reasons": v.get("_reasons")}
-                               for v in batch],
-                }, indent=2, ensure_ascii=False))
-                before = zone_progress_snapshot(args.city, zone)
-                cmd = [sys.executable, HERE / "run_scrape.py",
-                       "--city", args.city, "--deep", "--todo-file", todo_path,
-                       "--budget", args.session_budget,
-                       "--model", args.model,
-                       "--fetch-tokens", args.fetch_tokens,
-                       "--no-verify"]
-                if args.effort:
-                    cmd += ["--effort", args.effort]
-                if args.context_editing:
-                    cmd += ["--context-editing"]
-                if args.keyword_signals:
-                    cmd += ["--keyword-signals"]
-                print(f"[{zslug}] session {session_n}: {len(batch)} TODO venues "
-                      f"-> {label}.log", flush=True)
-                rc = run_session(cmd, f"{label}.log")
-                after = zone_progress_snapshot(args.city, zone)
-                progress = (after[0] - before[0]) + (after[1] - before[1])
-                with state_lock:
-                    session_log.append({
-                        "stage": "scrape", "zone": zone, "session": session_n,
-                        "todo": len(batch), "saved": after[0] - before[0],
-                        "skipped": after[1] - before[1], "exit": rc})
-                print(f"[{zslug}] session {session_n} done: +{after[0] - before[0]} "
-                      f"saved, +{after[1] - before[1]} skipped (exit {rc})", flush=True)
-                zero_progress = zero_progress + 1 if progress == 0 else 0
-                if zero_progress >= 2:
-                    print(f"[{zslug}] two zero-progress sessions; stopping zone",
-                          flush=True)
-                    break
+    def write_manifest() -> None:   # caller holds state_lock
+        manifest.write_text(json.dumps(
+            {"city": args.city, "start_ts": start_ts, "zones": zones,
+             "args": {k: v for k, v in vars(args).items()}, "updated_ts": int(time.time()),
+             "queue": queue.snapshot(), "sessions": session_log},
+            indent=2, default=str))
 
-    threads = [threading.Thread(target=scrape_worker, args=(i, s), daemon=True)
-               for i, s in enumerate(shards) if s]
+    def scrape_one(zone: str, session_n: int) -> tuple[int, bool, int]:
+        """One deep session for `zone`: (progress, todo_was_empty, due_left)."""
+        zslug = slugify(zone)
+        with state_lock:
+            todo = zone_todo(args.city, zone, **todo_kw)
+            if once_per_run:
+                # a backfill/forced session per venue at most: drop ones this run already visited
+                done_ids = {x.get("venue_id") for x in session_log if x.get("stage") == "backfill"}
+                todo = [v for v in todo if v.get("id") not in done_ids]
+            if not todo:
+                print(f"[{zslug}] TODO empty after {session_n - 1} session(s)", flush=True)
+                return 0, True, 0
+            batch = pick_batch(todo, args.session_todo,
+                               max_places_only=args.max_places_per_batch)
+            if once_per_run:
+                session_log.extend({"stage": "backfill", "venue_id": v.get("id")}
+                                   for v in batch)
+        label = f"{arm}deep-{args.city}-{zslug}-{int(time.time())}"
+        todo_path = TODO_DIR / f"{label}.json"
+        todo_path.write_text(json.dumps({
+            "zone": zone, "session_label": label,
+            "venues": [{"name": v["name"], "address": v.get("address"),
+                        "website": v.get("website"), "kind": v.get("kind"),
+                        "exhibitions_url": v.get("exhibitions_url"),
+                        "venue_id": v.get("id") or v.get("venue_id"),
+                        "status": v.get("status"),
+                        "fetch_mode": (v.get("page") or {}).get("fetch_mode"),
+                        "already_saved": _already_saved(v),
+                        "priority": v.get("_priority"),
+                        "reasons": v.get("_reasons")}
+                       for v in batch],
+        }, indent=2, ensure_ascii=False))
+        ids = [v.get("id") or v.get("venue_id") for v in batch]
+        print(f"[{zslug}] session {session_n}: {len(batch)} TODO venues -> {label}.log\n"
+              f"[{zslug}]   {ids}", flush=True)
+        before = zone_progress_snapshot(args.city, zone)
+        cmd = [sys.executable, HERE / "run_scrape.py",
+               "--city", args.city, "--deep", "--todo-file", todo_path,
+               "--budget", args.session_budget,
+               "--model", args.model,
+               "--fetch-tokens", args.fetch_tokens,
+               "--no-verify"]
+        if args.effort:
+            cmd += ["--effort", args.effort]
+        if args.context_editing:
+            cmd += ["--context-editing"]
+        if args.keyword_signals:
+            cmd += ["--keyword-signals"]
+        t0 = int(time.time())
+        rc = run_session(cmd, f"{label}.log")
+        after = zone_progress_snapshot(args.city, zone)
+        saved, skipped = after[0] - before[0], after[1] - before[1]
+        with state_lock:
+            session_log.append({
+                "stage": "scrape", "zone": zone, "session": session_n,
+                "todo": len(batch), "saved": saved, "skipped": skipped, "exit": rc,
+                # diagnosable when the run is killed: which venues each session held
+                "label": label, "venue_ids": ids, "started_ts": t0, "ended_ts": int(time.time())})
+            write_manifest()
+        print(f"[{zslug}] session {session_n} done: +{saved} saved, +{skipped} skipped "
+              f"(exit {rc})", flush=True)
+        return saved + skipped, False, len(todo) - len(batch)
+
+    def scrape_worker(idx: int) -> None:
+        time.sleep(idx * args.stagger)
+        while not stop.is_set():
+            with state_lock:
+                limit = over_limits()
+            if limit:
+                print(f"[worker {idx}] stopping: {limit}", flush=True)
+                stop.set()
+                return
+            st = queue.claim()
+            if st is None:
+                if queue.any_active():
+                    time.sleep(5)      # a zone may free up with venues left
+                    continue
+                return                 # every zone exhausted
+            progress, empty, due_left = 0, False, None
+            try:
+                progress, empty, due_left = scrape_one(st["zone"], st["sessions_run"] + 1)
+            finally:
+                s = queue.release(st["zone"], progress, empty, due_left)
+                if s["exhausted"]:
+                    print(f"[{slugify(st['zone'])}] zone done: {s['why']} after "
+                          f"{s['sessions_run']} session(s)", flush=True)
+
+    threads = [threading.Thread(target=scrape_worker, args=(i,), daemon=True)
+               for i in range(min(args.workers, len(zones)))]
     for t in threads:
         t.start()
     for t in threads:
@@ -416,7 +568,8 @@ def main() -> None:
         "zones": zones,
         "run_spend_usd": round(run_spend(args.city, start_ts), 4),
         "shows_total": len(tools.all_city_shows(args.city)),
-        "remaining_todo": {z: len(zone_todo(args.city, z)) for z in zones},
+        "remaining_todo": {z: len(zone_todo(args.city, z, venue_ids=venue_ids)) for z in zones},
+        "queue": queue.snapshot(),
         "sessions": session_log,
         "verification": (verify_summary or {}).get("cities"),
         "manifest": str(manifest),

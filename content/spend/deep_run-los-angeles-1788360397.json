@@ -1,0 +1,71 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1788360397,
+  "zones": [
+    "Hollywood"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": "Hollywood",
+    "session_todo": 4,
+    "session_budget": 3.0,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 1,
+    "workers": 1,
+    "stagger": 20.0,
+    "total_budget": 6.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": null,
+    "force_due": false,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 8000,
+    "effort": "medium",
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "skip_enumeration": true,
+    "no_verify": true,
+    "no_report": true
+  },
+  "updated_ts": 1788360531,
+  "queue": {
+    "Hollywood": {
+      "zone": "Hollywood",
+      "order": 0,
+      "due": 21,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    }
+  },
+  "sessions": [
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 1,
+      "todo": 4,
+      "saved": 2,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1788360398",
+      "venue_ids": [
+        "fernberger",
+        "formed-for-brodin",
+        "david-zwirner",
+        "moskowitz-bayse"
+      ],
+      "started_ts": 1788360398,
+      "ended_ts": 1788360531
+    }
+  ]
+}

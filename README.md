@@ -14,8 +14,11 @@ content/                   Scraped data bundled into the app (folder reference)
   pending/<city>.json      Scraped shows awaiting verification (never displayed)
   images/<city>/<slug>/    Downloaded high-res show imagery (JPEG)
   spend/                   Per-session API cost ledgers + TOTAL.json
+  curation/params/         Scoring presets (see docs/CURATION.md)
+  curation/<city>/seesaw/  Dated See Saw benchmark snapshots
 scraper/                   Claude-powered research agent + harness
 docs/DESIGN.md             Observed design spec the app follows
+docs/CURATION.md           How the feed is ranked + See Saw benchmark findings
 .env                       ANTHROPIC_API_KEY (private)
 ```
 
@@ -51,6 +54,31 @@ against the venue's own site AND their pin resolves deterministically
 (Google Geocoding cross-checked against the venue's Places listing — the
 LLM never supplies coordinates). Unverified shows are demoted back to
 pending, never deleted.
+
+## Ranking the feed
+
+The pipeline decides which shows exist; `scraper/curate.py` decides their
+order. Each show gets ten features and an LLM verdict, combined linearly and
+put through a gate chain; `curate.py apply --reorder` writes `featured` /
+`editors_pick` into the published file in rank order, which is what the app's
+Featured tab renders. The live preset is
+`content/curation/params/seesaw-complete.json`. The client-facing view of that
+ranking — every discovered show, its evidence, and sliders for the few
+parameters that matter — is https://gallery-browser-curation.vercel.app, built
+by `scraper/curation_site.py` (see `docs/CURATION.md`, "The client site").
+
+**The judge is a hard dependency** — it carries most of the ranking weight, so
+an unjudged show scores near zero and vanishes. Judge new shows before every
+scoring pass (~$0.012 per show; verdicts are cached):
+
+```
+scraper/.venv/bin/python scraper/judge.py run --city los-angeles \
+    --variant judge_v1 --models claude-sonnet-5 --workers 8
+```
+
+See **docs/CURATION.md** for the feature weights and why they are what they
+are, the See Saw benchmark results and their caveats, and the full rebuild
+sequence.
 
 The agent (Claude Sonnet 5) drives Anthropic server-side web search/fetch plus
 local tools that extract candidate image URLs from pages, download and

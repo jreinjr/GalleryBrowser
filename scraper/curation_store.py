@@ -70,7 +70,7 @@ from pathlib import Path
 import tools
 from crosscheck import GENERIC_NAME_WORDS, _name_words
 
-MATCHER_VERSION = 1
+MATCHER_VERSION = 2   # 2: identical distinctive-word sets match a venue ("Vielmetter" ~ "Vielmetter Los Angeles")
 
 # See Saw is the benchmark, never a signal source: signal sessions pass these
 # as blocked_domains so the overlap metric stays honest.
@@ -561,14 +561,31 @@ def find_pool_venue(venue_norm: str, index: PoolIndex,
     for pool_norm in index.venue_norms():
         r = _ratio(venue_norm, pool_norm)
         via = None
+        pool_words = _distinctive_words(pool_norm)
         if r >= VENUE_RATIO_MIN:
             via = "fuzzy_ratio"
-        elif len(ref_words & _distinctive_words(pool_norm)) >= SHARED_WORDS_MIN:
+        elif len(ref_words & pool_words) >= SHARED_WORDS_MIN:
             via = "shared_words"
+        elif ref_words and ref_words == pool_words:
+            # "Vielmetter" vs "Vielmetter Los Angeles": the same distinctive
+            # words once place/generic words are dropped — one word suffices
+            # when it is ALL either side has (the benchmark under-counted
+            # pool coverage here).
+            via = "distinctive_words"
         if via and (best is None or r > best[0]):
             best = (r, pool_norm, via)
     if best:
-        return index.shows_for_norm(best[1]), best[2], best[1]
+        shows = index.shows_for_norm(best[1])
+        # A branch label must not hide the main space: "Marc Selwyn Fine Art |
+        # Camden Annex" fuzzy-matches the "(Camden Downstairs Annex)" show's
+        # norm, but the venue's other shows sit under the base name.
+        seen = {s["slug"] for s in shows}
+        base_name = (shows[0].get("venue") or {}).get("name") or "" if shows else ""
+        for k in venue_keys(base_name):
+            for s in index.shows_for_norm(k):
+                if s["slug"] not in seen:
+                    shows.append(s); seen.add(s["slug"])
+        return shows, best[2], best[1]
 
     if registry:
         by_id, by_norm = registry_index(registry)
