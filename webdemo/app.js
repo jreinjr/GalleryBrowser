@@ -999,7 +999,7 @@
   // toggles; sort: SORTS key.
   const LIST_VERSION = 3;
   const LIST_DEFAULT = { v: LIST_VERSION, q: '', hoods: [], kind: 'galleries', featured: true, saved: false, receptions: false, sort: 'rank' };
-  const KINDS = [['galleries', 'Galleries'], ['museums', 'Museums'], ['all', 'All venues']];
+  const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   const SORTS = [
     ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
     ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
