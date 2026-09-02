@@ -38,12 +38,14 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
 
 ## List and Map tabs
 
-- **List** is a flat list of every published show for the city under a sticky
-  filter bar: search (title / artist / venue), toggle chips (Featured, Editor's
-  Picks, Saved, Galleries, Museums, Opening this week, Closing this week,
-  Receptions), a Neighborhoods multi-select sheet and a Sort sheet (Ranking,
-  Closing soon, Recently opened, Venue A–Z, Nearby). Filters persist in
-  `localStorage` (`listFilter`). Ranking comes from the last `curate.py apply`
+- **List** is a flat list of the city's published shows under a sticky filter
+  bar: search (title / artist / venue), toggle chips (Featured, Saved,
+  Receptions), and three pickers — Venues (Galleries by default, Museums, All
+  venues), Neighborhoods (multi-select) and Sort (Ranking, Closing soon,
+  Recently opened, Venue A–Z, Nearby). The default view is featured gallery
+  shows; Clear returns to it. Filters persist in `localStorage` (`listFilter`,
+  versioned — an older shape falls back to the defaults). Editor's Picks is no
+  longer a category anywhere in the app. Ranking comes from the last `curate.py apply`
   (`content/curation/<city>/curated.json` → `ranked`), falling back to file order;
   `build.py` also embeds each venue's registry `kind`. "Galleries" means every
   non-museum venue (nonprofits and project spaces included).

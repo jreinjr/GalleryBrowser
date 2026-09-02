@@ -154,7 +154,7 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
 /* =====================================================================
  * CLIENT PAGE — ranks with the shared core; exposes only the client knobs
  * ===================================================================*/
-const CLIENT_PATHS = R.client_paths || ['threshold', 'max_per_venue', 'exclude_museums', 'editors_pick_top',
+const CLIENT_PATHS = R.client_paths || ['threshold', 'max_per_venue', 'exclude_museums',
   'weights.judge', 'weights.quality', 'weights.venue', 'weights.press', 'weights.closing_soon', 'weights.museum'];
 const LIVE = R.live || { featured: [], editors_pick: [] };
 const LIVE_SET = new Set(LIVE.featured || []);
@@ -174,7 +174,6 @@ const GATE_INFO = {
   threshold: ['Cutoff score', 'A show must score at least this much to be featured. Lower = a longer feed, higher = a stricter one.'],
   max_per_venue: ['Max shows per venue', 'Stops one venue from filling the feed. Blank = no limit.'],
   exclude_museums: ['Exclude museums', 'Galleries only in the featured feed. Museums still appear in the app’s List and Map tabs.'],
-  editors_pick_top: ['Editors’ picks', 'The top N featured shows are flagged as Editors’ Picks.'],
 };
 const SWATCH = { judge: 'var(--s-judge)', quality: 'var(--s-quality)', venue: 'var(--s-venue)', press: 'var(--s-press)', closing_soon: 'var(--s-closing)', museum: 'var(--s-museum)' };
 const BAR_ORDER = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum', 'artist_heat', 'wiki_heat', 'keyword', 'opening_recency'];
@@ -237,7 +236,6 @@ function renderControls() {
   $('#gates').innerHTML =
     rangeCtl('threshold', GATE_INFO.threshold[0], GATE_INFO.threshold[1], { min: 0, max: 1, step: 0.01 }) +
     numCtl('max_per_venue', GATE_INFO.max_per_venue[0], GATE_INFO.max_per_venue[1], { min: 0, nullable: true }) +
-    numCtl('editors_pick_top', GATE_INFO.editors_pick_top[0], GATE_INFO.editors_pick_top[1], { min: 0 }) +
     boolCtl('exclude_museums', GATE_INFO.exclude_museums[0], GATE_INFO.exclude_museums[1]);
   $('#weights').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f =>
     rangeCtl(`weights.${f}`, WEIGHT_INFO[f][0], WEIGHT_INFO[f][1], f === 'museum' ? { min: -0.5, max: 0.5, step: 0.01 } : { min: 0, max: 1, step: 0.01 }, SWATCH[f])).join('');
@@ -268,11 +266,11 @@ function renderHeader() {
   b.lastElementChild.textContent = live ? 'Live settings' : 'Shared settings — differs from live';
 }
 function renderSummary() {
-  const feed = state.feed, ep = feed.filter(r => r.editors_pick).length, mus = feed.filter(r => r.venue.is_museum).length;
+  const feed = state.feed, mus = feed.filter(r => r.venue.is_museum).length;
   const now = new Set(feed.map(r => r.slug));
   const added = [...now].filter(s => !LIVE_SET.has(s)).length, dropped = [...LIVE_SET].filter(s => !now.has(s)).length;
   const delta = (added || dropped) ? `vs live: <span class="in">+${added} in</span>, <span class="out">−${dropped} out</span>` : 'same feed as live';
-  $('#summary').innerHTML = `<b>${feed.length}</b> featured · ${ep} editors’ pick${ep === 1 ? '' : 's'} · ${mus} museum${mus === 1 ? '' : 's'}<div class="delta">${delta}</div>`;
+  $('#summary').innerHTML = `<b>${feed.length}</b> featured · ${mus} museum${mus === 1 ? '' : 's'}<div class="delta">${delta}</div>`;
   $('#legend').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f => `<span><span class="sw" style="background:${SWATCH[f]}"></span>${NICE[f]} ×${fmt(params.weights[f], 2)}</span>`).join('');
 }
 
@@ -280,7 +278,6 @@ function renderSummary() {
 function statusChips(r) {
   const c = [];
   if (r.featured) c.push(`<span class="chip f">Featured #${r.featured_rank}</span>`);
-  if (r.editors_pick) c.push('<span class="chip ep">Editors’ pick</span>');
   if (r.featured && !LIVE_SET.has(r.slug)) c.push('<span class="chip in">New in feed</span>');
   if (!r.featured && LIVE_SET.has(r.slug)) c.push('<span class="chip out">Dropped from feed</span>');
   if (r.venue.is_museum) c.push('<span class="chip">Museum</span>');

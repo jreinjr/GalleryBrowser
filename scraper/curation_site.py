@@ -45,7 +45,7 @@ sys.path.insert(0, str(ROOT / "webdemo"))
 import curation_dashboard  # noqa: E402
 
 # Parameter keys the client page may change; everything else stays at the live value.
-CLIENT_PATHS = ["threshold", "max_per_venue", "exclude_museums", "editors_pick_top",
+CLIENT_PATHS = ["threshold", "max_per_venue", "exclude_museums",
                 "weights.judge", "weights.quality", "weights.venue", "weights.press",
                 "weights.closing_soon", "weights.museum"]
 DEEP_MERGE_KEYS = ("weights", "half_life_days", "kind_weights", "strength_weights",

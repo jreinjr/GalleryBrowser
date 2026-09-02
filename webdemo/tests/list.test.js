@@ -60,6 +60,7 @@ function check(name, ok, detail) {
     return {
       total: shows.length,
       featured: shows.filter(s => s.featured).length,
+      featuredGalleries: shows.filter(s => s.featured && !s.venue.isMuseum).length,
       editors: shows.filter(s => s.editorsPick).length,
       museums: shows.filter(s => s.venue.isMuseum).length,
       receptions: shows.filter(s => s.reception != null).length,
@@ -78,10 +79,26 @@ function check(name, ok, detail) {
   const chip = async key => { await page.click(`#pages-list .chip[data-chip="${key}"]`); };
   const chipOn = key => page.$eval(`#pages-list .chip[data-chip="${key}"]`, e => e.classList.contains('on'));
 
-  // 1. unfiltered = every published show, rank order, neighborhood on the third line
+  const galleries = data.total - data.museums;
+  const featGalleries = data.featuredGalleries;
+  const pick = async label => {
+    await page.waitForSelector('.sheet.open .city-row');
+    await page.click(`.sheet.open .city-row:has-text("${label}")`);
+    await page.waitForSelector('.sheet.open', { state: 'detached' });
+  };
+  // 1. default = featured gallery shows, rank order, neighborhood on the third line
   let r = await rows();
-  check('all shows listed', r.length === data.total, `${r.length} rows / ${data.total} shows`);
-  check('count line matches', (await count()) === `${data.total} shows`, await count());
+  check('featured galleries listed by default', r.length === featGalleries, `${r.length} rows / ${featGalleries}`);
+  check('count line matches', (await count()) === `${featGalleries} shows`, await count());
+  check('Featured chip on by default', await chipOn('featured'));
+  check('venues menu reads Galleries', /^Galleries/.test(await page.$eval('#pages-list .chip[data-menu="kind"]', e => e.textContent)));
+  check('clear hidden at defaults', await page.$eval('#pages-list .list-clear', e => e.hidden));
+  await chip('featured');
+  check('Featured off = all galleries', (await rows()).length === galleries, `${(await rows()).length} / ${galleries}`);
+  await page.click('#pages-list .chip[data-menu="kind"]');
+  await pick('All venues');
+  r = await rows();
+  check('All venues lists everything', r.length === data.total, `${r.length} rows / ${data.total} shows`);
   const sortedRanks = [...data.ranks].sort((a, b) => a - b);
   const firstNames = await page.evaluate(city => {
     const shows = window.DEMO_DATA.shows.filter(s => s.city === city).sort((a, b) => a.rank - b.rank);
@@ -90,28 +107,30 @@ function check(name, ok, detail) {
   check('rank order by default', JSON.stringify(r.slice(0, 5).map(x => x.name)) === JSON.stringify(firstNames),
     `ranks unique=${new Set(sortedRanks).size}`);
   check('neighborhood shown in row', r.every(x => data.hoods.some(h => x.addr.startsWith(h + ' · '))));
-  check('clear hidden when no filters', await page.$eval('#pages-list .list-clear', e => e.hidden));
+  check('clear visible when widened to all venues', !(await page.$eval('#pages-list .list-clear', e => e.hidden)));
 
-  // 2. chips
-  await chip('picks:featured');
+  // 2. chips + venues menu
+  await chip('featured');
   check('Featured chip', (await rows()).length === data.featured, `${(await rows()).length} / ${data.featured}`);
-  await chip('picks:editors');
-  check('Editors chip replaces Featured', (await rows()).length === data.editors && !(await chipOn('picks:featured')), `${(await rows()).length} / ${data.editors}`);
-  await chip('picks:editors');
+  await chip('featured');
   check('chip toggles off', (await rows()).length === data.total);
-  await chip('kind:museums');
-  check('Museums chip', (await rows()).length === data.museums, `${(await rows()).length} / ${data.museums}`);
-  await chip('kind:galleries');
-  check('Galleries chip', (await rows()).length === data.total - data.museums);
-  await chip('kind:galleries');
-  await chip('when:reception');
+  await page.click('#pages-list .chip[data-menu="kind"]');
+  await pick('Museums');
+  check('Museums option', (await rows()).length === data.museums, `${(await rows()).length} / ${data.museums}`);
+  check('venues menu highlighted', await page.$eval('#pages-list .chip[data-menu="kind"]', e => e.classList.contains('on')));
+  await page.click('#pages-list .chip[data-menu="kind"]');
+  await pick('All venues');
+  await chip('receptions');
   check('Receptions chip', (await rows()).length === data.receptions, `${(await rows()).length} / ${data.receptions}`);
-  await chip('when:closing');
+  await chip('featured');
   const both = (await rows()).length;
-  check('when chips combine (AND)', both <= Math.min(data.receptions, data.closing), `${both}`);
-  check('clear visible when filtered', !(await page.$eval('#pages-list .list-clear', e => e.hidden)));
+  check('chips combine (AND)', both <= Math.min(data.receptions, data.featured), `${both}`);
+  check('no Editor’s Picks or week chips', !(await page.$('#pages-list .chip[data-chip="editors"]')) && !(await page.$('#pages-list .chip[data-chip="closing"]')));
   await page.click('#pages-list .list-clear');
-  check('Clear resets', (await rows()).length === data.total && !(await chipOn('when:closing')));
+  check('Clear resets to featured galleries', (await rows()).length === featGalleries && (await chipOn('featured')));
+  await page.click('#pages-list .chip[data-menu="kind"]');
+  await pick('All venues');
+  await chip('featured');
 
   // 3. search
   await page.fill('#pages-list .search-field input', 'gallery');
@@ -165,11 +184,11 @@ function check(name, ok, detail) {
 
   // 7. filter persists across reload; detail from a filtered list steps within it
   await page.evaluate(() => { document.querySelector('#pages-list .page-scroll').scrollTop = 0; });
-  await chip('picks:featured');
+  await chip('receptions');
   await page.reload();
   await page.click('.tab-btn[data-tab="list"]');
   await page.waitForSelector('#pages-list .list-filters');
-  check('filters persist', (await chipOn('picks:featured')) && (await rows()).length === data.featured);
+  check('filters persist', (await chipOn('receptions')) && (await rows()).length === data.receptions);
   await page.click('#pages-list .show-row .sr-text');
   await page.waitForSelector('#pages-list .page-push .detail-body');
   const stepper = await page.$$('#pages-list .page-push .stepper button');

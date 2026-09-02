@@ -63,7 +63,6 @@
   const DAY = 86400e3;
   const featuredShows = () => cityShows().filter(s => s.featured);
   const savedShows = () => cityShows().filter(s => state.saved.has(showId(s)));
-  const editorsPicks = () => cityShows().filter(s => s.editorsPick);
   const receptionShows = () => cityShows().filter(s => s.reception != null);
   const isOpeningThisWeek = s => {
     const d = parseDate(s.startDate); return !!d && Math.abs(d - Date.now()) <= 7 * DAY;
@@ -992,12 +991,15 @@
     icon('bookmark'),
     el('div', { class: 'es-title' }, 'No Saved Shows Yet'),
     el('div', { class: 'es-caption' },
-      'Check out the Featured tab or the Editor’s Picks\nlist to find something great.'));
+      'Check out the Featured tab\nto find something great.'));
 
   // ---------------- list tab: flat list + sticky filters ----------------
-  // picks: 'all' | 'featured' | 'editors'; kind: 'all' | 'galleries' | 'museums';
-  // when: subset of ['opening', 'closing', 'reception']; sort: SORTS key.
-  const LIST_DEFAULT = { q: '', hoods: [], kind: 'all', picks: 'all', when: [], saved: false, sort: 'rank' };
+  // Defaults: featured gallery shows (museums and the long tail are opt-in);
+  // kind: 'all' | 'galleries' | 'museums'; featured / saved / receptions are
+  // toggles; sort: SORTS key.
+  const LIST_VERSION = 3;
+  const LIST_DEFAULT = { v: LIST_VERSION, q: '', hoods: [], kind: 'galleries', featured: true, saved: false, receptions: false, sort: 'rank' };
+  const KINDS = [['galleries', 'Galleries'], ['museums', 'Museums'], ['all', 'All venues']];
   const SORTS = [
     ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
     ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
@@ -1005,16 +1007,17 @@
   function loadListFilter() {
     let o = {};
     try { o = JSON.parse(store.get('listFilter', '{}')) || {}; } catch (e) { /* ignore */ }
+    if (o.v !== LIST_VERSION) o = {};   // older filter shape: start from the defaults
     const f = { ...LIST_DEFAULT, ...o };
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
-    f.when = Array.isArray(o.when) ? [...o.when] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
+    if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
     return f;
   }
   state.list = loadListFilter();
   const persistList = () => store.set('listFilter', JSON.stringify(state.list));
-  const listFilterActive = f => !!(f.q.trim() || f.hoods.length || f.kind !== 'all' ||
-    f.picks !== 'all' || f.when.length || f.saved);
+  const listFilterActive = f => !!(f.q.trim() || f.hoods.length || f.kind !== LIST_DEFAULT.kind ||
+    f.featured !== LIST_DEFAULT.featured || f.receptions || f.saved);
   let refreshListRoot = null;   // set by listRoot(); bookmark toggles call it
 
   const matchesQuery = (s, t) => !t ||
@@ -1032,14 +1035,9 @@
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && !s.venue.isMuseum) return false;
       if (f.kind === 'galleries' && s.venue.isMuseum) return false;
-      if (f.picks === 'featured' && !s.featured) return false;
-      if (f.picks === 'editors' && !s.editorsPick) return false;
+      if (f.featured && !s.featured) return false;
       if (f.saved && !state.saved.has(showId(s))) return false;
-      for (const w of f.when) {
-        if (w === 'opening' && !isOpeningThisWeek(s)) return false;
-        if (w === 'closing' && !isClosingThisWeek(s)) return false;
-        if (w === 'reception' && s.reception == null) return false;
-      }
+      if (f.receptions && s.reception == null) return false;
       return true;
     });
   }
@@ -1096,34 +1094,27 @@
     clearQ.addEventListener('click', () => { input.value = ''; f.q = ''; clearQ.hidden = true; refresh(); input.focus(); });
 
     const chipRow = el('div', { class: 'chip-row' });
-    const CHIPS = [
-      ['picks', 'featured', 'Featured'], ['picks', 'editors', 'Editor’s Picks'], ['saved', true, 'Saved'],
-      ['kind', 'galleries', 'Galleries'], ['kind', 'museums', 'Museums'],
-      ['when', 'opening', 'Opening this week'], ['when', 'closing', 'Closing this week'], ['when', 'reception', 'Receptions'],
-    ];
-    const chipOn = (key, val) => key === 'when' ? f.when.includes(val) : f[key] === val;
-    function toggleChip(key, val) {
-      if (key === 'when') { const i = f.when.indexOf(val); if (i >= 0) f.when.splice(i, 1); else f.when.push(val); }
-      else if (key === 'saved') f.saved = !f.saved;
-      else f[key] = f[key] === val ? 'all' : val;
-      refresh();
-    }
+    const CHIPS = [['featured', 'Featured'], ['saved', 'Saved'], ['receptions', 'Receptions']];
     function renderChips() {
       chipRow.innerHTML = '';
-      CHIPS.forEach(([key, val, label]) => chipRow.appendChild(el('button', {
-        class: 'chip' + (chipOn(key, val) ? ' on' : ''), 'data-chip': `${key}:${val}`,
-        'aria-pressed': chipOn(key, val) ? 'true' : 'false',
-        onclick: () => toggleChip(key, val),
+      CHIPS.forEach(([key, label]) => chipRow.appendChild(el('button', {
+        class: 'chip' + (f[key] ? ' on' : ''), 'data-chip': key,
+        'aria-pressed': f[key] ? 'true' : 'false',
+        onclick: () => { f[key] = !f[key]; refresh(); },
       }, label)));
     }
 
+    const kindBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'kind' });
     const hoodBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'hoods' });
     const sortBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'sort' });
     const countEl = el('span', { class: 'list-count' });
     const clearBtn = el('button', { class: 'list-clear', onclick: () => {
-      Object.assign(f, { ...LIST_DEFAULT, hoods: [], when: [], sort: f.sort });
+      Object.assign(f, { ...LIST_DEFAULT, hoods: [], sort: f.sort });
       input.value = ''; clearQ.hidden = true; refresh();
     } }, 'Clear');
+    kindBtn.addEventListener('click', () => openChecklistSheet('Venues', () => KINDS.map(([k, label]) => ({
+      label, on: f.kind === k, onclick: () => { f.kind = k; refresh(); return false; },
+    }))));
     hoodBtn.addEventListener('click', () => openChecklistSheet('Neighborhoods', () => [
       { label: 'All neighborhoods', on: !f.hoods.length, onclick: () => { f.hoods = []; refresh(); return false; } },
       ...hoodList.map(h => ({
@@ -1135,6 +1126,9 @@
       label, on: f.sort === k, onclick: () => { f.sort = k; refresh(); return false; },
     }))));
     function renderMenus() {
+      kindBtn.innerHTML = '';
+      kindBtn.append(el('span', null, KINDS.find(([k]) => k === f.kind)[1]), icon('chevronDown'));
+      kindBtn.classList.toggle('on', f.kind !== 'all');
       const n = f.hoods.length;
       hoodBtn.innerHTML = '';
       hoodBtn.append(el('span', null, n === 0 ? 'Neighborhoods' : n === 1 ? f.hoods[0] : `${n} neighborhoods`), icon('chevronDown'));
@@ -1167,7 +1161,7 @@
     const bar = el('div', { class: 'list-filters' },
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
       chipRow,
-      el('div', { class: 'chip-row menus' }, hoodBtn, sortBtn),
+      el('div', { class: 'chip-row menus' }, kindBtn, hoodBtn, sortBtn),
       el('div', { class: 'list-status' }, countEl, clearBtn));
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },

@@ -266,8 +266,7 @@ dev dashboard, built by `scraper/curation_site.py` from the same score report
 construction, exactly what shipped. The builder refuses to run when the report
 is older than `curated.json` or was scored under different params: re-run
 `curate.py score` with the live preset first. It exposes only the feed gates
-(cutoff, max per venue, editors' picks, exclude museums) and the six feature
-weights, each with a one-line explanation; everything else is pinned to the
+(cutoff, max per venue, exclude museums) and the six feature weights, each with a one-line explanation; everything else is pinned to the
 live values. Every show in the pool is listed — pending and not-yet-open ones
 with a plain-language status — with the same evidence drawer as the dashboard.
 
