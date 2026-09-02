@@ -70,7 +70,7 @@ class RegistryScheduleTests(unittest.TestCase):
     def venue(self, vid, shows=(), next_check=None, status="active", kind="gallery", scraped=True):
         v = venues.empty_venue(vid, vid.title())
         v.update({"status": status, "kind": kind, "neighborhood": "Hollywood",
-                  "last_scraped": int(time.mktime(TODAY.timetuple())) if scraped else None,
+                  "last_scraped": int(time.mktime(TODAY.timetuple())) - 3 * 86400 if scraped else None,
                   "next_check": next_check,
                   "last_known_shows": [{"slug": f"{vid}-{i}", "title": f"T{i}", "start": "2026-08-01",
                                         "end": end, "placement": "published"} for i, end in enumerate(shows)]})

@@ -64,6 +64,8 @@ def zone_todo(city: str, zone: str, only_with_saves: bool = False) -> list[dict]
                 continue
             if v.get("kind") not in ("gallery", "museum"):
                 continue
+            if (v.get("last_scraped") or 0) > time.time() - 86400:
+                continue   # visited today (e.g. logged "unchanged"): resumable without re-pay
             if len(venues.active_shows(v)) == 1:
                 rec = dict(v)
                 rec["_priority"], rec["_reasons"] = 50, ["multishow_backfill"]
