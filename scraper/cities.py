@@ -128,6 +128,91 @@ CITIES = {
                 "Altadena."
             ),
         },
+        # Deterministic seeding (seed_venues.py): a postal-code pattern that
+        # marks a page as local, and per-zone `areas` (geocodable sub-districts
+        # / street corners the Places sweep circles) + `anchors` (venue names
+        # from the guidance above; zone_coverage checks the registry has them).
+        "postal_re": r"\bCA\s+9[01]\d{3}\b",
+        "zones": {
+            "Downtown/Arts District": {
+                "areas": ["Grand Ave", "Little Tokyo", "Arts District", "Fashion District",
+                          "Santa Fe Ave & Washington Blvd"],
+                "anchors": ["The Broad", "MOCA Grand Avenue", "JANM", "LA Artcore",
+                            "Hauser & Wirth", "ICA LA", "The Box", "Château Shatto",
+                            "Track 16", "Vielmetter", "Night Gallery", "François Ghebaly",
+                            "Wilding Cran"],
+            },
+            "Chinatown/East LA": {
+                "areas": ["Chung King Road", "Chinatown", "Lincoln Heights", "Boyle Heights",
+                          "El Sereno"],
+                "anchors": ["Charlie James Gallery", "NOON Projects", "Bel Ami",
+                            "Human Resources", "Corey Helford", "Parrasch Heijnen",
+                            "Self Help Graphics"],
+            },
+            "Los Feliz/NELA": {
+                "areas": ["Los Feliz", "Silver Lake", "Echo Park", "Frogtown", "Highland Park",
+                          "Glassell Park", "Eagle Rock", "Glendale", "Griffith Park"],
+                "anchors": ["Gattopardo", "La Loma Projects", "Odd Ark LA", "Autry Museum",
+                            "Monte Vista Projects"],
+            },
+            "Hollywood": {
+                "areas": ["Hollywood", "Highland Ave & Santa Monica Blvd",
+                          "N La Brea Ave & Beverly Blvd", "Sunset Blvd & N Gardner St",
+                          "East Hollywood"],
+                "anchors": ["Regen Projects", "Jeffrey Deitch", "Various Small Fires",
+                            "Nonaka-Hill", "Lisson", "David Zwirner", "Tanya Bonakdar",
+                            "Sea View", "Hannah Hoffman", "Morán Morán", "Michael Kohn",
+                            "Diane Rosenstein", "Shulamit Nazarian", "Fahey/Klein",
+                            "Musichead", "Reisig and Taylor"],
+            },
+            "West Hollywood/Fairfax": {
+                "areas": ["West Hollywood", "Melrose Ave", "N Almont Dr", "Fairfax",
+                          "Beverly Grove"],
+                "anchors": ["Louis Stern", "Steve Turner", "M+B", "Karma", "Matthew Marks",
+                            "Timothy Hawkinson Gallery", "Nino Mier"],
+            },
+            "Beverly Hills": {
+                "areas": ["Beverly Hills"],
+                "anchors": ["Gagosian Beverly Hills", "Marc Selwyn Fine Art",
+                            "UTA Artist Space", "Almine Rech", "Gary Snyder"],
+            },
+            "Mid-Wilshire/Koreatown": {
+                "areas": ["Miracle Mile", "Hancock Park", "Koreatown", "Westlake",
+                          "MacArthur Park", "S La Brea Ave & Wilshire Blvd"],
+                "anchors": ["LACMA", "Academy Museum", "Craft Contemporary",
+                            "Marciano Art Foundation", "Commonwealth & Council",
+                            "Park View / Paul Soto", "induction gallery", "David Kordansky",
+                            "1301 PE"],
+            },
+            "Culver City/West Adams": {
+                "areas": ["La Cienega Blvd & Washington Blvd", "Culver City", "West Adams",
+                          "Jefferson Park"],
+                "anchors": ["Blum", "Anat Ebgi", "Philip Martin", "Luis De Jesus", "Arcana",
+                            "Von Lintel", "Thinkspace Projects", "Band of Vices",
+                            "Chris Sharp Gallery"],
+            },
+            "Santa Monica/Venice": {
+                "areas": ["Bergamot Station", "Santa Monica", "Venice", "Mar Vista", "Malibu"],
+                "anchors": ["Peter Fetterman", "Rosegallery", "Craig Krull", "William Turner",
+                            "bG Gallery", "18th Street Arts Center", "L.A. Louver"],
+            },
+            "Westside/Brentwood": {
+                "areas": ["Westwood", "Brentwood", "Sepulveda Pass", "Century City", "Sawtelle"],
+                "anchors": ["Hammer Museum", "Getty Center", "Skirball Cultural Center",
+                            "Marian Goodman"],
+            },
+            "South LA/Inglewood": {
+                "areas": ["Exposition Park", "Leimert Park", "Crenshaw", "Inglewood"],
+                "anchors": ["California African American Museum", "USC Fisher Museum",
+                            "Art + Practice", "Residency Art Gallery"],
+            },
+            "Pasadena/San Gabriel": {
+                "areas": ["Pasadena", "San Marino", "Monterey Park", "Alhambra", "Altadena"],
+                "anchors": ["Norton Simon Museum", "USC Pacific Asia Museum",
+                            "Armory Center for the Arts", "ArtCenter", "The Huntington",
+                            "Vincent Price Art Museum"],
+            },
+        },
     },
     "tokyo": {
         "display_name": "Tokyo",

@@ -669,7 +669,8 @@ CANDIDATE_DENY = SHARED_PLATFORMS + (
     "theguardian.com", "bloomberg.com", "forbes.com", "vogue.com", "wallpaper.com",
     "archive.org", "bing.com", "duckduckgo.com", "reddit.com", "pinterest.com",
     "vimeo.com", "soundcloud.com", "spotify.com", "amazon.com", "etsy.com",
-    "squarespace-cdn.com", "cloudfront.net", "wixstatic.com",
+    "squarespace-cdn.com", "cloudfront.net", "wixstatic.com", "thelalocal.org",
+    "thegramercyla.com", "losangeles.com", "la.curbed.com", "hollywoodreporter.com",
 )
 VENUE_RE = re.compile(r"\b(exhibitions?|gallery|galerie|museum|art space|project space|"
                       r"artist-run|on view|opening reception|kunsthalle)\b", re.I)
@@ -678,7 +679,11 @@ ADDR_RE = re.compile(r"\b\d{2,5}\s+(?:[NSEW]\.?\s+)?[A-Z][A-Za-z.'-]+(?:\s+[A-Z]
                      r"Ln|Lane|Hwy|Highway|Ct|Court|Pkwy|Parkway)\b\.?")
 NOT_VENUE_RE = re.compile(r"\b(magazine|review|journal|podcast|art fair|festival|newspaper|"
                           r"press release distribution|auction house|framing|frame shop|"
-                          r"art supplies|tattoo)\b", re.I)
+                          r"art supplies|tattoo|nerd|guide|blog|things to do|best of|top \d+|"
+                          r"art and culture|art scene|neighborhood|district council|chamber of|"
+                          r"local|news|daily|weekly|times|tribune|observer|patch)\b", re.I)
+GENERIC_NAME_RE = re.compile(r"^(home|welcome|exhibitions?|current|about|contact|news|"
+                             r"gallery|galleries|art|events?)$", re.I)
 
 
 def _candidate_deny(city: str) -> set[str]:
@@ -717,13 +722,18 @@ def _page_name(url: str, text: str) -> str | None:
     if not raw:
         return None
     dom_word = (registrable_domain(url) or "").split(".")[0].lower()
-    parts = [x.strip() for x in re.split(r"\s+[|–—\-:]\s+", raw) if x.strip()]
+    parts = [x.strip(" &,") for x in re.split(r"\s+[|–—\-:]\s+", raw)]
+    parts = [x for x in parts if len(x) >= 3 and not GENERIC_NAME_RE.match(x)]
     if not parts:
         return None
     for part in parts:   # prefer the segment that shares letters with the domain
         if dom_word and len(dom_word) >= 4 and dom_word in re.sub(r"[^a-z0-9]", "", part.lower()):
             return part[:80]
-    return min(parts, key=len)[:80]
+    # otherwise the shortest segment, unless it reads like an article title
+    cand = min(parts, key=len)
+    if len(cand.split()) > 6 or re.search(r"\b(in|at|of)\s+[A-Z]", cand) and len(cand.split()) > 4:
+        return None
+    return cand[:80]
 
 
 def candidate_from_page(url: str, text: str, cfg: dict, deny: set[str] | None = None) -> dict | None:
