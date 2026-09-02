@@ -450,8 +450,49 @@ def apply_skip(v: dict, skip: dict, today: date | None = None) -> None:
         merge_patch(v, {"exhibitions_url_candidates": [skip["url"]]})
 
 
+PLAUSIBLE_VENUE_RE = re.compile(
+    r"\b(galler(y|ies|ia|ie)|galerie|museum|museo|projects?|project space|art ?space|"
+    r"arts? cent(er|re)|contemporary|kunst|foundation|institute|collection|artspace|"
+    r"studio gallery|art gallery|fine art|art center|nonprofit|non-profit)\b", re.I)
+
+
+def seed_only_places(v: dict) -> bool:
+    """True when Google Places is the venue's ONLY provenance — no curated
+    list, enumeration session, saved show or candidate hit backs it."""
+    src = v.get("sources") or {}
+    seed = src.get("seed") or {}
+    return bool(seed.get("places")) and not (
+        seed.get("gpla") or seed.get("carla") or src.get("directory_session")
+        or src.get("shows") or src.get("candidate"))
+
+
+def places_plausible(v: dict) -> bool:
+    """A Places-only venue worth a scrape session: venue-like name, not on the
+    deny list, and a website of its own."""
+    name = v.get("name") or ""
+    return bool(PLAUSIBLE_VENUE_RE.search(name) and not NOT_VENUE_RE.search(name)
+                and v.get("website") and registrable_domain(v.get("website")))
+
+
+def triage_places_only(city: str) -> dict:
+    """One-off after a Places seed: implausible Places-only venues are parked
+    (next_check None, never scheduled) until another source vouches for them."""
+    n = {"parked": 0, "kept": 0}
+    with locked_registry(city) as reg:
+        for v in reg["venues"]:
+            if not seed_only_places(v):
+                continue
+            if places_plausible(v):
+                n["kept"] += 1
+            else:
+                v["next_check"] = None
+                v["sources"]["seed"]["places"]["plausible"] = False
+                n["parked"] += 1
+    return n
+
+
 def due_venues(city: str, zone: str | None = None, today: date | None = None,
-               saved_keys: set[str] | None = None) -> list[dict]:
+               saved_keys: set[str] | None = None, include_places_only: bool = True) -> list[dict]:
     """Venues that need an LLM scrape session, highest priority first. Each
     returned record carries `_priority` and `_reasons`.
 
@@ -479,7 +520,16 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
         if not (never or nxt is None or past_due or changed or ending_soon):
             continue
         pr, reasons = 0, []
-        if never:
+        places_only = seed_only_places(v)
+        if places_only and not include_places_only:
+            continue
+        if never and places_only:
+            # Google Places alone is a weak signal (framers, studios, decor
+            # shops share its "art_gallery" type): scrape these last.
+            if not places_plausible(v):
+                continue
+            pr += 10; reasons.append("places_only")
+        elif never:
             pr += 40; reasons.append("never_scraped")
         if changed:
             if page.get("date_sig"):
@@ -836,21 +886,25 @@ def zone_coverage(city: str, zone: str, cfg: dict, min_enumerated: int = 4,
     enumerated = [v for v in zv if (v.get("sources") or {}).get("directory_session")
                   or (v.get("sources") or {}).get("shows")]
     seeded = [v for v in zv if (v.get("sources") or {}).get("seed")]
-    places = [v for v in seeded if (v["sources"]["seed"] or {}).get("places")]
+    # Curated lists (GPLA, Carla) are the yardstick for enumeration quality;
+    # Places alone sweeps in framers and studios, so it never counts here.
+    curated = [v for v in seeded if (v["sources"]["seed"] or {}).get("gpla")
+               or (v["sources"]["seed"] or {}).get("carla")]
     candidates = [v for v in zv if v.get("status") == "candidate"]
     enum_ids = {v["id"] for v in enumerated}
-    overlap = (sum(1 for v in places if v["id"] in enum_ids) / len(places)) if places else None
+    overlap = (sum(1 for v in curated if v["id"] in enum_ids) / len(curated)) if curated else None
     anchors = (cfg.get("zones") or {}).get(zone, {}).get("anchors", [])
     missing = [a for a in anchors if _anchor_hit(reg, a) is None]
     reasons = []
     if missing:
         reasons.append("anchors_missing")
-    if len(enumerated) + len(seeded) < min_enumerated:
+    if len(enumerated) + len(curated) < min_enumerated:
         reasons.append("below_min")
-    if len(places) >= 5 and overlap is not None and overlap < 0.3:
+    if len(curated) >= 5 and overlap is not None and overlap < 0.3:
         reasons.append("weak_enumeration")
     return {"zone": zone, "ok": not reasons, "registry": len(zv),
-            "enumerated": len(enumerated), "seeded": len(seeded), "candidates": len(candidates),
+            "enumerated": len(enumerated), "seeded": len(seeded), "curated": len(curated),
+            "candidates": len(candidates),
             "missing_anchors": missing, "overlap": None if overlap is None else round(overlap, 2),
             "reasons": reasons}
 

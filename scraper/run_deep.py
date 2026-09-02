@@ -72,7 +72,10 @@ def zone_todo(city: str, zone: str, only_with_saves: bool = False) -> list[dict]
                 rec["_priority"], rec["_reasons"] = 50, ["multishow_backfill"]
                 out.append(rec)
         return sorted(out, key=lambda r: r["id"])
-    return venues.due_venues(city, zone)
+    return venues.due_venues(city, zone, include_places_only=not EXCLUDE_PLACES_ONLY)
+
+
+EXCLUDE_PLACES_ONLY = False   # set from --exclude-places-only
 
 
 def pick_batch(todo: list[dict], n: int, max_museums: int = 2) -> list[dict]:
@@ -159,6 +162,8 @@ def main() -> None:
                              "places,gpla,carla,evidence (or 'none')")
     parser.add_argument("--max-enum-rounds", type=int, default=2,
                         help="enumeration rounds while zone coverage still fails")
+    parser.add_argument("--exclude-places-only", action="store_true",
+                        help="TODO never includes venues whose only provenance is Google Places")
     parser.add_argument("--only-venues-with-saves", action="store_true",
                         help="multi-show backfill: TODO = active galleries/museums holding "
                              "exactly one live saved show (ignores the schedule)")
@@ -181,6 +186,8 @@ def main() -> None:
 
     from run_scrape import load_env
     load_env()
+    global EXCLUDE_PLACES_ONLY
+    EXCLUDE_PLACES_ONLY = bool(args.exclude_places_only)
 
     all_zones = CITIES[args.city]["neighborhoods"]
     if args.zones:
