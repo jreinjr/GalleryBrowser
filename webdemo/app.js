@@ -63,7 +63,28 @@
   const DAY = 86400e3;
   const featuredShows = () => cityShows().filter(s => s.featured);
   const savedShows = () => cityShows().filter(s => state.saved.has(showId(s)));
-  const receptionShows = () => cityShows().filter(s => s.reception != null);
+  // Reception lines are free text from the gallery's page ("Saturday, July 18,
+  // 6-9pm", "Thursday, September 24, 2026, 7:00pm - 9:00pm"). Take the first
+  // "Month day[, year]"; a missing year is the show's opening year, rolled
+  // forward when that would land well before the opening.
+  const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+  const RECEPTION_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?/i;
+  function receptionDate(s) {
+    if (!s.reception) return null;
+    const m = RECEPTION_RE.exec(s.reception);
+    if (!m) return null;
+    const month = MONTHS.findIndex(name => name.startsWith(m[1].slice(0, 3).toLowerCase()));
+    const day = Number(m[2]);
+    if (month < 0 || day < 1 || day > 31) return null;
+    const start = parseDate(s.startDate);
+    let year = m[3] ? Number(m[3]) : (start ? start.getFullYear() : new Date().getFullYear());
+    let d = new Date(year, month, day);
+    if (!m[3] && start && start - d > 60 * DAY) d = new Date(year + 1, month, day);
+    return d;
+  }
+  const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+  const hasUpcomingReception = s => { const d = receptionDate(s); return !!d && d >= startOfToday(); };
+  const receptionShows = () => cityShows().filter(hasUpcomingReception);
   const isOpeningThisWeek = s => {
     const d = parseDate(s.startDate); return !!d && Math.abs(d - Date.now()) <= 7 * DAY;
   };
@@ -1002,7 +1023,7 @@
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   const SORTS = [
     ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
-    ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
+    ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
   ];
   function loadListFilter() {
     let o = {};
@@ -1037,7 +1058,7 @@
       if (f.kind === 'galleries' && s.venue.isMuseum) return false;
       if (f.featured && !s.featured) return false;
       if (f.saved && !state.saved.has(showId(s))) return false;
-      if (f.receptions && s.reception == null) return false;
+      if (f.receptions && !hasUpcomingReception(s)) return false;
       return true;
     });
   }
@@ -1052,6 +1073,10 @@
     } else if (sort === 'opened') {
       // most recently opened first; not-yet-open shows after, soonest first
       const key = s => { const t = time(s.startDate); return t == null ? Infinity : (t <= now ? now - t : 1e15 + (t - now)); };
+      arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
+    } else if (sort === 'reception') {
+      // soonest upcoming reception first; shows without one keep rank order after
+      const key = s => { const d = receptionDate(s); return d && d >= startOfToday() ? d.getTime() : Infinity; };
       arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
     } else if (sort === 'venue') {
       arr.sort((a, b) => a.venue.name.localeCompare(b.venue.name) || byRank(a, b));
@@ -1094,7 +1119,7 @@
     clearQ.addEventListener('click', () => { input.value = ''; f.q = ''; clearQ.hidden = true; refresh(); input.focus(); });
 
     const chipRow = el('div', { class: 'chip-row' });
-    const CHIPS = [['featured', 'Featured'], ['saved', 'Saved'], ['receptions', 'Receptions']];
+    const CHIPS = [['featured', 'Featured'], ['saved', 'Saved'], ['receptions', 'Upcoming receptions']];
     function renderChips() {
       chipRow.innerHTML = '';
       CHIPS.forEach(([key, label]) => chipRow.appendChild(el('button', {
@@ -1252,7 +1277,7 @@
 
   const mapMenuBtn = document.getElementById('map-filter-btn');
   const mapMenu = document.getElementById('map-menu');
-  const FILTERS = [['myShows', 'My Shows'], ['all', 'All Shows'], ['receptions', 'Receptions']];
+  const FILTERS = [['myShows', 'My Shows'], ['all', 'All Shows'], ['receptions', 'Upcoming Receptions']];
   function renderMapMenu() {
     mapMenu.innerHTML = '';
     FILTERS.forEach(([key, label]) => {
@@ -1305,4 +1330,6 @@
 
   rebuildTabs();
   setTab('featured');
+  // test hook
+  window.DemoDebug = { receptionDate, hasUpcomingReception };
 })();

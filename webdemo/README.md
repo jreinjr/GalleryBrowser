@@ -40,9 +40,10 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
 
 - **List** is a flat list of the city's published shows under a sticky filter
   bar: search (title / artist / venue), toggle chips (Featured, Saved,
-  Receptions), and three pickers — Venues (Galleries by default, Museums, All
+  Upcoming receptions — the reception line is free text, parsed to a date and
+  kept only from today on; the map's Receptions filter uses the same rule), and three pickers — Venues (Galleries by default, Museums, All
   venues), Neighborhoods (multi-select) and Sort (Ranking, Closing soon,
-  Recently opened, Venue A–Z, Nearby). The default view is featured gallery
+  Recently opened, Reception soon, Venue A–Z, Nearby). The default view is featured gallery
   shows; Clear returns to it. Filters persist in `localStorage` (`listFilter`,
   versioned — an older shape falls back to the defaults). Editor's Picks is no
   longer a category anywhere in the app. Ranking comes from the last `curate.py apply`

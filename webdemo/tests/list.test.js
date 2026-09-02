@@ -63,7 +63,8 @@ function check(name, ok, detail) {
       featuredGalleries: shows.filter(s => s.featured && !s.venue.isMuseum).length,
       editors: shows.filter(s => s.editorsPick).length,
       museums: shows.filter(s => s.venue.isMuseum).length,
-      receptions: shows.filter(s => s.reception != null).length,
+      receptions: shows.filter(s => window.DemoDebug.hasUpcomingReception(s)).length,
+      withReceptionText: shows.filter(s => s.reception != null).length,
       closing: shows.filter(s => { const d = pd(s.endDate); const diff = d - Date.now(); return diff >= 0 && diff <= 7 * DAY; }).length,
       hoods: window.DEMO_DATA.cities.find(c => c.key === city).neighborhoods,
       perHood: Object.fromEntries(window.DEMO_DATA.cities.find(c => c.key === city).neighborhoods
@@ -121,7 +122,19 @@ function check(name, ok, detail) {
   await page.click('#pages-list .chip[data-menu="kind"]');
   await pick('All venues');
   await chip('receptions');
-  check('Receptions chip', (await rows()).length === data.receptions, `${(await rows()).length} / ${data.receptions}`);
+  check('Upcoming receptions chip', (await rows()).length === data.receptions && data.receptions < data.withReceptionText,
+    `${(await rows()).length} / ${data.receptions} upcoming of ${data.withReceptionText} with text`);
+  const parsed = await page.evaluate(() => {
+    const D = window.DemoDebug, iso = d => d && `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    return [
+      iso(D.receptionDate({ reception: 'Saturday, July 18, 6-9pm', startDate: '2026-07-18' })),
+      iso(D.receptionDate({ reception: 'Thursday, September 24, 2026, 7:00pm - 9:00pm', startDate: '2026-09-01' })),
+      iso(D.receptionDate({ reception: 'Saturday, September 12, 4-6pm (Fall Open House); Artist Talk Saturday, September 19, 11am', startDate: '2026-09-05' })),
+      iso(D.receptionDate({ reception: 'Saturday, January 9, 6-8pm', startDate: '2026-12-20' })),
+      D.receptionDate({ reception: 'Opening reception TBA', startDate: '2026-09-01' }),
+    ];
+  });
+  check('reception parser', JSON.stringify(parsed) === JSON.stringify(['2026-07-18', '2026-09-24', '2026-09-12', '2027-01-09', null]), JSON.stringify(parsed));
   await chip('featured');
   const both = (await rows()).length;
   check('chips combine (AND)', both <= Math.min(data.receptions, data.featured), `${both}`);
