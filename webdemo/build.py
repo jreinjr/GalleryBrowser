@@ -58,6 +58,7 @@ def write_icons() -> None:
 
 
 def main() -> None:
+    global DIST
     parser = argparse.ArgumentParser()
     parser.add_argument("--img-cap", type=int, default=7, help="max images per show")
     parser.add_argument("--max-width", type=int, default=1080)
@@ -65,7 +66,10 @@ def main() -> None:
     parser.add_argument("--full-side", type=int, default=3840,
                         help="longest-side cap for full-res variants (0 disables them)")
     parser.add_argument("--full-quality", type=int, default=80)
+    parser.add_argument("--out", help=f"output directory (default {DIST})")
     args = parser.parse_args()
+    if args.out:
+        DIST = Path(args.out).resolve()
 
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -80,6 +84,8 @@ def main() -> None:
 
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
+        venue_kinds = cityconfig.load_venue_kinds(cty["key"])
+        ranking = cityconfig.load_ranking(cty["key"])
         if shows and not any(s.get("featured") for s in shows):
             print(f"  note: {cty['key']} has no featured shows — featuring the first 3")
             for s in shows[:3]:
@@ -122,14 +128,19 @@ def main() -> None:
                 continue
             v = s["venue"]
             map_x, map_y = mapgen.project(v["latitude"], v["longitude"], meta)
+            rk = ranking.get(s["slug"]) or {}
+            kind = venue_kinds.get(s.get("venue_id")) or ("museum" if v["is_museum"] else "gallery")
             all_shows.append({
                 "city": s["city"], "slug": s["slug"], "title": s["title"],
                 "artist": s.get("artist"), "startDate": s["start_date"], "endDate": s["end_date"],
                 "description": s["description"], "editorsPick": s["editors_pick"],
                 "featured": s["featured"], "reception": s.get("reception"),
+                # curation rank over the whole published pool (file order when no
+                # curated.json exists); the List tab's default sort
+                "rank": rk.get("rank", len(all_shows) + 1), "score": rk.get("score"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
                 "venue": {
-                    "name": v["name"], "isMuseum": v["is_museum"], "address": v["address"],
+                    "name": v["name"], "isMuseum": v["is_museum"], "kind": kind, "address": v["address"],
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],
                     "hours": v["hours"], "phone": v.get("phone"), "website": v.get("website"),
                     "lat": v["latitude"], "lng": v["longitude"],

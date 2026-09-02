@@ -24,7 +24,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 
-const ROOT = path.join(__dirname, '..', 'dist', 'gallery-browser-demo');
+const ROOT = process.env.DIST || path.join(__dirname, '..', 'dist', 'gallery-browser-demo');
 const PORT = 8931;
 const SHOT = process.env.SHOT_DIR || path.join(__dirname, '.shots');
 fs.mkdirSync(SHOT, { recursive: true });

@@ -36,6 +36,22 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
   Vanilla JS; the Map tab uses MapLibre GL + CARTO dark style; state persists in
   `localStorage` (`selectedCityKey`, `savedShowIDs`, same semantics as the iOS app).
 
+## List and Map tabs
+
+- **List** is a flat list of every published show for the city under a sticky
+  filter bar: search (title / artist / venue), toggle chips (Featured, Editor's
+  Picks, Saved, Galleries, Museums, Opening this week, Closing this week,
+  Receptions), a Neighborhoods multi-select sheet and a Sort sheet (Ranking,
+  Closing soon, Recently opened, Venue A–Z, Nearby). Filters persist in
+  `localStorage` (`listFilter`). Ranking comes from the last `curate.py apply`
+  (`content/curation/<city>/curated.json` → `ranked`), falling back to file order;
+  `build.py` also embeds each venue's registry `kind`. "Galleries" means every
+  non-museum venue (nonprofits and project spaces included).
+- **Map** uses a clustered GeoJSON source: overlapping venues collapse into a
+  numbered bubble (number = venues) that zooms open on tap; single venues are
+  dots with a show-count badge and a name label placed by MapLibre's collision
+  engine, so labels never overlap (a label is hidden before the dot is).
+
 ## Local test
 
 ```bash
@@ -43,12 +59,16 @@ python3 -m http.server -d webdemo/dist/gallery-browser-demo 8000
 # then open http://localhost:8000 (or http://<mac-ip>:8000 on an iPhone)
 ```
 
-## Gesture tests
+## Tests
 
 ```bash
 scraper/.venv/bin/python webdemo/build.py    # tests run against a fresh dist
 NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/gestures.test.js
 ```
+
+`list.test.js` (filters, sheets, sort, sticky bar) and `map.test.js` (clusters,
+label collision, taps) run the same way; set `DIST=<dir>` to test a build made
+with `build.py --out <dir>`.
 
 Raw-CDP multitouch choreography (feed pinch/pan lifecycle, viewer touch
 gestures, edge-swipe coexistence, desktop wheel/drag pan) in headless Chrome

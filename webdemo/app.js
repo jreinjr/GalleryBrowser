@@ -62,18 +62,16 @@
 
   const DAY = 86400e3;
   const featuredShows = () => cityShows().filter(s => s.featured);
-  const museumShows = () => cityShows().filter(s => s.venue.isMuseum);
   const savedShows = () => cityShows().filter(s => state.saved.has(showId(s)));
   const editorsPicks = () => cityShows().filter(s => s.editorsPick);
   const receptionShows = () => cityShows().filter(s => s.reception != null);
-  const openingThisWeek = () => cityShows().filter(s => {
-    const d = parseDate(s.startDate); return d && Math.abs(d - Date.now()) <= 7 * DAY;
-  });
-  const closingThisWeek = () => cityShows().filter(s => {
+  const isOpeningThisWeek = s => {
+    const d = parseDate(s.startDate); return !!d && Math.abs(d - Date.now()) <= 7 * DAY;
+  };
+  const isClosingThisWeek = s => {
     const d = parseDate(s.endDate); if (!d) return false;
     const diff = d - Date.now(); return diff >= 0 && diff <= 7 * DAY;
-  });
-  const neighborhoodShows = n => cityShows().filter(s => s.venue.neighborhood === n);
+  };
   function haversine(lat1, lng1, lat2, lng2) {
     const r = x => x * Math.PI / 180, R = 6371;
     const a = Math.sin(r(lat2 - lat1) / 2) ** 2 +
@@ -117,6 +115,7 @@
     persistSaved();
     refreshBookmarkUI();
     MapTab.applyFilter();
+    if (state.list.saved && refreshListRoot) refreshListRoot();
   }
   function refreshBookmarkUI() {
     document.querySelectorAll('[data-bm]').forEach(btn => {
@@ -968,7 +967,7 @@
       el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
         el('div', { class: 'sr-name' }, displayName(s)),
         el('div', { class: 'sr-venue' }, listLine(s.venue)),
-        el('div', { class: 'sr-addr' }, s.venue.address)),
+        el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
       bookmarkBtn(s));
     return row;
   }
@@ -989,78 +988,201 @@
     return el('div', { class: 'page' }, inline, scroll);
   }
 
-  function museumsPage() {
-    const shows = museumShows();
-    const scroll = el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' }, backBtn(state.tab), el('span')),
-      el('div', { class: 'large-title' }, 'Museums'),
-      el('div', { class: 'on-view-header' }, 'On View'),
-      el('div', { class: 'group' }, ...shows.map(showRow)));
-    return el('div', { class: 'page' }, scroll);
-  }
-
   const myShowsEmpty = () => el('div', { class: 'empty-state' },
     icon('bookmark'),
     el('div', { class: 'es-title' }, 'No Saved Shows Yet'),
     el('div', { class: 'es-caption' },
       'Check out the Featured tab or the Editor’s Picks\nlist to find something great.'));
 
-  function nearbyPage() {
-    const cty = city();
-    const sortFrom = (lat, lng) =>
-      [...cityShows()].sort((a, b) =>
-        haversine(lat, lng, a.venue.lat, a.venue.lng) - haversine(lat, lng, b.venue.lat, b.venue.lng));
-    const page = showListPage('Nearby', sortFrom(cty.center.lat, cty.center.lng));
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(pos => {
-        const sorted = sortFrom(pos.coords.latitude, pos.coords.longitude);
-        const group = page.querySelector('.group');
-        if (group) { group.innerHTML = ''; sorted.forEach(s => group.appendChild(showRow(s))); }
-      }, () => { /* keep city-center order */ }, { timeout: 5000 });
+  // ---------------- list tab: flat list + sticky filters ----------------
+  // picks: 'all' | 'featured' | 'editors'; kind: 'all' | 'galleries' | 'museums';
+  // when: subset of ['opening', 'closing', 'reception']; sort: SORTS key.
+  const LIST_DEFAULT = { q: '', hoods: [], kind: 'all', picks: 'all', when: [], saved: false, sort: 'rank' };
+  const SORTS = [
+    ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
+    ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
+  ];
+  function loadListFilter() {
+    let o = {};
+    try { o = JSON.parse(store.get('listFilter', '{}')) || {}; } catch (e) { /* ignore */ }
+    const f = { ...LIST_DEFAULT, ...o };
+    f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
+    f.when = Array.isArray(o.when) ? [...o.when] : [];
+    if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
+    return f;
+  }
+  state.list = loadListFilter();
+  const persistList = () => store.set('listFilter', JSON.stringify(state.list));
+  const listFilterActive = f => !!(f.q.trim() || f.hoods.length || f.kind !== 'all' ||
+    f.picks !== 'all' || f.when.length || f.saved);
+  let refreshListRoot = null;   // set by listRoot(); bookmark toggles call it
+
+  const matchesQuery = (s, t) => !t ||
+    s.title.toLowerCase().includes(t) ||
+    (s.artist || '').toLowerCase().includes(t) ||
+    s.venue.name.toLowerCase().includes(t);
+
+  // Pure: shows -> shows passing every active filter (nonprofits / project
+  // spaces count as galleries; only museums are set apart).
+  function filterShows(shows, f) {
+    const t = f.q.trim().toLowerCase();
+    const hoods = new Set(f.hoods);
+    return shows.filter(s => {
+      if (!matchesQuery(s, t)) return false;
+      if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
+      if (f.kind === 'museums' && !s.venue.isMuseum) return false;
+      if (f.kind === 'galleries' && s.venue.isMuseum) return false;
+      if (f.picks === 'featured' && !s.featured) return false;
+      if (f.picks === 'editors' && !s.editorsPick) return false;
+      if (f.saved && !state.saved.has(showId(s))) return false;
+      for (const w of f.when) {
+        if (w === 'opening' && !isOpeningThisWeek(s)) return false;
+        if (w === 'closing' && !isClosingThisWeek(s)) return false;
+        if (w === 'reception' && s.reception == null) return false;
+      }
+      return true;
+    });
+  }
+  // Pure: stable sort by the chosen key; ties fall back to curation rank.
+  function sortShows(shows, sort, origin) {
+    const byRank = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9);
+    const time = str => { const d = parseDate(str); return d ? d.getTime() : null; };
+    const now = Date.now();
+    const arr = [...shows];
+    if (sort === 'closing') {
+      arr.sort((a, b) => (time(a.endDate) ?? Infinity) - (time(b.endDate) ?? Infinity) || byRank(a, b));
+    } else if (sort === 'opened') {
+      // most recently opened first; not-yet-open shows after, soonest first
+      const key = s => { const t = time(s.startDate); return t == null ? Infinity : (t <= now ? now - t : 1e15 + (t - now)); };
+      arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
+    } else if (sort === 'venue') {
+      arr.sort((a, b) => a.venue.name.localeCompare(b.venue.name) || byRank(a, b));
+    } else if (sort === 'nearby' && origin) {
+      const dist = s => haversine(origin.lat, origin.lng, s.venue.lat, s.venue.lng);
+      arr.sort((a, b) => dist(a) - dist(b) || byRank(a, b));
+    } else {
+      arr.sort(byRank);
     }
-    return page;
+    return arr;
+  }
+
+  // Checklist sheet shared by the Neighborhoods and Sort pickers. rows:
+  // [{label, on, onclick}]; onclick returns true to keep the sheet open.
+  function openChecklistSheet(title, rowsFn) {
+    const group = el('div', { class: 'group', style: 'margin-top:12px' });
+    const render = () => {
+      group.innerHTML = '';
+      rowsFn().forEach(r => group.appendChild(el('button', {
+        class: 'row city-row',
+        onclick: () => { if (r.onclick()) render(); else closeSheet(); },
+      }, el('span', { class: 'cr-name' }, r.label),
+        r.on ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
+    };
+    render();
+    openSheet(el('div', { class: 'page' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, title), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, group)));
   }
 
   function listRoot() {
-    const row = (label, onclick, iconName) => {
-      const r = el('button', { class: 'row', onclick });
-      if (iconName) r.appendChild(el('span', { class: 'row-icon', html: ICONS[iconName] }));
-      r.appendChild(el('span', { class: 'row-label' }, label));
-      const c = icon('chevronRight'); c.classList.add('chev');
-      r.appendChild(c);
-      return r;
-    };
+    const f = state.list;
+    const hoodList = city().neighborhoods;
+    f.hoods = f.hoods.filter(h => hoodList.includes(h));   // city switch
+    let geo = null;   // browser position once granted (Nearby sort)
 
-    const sections = [];
-    if (museumShows().length) {
-      sections.push(el('div', { class: 'museum-banner' },
-        el('button', { class: 'row', onclick: () => push('list', museumsPage()) },
-          el('span', { class: 'label' }, 'Museums'))));
+    const input = el('input', { type: 'search', placeholder: 'Artist, gallery, or show', autocomplete: 'off', value: f.q });
+    const clearQ = el('button', { class: 'search-clear', html: ICONS.xmark, 'aria-label': 'Clear search', hidden: f.q ? null : '' });
+    input.addEventListener('input', () => { f.q = input.value; clearQ.hidden = !f.q; refresh(); });
+    clearQ.addEventListener('click', () => { input.value = ''; f.q = ''; clearQ.hidden = true; refresh(); input.focus(); });
+
+    const chipRow = el('div', { class: 'chip-row' });
+    const CHIPS = [
+      ['picks', 'featured', 'Featured'], ['picks', 'editors', 'Editor’s Picks'], ['saved', true, 'Saved'],
+      ['kind', 'galleries', 'Galleries'], ['kind', 'museums', 'Museums'],
+      ['when', 'opening', 'Opening this week'], ['when', 'closing', 'Closing this week'], ['when', 'reception', 'Receptions'],
+    ];
+    const chipOn = (key, val) => key === 'when' ? f.when.includes(val) : f[key] === val;
+    function toggleChip(key, val) {
+      if (key === 'when') { const i = f.when.indexOf(val); if (i >= 0) f.when.splice(i, 1); else f.when.push(val); }
+      else if (key === 'saved') f.saved = !f.saved;
+      else f[key] = f[key] === val ? 'all' : val;
+      refresh();
     }
-    sections.push(el('div', { class: 'group' },
-      row('My Shows', () => push('list', showListPage('My Shows', savedShows(), { emptyState: myShowsEmpty() })), 'bookmarkFill')));
+    function renderChips() {
+      chipRow.innerHTML = '';
+      CHIPS.forEach(([key, val, label]) => chipRow.appendChild(el('button', {
+        class: 'chip' + (chipOn(key, val) ? ' on' : ''), 'data-chip': `${key}:${val}`,
+        'aria-pressed': chipOn(key, val) ? 'true' : 'false',
+        onclick: () => toggleChip(key, val),
+      }, label)));
+    }
 
-    const hoodGroup = el('div', { class: 'group' },
-      row('All Current Shows', () => push('list', showListPage('All Current Shows', cityShows()))));
-    city().neighborhoods.forEach(n =>
-      hoodGroup.appendChild(row(n, () => push('list', showListPage(n, neighborhoodShows(n))))));
-    sections.push(hoodGroup);
+    const hoodBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'hoods' });
+    const sortBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'sort' });
+    const countEl = el('span', { class: 'list-count' });
+    const clearBtn = el('button', { class: 'list-clear', onclick: () => {
+      Object.assign(f, { ...LIST_DEFAULT, hoods: [], when: [], sort: f.sort });
+      input.value = ''; clearQ.hidden = true; refresh();
+    } }, 'Clear');
+    hoodBtn.addEventListener('click', () => openChecklistSheet('Neighborhoods', () => [
+      { label: 'All neighborhoods', on: !f.hoods.length, onclick: () => { f.hoods = []; refresh(); return false; } },
+      ...hoodList.map(h => ({
+        label: h, on: f.hoods.includes(h),
+        onclick: () => { const i = f.hoods.indexOf(h); if (i >= 0) f.hoods.splice(i, 1); else f.hoods.push(h); refresh(); return true; },
+      })),
+    ]));
+    sortBtn.addEventListener('click', () => openChecklistSheet('Sort by', () => SORTS.map(([k, label]) => ({
+      label, on: f.sort === k, onclick: () => { f.sort = k; refresh(); return false; },
+    }))));
+    function renderMenus() {
+      const n = f.hoods.length;
+      hoodBtn.innerHTML = '';
+      hoodBtn.append(el('span', null, n === 0 ? 'Neighborhoods' : n === 1 ? f.hoods[0] : `${n} neighborhoods`), icon('chevronDown'));
+      hoodBtn.classList.toggle('on', n > 0);
+      sortBtn.innerHTML = '';
+      sortBtn.append(el('span', null, 'Sort: ' + SORTS.find(([k]) => k === f.sort)[1]), icon('chevronDown'));
+    }
 
-    sections.push(el('div', { class: 'group' },
-      row('Opening This Week', () => push('list', showListPage('Opening This Week', openingThisWeek()))),
-      row('Closing This Week', () => push('list', showListPage('Closing This Week', closingThisWeek()))),
-      row('Editor’s Picks', () => push('list', showListPage('Editor’s Picks', editorsPicks()))),
-      row('Nearby', () => push('list', nearbyPage()))));
+    const group = el('div', { class: 'group list-results' });
+    const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
+    function refresh() {
+      persistList();
+      const shows = sortShows(filterShows(cityShows(), f), f.sort, geo || city().center);
+      group.innerHTML = '';
+      shows.forEach((s, i) => group.appendChild(showRow(s, () => push('list', showDetailPage(shows, i)))));
+      group.hidden = !shows.length;
+      empty.hidden = !!shows.length;
+      countEl.textContent = `${shows.length} show${shows.length === 1 ? '' : 's'}`;
+      clearBtn.hidden = !listFilterActive(f);
+      renderChips(); renderMenus();
+      if (f.sort === 'nearby' && !geo && navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          geo = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          if (f.sort === 'nearby') refresh();
+        }, () => { /* keep city-center order */ }, { timeout: 5000 });
+      }
+    }
+    refreshListRoot = refresh;
 
+    const bar = el('div', { class: 'list-filters' },
+      el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
+      chipRow,
+      el('div', { class: 'chip-row menus' }, hoodBtn, sortBtn),
+      el('div', { class: 'list-status' }, countEl, clearBtn));
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
-        el('button', { class: 'nav-textbtn', html: ICONS.search, 'aria-label': 'Search', style: 'width:22px;height:22px', onclick: openSearchSheet })),
+        el('span')),
       el('div', { class: 'large-title' }, city().displayName),
-      el('div', { style: 'padding-bottom:96px' }, ...sections));
-    const inline = el('div', { class: 'inline-title' }, city().displayName);
-    largeTitleScroll(scroll, inline);
-    return el('div', { class: 'page' }, inline, scroll);
+      bar,
+      el('div', { style: 'padding-bottom:96px' }, group, empty));
+    // once the bar pins to the top it needs the status-bar inset the large
+    // title used to provide
+    scroll.addEventListener('scroll', () => {
+      bar.classList.toggle('stuck', scroll.scrollTop >= bar.offsetTop - 1);
+    }, { passive: true });
+    refresh();
+    return el('div', { class: 'page' }, scroll);
   }
 
   // ---------------- sheets: city, search ----------------

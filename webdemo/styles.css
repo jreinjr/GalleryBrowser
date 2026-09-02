@@ -202,10 +202,37 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .row .row-label { flex: 1; min-width: 0; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .row .row-icon { width: 22px; height: 22px; color: var(--blue); flex: 0 0 auto; }
 .row .chev { width: 13px; height: 13px; color: var(--tertiary); flex: 0 0 auto; }
-.museum-banner { background: #fff; border-radius: 12px; margin: 0 16px 22px; }
-.museum-banner .row { justify-content: center; padding: 14px; }
-.museum-banner .row:active { background: #eee; }
-.museum-banner .label { font-size: 17px; font-weight: 700; color: #000; }
+
+/* List tab: sticky filter bar above the flat show list */
+.list-filters {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(0, 0, 0, 0.82);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  padding: 0 0 6px;
+}
+.list-filters.stuck { padding-top: env(safe-area-inset-top); border-bottom: 0.5px solid var(--sep); }
+.list-filters .search-bar { padding: 4px 16px 8px; }
+.search-clear { width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); color: #000; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.search-clear svg { width: 9px; height: 9px; color: #000; }
+.search-clear[hidden] { display: none; }
+.chip-row {
+  display: flex; gap: 8px; padding: 0 16px 8px; overflow-x: auto; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chip-row::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 4px;
+  padding: 7px 13px; border-radius: 999px; background: var(--field);
+  color: var(--text); font-size: 14px; font-weight: 500; white-space: nowrap;
+}
+.chip:active { background: var(--row-press); }
+.chip.on { background: var(--blue); color: #000; font-weight: 600; }
+.chip-menu svg { width: 11px; height: 11px; }
+.list-status { display: flex; align-items: center; justify-content: space-between; padding: 2px 16px 0; min-height: 18px; }
+.list-count { font-size: 13px; color: var(--secondary); }
+.list-clear { font-size: 14px; color: var(--blue); font-weight: 500; }
+.list-clear[hidden], .list-results[hidden], .empty-plain[hidden] { display: none; }
+.list-results { margin-top: 8px; }
 
 /* Show rows */
 .show-row { display: flex; align-items: center; gap: 12px; padding: 11px 16px; width: 100%; position: relative; }
@@ -294,27 +321,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .map-menu button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; font-size: 16px; color: #fff; }
 .map-menu button + button { border-top: 0.5px solid var(--sep); }
 .map-menu svg { width: 15px; height: 15px; color: #fff; }
-.map-pin {
-  position: relative;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(97, 173, 242, 0.85); border: 1px solid rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-}
-/* Count of concurrent shows at a venue, shown when a pin stands for more than one. */
-.map-pin-count {
-  position: absolute; top: -7px; right: -9px;
-  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px;
-  background: #fff; color: #000;
-  font-size: 10px; font-weight: 700; line-height: 17px; text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-}
-.map-pin-label {
-  position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
-  font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-}
+/* Pins, clusters and labels are MapLibre layers (map_maplibre.js), not DOM. */
 .maplibregl-ctrl-attrib { font-size: 9px !important; background: rgba(0,0,0,0.35) !important; }
 .maplibregl-ctrl-attrib a { color: rgba(255,255,255,0.5) !important; }
 

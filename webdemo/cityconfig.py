@@ -47,3 +47,24 @@ def discover() -> list[dict]:
 def load_shows(city_key: str) -> list[dict]:
     data = json.loads((CONTENT_DIR / f"{city_key}.json").read_text())
     return data.get("shows", [])
+
+
+def load_venue_kinds(city_key: str) -> dict[str, str]:
+    """venue_id -> kind (gallery / museum / nonprofit / project_space / ...) from the
+    venue registry; {} when the city has no registry."""
+    f = CONTENT_DIR / "venues" / f"{city_key}.json"
+    if not f.exists():
+        return {}
+    data = json.loads(f.read_text())
+    return {v["id"]: v.get("kind") for v in data.get("venues", []) if v.get("id") and v.get("kind")}
+
+
+def load_ranking(city_key: str) -> dict[str, dict]:
+    """slug -> {rank, score} for every published show, from the last
+    ``curate.py apply`` (content/curation/<city>/curated.json); {} when absent."""
+    f = CONTENT_DIR / "curation" / city_key / "curated.json"
+    if not f.exists():
+        return {}
+    data = json.loads(f.read_text())
+    rows = data.get("ranked") or data.get("featured") or []
+    return {r["slug"]: {"rank": r["rank"], "score": r.get("score")} for r in rows if r.get("slug")}

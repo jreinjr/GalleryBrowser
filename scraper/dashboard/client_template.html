@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gallery Browser — ranking</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛</text></svg>">
+<style>
+:root {
+  --bg: #f5f5f2; --panel: #ffffff; --ink: #1c1c1e; --muted: #6b6b70; --faint: #9a9aa0; --line: #e4e4e0;
+  --accent: #2d6cdf; --accent-ink: #fff; --ok: #1f8f4e; --warn: #b7791f; --bad: #c0392b; --chip: #eeeeea;
+  --s-judge: #2d6cdf; --s-quality: #16a085; --s-venue: #8e44ad; --s-press: #e67e22; --s-closing: #c0392b;
+  --s-museum: #7f8c8d; --s-other: #bdc3c7;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 var(--font); -webkit-text-size-adjust: 100%; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+button { font: inherit; cursor: pointer; }
+h1 { font-size: 20px; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 12px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+h2:first-child { margin-top: 0; }
+header { position: sticky; top: 0; z-index: 20; background: rgba(245,245,242,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.hwrap { max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hmeta { color: var(--muted); font-size: 13px; flex: 1; min-width: 200px; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #e3f0e8; color: var(--ok); white-space: nowrap; }
+.badge.shared { background: #fbeedc; color: var(--warn); }
+.badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+#layout { max-width: 1280px; margin: 0 auto; padding: 18px 20px 80px; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 22px; align-items: start; }
+aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; max-height: calc(100vh - 80px); overflow: auto; }
+#panel-toggle { display: none; }
+.ctl { display: grid; grid-template-columns: 1fr 64px; gap: 6px 10px; align-items: center; margin: 8px 0; }
+.ctl .lbl { grid-column: 1 / -1; display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.ctl .lbl b { font-weight: 600; }
+.ctl input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+.ctl input[type=number] { width: 64px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 7px; font: inherit; font-size: 13px; text-align: right; background: #fafaf8; }
+.ctl.check { grid-template-columns: auto 1fr; }
+.ctl.check .lbl { grid-column: auto; }
+.ctl.check input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.ctl .sw { width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto; }
+.info { position: relative; display: inline-flex; width: 17px; height: 17px; border-radius: 50%; border: 1px solid var(--faint); color: var(--muted); background: none; padding: 0; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; line-height: 1; flex: 0 0 auto; }
+.info:hover, .info.open { background: var(--ink); color: #fff; border-color: var(--ink); }
+.info .tip { display: none; position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); width: 240px; padding: 8px 10px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 400; line-height: 1.4; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); z-index: 30; text-align: left; white-space: normal; }
+.info:hover .tip, .info.open .tip { display: block; }
+.summary { margin-top: 16px; padding: 12px; background: #f7f7f4; border-radius: 10px; font-size: 13px; line-height: 1.5; }
+.summary b { font-size: 18px; font-weight: 700; }
+.summary .delta { color: var(--muted); }
+.summary .delta .in { color: var(--ok); font-weight: 600; } .summary .delta .out { color: var(--bad); font-weight: 600; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.btn { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 9px; padding: 8px 12px; font-size: 13px; font-weight: 600; }
+.btn:hover { background: #f2f2ee; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(0.95); }
+.btn.wide { flex: 1 1 100%; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; font-size: 13px; z-index: 50; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+.toast.on { opacity: 1; }
+/* main */
+.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.tabs { display: inline-flex; background: #e9e9e4; border-radius: 10px; padding: 3px; }
+.tabs button { border: 0; background: none; padding: 7px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.tabs button.on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+.search { flex: 1; min-width: 160px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 14px; background: #fff; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend .sw { width: 10px; height: 10px; border-radius: 3px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; display: grid; grid-template-columns: 40px 64px minmax(0, 1fr); gap: 4px 12px; align-items: start; }
+.card.gated { opacity: 0.78; }
+.card .rk { font-weight: 700; font-size: 15px; color: var(--muted); padding-top: 2px; }
+.card.feat .rk { color: var(--accent); }
+.card .th { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; background: #ececea; display: block; }
+.card .th.none { display: flex; align-items: center; justify-content: center; color: var(--faint); font-size: 11px; }
+.card .body { min-width: 0; }
+.card .ttl { font-weight: 700; font-size: 16px; line-height: 1.25; }
+.card .art { color: var(--muted); font-size: 14px; }
+.card .ven { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 2px; }
+.chip { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--chip); color: var(--muted); white-space: nowrap; }
+.chip.f { background: var(--accent); color: #fff; } .chip.ep { background: #1d3c7a; color: #fff; }
+.chip.in { background: #e3f0e8; color: var(--ok); } .chip.out { background: #f8e3e0; color: var(--bad); }
+.chip.warn { background: #fbeedc; color: var(--warn); } .chip.gate { background: #ededea; color: #555; }
+.scorerow { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.scorerow .num { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13px; width: 38px; }
+.track { position: relative; flex: 1; height: 10px; background: #ededea; border-radius: 5px; overflow: hidden; }
+.stack { display: flex; height: 100%; }
+.seg { height: 100%; background: var(--c); }
+.thr { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink); opacity: 0.6; }
+.why { font-size: 12px; color: var(--muted); margin-top: 5px; }
+.foot { margin-top: 6px; }
+.link { border: 0; background: none; color: var(--accent); font-size: 13px; font-weight: 600; padding: 0; }
+.drawer { grid-column: 1 / -1; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 22px; font-size: 13px; }
+.drawer h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+table.t { border-collapse: collapse; width: 100%; font-size: 13px; }
+table.t td, table.t th { padding: 3px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.mini { display: grid; grid-template-columns: 120px 1fr 28px; gap: 8px; align-items: center; font-size: 12px; margin: 2px 0; }
+.mini .bar { height: 7px; background: #ededea; border-radius: 4px; overflow: hidden; } .mini .bar span { display: block; height: 100%; background: var(--s-judge); }
+.rationale { background: #f7f7f4; border-radius: 8px; padding: 8px 10px; margin-top: 6px; line-height: 1.45; }
+.sig { margin: 6px 0 10px; }
+.sig .meta { color: var(--muted); font-size: 12px; }
+.sig .snip { margin: 2px 0; font-style: italic; }
+.muted { color: var(--muted); }
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+.cutoff { text-align: center; font-size: 12px; color: var(--muted); margin: 10px 0 14px; border-top: 1px dashed #c9c9c4; padding-top: 6px; }
+@media (max-width: 900px) {
+  #layout { grid-template-columns: 1fr; padding: 12px 12px 80px; gap: 12px; }
+  aside { position: static; max-height: none; padding: 12px; }
+  #panel-toggle { display: block; width: 100%; margin-bottom: 8px; }
+  aside.collapsed .panel-body { display: none; }
+  .card { grid-template-columns: 30px 52px minmax(0, 1fr); padding: 10px; }
+  .card .th { width: 52px; height: 52px; }
+  .info .tip { left: auto; right: -20px; transform: none; }
+}
+</style>
+</head>
+<body>
+<header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
+<div id="layout">
+  <aside id="panel">
+    <button class="btn wide" id="panel-toggle">Tune the ranking</button>
+    <div class="panel-body">
+      <h2>Feed gates</h2>
+      <div id="gates"></div>
+      <h2>What counts, and how much</h2>
+      <div id="weights"></div>
+      <div class="legend" id="legend"></div>
+      <div class="summary" id="summary"></div>
+      <div class="btns">
+        <button class="btn primary wide" data-act="copy">Copy link to these settings</button>
+        <button class="btn" data-act="email">Email link</button>
+        <button class="btn" data-act="sms">Text link</button>
+        <button class="btn" data-act="share" id="share-btn" hidden>Share…</button>
+        <button class="btn" data-act="download">Download params JSON</button>
+        <button class="btn" data-act="reset">Reset to live</button>
+      </div>
+      <div class="hint">Every change re-ranks the list instantly. The link encodes only what you changed, so it can be texted or emailed and opened on any device.</div>
+    </div>
+  </aside>
+  <main id="main">
+    <div class="toolbar">
+      <div class="tabs"><button data-view="feed" class="on">Featured feed</button><button data-view="all">All discovered shows</button></div>
+      <input class="search" id="q" type="search" placeholder="Search artist, show or venue" autocomplete="off">
+    </div>
+    <div id="list"></div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<!-- CURATION_DATA -->
+<script>
+'use strict';
+<!-- CURATION_CORE -->
+
+/* =====================================================================
+ * CLIENT PAGE — ranks with the shared core; exposes only the client knobs
+ * ===================================================================*/
+const CLIENT_PATHS = R.client_paths || ['threshold', 'max_per_venue', 'exclude_museums', 'editors_pick_top',
+  'weights.judge', 'weights.quality', 'weights.venue', 'weights.press', 'weights.closing_soon', 'weights.museum'];
+const LIVE = R.live || { featured: [], editors_pick: [] };
+const LIVE_SET = new Set(LIVE.featured || []);
+const DEFAULT = normalizeParams(clone(R.params_default || {}));
+const SITE_URL = R.site_url || (location.origin + location.pathname);
+const CONTACT = R.contact_email || '';
+
+const WEIGHT_INFO = {
+  judge: ['Critic verdict', 'An AI critic reads the show’s description, press and venue and scores it 1–10 on artist significance, venue, reception, ambition and timeliness. The strongest single signal.'],
+  quality: ['Record quality', 'How complete our record of the show is: number of images and length of the description. A proxy for how much the gallery itself is putting behind it.'],
+  venue: ['Venue standing', 'Venue tier where we know it, plus art-fair participation; venues we know nothing about get a neutral middle value.'],
+  press: ['Press coverage', 'Recent reviews, picks and news mentions, weighted by the outlet and fading with age.'],
+  closing_soon: ['Closing soon', 'A nudge for shows that close within 14 days, so people don’t miss them.'],
+  museum: ['Museum adjustment', 'Bonus or penalty for museum shows. Below zero sinks them down the feed without hiding them; the “Exclude museums” gate removes them entirely.'],
+};
+const GATE_INFO = {
+  threshold: ['Cutoff score', 'A show must score at least this much to be featured. Lower = a longer feed, higher = a stricter one.'],
+  max_per_venue: ['Max shows per venue', 'Stops one venue from filling the feed. Blank = no limit.'],
+  exclude_museums: ['Exclude museums', 'Galleries only in the featured feed. Museums still appear in the app’s List and Map tabs.'],
+  editors_pick_top: ['Editors’ picks', 'The top N featured shows are flagged as Editors’ Picks.'],
+};
+const SWATCH = { judge: 'var(--s-judge)', quality: 'var(--s-quality)', venue: 'var(--s-venue)', press: 'var(--s-press)', closing_soon: 'var(--s-closing)', museum: 'var(--s-museum)' };
+const BAR_ORDER = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum', 'artist_heat', 'wiki_heat', 'keyword', 'opening_recency'];
+const NICE = { judge: 'Critic verdict', quality: 'Record quality', venue: 'Venue standing', press: 'Press coverage', closing_soon: 'Closing soon', museum: 'Museum adjustment', artist_heat: 'Artist heat', wiki_heat: 'Wikipedia', keyword: 'Keywords', opening_recency: 'Just opened' };
+
+let params = clone(DEFAULT);
+const ui = { view: 'feed', q: '', expanded: new Set() };
+const state = { rows: [], feed: [] };
+
+// ---- share links: #p=<base64url(JSON diff vs live)> ----
+const b64url = s => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const unb64url = s => decodeURIComponent(escape(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4))));
+function diffParams() {
+  const out = {};
+  for (const path of CLIENT_PATHS) {
+    const a = getPath(DEFAULT, path), b = getPath(params, path);
+    if (a !== b && !(a == null && b == null)) setPath(out, path, b);
+  }
+  return out;
+}
+function shareLink() {
+  const d = diffParams();
+  return Object.keys(d).length ? `${SITE_URL}#p=${b64url(JSON.stringify(d))}` : SITE_URL;
+}
+function readHash() {
+  const m = /[#&]p=([A-Za-z0-9_-]+)/.exec(location.hash || '');
+  if (!m) return null;
+  try { const o = JSON.parse(unb64url(m[1])); return (o && typeof o === 'object') ? o : null; } catch (e) { return null; }
+}
+function syncHash() {
+  const d = diffParams();
+  const h = Object.keys(d).length ? '#p=' + b64url(JSON.stringify(d)) : '';
+  if ((location.hash || '') !== h) history.replaceState(null, '', location.pathname + location.search + h);
+}
+function isLive() { return Object.keys(diffParams()).length === 0; }
+
+// ---- ranking ----
+function recompute() {
+  state.rows = rank(SHOWS, params);
+  state.feed = state.rows.filter(r => r.featured).sort((a, b) => a.featured_rank - b.featured_rank);
+}
+
+// ---- rendering: controls ----
+function infoBtn(text) { return `<button class="info" type="button" aria-label="What is this?" data-act="tip">i<span class="tip">${esc(text)}</span></button>`; }
+function rangeCtl(path, label, info, o, swatch) {
+  const v = getPath(params, path) ?? 0;
+  return `<div class="ctl"><div class="lbl">${swatch ? `<span class="sw" style="background:${swatch}"></span>` : ''}<b>${esc(label)}</b>${infoBtn(info)}</div>
+    <input type="range" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}">
+    <input type="number" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}"></div>`;
+}
+function numCtl(path, label, info, o) {
+  const v = getPath(params, path);
+  return `<div class="ctl"><div class="lbl"><b>${esc(label)}</b>${infoBtn(info)}</div><span class="muted" style="font-size:12px">${o.nullable ? 'blank = no limit' : ''}</span>
+    <input type="number" data-path="${path}" data-kind="${o.nullable ? 'nullnum' : 'int'}" min="${o.min}" step="1" value="${v == null ? '' : v}"${o.nullable ? ' placeholder="∞"' : ''}></div>`;
+}
+function boolCtl(path, label, info) {
+  return `<div class="ctl check"><input type="checkbox" id="cb-${path}" data-path="${path}" data-kind="bool"${getPath(params, path) ? ' checked' : ''}><label class="lbl" for="cb-${path}"><b>${esc(label)}</b>${infoBtn(info)}</label></div>`;
+}
+function renderControls() {
+  $('#gates').innerHTML =
+    rangeCtl('threshold', GATE_INFO.threshold[0], GATE_INFO.threshold[1], { min: 0, max: 1, step: 0.01 }) +
+    numCtl('max_per_venue', GATE_INFO.max_per_venue[0], GATE_INFO.max_per_venue[1], { min: 0, nullable: true }) +
+    numCtl('editors_pick_top', GATE_INFO.editors_pick_top[0], GATE_INFO.editors_pick_top[1], { min: 0 }) +
+    boolCtl('exclude_museums', GATE_INFO.exclude_museums[0], GATE_INFO.exclude_museums[1]);
+  $('#weights').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f =>
+    rangeCtl(`weights.${f}`, WEIGHT_INFO[f][0], WEIGHT_INFO[f][1], f === 'museum' ? { min: -0.5, max: 0.5, step: 0.01 } : { min: 0, max: 1, step: 0.01 }, SWATCH[f])).join('');
+  $('#share-btn').hidden = !navigator.share;
+}
+function syncInputs(path, except) {
+  const v = getPath(params, path);
+  document.querySelectorAll(`[data-path="${path}"]`).forEach(el => {
+    if (el === except) return;
+    if (el.type === 'checkbox') el.checked = !!v; else el.value = v == null ? '' : v;
+  });
+}
+function readInput(el) {
+  const kind = el.dataset.kind;
+  if (kind === 'bool') return !!el.checked;
+  if (el.value === '' || el.value == null) return kind === 'nullnum' ? null : 0;
+  const n = kind === 'int' ? parseInt(el.value, 10) : parseFloat(el.value);
+  return Number.isNaN(n) ? (kind === 'nullnum' ? null : 0) : n;
+}
+
+// ---- rendering: header / summary ----
+function renderHeader() {
+  $('#hdr-title').textContent = `Gallery Browser · ${R.city_name || CITY}`;
+  const nPub = SHOWS.filter(s => s.pool === 'published').length;
+  $('#hdr-meta').textContent = `Ranking as of ${R.today || '?'} · ${SHOWS.length} shows discovered (${nPub} published, ${SHOWS.length - nPub} pending verification) · live feed applied ${LIVE.applied_ts ? new Date(LIVE.applied_ts * 1000).toLocaleDateString() : '?'}`;
+  const b = $('#mode-badge'), live = isLive();
+  b.classList.toggle('shared', !live);
+  b.lastElementChild.textContent = live ? 'Live settings' : 'Shared settings — differs from live';
+}
+function renderSummary() {
+  const feed = state.feed, ep = feed.filter(r => r.editors_pick).length, mus = feed.filter(r => r.venue.is_museum).length;
+  const now = new Set(feed.map(r => r.slug));
+  const added = [...now].filter(s => !LIVE_SET.has(s)).length, dropped = [...LIVE_SET].filter(s => !now.has(s)).length;
+  const delta = (added || dropped) ? `vs live: <span class="in">+${added} in</span>, <span class="out">−${dropped} out</span>` : 'same feed as live';
+  $('#summary').innerHTML = `<b>${feed.length}</b> featured · ${ep} editors’ pick${ep === 1 ? '' : 's'} · ${mus} museum${mus === 1 ? '' : 's'}<div class="delta">${delta}</div>`;
+  $('#legend').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f => `<span><span class="sw" style="background:${SWATCH[f]}"></span>${NICE[f]} ×${fmt(params.weights[f], 2)}</span>`).join('');
+}
+
+// ---- rendering: list ----
+function statusChips(r) {
+  const c = [];
+  if (r.featured) c.push(`<span class="chip f">Featured #${r.featured_rank}</span>`);
+  if (r.editors_pick) c.push('<span class="chip ep">Editors’ pick</span>');
+  if (r.featured && !LIVE_SET.has(r.slug)) c.push('<span class="chip in">New in feed</span>');
+  if (!r.featured && LIVE_SET.has(r.slug)) c.push('<span class="chip out">Dropped from feed</span>');
+  if (r.venue.is_museum) c.push('<span class="chip">Museum</span>');
+  if (r.pool === 'pending') c.push('<span class="chip warn">Pending verification</span>');
+  const dso = r.days_since_open, dtc = r.days_to_close;
+  if (r.gate === 'below_threshold') c.push('<span class="chip gate">Below cutoff</span>');
+  else if (r.gate === 'not_published') c.push('<span class="chip gate">Not yet published</span>');
+  else if (r.gate === 'not_open') c.push(`<span class="chip gate">${dso == null ? 'No start date' : `Opens in ${-dso} day${-dso === 1 ? '' : 's'}`}</span>`);
+  else if (r.gate === 'out_of_window') c.push(`<span class="chip gate">${dtc != null && dtc < 0 ? 'Closed' : dso != null && dso < 0 ? `Opens in ${-dso} days` : 'Outside publication window'}</span>`);
+  else if (r.gate === 'max_per_venue') c.push('<span class="chip gate">Venue already at its limit</span>');
+  else if (r.gate === 'exclude_museums') c.push('<span class="chip gate">Museums excluded</span>');
+  else if (r.gate === 'max_per_neighborhood') c.push('<span class="chip gate">Neighborhood at its limit</span>');
+  else if (r.gate === 'max_museum_share') c.push('<span class="chip gate">Museum share cap</span>');
+  else if (r.gate === 'max_n') c.push('<span class="chip gate">Beyond feed cap</span>');
+  else if (r.gate) c.push(`<span class="chip gate">${esc(r.gate_detail || r.gate)}</span>`);
+  return c.join('');
+}
+function barHTML(r, scale) {
+  let segs = '';
+  for (const f of BAR_ORDER) {
+    const v = r.contrib[f];
+    if (!(v > 0)) continue;
+    segs += `<div class="seg" style="--c:${SWATCH[f] || 'var(--s-other)'};flex:${v} 0 0" title="${esc(NICE[f])}: ${v.toFixed(3)}"></div>`;
+  }
+  const w = scale > 0 ? Math.min(100, 100 * Math.max(0, r.score) / scale) : 0;
+  const t = +(params.threshold || 0);
+  const thr = (scale > 0 && t <= scale) ? `<div class="thr" style="left:${(100 * t / scale).toFixed(2)}%" title="cutoff ${t.toFixed(2)}"></div>` : '';
+  return `<div class="track"><div class="stack" style="width:${w.toFixed(2)}%">${segs}</div>${thr}</div>`;
+}
+function whyLine(r) {
+  const parts = [];
+  const top = BAR_ORDER.filter(f => Math.abs(r.contrib[f]) > 1e-9).sort((a, b) => Math.abs(r.contrib[b]) - Math.abs(r.contrib[a])).slice(0, 3);
+  for (const f of top) {
+    if (f === 'judge') { const jd = r._detail.judge; const ov = Object.values(jd.rows || {})[0]; parts.push(`critic ${ov != null ? ov + '/10' : fmt(r.features.judge, 2)}`); }
+    else if (f === 'quality') parts.push(`${r._detail.n_images} image${r._detail.n_images === 1 ? '' : 's'}, ${r._detail.desc_words} words`);
+    else if (f === 'venue') parts.push(`venue ${r._detail.venue.basis}`);
+    else if (f === 'press') parts.push(`press: ${[...new Set(r._detail.signals.filter(s => PRESS_KINDS.has(s.kind)).map(s => (s.source && s.source.name) || s.source.id))].slice(0, 3).join(', ')}`);
+    else if (f === 'closing_soon') parts.push(`closes in ${r._detail.days_to_close} d`);
+    else if (f === 'museum') parts.push(r.contrib.museum < 0 ? 'museum penalty' : 'museum bonus');
+    else parts.push(NICE[f].toLowerCase());
+  }
+  if (r._detail.judge.missing) parts.push('no critic verdict yet');
+  return parts.join(' · ');
+}
+function miniBars(scores) {
+  return Object.entries(scores || {}).map(([k, v]) => `<div class="mini"><span>${esc(k.replace(/_/g, ' '))}</span><div class="bar"><span style="width:${Math.max(0, Math.min(100, 10 * (+v || 0)))}%"></span></div><span class="n">${esc(v)}</span></div>`).join('');
+}
+function drawerHTML(r) {
+  const d = r._detail;
+  let h = '<div class="drawer">';
+  h += '<div><h4>Score breakdown</h4><table class="t"><tr><th>signal</th><th class="n">value</th><th class="n">weight</th><th class="n">points</th></tr>';
+  for (const f of BAR_ORDER) {
+    const w = +(params.weights[f] ?? 0);
+    if (w === 0 && !(Math.abs(r.contrib[f]) > 1e-9)) continue;
+    h += `<tr><td><span class="sw" style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${SWATCH[f] || 'var(--s-other)'}"></span> ${NICE[f]}</td><td class="n">${fmt(r.features[f], 2)}</td><td class="n">${fmt(w, 2)}</td><td class="n">${fmt(r.contrib[f], 3)}</td></tr>`;
+  }
+  h += `<tr><td><b>Score</b></td><td></td><td></td><td class="n"><b>${fmt(r.score, 3)}</b></td></tr></table>`;
+  const dates = r.dates || {};
+  h += `<div class="hint">${esc(dates.start || '?')} → ${esc(dates.end || '?')}${d.days_since_open != null ? ` · ${d.days_since_open < 0 ? `opens in ${-d.days_since_open} d` : `opened ${d.days_since_open} d ago`}` : ''}${d.days_to_close != null ? ` · ${d.days_to_close < 0 ? 'closed' : `closes in ${d.days_to_close} d`}` : ''} · ${d.n_images} image${d.n_images === 1 ? '' : 's'} · ${d.desc_words} words${r.reception ? ` · reception: ${esc(r.reception)}` : ''}</div>`;
+  const links = [];
+  if (r.venue_website) links.push(`<a href="${esc(r.venue_website)}" target="_blank" rel="noopener">venue site</a>`);
+  for (const u of r.source_urls || []) { try { links.push(`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).hostname.replace(/^www\./, ''))}</a>`); } catch (e) { /* skip */ } }
+  if (links.length) h += `<div class="hint">Links: ${links.join(' · ')}</div>`;
+  h += '</div>';
+  h += '<div><h4>Critic verdict</h4>';
+  const jv = r.judge || {};
+  let any = false;
+  for (const models of Object.values(jv)) for (const row of Object.values(models || {})) {
+    any = true;
+    h += `<div><b>${esc(row.overall)}/10</b>${row.confidence != null ? ` <span class="muted">· confidence ${esc(row.confidence)}</span>` : ''}${miniBars(row.scores)}${row.rationale ? `<div class="rationale">${esc(row.rationale)}</div>` : ''}</div>`;
+  }
+  if (!any) h += '<div class="muted">No critic verdict yet — this show scores on the other signals only.</div>';
+  h += '</div>';
+  h += '<div><h4>Press & mentions</h4>';
+  const sigs = d.signals.filter(s => PRESS_KINDS.has(s.kind) || ARTIST_KINDS.has(s.kind) || s.kind === 'fair_exhibitor');
+  if (!sigs.length) h += '<div class="muted">No press found for this show.</div>';
+  for (const s of sigs) {
+    h += `<div class="sig"><div><b>${esc((s.source && s.source.name) || (s.source && s.source.id) || '?')}</b> <span class="meta">${esc(s.date || '')} · ${esc(s.kind.replace(/_/g, ' '))}${s.strength ? ' · ' + esc(s.strength) : ''}</span></div>${s.snippet ? `<div class="snip">“${esc(s.snippet)}”</div>` : ''}${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url.length > 70 ? s.url.slice(0, 68) + '…' : s.url)}</a>` : ''}</div>`;
+  }
+  if (r.wiki && r.wiki.title) h += `<div class="hint">Wikipedia: <a href="${esc(r.wiki.url)}" target="_blank" rel="noopener">${esc(r.wiki.title)}</a> · ${esc(r.wiki.pageviews_90d)} views in 90 days</div>`;
+  h += '</div></div>';
+  return h;
+}
+function cardHTML(r, scale, i) {
+  const open = ui.expanded.has(r.slug);
+  const rk = ui.view === 'feed' ? r.featured_rank : r.rank;
+  return `<div class="card${r.featured ? ' feat' : ' gated'}" id="row-${esc(r.slug)}">
+    <div class="rk">#${rk}</div>
+    ${r.thumb ? `<img class="th" src="${esc(r.thumb)}" alt="" loading="lazy">` : '<div class="th none">no image</div>'}
+    <div class="body"><div class="ttl">${esc(r.title || r.slug)}</div>${r.artist ? `<div class="art">${esc(r.artist)}</div>` : ''}
+      <div class="ven">${esc(r.venue.name || '?')}${r.venue.neighborhood ? ' · ' + esc(r.venue.neighborhood) : ''}</div>
+      <div class="chips">${statusChips(r)}</div>
+      <div class="scorerow"><span class="num">${fmt(r.score, 2)}</span>${barHTML(r, scale)}</div>
+      <div class="why">${esc(whyLine(r))}</div>
+      <div class="foot"><button class="link" data-act="toggle" data-slug="${esc(r.slug)}">${open ? 'Hide details' : 'Why this score'}</button></div></div>
+    ${open ? drawerHTML(r) : ''}</div>`;
+}
+function matches(r, q) {
+  if (!q) return true;
+  return [r.title, r.artist, r.venue.name, r.venue.neighborhood].some(x => (x || '').toLowerCase().includes(q));
+}
+function renderList() {
+  const q = ui.q.trim().toLowerCase();
+  const rows = (ui.view === 'feed' ? state.feed : state.rows).filter(r => matches(r, q));
+  const scale = Math.max(...state.rows.map(r => r.score), +(params.threshold || 0), 0.05) * 1.05;
+  document.querySelectorAll('.tabs button').forEach(b => {
+    b.classList.toggle('on', b.dataset.view === ui.view);
+    b.textContent = b.dataset.view === 'feed' ? `Featured feed (${state.feed.length})` : `All discovered shows (${state.rows.length})`;
+  });
+  let h = '';
+  const lastFeat = ui.view === 'all' ? rows.reduce((m, r, i) => (r.featured ? i : m), -1) : -1;
+  rows.forEach((r, i) => {
+    h += cardHTML(r, scale, i);
+    if (i === lastFeat && i < rows.length - 1) h += `<div class="cutoff">everything below is not in the feed — cutoff score ${(+params.threshold).toFixed(2)}</div>`;
+  });
+  if (!rows.length) h = `<div class="empty">${q ? 'No shows match your search.' : 'No show passes the current settings — lower the cutoff score.'}</div>`;
+  $('#list').innerHTML = h;
+}
+function renderAll() { recompute(); renderHeader(); renderSummary(); renderList(); syncHash(); }
+
+// ---- actions ----
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('on'), 2200); }
+function exportParams() { const p = orderedParams(clone(params)); p._note = `Exported from the curation site on ${new Date().toISOString().slice(0, 10)}; changes vs live: ${JSON.stringify(diffParams())}`; return p; }
+function downloadParams() {
+  const blob = new Blob([JSON.stringify(exportParams(), null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = `params-${CITY}-${(R.today || 'today')}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+async function copyLink() {
+  const link = shareLink();
+  try { await navigator.clipboard.writeText(link); toast('Link copied'); }
+  catch (e) { window.prompt('Copy this link:', link); }
+}
+function mailBody() { const d = diffParams(); return `Gallery Browser ranking settings (${R.city_name || CITY}):\n${shareLink()}\n\nChanges vs live: ${Object.keys(d).length ? JSON.stringify(d) : 'none'}`; }
+function resetParams() { params = clone(DEFAULT); renderControls(); renderAll(); toast('Back to the live settings'); }
+function applyShared(obj) {
+  const p = clone(DEFAULT);
+  for (const path of CLIENT_PATHS) { const v = getPath(obj, path); if (v !== undefined) setPath(p, path, v); }
+  params = normalizeParams(p);
+}
+
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (el.id === 'q') { ui.q = el.value; renderList(); return; }
+  if (el.dataset && el.dataset.path) { setPath(params, el.dataset.path, readInput(el)); syncInputs(el.dataset.path, el); renderAll(); }
+});
+document.addEventListener('click', e => {
+  const tab = e.target.closest('.tabs button');
+  if (tab) { ui.view = tab.dataset.view; renderList(); return; }
+  const b = e.target.closest('[data-act]');
+  if (!b) { document.querySelectorAll('.info.open').forEach(x => x.classList.remove('open')); return; }
+  const act = b.dataset.act;
+  if (act === 'tip') { e.preventDefault(); const was = b.classList.contains('open'); document.querySelectorAll('.info.open').forEach(x => x.classList.remove('open')); if (!was) b.classList.add('open'); }
+  else if (act === 'toggle') { const s = b.dataset.slug; if (ui.expanded.has(s)) ui.expanded.delete(s); else ui.expanded.add(s); renderList(); }
+  else if (act === 'copy') copyLink();
+  else if (act === 'email') location.href = `mailto:${encodeURIComponent(CONTACT)}?subject=${encodeURIComponent('Gallery ranking settings')}&body=${encodeURIComponent(mailBody())}`;
+  else if (act === 'sms') location.href = `sms:?&body=${encodeURIComponent(mailBody())}`;
+  else if (act === 'share') { if (navigator.share) navigator.share({ title: 'Gallery ranking settings', text: mailBody(), url: shareLink() }).catch(() => {}); }
+  else if (act === 'download') downloadParams();
+  else if (act === 'reset') resetParams();
+});
+$('#panel-toggle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
+window.addEventListener('hashchange', () => { const o = readHash(); if (o) { applyShared(o); renderControls(); renderAll(); } });
+
+// public surface for tests / console
+window.site = {
+  get params() { return params; }, rows: () => state.rows, feed: () => state.feed.map(r => r.slug),
+  shareLink, diff: diffParams, isLive, set(path, v) { setPath(params, path, v); syncInputs(path); renderAll(); }, reset: resetParams, applyShared,
+  fn: { rank, computeFeatures, scoreShow, applyGates },
+};
+
+// boot
+const shared = readHash();
+if (shared) applyShared(shared);
+if (window.matchMedia('(max-width: 900px)').matches) $('#panel').classList.add('collapsed');
+renderControls();
+renderAll();
+</script>
+</body>
+</html>
