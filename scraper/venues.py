@@ -515,8 +515,13 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
         past_due = nxt is not None and nxt <= today
         never = not scraped
         live = active_shows(v, today)
-        ending_soon = any((_parse_date(x.get("end")) or today) <= today + timedelta(days=7)
-                          for x in live)
+        soon_ends = [(_parse_date(x.get("end")) or today) for x in live
+                     if (_parse_date(x.get("end")) or today) <= today + timedelta(days=7)]
+        # A show's last week re-queues its venue ONCE: only if we have not
+        # looked since that week began (a session that logged "unchanged"
+        # yesterday must not be re-picked every session until the show ends).
+        ending_soon = bool(soon_ends) and (
+            not scraped or date.fromtimestamp(scraped) < min(soon_ends) - timedelta(days=7))
         if not (never or nxt is None or past_due or changed or ending_soon):
             continue
         pr, reasons = 0, []

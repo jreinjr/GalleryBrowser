@@ -89,12 +89,16 @@ class RegistryScheduleTests(unittest.TestCase):
         far = self.venue("far", shows=("2026-10-15",), next_check=(TODAY + timedelta(days=10)).isoformat())
         due_check = self.venue("duecheck", shows=("2026-10-15",), next_check=TODAY.isoformat())
         ending = self.venue("ending", shows=("2026-09-04",), next_check=(TODAY + timedelta(days=10)).isoformat())
+        ending["last_scraped"] = int(time.mktime((TODAY - timedelta(days=10)).timetuple()))   # not seen this week
+        checked = self.venue("checked", shows=("2026-09-04",), next_check=(TODAY + timedelta(days=10)).isoformat())
+        checked["last_scraped"] = int(time.mktime((TODAY - timedelta(days=1)).timetuple()))  # looked yesterday
         cand = self.venue("cand", status="candidate", scraped=False)
-        self.write(far, due_check, ending, cand)
+        self.write(far, due_check, ending, checked, cand)
         due = {r["id"]: r for r in venues.due_venues("los-angeles", "Hollywood", TODAY)}
         self.assertNotIn("far", due)
         self.assertIn("past_next_check", due["duecheck"]["_reasons"])
         self.assertIn("show_ending_soon", due["ending"]["_reasons"])
+        self.assertNotIn("checked", due)
         self.assertIn("candidate", due["cand"]["_reasons"])
         self.assertGreaterEqual(due["cand"]["_priority"], 60)   # never_scraped 40 + candidate 20
 
