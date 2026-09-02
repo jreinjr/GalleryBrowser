@@ -740,10 +740,17 @@ def record_venue(args: dict, city_key: str, neighborhoods: list[str], session: s
                                       args.get("website"), add_alias=False)
         except Exception:
             known = None
-        if known is not None and known.get("neighborhood") == zone and known.get("website"):
+        given = venues.registrable_domain(args.get("website")) if known is not None else None
+        same_site = (given is None
+                     or given == venues.registrable_domain(known.get("website")))
+        if (known is not None and known.get("neighborhood") == zone
+                and known.get("website") and same_site):
             return json.dumps({"result": "already_known", "venue": known["name"],
                                "venue_id": known["id"],
                                "note": "already in the directory — do not search for it again"})
+        # a different website under a colliding name: fall through and let the
+        # registry merge the agent's facts (name-keyed ids can be shadowed by
+        # a generic Places listing such as "Park view gallery")
     entry = {
         "ts": int(time.time()), "session": session, "city": city_key,
         "name": args["name"], "neighborhood": args["neighborhood"],
