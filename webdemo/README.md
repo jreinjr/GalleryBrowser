@@ -34,26 +34,49 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
 - `images.py` / `mapgen.py` — image + basemap pipelines (cached).
 - `template.html`, `styles.css`, `icons.js`, `app.js`, `map_maplibre.js` — the app.
   Vanilla JS; the Map tab uses MapLibre GL + CARTO dark style; state persists in
-  `localStorage` (`selectedCityKey`, `savedShowIDs`, same semantics as the iOS app).
+  `localStorage` (`selectedCityKey`, `savedShowIDs`, `filter`; same semantics as the iOS app).
 
-## List and Map tabs
+## Filters, rank glyphs, map
 
-- **List** is a flat list of the city's published shows under a sticky filter
-  bar: search (title / artist / venue), toggle chips (Featured, Saved,
-  Upcoming receptions — the reception line is free text, parsed to a date and
-  kept only from today on; the map's Receptions filter uses the same rule), and three pickers — Venues (Galleries by default, Museums, All
-  venues), Neighborhoods (multi-select) and Sort (Ranking, Closing soon,
-  Recently opened, Reception soon, Venue A–Z, Nearby). The default view is featured gallery
-  shows; Clear returns to it. Filters persist in `localStorage` (`listFilter`,
-  versioned — an older shape falls back to the defaults). Editor's Picks is no
-  longer a category anywhere in the app. Ranking comes from the last `curate.py apply`
+- **One filter state for all three tabs.** Featured (cards), List (rows) and
+  Map (pins) render the same filtered set. Each tab has a sliders button in the
+  top right (a badge counts the groups off their defaults); it opens the
+  Filters sheet: search (title / artist / venue), Show switches (Active shows —
+  running today, on by default, and nullable dates count as running; Saved
+  only; Upcoming receptions — the reception line is free text, parsed to a date
+  and kept only from today on), three 3-way pickers — **Show Rank** (All Shows /
+  Featured / Editor's Picks), **Gallery Rank** (All Galleries / Notable / Top
+  Ranked), **Venue Type** (All venues / Galleries / Museums) — Neighborhoods
+  (multi-select chips) and Sort (Ranking, Closing soon, Recently opened,
+  Reception soon, Venue A–Z, Gallery rank, Nearby). Sort only orders the List,
+  so the Map's own filter button opens the sheet without it. Every
+  control applies live; the footer's "Show N shows" just closes. Defaults:
+  Galleries + Featured + Active; Clear returns to them. The state persists in
+  `localStorage` (`filter`, versioned — an older shape falls back to the
+  defaults). Ranking comes from the last `curate.py apply`
   (`content/curation/<city>/curated.json` → `ranked`), falling back to file order;
-  `build.py` also embeds each venue's registry `kind`. "Galleries" means every
-  non-museum venue (nonprofits and project spaces included).
-- **Map** uses a clustered GeoJSON source: overlapping venues collapse into a
-  numbered bubble (number = venues) that zooms open on tap; single venues are
-  dots with a show-count badge and a name label placed by MapLibre's collision
-  engine, so labels never overlap (a label is hidden before the dot is).
+  `build.py` also embeds each venue's registry `kind`, `rank` and `tier`.
+  "Galleries" means every non-museum venue (nonprofits and project spaces included).
+- **Rank star.** Only the top tier is marked, and only where it is the subject.
+  A filled blue star means Editor's Pick for a show and Top Gallery for a
+  gallery; Featured and Notable get no mark. List rows star the show name;
+  Featured cards carry no star. The show detail stars the show in its header,
+  with the words "Editor's Pick"; the gallery named below it carries no mark.
+  The gallery page carries its own "Top Gallery" pill under the title, and its
+  show rows stay plain. Gallery tiers derive from the registry rank (`rank_venues.py`,
+  city-wide): Top = rank ≤ 25, Notable = rank ≤ 100, otherwise Listed
+  (`GALLERY_TIER_CUTOFF` in `app.js`); Notable still drives the Gallery Rank
+  filter even though it draws nothing.
+- **Map** is galleries: one unclustered dot per venue of the filtered set,
+  coloured and sized by tier (Listed dots are small, grey and unlabelled; a
+  legend sits bottom-left). Name labels are a symbol layer, so MapLibre's
+  collision engine keeps them from overlapping (a label is hidden before the
+  dot is) and the better tier wins the slot. Tapping any dot opens the venue
+  page.
+- **Featured cards** carry a white bookmark button in the footer, the same
+  control as the list rows.
+- Venue-page show rows carry the show alone: the venue name and address above
+  them are not repeated.
 
 ## Local test
 
@@ -69,8 +92,9 @@ scraper/.venv/bin/python webdemo/build.py    # tests run against a fresh dist
 NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/gestures.test.js
 ```
 
-`list.test.js` (filters, sheets, sort, sticky bar) and `map.test.js` (clusters,
-label collision, taps) run the same way; set `DIST=<dir>` to test a build made
+`list.test.js` (filter sheet, shared state, glyphs, card bookmark, sort),
+`venue.test.js` (gallery rank sort, venue page) and `map.test.js` (tier dots,
+label collision, taps, filter sheet) run the same way; set `DIST=<dir>` to test a build made
 with `build.py --out <dir>`.
 
 Raw-CDP multitouch choreography (feed pinch/pan lifecycle, viewer touch

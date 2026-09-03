@@ -9,6 +9,7 @@
     map: `<svg ${S} fill="currentColor"><path d="M9 3.5L3.6 5.3a1 1 0 00-.6 1v13.4a.8.8 0 001.1.8L9 18.7l6 1.8 5.4-1.8a1 1 0 00.6-1V4.3a.8.8 0 00-1.1-.8L15 5.3 9 3.5zM9 5.6l6 1.8v11l-6-1.8v-11z"/></svg>`,
     bookmark: `<svg ${S} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6.5 3.5h11a1 1 0 011 1V21l-6.5-4-6.5 4V4.5a1 1 0 011-1z"/></svg>`,
     bookmarkFill: `<svg ${S} fill="currentColor"><path d="M6.5 3.5h11a1 1 0 011 1V21l-6.5-4-6.5 4V4.5a1 1 0 011-1z"/></svg>`,
+    sliders: `<svg ${S} ${stroke}><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="14.5" cy="7" r="2.2"/><circle cx="8.5" cy="17" r="2.2"/></svg>`,
     search: `<svg ${S} ${stroke}><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>`,
     chevronLeft: `<svg ${S} ${stroke}><path d="M14.5 4L7 12l7.5 8"/></svg>`,
     chevronRight: `<svg ${S} ${stroke}><path d="M9.5 4L17 12l-7.5 8"/></svg>`,

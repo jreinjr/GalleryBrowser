@@ -204,6 +204,10 @@ const pinchState = page => page.evaluate(() => ({
   check('T2 carousel native paging intact', t2.ok, JSON.stringify(t2));
 
   // ---- T3: the full pinch lifecycle on a feed card ----
+  // T2's drag can leave a few px of residual feed scroll; T3j measures the
+  // pinch alone, so start from zero.
+  await page.evaluate(() => document.querySelector('#pages-featured .page-scroll').scrollTo(0, 0));
+  await sleep(150);
   await page.evaluate(() => { window.__rec.maxScale = 1; window.__rec.maxJump = 0; });
   let F1 = { x: cx - 40, y: cy, id: 1 };
   let F2 = { x: cx + 40, y: cy, id: 2 };

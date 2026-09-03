@@ -1,26 +1,28 @@
-/* Map tab: MapLibre GL with CARTO dark style; venues as a clustered GeoJSON source.
+/* Map tab: MapLibre GL with CARTO dark style; venues as a GeoJSON source.
  *
- * Venues cluster into numbered bubbles when zoomed out and split apart as the
- * user zooms in. Name labels live in a symbol layer, so MapLibre's collision
- * engine guarantees they never overlap (a label is hidden when there is no
- * room; the dot itself is a circle layer and always renders). */
+ * Galleries over the filtered show set: one unclustered dot per venue,
+ * coloured and sized by gallery tier. Name labels live in a symbol layer, so
+ * MapLibre's collision engine guarantees they never overlap (a label is hidden
+ * when there is no room; the dot itself is a circle layer and always renders).
+ * Better-ranked venues sort first, so they win the label slots. */
 (function () {
   'use strict';
 
   const SRC = 'venues';
-  const BLUE = 'rgba(97, 173, 242, 0.85)';
-  const MUSEUM_TINT = null;            // e.g. 'rgba(242,176,97,0.85)' to tint museum pins; null = all blue
+  // tier -> dot colour / radius. Keep in step with .map-legend in styles.css.
+  const TIER_COLOR = { top: 'rgba(97, 173, 242, 0.95)', notable: 'rgba(255, 255, 255, 0.85)', listed: 'rgba(150, 150, 158, 0.55)' };
+  const TIER_RADIUS = { top: 10.5, notable: 8, listed: 5.5 };
   const RING = 'rgba(255, 255, 255, 0.6)';
   // Copy the CARTO style's own font stacks so the glyph request hits a
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
     'HanWangHeiLight Regular', 'NanumBarunGothic Regular'];
-  const CLICK_LAYERS = ['clusters', 'venue-dot', 'venue-label'];
+  const CLICK_LAYERS = ['gal-dot', 'gal-label'];
 
-  // venueKey(venue) -> string groups shows that share a venue (one pin per venue).
-  // onPinTap(show) opens a single show; onVenueTap(venue, shows) opens a venue
-  // that has several concurrent shows.
-  window.DemoMap = function ({ getCity, getShows, venueKey, onPinTap, onVenueTap }) {
+  // venueKey(venue) -> string groups shows that share a venue (one dot per venue).
+  // venueTier(venue) -> 'top' | 'notable' | 'listed'.
+  // onVenueTap(venue, shows) opens the venue page.
+  window.DemoMap = function ({ getCity, getShows, venueKey, venueTier, onVenueTap }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
@@ -34,7 +36,7 @@
     }
 
     // Several shows can run at one venue: group them so each venue is a single
-    // feature (with a count) instead of a stack of identically labelled points.
+    // feature instead of a stack of identically labelled points.
     function buildGeoJSON() {
       groups = new Map();
       getShows().forEach(s => {
@@ -47,65 +49,37 @@
       groups.forEach(({ venue: v, shows }, key) => features.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-        properties: { key, name: v.name, count: shows.length, museum: !!v.isMuseum },
+        properties: { key, name: v.name, count: shows.length,
+                      // sort keys: best show rank at the venue, then the venue's own tier
+                      rank: Math.min(...shows.map(s => s.rank ?? 1e9)),
+                      tier: venueTier ? venueTier(v) : 'listed' },
       }));
       return { type: 'FeatureCollection', features };
     }
+    const tierOrder = ['match', ['get', 'tier'], 'top', 0, 'notable', 1, 2];
 
     function addLayers() {
-      map.addSource(SRC, {
-        type: 'geojson',
-        data: buildGeoJSON(),
-        cluster: true,
-        clusterRadius: 44,      // px: a 22px dot plus its label fits without touching
-        clusterMaxZoom: 16,     // beyond z16 every venue stands alone
-      });
-      const single = ['!', ['has', 'point_count']];
-      const multi = ['all', single, ['>', ['get', 'count'], 1]];
-      const alwaysDraw = { 'text-allow-overlap': true, 'text-ignore-placement': true };
-
-      // Cluster bubble: same blue, larger, number inside.
+      map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
+      // One dot per venue, by tier; top dots paint above listed ones.
       map.addLayer({
-        id: 'clusters', type: 'circle', source: SRC, filter: ['has', 'point_count'],
+        id: 'gal-dot', type: 'circle', source: SRC,
+        layout: { 'circle-sort-key': ['*', -1, tierOrder] },
         paint: {
-          'circle-color': BLUE,
-          'circle-radius': ['step', ['get', 'point_count'], 16, 10, 20, 30, 24],
-          'circle-stroke-width': 2, 'circle-stroke-color': RING,
+          'circle-color': ['match', ['get', 'tier'], 'top', TIER_COLOR.top, 'notable', TIER_COLOR.notable, TIER_COLOR.listed],
+          'circle-radius': ['match', ['get', 'tier'], 'top', TIER_RADIUS.top, 'notable', TIER_RADIUS.notable, TIER_RADIUS.listed],
+          'circle-stroke-width': ['match', ['get', 'tier'], 'listed', 0, 1], 'circle-stroke-color': RING,
         },
-      });
-      map.addLayer({
-        id: 'cluster-count', type: 'symbol', source: SRC, filter: ['has', 'point_count'],
-        layout: { 'text-field': ['get', 'point_count_abbreviated'], 'text-font': FONT_BOLD, 'text-size': 13, ...alwaysDraw },
-        paint: { 'text-color': '#fff' },
-      });
-      // Venue dot: 22px = radius 10.5 + 1px ring; circle layers never collide.
-      map.addLayer({
-        id: 'venue-dot', type: 'circle', source: SRC, filter: single,
-        paint: {
-          'circle-color': MUSEUM_TINT ? ['case', ['get', 'museum'], MUSEUM_TINT, BLUE] : BLUE,
-          'circle-radius': 10.5,
-          'circle-stroke-width': 1, 'circle-stroke-color': RING,
-        },
-      });
-      // Count badge for venues with several concurrent shows (top-right of the dot).
-      map.addLayer({
-        id: 'venue-badge', type: 'circle', source: SRC, filter: multi,
-        paint: { 'circle-color': '#fff', 'circle-radius': 8.5, 'circle-translate': [10, -9] },
-      });
-      map.addLayer({
-        id: 'venue-badge-count', type: 'symbol', source: SRC, filter: multi,
-        layout: { 'text-field': ['to-string', ['get', 'count']], 'text-font': FONT_BOLD, 'text-size': 10, ...alwaysDraw },
-        paint: { 'text-color': '#000', 'text-translate': [10, -9] },
       });
       // Name label under the dot; default collision => labels never overlap.
       map.addLayer({
-        id: 'venue-label', type: 'symbol', source: SRC, filter: single,
+        id: 'gal-label', type: 'symbol', source: SRC,
+        filter: ['!=', ['get', 'tier'], 'listed'],   // listed galleries stay unlabelled
         layout: {
           'text-field': ['get', 'name'],
           'text-font': FONT_BOLD, 'text-size': 11,
           'text-anchor': 'top', 'text-offset': [0, 1.2],
           'text-max-width': 12, 'text-padding': 4,
-          'symbol-sort-key': ['*', -1, ['get', 'count']],   // busier venues win label slots
+          'symbol-sort-key': ['+', ['*', 1e6, tierOrder], ['get', 'rank']],   // top tier first, then show rank
         },
         paint: {
           'text-color': '#fff',
@@ -121,16 +95,8 @@
       const box = [[e.point.x - pad, e.point.y - pad], [e.point.x + pad, e.point.y + pad]];
       const f = map.queryRenderedFeatures(box, { layers: CLICK_LAYERS })[0];
       if (!f) return;
-      if (f.properties.cluster) {
-        map.getSource(SRC).getClusterExpansionZoom(f.properties.cluster_id).then(zoom => {
-          map.easeTo({ center: f.geometry.coordinates, zoom: zoom + 0.5, duration: 500 });
-        });
-        return;
-      }
       const g = groups.get(f.properties.key);
-      if (!g) return;
-      if (g.shows.length > 1) onVenueTap(g.venue, g.shows);
-      else onPinTap(g.shows[0]);
+      if (g) onVenueTap(g.venue, g.shows);
     }
 
     function ensureInit() {

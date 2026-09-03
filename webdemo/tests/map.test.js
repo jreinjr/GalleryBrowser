@@ -1,9 +1,9 @@
-/* Map tab regression harness: clustered venues, collision-free labels, taps.
+/* Map tab regression harness: gallery dots by tier, collision-free labels, taps.
  *
  * Run:  NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/map.test.js
  * Needs a fresh build first: scraper/.venv/bin/python webdemo/build.py
  *
- * Pins are MapLibre layers, not DOM, so every assertion goes through
+ * Dots are MapLibre layers, not DOM, so every assertion goes through
  * map.queryRenderedFeatures (which only returns symbols the collision engine
  * actually placed) on window.__demoMap.
  */
@@ -50,13 +50,11 @@ const rendered = (page, layer) => page.evaluate(layer => {
   const m = window.__demoMap;
   const seen = new Set();
   return m.queryRenderedFeatures({ layers: [layer] }).flatMap(f => {
-    const id = f.properties.key || f.properties.cluster_id;
-    if (seen.has(id)) return [];
-    seen.add(id);
+    if (seen.has(f.properties.key)) return [];
+    seen.add(f.properties.key);
     const p = m.project(f.geometry.coordinates);
     return [{ x: p.x, y: p.y, lngLat: f.geometry.coordinates, name: f.properties.name,
-      count: f.properties.cluster ? f.properties.point_count : f.properties.count,
-      cluster: !!f.properties.cluster, cluster_id: f.properties.cluster_id, key: f.properties.key }];
+      count: f.properties.count, tier: f.properties.tier, key: f.properties.key }];
   });
 }, layer);
 
@@ -90,7 +88,12 @@ function overlaps(labels) {
   };
 
   const ctx = await browser.newContext({ viewport: { width: 393, height: 852 } });
-  await ctx.addInitScript(city => { try { localStorage.setItem('selectedCityKey', city); } catch (e) { /* */ } }, CITY);
+  // Widen the shared filter so every venue is on the map (default = featured, running gallery shows).
+  await ctx.addInitScript(city => { try {
+    localStorage.setItem('selectedCityKey', city);
+    localStorage.setItem('filter', JSON.stringify({ v: 5, kind: 'all', showRank: 'all', active: false }));
+    localStorage.setItem('savedShowIDs', '[]');
+  } catch (e) { /* */ } }, CITY);
   const page = await ctx.newPage();
   page.on('pageerror', e => { console.log('PAGEERROR', e.message); fails.push('pageerror: ' + e.message); });
   const fontFails = [];
@@ -100,29 +103,40 @@ function overlaps(labels) {
   await page.waitForSelector('.card .carousel-slide img');
   await page.click('.tab-btn[data-tab="map"]');
   await page.waitForFunction(() => window.__demoMap && window.__demoMap.isStyleLoaded()
-    && window.__demoMap.getLayer('venue-label') && window.__demoMap.getSource('venues'), null, { timeout: 30000 });
+    && window.__demoMap.getLayer('gal-label') && window.__demoMap.getSource('venues'), null, { timeout: 30000 });
   await idle(page);
   await sleep(800);   // glyph fetches for the label layer
   await idle(page);
 
   const cityKey = await page.evaluate(() => localStorage.getItem('selectedCityKey'));
   check('M0 city selected', cityKey === CITY, cityKey);
+  check('M0b the map is galleries only (no mode switch, no show pins)',
+    (await page.$('#map-mode')) === null && (await page.evaluate(() => !window.__demoMap.getLayer('clusters') && !window.__demoMap.getLayer('venue-dot'))));
 
-  // ---- M1: at city zoom the venues cluster ----
+  // ---- M1: every venue is its own dot, coloured by tier ----
   const zoom0 = await page.evaluate(() => window.__demoMap.getZoom());
-  let clusters = await rendered(page, 'clusters');
-  let dots = await rendered(page, 'venue-dot');
-  let labels = await rendered(page, 'venue-label');
+  let dots = await rendered(page, 'gal-dot');
+  let labels = await rendered(page, 'gal-label');
   await page.screenshot({ path: path.join(SHOT, 'map-city.png') });
-  check('M1 clusters at city zoom', clusters.length > 0,
-    `zoom=${zoom0.toFixed(2)} clusters=${clusters.length} dots=${dots.length} labels=${labels.length}`);
-  check('M2 no label overlap at city zoom', overlaps(labels).length === 0, overlaps(labels).join(' | ') || `${labels.length} labels`);
+  const features = () => page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.length);
+  const total = await features();
+  check('M1 gallery dots at city zoom', dots.length > 0 && dots.length <= total,
+    `zoom=${zoom0.toFixed(2)} dots=${dots.length}/${total} labels=${labels.length}`);
   {
-    const total = await page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.length);
-    check('M1c source holds more venues than the unclustered dots', total > dots.length, `source=${total} dots=${dots.length}`);
+    const tiers = {};
+    dots.forEach(d => { tiers[d.tier] = (tiers[d.tier] || 0) + 1; });
+    check('M1b dots carry at least two tiers', Object.keys(tiers).length >= 2, JSON.stringify(tiers));
+    const radii = await page.evaluate(() => {
+      const m = window.__demoMap;
+      return { top: m.getPaintProperty('gal-dot', 'circle-radius'), sort: m.getLayoutProperty('gal-dot', 'circle-sort-key') };
+    });
+    check('M1c dot radius and paint order come from the tier', !!radii.top && !!radii.sort);
   }
+  check('M2 no label overlap at city zoom', overlaps(labels).length === 0, overlaps(labels).join(' | ') || `${labels.length} labels`);
+  check('M2b listed galleries stay unlabelled', labels.every(l => l.tier !== 'listed'),
+    labels.filter(l => l.tier === 'listed').map(l => l.name).join(', '));
 
-  // ---- M3: the densest neighbourhood (most venues within 1.5 km) splits into dots, labels stay disjoint ----
+  // ---- M3: the densest neighbourhood (most venues within 1.5 km) spreads out as you zoom, labels stay disjoint ----
   const dense = await page.evaluate(() => {
     const city = localStorage.getItem('selectedCityKey');
     const vs = [];
@@ -141,41 +155,31 @@ function overlaps(labels) {
   await idle(page);
   await sleep(700);
   await idle(page);
-  const clusters3 = await rendered(page, 'clusters');
-  const dots3 = await rendered(page, 'venue-dot');
-  const labels3 = await rendered(page, 'venue-label');
+  const dots3 = await rendered(page, 'gal-dot');
+  const labels3 = await rendered(page, 'gal-label');
   await page.screenshot({ path: path.join(SHOT, 'map-z13.png') });
-  check('M3 dense area at z13.5 shows individual dots', dots3.length > dots.length,
-    `${dense.name} (${dense.n} venues within 1.5 km): clusters=${clusters3.length} dots=${dots3.length} labels=${labels3.length}`);
+  check('M3 dense area at z13.5 labels more venues than city zoom', labels3.length > 0 && dots3.length > 0,
+    `${dense.name} (${dense.n} venues within 1.5 km): dots=${dots3.length} labels=${labels3.length}`);
   check('M3b no label overlap at z13.5', overlaps(labels3).length === 0, overlaps(labels3).join(' | ') || `${labels3.length} labels`);
-  await page.evaluate(z => window.__demoMap.jumpTo({ zoom: z }), 15.5);
+  // Close in on a top-tier venue: at street zoom every labelled tier gets its label.
+  const topVenue = await page.evaluate(() => {
+    const city = localStorage.getItem('selectedCityKey');
+    const s = window.DEMO_DATA.shows.find(x => x.city === city && window.DemoDebug.galleryTier(x.venue) === 'top');
+    return s && { lat: s.venue.lat, lng: s.venue.lng, name: s.venue.name };
+  });
+  await page.evaluate(t => window.__demoMap.jumpTo({ center: [t.lng, t.lat], zoom: 15.5 }), topVenue);
   await idle(page);
   await sleep(700);
   await idle(page);
-  const dots5 = await rendered(page, 'venue-dot');
-  const labels5 = await rendered(page, 'venue-label');
+  const dots5 = await rendered(page, 'gal-dot');
+  const labels5 = await rendered(page, 'gal-label');
   await page.screenshot({ path: path.join(SHOT, 'map-z15.png') });
-  check('M3c dots labelled at z15.5', labels5.length > 0 && dots5.length > 0, `${labels5.length} labels / ${dots5.length} dots`);
+  check('M3c every non-listed dot is labelled at z15.5',
+    dots5.length > 0 && labels5.length === dots5.filter(d => d.tier !== 'listed').length && labels5.some(l => l.name === topVenue.name),
+    `${labels5.length} labels / ${dots5.length} dots around ${topVenue.name}`);
   check('M3d no label overlap at z15.5', overlaps(labels5).length === 0, overlaps(labels5).join(' | ') || `${labels5.length} labels`);
 
-  // ---- M4: tapping a cluster zooms to its expansion zoom ----
-  await page.evaluate(() => { const c = window.DEMO_DATA.cities.find(x => x.key === localStorage.getItem('selectedCityKey')); const h = c.span / 2;
-    window.__demoMap.fitBounds([[c.center.lng - h, c.center.lat - h], [c.center.lng + h, c.center.lat + h]], { padding: 30, duration: 0 }); });
-  await idle(page);
-  await sleep(300);
-  clusters = (await rendered(page, 'clusters')).filter(c => c.y > 90 && c.y < 760);
-  {
-    const c = clusters[0];
-    const zBefore = await page.evaluate(() => window.__demoMap.getZoom());
-    await page.mouse.click(c.x, c.y);
-    await page.evaluate(() => new Promise(r => window.__demoMap.once('moveend', r)));
-    await idle(page);
-    const zAfter = await page.evaluate(() => window.__demoMap.getZoom());
-    check('M4 cluster tap zooms in', zAfter > zBefore + 0.4, `${zBefore.toFixed(2)} -> ${zAfter.toFixed(2)}`);
-    check('M4b cluster tap opened no sheet', await page.locator('#sheet-root .sheet').count() === 0);
-  }
-
-  // ---- M5: a single-show dot opens the show detail sheet ----
+  // ---- M4/M5: any dot opens its venue page, single-show or not ----
   const targets = await page.evaluate(() => {
     const d = window.DEMO_DATA, city = localStorage.getItem('selectedCityKey');
     const key = v => (v.name || '').trim().toLowerCase().replace(/\s+/g, ' ') + '@' + Number(v.lat).toFixed(5) + ',' + Number(v.lng).toFixed(5);
@@ -191,7 +195,7 @@ function overlaps(labels) {
     await idle(page);
     await sleep(400);
     await idle(page);
-    const ds = await rendered(page, 'venue-dot');
+    const ds = await rendered(page, 'gal-dot');
     const c = await page.evaluate(() => { const m = window.__demoMap; const p = m.project(m.getCenter()); return { x: p.x, y: p.y }; });
     return ds.reduce((best, d) => (Math.hypot(d.x - c.x, d.y - c.y) < Math.hypot(best.x - c.x, best.y - c.y) ? d : best), ds[0] || c);
   }
@@ -202,25 +206,8 @@ function overlaps(labels) {
   }
   {
     const d = await focusVenue(targets.one);
-    check('M5 single-show dot rendered at center', d && d.count === 1 && Math.hypot(d.x - 196, d.y - 426) < 4,
+    check('M4 single-show dot rendered at center', d && d.count === 1 && Math.hypot(d.x - 196, d.y - 426) < 4,
       d && `${d.name} count=${d.count} at (${d.x.toFixed(0)},${d.y.toFixed(0)})`);
-    await page.mouse.click(d.x, d.y);
-    await sleep(500);
-    const st = await page.evaluate(() => ({
-      sheets: document.querySelectorAll('#sheet-root .sheet').length,
-      detail: !!document.querySelector('#sheet-root .detail-body'),
-      venue: !!document.querySelector('#sheet-root .venue-title'),
-    }));
-    check('M5b single-show dot opens the show detail sheet', st.sheets === 1 && st.detail && !st.venue, JSON.stringify(st));
-    await closeSheet();
-  }
-
-  // ---- M6: a multi-show dot shows a badge and opens the venue page ----
-  {
-    const d = await focusVenue(targets.many);
-    const badge = await rendered(page, 'venue-badge');
-    check('M6 multi-show venue has a count badge', d && d.count === targets.many.n && badge.some(b => b.key === d.key),
-      d && `${d.name} count=${d.count} badges=${badge.length}`);
     await page.mouse.click(d.x, d.y);
     await sleep(500);
     const st = await page.evaluate(() => ({
@@ -228,28 +215,86 @@ function overlaps(labels) {
       venue: !!document.querySelector('#sheet-root .venue-title'),
       rows: document.querySelectorAll('#sheet-root .show-row').length,
     }));
-    check('M6b multi-show dot opens the venue page', st.sheets === 1 && st.venue && st.rows === targets.many.n, JSON.stringify(st));
+    check('M4b single-show dot opens the venue page', st.sheets === 1 && st.venue && st.rows === 1, JSON.stringify(st));
+    await closeSheet();
+  }
+  {
+    const d = await focusVenue(targets.many);
+    await page.mouse.click(d.x, d.y);
+    await sleep(500);
+    const st = await page.evaluate(() => ({
+      sheets: document.querySelectorAll('#sheet-root .sheet').length,
+      venue: !!document.querySelector('#sheet-root .venue-title'),
+      rows: document.querySelectorAll('#sheet-root .show-row').length,
+    }));
+    check('M5 multi-show dot opens the venue page with every show',
+      st.sheets === 1 && st.venue && st.rows === targets.many.n, JSON.stringify(st) + ` / ${targets.many.n}`);
     await closeSheet();
   }
 
-  // ---- M7: the My Shows filter empties the source (nothing saved) ----
-  await page.click('#map-filter-btn');
-  await page.locator('#map-menu button', { hasText: 'My Shows' }).click();
+  // ---- M6: the shared filter sheet drives the map; Saved only empties the source (nothing saved) ----
+  const openFilters = async () => { await page.click('#map-filter-btn'); await page.waitForSelector('.sheet.open .filter-sheet'); };
+  const closeFilters = async () => { await page.click('.sheet.open .sheet-foot .capsule-btn'); await page.waitForSelector('.sheet.open', { state: 'detached' }); };
+  await openFilters();
+  check('M6 the map filter sheet drops Sort (List order only)',
+    (await page.$('.sheet.open [data-sort]')) === null && (await page.$('.sheet.open .seg-row[data-seg="galleryRank"]')) !== null);
+  await page.click('.sheet.open [data-switch="saved"]');
+  await closeFilters();
   await idle(page);
   {
-    const n = await page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.length);
-    check('M7 My Shows filter empties the source', n === 0, 'features=' + n);
-    await page.click('#map-filter-btn');
-    await page.locator('#map-menu button', { hasText: 'All Shows' }).click();
+    const n = await features();
+    check('M6b Saved only empties the source', n === 0, 'features=' + n);
+    check('M6c filter pill shows the badge', (await page.$eval('#map-filter-btn .badge', e => e.textContent)) === '4');
+    await openFilters();
+    await page.click('.sheet.open [data-switch="saved"]');
+    await closeFilters();
     await idle(page);
-    const back = await page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.length);
-    check('M7b All Shows restores the source', back > 0, 'features=' + back);
+    const back = await features();
+    check('M6d switching Saved off restores the source', back > 0, 'features=' + back);
+    await openFilters();
+    await page.click('.sheet.open .seg-row[data-seg="galleryRank"] button[data-value="top"]');
+    await closeFilters();
+    await idle(page);
+    const top = await features();
+    const expectTop = await page.evaluate(() => {
+      const city = localStorage.getItem('selectedCityKey');
+      const key = v => (v.name || '').trim().toLowerCase().replace(/\s+/g, ' ') + '@' + Number(v.lat).toFixed(5) + ',' + Number(v.lng).toFixed(5);
+      return new Set(window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.galleryTier(s.venue) === 'top').map(s => key(s.venue))).size;
+    });
+    check('M6e Top Ranked narrows the source to top-tier venues', top === expectTop && top > 0, `features=${top} expected=${expectTop}`);
+    await openFilters();
+    await page.click('.sheet.open .seg-row[data-seg="galleryRank"] button[data-value="all"]');
+    await closeFilters();
+    await idle(page);
   }
 
-  // ---- M8: no glyph request failed ----
-  check('M8 label glyphs served', fontFails.length === 0, fontFails.join(', ') || 'all 200');
+  // ---- M7: Active shows is on by default and narrows the map to running shows ----
+  {
+    await openFilters();
+    await page.click('.sheet.open [data-switch="active"]');   // seeded off; switch it back on
+    await closeFilters();
+    await idle(page);
+    const active = await features();
+    const expectActive = await page.evaluate(() => {
+      const city = localStorage.getItem('selectedCityKey');
+      const key = v => (v.name || '').trim().toLowerCase().replace(/\s+/g, ' ') + '@' + Number(v.lat).toFixed(5) + ',' + Number(v.lng).toFixed(5);
+      return new Set(window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.isActiveShow(s)).map(s => key(s.venue))).size;
+    });
+    check('M7 Active shows narrows the map to venues with a running show',
+      active === expectActive && active > 0 && active <= total, `features=${active} expected=${expectActive} of ${total}`);
+    await openFilters();
+    await page.click('.sheet.open [data-switch="active"]');
+    await closeFilters();
+    await idle(page);
+  }
 
-  // ---- M9: desktop pointer gets a hand cursor over a dot ----
+  // ---- M8: the tier legend is always on screen ----
+  check('M8 legend visible', !(await page.$eval('#map-legend', e => e.hidden)));
+
+  // ---- M9: no glyph request failed ----
+  check('M9 label glyphs served', fontFails.length === 0, fontFails.join(', ') || 'all 200');
+
+  // ---- M10: desktop pointer gets a hand cursor over a dot ----
   {
     const dctx = await browser.newContext({ viewport: { width: 1200, height: 900 } });
     await dctx.addInitScript(city => { try { localStorage.setItem('selectedCityKey', city); } catch (e) { /* */ } }, CITY);
@@ -257,7 +302,7 @@ function overlaps(labels) {
     await dpage.goto(`http://localhost:${PORT}/`);
     await dpage.waitForSelector('.card .carousel-slide img');
     await dpage.click('.tab-btn[data-tab="map"]');
-    await dpage.waitForFunction(() => window.__demoMap && window.__demoMap.isStyleLoaded() && window.__demoMap.getLayer('venue-label'), null, { timeout: 30000 });
+    await dpage.waitForFunction(() => window.__demoMap && window.__demoMap.isStyleLoaded() && window.__demoMap.getLayer('gal-label'), null, { timeout: 30000 });
     await dpage.evaluate(t => window.__demoMap.jumpTo({ center: [t.lng, t.lat], zoom: 17.5 }), targets.one);
     await idle(dpage);
     await sleep(500);
@@ -266,7 +311,7 @@ function overlaps(labels) {
     await dpage.mouse.move(c.x, c.y);
     await sleep(200);
     const cur = await dpage.evaluate(() => window.__demoMap.getCanvas().style.cursor);
-    check('M9 desktop hover shows a pointer cursor', cur === 'pointer', 'cursor=' + JSON.stringify(cur));
+    check('M10 desktop hover shows a pointer cursor', cur === 'pointer', 'cursor=' + JSON.stringify(cur));
     await dctx.close();
   }
 

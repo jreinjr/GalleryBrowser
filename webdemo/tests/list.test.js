@@ -1,4 +1,4 @@
-/* List-tab filter checks against a built dist (default webdemo/dist/gallery-browser-demo,
+/* Filter-sheet checks (List + Featured share one filter state) against a built dist (default webdemo/dist/gallery-browser-demo,
  * override with DIST=<dir>). Headless Chrome via the globally installed Playwright:
  *   NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/list.test.js
  */
@@ -46,23 +46,31 @@ function check(name, ok, detail) {
     try { if (sessionStorage.getItem('list-test-inited')) return; sessionStorage.setItem('list-test-inited', '1'); }
     catch (e) { return; }   // about:blank; keep state across the reload step
     localStorage.setItem('selectedCityKey', city);
-    localStorage.removeItem('listFilter');
+    localStorage.removeItem('filter');
     localStorage.setItem('savedShowIDs', '[]');
   }, [CITY]);
   await page.goto(`http://localhost:${PORT}/`);
   await page.click('.tab-btn[data-tab="list"]');
-  await page.waitForSelector('#pages-list .list-filters');
+  await page.waitForSelector('#pages-list .icon-btn');
 
+  // Every count is over the *active* shows: "Active shows" is on by default, so
+  // the closed and not-yet-open ones only appear once the switch is off (allTotal).
   const data = await page.evaluate(city => {
-    const shows = window.DEMO_DATA.shows.filter(s => s.city === city);
+    const all = window.DEMO_DATA.shows.filter(s => s.city === city);
+    const shows = all.filter(s => window.DemoDebug.isActiveShow(s));
     const DAY = 86400e3;
     const pd = str => { const [y, m, d] = str.split('-').map(Number); return new Date(y, m - 1, d); };
+    const tier = s => window.DemoDebug.galleryTier(s.venue);
     return {
       total: shows.length,
+      allTotal: all.length,
       featured: shows.filter(s => s.featured).length,
       featuredGalleries: shows.filter(s => s.featured && !s.venue.isMuseum).length,
       editors: shows.filter(s => s.editorsPick).length,
       museums: shows.filter(s => s.venue.isMuseum).length,
+      topShows: shows.filter(s => tier(s) === 'top').length,
+      notableShows: shows.filter(s => tier(s) !== 'listed').length,
+      cutoff: window.DemoDebug.GALLERY_TIER_CUTOFF,
       receptions: shows.filter(s => window.DemoDebug.hasUpcomingReception(s)).length,
       withReceptionText: shows.filter(s => s.reception != null).length,
       closing: shows.filter(s => { const d = pd(s.endDate); const diff = d - Date.now(); return diff >= 0 && diff <= 7 * DAY; }).length,
@@ -73,56 +81,87 @@ function check(name, ok, detail) {
     };
   }, CITY);
   const rows = () => page.$$eval('#pages-list .list-results .show-row', els => els.map(e => ({
-    name: e.querySelector('.sr-name').textContent, venue: e.querySelector('.sr-venue').textContent,
+    name: e.querySelector('.sr-name .sr-txt').textContent, venue: e.querySelector('.sr-venue .sr-txt').textContent,
     addr: e.querySelector('.sr-addr').textContent,
+    // the star leads the name; the row carries no gallery glyph of its own
+    star: (e.querySelector('.sr-name .tier-star') || {}).dataset ? e.querySelector('.sr-name .tier-star').dataset.tier : '',
+    starFirst: e.querySelector('.sr-name').firstElementChild.classList.contains('tier-star'),
+    venueGlyphs: e.querySelectorAll('.sr-venue .tier-star, .sr-venue .sr-tier').length,
   })));
-  const count = () => page.$eval('#pages-list .list-count', e => e.textContent);
-  const chip = async key => { await page.click(`#pages-list .chip[data-chip="${key}"]`); };
-  const chipOn = key => page.$eval(`#pages-list .chip[data-chip="${key}"]`, e => e.classList.contains('on'));
+  const badge = async sel => { const b = await page.$(`${sel} .icon-btn .badge`); return b ? await b.textContent() : ''; };
+  const openSheet = async (tab = 'list') => { await page.click(`#pages-${tab} .icon-btn`); await page.waitForSelector('.sheet.open .filter-sheet'); };
+  const closeSheet = async () => { await page.click('.sheet.open .sheet-foot .capsule-btn'); await page.waitForSelector('.sheet.open', { state: 'detached' }); };
+  const seg = async (key, value) => { await page.click(`.sheet.open .seg-row[data-seg="${key}"] button[data-value="${value}"]`); };
+  const segOn = (key, value) => page.$eval(`.sheet.open .seg-row[data-seg="${key}"] button[data-value="${value}"]`, e => e.classList.contains('on'));
+  const sw = async key => { await page.click(`.sheet.open [data-switch="${key}"]`); };
+  const swOn = key => page.$eval(`.sheet.open [data-switch="${key}"] .switch`, e => e.classList.contains('on'));
+  const hood = async label => { await page.locator('.sheet.open .chip-wrap .chip', { hasText: new RegExp('^' + label.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&') + '$') }).click(); };
+  const sortBy = async label => { await page.click(`.sheet.open [data-sort] .row:has-text("${label}")`); };
+  const doneText = () => page.$eval('.sheet.open .sheet-foot .capsule-btn', e => e.textContent);
+  const clearHidden = () => page.$eval('.sheet.open .sheet-foot .ghost', e => e.hidden);
 
   const galleries = data.total - data.museums;
   const featGalleries = data.featuredGalleries;
-  const pick = async label => {
-    await page.waitForSelector('.sheet.open .city-row');
-    await page.click(`.sheet.open .city-row:has-text("${label}")`);
-    await page.waitForSelector('.sheet.open', { state: 'detached' });
-  };
-  // 1. default = featured gallery shows, rank order, neighborhood on the third line
+
+  // 1. default = featured gallery shows, rank order, neighborhood on the third line, no badge
   let r = await rows();
   check('featured galleries listed by default', r.length === featGalleries, `${r.length} rows / ${featGalleries}`);
-  check('count line matches', (await count()) === `${featGalleries} shows`, await count());
-  check('Featured chip on by default', await chipOn('featured'));
-  check('venues menu reads Galleries', /^Galleries/.test(await page.$eval('#pages-list .chip[data-menu="kind"]', e => e.textContent)));
-  check('clear hidden at defaults', await page.$eval('#pages-list .list-clear', e => e.hidden));
-  await chip('featured');
-  check('Featured off = all galleries', (await rows()).length === galleries, `${(await rows()).length} / ${galleries}`);
-  await page.click('#pages-list .chip[data-menu="kind"]');
-  await pick('All venues');
+  check('no badge at defaults', (await badge('#pages-list')) === '');
+  const starred = r.filter(x => x.star);
+  check("only Editor's Picks are starred, star first", starred.length === data.editors && starred.every(x => x.star === 'picks' && x.starFirst),
+    `${starred.length} starred / ${data.editors} picks`);
+  check('rows carry no gallery glyph', r.every(x => x.venueGlyphs === 0));
+  check("the star is a filled blue one", await page.$eval('#pages-list .tier-star.t-picks svg', e =>
+    getComputedStyle(e).color === 'rgb(97, 173, 242)' && e.getAttribute('fill') === 'currentColor'));
+  check('no second-tier glyph anywhere', (await page.$('#pages-list .t-featured, #pages-list .t-notable')) === null);
+  await openSheet();
+  check('sheet: Featured + Galleries + All Galleries selected', (await segOn('showRank', 'featured')) && (await segOn('kind', 'galleries')) && (await segOn('galleryRank', 'all')));
+  check('sheet: Active shows on by default', await swOn('active'));
+  check('sheet: no Featured-only switch', !(await page.$('.sheet.open [data-switch="featured"]')));
+  check('done button counts', (await doneText()) === `Show ${featGalleries} shows`, await doneText());
+  check('clear hidden at defaults', await clearHidden());
+  await seg('showRank', 'all');
+  check('All Shows = all galleries', (await rows()).length === galleries, `${(await rows()).length} / ${galleries}`);
+  check('badge counts one group', (await badge('#pages-list')) === '1');
+  await seg('kind', 'all');
   r = await rows();
   check('All venues lists everything', r.length === data.total, `${r.length} rows / ${data.total} shows`);
-  const sortedRanks = [...data.ranks].sort((a, b) => a - b);
   const firstNames = await page.evaluate(city => {
-    const shows = window.DEMO_DATA.shows.filter(s => s.city === city).sort((a, b) => a.rank - b.rank);
+    const shows = window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.isActiveShow(s)).sort((a, b) => a.rank - b.rank);
     return shows.slice(0, 5).map(s => s.artist || s.title);
   }, CITY);
-  check('rank order by default', JSON.stringify(r.slice(0, 5).map(x => x.name)) === JSON.stringify(firstNames),
-    `ranks unique=${new Set(sortedRanks).size}`);
+  check('rank order by default', JSON.stringify(r.slice(0, 5).map(x => x.name)) === JSON.stringify(firstNames));
   check('neighborhood shown in row', r.every(x => data.hoods.some(h => x.addr.startsWith(h + ' · '))));
-  check('clear visible when widened to all venues', !(await page.$eval('#pages-list .list-clear', e => e.hidden)));
+  check('clear visible when widened', !(await clearHidden()));
+  check('badge counts two groups', (await badge('#pages-list')) === '2');
 
-  // 2. chips + venues menu
-  await chip('featured');
-  check('Featured chip', (await rows()).length === data.featured, `${(await rows()).length} / ${data.featured}`);
-  await chip('featured');
-  check('chip toggles off', (await rows()).length === data.total);
-  await page.click('#pages-list .chip[data-menu="kind"]');
-  await pick('Museums');
+  // 1b. Active shows: on by default, off brings back what has closed or not yet opened
+  await sw('active');
+  check('Active shows off adds the closed and not-yet-open shows',
+    (await rows()).length === data.allTotal && data.allTotal > data.total, `${(await rows()).length} / ${data.allTotal} (active ${data.total})`);
+  check('turning Active off counts toward the badge', (await badge('#pages-list')) === '3');
+  await sw('active');
+  check('Active shows on again', (await rows()).length === data.total && (await swOn('active')), `${(await rows()).length} / ${data.total}`);
+
+  // 2. show rank + gallery rank + venue type
+  await seg('showRank', 'picks');
+  r = await rows();
+  check("Editor's Picks", r.length === data.editors && r.every(x => x.star === 'picks'), `${r.length} / ${data.editors}`);
+  await seg('showRank', 'featured');
+  check('Featured', (await rows()).length === data.featured, `${(await rows()).length} / ${data.featured}`);
+  await seg('showRank', 'all');
+  await seg('galleryRank', 'top');
+  r = await rows();
+  check(`Top Ranked = venue rank <= ${data.cutoff.top}`, r.length === data.topShows && r.length > 0, `${r.length} / ${data.topShows}`);
+  await seg('galleryRank', 'notable');
+  r = await rows();
+  check(`Notable = venue rank <= ${data.cutoff.notable}`, r.length === data.notableShows && r.length > data.topShows, `${r.length} / ${data.notableShows}`);
+  await seg('galleryRank', 'all');
+  await seg('kind', 'museums');
   check('Museums option', (await rows()).length === data.museums, `${(await rows()).length} / ${data.museums}`);
-  check('venues menu highlighted', await page.$eval('#pages-list .chip[data-menu="kind"]', e => e.classList.contains('on')));
-  await page.click('#pages-list .chip[data-menu="kind"]');
-  await pick('All venues');
-  await chip('receptions');
-  check('Upcoming receptions chip', (await rows()).length === data.receptions && data.receptions < data.withReceptionText,
+  await seg('kind', 'all');
+  await sw('receptions');
+  check('Upcoming receptions switch', (await rows()).length === data.receptions && data.receptions < data.withReceptionText,
     `${(await rows()).length} / ${data.receptions} upcoming of ${data.withReceptionText} with text`);
   const parsed = await page.evaluate(() => {
     const D = window.DemoDebug, iso = d => d && `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -135,79 +174,90 @@ function check(name, ok, detail) {
     ];
   });
   check('reception parser', JSON.stringify(parsed) === JSON.stringify(['2026-07-18', '2026-09-24', '2026-09-12', '2027-01-09', null]), JSON.stringify(parsed));
-  await chip('featured');
+  await seg('showRank', 'featured');
   const both = (await rows()).length;
-  check('chips combine (AND)', both <= Math.min(data.receptions, data.featured), `${both}`);
-  check('no Editor’s Picks or week chips', !(await page.$('#pages-list .chip[data-chip="editors"]')) && !(await page.$('#pages-list .chip[data-chip="closing"]')));
-  await page.click('#pages-list .list-clear');
-  check('Clear resets to featured galleries', (await rows()).length === featGalleries && (await chipOn('featured')));
-  await page.click('#pages-list .chip[data-menu="kind"]');
-  await pick('All venues');
-  await chip('featured');
+  check('filters combine (AND)', both <= Math.min(data.receptions, data.featured), `${both}`);
+  await page.click('.sheet.open .sheet-foot .ghost');
+  check('Clear resets to featured, running gallery shows',
+    (await rows()).length === featGalleries && (await segOn('showRank', 'featured')) && (await swOn('active')) && !(await swOn('receptions')));
+  check('Clear hides itself and the badge', (await clearHidden()) && (await badge('#pages-list')) === '');
 
-  // 3. search
-  await page.fill('#pages-list .search-field input', 'gallery');
+  // 3. search (inside the sheet)
+  await seg('kind', 'all');
+  await seg('showRank', 'all');
+  await page.fill('.sheet.open .search-field input', 'gallery');
   const q = await rows();
-  check('search narrows', q.length > 0 && q.length < data.total && q.every(x => /gallery/i.test(x.name + x.venue) || true), `${q.length}`);
-  await page.click('#pages-list .search-clear');
+  check('search narrows', q.length > 0 && q.length < data.total, `${q.length}`);
+  await page.click('.sheet.open .search-clear');
   check('search clear', (await rows()).length === data.total);
 
-  // 4. neighborhoods sheet (multi-select stays open; All closes)
-  await page.click('#pages-list .chip[data-menu="hoods"]');
-  await page.waitForSelector('.sheet.open .city-row');
+  // 4. neighborhoods (multi-select chips; All resets)
   const hoodA = data.hoods[0], hoodB = data.hoods[1];
-  await page.click(`.sheet.open .city-row:has-text("${hoodA}")`);
-  await page.click(`.sheet.open .city-row:has-text("${hoodB}")`);
-  check('sheet stays open on multi-select', !!(await page.$('.sheet.open')));
+  await hood(hoodA);
+  await hood(hoodB);
   check('two neighborhoods', (await rows()).length === data.perHood[hoodA] + data.perHood[hoodB],
     `${(await rows()).length} / ${data.perHood[hoodA] + data.perHood[hoodB]}`);
-  check('menu label shows count', /2 neighborhoods/.test(await page.$eval('#pages-list .chip[data-menu="hoods"]', e => e.textContent)));
-  await page.click('.sheet.open .city-row:has-text("All neighborhoods")');
-  await page.waitForSelector('.sheet.open', { state: 'detached' });
-  check('All closes sheet and resets', (await rows()).length === data.total);
+  await hood('All');
+  check('All resets neighborhoods', (await rows()).length === data.total);
 
   // 5. sort by closing soon is monotone in endDate
-  await page.click('#pages-list .chip[data-menu="sort"]');
-  await page.waitForSelector('.sheet.open .city-row');
-  await page.click('.sheet.open .city-row:has-text("Closing soon")');
-  await page.waitForSelector('.sheet.open', { state: 'detached' });
+  await sortBy('Closing soon');
   const ends = await page.evaluate(city => {
     const byName = {};
     window.DEMO_DATA.shows.filter(s => s.city === city).forEach(s => { byName[(s.artist || s.title) + '|' + s.venue.name] = s.endDate; });
     return [...document.querySelectorAll('#pages-list .list-results .show-row')]
-      .map(e => byName[e.querySelector('.sr-name').textContent + '|' + e.querySelector('.sr-venue').textContent]);
+      .map(e => byName[e.querySelector('.sr-name .sr-txt').textContent + '|' + e.querySelector('.sr-venue .sr-txt').textContent]);
   }, CITY);
   check('closing-soon sort monotone', ends.every((d, i) => i === 0 || d >= ends[i - 1]), `${ends.slice(0, 3)}`);
-  check('sort label', /Sort: Closing soon/.test(await page.$eval('#pages-list .chip[data-menu="sort"]', e => e.textContent)));
+  check('sort row checked', await page.$eval('.sheet.open [data-sort] .row:has-text("Closing soon") .check', e => !!e).catch(() => false));
+  check('sort does not count toward the badge', (await badge('#pages-list')) === '2');
+  await sortBy('Ranking');
+  await closeSheet();
 
-  // 6. sticky bar stays in view after scrolling
-  await page.evaluate(() => { document.querySelector('#pages-list .page-scroll').scrollTop = 600; });
-  await page.waitForTimeout(150);
-  const box = await page.$eval('#pages-list .list-filters', e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, stuck: e.classList.contains('stuck') }; });
-  check('filter bar sticky', box.top >= 0 && box.top < 20 && box.bottom > 60 && box.stuck, JSON.stringify(box));
-  const firstVisibleRow = await page.evaluate(() => {
-    const bar = document.querySelector('#pages-list .list-filters').getBoundingClientRect().bottom;
-    return [...document.querySelectorAll('#pages-list .show-row')].some(e => e.getBoundingClientRect().top >= bar - 1);
-  });
-  check('rows scroll under the bar', firstVisibleRow);
-  await page.screenshot({ path: path.join(SHOT, 'list-stuck.png') });
-  await page.evaluate(() => { document.querySelector('#pages-list .page-scroll').scrollTop = 0; });
-  await page.waitForTimeout(100);
-  await page.screenshot({ path: path.join(SHOT, 'list-top.png') });
+  // 6. Featured shares the state; bookmark from the card
+  await page.click('.tab-btn[data-tab="featured"]');
+  await page.waitForSelector('#pages-featured .card');
+  const cards = await page.$$eval('#pages-featured .card', e => e.length);
+  check('Featured feed shows the same filtered set', cards === data.total, `${cards} cards / ${data.total}`);
+  check('Featured badge matches', (await badge('#pages-featured')) === '2');
+  check('cards carry no rank star', (await page.$$eval('#pages-featured .card .tier-star', els => els.length)) === 0);
+  await page.click('#pages-featured .card .bookmark-btn');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('savedShowIDs')));
+  check('card bookmark saves the show', saved.length === 1, JSON.stringify(saved));
+  check('card bookmark shows saved', await page.$eval('#pages-featured .card .bookmark-btn', e => e.classList.contains('saved')));
+  check('card bookmark is white when unsaved', await page.$eval('#pages-featured .card:nth-child(2) .bookmark-btn', e => getComputedStyle(e).color === 'rgb(255, 255, 255)'));
+  await page.click('.tab-btn[data-tab="list"]');
+  check('list row bookmark mirrors it', await page.$eval('#pages-list .show-row .bookmark-btn', e => e.classList.contains('saved')));
+  await openSheet();
+  await sw('saved');
+  check('Saved only', (await rows()).length === 1);
+  await closeSheet();
+  await page.click('#pages-list .show-row .bookmark-btn');
+  check('unsaving under Saved only empties the list', (await rows()).length === 0 && !(await page.$eval('#pages-list .empty-plain', e => e.hidden)));
+  await openSheet();
+  await sw('saved');
+  await closeSheet();
 
   // 7. filter persists across reload; detail from a filtered list steps within it
-  await page.evaluate(() => { document.querySelector('#pages-list .page-scroll').scrollTop = 0; });
-  await chip('receptions');
+  await openSheet();
+  await sw('receptions');
+  await closeSheet();
   await page.reload();
   await page.click('.tab-btn[data-tab="list"]');
-  await page.waitForSelector('#pages-list .list-filters');
-  check('filters persist', (await chipOn('receptions')) && (await rows()).length === data.receptions);
+  await page.waitForSelector('#pages-list .icon-btn');
+  check('filters persist', (await rows()).length === data.receptions && (await badge('#pages-list')) === '3', `${(await rows()).length} / ${data.receptions}`);
   await page.click('#pages-list .show-row .sr-text');
   await page.waitForSelector('#pages-list .page-push .detail-body');
   const stepper = await page.$$('#pages-list .page-push .stepper button');
   check('detail opened from filtered list with stepper', stepper.length === 2);
+  const detail = await page.evaluate(() => ({
+    pick: !!document.querySelector('#pages-list .page-push .detail-body').dataset,
+    meta: [...document.querySelectorAll('#pages-list .page-push .detail-meta-row .sr-tier')].map(e => e.dataset.tier),
+    venueGlyphs: document.querySelectorAll('#pages-list .page-push .vb-name .tier-star').length,
+  }));
+  check('detail header marks the show only, never a second tier', detail.meta.every(t => t === 'picks'), JSON.stringify(detail.meta));
+  check('gallery rank stays off the show detail', detail.venueGlyphs === 0);
   await page.screenshot({ path: path.join(SHOT, 'list-detail.png') });
-  await page.goBack().catch(() => {});
 
   await browser.close();
   server.close();

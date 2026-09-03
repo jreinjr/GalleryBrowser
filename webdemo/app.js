@@ -18,7 +18,6 @@
     cityKey: store.get('selectedCityKey', DATA.defaultCity),
     saved: new Set(JSON.parse(store.get('savedShowIDs', '[]'))),
     tab: 'featured',
-    mapFilter: 'all', // 'myShows' | 'all' | 'receptions'
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
 
@@ -42,6 +41,12 @@
     return name ? name + '@' + pos : pos;
   };
   const venueShows = v => { const k = venueKey(v); return cityShows().filter(s => venueKey(s.venue) === k); };
+  // Venue-level data (blurb, gallery rank) lives in DATA.venues keyed by venueId;
+  // the embedded copy carries the same fields as a fallback for older bundles.
+  const VENUES = DATA.venues || {};
+  const venueRecord = v => { const id = v && (v.venueId || v.id); return (id && VENUES[id]) || null; };
+  const venueAbout = v => { const r = venueRecord(v); return (r && r.about) || (v && v.about) || null; };
+  const venueRank = v => { const r = venueRecord(v); const n = r && r.rank != null ? r.rank : (v && v.rank); return n == null ? null : +n; };
   const displayName = s => s.artist || s.title;
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
@@ -61,7 +66,6 @@
   }
 
   const DAY = 86400e3;
-  const featuredShows = () => cityShows().filter(s => s.featured);
   const savedShows = () => cityShows().filter(s => state.saved.has(showId(s)));
   // Reception lines are free text from the gallery's page ("Saturday, July 18,
   // 6-9pm", "Thursday, September 24, 2026, 7:00pm - 9:00pm"). Take the first
@@ -84,7 +88,13 @@
   }
   const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
   const hasUpcomingReception = s => { const d = receptionDate(s); return !!d && d >= startOfToday(); };
-  const receptionShows = () => cityShows().filter(hasUpcomingReception);
+  // "Active shows": running today. Dates are nullable in the registry, and a
+  // missing one is no reason to hide a show, so an open-ended run counts.
+  const isActiveShow = s => {
+    const today = startOfToday();
+    const start = parseDate(s.startDate), end = parseDate(s.endDate);
+    return (!start || start <= today) && (!end || end >= today);
+  };
   const isOpeningThisWeek = s => {
     const d = parseDate(s.startDate); return !!d && Math.abs(d - Date.now()) <= 7 * DAY;
   };
@@ -98,15 +108,6 @@
       Math.cos(r(lat1)) * Math.cos(r(lat2)) * Math.sin(r(lng2 - lng1) / 2) ** 2;
     return 2 * R * Math.asin(Math.sqrt(a));
   }
-  const searchShows = q => {
-    const t = q.trim().toLowerCase();
-    if (!t) return [];
-    return cityShows().filter(s =>
-      s.title.toLowerCase().includes(t) ||
-      (s.artist || '').toLowerCase().includes(t) ||
-      s.venue.name.toLowerCase().includes(t));
-  };
-
   const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
   const directionsUrl = v => isIOS
     ? `https://maps.apple.com/?daddr=${v.lat},${v.lng}&dirflg=w`
@@ -134,8 +135,8 @@
     if (state.saved.has(id)) state.saved.delete(id); else state.saved.add(id);
     persistSaved();
     refreshBookmarkUI();
-    MapTab.applyFilter();
-    if (state.list.saved && refreshListRoot) refreshListRoot();
+    if (state.filter.saved) refreshAll();   // "Saved only": the row set itself changes
+    else MapTab.applyFilter();
   }
   function refreshBookmarkUI() {
     document.querySelectorAll('[data-bm]').forEach(btn => {
@@ -817,26 +818,37 @@
       aspect: '1 / 1', dots: 'top-left',
       onTap: () => push(state.tab, showDetailPage(shows, i)),
     });
-    const footer = el('div', { class: 'card-footer' },
+    const text = el('div', { class: 'cf-text' },
       el('div', { class: 'name' }, displayName(s)),
       el('div', { class: 'venue' }, `${listLine(s.venue)} • ${s.venue.address}`));
-    footer.addEventListener('click', () => push(state.tab, showDetailPage(shows, i)));
+    text.addEventListener('click', () => push(state.tab, showDetailPage(shows, i)));
+    const footer = el('div', { class: 'card-footer' }, text, bookmarkBtn(s));
     return el('div', { class: 'card' }, car, footer);
   }
 
+  // Featured and List are two renderings of the same filtered set (state.filter);
+  // each root page exposes refresh() so refreshAll() can re-render it in place.
   function featuredRoot() {
-    const shows = featuredShows();
+    const feed = el('div', { class: 'feed' });
+    const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
-        el('span')),
+        filterButton()),
       el('div', { class: 'large-title' }, city().displayName),
-      shows.length
-        ? el('div', { class: 'feed' }, ...shows.map((_, i) => showCard(shows, i)))
-        : el('div', { class: 'empty-plain' }, 'No shows in this list right now.'));
+      feed, empty);
     const inline = el('div', { class: 'inline-title' }, city().displayName);
     largeTitleScroll(scroll, inline);
-    return el('div', { class: 'page' }, inline, scroll);
+    const page = el('div', { class: 'page' }, inline, scroll);
+    page.refresh = () => {
+      const shows = filteredShows();
+      feed.innerHTML = '';
+      shows.forEach((_, i) => feed.appendChild(showCard(shows, i)));
+      feed.hidden = !shows.length;
+      empty.hidden = !!shows.length;
+    };
+    page.refresh();
+    return page;
   }
 
   function showDetailPage(shows, index, opts) {
@@ -894,6 +906,7 @@
       const body = el('div', { class: 'detail-body' },
         s.artist ? el('div', { class: 'detail-artist' }, s.artist) : null,
         el('div', { class: 'detail-title' }, s.title),
+        metaRow(tierGlyph(showTier(s))),   // a gallery's own rank shows only on its page
         el('div', { class: 'detail-dates' }, dateLine(s)),
         s.reception ? el('div', { class: 'detail-reception' }, 'Reception: ' + s.reception) : null,
         saveBtn,
@@ -959,7 +972,7 @@
     const showsSection = shows.length
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, 'Shows'),
-          el('div', { class: 'group' }, ...shows.map(s => showRow(s, openShow))))
+          el('div', { class: 'group' }, ...shows.map(s => showRow(s, openShow, { hideVenue: true, hideStar: true }))))
       : null;
 
     const leading = asSheet
@@ -971,6 +984,8 @@
       el('div', { class: 'navrow' }, leading, el('span')),
       el('div', { class: 'venue-body' },
         el('div', { class: 'venue-title' }, v.name),
+        tierPill(galleryTier(v)),
+        venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null,
         el('div', { class: 'venue-lines' },
           el('div', null, fullAddress(v)),
           ...v.hours.map(h => el('div', null, h))),
@@ -982,12 +997,16 @@
   }
 
   // onOpen(show) overrides the default push-to-detail (used inside sheets).
-  function showRow(s, onOpen) {
+  // opts.hideVenue: on a venue page the venue is the subject, so its rows carry
+  // the show alone instead of repeating the name and address above them.
+  function showRow(s, onOpen, opts) {
+    const bare = !!(opts && opts.hideVenue);
+    const star = opts && opts.hideStar ? null : tierStar(showTier(s));
     const row = el('div', { class: 'show-row' },
       el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
-        el('div', { class: 'sr-name' }, displayName(s)),
-        el('div', { class: 'sr-venue' }, listLine(s.venue)),
-        el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
+        el('div', { class: 'sr-name' }, star, el('span', { class: 'sr-txt' }, displayName(s))),
+        bare ? null : el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+        bare ? null : el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
       bookmarkBtn(s));
     return row;
   }
@@ -996,67 +1015,82 @@
     push(state.tab, showDetailPage(list, list.findIndex(x => showId(x) === showId(s))));
   }
 
-  function showListPage(title, shows, opts) {
-    const scroll = el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' }, backBtn(state.tab), el('span')),
-      el('div', { class: 'large-title' }, title),
-      shows.length
-        ? el('div', { class: 'group' }, ...shows.map(showRow))
-        : (opts && opts.emptyState) || el('div', { class: 'empty-plain' }, 'No shows in this list right now.'));
-    const inline = el('div', { class: 'inline-title' }, title);
-    largeTitleScroll(scroll, inline);
-    return el('div', { class: 'page' }, inline, scroll);
-  }
-
-  const myShowsEmpty = () => el('div', { class: 'empty-state' },
-    icon('bookmark'),
-    el('div', { class: 'es-title' }, 'No Saved Shows Yet'),
-    el('div', { class: 'es-caption' },
-      'Check out the Featured tab\nto find something great.'));
-
-  // ---------------- list tab: flat list + sticky filters ----------------
-  // Defaults: featured gallery shows (museums and the long tail are opt-in);
-  // kind: 'all' | 'galleries' | 'museums'; featured / saved / receptions are
-  // toggles; sort: SORTS key.
-  const LIST_VERSION = 3;
-  const LIST_DEFAULT = { v: LIST_VERSION, q: '', hoods: [], kind: 'galleries', featured: true, saved: false, receptions: false, sort: 'rank' };
+  // ---------------- filters: one state shared by Featured, List and Map ----------------
+  // Defaults: featured gallery shows that are running now (museums, the long
+  // tail, unranked galleries and shows that have closed or not yet opened are
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; showRank: 'all' |
+  // 'featured' | 'picks'; galleryRank: 'all' | 'notable' | 'top'; active /
+  // saved / receptions are toggles; sort: SORTS key (List order only).
+  const FILTER_VERSION = 5;
+  const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', showRank: 'featured', galleryRank: 'all',
+    active: true, saved: false, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
+  const SHOW_RANKS = [['all', 'All Shows'], ['featured', 'Featured'], ['picks', "Editor's Picks"]];
+  const GALLERY_RANKS = [['all', 'All Galleries'], ['notable', 'Notable'], ['top', 'Top Ranked']];
   const SORTS = [
     ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
-    ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
+    ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['gallery', 'Gallery rank'],
+    ['nearby', 'Nearby'],
   ];
-  function loadListFilter() {
+  // Gallery tiers come from the registry rank (rank_venues.py, city-wide over
+  // every venue, not just those with shows): Top = the 25 best, Notable = the
+  // 100 best, Listed = everything else or unranked.
+  const GALLERY_TIER_CUTOFF = { top: 25, notable: 100 };
+  const galleryTier = v => {
+    const r = venueRank(v);
+    return r == null ? 'listed' : r <= GALLERY_TIER_CUTOFF.top ? 'top' : r <= GALLERY_TIER_CUTOFF.notable ? 'notable' : 'listed';
+  };
+  const showTier = s => s.editorsPick ? 'picks' : s.featured ? 'featured' : null;
+
+  function loadFilter() {
     let o = {};
-    try { o = JSON.parse(store.get('listFilter', '{}')) || {}; } catch (e) { /* ignore */ }
-    if (o.v !== LIST_VERSION) o = {};   // older filter shape: start from the defaults
-    const f = { ...LIST_DEFAULT, ...o };
+    try { o = JSON.parse(store.get('filter', '{}')) || {}; } catch (e) { /* ignore */ }
+    if (o.v !== FILTER_VERSION) o = {};   // older filter shape: start from the defaults
+    const f = { ...FILTER_DEFAULT, ...o };
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
+    if (!SHOW_RANKS.some(([k]) => k === f.showRank)) f.showRank = FILTER_DEFAULT.showRank;
+    if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     return f;
   }
-  state.list = loadListFilter();
-  const persistList = () => store.set('listFilter', JSON.stringify(state.list));
-  const listFilterActive = f => !!(f.q.trim() || f.hoods.length || f.kind !== LIST_DEFAULT.kind ||
-    f.featured !== LIST_DEFAULT.featured || f.receptions || f.saved);
-  let refreshListRoot = null;   // set by listRoot(); bookmark toggles call it
+  state.filter = loadFilter();
+  const persistFilter = () => store.set('filter', JSON.stringify(state.filter));
+  const resetFilter = () => { Object.assign(state.filter, { ...FILTER_DEFAULT, hoods: [], sort: state.filter.sort }); };
+  // Number of filter groups off their default: the badge on the filter button.
+  const filterActiveCount = f => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
+    f.showRank !== FILTER_DEFAULT.showRank, f.galleryRank !== FILTER_DEFAULT.galleryRank,
+    f.active !== FILTER_DEFAULT.active, f.saved, f.receptions]
+    .filter(Boolean).length;
 
   const matchesQuery = (s, t) => !t ||
     s.title.toLowerCase().includes(t) ||
     (s.artist || '').toLowerCase().includes(t) ||
     s.venue.name.toLowerCase().includes(t);
 
-  // Pure: shows -> shows passing every active filter (nonprofits / project
-  // spaces count as galleries; only museums are set apart).
+  // The venue-kind split. `kind` is the registry's source of truth ('gallery',
+  // 'museum', 'nonprofit', 'project_space', 'university', 'other'); isMuseum is
+  // the derived mirror and only the fallback for records built before kind was
+  // carried through. Nonprofits and project spaces count as galleries — only
+  // museums are set apart.
+  const showIsMuseum = s => (s.venue.kind ? s.venue.kind === 'museum' : !!s.venue.isMuseum);
+
+  // Pure: shows -> shows passing every active filter.
   function filterShows(shows, f) {
     const t = f.q.trim().toLowerCase();
     const hoods = new Set(f.hoods);
     return shows.filter(s => {
       if (!matchesQuery(s, t)) return false;
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
-      if (f.kind === 'museums' && !s.venue.isMuseum) return false;
-      if (f.kind === 'galleries' && s.venue.isMuseum) return false;
-      if (f.featured && !s.featured) return false;
+      if (f.kind === 'museums' && !showIsMuseum(s)) return false;
+      if (f.kind === 'galleries' && showIsMuseum(s)) return false;
+      if (f.showRank === 'featured' && !s.featured) return false;
+      if (f.showRank === 'picks' && !s.editorsPick) return false;
+      if (f.galleryRank !== 'all') {
+        const tier = galleryTier(s.venue);
+        if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
+      }
+      if (f.active && !isActiveShow(s)) return false;
       if (f.saved && !state.saved.has(showId(s))) return false;
       if (f.receptions && !hasUpcomingReception(s)) return false;
       return true;
@@ -1080,6 +1114,10 @@
       arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
     } else if (sort === 'venue') {
       arr.sort((a, b) => a.venue.name.localeCompare(b.venue.name) || byRank(a, b));
+    } else if (sort === 'gallery') {
+      // best-ranked gallery first (registry rank via rank_venues.py); unranked venues last
+      const key = s => { const r = venueRank(s.venue); return r == null ? Infinity : r; };
+      arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
     } else if (sort === 'nearby' && origin) {
       const dist = s => haversine(origin.lat, origin.lng, s.venue.lat, s.venue.lng);
       arr.sort((a, b) => dist(a) - dist(b) || byRank(a, b));
@@ -1089,122 +1127,173 @@
     return arr;
   }
 
-  // Checklist sheet shared by the Neighborhoods and Sort pickers. rows:
-  // [{label, on, onclick}]; onclick returns true to keep the sheet open.
-  function openChecklistSheet(title, rowsFn) {
-    const group = el('div', { class: 'group', style: 'margin-top:12px' });
-    const render = () => {
-      group.innerHTML = '';
-      rowsFn().forEach(r => group.appendChild(el('button', {
-        class: 'row city-row',
-        onclick: () => { if (r.onclick()) render(); else closeSheet(); },
-      }, el('span', { class: 'cr-name' }, r.label),
-        r.on ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
-    };
-    render();
-    openSheet(el('div', { class: 'page' },
-      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, title), sheetCloseBtn()),
-      el('div', { class: 'page-scroll' }, group)));
+  // Browser position once granted (Nearby sort); asked for on first use.
+  let geo = null, geoAsked = false;
+  function filteredShows() {
+    const f = state.filter;
+    if (f.sort === 'nearby' && !geo && !geoAsked && navigator.geolocation) {
+      geoAsked = true;
+      navigator.geolocation.getCurrentPosition(pos => {
+        geo = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        if (state.filter.sort === 'nearby') refreshAll();
+      }, () => { /* keep city-center order */ }, { timeout: 5000 });
+    }
+    return sortShows(filterShows(cityShows(), f), f.sort, geo || city().center);
+  }
+  // Re-render every surface that shows the filtered set.
+  function refreshAll() {
+    persistFilter();
+    [pagesRoot.featured, pagesRoot.list].forEach(root => {
+      const page = root.firstElementChild;
+      if (page && page.refresh) page.refresh();
+    });
+    document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
+    MapTab.applyFilter();
   }
 
-  function listRoot() {
-    const f = state.list;
+  // ---------------- rank glyphs ----------------
+  // Three dots + a short word; nothing for the "All" / listed / plain cases.
+  // Only the top tier is marked, with a filled blue star: Editor's Pick for a
+  // show, Top for a gallery. Featured and Notable get nothing.
+  const TIER_GLYPH = {
+    picks: { icon: 'star', label: "Editor's Pick" },
+    top: { icon: 'star', label: 'Top Gallery' },
+  };
+  // The star alone, as a prefix to whatever it rates.
+  function tierStar(tier) {
+    const g = TIER_GLYPH[tier];
+    if (!g) return null;
+    return el('span', { class: 'tier-star t-' + tier, 'data-tier': tier }, icon(g.icon));
+  }
+  // Star + word, for the show detail header and the venue-page pill.
+  function tierGlyph(tier) {
+    const g = TIER_GLYPH[tier];
+    if (!g) return null;
+    return el('span', { class: 'sr-tier t-' + tier, 'data-tier': tier }, icon(g.icon), g.label);
+  }
+  function tierPill(tier) {
+    const g = TIER_GLYPH[tier];
+    if (!g) return null;
+    return el('div', { class: 'tier-pill t-' + tier, 'data-tier': tier }, icon(g.icon), g.label);
+  }
+  const metaRow = (...glyphs) => {
+    const kids = glyphs.filter(Boolean);
+    return kids.length ? el('div', { class: 'detail-meta-row' }, ...kids) : null;
+  };
+
+  // ---------------- filter button + sheet ----------------
+  function updateFilterBadge(btn) {
+    const n = filterActiveCount(state.filter);
+    let badge = btn.querySelector('.badge');
+    if (!n) { if (badge) badge.remove(); return; }
+    if (!badge) { badge = el('span', { class: 'badge' }); btn.appendChild(badge); }
+    badge.textContent = String(n);
+  }
+  function filterButton() {
+    const b = el('button', { class: 'icon-btn', 'data-filter-btn': '', 'aria-label': 'Filters', onclick: openFilterSheet }, icon('sliders'));
+    updateFilterBadge(b);
+    return b;
+  }
+
+  // Grouped form; every control applies immediately, the footer just closes.
+  // { sort: false } drops the Sort group — it only orders the List.
+  function openFilterSheet(opts) {
+    const withSort = !(opts && opts.sort === false);
+    const f = state.filter;
     const hoodList = city().neighborhoods;
-    f.hoods = f.hoods.filter(h => hoodList.includes(h));   // city switch
-    let geo = null;   // browser position once granted (Nearby sort)
 
     const input = el('input', { type: 'search', placeholder: 'Artist, gallery, or show', autocomplete: 'off', value: f.q });
     const clearQ = el('button', { class: 'search-clear', html: ICONS.xmark, 'aria-label': 'Clear search', hidden: f.q ? null : '' });
-    input.addEventListener('input', () => { f.q = input.value; clearQ.hidden = !f.q; refresh(); });
-    clearQ.addEventListener('click', () => { input.value = ''; f.q = ''; clearQ.hidden = true; refresh(); input.focus(); });
+    input.addEventListener('input', () => { f.q = input.value; clearQ.hidden = !f.q; update(); });
+    clearQ.addEventListener('click', () => { input.value = ''; f.q = ''; clearQ.hidden = true; update(); input.focus(); });
 
-    const chipRow = el('div', { class: 'chip-row' });
-    const CHIPS = [['featured', 'Featured'], ['saved', 'Saved'], ['receptions', 'Upcoming receptions']];
-    function renderChips() {
-      chipRow.innerHTML = '';
-      CHIPS.forEach(([key, label]) => chipRow.appendChild(el('button', {
-        class: 'chip' + (f[key] ? ' on' : ''), 'data-chip': key,
-        'aria-pressed': f[key] ? 'true' : 'false',
-        onclick: () => { f[key] = !f[key]; refresh(); },
-      }, label)));
-    }
+    const header = t => el('div', { class: 'group-header' }, t);
+    const switchRow = (label, key) => el('button', {
+      class: 'row', role: 'switch', 'data-switch': key,
+      onclick: () => { f[key] = !f[key]; update(); },
+    }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
+    const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
+      ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
+    const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
+    const sortGroup = el('div', { class: 'group', 'data-sort': '' });
 
-    const kindBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'kind' });
-    const hoodBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'hoods' });
-    const sortBtn = el('button', { class: 'chip chip-menu', 'data-menu': 'sort' });
-    const countEl = el('span', { class: 'list-count' });
-    const clearBtn = el('button', { class: 'list-clear', onclick: () => {
-      Object.assign(f, { ...LIST_DEFAULT, hoods: [], sort: f.sort });
-      input.value = ''; clearQ.hidden = true; refresh();
+    const body = el('div', { class: 'page-scroll' },
+      el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
+      header('Show'),
+      el('div', { class: 'group' }, switchRow('Active shows', 'active'),
+        switchRow('Saved only', 'saved'), switchRow('Upcoming receptions', 'receptions')),
+      header('Show Rank'), seg('showRank', SHOW_RANKS),
+      header('Gallery Rank'), seg('galleryRank', GALLERY_RANKS),
+      header('Venue Type'), seg('kind', KINDS),
+      header('Neighborhoods'), hoodWrap,
+      ...(withSort ? [header('Sort'), sortGroup] : []));
+    const countEl = el('span');
+    const clearBtn = el('button', { class: 'ghost', onclick: () => {
+      resetFilter(); input.value = ''; clearQ.hidden = true; update();
     } }, 'Clear');
-    kindBtn.addEventListener('click', () => openChecklistSheet('Venues', () => KINDS.map(([k, label]) => ({
-      label, on: f.kind === k, onclick: () => { f.kind = k; refresh(); return false; },
-    }))));
-    hoodBtn.addEventListener('click', () => openChecklistSheet('Neighborhoods', () => [
-      { label: 'All neighborhoods', on: !f.hoods.length, onclick: () => { f.hoods = []; refresh(); return false; } },
-      ...hoodList.map(h => ({
-        label: h, on: f.hoods.includes(h),
-        onclick: () => { const i = f.hoods.indexOf(h); if (i >= 0) f.hoods.splice(i, 1); else f.hoods.push(h); refresh(); return true; },
-      })),
-    ]));
-    sortBtn.addEventListener('click', () => openChecklistSheet('Sort by', () => SORTS.map(([k, label]) => ({
-      label, on: f.sort === k, onclick: () => { f.sort = k; refresh(); return false; },
-    }))));
-    function renderMenus() {
-      kindBtn.innerHTML = '';
-      kindBtn.append(el('span', null, KINDS.find(([k]) => k === f.kind)[1]), icon('chevronDown'));
-      kindBtn.classList.toggle('on', f.kind !== 'all');
-      const n = f.hoods.length;
-      hoodBtn.innerHTML = '';
-      hoodBtn.append(el('span', null, n === 0 ? 'Neighborhoods' : n === 1 ? f.hoods[0] : `${n} neighborhoods`), icon('chevronDown'));
-      hoodBtn.classList.toggle('on', n > 0);
-      sortBtn.innerHTML = '';
-      sortBtn.append(el('span', null, 'Sort: ' + SORTS.find(([k]) => k === f.sort)[1]), icon('chevronDown'));
-    }
+    const doneBtn = el('button', { class: 'capsule-btn', onclick: () => closeSheet() }, countEl);
+    const sheetPage = el('div', { class: 'page filter-sheet' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Filters'), sheetCloseBtn()),
+      body,
+      el('div', { class: 'sheet-foot' }, clearBtn, doneBtn));
 
+    function update(apply) {
+      if (apply !== false) refreshAll();
+      sheetPage.querySelectorAll('[data-switch]').forEach(r => {
+        const on = !!f[r.dataset.switch];
+        r.querySelector('.switch').classList.toggle('on', on);
+        r.setAttribute('aria-checked', on ? 'true' : 'false');
+      });
+      sheetPage.querySelectorAll('[data-seg]').forEach(sg => sg.querySelectorAll('button').forEach(b => {
+        const on = f[sg.dataset.seg] === b.dataset.value;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }));
+      hoodWrap.innerHTML = '';
+      hoodWrap.append(
+        el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
+        ...hoodList.map(h => el('button', {
+          class: 'chip' + (f.hoods.includes(h) ? ' on' : ''),
+          onclick: () => { const i = f.hoods.indexOf(h); if (i >= 0) f.hoods.splice(i, 1); else f.hoods.push(h); update(); },
+        }, h)));
+      sortGroup.innerHTML = '';
+      if (withSort) SORTS.forEach(([k, label]) => sortGroup.appendChild(el('button', {
+        class: 'row city-row', onclick: () => { f.sort = k; update(); },
+      }, el('span', { class: 'cr-name' }, label),
+        f.sort === k ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
+      const n = filteredShows().length;
+      countEl.textContent = `Show ${n} show${n === 1 ? '' : 's'}`;
+      clearBtn.hidden = !filterActiveCount(f);
+    }
+    update(false);
+    openSheet(sheetPage);
+  }
+
+  // ---------------- list tab ----------------
+  function listRoot() {
     const group = el('div', { class: 'group list-results' });
     const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
-    function refresh() {
-      persistList();
-      const shows = sortShows(filterShows(cityShows(), f), f.sort, geo || city().center);
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' },
+        el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
+        filterButton()),
+      el('div', { class: 'large-title' }, city().displayName),
+      el('div', { style: 'padding-bottom:96px' }, group, empty));
+    const inline = el('div', { class: 'inline-title' }, city().displayName);
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page' }, inline, scroll);
+    page.refresh = () => {
+      const shows = filteredShows();
       group.innerHTML = '';
       shows.forEach((s, i) => group.appendChild(showRow(s, () => push('list', showDetailPage(shows, i)))));
       group.hidden = !shows.length;
       empty.hidden = !!shows.length;
-      countEl.textContent = `${shows.length} show${shows.length === 1 ? '' : 's'}`;
-      clearBtn.hidden = !listFilterActive(f);
-      renderChips(); renderMenus();
-      if (f.sort === 'nearby' && !geo && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-          geo = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-          if (f.sort === 'nearby') refresh();
-        }, () => { /* keep city-center order */ }, { timeout: 5000 });
-      }
-    }
-    refreshListRoot = refresh;
-
-    const bar = el('div', { class: 'list-filters' },
-      el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
-      chipRow,
-      el('div', { class: 'chip-row menus' }, kindBtn, hoodBtn, sortBtn),
-      el('div', { class: 'list-status' }, countEl, clearBtn));
-    const scroll = el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' },
-        el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
-        el('span')),
-      el('div', { class: 'large-title' }, city().displayName),
-      bar,
-      el('div', { style: 'padding-bottom:96px' }, group, empty));
-    // once the bar pins to the top it needs the status-bar inset the large
-    // title used to provide
-    scroll.addEventListener('scroll', () => {
-      bar.classList.toggle('stuck', scroll.scrollTop >= bar.offsetTop - 1);
-    }, { passive: true });
-    refresh();
-    return el('div', { class: 'page' }, scroll);
+    };
+    page.refresh();
+    return page;
   }
 
-  // ---------------- sheets: city, search ----------------
+  // ---------------- city sheet ----------------
   function openCitySheet() {
     const rows = DATA.cities.map(c => {
       const r = el('button', { class: 'row city-row', onclick: () => { setCity(c.key); } },
@@ -1221,74 +1310,22 @@
         el('div', { class: 'group', style: 'margin-top:12px' }, ...rows))));
   }
 
-  function openSearchSheet() {
-    const input = el('input', { type: 'search', placeholder: 'Artist, gallery, or show', autocomplete: 'off' });
-    const results = el('div');
-    const emptyState = () => el('div', { class: 'empty-state' },
-      icon('search'), el('div', { class: 'es-title' }, 'Search Shows'));
-    results.appendChild(emptyState());
-
-    input.addEventListener('input', () => {
-      const q = input.value;
-      results.innerHTML = '';
-      if (!q.trim()) { results.appendChild(emptyState()); return; }
-      const hits = searchShows(q);
-      if (!hits.length) { results.appendChild(el('div', { class: 'empty-plain' }, 'No matching shows.')); return; }
-      results.append(
-        el('div', { class: 'on-view-header' }, 'On View'),
-        el('div', { class: 'group' }, ...hits.map(s => {
-          const r = showRow(s);
-          r.querySelector('.sr-text').onclick = () => {
-            const list = cityShows();
-            let p;
-            p = showDetailPage(list, list.findIndex(x => showId(x) === showId(s)),
-              { asSheet: true, onClose: () => p.remove() });
-            sheetStack[sheetStack.length - 1].sheet.appendChild(p);
-          };
-          return r;
-        })));
-    });
-
-    openSheet(el('div', { class: 'page' },
-      el('div', { class: 'search-bar' },
-        el('div', { class: 'search-field' }, icon('search'), input),
-        el('button', { class: 'search-cancel', onclick: () => closeSheet() }, 'Cancel')),
-      el('div', { class: 'page-scroll' }, results)));
-    setTimeout(() => input.focus(), 350);
-  }
-
   // ---------------- map tab ----------------
   const MapTab = window.DemoMap({
     getCity: city,
-    getShows: () => {
-      if (state.mapFilter === 'myShows') return savedShows();
-      if (state.mapFilter === 'receptions') return receptionShows();
-      return cityShows();
-    },
+    getShows: filteredShows,
     venueKey,
-    onPinTap: s => {
-      const p = showDetailPage([s], 0, { asSheet: true });
-      openSheet(p);
-    },
+    venueTier: galleryTier,
     onVenueTap: v => {
       openSheet(venuePage(v, { asSheet: true }));
     },
   });
 
-  const mapMenuBtn = document.getElementById('map-filter-btn');
-  const mapMenu = document.getElementById('map-menu');
-  const FILTERS = [['myShows', 'My Shows'], ['all', 'All Shows'], ['receptions', 'Upcoming Receptions']];
-  function renderMapMenu() {
-    mapMenu.innerHTML = '';
-    FILTERS.forEach(([key, label]) => {
-      mapMenu.appendChild(el('button', {
-        onclick: () => { state.mapFilter = key; mapMenu.hidden = true; renderMapMenu(); MapTab.applyFilter(); },
-      }, el('span', null, label),
-        key === state.mapFilter ? el('span', { html: ICONS.check }) : el('span')));
-    });
-  }
-  renderMapMenu();
-  mapMenuBtn.addEventListener('click', () => { mapMenu.hidden = !mapMenu.hidden; });
+  const mapFilterBtn = document.getElementById('map-filter-btn');
+  mapFilterBtn.append(icon('sliders'), el('span', null, 'Filter'));
+  mapFilterBtn.dataset.filterBtn = '';
+  updateFilterBadge(mapFilterBtn);
+  mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false }));   // Sort orders the List only
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
 
   // ---------------- tabs & city switching ----------------
@@ -1317,10 +1354,13 @@
   }
 
   function rebuildTabs() {
+    const hoods = city().neighborhoods;
+    state.filter.hoods = state.filter.hoods.filter(h => hoods.includes(h));   // city switch
     pagesRoot.featured.innerHTML = '';
     pagesRoot.list.innerHTML = '';
     push('featured', featuredRoot());
     push('list', listRoot());
+    document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
   }
 
   // ---------------- boot ----------------
@@ -1331,5 +1371,5 @@
   rebuildTabs();
   setTab('featured');
   // test hook
-  window.DemoDebug = { receptionDate, hasUpcomingReception };
+  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, GALLERY_TIER_CUTOFF };
 })();
