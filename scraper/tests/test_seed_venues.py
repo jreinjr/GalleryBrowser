@@ -173,6 +173,19 @@ class PlacesFilterTests(unittest.TestCase):
         self.assertEqual(sv.place_kind(self.place("The Broad", types=("museum", "tourist_attraction"))), "museum")
         self.assertEqual(sv.place_kind(self.place("Blum")), "gallery")
 
+    def test_place_kind_gallery_named_and_tagged_is_not_a_museum(self):
+        """Google's `museum` tag is loose. It loses only to two signals at once:
+        Google itself also saying art_gallery, AND the name saying gallery."""
+        both = ("museum", "art_gallery")
+        self.assertEqual(sv.place_kind(self.place("Leica Gallery Los Angeles", types=both)), "gallery")
+        self.assertEqual(sv.place_kind(self.place("Musichead Gallery", types=both)), "gallery")
+        # a real institution named Gallery must survive: it needs both signals
+        self.assertEqual(sv.place_kind(self.place("Whitechapel Gallery", types=("museum",))), "museum")
+        self.assertEqual(sv.place_kind(self.place("Hammer Museum", types=both)), "museum")
+        # the host test stays loose, so a museum's named wings are still suppressed
+        self.assertTrue(sv.place_museum_hint(self.place("Hammer Museum", types=both)))
+        self.assertFalse(sv.place_museum_hint(self.place("Blum")))
+
     def test_normalise_new_and_legacy(self):
         p = sv._norm_new({"id": "abc", "displayName": {"text": "X"}, "formattedAddress": "1 A St, Los Angeles, CA 90001, USA",
                           "location": {"latitude": 34.1, "longitude": -118.2}, "types": ["art_gallery"],
@@ -232,7 +245,9 @@ class PatchTests(unittest.TestCase):
         p = sv.patch_for(v, full)
         self.assertEqual(p, {"address": "1 A St", "phone": "1", "sources": {"seed": {"gpla": {"slug": "x"}}}})
         self.assertEqual(sv.patch_for(None, full)["status"], "unknown")
-        self.assertEqual(sv.patch_for(v, {"is_museum": False, "kind": "museum"}), {})   # False never fills
+        # is_museum is derived from `kind` (never patched), and `kind` only fills
+        # when missing — so a Places museum listing cannot retype a known venue.
+        self.assertEqual(sv.patch_for(v, {"is_museum": True, "kind": "museum"}), {})
         self.assertNotIn("google", sv.patch_for(None, full))
 
     def test_seed_block_merges_other_sources(self):
@@ -245,6 +260,35 @@ class PatchTests(unittest.TestCase):
         v = _venue("karma", "Karma", website="https://karmakarma.org/")
         self.assertIsNone(sv.id_collision(v, "Karma", "https://www.karmakarma.org/"))
         self.assertIn("karma:", sv.id_collision(v, "Karma", "https://karma-gallery.com/") or "")
+
+
+class MuseumFlagTests(unittest.TestCase):
+    """`kind` is the source of truth; `is_museum` is a derived mirror. The two
+    once drifted because a Places sweep ORed the boolean without touching kind
+    (four LA galleries ended up flagged museums)."""
+
+    def test_flag_is_derived_from_kind(self):
+        v = _venue("x", "X", kind="museum")
+        self.assertTrue(venues.is_museum(v))
+        v["kind"] = "gallery"
+        self.assertFalse(venues.is_museum(v))
+        # nonprofits, project spaces and universities are not museums
+        for kind in ("nonprofit", "project_space", "university", "other"):
+            self.assertFalse(venues.is_museum({"kind": kind}), kind)
+
+    def test_merge_patch_resyncs_the_mirror(self):
+        v = _venue("x", "X", kind="gallery")
+        v["is_museum"] = True                       # the drift this guards against
+        venues.merge_patch(v, {"address": "1 A St"})
+        self.assertFalse(v["is_museum"])
+        venues.merge_patch(v, {"kind": "museum"})
+        self.assertTrue(v["is_museum"])
+
+    def test_merge_patch_never_takes_the_flag_from_a_patch(self):
+        v = _venue("x", "X", kind="gallery")
+        venues.merge_patch(v, {"is_museum": True})
+        self.assertFalse(v["is_museum"])
+        self.assertEqual(v["kind"], "gallery")
 
 
 class RegistryTests(TempEnv):
@@ -516,7 +560,10 @@ class SeedFlowTests(TempEnv):
         self.assertEqual({s["name"]: s["reason"] for s in rep["skipped"]},
                          {"Wilshire Framing": "name:framing", "Old Gallery": "closed_permanently",
                           "Resnick Pavilion": "inside museum: LACMA Los Angeles County Museum of Art"})
-        self.assertIs(rep["updated"][0]["patch"]["is_museum"], True)    # museum listing upgrades the record
+        # Places has the lowest precedence: LACMA is already typed in the registry,
+        # so the museum listing patches neither `kind` nor the derived is_museum.
+        self.assertNotIn("kind", rep["updated"][0]["patch"])
+        self.assertNotIn("is_museum", rep["updated"][0]["patch"])
         self.assertTrue(any("1 reached" in n for n in rep["notes"]))
         # the working copy got the venue, the registry file did not
         self.assertIn("aabee-bleue-project", venues.index_by_id(ctx.reg))

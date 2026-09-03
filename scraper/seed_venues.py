@@ -134,6 +134,7 @@ EVIDENCE_NAME_DENY_RE = re.compile(
     r"\b(news|visit|chamber|tourism|city of|department of)\b", re.I)
 NEW_ONLY_FIELDS = ("status", "neighborhood", "next_check")
 ALWAYS_MERGE_FIELDS = ("sources", "google", "aliases", "exhibitions_url_candidates")
+DERIVED_FIELDS = ("is_museum",)   # re-derived from `kind` by venues.merge_patch
 
 
 # --- small helpers ---------------------------------------------------------------
@@ -461,8 +462,35 @@ def place_skip_reason(place: dict) -> str | None:
     return None
 
 
+# A venue whose own name says "gallery" is not a museum, whatever Google says.
+GALLERY_NAME_RE = re.compile(r"\b(gallery|galerie|galeria|gallerie)\b", re.I)
+
+
+def place_museum_hint(place: dict) -> bool:
+    """The loose test — does Google tag this a museum at all. Too loose to
+    classify a venue (see place_kind), but right for deciding whether a place
+    can be the museum *host* of a named gallery at the same address: a real
+    museum usually carries both `museum` and `art_gallery`."""
+    return "museum" in (place.get("types") or [])
+
+
 def place_kind(place: dict) -> str:
-    return "museum" if "museum" in (place.get("types") or []) else "gallery"
+    """Google's `types` is an array and its `museum` tag is applied loosely: a
+    photography gallery inside a retail store, an art school with a campus
+    gallery and an artist-run project space all carry it.
+
+    The tag still decides, because this is now only a last-resort default —
+    patch_for gives Places the lowest precedence, so a venue any directory or
+    confirmed show has typed never reaches here. The one carve-out is the shape
+    we actually saw fail: the name says gallery AND Google itself also says
+    art_gallery. Two independent signals against one loose tag. Deliberately
+    narrow — real institutions are named Gallery too (Whitechapel, Serpentine,
+    Henry Art Gallery), and a bare name rule would mistype all of them."""
+    if not place_museum_hint(place):
+        return "gallery"
+    if "art_gallery" in (place.get("types") or []) and GALLERY_NAME_RE.search(place.get("name") or ""):
+        return "gallery"
+    return "museum"
 
 
 def _anchor_keys(cfg: dict) -> set[str]:
@@ -631,22 +659,24 @@ def id_collision(v: dict | None, name: str, website: str | None) -> str | None:
 
 def patch_for(v: dict | None, full: dict) -> dict:
     """New venue: the whole patch. Existing venue: only fields it lacks, plus
-    the always-merged blocks; never status / neighborhood / next_check."""
+    the always-merged blocks; never status / neighborhood / next_check.
+
+    `kind` follows the fill-if-missing rule like everything else, which is what
+    gives Places the lowest precedence: a venue already typed by a directory or
+    by a confirmed show keeps that type. `is_museum` is not patched at all —
+    venues.merge_patch derives it from `kind`."""
     if v is None:
         return {k: val for k, val in full.items() if val is not None}
     out: dict = {}
     has_coords = v.get("latitude") is not None and v.get("longitude") is not None
     for k, val in full.items():
-        if val is None or k in NEW_ONLY_FIELDS:
+        if val is None or k in NEW_ONLY_FIELDS or k in DERIVED_FIELDS:
             continue
         if k in ALWAYS_MERGE_FIELDS:
             out[k] = val
         elif k in ("latitude", "longitude", "coords_source"):
             if not has_coords:
                 out[k] = val
-        elif k == "is_museum":
-            if val and not v.get(k):
-                out[k] = True
         elif not v.get(k):
             out[k] = val
     return out
@@ -860,14 +890,14 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
     entries: list[dict] = []
     now = int(time.time())
     museum_at = {_addr_key(p.get("address")): p["name"] for p in found.values()
-                 if place_kind(p) == "museum" and not place_skip_reason(p) and _addr_key(p.get("address"))}
+                 if place_museum_hint(p) and not place_skip_reason(p) and _addr_key(p.get("address"))}
     for p in found.values():
         reason = place_skip_reason(p)
         if reason:
             rep["skipped"].append({"name": p["name"], "reason": reason, "area": p["area"]})
             continue
         host = museum_at.get(_addr_key(p.get("address")))
-        if host and place_kind(p) == "gallery" and host != p["name"]:
+        if host and not place_museum_hint(p) and host != p["name"]:
             # a wing / named gallery inside a museum (same street address)
             rep["skipped"].append({"name": p["name"], "reason": f"inside museum: {host}", "area": p["area"]})
             continue
@@ -901,7 +931,7 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
         _record_collision(rep, v, p["name"], p.get("website"))
         kind = place_kind(p)
         full = {
-            "kind": kind, "is_museum": kind == "museum", "status": "unknown",
+            "kind": kind, "status": "unknown",
             "neighborhood": zone, "address": _clean_address(p.get("address")),
             "latitude": p["lat"], "longitude": p["lng"], "coords_source": "places",
             "website": p.get("website"), "phone": p.get("phone"), "hours": p.get("hours") or None,
@@ -911,7 +941,11 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
             "notes": f"seeded from Google Places ({p['area']}/{p['qtype']})",
             "next_check": ctx.today.isoformat(),
             "sources": seed_block(v, "places", {"ts": now, "place_id": p["place_id"], "area": p["area"],
-                                                "type": p["qtype"], "zone_by": via, "ambiguous": amb}),
+                                                # `type` is the query type; `kind_hint` is what the
+                                                # returned types actually classified to
+                                                "type": p["qtype"], "kind_hint": kind,
+                                                "types": sorted(p.get("types") or []) or None,
+                                                "zone_by": via, "ambiguous": amb}),
         }
         patch = patch_for(v, full)
         name = p["name"]
