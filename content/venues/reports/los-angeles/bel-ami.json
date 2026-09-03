@@ -1,0 +1,1164 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "bel-ami",
+ "name": "Bel Ami",
+ "website": "http://belami.info",
+ "generated_ts": 1788457960,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.6439,
+ "crawl": {
+  "pages": 122,
+  "sitemap": true,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/bel-ami.jsonl"
+ },
+ "about_text": "Bel Ami is a contemporary art gallery in Los Angeles, founded in the summer of 2016 by Naoki Sutter-Shudo and Sabrina Tarasoff. The gallery operates from a space inside the Asian Center on N. Hill Street in Chinatown. Its program centers on emerging and mid-career artists working across painting, sculpture, ceramics, and mixed media, with a roster spanning Los Angeles, Europe, and Japan. Bel Ami has built a reputation for adventurous, often narrative or satirical bodies of work, exhibiting artists such as Guillaume Dénervaud, Olivia Hill, Ben Sakoguchi, and Soshiro Matsubara. The gallery is a regular exhibitor at international art fairs, including Frieze, Liste, FIAC, Paris Internationale, miart, and the Dallas Invitational, and its exhibitions have been reviewed in numerous art publications.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://belami.info/info"
+ ],
+ "founded_year": 2016,
+ "founders": [
+  "Naoki Sutter-Shudo",
+  "Sabrina Tarasoff"
+ ],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "709 N. Hill St., inside Asian Center, upstairs suite #105 & #103, Los Angeles, CA 90012 USA",
+   "since": 2016,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "emerging & mid-career contemporary artists",
+  "painting and sculpture",
+  "international program (Europe, Japan, US)",
+  "satirical and figurative narrative work",
+  "ceramics and mixed media"
+ ],
+ "hours_text": "Open Wednesday – Saturday, 11 AM – 5 PM",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Old Fashioned",
+   "artists": [
+    "Julien Monnerie",
+    "Walter Robinson"
+   ],
+   "start": "2016-01-30",
+   "end": "2016-01-31",
+   "year": 2016,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/old-fashioned"
+  },
+  {
+   "title": "Demimonde",
+   "artists": [
+    "Sam Basu",
+    "Louise Sartor",
+    "Paul Pascal Theriault",
+    "Michael Zahn"
+   ],
+   "start": "2016-08-17",
+   "end": "2016-09-14",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/demimonde"
+  },
+  {
+   "title": "A Rehearsal for What?",
+   "artists": [
+    "Lutz Bacher",
+    "Guillaume Maraud",
+    "Kent Merriman Jr.",
+    "Cally Spooner",
+    "Lily van der Stokker"
+   ],
+   "start": "2017-06-02",
+   "end": "2017-07-08",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/a-rehearsal-for-what"
+  },
+  {
+   "title": "Apropos l'Hiver",
+   "artists": [
+    "Soshiro Matsubara",
+    "Walter Robinson",
+    "Louise Sartor",
+    "George Stoll"
+   ],
+   "start": "2017-09-08",
+   "end": "2017-09-30",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/apropos-lhiver"
+  },
+  {
+   "title": "Ignominious",
+   "artists": [
+    "Kent Merriman Jr."
+   ],
+   "start": "2017-12-01",
+   "end": "2018-01-12",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/ignominious"
+  },
+  {
+   "title": "Sangria",
+   "artists": [
+    "Tom Allen",
+    "Kent Merriman Jr.",
+    "Julien Monnerie",
+    "Michael Zahn"
+   ],
+   "start": "2017-12-07",
+   "end": "2017-12-10",
+   "year": 2017,
+   "kind": "fair",
+   "source_url": "https://belami.info/exhibitions/sangria"
+  },
+  {
+   "title": "Six Recent Paintings",
+   "artists": [
+    "Joseph Holtzman"
+   ],
+   "start": "2018-01-26",
+   "end": "2018-03-24",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/six-recent-paintings"
+  },
+  {
+   "title": "Package Factory (Natural Marriage of Natural Resources)",
+   "artists": [
+    "Benjamin Reiss"
+   ],
+   "start": "2018-04-12",
+   "end": "2018-05-19",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "http://belami.info/exhibitions/package-factory-natural-marriage-of-natural-resources"
+  },
+  {
+   "title": "Off Season",
+   "artists": [
+    "Louise Sartor"
+   ],
+   "start": "2018-05-25",
+   "end": "2018-07-14",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/off-season"
+  },
+  {
+   "title": "Haus der Matsubara",
+   "artists": [
+    "Soshiro Matsubara"
+   ],
+   "start": "2018-07-22",
+   "end": "2018-08-18",
+   "year": 2018,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/haus-der-matsubara"
+  },
+  {
+   "title": "Bloom",
+   "artists": [
+    "Cédric Eisenring",
+    "Carol Jackson",
+    "Sean Kennedy",
+    "Matthieu Manche",
+    "Caitlin Mitchell-Dayton",
+    "Miriam Laura Leonardi",
+    "Flannery Silva"
+   ],
+   "start": "2018-09-20",
+   "end": "2018-10-27",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/bloom"
+  },
+  {
+   "title": "Rendez-vous au Jones",
+   "artists": [
+    "Julien Monnerie"
+   ],
+   "start": "2018-10-12",
+   "end": "2018-10-14",
+   "year": 2018,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/rendez-vous-au-jones"
+  },
+  {
+   "title": "Oh, là, là, Cookies",
+   "artists": [
+    "Miriam Laura Leonardi"
+   ],
+   "start": "2018-11-16",
+   "end": "2018-12-22",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/oh-la-la-cookies"
+  },
+  {
+   "title": null,
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2019,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/ian-rosen"
+  },
+  {
+   "title": "Talking Alone",
+   "artists": [
+    "Julien Monnerie"
+   ],
+   "start": "2019-02-09",
+   "end": "2019-03-23",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/talking-alone"
+  },
+  {
+   "title": "Abolish this time / Interrupt these places – Chronopolitics I (04.19 – 05.24.2019)",
+   "artists": [
+    "Guillaume Maraud"
+   ],
+   "start": "2019-04-14",
+   "end": "2019-05-24",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/abolish-this-time-interrupt-these-places-chronopolitics-i-04-19-05-24-2019"
+  },
+  {
+   "title": "Signal at the Wheel, Hover at the Gate",
+   "artists": [
+    "Hanna Hur"
+   ],
+   "start": "2019-06-07",
+   "end": "2019-07-20",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/signal-at-the-wheel-hover-at-the-gate"
+  },
+  {
+   "title": "A story forms",
+   "artists": [
+    "Rosalind Nashashibi",
+    "Diane Severin Nguyen",
+    "D'ette Nogle",
+    "Miljohn Ruperto"
+   ],
+   "start": "2019-10-11",
+   "end": "2019-11-23",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/a-story-forms"
+  },
+  {
+   "title": "Showrunners",
+   "artists": [
+    "Gina Folly",
+    "Peter Friel",
+    "Lina Viste Grønli",
+    "Marie Karlberg",
+    "Ann Greene Kelly",
+    "Eli Kerr",
+    "Sean MacAlister",
+    "Luzie Meyer",
+    "Adam Revington",
+    "Louise Sartor",
+    "Ben Schumacher",
+    "u"
+   ],
+   "start": "2019-12-07",
+   "end": "2020-01-18",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/showrunners"
+  },
+  {
+   "title": "Portable Documents Formatted for Home Use",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2020,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/portable-documents-formatted-for-home-use"
+  },
+  {
+   "title": "Split-level Paradise",
+   "artists": [
+    "Olivia Erlanger"
+   ],
+   "start": "2020-01-25",
+   "end": "2020-03-14",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/split-level-paradise"
+  },
+  {
+   "title": "Mindless Pleasures",
+   "artists": [
+    "Scott Benzel"
+   ],
+   "start": "2020-08-01",
+   "end": "2020-10-03",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/mindless-pleasures"
+  },
+  {
+   "title": "Park La Brea",
+   "artists": [
+    "Milano Chow"
+   ],
+   "start": "2020-10-21",
+   "end": "2020-12-05",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/park-la-brea"
+  },
+  {
+   "title": "Orange Crate Labels (France)",
+   "artists": [
+    "Ben Sakoguchi"
+   ],
+   "start": "2021-03-02",
+   "end": "2021-03-07",
+   "year": 2021,
+   "kind": "fair",
+   "source_url": "https://belami.info/exhibitions/orange-crate-labels-france"
+  },
+  {
+   "title": "Chinatown",
+   "artists": [
+    "Ben Sakoguchi"
+   ],
+   "start": "2021-03-06",
+   "end": "2021-05-15",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://belami.info/exhibitions/chinatown"
+  },
+  {
+   "title": "Which rice bowl?",
+   "artists": [
+    "Nanami Hori"
+   ],
+   "start": "2021-06-05",
+   "end": "2021-07-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://belami.info/exhibitions/which-rice-bowl"
+  },
+  {
+   "title": "Emblazoned World",
+   "artists": [
+    "Eugene Von Bruenchenhein",
+    "Guillaume Dénervaud",
+    "Elizabeth Englander",
+    "Nik Gelormino",
+    "Joseph Grigely",
+    "Luchita Hurtado",
+    "E'wao Kagoshima",
+    "Kentaro Kawabata",
+    "Kinke Kooi",
+    "Nancy Lupo",
+    "Lee Mullican"
+   ],
+   "start": "2021-09-10",
+   "end": "2021-10-30",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/emblazoned-world"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Sena Sasaki"
+   ],
+   "start": "2021-11-07",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/https-commercialstreet-biz-sena-sasaki"
+  },
+  {
+   "title": "Study for a Labyrinth",
+   "artists": [
+    "Soshiro Matsubara"
+   ],
+   "start": "2022-01-29",
+   "end": "2022-03-26",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/study-for-a-labyrinth"
+  },
+  {
+   "title": "Import Imprint",
+   "artists": [
+    "CFGNY"
+   ],
+   "start": "2022-04-16",
+   "end": "2022-05-21",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/import-imprint"
+  },
+  {
+   "title": "No Part of This World",
+   "artists": [
+    "Chadwick Rantanen"
+   ],
+   "start": "2022-05-28",
+   "end": "2022-07-16",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/no-part-of-this-world"
+  },
+  {
+   "title": "Strike-Slip",
+   "artists": [
+    "Olivia Hill"
+   ],
+   "start": "2022-07-23",
+   "end": "2022-09-17",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/strike-slip"
+  },
+  {
+   "title": "Appearing → Talking about the object of regrets or obsession → Dancing → Leaving (resting in peace or just simply leaving)",
+   "artists": [
+    "Masaya Chiba"
+   ],
+   "start": "2022-10-27",
+   "end": "2023-01-07",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/appearing-%e2%86%92-talking-about-the-object-of-regrets-or-obsession-%e2%86%92-dancing-%e2%86%92-leaving-resting-in-peace-or-just-simply-leaving"
+  },
+  {
+   "title": "Film Screening",
+   "artists": [
+    "Mona Varichon"
+   ],
+   "start": "2023-01-18",
+   "end": "2023-02-04",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/film-screening"
+  },
+  {
+   "title": "Brick Wall",
+   "artists": [
+    "Whitney Claflin",
+    "Andy Meerow",
+    "Ann Zhao"
+   ],
+   "start": "2023-02-15",
+   "end": "2023-03-18",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/brick-wall"
+  },
+  {
+   "title": "Synthetic Splinter",
+   "artists": [
+    "Guillaume Dénervaud"
+   ],
+   "start": "2023-02-15",
+   "end": "2023-03-18",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/2519"
+  },
+  {
+   "title": "Cupid's Bow",
+   "artists": [
+    "Ching Ho Cheng",
+    "Grant Falardeau",
+    "Matthew Gallagher",
+    "Anthony Iacono",
+    "Elizabeth Lennard",
+    "Becca Mann",
+    "Alexandra Noel",
+    "Mel Odom",
+    "Soshiro Matsubara",
+    "Alan Reid",
+    "Josefine Reisch",
+    "Kazuna Taguchi"
+   ],
+   "start": "2023-03-25",
+   "end": "2023-05-06",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/cupids-bow"
+  },
+  {
+   "title": "Film Screening and Publication Launch: Denim Sky",
+   "artists": [
+    "Rosalind Nashashibi"
+   ],
+   "start": "2023-05-16",
+   "end": "2023-05-16",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/film-screening-and-publication-launch-rosalind-nashashibi-denim-sky"
+  },
+  {
+   "title": "Au Jus",
+   "artists": [
+    "Juliana Halpert",
+    "Parker Ito"
+   ],
+   "start": "2023-05-27",
+   "end": "2023-07-08",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/au-jus"
+  },
+  {
+   "title": "Immutable Fragments",
+   "artists": [
+    "Alexis Soul-Gray"
+   ],
+   "start": "2023-07-22",
+   "end": "2023-09-09",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/immutable-fragments"
+  },
+  {
+   "title": "Palai",
+   "artists": [
+    "Milano Chow",
+    "Julien Monnerie"
+   ],
+   "start": "2023-07-28",
+   "end": "2023-08-26",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/palai"
+  },
+  {
+   "title": "Casper a la mode",
+   "artists": [
+    "Agnes Scherer"
+   ],
+   "start": "2023-09-23",
+   "end": "2023-11-18",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/agnes-scherer"
+  },
+  {
+   "title": "Polaroid Palette",
+   "artists": [
+    "Marie Cosindas"
+   ],
+   "start": "2023-09-23",
+   "end": "2023-11-18",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/polaroid-palette"
+  },
+  {
+   "title": "Communication",
+   "artists": [
+    "Lex Brown"
+   ],
+   "start": "2023-12-16",
+   "end": "2024-02-10",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/communication"
+  },
+  {
+   "title": "Tell Me What You Want",
+   "artists": [
+    "John Baldessari",
+    "Zoe Barcza",
+    "Gene Beery",
+    "Ellen Cantor",
+    "Joseph Grigely",
+    "EJ Hill",
+    "Calvin Marcus",
+    "Isabelle Frances McGuire",
+    "Dan Mitchell",
+    "Chadwick Rantanen",
+    "Benjamin Reiss",
+    "Amanda Ross-Ho",
+    "Ed Ruscha",
+    "Ben Sakoguchi",
+    "Alexis Smith",
+    "Martine Syms",
+    "Julia Yerger"
+   ],
+   "start": "2023-12-16",
+   "end": "2024-02-10",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/tell-me-what-you-want"
+  },
+  {
+   "title": "Talk",
+   "artists": [
+    "Gracie Hadland",
+    "Dan Mitchell"
+   ],
+   "start": "2024-02-08",
+   "end": "2024-02-08",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/talk"
+  },
+  {
+   "title": "I Call It Home, My Hell",
+   "artists": [
+    "Rosa Aiello",
+    "Matthias Groebel",
+    "Markus Saile",
+    "Julia Scher",
+    "Type 42"
+   ],
+   "start": "2024-02-24",
+   "end": "2024-04-13",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/i-call-it-home-my-hell"
+  },
+  {
+   "title": "Models",
+   "artists": [
+    "Tom Allen",
+    "Daniel Beckwith",
+    "Milano Chow",
+    "Benjamin Echeverria",
+    "Elizabeth Englander",
+    "Erik Frydenborg",
+    "Ishi Glinsky",
+    "Hanna Hur",
+    "Patrick Jackson",
+    "Jacob Kassay",
+    "Calvin Marcus",
+    "Rodney Nonaka-Hill",
+    "Lucas Page",
+    "Corrie Siegel",
+    "Nicole-Antonia Spagnola",
+    "J. Parker Valentine",
+    "Eric Veit",
+    "Erin Calla Watson",
+    "Michael Zahn"
+   ],
+   "start": "2024-04-20",
+   "end": "2024-05-18",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/models"
+  },
+  {
+   "title": "a vista",
+   "artists": [
+    "Covey Gong",
+    "Monique Mouton"
+   ],
+   "start": "2024-07-27",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/a-vista"
+  },
+  {
+   "title": "\"Dancing on My Own\" Book Launch & Talk",
+   "artists": [
+    "Simon Wu",
+    "Catherine G. Wagley"
+   ],
+   "start": "2024-08-14",
+   "end": "2024-08-14",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/simon-wus-book-launch-talk-with-catherine-g-wagley"
+  },
+  {
+   "title": "POTUS, Massas & Survivors",
+   "artists": [
+    "Ben Sakoguchi"
+   ],
+   "start": "2024-10-12",
+   "end": "2024-12-14",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/ben-sakoguchi"
+  },
+  {
+   "title": "beautiful he stirs up still things",
+   "artists": [
+    "Rodrigo Hernández"
+   ],
+   "start": "2025-02-18",
+   "end": "2025-03-29",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/beautiful-he-stirs-up-still-things"
+  },
+  {
+   "title": "Incarnation",
+   "artists": [
+    "Minami Kobayashi"
+   ],
+   "start": "2025-05-30",
+   "end": "2025-07-12",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/incarnation"
+  },
+  {
+   "title": "Civil Commitment",
+   "artists": [
+    "Juliana Halpert",
+    "Chris Kraus"
+   ],
+   "start": "2025-07-19",
+   "end": "2025-10-11",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/civil-commitment"
+  },
+  {
+   "title": "Exposition",
+   "artists": [
+    "Peter Tomka"
+   ],
+   "start": "2025-10-06",
+   "end": "2025-11-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/exposition"
+  },
+  {
+   "title": "Luminary",
+   "artists": [
+    "Marina Stern"
+   ],
+   "start": "2025-12-13",
+   "end": "2026-02-14",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://belami.info/exhibitions/luminary"
+  },
+  {
+   "title": "Everything looks dark now",
+   "artists": [
+    "Sebastian Black",
+    "Camille Blatrix",
+    "Grichka Commaret",
+    "Guillaume Dénervaud",
+    "Dana Lok",
+    "Soshiro Matsubara",
+    "Ian Miyamura",
+    "Alexandra Noel",
+    "Leigh Ruple",
+    "Lauren Satlowski",
+    "Erin Calla Watson"
+   ],
+   "start": "2026-02-20",
+   "end": "2026-04-25",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://belami.info/exhibitions/everything-looks-dark-now"
+  },
+  {
+   "title": "Beckett's Thing: A Writer’s Engagement with the Visual Arts",
+   "artists": [
+    "Leland de la Durantaye",
+    "Foad Dizadji-Bahmani",
+    "Jeni Jones",
+    "David Lloyd",
+    "Katherine Weiss"
+   ],
+   "start": "2026-08-29",
+   "end": "2026-08-29",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://belami.info/exhibitions/becketts-thing-a-writers-engagement-with-the-visual-arts"
+  }
+ ],
+ "fairs_self_reported": [
+  "Dallas Invitational",
+  "Felix Art Fair",
+  "Paris Internationale",
+  "Liste Art Fair Basel",
+  "Frieze LA",
+  "Frieze Los Angeles",
+  "FIAC",
+  "miart",
+  "Artissima",
+  "Frieze Seoul",
+  "Art Athina Virtual",
+  "Platform",
+  "Gallery Platform LA",
+  "Post-Fair"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "The New York Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Review of Books",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Motor Dance Journal",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artforum",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Friday Heaters",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artillery Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Times — Image Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Alta Journal",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Hyperallergic",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Galerie Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Cultured",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Frieze",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "LA Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The Art Newspaper",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Diva Corp Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "artnet",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "ArtReview",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Forbes",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Harper's Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Contemporary Art Daily",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Finestresull'arte",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Mousse",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Spike",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Ocula",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "CFA",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "AUTRE",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "KCRW",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Caesura Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "AEQAI",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Pin-Up Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "PW Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Brooklyn Rail",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "X-TRA Online",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Quillette",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "ArtAsiaPacific",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "LA Mag",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Financial Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art in America",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "CARLA",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "East of Borneo",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art Viewer",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artsy",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "NCAC",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Eagle's Scream",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Plaster",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "1-800-LA-ART-THING",
+   "year": null,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "No dedicated 'artists' or 'roster' page was present in the supplied pages, only exhibition/fair pages listing artists shown in past presentations; per instructions these were not counted as roster entries. Names listed on the contact page (Eric Kim, Lee Foley, Naoki Sutter-Shudo, Sebastian Zinn) appear alongside gallery contact details but their roles were not specified, so they were not classified as directors.",
+ "triage": {
+  "labels": {
+   "https://belami.info/info": "contact_hours",
+   "https://belami.info/news": "news",
+   "https://belami.info/exhibitions/bloom": "exhibition_page",
+   "https://belami.info/exhibitions/rendez-vous-au-jones": "exhibition_page",
+   "https://belami.info/exhibitions/videobox": "exhibition_page",
+   "https://belami.info/exhibitions/a-story-forms": "exhibition_page",
+   "https://belami.info/exhibitions/showrunners": "exhibition_page",
+   "https://belami.info/exhibitions/talking-alone": "exhibition_page",
+   "https://belami.info/exhibitions/off-season": "exhibition_page",
+   "https://belami.info/exhibitions/old-fashioned": "exhibition_page",
+   "https://belami.info/exhibitions/a-rehearsal-for-what": "exhibition_page",
+   "https://belami.info/exhibitions/demimonde": "exhibition_page",
+   "https://belami.info/exhibitions/apropos-lhiver": "exhibition_page",
+   "https://belami.info/exhibitions/the-lovers": "exhibition_page",
+   "https://belami.info/exhibitions/ignominious": "exhibition_page",
+   "https://belami.info/exhibitions/sangria": "exhibition_page",
+   "https://belami.info/exhibitions/frieze-la": "fairs",
+   "https://belami.info/exhibitions/signal-at-the-wheel-hover-at-the-gate": "exhibition_page",
+   "https://belami.info/exhibitions/portable-documents-formatted-for-home-use": "exhibition_page",
+   "https://belami.info/exhibitions/split-level-paradise": "exhibition_page",
+   "https://belami.info/exhibitions/oh-la-la-cookies": "exhibition_page",
+   "https://belami.info/exhibitions/gallery-platform-week-1": "fairs",
+   "https://belami.info/exhibitions/gallery-platform-milano-soshiro": "fairs",
+   "https://belami.info/exhibitions/the-props-assist-the-house": "exhibition_page",
+   "https://belami.info/exhibitions/mindless-pleasures": "exhibition_page",
+   "https://belami.info/exhibitions/park-la-brea": "exhibition_page",
+   "https://belami.info/exhibitions/orange-crate-labels-france": "exhibition_page",
+   "https://belami.info/exhibitions/watch-the-bouncing-ball": "exhibition_page",
+   "https://belami.info/exhibitions/chinatown": "exhibition_page",
+   "https://belami.info/exhibitions/package-factory-natural-marriage-of-natural-resources": "exhibition_page",
+   "https://belami.info/exhibitions/art-athina-virtual": "fairs",
+   "https://belami.info/exhibitions/universe-picture-collapse": "exhibition_page",
+   "https://belami.info/exhibitions/which-rice-bowl": "exhibition_page",
+   "https://belami.info/exhibitions/felix": "fairs",
+   "https://belami.info/exhibitions/https-commercialstreet-biz-sena-sasaki": "exhibition_page",
+   "https://belami.info/exhibitions/emblazoned-world": "exhibition_page",
+   "https://belami.info/exhibitions/fiac": "fairs",
+   "https://belami.info/exhibitions/six-recent-paintings": "exhibition_page",
+   "https://belami.info/exhibitions/frieze-la-2": "fairs",
+   "https://belami.info/exhibitions/study-for-a-labyrinth": "exhibition_page",
+   "https://belami.info/exhibitions/abolish-this-time-interrupt-these-places-chronopolitics-i-04-19-05-24-2019": "exhibition_page",
+   "https://belami.info/exhibitions/2035": "fairs",
+   "https://belami.info/exhibitions/import-imprint": "exhibition_page",
+   "https://belami.info/exhibitions/strike-slip": "exhibition_page",
+   "https://belami.info/exhibitions/no-part-of-this-world": "exhibition_page",
+   "https://belami.info/exhibitions/guillaume-denervaud-olivia-hill-on-platform-2022": "fairs",
+   "https://belami.info/exhibitions/haus-der-matsubara": "exhibition_page",
+   "https://belami.info/exhibitions/appearing-%e2%86%92-talking-about-the-object-of-regrets-or-obsession-%e2%86%92-dancing-%e2%86%92-leaving-resting-in-peace-or-just-simply-leaving": "exhibition_page",
+   "https://belami.info/exhibitions/2519": "exhibition_page",
+   "https://belami.info/exhibitions/film-screening": "exhibition_page",
+   "https://belami.info/exhibitions/frieze-la-3": "fairs",
+   "https://belami.info/exhibitions/brick-wall": "exhibition_page",
+   "https://belami.info/exhibitions/miart": "fairs",
+   "https://belami.info/exhibitions/cupids-bow": "exhibition_page",
+   "https://belami.info/exhibitions/film-screening-and-publication-launch-rosalind-nashashibi-denim-sky": "exhibition_page",
+   "https://belami.info/exhibitions/palai": "exhibition_page",
+   "https://belami.info/exhibitions/immutable-fragments": "exhibition_page",
+   "https://belami.info/exhibitions/au-jus": "exhibition_page",
+   "https://belami.info/exhibitions/agnes-scherer": "exhibition_page",
+   "https://belami.info/exhibitions/talk": "exhibition_page",
+   "https://belami.info/exhibitions/polaroid-palette": "exhibition_page",
+   "https://belami.info/exhibitions/i-call-it-home-my-hell": "exhibition_page",
+   "https://belami.info/exhibitions/terraform": "exhibition_page",
+   "https://belami.info/exhibitions/felix-art-fair-2024": "fairs",
+   "https://belami.info/exhibitions/tell-me-what-you-want": "exhibition_page",
+   "https://belami.info/exhibitions/dallas-invitational-2024": "fairs",
+   "https://belami.info/exhibitions/models": "exhibition_page",
+   "https://belami.info/exhibitions/mart": "fairs",
+   "https://belami.info/exhibitions/the-hovering-life": "exhibition_page",
+   "https://belami.info/exhibitions/liste-art-fair-basel-2024": "fairs",
+   "https://belami.info/exhibitions/communication": "exhibition_page",
+   "https://belami.info/exhibitions/the-understudy": "exhibition_page",
+   "https://belami.info/exhibitions/simon-wus-book-launch-talk-with-catherine-g-wagley": "exhibition_page",
+   "https://belami.info/exhibitions/frieze-seoul-2024": "fairs",
+   "https://belami.info/exhibitions/a-vista": "exhibition_page",
+   "https://belami.info/exhibitions/paris-internationale": "fairs",
+   "https://belami.info/exhibitions/twist": "exhibition_page",
+   "https://belami.info/exhibitions/the-dead-pet": "exhibition_page",
+   "https://belami.info/exhibitions/beautiful-he-stirs-up-still-things": "exhibition_page",
+   "https://belami.info/exhibitions/dallas-invitational": "fairs",
+   "https://belami.info/exhibitions/ian-rosen": "exhibition_page",
+   "https://belami.info/exhibitions/incarnation": "exhibition_page",
+   "https://belami.info/exhibitions/liste-art-fair-basel-2": "fairs",
+   "https://belami.info/exhibitions/the-four-spent-the-day-together": "exhibition_page",
+   "https://belami.info/exhibitions/the-sunday-of-life": "exhibition_page",
+   "https://belami.info/exhibitions/casual-encounterz": "exhibition_page",
+   "https://belami.info/exhibitions/artissima": "fairs",
+   "https://belami.info/exhibitions/4154": "fairs",
+   "https://belami.info/exhibitions/liste-art-fair-basel": "fairs",
+   "https://belami.info/exhibitions/ben-sakoguchi": "exhibition_page",
+   "https://belami.info/exhibitions/frieze-los-angeles": "fairs",
+   "https://belami.info/exhibitions/post-fair": "fairs",
+   "https://belami.info/exhibitions/luminary": "exhibition_page",
+   "https://belami.info/exhibitions/this-friday": "exhibition_page",
+   "https://belami.info/exhibitions/exposition": "exhibition_page",
+   "https://belami.info/exhibitions/everything-looks-dark-now": "exhibition_page",
+   "https://belami.info/exhibitions/dallas-invitational-2": "fairs",
+   "https://belami.info/exhibitions/the-seagull-by-anton-chekhov": "exhibition_page",
+   "https://belami.info/exhibitions/civil-commitment": "exhibition_page",
+   "https://belami.info/exhibitions/liste-art-fair-basel-3": "fairs",
+   "https://belami.info/exhibitions/what-was-america": "exhibition_page",
+   "https://belami.info/exhibitions/becketts-thing-a-writers-engagement-with-the-visual-arts": "exhibition_page",
+   "https://belami.info/exhibitions/the-cars-of-los-angeles": "exhibition_page",
+   "https://belami.info/exhibitions/the-woods": "exhibition_page",
+   "http://belami.info/exhibitions/resources": "exhibition_page",
+   "http://belami.info/exhibitions/package-factory-natural-marriage-of-natural-resources": "exhibition_page",
+   "http://belami.info/exhibitions/chinatown": "exhibition_page",
+   "http://belami.info/exhibitions/which-rice-bowl": "exhibition_page"
+  },
+  "site_notes": "Bel Ami's site has no dedicated roster/about/archive index pages; each exhibition and fair has its own standalone page under /exhibitions/, and a short /info page serves as contact info while /news aggregates press; no artist roster or gallery-history page was found in the crawl.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 432.6
+}

@@ -1,0 +1,909 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "kosaku-kanechika-tennoz",
+ "name": "KOSAKU KANECHIKA (Tennoz)",
+ "website": "https://kosakukanechika.com/en/",
+ "generated_ts": 1788467469,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2187,
+ "crawl": {
+  "pages": 300,
+  "sitemap": false,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/kosaku-kanechika-tennoz.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo (Tennoz)",
+   "address": "TERRADA ART COMPLEX I 5F, 1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo 140-0002 Japan",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo (Kyobashi)",
+   "address": "TODA BUILDING 3F, 1-7-1 Kyobashi, Chuo-ku, Tokyo 104-0031 Japan",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "Japanese contemporary ceramics",
+  "contemporary craft",
+  "Japanese contemporary art",
+  "photography",
+  "fashion-related art"
+ ],
+ "hours_text": "Tennoz: 11am–6pm; Kyobashi: 11am–7pm; both closed Sunday, Monday and national holidays",
+ "roster": [
+  {
+   "name": "Yutaka Aoki",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Junko Oki",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Takuro Kuwata",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Ataru Sato",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Chikashi Suzuki",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Yosuke Takeda",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Ryu Takeda",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Noritaka Tatehana",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Hiroto Tomonaga",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Tenki Hiramatsu",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Miwa Kyusetsu XIII",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  },
+  {
+   "name": "Dan McCarthy",
+   "status": "represented",
+   "source_url": "https://kosakukanechika.com/en/artist"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "CAMELLIA FIELDS",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2017-03-11",
+   "end": "2017-04-28",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2017"
+  },
+  {
+   "title": "Courtship",
+   "artists": [
+    "Ataru Sato"
+   ],
+   "start": "2017-05-20",
+   "end": "2017-06-24",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2017"
+  },
+  {
+   "title": "Without Blinking",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2017-07-01",
+   "end": "2017-08-12",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2017"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Junko Oki",
+    "Masaho Anotani"
+   ],
+   "start": "2017-09-02",
+   "end": "2017-10-07",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2017"
+  },
+  {
+   "title": "I'm Home, Tea Bowl",
+   "artists": [
+    "Takuro Kuwata"
+   ],
+   "start": "2017-10-21",
+   "end": "2017-12-02",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2017"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS",
+   "artists": [],
+   "start": "2018-01-20",
+   "end": "2018-02-17",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS #2",
+   "artists": [],
+   "start": "2018-03-03",
+   "end": "2018-04-07",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "A Fine Day in Tokyo",
+   "artists": [
+    "Chikashi Suzuki"
+   ],
+   "start": "2018-04-21",
+   "end": "2018-06-02",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "Mirror of Fashion",
+   "artists": [],
+   "start": "2018-04-21",
+   "end": "2018-06-02",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "+10",
+   "artists": [
+    "Ataru Sato"
+   ],
+   "start": "2018-06-09",
+   "end": "2018-07-21",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "sense and sweetness",
+   "artists": [
+    "Junko Oki"
+   ],
+   "start": "2018-06-09",
+   "end": "2018-07-21",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "Beyond the Vanishing Point",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2018-10-20",
+   "end": "2018-12-01",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2018"
+  },
+  {
+   "title": "GROUP SHOW: 7 ARTISTS",
+   "artists": [],
+   "start": "2019-01-26",
+   "end": "2019-02-23",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "Today's",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2019-03-09",
+   "end": "2019-04-13",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "My Tokyo",
+   "artists": [
+    "Chikashi Suzuki"
+   ],
+   "start": "2019-04-20",
+   "end": "2019-06-01",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS",
+   "artists": [],
+   "start": "2019-06-08",
+   "end": "2019-07-20",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "WOODCUTS",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2019-09-07",
+   "end": "2019-10-12",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "GROUP SHOW: 4 ARTISTS",
+   "artists": [],
+   "start": "2019-10-19",
+   "end": "2019-11-30",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "LA☆Fumiko Imano",
+   "artists": [
+    "fumiko imano"
+   ],
+   "start": "2019-10-19",
+   "end": "2019-11-30",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2019"
+  },
+  {
+   "title": "GROUP SHOW: 7 ARTISTS",
+   "artists": [],
+   "start": "2020-01-25",
+   "end": "2020-02-29",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "Fragment of Everyday Life in Tokyo",
+   "artists": [
+    "Chikashi Suzuki"
+   ],
+   "start": "2020-03-07",
+   "end": "2020-04-11",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "INTO THE AIR",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2020-03-07",
+   "end": "2020-04-11",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "Øth (Zeroth)",
+   "artists": [
+    "Ataru Sato"
+   ],
+   "start": "2020-06-06",
+   "end": "2020-07-11",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "Embroidery",
+   "artists": [
+    "Junko Oki"
+   ],
+   "start": "2020-07-18",
+   "end": "2020-08-22",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "Dual Dialogue",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2020-09-05",
+   "end": "2020-10-10",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "somehow somewhere sometimes at some place for some reason",
+   "artists": [
+    "fumiko imano"
+   ],
+   "start": "2020-10-17",
+   "end": "2020-11-21",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2020"
+  },
+  {
+   "title": "GROUP SHOW: 9 ARTISTS",
+   "artists": [],
+   "start": "2021-01-23",
+   "end": "2021-02-27",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "GROUP SHOW: 4 ARTISTS",
+   "artists": [],
+   "start": "2021-03-06",
+   "end": "2021-04-03",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "RETHINK",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2021-03-06",
+   "end": "2021-05-15",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "GROUP SHOW: 5 ARTISTS",
+   "artists": [],
+   "start": "2021-04-17",
+   "end": "2021-05-29",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "Treading Along the Window",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2021-06-05",
+   "end": "2021-07-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "Yobitsugi",
+   "artists": [
+    "Junko Oki"
+   ],
+   "start": "2021-06-05",
+   "end": "2021-07-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "TEE BOWL",
+   "artists": [
+    "Takuro Kuwata"
+   ],
+   "start": "2021-07-17",
+   "end": "2021-08-21",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "Descending Painting",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2021-09-04",
+   "end": "2021-10-09",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2021"
+  },
+  {
+   "title": "111 / triple one",
+   "artists": [
+    "Ataru Sato"
+   ],
+   "start": "2022-01-22",
+   "end": "2022-02-26",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "Dear Friend",
+   "artists": [
+    "Dan McCarthy",
+    "Takuro Kuwata"
+   ],
+   "start": "2022-03-05",
+   "end": "2022-04-09",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "PRIMARY COLORS",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2022-04-16",
+   "end": "2022-05-28",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "Walking Bride",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2022-06-04",
+   "end": "2022-07-09",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS",
+   "artists": [],
+   "start": "2022-07-16",
+   "end": "2022-08-20",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "going nowhere",
+   "artists": [
+    "fumiko imano"
+   ],
+   "start": "2022-09-03",
+   "end": "2022-10-08",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "GROUP SHOW: 3 ARTISTS",
+   "artists": [],
+   "start": "2022-10-15",
+   "end": "2022-11-19",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "yoretsuremotsure",
+   "artists": [
+    "Junko Oki"
+   ],
+   "start": "2022-10-15",
+   "end": "2022-11-19",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "RETHINK",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2022-11-26",
+   "end": "2022-12-24",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2022"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS",
+   "artists": [],
+   "start": "2023-01-28",
+   "end": "2023-02-25",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "GROUP SHOW: 5 ARTISTS",
+   "artists": [],
+   "start": "2023-03-04",
+   "end": "2023-04-01",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "Changeable Sight",
+   "artists": [
+    "Hiroto Tomonaga"
+   ],
+   "start": "2023-04-08",
+   "end": "2023-05-13",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "Weights and Measures",
+   "artists": [
+    "Ruby Neri"
+   ],
+   "start": "2023-05-27",
+   "end": "2023-07-01",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "LE FUMISTOL",
+   "artists": [
+    "fumiko imano"
+   ],
+   "start": "2023-07-07",
+   "end": "2023-08-12",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "Levels of Intimacy",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2023-08-26",
+   "end": "2023-09-30",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "Syncretism",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2023-10-07",
+   "end": "2023-11-18",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "First Love 2",
+   "artists": [
+    "Ataru Sato"
+   ],
+   "start": "2023-12-09",
+   "end": "2024-01-20",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2023"
+  },
+  {
+   "title": "GROUP SHOW: 7 ARTISTS",
+   "artists": [],
+   "start": "2024-01-27",
+   "end": "2024-02-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "GROUP SHOW: 4 ARTISTS",
+   "artists": [],
+   "start": "2024-03-02",
+   "end": "2024-04-20",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "Promise",
+   "artists": [
+    "Junko Oki"
+   ],
+   "start": "2024-04-26",
+   "end": "2024-05-25",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "In the distance",
+   "artists": [
+    "Hiroto Tomonaga"
+   ],
+   "start": "2024-06-01",
+   "end": "2024-06-29",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "Singin' in the Rain",
+   "artists": [
+    "Yosuke Takeda"
+   ],
+   "start": "2024-07-06",
+   "end": "2024-08-10",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "Solo exhibition",
+   "artists": [
+    "Dan McCarthy"
+   ],
+   "start": "2024-10-12",
+   "end": "2024-11-16",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "Under the Sun and Moon",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2024-11-22",
+   "end": "2024-12-26",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2024"
+  },
+  {
+   "title": "U",
+   "artists": [
+    "Yutaka Aoki"
+   ],
+   "start": "2025-01-18",
+   "end": "2025-03-01",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "GROUP SHOW: 5 ARTISTS",
+   "artists": [],
+   "start": "2025-03-08",
+   "end": "2025-04-19",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "GROUP SHOW: 6 ARTISTS",
+   "artists": [],
+   "start": "2025-05-07",
+   "end": "2025-06-14",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "STRUCT.RE:CALL",
+   "artists": [
+    "Yosuke Takeda"
+   ],
+   "start": "2025-07-01",
+   "end": "2025-08-02",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "Oracle Bone",
+   "artists": [
+    "Ryu Takeda"
+   ],
+   "start": "2025-08-16",
+   "end": "2025-09-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "Sacred Reflections",
+   "artists": [
+    "Noritaka Tatehana"
+   ],
+   "start": "2025-10-04",
+   "end": "2025-11-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition-year/2025"
+  },
+  {
+   "title": "drawings: 5 artists",
+   "artists": [],
+   "start": "2026-02-21",
+   "end": "2026-04-11",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/exhibition-year/2026"
+  },
+  {
+   "title": "Sweat and Tears",
+   "artists": [
+    "Tenki Hiramatsu"
+   ],
+   "start": "2026-04-25",
+   "end": "2026-06-06",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kosakukanechika.com/en/exhibition"
+  },
+  {
+   "title": "Strata in Gestation",
+   "artists": [
+    "Yoshitomo Nara"
+   ],
+   "start": "2026-06-27",
+   "end": "2026-08-08",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://kosakukanechika.com/en/exhibition"
+  },
+  {
+   "title": "GROUP SHOW: 4 ARTISTS",
+   "artists": [],
+   "start": "2026-08-29",
+   "end": "2026-10-03",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://kosakukanechika.com/en/exhibition"
+  }
+ ],
+ "fairs_self_reported": [
+  "Tokyo Gendai 2026",
+  "Frieze Seoul 2026",
+  "Art Basel 2026",
+  "Art Basel Unlimited 2026",
+  "Art Basel Hong Kong 2026",
+  "ART FAIR TOKYO 20 (2026)",
+  "Tokyo Gendai 2025",
+  "Frieze Seoul 2025",
+  "Art Basel 2025",
+  "Art Basel Hong Kong 2025",
+  "ART FAIR TOKYO 19 (2025)",
+  "Frieze Seoul 2024",
+  "Tokyo Gendai 2024",
+  "Art OnO 2024",
+  "Art Basel Hong Kong 2024",
+  "Art Fair Tokyo 2024",
+  "ART SG 2024",
+  "Frieze Seoul 2023",
+  "Tokyo Gendai 2023",
+  "Taipei Dangdai 2023",
+  "Art Basel Hong Kong 2023",
+  "Art Fair Tokyo 2023",
+  "ART SG 2023",
+  "art stage OSAKA 2022",
+  "Art Fair Tokyo 2022",
+  "Art Collaboration Kyoto 2021",
+  "Art Fair Tokyo 2021",
+  "artKYOTO 2020",
+  "artTNZ 2020",
+  "Taipei Dangdai 2020"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://kosakukanechika.com/artist": "roster_index",
+   "https://kosakukanechika.com/en/artist": "roster_index",
+   "https://kosakukanechika.com/about": "about",
+   "https://kosakukanechika.com/en/about": "about",
+   "https://kosakukanechika.com/exhibition": "exhibitions_current",
+   "https://kosakukanechika.com/en/exhibition": "exhibitions_current",
+   "https://kosakukanechika.com/exhibition-year/2025": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2024": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2023": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2022": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2021": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2020": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2019": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2018": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2017": "exhibitions_archive",
+   "https://kosakukanechika.com/exhibition-year/2026": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2025": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2024": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2023": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2022": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2021": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2020": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2019": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2018": "exhibitions_archive",
+   "https://kosakukanechika.com/en/exhibition-year/2017": "exhibitions_archive",
+   "https://kosakukanechika.com/fairs": "fairs",
+   "https://kosakukanechika.com/en/fairs": "fairs",
+   "https://kosakukanechika.com/fairs-year/2025": "fairs",
+   "https://kosakukanechika.com/fairs-year/2024": "fairs",
+   "https://kosakukanechika.com/fairs-year/2023": "fairs",
+   "https://kosakukanechika.com/fairs-year/2022": "fairs",
+   "https://kosakukanechika.com/fairs-year/2021": "fairs",
+   "https://kosakukanechika.com/fairs-year/2020": "fairs",
+   "https://kosakukanechika.com/fairs-year/2026": "fairs",
+   "https://kosakukanechika.com/en/fairs-year/2025": "fairs",
+   "https://kosakukanechika.com/en/fairs-year/2024": "fairs",
+   "https://kosakukanechika.com/en/fairs-year/2023": "fairs",
+   "https://kosakukanechika.com/news": "news",
+   "https://kosakukanechika.com/en/news": "news",
+   "https://kosakukanechika.com/news-year/2025": "news",
+   "https://kosakukanechika.com/news-year/2024": "news",
+   "https://kosakukanechika.com/news-year/2026": "news",
+   "https://kosakukanechika.com/en/news-year/2025": "news",
+   "https://kosakukanechika.com/en/news-year/2024": "news",
+   "https://kosakukanechika.com/en/news-year/2026": "news"
+  },
+  "site_notes": "The site is a bilingual (JP/EN) WordPress-style gallery site organised by top-level sections (artist, exhibition, news, fairs, cabinet, publication, edition, about) each with a per-year archive index (exhibition-year/YYYY, news-year/YYYY, fairs-year/YYYY); since these year-indexes serve as the archive, individual exhibition/fair/news detail pages were left unlabelled. No dedicated contact/hours page was found in the inventory.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1106.0
+}

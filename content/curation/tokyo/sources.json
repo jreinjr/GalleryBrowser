@@ -1,0 +1,529 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "notes": "Publication + prior registry for curation signals. weight = per-signal multiplier in the press features (0 = venue-tier only: fairs, lists, institutions). curated_list.weight = how selective membership is. Hand-edit freely; signals keep their own provenance.",
+ "sources": [
+  {
+   "id": "art-basel-hk-exhibitors",
+   "name": "Art Basel Hong Kong",
+   "kind": "fair",
+   "urls": [
+    "https://www.artbasel.com/hong-kong/galleries",
+    "https://www.artbasel.com/hong-kong"
+   ],
+   "domains": [
+    "artbasel.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo gallery Art Basel Hong Kong exhibitor"
+   ],
+   "prestige": 3,
+   "region": "regional",
+   "notes": "Major regional fair many top Tokyo galleries attend. [proposed by city_priors]"
+  },
+  {
+   "id": "frieze-seoul-exhibitors",
+   "name": "Frieze Seoul",
+   "kind": "fair",
+   "urls": [
+    "https://www.frieze.com/fairs/frieze-seoul/exhibitors",
+    "https://www.frieze.com/fairs/frieze-seoul"
+   ],
+   "domains": [
+    "frieze.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo gallery Frieze Seoul exhibitor"
+   ],
+   "prestige": 3,
+   "region": "regional",
+   "notes": "Key regional fair for Japanese galleries. [proposed by city_priors]"
+  },
+  {
+   "id": "art-fair-tokyo",
+   "name": "Art Fair Tokyo",
+   "kind": "fair",
+   "urls": [
+    "https://artfairtokyo.com/exhibitors",
+    "https://artfairtokyo.com"
+   ],
+   "domains": [
+    "artfairtokyo.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Art Fair Tokyo exhibitor list gallery"
+   ],
+   "prestige": 2,
+   "region": "local",
+   "notes": "Japan's largest and longest-running domestic art fair. [proposed by city_priors]"
+  },
+  {
+   "id": "tokyo-gendai",
+   "name": "Tokyo Gendai",
+   "kind": "fair",
+   "urls": [
+    "https://www.tokyogendai.com/galleries",
+    "https://www.tokyogendai.com"
+   ],
+   "domains": [
+    "tokyogendai.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo Gendai exhibitor gallery list"
+   ],
+   "prestige": 2,
+   "region": "local",
+   "notes": "New international-facing fair held in Yokohama/Tokyo area, launched 2023. [proposed by city_priors]"
+  },
+  {
+   "id": "art-collaboration-kyoto",
+   "name": "Art Collaboration Kyoto (ACK)",
+   "kind": "fair",
+   "urls": [
+    "https://artcollaborationkyoto.jp/en/galleries",
+    "https://artcollaborationkyoto.jp"
+   ],
+   "domains": [
+    "artcollaborationkyoto.jp"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "ACK Kyoto exhibitor gallery Tokyo"
+   ],
+   "prestige": 2,
+   "region": "local",
+   "notes": "Japan-based fair pairing Japanese and international galleries, many Tokyo dealers included. [proposed by city_priors]"
+  },
+  {
+   "id": "nada-new-york",
+   "name": "NADA New York",
+   "kind": "fair",
+   "urls": [
+    "https://www.newartdealers.org/fairs/nada-new-york",
+    "https://www.newartdealers.org"
+   ],
+   "domains": [
+    "newartdealers.org"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo gallery NADA exhibitor"
+   ],
+   "prestige": 2,
+   "region": "global",
+   "notes": "Occasionally includes emerging Tokyo galleries. [proposed by city_priors]"
+  },
+  {
+   "id": "west-bund-art-design",
+   "name": "West Bund Art & Design (Shanghai)",
+   "kind": "fair",
+   "urls": [
+    "https://www.westbundshanghai.com"
+   ],
+   "domains": [
+    "westbundshanghai.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo gallery West Bund exhibitor"
+   ],
+   "prestige": 2,
+   "region": "regional",
+   "notes": "Regional fair attracting Japanese galleries. [proposed by city_priors]"
+  },
+  {
+   "id": "cadan",
+   "name": "Contemporary Art Dealers Association Nippon (CADAN)",
+   "kind": "curated_list",
+   "urls": [
+    "https://cadan.jp"
+   ],
+   "entry_urls": [
+    "https://cadan.jp",
+    "https://cadan.jp/en/members"
+   ],
+   "domains": [
+    "cadan.jp"
+   ],
+   "weight": 0.9,
+   "list_kind": "association",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "CADAN member gallery Tokyo"
+   ],
+   "notes": "The primary vetted association of contemporary art dealers in Japan, heavily Tokyo-based. [proposed by city_priors]"
+  },
+  {
+   "id": "adaj",
+   "name": "Art Dealers Association of Japan (全国美術商連合会)",
+   "kind": "curated_list",
+   "urls": [
+    "http://www.zenbiren.or.jp"
+   ],
+   "entry_urls": [
+    "http://www.zenbiren.or.jp",
+    "http://www.zenbiren.or.jp/member"
+   ],
+   "domains": [
+    "zenbiren.or.jp"
+   ],
+   "weight": 0.7,
+   "list_kind": "association",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "全国美術商連合会 加盟 画廊 東京"
+   ],
+   "notes": "Broader national dealers association covering various art trade sectors, less contemporary-focused than CADAN. [proposed by city_priors]"
+  },
+  {
+   "id": "tokyo-art-beat-venues",
+   "name": "Tokyo Art Beat Venue Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.tokyoartbeat.com"
+   ],
+   "entry_urls": [
+    "https://www.tokyoartbeat.com",
+    "https://www.tokyoartbeat.com/venues"
+   ],
+   "domains": [
+    "tokyoartbeat.com"
+   ],
+   "weight": 0.5,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo Art Beat gallery venue listing"
+   ],
+   "notes": "Widely used editorial/directory listing of Tokyo galleries and museums. [proposed by city_priors] DEACTIVATED as a list_member source: it is an open directory of every venue in Japan (paginated /en/venues?page=N, server-rendered); use as a directory seed, not prestige."
+  },
+  {
+   "id": "art-it",
+   "name": "ART iT",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.art-it.asia"
+   ],
+   "entry_urls": [
+    "https://www.art-it.asia",
+    "https://www.art-it.asia/venues"
+   ],
+   "domains": [
+    "art-it.asia"
+   ],
+   "weight": 0.6,
+   "list_kind": "editorial",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "ART iT gallery review Tokyo"
+   ],
+   "notes": "Long-running bilingual Japanese contemporary art magazine and venue coverage. [proposed by city_priors]"
+  },
+  {
+   "id": "contemporary-art-daily",
+   "name": "Contemporary Art Daily",
+   "kind": "curated_list",
+   "urls": [
+    "https://contemporaryartdaily.com"
+   ],
+   "entry_urls": [
+    "https://contemporaryartdaily.com",
+    "https://contemporaryartdaily.com/venues"
+   ],
+   "domains": [
+    "contemporaryartdaily.com"
+   ],
+   "weight": 0.7,
+   "list_kind": "editorial",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Contemporary Art Daily Tokyo gallery"
+   ],
+   "notes": "Curated international exhibition-documentation site; inclusion signals curatorial recognition. [proposed by city_priors]"
+  },
+  {
+   "id": "ocula-tokyo-galleries",
+   "name": "Ocula Tokyo Galleries Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://ocula.com"
+   ],
+   "entry_urls": [
+    "https://ocula.com",
+    "https://ocula.com/galleries/?location=tokyo"
+   ],
+   "domains": [],
+   "weight": 0.5,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Ocula Tokyo gallery directory"
+   ],
+   "notes": "International art market platform with gallery and exhibition listings. [proposed by city_priors] DEACTIVATED: broad directory; revisit if CADAN/ADAJ pages fail."
+  },
+  {
+   "id": "artsy-tokyo-galleries",
+   "name": "Artsy Tokyo Galleries",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.artsy.net"
+   ],
+   "entry_urls": [
+    "https://www.artsy.net",
+    "https://www.artsy.net/galleries?city=Tokyo"
+   ],
+   "domains": [],
+   "weight": 0.4,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Artsy Tokyo gallery page"
+   ],
+   "notes": "Commercial online gallery directory and marketplace. [proposed by city_priors] DEACTIVATED: marketplace directory; artsy 403s."
+  },
+  {
+   "id": "frieze-gallery-directory",
+   "name": "Frieze Gallery Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.frieze.com"
+   ],
+   "entry_urls": [
+    "https://www.frieze.com",
+    "https://www.frieze.com/galleries"
+   ],
+   "domains": [
+    "frieze.com"
+   ],
+   "weight": 0.6,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Frieze gallery directory Tokyo"
+   ],
+   "notes": "Editorial gallery directory tied to Frieze fairs and magazine coverage. [proposed by city_priors] DEACTIVATED: fair-level signal already covered by frieze-seoul-exhibitors."
+  },
+  {
+   "id": "art-basel-gallery-directory",
+   "name": "Art Basel Gallery Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.artbasel.com"
+   ],
+   "entry_urls": [
+    "https://www.artbasel.com",
+    "https://www.artbasel.com/galleries"
+   ],
+   "domains": [
+    "artbasel.com"
+   ],
+   "weight": 0.7,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Art Basel gallery directory Tokyo"
+   ],
+   "notes": "Directory of galleries associated with Art Basel program, selective by fair participation history. [proposed by city_priors] DEACTIVATED: covered by art-basel-hk-exhibitors."
+  },
+  {
+   "id": "tokyo-art-beat-picks",
+   "name": "Tokyo Art Beat",
+   "kind": "listing",
+   "urls": [
+    "https://www.tokyoartbeat.com"
+   ],
+   "domains": [
+    "tokyoartbeat.com"
+   ],
+   "weight": 0.6,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo Art Beat exhibition picks review"
+   ],
+   "notes": "Primary bilingual listings and picks site for Tokyo exhibitions. [proposed by city_priors]"
+  },
+  {
+   "id": "bijutsu-techo",
+   "name": "Bijutsu Techo (美術手帖)",
+   "kind": "culture",
+   "urls": [
+    "https://bijutsutecho.com"
+   ],
+   "domains": [
+    "bijutsutecho.com"
+   ],
+   "weight": 0.7,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "美術手帖 東京 ギャラリー 展覧会"
+   ],
+   "notes": "Japan's leading contemporary art magazine, covers Tokyo gallery scene extensively. [proposed by city_priors]"
+  },
+  {
+   "id": "art-it-reviews",
+   "name": "ART iT",
+   "kind": "review_outlet",
+   "urls": [
+    "https://www.art-it.asia"
+   ],
+   "domains": [
+    "art-it.asia"
+   ],
+   "weight": 0.6,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "ART iT review exhibition Tokyo gallery"
+   ],
+   "notes": "Bilingual reviews and features on Japanese contemporary art. [proposed by city_priors]"
+  },
+  {
+   "id": "tokyo-art-navigator",
+   "name": "Tokyo Art Navigation (Tokyo Art Navi)",
+   "kind": "listing",
+   "urls": [
+    "https://tokyoartnavi.jp"
+   ],
+   "domains": [
+    "tokyoartnavi.jp"
+   ],
+   "weight": 0.4,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Tokyo Art Navi ギャラリー 展覧会情報"
+   ],
+   "notes": "Local exhibition listing aggregator for Tokyo galleries and museums. [proposed by city_priors]"
+  },
+  {
+   "id": "artscape-japan",
+   "name": "Artscape",
+   "kind": "culture",
+   "urls": [
+    "https://artscape.jp"
+   ],
+   "domains": [
+    "artscape.jp"
+   ],
+   "weight": 0.6,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "artscape レビュー 東京 ギャラリー"
+   ],
+   "notes": "Long-running Japanese online art review and culture magazine. [proposed by city_priors]"
+  },
+  {
+   "id": "art-newspaper-japan",
+   "name": "The Art Newspaper Japan",
+   "kind": "news",
+   "urls": [
+    "https://www.theartnewspaper.jp"
+   ],
+   "domains": [
+    "theartnewspaper.jp"
+   ],
+   "weight": 0.6,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Art Newspaper Japan Tokyo gallery exhibition"
+   ],
+   "notes": "Japanese edition of the international art news outlet. [proposed by city_priors]"
+  },
+  {
+   "id": "ocula-magazine",
+   "name": "Ocula Magazine",
+   "kind": "review_outlet",
+   "urls": [
+    "https://ocula.com/magazine"
+   ],
+   "domains": [],
+   "weight": 0.5,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Ocula Magazine Tokyo gallery exhibition review"
+   ],
+   "notes": "International art platform's editorial coverage often features Tokyo shows. [proposed by city_priors]"
+  },
+  {
+   "id": "artforum-critics-picks",
+   "name": "Artforum Critics' Picks",
+   "kind": "publication_picks",
+   "urls": [
+    "https://www.artforum.com/picks"
+   ],
+   "domains": [],
+   "weight": 0.7,
+   "cadence": "weekly",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Artforum critics pick Tokyo gallery"
+   ],
+   "notes": "Globally influential critics' picks column occasionally covering Tokyo exhibitions. [proposed by city_priors]"
+  }
+ ]
+}

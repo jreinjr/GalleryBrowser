@@ -1,0 +1,829 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "perrotin-tokyo",
+ "name": "Perrotin Tokyo",
+ "website": "https://www.perrotin.com",
+ "generated_ts": 1788468226,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1949,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/perrotin-tokyo.jsonl"
+ },
+ "about_text": "Perrotin is an international contemporary art gallery founded in Paris in 1990 by Emmanuel Perrotin, then twenty-one years old. Over three decades the gallery has grown from a single Paris space into a network of more than twenty locations across Europe, Asia, and North America, including a gallery in Tokyo's Roppongi district. Perrotin's program is deliberately eclectic, spanning painting, sculpture, photography, and new media, and bringing together established figures, artists represented for decades, younger emerging talents, and several artist estates. The gallery describes its roster as spanning around eighteen nationalities and four continents, reflecting a stated commitment to diversity of generation, background, and medium rather than adherence to a single movement or aesthetic.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.perrotin.com/en/about"
+ ],
+ "founded_year": 1990,
+ "founders": [
+  "Emmanuel Perrotin"
+ ],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Piramide Building 1/F, 6-6-9 Roppongi, Minato-ku, Tokyo 106-0032",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "Piramide Building 1/F, 6-6-9 Roppongi, Minato-ku, Tokyo 106-0032",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "Piramide Building 2/F, 6-6-9 Roppongi, Minato-ku, Tokyo 106-0032",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "130 Orchard Street, New York, NY 10002",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "130 Orchard Street, New York, NY 10002",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": "5036 W Pico Blvd, Los Angeles, CA, 90019",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "76 rue de Turenne, 75003 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "10 impasse Saint-Claude, 75003 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "76 rue de Turenne, 75003 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "2bis avenue Matignon, 75008 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "8 avenue Matignon, 75008 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "London",
+   "address": "Claridge's, Brook's Mews, London, United Kingdom",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "London",
+   "address": "Claridge's, Brook's Mews, London, United Kingdom",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Hong Kong",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Seoul",
+   "address": "10 Dosan-daero 45-gil, Gangnam-gu, Seoul, South Korea",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Shanghai",
+   "address": "3/F, 27 Huqiu Road, Huangpu District, Shanghai, 200002",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Shanghai",
+   "address": "3/F, 27 Huqiu Road, Huangpu District, Shanghai, 200002",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Dubai",
+   "address": "Gate Village Building 5, Podium Level 05, Sheikh Zayed Rd - Trade Centre - DIFC",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Las Vegas",
+   "address": "3600 Las Vegas Fwy, Las Vegas, NV 89109",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "eclectic contemporary art",
+  "multi-generational roster",
+  "international network of galleries",
+  "painting, sculpture, photography and new media",
+  "artist estates",
+  "emerging and established artists"
+ ],
+ "hours_text": null,
+ "roster": [
+  {
+   "name": "NINA CHANEL ABNEY",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "YOUNG-IL AHN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ALMA ALLEN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JEAN-MARIE APPRIOU",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "IVÁN ARGOTE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "DANIEL ARSHAM",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CRISTINA BANBAN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ALI BANISADR",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "HERNAN BAS",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GENESIS BELANGER",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ANNA-EVA BERGMAN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JASON BOYD KINSELLA",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "SOPHIE CALLE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MAURIZIO CATTELAN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LYNN CHADWICK",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JULIAN CHARRIÈRE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHEN FEI",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHEN KE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JOHAN CRETEN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JEAN-PHILIPPE DELHOMME",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "WIM DELVOYE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MATHILDE DENIZE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "NICK DOYLE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "OLI EPP",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LIONEL ESTÈVE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "BERNARD FRIZE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JENS FÄNGE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GELITIN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MEHDI GHADYANLOO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ELIZABETH GLAESSNER",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LAURENT GRASSO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "NANCY GRAVES",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "TODD GRAY",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "VIVIAN GREVEN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "HANS HARTUNG",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JEPPE HEIN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "THILO HEINZMANN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JOHN HENDERSON",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LESLIE HEWITT",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GREGOR HILDEBRANDT",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JR",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JESPER JUST",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "SUSUMU KAMIJO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "IZUMI KATO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "BHARTI KHER",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KOAK",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KLARA KRISTALOVA",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LEE BAE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "LEE MINGWEI",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "NIKKI MALOOF",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GEORGES MATHIEU",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GABRIEL DE LA MORA",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MR.",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MSCHF",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "TAKASHI MURAKAMI",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "DANIELLE ORCHARD",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "OTANI WORKSHOP",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JEAN-MICHEL OTHONIEL",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GAHEE PARK",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "PARK SEO-BO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "PAUL PFEIFFER",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "PAOLA PIVI",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHRISTIANE POOLEY",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "GABRIEL RICO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CLAUDE RUTAULT",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MARK RYDEN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "SIGRID SANDSTRÖM",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "SHIM MOON-SEUP",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "EMILY MAE SMITH",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JESÚS RAFAEL SOTO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "PIERRE SOULAGES",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JOSH SPERLING",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KATHIA ST. HILAIRE",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "TAVARES STRACHAN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CLAIRE TABOURET",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "AYA TAKANO",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "XAVIER VEILHAN",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "BERNAR VENET",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "PIETER VERMEERSCH",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "XIYAO WANG",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "EMMA WEBSTER",
+   "status": "represented",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MONIRA AL QADIRI",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KELLY BEEMAN",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ROBERTO BENAVIDEZ",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHANG YA CHIN",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "JULIA VON EICHEL",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ALEX GARDNER",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "NICK GOSS",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHARLES HASCOËT",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MAKIKO KUDO",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "HOLLY LOWEN",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "FARHAD MOSHIRI",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "SOPHIA NARRETT",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "OB",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ASUKA ANASTACIA OGAWA",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KATHERINA OLSCHBAUR",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "EMMA PREMPEH",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MATTHEW RONAY",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "KYUNGMI SHIN",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "MARIA TANIGUCHI",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "CHIFFON THOMAS",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ARYO TOH DJOJO",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "HUGO TORO",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "ROBIN F. WILLIAMS",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  },
+  {
+   "name": "XU ZHEN®",
+   "status": "exhibited",
+   "source_url": "https://www.perrotin.com/en/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": null,
+   "artists": [
+    "Jean-Philippe Delhomme"
+   ],
+   "start": "2025-09-09",
+   "end": "2025-11-11",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.perrotin.com/en/agenda"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Modern Weekly",
+   "year": 2026,
+   "url": null
+  },
+  {
+   "outlet": "ArtReview",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Beaux Arts Magazine",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "South China Morning Post",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Transfuge",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "Elle Decor",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "Forbes",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "Modern Magazine",
+   "year": 2021,
+   "url": null
+  },
+  {
+   "outlet": "Art & Collection",
+   "year": 2018,
+   "url": null
+  },
+  {
+   "outlet": "Rosewood Conversations",
+   "year": 2018,
+   "url": null
+  },
+  {
+   "outlet": "Bowery Boogie",
+   "year": 2018,
+   "url": null
+  },
+  {
+   "outlet": "Bijutsu Techo",
+   "year": 2017,
+   "url": null
+  },
+  {
+   "outlet": "Chosun",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "W Magazine",
+   "year": 2014,
+   "url": null
+  },
+  {
+   "outlet": "The Art Daily News",
+   "year": 2013,
+   "url": null
+  },
+  {
+   "outlet": "Flash Art",
+   "year": 2013,
+   "url": null
+  },
+  {
+   "outlet": "Paris Match",
+   "year": 2013,
+   "url": null
+  },
+  {
+   "outlet": "Le Journal du Dimanche",
+   "year": 2013,
+   "url": null
+  },
+  {
+   "outlet": "Elle Men",
+   "year": 2013,
+   "url": null
+  },
+  {
+   "outlet": "Neo2",
+   "year": 2013,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Venue requested was 'Perrotin Tokyo - Tokyo'; site content covers Perrotin's global network, so about_text and history reflect the gallery as a whole. Tokyo address is shared by Perrotin Tokyo gallery, Perrotin Store Tokyo, and Tokyo Perrotin Salon, all at the same Piramide Building address (1/F and 2/F). Hong Kong location is noted on the site as 'relocating' with no address currently given. No specific opening hours were found for the Tokyo space.",
+ "triage": {
+  "labels": {
+   "https://press.perrotin.com/": "news",
+   "https://www.perrotin.com/en/artists": "roster_index",
+   "https://www.perrotin.com/fr/artists": "roster_index",
+   "https://www.perrotin.com/en/agenda": "exhibitions_current",
+   "https://www.perrotin.com/fr/agenda": "exhibitions_current",
+   "https://www.perrotin.com/en/medias": "news",
+   "https://www.perrotin.com/fr/medias": "news",
+   "https://www.perrotin.com/en/about": "about",
+   "https://www.perrotin.com/fr/about": "about",
+   "https://www.perrotin.com/en/locations": "contact_hours",
+   "https://www.perrotin.com/fr/locations": "contact_hours",
+   "https://www.perrotin.com/en/history": "about",
+   "https://www.perrotin.com/fr/history": "about",
+   "https://www.perrotin.com/en/collect/fairs": "fairs",
+   "https://www.perrotin.com/fr/collect/fairs": "fairs",
+   "https://www.perrotin.com/en/agenda/past": "exhibitions_archive",
+   "https://www.perrotin.com/fr/agenda/past": "exhibitions_archive",
+   "https://www.perrotin.com/en/locations/tokyo": "contact_hours"
+  },
+  "site_notes": "The site is a large bilingual (EN/FR) CMS with a full artist roster (/artists index) and hundreds of individual artist pages, plus an 'agenda' page for current/upcoming exhibitions and events, but no dedicated past-exhibitions archive page was found in the inventory even though the nav structure implies one exists; many secondary pages (collect guides, jobs, legal, international language redirects, store) are not gallery-content relevant.",
+  "fetch_more": [
+   "https://www.perrotin.com/en/agenda/past",
+   "https://www.perrotin.com/fr/agenda/past",
+   "https://www.perrotin.com/en/locations/tokyo"
+  ]
+ },
+ "errors": [],
+ "duration_s": 3626.6
+}

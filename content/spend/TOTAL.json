@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 245.329,
-  "total_requests": 2439,
-  "total_web_searches": 2424,
-  "total_input_tokens": 10535471,
-  "total_output_tokens": 3596836,
-  "total_cache_write_tokens": 28382944,
-  "total_cache_read_tokens": 469030425,
+  "total_cost_usd": 277.4705,
+  "total_requests": 3129,
+  "total_web_searches": 2639,
+  "total_input_tokens": 13820797,
+  "total_output_tokens": 5053626,
+  "total_cache_write_tokens": 29448040,
+  "total_cache_read_tokens": 490881676,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -303,6 +303,18 @@
       "cost_usd": 0.2942
     },
     {
+      "session": "curate-los-angeles-lists_v1-g1-1788458052",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 54,
+      "output_tokens": 43288,
+      "cache_write_tokens": 84306,
+      "cache_read_tokens": 2303779,
+      "web_searches": 8,
+      "cost_usd": 1.1845
+    },
+    {
       "session": "curate-los-angeles-pubsweep_v1-g1-1788312171",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -373,6 +385,42 @@
       "cache_read_tokens": 12143,
       "web_searches": 0,
       "cost_usd": 0.1383
+    },
+    {
+      "session": "curate-tokyo-fairs_v1-g1-1788458053",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 130487,
+      "output_tokens": 34318,
+      "cache_write_tokens": 111423,
+      "cache_read_tokens": 396793,
+      "web_searches": 4,
+      "cost_usd": 1.0021
+    },
+    {
+      "session": "curate-tokyo-fairs_v1-g2-1788458317",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 104134,
+      "output_tokens": 20246,
+      "cache_write_tokens": 84170,
+      "cache_read_tokens": 377892,
+      "web_searches": 4,
+      "cost_usd": 0.7367
+    },
+    {
+      "session": "curate-tokyo-lists_v1-g1-1788458055",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 6,
+      "input_tokens": 82,
+      "output_tokens": 30221,
+      "cache_write_tokens": 76681,
+      "cache_read_tokens": 1813941,
+      "web_searches": 15,
+      "cost_usd": 1.0069
     },
     {
       "session": "deep-los-angeles-beverly-hills-1788316954",
@@ -2424,6 +2472,18 @@
       "cost_usd": 0.4215
     },
     {
+      "session": "enum-tokyo-ebisu-meguro-1788462836",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 6,
+      "input_tokens": 116,
+      "output_tokens": 21856,
+      "cache_write_tokens": 68884,
+      "cache_read_tokens": 2262194,
+      "web_searches": 27,
+      "cost_usd": 1.1134
+    },
+    {
       "session": "enum-tokyo-ginza-kyobashi-1788453180",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2436,16 +2496,112 @@
       "cost_usd": 0.7663
     },
     {
+      "session": "enum-tokyo-kiyosumi-shirakawa-1788463295",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 60,
+      "output_tokens": 18862,
+      "cache_write_tokens": 70906,
+      "cache_read_tokens": 1295518,
+      "web_searches": 10,
+      "cost_usd": 0.7251
+    },
+    {
+      "session": "enum-tokyo-nihonbashi-bakurocho-1788460170",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 136,
+      "output_tokens": 33477,
+      "cache_write_tokens": 86884,
+      "cache_read_tokens": 3595410,
+      "web_searches": 28,
+      "cost_usd": 1.5513
+    },
+    {
       "session": "enum-tokyo-roppongi-1788453160",
       "model": "claude-sonnet-5",
       "batch": false,
-      "requests": 1,
-      "input_tokens": 66,
-      "output_tokens": 12977,
-      "cache_write_tokens": 44030,
-      "cache_read_tokens": 863998,
+      "requests": 3,
+      "input_tokens": 112,
+      "output_tokens": 19934,
+      "cache_write_tokens": 64013,
+      "cache_read_tokens": 2126297,
+      "web_searches": 25,
+      "cost_usd": 1.0349
+    },
+    {
+      "session": "enum-tokyo-setagaya-west-tokyo-1788464203",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 68,
+      "output_tokens": 29774,
+      "cache_write_tokens": 61356,
+      "cache_read_tokens": 1129500,
       "web_searches": 16,
-      "cost_usd": 0.5728
+      "cost_usd": 0.8372
+    },
+    {
+      "session": "enum-tokyo-shibuya-omotesando-1788462197",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 62,
+      "output_tokens": 20132,
+      "cache_write_tokens": 92586,
+      "cache_read_tokens": 1582821,
+      "web_searches": 16,
+      "cost_usd": 0.9095
+    },
+    {
+      "session": "enum-tokyo-shinjuku-kagurazaka-1788453240",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 15,
+      "input_tokens": 112,
+      "output_tokens": 17032,
+      "cache_write_tokens": 61615,
+      "cache_read_tokens": 2498051,
+      "web_searches": 16,
+      "cost_usd": 0.9842
+    },
+    {
+      "session": "enum-tokyo-shinjuku-kagurazaka-1788462503",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 66,
+      "output_tokens": 20931,
+      "cache_write_tokens": 52299,
+      "cache_read_tokens": 861195,
+      "web_searches": 16,
+      "cost_usd": 0.6724
+    },
+    {
+      "session": "enum-tokyo-tennozu-1788463630",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 48,
+      "output_tokens": 20413,
+      "cache_write_tokens": 80422,
+      "cache_read_tokens": 1186201,
+      "web_searches": 30,
+      "cost_usd": 0.9425
+    },
+    {
+      "session": "enum-tokyo-ueno-yanaka-1788463941",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 60,
+      "output_tokens": 14234,
+      "cache_write_tokens": 71446,
+      "cache_read_tokens": 1169497,
+      "web_searches": 16,
+      "cost_usd": 0.715
     },
     {
       "session": "judge-los-angeles-judge_v1-claude-opus-5-1788312448",
@@ -2506,6 +2662,42 @@
       "cache_read_tokens": 5294508,
       "web_searches": 0,
       "cost_usd": 3.2628
+    },
+    {
+      "session": "lint-los-angeles-1788457625",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 60,
+      "input_tokens": 78476,
+      "output_tokens": 16620,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 0.3232
+    },
+    {
+      "session": "lint-los-angeles-1788457680",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 8,
+      "input_tokens": 9357,
+      "output_tokens": 2892,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 0.0476
+    },
+    {
+      "session": "lint-los-angeles-1788459828",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 437,
+      "input_tokens": 541162,
+      "output_tokens": 140900,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 2.4913
     },
     {
       "session": "london-1788148709",
@@ -2673,6 +2865,68 @@
       "cost_usd": 1.5203
     },
     {
+      "session": "priors-los-angeles-1788457665",
+      "model": "claude-sonnet-5",
+      "input_tokens": 1994,
+      "output_tokens": 2767,
+      "cost_usd": 0.0317
+    },
+    {
+      "session": "priors-tokyo-1788457631",
+      "model": "claude-sonnet-5",
+      "input_tokens": 1844,
+      "output_tokens": 3563,
+      "cost_usd": 0.0393
+    },
+    {
+      "session": "research-los-angeles-1788457960",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 12,
+      "input_tokens": 518161,
+      "output_tokens": 74757,
+      "cache_write_tokens": 8355,
+      "cache_read_tokens": 8970,
+      "web_searches": 0,
+      "cost_usd": 1.8066
+    },
+    {
+      "session": "research-los-angeles-1788459425",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 100358,
+      "output_tokens": 19234,
+      "cache_write_tokens": 4755,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 0.4049
+    },
+    {
+      "session": "research-los-angeles-1788459651",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 15,
+      "input_tokens": 162658,
+      "output_tokens": 161829,
+      "cache_write_tokens": 4755,
+      "cache_read_tokens": 12780,
+      "web_searches": 0,
+      "cost_usd": 1.958
+    },
+    {
+      "session": "research-los-angeles-1788460239",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 88,
+      "input_tokens": 1635072,
+      "output_tokens": 690673,
+      "cache_write_tokens": 24270,
+      "cache_read_tokens": 94410,
+      "web_searches": 0,
+      "cost_usd": 10.2564
+    },
+    {
       "session": "seattle-1788144234",
       "model": "claude-sonnet-5",
       "requests": 1,
@@ -2706,6 +2960,15 @@
       "cost_usd": 1.0114
     },
     {
+      "session": "seed-llm-tokyo-1788460345",
+      "model": "claude-sonnet-5",
+      "requests": 1,
+      "input_tokens": 713,
+      "output_tokens": 11814,
+      "cost_usd": 0.1196,
+      "seconds": 103
+    },
+    {
       "session": "tokyo-1788219556",
       "model": "claude-sonnet-5",
       "requests": 39,
@@ -2715,6 +2978,39 @@
       "cache_read_tokens": 15733591,
       "web_searches": 55,
       "cost_usd": 4.9204
+    },
+    {
+      "session": "validate-los-angeles-1788457515",
+      "city": "los-angeles",
+      "n": 621,
+      "apply": true,
+      "places_requests": 0,
+      "cost_usd": 0.0,
+      "lookups": 0,
+      "fetches": 574,
+      "renders": 150
+    },
+    {
+      "session": "validate-tokyo-1788457504",
+      "city": "tokyo",
+      "n": 6,
+      "apply": false,
+      "places_requests": 0,
+      "cost_usd": 0.0,
+      "lookups": 0,
+      "fetches": 2,
+      "renders": 0
+    },
+    {
+      "session": "validate-tokyo-1788457515",
+      "city": "tokyo",
+      "n": 76,
+      "apply": true,
+      "places_requests": 70,
+      "cost_usd": 1.82,
+      "lookups": 35,
+      "fetches": 20,
+      "renders": 3
     },
     {
       "session": "venice-1788149982",

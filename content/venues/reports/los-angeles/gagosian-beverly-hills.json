@@ -1,0 +1,902 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "gagosian-beverly-hills",
+ "name": "Gagosian Beverly Hills",
+ "website": "gagosian.com",
+ "generated_ts": 1788468826,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.6046,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/gagosian-beverly-hills.jsonl"
+ },
+ "about_text": "Gagosian is a global gallery for modern and contemporary art founded by Larry Gagosian in Los Angeles in 1980. From that first space it has grown into a network of exhibition spaces across the United States, Europe, and Asia, designed by architects including Richard Meier, Jean Nouvel, and Selldorf Architects. The program pairs a roster of leading living artists working across painting, sculpture, photography, and design with museum-quality historical exhibitions of twentieth-century masters. The gallery also runs a publishing arm producing catalogues raisonnés, monographs, and the Gagosian Quarterly magazine, and has developed initiatives supporting artists' estates and legacy planning alongside talks, screenings, and studio-visit programming.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://gagosian.com/about/about-gallery"
+ ],
+ "founded_year": 1980,
+ "founders": [
+  "Larry Gagosian"
+ ],
+ "directors": [],
+ "locations": [
+  {
+   "city": "New York",
+   "address": "974 Madison Avenue, New York, NY 10075",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "821 Park Avenue, New York, NY 10021",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "555 West 24th Street, New York, NY 10011",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "541 West 24th Street, New York, NY 10011",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "522 West 21st Street, New York, NY 10011",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Beverly Hills",
+   "address": "456 North Camden Drive, Beverly Hills, CA 90210",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "London",
+   "address": "20 Grosvenor Hill, London W1K 3QD",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "London",
+   "address": "17–19 Davies Street, London W1K 3DE",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "4 rue de Ponthieu, 75008 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "9 rue de Castiglione, 75001 Paris",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Le Bourget",
+   "address": "26 avenue de l'Europe, 93350 Le Bourget",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Gstaad",
+   "address": "Promenade 79, 3780 Gstaad",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Rome",
+   "address": "Via Francesco Crispi 16, 00187 Rome",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Athens",
+   "address": "22 Anapiron Polemou Street, Athens 11521",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Hong Kong",
+   "address": "7/F Pedder Building, 12 Pedder Street, Central, Hong Kong",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "976 Madison Avenue, New York, NY 10075 (Gagosian Shop)",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "modern and contemporary art",
+  "marquee living artists across media",
+  "museum-quality historical exhibitions",
+  "artist estates and legacy planning",
+  "publishing (catalogues raisonnés, monographs, Gagosian Quarterly)"
+ ],
+ "hours_text": "Tuesday–Saturday 10–5:30",
+ "roster": [
+  {
+   "name": "Richard Prince",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Taryn Simon",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Rudolf Stingel",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jeff Wall",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Anna Weyant",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Albert Oehlen",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Roy Lichtenstein",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Ed Ruscha",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jordan Wolfson",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Lauren Halsey",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jonas Wood",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "John Currin",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jennifer Guidi",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Mark Tansey",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Cy Gavin",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Derrick Adams",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Alberto Giacometti",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Richard Serra",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Ashley Bickerton",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Neil Jenney",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Mary Weatherford",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Douglas Gordon",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Y.Z. Kami",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Georg Baselitz",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Nathaniel Mary Quinn",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Rick Lowe",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Francesca Woodman",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Donald Judd",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Sally Mann",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jadé Fadojutimi",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Glenn Brown",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Tyler Mitchell",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Stanley Whitney",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jeff Koons",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Rachel Feinstein",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Mark Grotjahn",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Adriana Varejão",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Giuseppe Penone",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jenny Saville",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Chris Burden",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Katharina Grosse",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Adam McEwen",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Rachel Whiteread",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jamian Juliano-Villani",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Brice Marden",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Ellen Gallagher",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Richard Diebenkorn",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Alex Israel",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Louise Bonnet",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Sabine Moritz",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Kathleen Ryan",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Helen Frankenthaler",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Tatiana Trouvé",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Sterling Ruby",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Andreas Gursky",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Pablo Picasso",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Ewa Juszkiewicz",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Theaster Gates",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Titus Kaphar",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Deana Lawson",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Harold Ancart",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Urs Fischer",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Nam June Paik",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Anselm Kiefer",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Damien Hirst",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Maurizio Cattelan",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Walter De Maria",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Sarah Sze",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Tom Wesselmann",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Carol Bove",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Michael Heizer",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Takashi Murakami",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Cy Twombly",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Richard Artschwager",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Richard Avedon",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Francis Bacon",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Balthus",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Amoako Boafo",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Anthony Caro",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Christo",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Michael Craig-Martin",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Julie Curtiss",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Willem de Kooning",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Edmund de Waal",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Roe Ethridge",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Walton Ford",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Frank Gehry",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Nan Goldin",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Piero Golia",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Duane Hanson",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Simon Hantaï",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Hao Liang",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Howard Hodgkin",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Carsten Höller",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Tetsuya Ishida",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jia Aili",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Henry Moore",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Helen Marden",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Marc Newson",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Cady Noland",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Steven Parrino",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Setsuko",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Jim Shaw",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Spencer Sweeney",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "James Turrell",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Andy Warhol",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Franz West",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Christopher Wool",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Richard Wright",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  },
+  {
+   "name": "Zeng Fanzhi",
+   "status": "represented",
+   "source_url": "https://gagosian.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Alex Israel: Noir",
+   "artists": [
+    "Alex Israel"
+   ],
+   "start": "2025-02-06",
+   "end": "2025-03-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2026/alex-israel-upside-down"
+  },
+  {
+   "title": "Bob Dylan",
+   "artists": [
+    "Richard Prince"
+   ],
+   "start": "2025-02-27",
+   "end": "2025-03-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2025/richard-prince-folk-songs"
+  },
+  {
+   "title": "Y.Z. Kami: The Domes",
+   "artists": [
+    "Y.Z. Kami"
+   ],
+   "start": "2025-06-28",
+   "end": "2025-08-08",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2025/yz-kami-the-domes"
+  },
+  {
+   "title": "Nights of Cabiria",
+   "artists": [
+    "Carol Bove"
+   ],
+   "start": "2025-09-25",
+   "end": "2025-11-01",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2025/carol-bove-nights-of-cabiria"
+  },
+  {
+   "title": "if you came this way",
+   "artists": [
+    "Edmund de Waal"
+   ],
+   "start": "2025-11-13",
+   "end": "2025-12-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2025/edmund-de-waal-if-you-came-this-way"
+  },
+  {
+   "title": "Frank Gehry",
+   "artists": [
+    "Frank Gehry"
+   ],
+   "start": "2026-05-14",
+   "end": "2026-06-27",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2026/frank-gehry"
+  },
+  {
+   "title": "Douglas Gordon: Magic is sometimes very close to nothing at all",
+   "artists": [
+    "Douglas Gordon"
+   ],
+   "start": "2026-07-16",
+   "end": "2026-08-22",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://gagosian.com/exhibitions/2026/douglas-gordon-magic-is-sometimes-very-close-to-nothing-at-all"
+  }
+ ],
+ "fairs_self_reported": [
+  "Frieze Seoul 2026",
+  "Art Basel Unlimited 2026",
+  "Frieze New York 2026",
+  "Frieze Los Angeles 2026",
+  "Art Basel Miami Beach 2025",
+  "TEFAF New York 2026",
+  "Art Basel Hong Kong 2026",
+  "Art Basel 2026",
+  "LA Art Book Fair 2026",
+  "Art Basel Qatar 2026"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://gagosian.com/exhibitions": "exhibitions_current",
+   "https://gagosian.com/artists": "roster_index",
+   "https://gagosian.com/fairs-and-collecting": "fairs",
+   "https://gagosian.com/news": "news",
+   "https://gagosian.com/locations": "contact_hours",
+   "https://gagosian.com/about/about-gallery": "about",
+   "https://gagosian.com/about/about-larry-gagosian": "about",
+   "https://gagosian.com/news/category/museum-exhibitions": "news",
+   "https://gagosian.com/locations/974-madison-avenue-new-york": "contact_hours",
+   "https://gagosian.com/locations/park-and-75-new-york": "contact_hours",
+   "https://gagosian.com/locations/555-west-24th-street-new-york": "contact_hours",
+   "https://gagosian.com/locations/541-west-24th-street-new-york": "contact_hours",
+   "https://gagosian.com/locations/west-21st-street-new-york": "contact_hours",
+   "https://gagosian.com/locations/beverly-hills": "contact_hours",
+   "https://gagosian.com/locations/grosvenor-hill-london": "contact_hours",
+   "https://gagosian.com/locations/davies-street-london": "contact_hours",
+   "https://gagosian.com/locations/rue-de-ponthieu-paris": "contact_hours",
+   "https://gagosian.com/locations/rue-de-castiglione-paris": "contact_hours",
+   "https://gagosian.com/locations/le-bourget": "contact_hours",
+   "https://gagosian.com/locations/gstaad": "contact_hours",
+   "https://gagosian.com/locations/rome": "contact_hours",
+   "https://gagosian.com/locations/anapiron-polemou-street-athens": "contact_hours",
+   "https://gagosian.com/locations/hong-kong": "contact_hours",
+   "https://gagosian.com/locations/gagosian-shop-new-york": "contact_hours",
+   "https://gagosian.com/exhibitions/2026/richard-avedon-hollywood": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/lee-krasner": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/this-is-still-not-a-pipe-the-afterlife-of-magritte": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/rachel-feinstein": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/bea-scaccia-groomed": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/jordan-wolfson": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/brice-marden-i-am-plane-image": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/seeing-through-jia-ailis-parallel-paintings": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/deana-lawson": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/stanley-whitney-isnt-love-the-strangest-thing": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/jennifer-guidi-waterfall": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/douglas-gordon-magic-is-sometimes-very-close-to-nothing-at-all": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/helen-marden-interlude-of-joy": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/simon-hantai-the-last-studio": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/selections": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/alex-israel-upside-down": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/sterling-ruby-till-death-do-us-part": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/tetsuya-ishida": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/urs-fischer-eugene-atget": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/james-turrell-lifting-the-veil": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/christo": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/christo-air": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/anselm-kiefer-seal-my-ears-shut-and-i-shall-hear-you-still": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/frank-gehry": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/eliza-douglas-ghosts-curated-by-francesco-bonami": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/helen-frankenthaler-the-moment-and-the-distance": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/francesca-woodman-lately-i-find-a-sliver-of-mirror-is-simply-to-slice-an-eyelid": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/robert-rauschenberg-important-early-works-from-the-cy-twombly-foundation": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/marcel-duchamp": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/giuseppe-penone-the-reflection-of-bronze-curated-by-adam-d-weinberg": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/francis-bacon": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/nam-june-paik-rewind-repeat": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/theaster-gates-dave-all-my-relations": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/rachel-whiteread-substitute": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/ellen-gallagher-fast-fish-and-loose-fish": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/mary-weatherford-persephone": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/roy-lichtenstein-painting-with-scattered-brushstrokes": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/richard-artschwager-approximate-objects": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/tom-wesselmann-seascapes-still-lifes-and-nudes": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/jonas-wood": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/irving-penn": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/mirrored-fiction": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/michael-heizer-negative-sculpture": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/sarah-sze-feel-free": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/titus-kaphar-the-fire-this-time": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/roe-ethridge-rude-in-the-good-way": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/jasper-johns-between-the-clock-and-the-bed": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/richard-avedon-facing-west": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/james-turrell-after-glow": "exhibition_page",
+   "https://gagosian.com/exhibitions/2026/nan-goldin-the-ballad-of-sexual-dependency": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/the-omnipotence-of-dreams": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/the-house-on-utopia-parkway-joseph-cornells-studio-re-created-by-wes-anderson": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/urs-fischer": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/spencer-sweeney-paint": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/lauren-halsey": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/edmund-de-waal-if-you-came-this-way": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/jeff-koons-porcelain-series": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/richard-diebenkorn": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/richard-prince-folk-songs": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/ed-ruscha-talking-doorways": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/albert-oehlen-endless-summer": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/walter-de-maria-the-singular-experience": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/ed-ruscha-says-i-to-myself-says-i": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/christopher-wool": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/brice-marden-etched-letters": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/stanley-whitney-return-to-the-garden": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/carol-bove-nights-of-cabiria": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/urs-fischer-after-nature": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/tyler-mitchell": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/richard-serra-running-arcs-for-john-cage": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/rick-lowe-harbour-fragments": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/steven-parrino": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/cady-noland": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/nathaniel-mary-quinn-echoes-from-copeland": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/christopher-kulendran-thomas-peace-core": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/takashi-murakami-seoul-kawaii-summer-vacation": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/carsten-holler-halves": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/paul-mccartney-rearview-mirror-liverpool-london-paris": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/sterling-ruby-the-mountain": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/its-in-the-little-things": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/summer-highlights": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/yz-kami-the-domes": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/ever-so-present-ii-between-home-and-elsewhere": "exhibition_page",
+   "https://gagosian.com/exhibitions/2025/oscar-murillo-a-telegram-to-my-dear-suki": "exhibition_page",
+   "https://gagosian.com/exhibitions/2024": "exhibitions_archive",
+   "https://gagosian.com/exhibitions/2023": "exhibitions_archive"
+  },
+  "site_notes": "The site organizes exhibitions per-year under /exhibitions/YYYY/slug with no consolidated past-exhibitions archive page in the inventory, so individual exhibition pages (2025–2026) serve as the de facto archive; artists are listed via a single roster index at /artists, so individual artist bios were not separately labeled; news and quarterly articles have their own index pages (/news, /quarterly) so individual articles were left as 'other'.",
+  "fetch_more": [
+   "https://gagosian.com/exhibitions/2024",
+   "https://gagosian.com/exhibitions/2023"
+  ]
+ },
+ "errors": [],
+ "duration_s": 886.3
+}

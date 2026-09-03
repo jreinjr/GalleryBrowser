@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "mizuma-art",
+ "name": "Mizuma Art Gallery",
+ "website": "http://mizuma-art.co.jp/",
+ "generated_ts": 1788472115,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1671,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/mizuma-art.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "〒162-0843 東京都新宿区市谷田町3-13 神楽ビル2F",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Singapore",
+   "address": "22 Lock Road, #01-34 Gillman Barracks, Singapore 108939",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": "Tokyo: Tue-Sat 12:00-19:00, closed Sun/Mon/holidays; Singapore: Tue-Sat 11:00-19:00, Sun 11:00-18:00, closed Mon/holidays",
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 865.2
+}

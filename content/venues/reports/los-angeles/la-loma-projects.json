@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "la-loma-projects",
+ "name": "La Loma Projects",
+ "website": "https://www.lalomaprojects.com/",
+ "generated_ts": 1788469406,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0,
+ "crawl": {
+  "pages": 109,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/la-loma-projects.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [],
+ "program_focus": [],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: api APIConnectionError: Connection error.",
+  "profile: api APIConnectionError: Connection error."
+ ],
+ "duration_s": 1192.3
+}

@@ -604,6 +604,321 @@
     "Venice Biennale 2026 Los Angeles artist"
    ],
    "notes": "Artist heat."
+  },
+  {
+   "id": "felix-la-exhibitors",
+   "name": "Felix Art Fair",
+   "kind": "fair",
+   "urls": [
+    "https://www.felixartfair.com/exhibitors",
+    "https://www.felixartfair.com"
+   ],
+   "domains": [
+    "felixartfair.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Felix Art Fair exhibitors",
+    "Felix LA galleries"
+   ],
+   "prestige": 2,
+   "region": "local",
+   "notes": "Hotel-based LA fair held alongside Frieze week. [proposed by city_priors] DEACTIVATED: duplicate of felix-la (felixfair.com)."
+  },
+  {
+   "id": "art-los-angeles-contemporary",
+   "name": "Art Los Angeles Contemporary (ALAC)",
+   "kind": "fair",
+   "urls": [
+    "https://www.artlosangelescontemporary.com"
+   ],
+   "domains": [
+    "artlosangelescontemporary.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "ALAC exhibitors",
+    "Art Los Angeles Contemporary galleries"
+   ],
+   "prestige": 2,
+   "region": "local",
+   "notes": "Long-running LA fair; intermittent editions. [proposed by city_priors]"
+  },
+  {
+   "id": "nada-miami-exhibitors",
+   "name": "NADA Miami",
+   "kind": "fair",
+   "urls": [
+    "https://www.newartdealers.org/fairs/nada-miami/exhibitors",
+    "https://www.newartdealers.org/fairs/nada-miami"
+   ],
+   "domains": [
+    "newartdealers.org"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "NADA Miami exhibitors",
+    "New Art Dealers Alliance Miami galleries"
+   ],
+   "prestige": 2,
+   "region": "global",
+   "notes": "Younger/emerging LA galleries often exhibit here. [proposed by city_priors]"
+  },
+  {
+   "id": "expo-chicago-exhibitors",
+   "name": "EXPO CHICAGO",
+   "kind": "fair",
+   "urls": [
+    "https://www.expochicago.com/exhibitors",
+    "https://www.expochicago.com"
+   ],
+   "domains": [
+    "expochicago.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "EXPO Chicago exhibitors",
+    "Expo Chicago galleries"
+   ],
+   "prestige": 2,
+   "region": "regional",
+   "notes": "Major US regional fair with LA gallery presence. [proposed by city_priors]"
+  },
+  {
+   "id": "the-armory-show-exhibitors",
+   "name": "The Armory Show",
+   "kind": "fair",
+   "urls": [
+    "https://www.thearmoryshow.com/exhibitors",
+    "https://www.thearmoryshow.com"
+   ],
+   "domains": [
+    "thearmoryshow.com"
+   ],
+   "weight": 0,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Armory Show exhibitors",
+    "Armory Show galleries New York"
+   ],
+   "prestige": 3,
+   "region": "global",
+   "notes": "Major NY fair attended by top LA galleries. [proposed by city_priors]"
+  },
+  {
+   "id": "nada-members",
+   "name": "New Art Dealers Alliance (NADA) Membership Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.newartdealers.org"
+   ],
+   "entry_urls": [
+    "https://www.newartdealers.org",
+    "https://www.newartdealers.org/members"
+   ],
+   "domains": [
+    "newartdealers.org"
+   ],
+   "weight": 0.7,
+   "list_kind": "association",
+   "parser": "nada",
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "NADA member galleries Los Angeles",
+    "New Art Dealers Alliance members"
+   ],
+   "notes": "Association vetting emerging/mid-size galleries, many LA members. [proposed by city_priors]"
+  },
+  {
+   "id": "adaa-members",
+   "name": "Art Dealers Association of America (ADAA) Members",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.artdealers.org/member-galleries"
+   ],
+   "entry_urls": [
+    "https://www.artdealers.org/member-galleries"
+   ],
+   "domains": [
+    "artdealers.org"
+   ],
+   "weight": 0.9,
+   "list_kind": "association",
+   "parser": "adaa",
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "ADAA member galleries Los Angeles",
+    "Art Dealers Association of America members"
+   ],
+   "notes": "Highly selective national dealers association with LA member galleries. [proposed by city_priors]"
+  },
+  {
+   "id": "gallery-platform-la-directory",
+   "name": "Gallery Platform LA",
+   "kind": "curated_list",
+   "urls": [
+    "https://galleryplatform.la"
+   ],
+   "entry_urls": [
+    "https://galleryplatform.la",
+    "https://galleryplatform.la/galleries"
+   ],
+   "domains": [
+    "galleryplatform.la"
+   ],
+   "weight": 0.6,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Gallery Platform LA participating galleries",
+    "Gallery Platform LA directory"
+   ],
+   "notes": "City-organized initiative listing LA galleries; moderately curated. [proposed by city_priors]"
+  },
+  {
+   "id": "contemporary-art-daily-venues",
+   "name": "Contemporary Art Daily — Venues (Los Angeles)",
+   "kind": "curated_list",
+   "urls": [
+    "https://contemporaryartdaily.com"
+   ],
+   "entry_urls": [
+    "https://contemporaryartdaily.com",
+    "https://contemporaryartdaily.com/venues"
+   ],
+   "domains": [
+    "contemporaryartdaily.com"
+   ],
+   "weight": 0.75,
+   "list_kind": "editorial",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Contemporary Art Daily Los Angeles gallery",
+    "CAD venue Los Angeles"
+   ],
+   "notes": "Editorial site featuring exhibitions from notable galleries worldwide, including LA. [proposed by city_priors]"
+  },
+  {
+   "id": "artsy-la-galleries",
+   "name": "Artsy — Los Angeles Galleries Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.artsy.net"
+   ],
+   "entry_urls": [
+    "https://www.artsy.net",
+    "https://www.artsy.net/galleries/los-angeles"
+   ],
+   "domains": [],
+   "weight": 0.3,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Artsy Los Angeles galleries",
+    "Artsy gallery directory LA"
+   ],
+   "notes": "Open commercial directory, low selectivity but wide coverage. [proposed by city_priors] DEACTIVATED: open marketplace directory, not a curated list (artsy 403s)."
+  },
+  {
+   "id": "ocula-la-galleries",
+   "name": "Ocula — Los Angeles Galleries",
+   "kind": "curated_list",
+   "urls": [
+    "https://ocula.com"
+   ],
+   "entry_urls": [
+    "https://ocula.com",
+    "https://ocula.com/galleries/?location=los-angeles"
+   ],
+   "domains": [],
+   "weight": 0.4,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Ocula Los Angeles galleries",
+    "Ocula gallery directory LA"
+   ],
+   "notes": "Curated but broad international directory with LA listings. [proposed by city_priors] DEACTIVATED: broad directory; low weight not worth a session."
+  },
+  {
+   "id": "la-art-show-exhibitors",
+   "name": "LA Art Show Exhibitor Directory",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.laartshow.com"
+   ],
+   "entry_urls": [
+    "https://www.laartshow.com",
+    "https://www.laartshow.com/exhibitors"
+   ],
+   "domains": [
+    "laartshow.com"
+   ],
+   "weight": 0.3,
+   "list_kind": "directory",
+   "parser": null,
+   "cadence": "annual",
+   "active": false,
+   "added": "2026-09-03",
+   "query_hints": [
+    "LA Art Show exhibitors",
+    "LA Art Show gallery list"
+   ],
+   "notes": "Large convention-center fair with broad, less curated exhibitor base. [proposed by city_priors] DEACTIVATED: decorative/retail fair; not a prestige signal."
+  },
+  {
+   "id": "artforum-directory-la",
+   "name": "Artforum International Gallery Guide — Los Angeles",
+   "kind": "curated_list",
+   "urls": [
+    "https://www.artforum.com"
+   ],
+   "entry_urls": [
+    "https://www.artforum.com",
+    "https://www.artforum.com/guide/?location=los-angeles"
+   ],
+   "domains": [],
+   "weight": 0.7,
+   "list_kind": "editorial",
+   "parser": null,
+   "cadence": "annual",
+   "active": true,
+   "added": "2026-09-03",
+   "query_hints": [
+    "Artforum gallery guide Los Angeles",
+    "Artforum LA listings"
+   ],
+   "notes": "Print/online gallery guide historically featuring paying but curated LA galleries. [proposed by city_priors]"
   }
  ]
 }

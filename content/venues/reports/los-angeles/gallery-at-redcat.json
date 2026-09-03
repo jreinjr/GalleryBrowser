@@ -1,0 +1,379 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "gallery-at-redcat",
+ "name": "Gallery at REDCAT",
+ "website": "https://www.redcat.org/",
+ "generated_ts": 1788467318,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2084,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/gallery-at-redcat.jsonl"
+ },
+ "about_text": "REDCAT (the Roy and Edna Disney CalArts Theater) is CalArts' downtown Los Angeles center for contemporary visual and performing arts, opened in November 2003 inside the Walt Disney Concert Hall complex designed by Frank Gehry. Initiated by Roy E. Disney as a gift from the Walt Disney Company and matched by Roy and Patty Disney, it houses a 250-seat black-box theater, a 3,000-square-foot gallery, and a lounge. Through performances, exhibitions, screenings, and literary events, REDCAT presents experimental and cutting-edge work by Los Angeles-based and international artists, extending CalArts' mission of experimentation, discovery, and civic discourse to a professional venue in the city's downtown cultural corridor.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.redcat.org/story"
+ ],
+ "founded_year": 2003,
+ "founders": [
+  "California Institute of the Arts (CalArts)",
+  "Roy E. Disney"
+ ],
+ "directors": [
+  "João Ribas"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "631 West 2nd Street, Los Angeles, CA 90012",
+   "since": 2003,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "multidisciplinary contemporary art",
+  "performance and theater",
+  "film and video screenings",
+  "installation and new media",
+  "LA-based and international artists",
+  "literary events"
+ ],
+ "hours_text": "Gallery Hours: Wednesday–Sunday, 12 PM-6 PM + through evening performances; Closed on Mondays and Tuesdays",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Studio: Spring 2020",
+   "artists": [
+    "Barnett Cohen",
+    "Roksana Zeinapur",
+    "Alfonso Cervera",
+    "Roger Kim",
+    "Hyoin Jun",
+    "Jisu Jeon",
+    "Austyn Rich",
+    "Anna Ialeggio",
+    "Robyn O'Dell",
+    "Tzong-Han Wu"
+   ],
+   "start": "2020-03-08",
+   "end": "2020-03-09",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/events/studio-spring-2020"
+  },
+  {
+   "title": "Studio 2022",
+   "artists": [
+    "Tarrah Krajnak",
+    "Sara Lyons",
+    "Christina Catherine Martinez",
+    "Pastiche Queen",
+    "The Revolution School",
+    "DeLanna Studi"
+   ],
+   "start": "2022-03-29",
+   "end": "2022-05-08",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/events/studio-2022"
+  },
+  {
+   "title": "Carl Cheng: Material Behavior",
+   "artists": [
+    "Carl Cheng"
+   ],
+   "start": "2022-10-22",
+   "end": null,
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/fall22"
+  },
+  {
+   "title": "Lisa Alvarado (solo exhibition)",
+   "artists": [
+    "Lisa Alvarado"
+   ],
+   "start": "2023-04-01",
+   "end": null,
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/winterspring23"
+  },
+  {
+   "title": "The Feminist Art Program (1970-1975): Cycles of Collectivity",
+   "artists": [
+    "Judy Chicago",
+    "Miriam Schapiro",
+    "AK Jenkins",
+    "Andrea Bowers",
+    "Gala Porras-Kim",
+    "Suzanne Lacy"
+   ],
+   "start": "2023-09-13",
+   "end": null,
+   "year": 2023,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/fall23"
+  },
+  {
+   "title": "i want to climb inside every word and lick the salty neck of each letter",
+   "artists": [
+    "Kameelah Janan Rasheed"
+   ],
+   "start": "2024-03-27",
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/winterspring24"
+  },
+  {
+   "title": "All Watched Over by Machines of Loving Grace",
+   "artists": [
+    "Nora Al-Badri",
+    "Minne Atairu",
+    "Back to Back Theatre",
+    "Manthia Diawara",
+    "Stephanie Dinkins",
+    "Annie Dorsen",
+    "rafa esparza",
+    "Mashinka Firunts Hakopian",
+    "Dahlia Elsayed",
+    "Andrew Demirjian",
+    "Interspecifics",
+    "Kite",
+    "MUXX",
+    "Charmaine Poh",
+    "Sarah Rosalena",
+    "Kira Xonorika"
+   ],
+   "start": "2024-09-12",
+   "end": "2025-02-23",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/fall24"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Hande Sever"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/ws25"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Abigail Raphael Collins"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/ws25"
+  },
+  {
+   "title": "Five portraits (S. Pearl Sharp)",
+   "artists": [
+    "S. Pearl Sharp"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/fall25"
+  },
+  {
+   "title": "Les soñadores",
+   "artists": [
+    "Guadalupe Maravilla"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/fall25"
+  },
+  {
+   "title": "World of Echo",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/ws25"
+  },
+  {
+   "title": "The Industry LAB 2026",
+   "artists": [
+    "Guillermo E. Brown",
+    "Carmina Escobar",
+    "Matana Roberts"
+   ],
+   "start": "2026-02-18",
+   "end": "2026-03-01",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/industrylab26"
+  },
+  {
+   "title": "Spectacular Brooding",
+   "artists": [
+    "Harmony Holiday"
+   ],
+   "start": "2026-04-04",
+   "end": "2026-07-05",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://www.redcat.org/ws26"
+  },
+  {
+   "title": "Flesh Witness",
+   "artists": [
+    "Bernice Akamine",
+    "Lani Asunción",
+    "Pelenakeke Brown",
+    "Crystal Z Campbell",
+    "Jisoo Chung",
+    "Sean Connelly",
+    "Kyuri Jeon",
+    "Jane Jin Kaisen",
+    "Mao Ishikawa",
+    "Slow Futures Laboratory",
+    "Stephanie Syjuco"
+   ],
+   "start": "2026-09-12",
+   "end": "2026-12-13",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "http://www.redcat.org/fall26"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Hyperallergic",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Spectrum News",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "SF Classical Voice",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Financial Times",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "LA Art Spot",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "LA Dance Chronicle",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Fjord Review",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Downtown News",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Flaunt",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Times",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Artforum",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "LA Dance Chronicle",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "FRIEZE",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Times",
+   "year": 2022,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "REDCAT is a multidisciplinary arts center rather than a commercial gallery; it does not maintain a represented-artist roster, so the roster list is empty. Team page lists additional staff (Deputy Director/Chief Curator Katy Dammers, etc.) who are not explicitly titled 'director' of the institution as a whole.",
+ "triage": {
+  "labels": {
+   "https://www.redcat.org/visit": "contact_hours",
+   "https://www.redcat.org/about": "about",
+   "https://www.redcat.org/story": "about",
+   "http://www.redcat.org/tickets": "contact_hours",
+   "http://www.redcat.org/covid-19-guidelines": "contact_hours",
+   "http://www.redcat.org/lounge": "contact_hours",
+   "http://www.redcat.org/discounts-policies": "contact_hours",
+   "http://www.redcat.org/boxoffice": "contact_hours",
+   "http://www.redcat.org/press": "news",
+   "http://www.redcat.org/team": "about",
+   "http://www.redcat.org/mission": "about",
+   "http://www.redcat.org/fall22": "exhibitions_archive",
+   "http://www.redcat.org/winterspring23": "exhibitions_archive",
+   "http://www.redcat.org/getty23": "exhibitions_archive",
+   "http://www.redcat.org/pst24-1": "exhibitions_archive",
+   "http://www.redcat.org/now23": "exhibitions_archive",
+   "http://www.redcat.org/fall23": "exhibitions_archive",
+   "http://www.redcat.org/winterspring24": "exhibitions_archive",
+   "http://www.redcat.org/gettymarrow25": "exhibitions_archive",
+   "http://www.redcat.org/chiefcurator2024": "exhibitions_archive",
+   "http://www.redcat.org/now24": "exhibitions_archive",
+   "http://www.redcat.org/pst24": "exhibitions_archive",
+   "http://www.redcat.org/fall24": "exhibitions_archive",
+   "http://www.redcat.org/ws25": "exhibitions_archive",
+   "http://www.redcat.org/now25": "exhibitions_archive",
+   "http://www.redcat.org/fall25": "exhibitions_archive",
+   "http://www.redcat.org/industrylab26": "exhibitions_archive",
+   "http://www.redcat.org/events/studio-spring-2020": "exhibitions_archive",
+   "http://www.redcat.org/events/studio-2022": "exhibitions_archive",
+   "https://www.redcat.org/events": "exhibitions_current",
+   "https://www.redcat.org/now26": "exhibitions_current",
+   "https://www.redcat.org/node/1913": "exhibitions_current",
+   "http://www.redcat.org/ws26": "exhibitions_current",
+   "http://www.redcat.org/fall26": "exhibitions_current",
+   "http://www.redcat.org/visit/covid-19-guidelines": "contact_hours"
+  },
+  "site_notes": "REDCAT is a multidisciplinary arts center (theater, dance, music, film, visual art) rather than a traditional gallery, so content is organized by season (Fall/Winter-Spring/NOW brochures) rather than a discrete artist roster or exhibition archive; the hundreds of /events/ pages are individual program listings spanning many disciplines and were left unlabeled as 'other' since the season pages already function as the de facto current/archive index, and no dedicated artist roster page exists.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 704.0
+}

@@ -1,0 +1,99 @@
+{
+  "city": "tokyo",
+  "start_ts": 1788460169,
+  "updated_ts": 1788465225,
+  "args": {
+    "city": "tokyo",
+    "stages": "find",
+    "total_budget": 12.0,
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "priors_budget": 1.5,
+    "seed_sources": "none",
+    "max_places_requests": 400,
+    "min_zone_venues": 8,
+    "enum_budget": 1.5,
+    "no_llm_seed": false,
+    "validate_places_requests": 150,
+    "research_limit": 100,
+    "research_budget": null,
+    "research_workers": 4,
+    "gapfill": false,
+    "no_judge": false,
+    "params": null,
+    "no_apply_rank": false
+  },
+  "spend_usd": 7.586,
+  "stages": [
+    {
+      "stage": "find",
+      "step": "llm-seed",
+      "rc": 1,
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'number' type, properties maximum, minimum are not supported\"}, 'request_id': 'req_011CegyqeaMyuUGwpLsDfxCw'}"
+    },
+    {
+      "stage": "find",
+      "step": "enum-nihonbashi-bakurocho",
+      "rc": 1,
+      "seconds": 2027,
+      "log": "content/spend/logs/galleries-tokyo-enum-nihonbashi-bakurocho-1788460169.log",
+      "spend_after": 1.6709
+    },
+    {
+      "stage": "find",
+      "step": "enum-shibuya-omotesando",
+      "rc": 1,
+      "seconds": 306,
+      "log": "content/spend/logs/galleries-tokyo-enum-shibuya-omotesando-1788460169.log",
+      "spend_after": 2.5804
+    },
+    {
+      "stage": "find",
+      "step": "enum-shinjuku-kagurazaka",
+      "rc": 1,
+      "seconds": 333,
+      "log": "content/spend/logs/galleries-tokyo-enum-shinjuku-kagurazaka-1788460169.log",
+      "spend_after": 3.2528
+    },
+    {
+      "stage": "find",
+      "step": "enum-ebisu-meguro",
+      "rc": 1,
+      "seconds": 459,
+      "log": "content/spend/logs/galleries-tokyo-enum-ebisu-meguro-1788460169.log",
+      "spend_after": 4.3662
+    },
+    {
+      "stage": "find",
+      "step": "enum-kiyosumi-shirakawa",
+      "rc": 1,
+      "seconds": 335,
+      "log": "content/spend/logs/galleries-tokyo-enum-kiyosumi-shirakawa-1788460169.log",
+      "spend_after": 5.0913
+    },
+    {
+      "stage": "find",
+      "step": "enum-tennozu",
+      "rc": 1,
+      "seconds": 311,
+      "log": "content/spend/logs/galleries-tokyo-enum-tennozu-1788460169.log",
+      "spend_after": 6.0338
+    },
+    {
+      "stage": "find",
+      "step": "enum-ueno-yanaka",
+      "rc": 0,
+      "seconds": 262,
+      "log": "content/spend/logs/galleries-tokyo-enum-ueno-yanaka-1788460169.log",
+      "spend_after": 6.7488
+    },
+    {
+      "stage": "find",
+      "step": "enum-setagaya-west-tokyo",
+      "rc": 0,
+      "seconds": 1022,
+      "log": "content/spend/logs/galleries-tokyo-enum-setagaya-west-tokyo-1788460169.log",
+      "spend_after": 7.586
+    }
+  ]
+}

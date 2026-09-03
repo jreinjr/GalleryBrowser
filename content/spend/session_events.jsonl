@@ -666,3 +666,24 @@
 {"ts": 1788363833, "session": "verify-los-angeles-1788363663", "city": "los-angeles", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.9132, "unresolved": null}
 {"ts": 1788453653, "session": "enum-tokyo-ginza-kyobashi-1788453180", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.7663, "unresolved": null}
 {"ts": 1788453745, "session": "enum-tokyo-shinjuku-kagurazaka-1788453240", "city": "tokyo", "kind": "tool_error", "tool": "record_venue", "error": "neighborhood 'Test' is not one of ['Shinjuku/Kagurazaka']"}
+{"ts": 1788458317, "session": "curate-tokyo-fairs_v1-g1-1788458053", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 1.0021, "unresolved": null}
+{"ts": 1788458464, "session": "curate-tokyo-lists_v1-g1-1788458055", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 1.0069, "unresolved": null}
+{"ts": 1788458496, "session": "curate-tokyo-fairs_v1-g2-1788458317", "city": "tokyo", "kind": "tool_error", "tool": "record_signal", "error": "kind must be one of ['pick', 'review', 'news', 'listing', 'fair_exhibitor', 'artist_activity', 'award', 'press_release_claim', 'list_member']"}
+{"ts": 1788458496, "session": "curate-tokyo-fairs_v1-g2-1788458317", "city": "tokyo", "kind": "max_tokens_continue", "tool_calls": 34}
+{"ts": 1788458509, "session": "curate-tokyo-fairs_v1-g2-1788458317", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.7367, "unresolved": null}
+{"ts": 1788458972, "session": "curate-los-angeles-lists_v1-g1-1788458052", "city": "los-angeles", "kind": "tool_error", "tool": "record_signal", "error": "kind must be one of ['pick', 'review', 'news', 'listing', 'fair_exhibitor', 'artist_activity', 'award', 'press_release_claim', 'list_member']"}
+{"ts": 1788458972, "session": "curate-los-angeles-lists_v1-g1-1788458052", "city": "los-angeles", "kind": "max_tokens_continue", "tool_calls": 48}
+{"ts": 1788459069, "session": "curate-los-angeles-lists_v1-g1-1788458052", "city": "los-angeles", "kind": "tool_error", "tool": "record_signal", "error": "strength must be one of ['headline', 'featured', 'mentioned', 'passing']"}
+{"ts": 1788459069, "session": "curate-los-angeles-lists_v1-g1-1788458052", "city": "los-angeles", "kind": "max_tokens_continue", "tool_calls": 47}
+{"ts": 1788459312, "session": "curate-los-angeles-lists_v1-g1-1788458052", "city": "los-angeles", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 1.1845, "unresolved": null}
+{"ts": 1788462188, "session": "enum-tokyo-nihonbashi-bakurocho-1788460170", "city": "tokyo", "kind": "budget_nudge", "spent": 1.524}
+{"ts": 1788462197, "session": "enum-tokyo-nihonbashi-bakurocho-1788460170", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 1.5513, "unresolved": null}
+{"ts": 1788462503, "session": "enum-tokyo-shibuya-omotesando-1788462197", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.9095, "unresolved": null}
+{"ts": 1788462836, "session": "enum-tokyo-shinjuku-kagurazaka-1788462503", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.6724, "unresolved": null}
+{"ts": 1788463295, "session": "enum-tokyo-ebisu-meguro-1788462836", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 1.1134, "unresolved": null}
+{"ts": 1788463630, "session": "enum-tokyo-kiyosumi-shirakawa-1788463295", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.7251, "unresolved": null}
+{"ts": 1788463941, "session": "enum-tokyo-tennozu-1788463630", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.9425, "unresolved": null}
+{"ts": 1788464191, "session": "enum-tokyo-ueno-yanaka-1788463941", "city": "tokyo", "kind": "tool_error", "tool": "record_venue", "error": "neighborhood 'Sendagi/Nezu' is not one of ['Ueno/Yanaka']"}
+{"ts": 1788464192, "session": "enum-tokyo-ueno-yanaka-1788463941", "city": "tokyo", "kind": "tool_error", "tool": "record_venue", "error": "neighborhood 'Asakusa/Kuramae' is not one of ['Ueno/Yanaka']"}
+{"ts": 1788464202, "session": "enum-tokyo-ueno-yanaka-1788463941", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.715, "unresolved": null}
+{"ts": 1788465225, "session": "enum-tokyo-setagaya-west-tokyo-1788464203", "city": "tokyo", "kind": "session_end", "stop_reason": "end_turn", "shows_added": 0, "cost_usd": 0.8372, "unresolved": null}

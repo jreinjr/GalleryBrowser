@@ -1,0 +1,21 @@
+{
+  "_note": "Gallery ranking defaults (rank_venues.py). Fair exhibitor lists and curated-list membership are the prestige priors; hours breadth is the client's 'bigger galleries are open more' signal; longevity/roster/cadence come from research reports (0 until research_venue.py runs). kind_museum is negative so museums rank as institutions, not galleries. require_verified is off until validate_venues.py has run for the city.",
+  "version": 1,
+  "weights": {
+    "hours_breadth": 0.10, "fairs": 0.18, "curated_lists": 0.12, "press": 0.10,
+    "directory": 0.05, "longevity": 0.08, "roster_size": 0.06, "roster_strength": 0.0,
+    "show_cadence": 0.06, "multi_location": 0.04, "places_popularity": 0.05,
+    "web_presence": 0.04, "venue_judge": 0.12, "wiki": 0.05,
+    "kind_gallery": 0.0, "kind_nonprofit": 0.0, "kind_museum": -0.15,
+    "seesaw_presence": 0.0
+  },
+  "refs": {"fairs": 3, "lists": 2, "press": 3, "directory": 2, "longevity_years": 20,
+           "roster": 20, "shows_per_year": 6, "locations": 2, "ratings": 200,
+           "wiki_sitelinks": 20},
+  "list_weights": {},
+  "gates": {"require_verified": false, "kinds": [], "min_score": 0.0,
+            "exclude_status": ["duplicate", "out_of_scope", "closed"]},
+  "tiers": {"1": 0.55, "2": 0.30, "3": 0.10},
+  "judge": {"variant": "venue_judge_v1", "model": "sonnet"},
+  "leak_seesaw": false
+}

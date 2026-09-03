@@ -1,0 +1,1411 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "lisson",
+ "name": "Lisson Gallery",
+ "website": "https://www.lissongallery.com",
+ "generated_ts": 1788466348,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.4751,
+ "crawl": {
+  "pages": 300,
+  "sitemap": false,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/lisson.jsonl"
+ },
+ "about_text": "Lisson Gallery is an internationally established contemporary art gallery founded in 1967 by Nicholas Logsdail, with roots in Minimal and Conceptual art. Today it represents more than 70 artists spanning generations and geographies, from postwar figures like Carl Andre and Sol LeWitt to contemporary names such as Ai Weiwei, Marina Abramović and Hiroshi Sugimoto. Its Los Angeles space opened in 2023 in Hollywood's Sycamore District, occupying a standalone two-story building of over 8,000 square feet, with an inaugural exhibition of Carmen Herrera's Days of the Week series. The gallery also maintains spaces in London, New York and Shanghai, continuing its history of introducing international artists to new audiences.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.lissongallery.com/about"
+ ],
+ "founded_year": 1967,
+ "founders": [
+  "Nicholas Logsdail"
+ ],
+ "directors": [
+  "Alex Logsdail"
+ ],
+ "locations": [
+  {
+   "city": "London",
+   "address": "27 Bell Street, London, NW1 5BY",
+   "since": 1967,
+   "current": true
+  },
+  {
+   "city": "London",
+   "address": "67 Lisson Street, London, NW1 5DA",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "504 West 24th Street, New York, 10011",
+   "since": 2016,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "508 West 24th Street, New York, 10011",
+   "since": 2017,
+   "current": true
+  },
+  {
+   "city": "Shanghai",
+   "address": "2/F, 27 Huqiu Road, Huangpu District, Shanghai 200002",
+   "since": 2019,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": "1037 N. Sycamore Avenue, Los Angeles, 90038",
+   "since": 2023,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "Minimal and Conceptual art",
+  "international contemporary artists",
+  "multi-generational roster",
+  "postwar and contemporary painting and sculpture"
+ ],
+ "hours_text": "Tuesday – Saturday, 10am – 6pm and by appointment",
+ "roster": [
+  {
+   "name": "Marina Abramović",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Ai Weiwei",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Kelly Akashi",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "John Akomfrah",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Allora & Calzadilla",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Olga de Amaral",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Art & Language",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Cory Arcangel",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Dana Awartani",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Tony Bechara",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Garrett Bradley",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Daniel Buren",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Gerard Byrne",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Antonio Calderara",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Elaine Cameron-Weir",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Roy Colmer",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Tony Cragg",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Sarah Cunningham",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Dexter Dalwood",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Richard Deacon",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Ding Yi",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Nathalie Djurberg & Hans Berg",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Spencer Finch",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "The Estate of Ceal Floyer",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Ryan Gander",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Dan Graham",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Rodney Graham",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Van Hanos",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Hugh Hayden",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Carmen Herrera",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Susan Hiller",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Channa Horwitz",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Dom Sylvester Houédard",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Shirazeh Houshiary",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Tishan Hsu",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Leiko Ikemura",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Oliver Lee Jackson",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Christian Jankowski",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Peter Joseph",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Anish Kapoor",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Josh Kline",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "John Latham Estate",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Christopher Le Brun",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Lee Ufan",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Sol LeWitt",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Li Ran",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Liu Xiaodong",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Richard Long",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Robert Mangold",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Haroon Mirza",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Tatsuo Miyajima",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Jonathan Monk",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Otobong Nkanga",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Hélio Oiticica",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Julian Opie",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Tony Oursler",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Giulio Paolini",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Dalton Paula",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Joyce Pensato",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Jack Pierson",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Bernard Piffaretti",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Joanna Pousette-Dart",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Laure Prouvost",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Lucy Raven",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Pedro Reyes",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Fred Sandback",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Carolee Schneemann Foundation",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Sean Scully",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Wael Shawky",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Leon Polk Smith Foundation",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Hiroshi Sugimoto",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Cheyney Thompson",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Estate of Tunga",
+   "status": "estate",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Lawrence Weiner",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Richard Wentworth",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Masaomi Yasunaga",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Yu Hong",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  },
+  {
+   "name": "Zhao Gang",
+   "status": "represented",
+   "source_url": "https://www.lissongallery.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Channa Horwitz: Design Series",
+   "artists": [
+    "Channa Horwitz"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1982,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/private/channa-horwitz-design-series"
+  },
+  {
+   "title": "Marina Abramović",
+   "artists": [
+    "Marina Abramović"
+   ],
+   "start": "2010-10-13",
+   "end": "2010-11-13",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/marina-abramovic"
+  },
+  {
+   "title": "Ai Weiwei",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2011-05-13",
+   "end": "2011-07-16",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei--2"
+  },
+  {
+   "title": "Ai Weiwei",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2012-04-12",
+   "end": "2012-05-25",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei"
+  },
+  {
+   "title": "Ai Weiwei: Disposition",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2013-05-29",
+   "end": "2013-09-15",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei-disposition"
+  },
+  {
+   "title": "Ai Weiwei",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2014-05-23",
+   "end": "2014-07-19",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei--3"
+  },
+  {
+   "title": "Marina Abramović – White Space",
+   "artists": [
+    "Marina Abramović"
+   ],
+   "start": "2014-09-17",
+   "end": "2014-11-01",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/marina-abramovic-white-space"
+  },
+  {
+   "title": "Ai Weiwei: Roots and Branches",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2016-11-05",
+   "end": "2016-12-23",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei-roots-and-branches"
+  },
+  {
+   "title": "Ai Weiwei: Fondation",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2016-11-24",
+   "end": "2017-01-07",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei-fondation"
+  },
+  {
+   "title": "Channa Horwitz: Rules of the Game",
+   "artists": [
+    "Channa Horwitz"
+   ],
+   "start": "2019-03-15",
+   "end": "2019-05-04",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/channa-horwitz-b3b283d8-986d-422c-9355-5fb8f0b584e6"
+  },
+  {
+   "title": "Ai Weiwei: Roots",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2019-10-02",
+   "end": "2019-11-02",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei-roots"
+  },
+  {
+   "title": "Horizon",
+   "artists": [
+    "John Akomfrah",
+    "Ai Weiwei",
+    "Laure Prouvost",
+    "Ryan Gander",
+    "Anish Kapoor",
+    "Mary Corse",
+    "Lee Ufan",
+    "Stanley Whitney",
+    "Haroon Mirza",
+    "Allora & Calzadilla",
+    "Joanna Pousette-Dart",
+    "Rodney Graham"
+   ],
+   "start": "2020-10-06",
+   "end": "2020-10-31",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/horizon"
+  },
+  {
+   "title": "Laure Prouvost: Re-dit-en-un-in-learning CENTER",
+   "artists": [
+    "Laure Prouvost"
+   ],
+   "start": "2020-10-06",
+   "end": "2020-11-04",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/laure-prouvost-re-dit-en-un-in-learning-center"
+  },
+  {
+   "title": "Selected works in London",
+   "artists": [
+    "Art & Language",
+    "Richard Long",
+    "Hélio Oiticica",
+    "Ai Weiwei",
+    "Ryan Gander",
+    "Tony Cragg",
+    "Julian Opie",
+    "Channa Horwitz",
+    "Christian Jankowski",
+    "Jonathan Monk",
+    "Anish Kapoor",
+    "Shirazeh Houshiary",
+    "Jason Martin",
+    "Christopher Le Brun",
+    "Lee Ufan",
+    "Peter Joseph"
+   ],
+   "start": "2020-12-08",
+   "end": "2021-01-12",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/group-presentation-in-london"
+  },
+  {
+   "title": "Peter Joseph: The Border Paintings",
+   "artists": [
+    "Peter Joseph"
+   ],
+   "start": "2021-02-16",
+   "end": "2021-04-24",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/peter-joseph-the-border-paintings"
+  },
+  {
+   "title": "John Akomfrah: The Unintended Beauty of Disaster",
+   "artists": [
+    "John Akomfrah"
+   ],
+   "start": "2021-04-13",
+   "end": "2021-07-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/john-akomfrah-3149b117-51ca-4208-baa6-b4a9e5fb9923"
+  },
+  {
+   "title": "Sean Scully: The 12 / Dark Windows",
+   "artists": [
+    "Sean Scully"
+   ],
+   "start": "2021-05-06",
+   "end": "2021-06-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/sean-scully-the-12-dark-windows"
+  },
+  {
+   "title": "Van Hanos: Conditional Bloom",
+   "artists": [
+    "Van Hanos"
+   ],
+   "start": "2021-06-30",
+   "end": "2021-08-13",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/van-hanos-16e22a02-7fc2-47ee-b8a1-c37208643adb"
+  },
+  {
+   "title": "John Akomfrah: Five Murmurations",
+   "artists": [
+    "John Akomfrah"
+   ],
+   "start": "2021-09-09",
+   "end": "2021-10-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/john-akomfrah-84102347-34ef-491a-84fc-46a5e071d352"
+  },
+  {
+   "title": "Marina Abramović: Seven Deaths",
+   "artists": [
+    "Marina Abramović"
+   ],
+   "start": "2021-09-14",
+   "end": "2021-10-30",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/marina-abramovic-seven-deaths"
+  },
+  {
+   "title": "Portals",
+   "artists": [
+    "Sean Scully",
+    "Daniel Buren",
+    "Antonio Calderara",
+    "Cory Arcangel",
+    "Ryan Gander",
+    "Rodney Graham",
+    "Anish Kapoor",
+    "Peter Joseph",
+    "Shirazeh Houshiary",
+    "Susan Hiller",
+    "Mary Corse",
+    "John Latham"
+   ],
+   "start": "2022-02-10",
+   "end": "2022-04-09",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/portals"
+  },
+  {
+   "title": "Channa Horwitz",
+   "artists": [
+    "Channa Horwitz"
+   ],
+   "start": "2022-03-03",
+   "end": "2022-04-16",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/channa-horwitz-d1f82dad-52d0-40d6-b6da-2de62dfac69b"
+  },
+  {
+   "title": "Bernard Piffaretti: Pick Up",
+   "artists": [
+    "Bernard Piffaretti"
+   ],
+   "start": "2022-05-04",
+   "end": "2022-06-11",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/bernard-piffaretti-pick-up"
+  },
+  {
+   "title": "Christopher Le Brun: Momentarium",
+   "artists": [
+    "Christopher Le Brun"
+   ],
+   "start": "2022-07-06",
+   "end": "2022-08-20",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/christopher-le-brun-a27414d9-c69e-49ff-b0f7-c9dee53b5aa5"
+  },
+  {
+   "title": "Masaomi Yasunaga: Looking Afar / 遠くを見る",
+   "artists": [
+    "Masaomi Yasunaga"
+   ],
+   "start": "2022-09-08",
+   "end": "2022-10-29",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/masaomi-yasunaga-b84ea633-ead5-4c36-b91e-233d652426aa"
+  },
+  {
+   "title": "Marina Abramović",
+   "artists": [
+    "Marina Abramović"
+   ],
+   "start": "2023-04-28",
+   "end": "2023-07-22",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/marina-abramovic-e6ab80e7-4cae-45b5-95d5-dbd000baa912"
+  },
+  {
+   "title": "John Akomfrah: The Airport",
+   "artists": [
+    "John Akomfrah"
+   ],
+   "start": "2023-05-27",
+   "end": "2023-10-14",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/john-akomfrah-994d2cce-c822-4666-9106-1efb18095fb2"
+  },
+  {
+   "title": "Breasts",
+   "artists": [
+    "Laure Prouvost"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-laure-prouvost-in-breasts-palazzo-franchetti"
+  },
+  {
+   "title": "Drama 1882",
+   "artists": [
+    "Wael Shawky"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-egyptian-pavilion"
+  },
+  {
+   "title": "GLASSTRESS 8 1/2",
+   "artists": [
+    "Tony Cragg",
+    "Nathalie Djurberg",
+    "Hans Berg",
+    "Ryan Gander",
+    "Laure Prouvost"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-glasstress-8-1-2"
+  },
+  {
+   "title": "Listening All Night To The Rain",
+   "artists": [
+    "John Akomfrah"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-john-akomfrah-british-pavilion"
+  },
+  {
+   "title": "The Trilogy",
+   "artists": [
+    "Ryan Gander"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-ryan-gander-at-pinault-collection"
+  },
+  {
+   "title": "Your Ghosts Are Mine – Expanded Cinemas, Amplified Voices",
+   "artists": [
+    "Wael Shawky"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-qatar-museums"
+  },
+  {
+   "title": "Accordion Fields",
+   "artists": [
+    "Varda Caivano",
+    "Sarah Cunningham",
+    "Pam Evelyn",
+    "Tim Stoner",
+    "Andrew Pierre Hart",
+    "Elinor Stanley",
+    "Dexter Dalwood",
+    "Joseph Yaeger"
+   ],
+   "start": "2024-02-23",
+   "end": "2024-05-04",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/accordion-fields"
+  },
+  {
+   "title": "Wael Shawky: I Am Hymns of the New Temples",
+   "artists": [
+    "Wael Shawky"
+   ],
+   "start": "2024-04-17",
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-at-palazzo-grimani"
+  },
+  {
+   "title": "From Ukraine: Dare to Dream",
+   "artists": [
+    "Allora & Calzadilla",
+    "Otobong Nkanga"
+   ],
+   "start": "2024-04-20",
+   "end": "2024-08-01",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-daring-to-dream-in-a-world-of-constant-fear"
+  },
+  {
+   "title": "Janus",
+   "artists": [
+    "Hiroshi Sugimoto",
+    "Lee Ufan"
+   ],
+   "start": "2024-04-20",
+   "end": null,
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-janus-featuring-hiroshi-sugimoto-lee-ufan"
+  },
+  {
+   "title": "Stranieri Ovunque – Foreigners Everywhere",
+   "artists": [
+    "John Akomfrah",
+    "Olga de Amaral",
+    "Dana Awartani",
+    "Carmen Herrera"
+   ],
+   "start": "2024-04-20",
+   "end": null,
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-stranieri-ovunque"
+  },
+  {
+   "title": "The Spirits of Maritime Crossing",
+   "artists": [
+    "Marina Abramović"
+   ],
+   "start": "2024-04-20",
+   "end": "2024-11-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-marina-abramovic-collateral-event"
+  },
+  {
+   "title": "Yu Hong: Another One Bites the Dust",
+   "artists": [
+    "Yu Hong"
+   ],
+   "start": "2024-04-20",
+   "end": "2024-11-24",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/venice2024/venice-2024-yu-hong"
+  },
+  {
+   "title": "Joanna Pousette-Dart: Centering",
+   "artists": [
+    "Joanna Pousette-Dart"
+   ],
+   "start": "2024-09-05",
+   "end": "2024-10-19",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/joanna-pousette-dart-71187c97-0f14-43c4-a987-a2ca8f35be60"
+  },
+  {
+   "title": "Ai Weiwei: A New Chatpter",
+   "artists": [
+    "Ai Weiwei"
+   ],
+   "start": "2025-02-07",
+   "end": "2025-03-15",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ai-weiwei-a-new-chatpter"
+  },
+  {
+   "title": "Kelly Akashi",
+   "artists": [
+    "Kelly Akashi"
+   ],
+   "start": "2025-02-20",
+   "end": "2025-03-29",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/kelly-akashi"
+  },
+  {
+   "title": "Dalton Paula: Infâncias Negras",
+   "artists": [
+    "Dalton Paula"
+   ],
+   "start": "2025-09-11",
+   "end": "2025-10-30",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/dalton-paula"
+  },
+  {
+   "title": "John Akomfrah: Listening All Night To The Rain",
+   "artists": [
+    "John Akomfrah"
+   ],
+   "start": "2026-02-11",
+   "end": "2026-04-25",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/john-akomfrah-26b4228e-d856-410d-a3d0-12f219eced46"
+  },
+  {
+   "title": "Leiko Ikemura: Riding Horizon",
+   "artists": [
+    "Leiko Ikemura"
+   ],
+   "start": "2026-02-24",
+   "end": "2026-03-28",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/leiko-ikemura-riding-horizon"
+  },
+  {
+   "title": "Hirshhorn Museum Benefit Sale of Hiroshi Sugimoto's 'Hirshhorn Museum and Sculpture Garden', 2006",
+   "artists": [
+    "Hiroshi Sugimoto"
+   ],
+   "start": "2026-03-04",
+   "end": "2026-12-31",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://www.lissongallery.com/exhibitions/hiroshi-sugimoto-hirshhorn-museum-and-sculpture-garden-2006"
+  },
+  {
+   "title": "Kelly Akashi: Heirloom",
+   "artists": [
+    "Kelly Akashi"
+   ],
+   "start": "2026-05-13",
+   "end": "2026-07-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/kelly-akashi-e81d4421-31ae-4e55-9ed9-659889c74203"
+  },
+  {
+   "title": "Lisson Street: Lubaina Himid and Magda Stawarska – Zanzibar",
+   "artists": [
+    "Lubaina Himid",
+    "Magda Stawarska"
+   ],
+   "start": "2026-06-04",
+   "end": "2026-09-05",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/lisson-street-lubaina-himid-and-magda-stawarska-zanzibar"
+  },
+  {
+   "title": "Lisson Street: Daniel Buren – Pages in situ",
+   "artists": [
+    "Daniel Buren"
+   ],
+   "start": "2026-06-11",
+   "end": "2026-09-05",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/lisson-street-daniel-buren-pages-in-situ"
+  },
+  {
+   "title": "Spencer Finch: Balboa of House and Garden",
+   "artists": [
+    "Spencer Finch"
+   ],
+   "start": "2026-06-26",
+   "end": "2026-08-22",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/spencer-finch-balboa-of-house-and-garden"
+  },
+  {
+   "title": "Selected Works in Guangzhou",
+   "artists": [
+    "Julian Opie",
+    "Anish Kapoor",
+    "Oliver Lee Jackson",
+    "Masaomi Yasunaga",
+    "Shirazeh Houshiary",
+    "Yu Hong",
+    "Laure Prouvost",
+    "Tishan Hsu",
+    "Tatsuo Miyajima",
+    "Li Ran",
+    "Josh Kline"
+   ],
+   "start": "2026-07-12",
+   "end": "2026-08-22",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/selected-works-in-guangzhou"
+  },
+  {
+   "title": "Past Presence",
+   "artists": [
+    "Dana Awartani",
+    "Rodney Graham",
+    "Peter Joseph",
+    "Anish Kapoor",
+    "Wael Shawky",
+    "Hiroshi Sugimoto",
+    "Tunga",
+    "Masaomi Yasunaga"
+   ],
+   "start": "2026-08-06",
+   "end": "2026-09-05",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lissongallery.com/exhibitions/past-presence"
+  },
+  {
+   "title": "Ceal Floyer: Will Return",
+   "artists": [
+    "Ceal Floyer"
+   ],
+   "start": "2026-09-12",
+   "end": null,
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ceal-floyer-will-return"
+  },
+  {
+   "title": "Hiroshi Sugimoto: Unnatural Habitat",
+   "artists": [
+    "Hiroshi Sugimoto"
+   ],
+   "start": "2026-09-15",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/hiroshi-sugimoto-91293d6d-4567-48ba-81a0-3986eb6b1360"
+  },
+  {
+   "title": "Leonilson",
+   "artists": [
+    "Leonilson"
+   ],
+   "start": "2026-09-15",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/leonilson"
+  },
+  {
+   "title": "Oliver Lee Jackson: Form Follows Feeling",
+   "artists": [
+    "Oliver Lee Jackson"
+   ],
+   "start": "2026-09-18",
+   "end": "2026-11-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/oliver-lee-jackson-1a342ca3-0834-4155-88cc-dce9eded938a"
+  },
+  {
+   "title": "Carmen Herrera: Pulse, Pause, Repeat",
+   "artists": [
+    "Carmen Herrera"
+   ],
+   "start": "2026-09-24",
+   "end": "2026-11-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/carmen-herrera-c801ae1d-e35f-4219-a0fa-b9e505438dc5"
+  },
+  {
+   "title": "Ha Chong-Hyun",
+   "artists": [
+    "Ha Chong-Hyun"
+   ],
+   "start": "2026-09-24",
+   "end": "2026-11-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/ha-chong-hyun"
+  },
+  {
+   "title": "Sean Scully",
+   "artists": [
+    "Sean Scully"
+   ],
+   "start": "2026-11-01",
+   "end": "2027-01-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/sean-scully-384b1bb1-422a-423b-b754-04f7eb1742b7"
+  },
+  {
+   "title": "Yu Hong",
+   "artists": [
+    "Yu Hong"
+   ],
+   "start": "2026-11-04",
+   "end": "2027-01-09",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/yu-hong-ae8825d9-f1fa-4e0d-ad69-621b25463628"
+  },
+  {
+   "title": "Christopher Le Brun",
+   "artists": [
+    "Christopher Le Brun"
+   ],
+   "start": "2026-11-19",
+   "end": null,
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/christopher-le-brun-674a3f97-662c-47b0-a5c9-ddff0fbf3956"
+  },
+  {
+   "title": "Dana Awartani",
+   "artists": [
+    "Dana Awartani"
+   ],
+   "start": "2026-11-19",
+   "end": null,
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/dana-awartani"
+  },
+  {
+   "title": "Leon Polk Smith: Line, Color, and the Concept of Space",
+   "artists": [
+    "Leon Polk Smith"
+   ],
+   "start": "2026-11-20",
+   "end": null,
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/leon-polk-smith-435753cb-cd9d-4e4e-b880-7270cff45456"
+  },
+  {
+   "title": "Rodney Graham: Painting Problems",
+   "artists": [
+    "Rodney Graham"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "solo",
+   "source_url": "https://www.lissongallery.com/exhibitions/rodney-graham-painting-problems"
+  }
+ ],
+ "fairs_self_reported": [
+  "Frieze Seoul 2026",
+  "Frieze London 2026",
+  "Art Basel Paris 2026",
+  "Art Mumbai 2026",
+  "Art Basel Miami Beach 2026"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Profile compiled from global gallery pages; roster, founders, and history reflect the gallery-wide program as Lisson Gallery Los Angeles is one of four locations (London, New York, Los Angeles, Shanghai) operated under a single artist roster.",
+ "triage": {
+  "labels": {
+   "https://www.lissongallery.com/artists": "roster_index",
+   "https://www.lissongallery.com/exhibitions": "exhibitions_current",
+   "https://www.lissongallery.com/news": "news",
+   "https://www.lissongallery.com/art-fairs": "fairs",
+   "https://www.lissongallery.com/about": "about",
+   "https://www.lissongallery.com/contact": "contact_hours",
+   "https://www.lissongallery.com/contact-us": "contact_hours",
+   "https://www.lissongallery.com/exhibitions/past-presence": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/selected-works-in-guangzhou": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/spencer-finch-balboa-of-house-and-garden": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/lisson-street-lubaina-himid-and-magda-stawarska-zanzibar": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/lisson-street-daniel-buren-pages-in-situ": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/venice-2026": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/hiroshi-sugimoto-hirshhorn-museum-and-sculpture-garden-2006": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ceal-floyer-will-return": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/hiroshi-sugimoto-91293d6d-4567-48ba-81a0-3986eb6b1360": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/leonilson": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/oliver-lee-jackson-1a342ca3-0834-4155-88cc-dce9eded938a": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ha-chong-hyun": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-yu-hong": "exhibition_page",
+   "https://www.lissongallery.com/venice2024": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-john-akomfrah-british-pavilion": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-egyptian-pavilion": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-stranieri-ovunque": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-at-palazzo-grimani": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-janus-featuring-hiroshi-sugimoto-lee-ufan": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-laure-prouvost-in-breasts-palazzo-franchetti": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-ryan-gander-at-pinault-collection": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-daring-to-dream-in-a-world-of-constant-fear": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-glasstress-8-1-2": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-marina-abramovic-collateral-event": "exhibition_page",
+   "https://www.lissongallery.com/venice2024/venice-2024-wael-shawky-qatar-museums": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/carmen-herrera-c801ae1d-e35f-4219-a0fa-b9e505438dc5": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/yu-hong-ae8825d9-f1fa-4e0d-ad69-621b25463628": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/sean-scully-384b1bb1-422a-423b-b754-04f7eb1742b7": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/christopher-le-brun-674a3f97-662c-47b0-a5c9-ddff0fbf3956": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/dana-awartani": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/leon-polk-smith-435753cb-cd9d-4e4e-b880-7270cff45456": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/leiko-ikemura-riding-horizon": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/dalton-paula": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/joanna-pousette-dart-71187c97-0f14-43c4-a987-a2ca8f35be60": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/accordion-fields": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/masaomi-yasunaga-b84ea633-ead5-4c36-b91e-233d652426aa": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/christopher-le-brun-a27414d9-c69e-49ff-b0f7-c9dee53b5aa5": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/bernard-piffaretti-coda": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/bernard-piffaretti-pick-up": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/channa-horwitz-d1f82dad-52d0-40d6-b6da-2de62dfac69b": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/channa-horwitz-b3b283d8-986d-422c-9355-5fb8f0b584e6": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/portals": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/sean-scully-the-12-dark-windows": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/van-hanos-16e22a02-7fc2-47ee-b8a1-c37208643adb": "exhibition_page",
+   "https://www.lissongallery.com/private/channa-horwitz-design-series": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/peter-joseph-the-border-paintings": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/laure-prouvost-re-dit-en-un-in-learning-center": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/rodney-graham-painting-problems": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/marina-abramovic-e6ab80e7-4cae-45b5-95d5-dbd000baa912": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/marina-abramovic-seven-deaths-061cd69c-d274-4309-8152-5ea1db237afc": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/marina-abramovic-seven-deaths": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/marina-abramovic-white-space": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/marina-abramovic": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei-a-new-chatpter": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/group-presentation-in-london": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/horizon": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei-roots": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei-fondation": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei-roots-and-branches": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei--3": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei-disposition": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/ai-weiwei--2": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/kelly-akashi-e81d4421-31ae-4e55-9ed9-659889c74203": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/kelly-akashi": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/john-akomfrah-26b4228e-d856-410d-a3d0-12f219eced46": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/john-akomfrah-994d2cce-c822-4666-9106-1efb18095fb2": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/john-akomfrah-84102347-34ef-491a-84fc-46a5e071d352": "exhibition_page",
+   "https://www.lissongallery.com/exhibitions/john-akomfrah-3149b117-51ca-4208-baa6-b4a9e5fb9923": "exhibition_page",
+   "https://www.lissongallery.com/news/lisson-at-frieze-seoul-2026": "news",
+   "https://www.lissongallery.com/news/sarah-cunningham-midnight-sun-at-nottingham-contemporary": "news",
+   "https://www.lissongallery.com/news/studio-international-reviews-daniel-buren-pages-in-situ": "news",
+   "https://www.lissongallery.com/news/kelly-akashi-ryan-gander-and-laure-prouvost-among-proposals-for-the-high-line-plinth-commissions": "news",
+   "https://www.lissongallery.com/news/europe-s-first-outdoor-installation-by-brazilian-artist-helio-oiticica-unveiled-at-goodwood-art-foundation": "news",
+   "https://www.lissongallery.com/news/sean-scully-stack-at-chateau-la-coste-france": "news",
+   "https://www.lissongallery.com/news/daniel-buren-plantations-travaux-in-situ-at-musee-des-impressionnismes-de-giverny-france": "news",
+   "https://www.lissongallery.com/news/hiroshi-sugimoto-extinction-at-the-national-museum-of-modern-art-tokyo-japan": "news",
+   "https://www.lissongallery.com/news/sean-scully-at-longhouse-reserve-ny-usa": "news",
+   "https://www.lissongallery.com/news/tishan-hsu-permeable-surface-at-moca-cleveland-oh-usa": "news",
+   "https://www.lissongallery.com/news/joanna-pousette-dart-shaping-light-at-dora-maar-cultural-center-menerbes-france": "news",
+   "https://www.lissongallery.com/news/tony-oursler-machine-crystal-at-fotografiska-shanghai": "news",
+   "https://www.lissongallery.com/news/wael-shawky-drama-1882-at-grand-palais-paris-france": "news",
+   "https://www.lissongallery.com/news/anish-kapoor-exhibition-announced-for-southbank-centre-s-hayward-gallery-summer-2026": "news",
+   "https://www.lissongallery.com/news/tony-oursler-between-technology-and-spiritual-knowledge-at-tokyo-node-japan-c45a0125-b0c0-4e86-9223-91bc46c5de1f": "news",
+   "https://www.lissongallery.com/news/tony-bechara-an-artist-of-many-worlds-at-the-parrish-art-museum-ny-usa": "news",
+   "https://www.lissongallery.com/news/helio-oiticica-at-dia-art-foundation-new-york-usa": "news",
+   "https://www.lissongallery.com/news/hiroshi-sugimoto-form-is-emptiness-at-singapore-art-museum-singapore": "news",
+   "https://www.lissongallery.com/news/leiko-ikemura-translucent-la-forma-della-luce-at-gallerie-dell-accademia-venice-italy": "news",
+   "https://www.lissongallery.com/news/abstract-featuring-carmen-herrera-and-leiko-ikemura-at-hilti-art-foundation-schaan-liechtenstein": "news",
+   "https://www.lissongallery.com/news/future-geographies-art-in-the-century-of-climate-change-featuring-josh-kline-at-the-vancouver-art-gallery-vancouver-canada": "news",
+   "https://www.lissongallery.com/news/disruptors-fractured-images-and-migrant-word-featuring-dom-sylvester-houedard-at-the-ben-uri-gallery-and-museum-london-uk": "news",
+   "https://www.lissongallery.com/news/wael-shawky-i-am-hymns-of-the-new-temples-at-m-hong-kong": "news",
+   "https://www.lissongallery.com/news/olga-de-amaral-weaving-the-infinite-at-the-pulitzer-arts-foundation-st-louis-mo-usa": "news",
+   "https://www.lissongallery.com/news/ai-weiwei-aftershock-at-maxxi-l-aquila-italy": "news",
+   "https://www.lissongallery.com/news/john-akomfrah-the-hour-of-the-dog-at-the-menil-collection-houston-tx-usa": "news",
+   "https://www.lissongallery.com/news/lucy-raven-rounds-at-ica-boston-mi-usa": "news",
+   "https://www.lissongallery.com/news/hiroshi-sugimoto-replay-the-melody-at-musee-soulages-rodez-france": "news",
+   "https://www.lissongallery.com/news/30-dandelion-featuring-spencer-finch-at-the-kunsthaus-graz-austria": "news",
+   "https://www.lissongallery.com/news/ding-yi-at-fondazione-querini-stampalia-during61st-international-art-exhibition-of-la-biennale-di-venezia-italy": "news",
+   "https://www.lissongallery.com/news/ai-weiwei-button-up-at-factory-international-manchester-uk": "news",
+   "https://www.lissongallery.com/news/anish-kapoor-at-the-serlachius-museum-finland": "news",
+   "https://www.lissongallery.com/news/richard-long-at-casa-wabi-puerto-escondido-mexico": "news",
+   "https://www.lissongallery.com/news/marina-abramovic-exhibition-transforming-energy-announced-at-gallerie-dell-accademia-di-venezia-for-2026": "news",
+   "https://www.lissongallery.com/news/ground-work-2025-featuring-hugh-hayden-at-the-clark-art-institute-ma-usa": "news",
+   "https://www.lissongallery.com/news/the-barbican-announces-lucy-raven-commission-in-the-curve-for-october-2025": "news",
+   "https://www.lissongallery.com/news/lucy-raven-murderers-bar-at-vancouver-art-gallery-canada": "news",
+   "https://www.lissongallery.com/news/lucy-raven-pressure-release-new-art21-film-to-premiere-online-on-september-17": "news",
+   "https://www.lissongallery.com/news/sertao-negro-at-the-36th-sao-paulo-biennial": "news",
+   "https://www.lissongallery.com/news/announcing-off-site-exhibition-a-public-safety-concern-by-artists-raheel-khan-and-tiffany-wellington": "news",
+   "https://www.lissongallery.com/news/lisson-gallery-at-art-basel-unlimited-2023": "news",
+   "https://www.lissongallery.com/news/episode-6-on-air-visits-the-studio-of-channa-horwitz": "news",
+   "https://www.lissongallery.com/news/announcing-solomon-b-hayden-fellowship-for-art-history": "news",
+   "https://www.lissongallery.com/news/laure-prouvost-presents-mere-we-sea-at-contour-biennale-mechelen": "news",
+   "https://www.lissongallery.com/news/ryan-gander-i-want-things-that-surprise-me-i-want-better-art-financial-times": "news",
+   "https://www.lissongallery.com/news/stop-time-guest-edited-by-hiroshi-sugimoto-aperture-no-264-fall-2026": "news",
+   "https://www.lissongallery.com/news/el-museo-del-barrio-and-kmec-books-to-publish-the-first-monograph-devoted-to-tony-bechara": "news",
+   "https://www.lissongallery.com/news/ryan-gander-and-holly-walsh-in-conversation-at-de-la-warr-pavilion-bexhill-on-sea": "news",
+   "https://www.lissongallery.com/news/the-technique-was-revolutionary-ha-chong-hyun-the-91-year-old-south-korean-artist-who-turned-painting-inside-out-the-guardian": "news",
+   "https://www.lissongallery.com/news/sean-scully-talk-at-the-yale-center-for-british-art-new-haven-28-october": "news",
+   "https://www.lissongallery.com/news/liu-xiaodong-host-published-by-lisson": "news",
+   "https://www.lissongallery.com/news/tony-cragg-will-receive-the-european-culture-prize-2026": "news",
+   "https://www.lissongallery.com/news/artcrush-2026-live-auction-kelly-akashi": "news",
+   "https://www.lissongallery.com/news/cory-arcangel-participates-in-kappa-futurfestival-2026": "news",
+   "https://www.lissongallery.com/exhibitions?page=2": "exhibitions_archive",
+   "https://www.lissongallery.com/news?page=2": "news",
+   "https://www.lissongallery.com/artists?page=2": "roster_index"
+  },
+  "site_notes": "Lisson's site has a single /artists roster index (no per-year archive page) and a flat /exhibitions section that mixes a current listing with dozens of individually-slugged past exhibition pages (including a separate /venice2024 micro-site and /private/ VIP exhibition pages) rather than a dated archive list; a large /studio 'journal' section and /shop editions section exist but don't map to the requested labels, and department-specific /contact/* subpages supplement the main contact page.",
+  "fetch_more": [
+   "https://www.lissongallery.com/exhibitions?page=2",
+   "https://www.lissongallery.com/news?page=2",
+   "https://www.lissongallery.com/artists?page=2"
+  ]
+ },
+ "errors": [],
+ "duration_s": 820.9
+}

@@ -1,0 +1,980 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "good-mother",
+ "name": "Good Mother Gallery",
+ "website": "https://goodmothergallery.com",
+ "generated_ts": 1788468174,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1897,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/good-mother.jsonl"
+ },
+ "about_text": "Good Mother Gallery was founded in Oakland in 2014 and is now anchored in Los Angeles' West Adams district, while maintaining its original Oakland space. The gallery focuses on California's contemporary art scene, presenting monthly exhibitions of artists it describes as risk-takers, spanning emerging and established practices. Beyond its exhibition program, Good Mother Gallery curates offsite projects and public art initiatives, drawing on a decade of experience in civic art collaborations. It is a member of the New Art Dealers Alliance (NADA) and the Gallery Association Los Angeles (GALA), and works with artists nationally and internationally to build collector relationships and artist careers.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://goodmothergallery.com/contact"
+ ],
+ "founded_year": 2014,
+ "founders": [],
+ "directors": [
+  "Vanessa Indies"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "5103 W. Adams Blvd, Los Angeles, California 90016",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Oakland",
+   "address": "1955 Broadway St. Suite E, Oakland, California 94612",
+   "since": 2014,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "California contemporary art",
+  "emerging and established artists",
+  "public art projects",
+  "monthly exhibitions"
+ ],
+ "hours_text": "Los Angeles: Thursday-Saturday 11am-5pm; Oakland: By Appointment Only",
+ "roster": [
+  {
+   "name": "Dan Climan",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Daniel Antelo",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Ryan Belli",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Sam Branden",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Madeline Brice",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Cosmas and Damian Brown",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Nehemiah Cisneros",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Morgan Corbitt",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Andrew Durgin-Barnes",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Paul Flores",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Maya Fuji",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Sean Hamilton",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Chad Hasegawa",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Katie Hector",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Jen Hitchings",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Terry Hoff",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Piper Lewine",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Brendan Lynch",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Jahlil Nzinga",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Ade Ogunmowo",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Flo Perkins",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Landon Pointer",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Adele Renault",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Esteban Samayoa",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Mia Scarpa",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Kylee Snow",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Devin Troy Stother",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Henry Swanson",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Alexis Trice",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  },
+  {
+   "name": "Haniko Zahra",
+   "status": "represented",
+   "source_url": "https://goodmothergallery.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Birthday: Good Mother's 3 Year Anniversary Group Show",
+   "artists": [
+    "Jeffrey Cheung",
+    "Alicia Adamerovich",
+    "Cannon Dill",
+    "Lena Gustafson",
+    "Jillian Evelyn",
+    "Guillaume Ollivier",
+    "Kristin Farr",
+    "Henry Fey",
+    "Ryan Whelan",
+    "Tim Diet",
+    "Brian Haefling",
+    "Dan Bortz"
+   ],
+   "start": "2017-02-04",
+   "end": "2017-02-25",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Status Module",
+   "artists": [
+    "Robert Falco",
+    "Lauren D'Amato"
+   ],
+   "start": "2017-02-11",
+   "end": "2017-02-28",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Sort & Repeat: Group Exhibition",
+   "artists": [
+    "Heather Benjamin",
+    "Cannon Dill",
+    "Sarah Nowicki",
+    "Lena Gustafson",
+    "Bill Rebholz",
+    "Michael Oliva",
+    "Tosha Stimage",
+    "Nate Patterson",
+    "Casey Bolding",
+    "Matthew Miller",
+    "John Malta",
+    "Tayone",
+    "Malicia Dominguez",
+    "Dan"
+   ],
+   "start": "2017-04-08",
+   "end": "2017-04-30",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "H.A.G.S.",
+   "artists": [
+    "Henry Fey"
+   ],
+   "start": "2017-05-13",
+   "end": "2017-05-31",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "As It Is: Group Show",
+   "artists": [
+    "Lena Gustafson",
+    "Harley Eaves",
+    "Lillye Hope",
+    "Egle Zvirblythe"
+   ],
+   "start": "2017-07-14",
+   "end": "2017-07-31",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Areas of Land: Group Show",
+   "artists": [],
+   "start": "2017-08-12",
+   "end": "2017-08-26",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Honeymoon",
+   "artists": [
+    "Kyle Lypka",
+    "Tyler Cross"
+   ],
+   "start": "2017-09-09",
+   "end": "2017-09-30",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "A Not So Firm Grip",
+   "artists": [
+    "Erik Bender"
+   ],
+   "start": "2018-11-03",
+   "end": "2018-11-24",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Stop Request",
+   "artists": [
+    "Morgan Corbitt"
+   ],
+   "start": "2021-06-04",
+   "end": "2021-06-30",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "the big show",
+   "artists": [
+    "Esteban Samayoa",
+    "Samantha Saveedra",
+    "Bailey Anders",
+    "Benson",
+    "Tim Lahan",
+    "Adam Hunter Caldwell",
+    "Terry Hoff",
+    "Matt Miller",
+    "RGB",
+    "Massey Bex",
+    "Erik Bender",
+    "Elijah Anderson",
+    "Ari Bird",
+    "Kellie Langewisch",
+    "Daphne Sweet"
+   ],
+   "start": "2021-08-06",
+   "end": "2021-08-28",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "All My Dogs",
+   "artists": [
+    "Esteban Samayoa"
+   ],
+   "start": "2021-11-13",
+   "end": "2021-11-30",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Alex Bargas - 'New Style'",
+   "artists": [
+    "Alex Bargas"
+   ],
+   "start": "2022-03-12",
+   "end": "2022-03-31",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "THE END IS NEAR",
+   "artists": [
+    "Kennedy Morgan",
+    "Landon Pointer",
+    "Claire Bivins",
+    "Henry Fey",
+    "Mike Funkhouser",
+    "Kristofferson San Pablo"
+   ],
+   "start": "2022-05-14",
+   "end": "2022-05-31",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "nOkay",
+   "artists": [
+    "Terry Hoff"
+   ],
+   "start": "2022-08-13",
+   "end": "2022-08-31",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Dream State",
+   "artists": [
+    "Paije Fuller"
+   ],
+   "start": "2022-10-08",
+   "end": "2022-10-29",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "A Rendezvous with Destiny - Los Angeles Inaugural Group Show",
+   "artists": [],
+   "start": "2022-11-05",
+   "end": "2022-11-26",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Idaho",
+   "artists": [
+    "Sean Hamilton"
+   ],
+   "start": "2022-12-10",
+   "end": "2022-12-31",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Farther Figures",
+   "artists": [
+    "William Moriarty"
+   ],
+   "start": "2022-12-17",
+   "end": "2023-01-07",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "People, Places, Things - a Group Show",
+   "artists": [],
+   "start": "2023-01-07",
+   "end": "2023-01-28",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Tinted Love - a Monochromatic Group Exhibition",
+   "artists": [],
+   "start": "2023-02-04",
+   "end": "2023-02-24",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Best of Time",
+   "artists": [
+    "Daniel Antelo"
+   ],
+   "start": "2023-04-08",
+   "end": "2023-04-29",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "RUSH RUSH",
+   "artists": [
+    "Douglas de Souza"
+   ],
+   "start": "2023-05-06",
+   "end": "2023-05-25",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "'Swelter' - A Summer Group Exhibition",
+   "artists": [],
+   "start": "2023-06-03",
+   "end": "2023-06-24",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "'Hard Drive' - A Group Exhibition Curated by Paul Flores",
+   "artists": [
+    "Mikol Brinkman",
+    "Henry Fey",
+    "Rich Luna",
+    "Carley Gmitro",
+    "Andrew Theodore",
+    "Grant Gutierrez",
+    "Sonya Sombreli",
+    "Noah - Custom LA",
+    "Jason Wright",
+    "Jacob Rochester",
+    "Georgina Trevino",
+    "Ruben Preciado",
+    "Jaime Munoz",
+    "Anthony Brvinfreeze",
+    "Brendyn Lynch",
+    "Mia Scarpa",
+    "Eric Elms",
+    "Nikkolas Mohammed"
+   ],
+   "start": "2023-07-01",
+   "end": "2023-07-29",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Sunset Ripple: A Group Exhibition Curated by Subtitle Labs",
+   "artists": [],
+   "start": "2023-08-05",
+   "end": "2023-08-16",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Vantage: a Landscape Group Exhibition",
+   "artists": [],
+   "start": "2023-09-02",
+   "end": "2023-09-22",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Hopelessly Devoted - Group Exhibition",
+   "artists": [
+    "Erik Bender",
+    "Morgan Corbitt",
+    "Annie Duncan",
+    "Jeffrey Cheung"
+   ],
+   "start": "2023-09-23",
+   "end": "2023-10-15",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Monstra: a Group Exhibition Curated by Dr. Margarita Lila Rosa",
+   "artists": [],
+   "start": "2023-10-07",
+   "end": "2023-10-24",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "The MFA's of LA",
+   "artists": [],
+   "start": "2023-11-11",
+   "end": "2023-11-22",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Ode to the Fool",
+   "artists": [
+    "Ade Ogunmowo"
+   ],
+   "start": "2023-12-02",
+   "end": "2023-12-29",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Pack - Group Exhibition",
+   "artists": [],
+   "start": "2023-12-09",
+   "end": "2024-01-06",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Luminous Realms - Group Exhibition",
+   "artists": [],
+   "start": "2024-01-06",
+   "end": "2024-01-25",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Here Now Now Here - Adele Renault & Chad Hasegawa",
+   "artists": [
+    "Adele Renault",
+    "Chad Hasegawa"
+   ],
+   "start": "2024-02-03",
+   "end": "2024-03-03",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Across the Pond - Moosey x Good Mother Collaboration Show",
+   "artists": [
+    "Sean Hamilton",
+    "Damien Cifelli",
+    "Millie Kelly",
+    "Miranda Byk",
+    "Nanhee Kim",
+    "Landon Pointer",
+    "Murray Clarke",
+    "Maciej Kość",
+    "Rebecca Foster-Clarke",
+    "Jordan"
+   ],
+   "start": "2024-03-09",
+   "end": "2024-03-30",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "The Theater",
+   "artists": [
+    "Brendan Lynch"
+   ],
+   "start": "2024-04-06",
+   "end": "2024-04-24",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "A Scratch in the Paint",
+   "artists": [
+    "Landon Pointer",
+    "Jahlil Nzinga",
+    "Esteban Samayoa"
+   ],
+   "start": "2024-06-08",
+   "end": "2024-06-29",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "As Is",
+   "artists": [
+    "Sean Hamilton"
+   ],
+   "start": "2024-07-06",
+   "end": "2024-07-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Performance: Paint Aquarium by Devin Troy Strother",
+   "artists": [
+    "Devin Troy Strother"
+   ],
+   "start": "2024-08-30",
+   "end": "2024-08-30",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Rendezvous: Group Exhibition",
+   "artists": [],
+   "start": "2024-09-14",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "The MFA's of LA: Curated by Leslie Fram",
+   "artists": [],
+   "start": "2024-10-19",
+   "end": "2024-11-16",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Nice To Finally Meet You: Group Exhibition Curated by Ade Ogunmowo",
+   "artists": [
+    "Ade Ogunmowo"
+   ],
+   "start": "2024-11-23",
+   "end": "2024-12-21",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Manual Override: Group Exhibition",
+   "artists": [
+    "Jason Revok",
+    "Noah Malone",
+    "Chris Velez",
+    "Zoe Alameda",
+    "Liz Lee"
+   ],
+   "start": "2025-01-18",
+   "end": "2025-02-22",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Devin Troy Strother: The Los Angeles Confidential",
+   "artists": [
+    "Devin Troy Strother"
+   ],
+   "start": "2025-02-19",
+   "end": "2025-03-12",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Carlson Hatton: Counterfeit Immortality",
+   "artists": [
+    "Carlson Hatton"
+   ],
+   "start": "2025-03-01",
+   "end": "2025-03-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Ryan Belli: Home Bodies",
+   "artists": [
+    "Ryan Belli"
+   ],
+   "start": "2025-03-01",
+   "end": "2025-03-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Bidet Duvet: Henry Swanson & Sam Branden",
+   "artists": [
+    "Henry Swanson",
+    "Sam Branden"
+   ],
+   "start": "2025-04-05",
+   "end": "2025-04-26",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Dan Climan: Talking Fondly",
+   "artists": [
+    "Dan Climan"
+   ],
+   "start": "2025-04-05",
+   "end": "2025-04-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "San Francisco Art Fair",
+   "artists": [
+    "Ryan Belli",
+    "Jen Hitchings",
+    "Kylee Snow",
+    "Chad Hasegawa",
+    "Flo Perkins"
+   ],
+   "start": "2025-04-17",
+   "end": "2025-04-20",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Adele Renault: Things I Can't Unsee",
+   "artists": [
+    "Adele Renault"
+   ],
+   "start": "2025-05-03",
+   "end": "2025-05-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Andrew Durgin-Barnes: Lizardscapes",
+   "artists": [
+    "Andrew Durgin-Barnes"
+   ],
+   "start": "2025-06-07",
+   "end": "2025-06-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Piper Lewine: Negative Nancy",
+   "artists": [
+    "Piper Lewine"
+   ],
+   "start": "2025-06-07",
+   "end": "2025-06-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Madeline Brice: What If We Don't Get Older",
+   "artists": [
+    "Madeline Brice"
+   ],
+   "start": "2025-07-12",
+   "end": "2025-08-16",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Terry Hoff: Corner",
+   "artists": [
+    "Terry Hoff"
+   ],
+   "start": "2025-07-12",
+   "end": "2025-08-16",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Chad Hasegawa: The Chase Scene",
+   "artists": [
+    "Chad Hasegawa"
+   ],
+   "start": "2025-09-13",
+   "end": "2025-10-21",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "The MFA's of LA: Prompt & Circumstance",
+   "artists": [],
+   "start": "2025-10-05",
+   "end": "2025-10-12",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Soft Serve: Group Exhibition",
+   "artists": [
+    "Haniko Zahra",
+    "Alyss Estay",
+    "Braden Skelton",
+    "Chris Johst",
+    "Quinn Girard",
+    "Alexis Trice",
+    "Dillan Conniff"
+   ],
+   "start": "2025-11-15",
+   "end": "2025-12-20",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Rabi Towing: We Buy Souls",
+   "artists": [
+    "Rabi (David Emanuel Mordechai Torres)"
+   ],
+   "start": "2026-01-10",
+   "end": "2026-02-14",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Cosmas and Damian Brown: Hard Body Soft",
+   "artists": [
+    "Cosmas and Damian Brown"
+   ],
+   "start": "2026-02-21",
+   "end": "2026-03-28",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "Gabe Bartalos: Ornamental Anger",
+   "artists": [
+    "Gabe Bartalos"
+   ],
+   "start": "2026-05-09",
+   "end": "2026-06-20",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "CAN Art Fair Ibiza 2026",
+   "artists": [
+    "Jeffrey Cheung",
+    "Landon Pointer"
+   ],
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  },
+  {
+   "title": "And After: Group Exhibition",
+   "artists": [
+    "Raymond Pettibon",
+    "Emma Beatrez",
+    "Nate Lowman",
+    "Sean Hamilton",
+    "Aaron Young",
+    "Liza Jo Eilers",
+    "Benjamin Bertocci",
+    "Gardar Eide Einarsson",
+    "Brian David Downs"
+   ],
+   "start": "2026-07-03",
+   "end": "2026-08-22",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://goodmothergallery.com/exhibitions"
+  }
+ ],
+ "fairs_self_reported": [
+  "Frieze Los Angeles"
+ ],
+ "memberships_self_reported": [
+  "New Art Dealers Alliance (NADA)",
+  "Gallery Association Los Angeles (GALA)"
+ ],
+ "press_self_reported": [
+  {
+   "outlet": "W Magazine",
+   "year": 2023,
+   "url": "https://goodmothergallery.com/blog"
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "The dedicated press page (https://goodmothergallery.com/press) contains only placeholder lorem ipsum text and no verifiable press details. Several outlets (Frieze, Juxtapoz, Los Angeles Times, The Art Examiner, Pérez Art Museum Miami) are referenced in blog post titles but lack clear dates or confirmable context, so they were not included as verified press items.",
+ "triage": {
+  "labels": {
+   "https://goodmothergallery.com/artists": "roster_index",
+   "https://goodmothergallery.com/blog": "news",
+   "https://goodmothergallery.com/contact": "contact_hours",
+   "https://goodmothergallery.com/exhibitions": "exhibitions_archive",
+   "https://goodmothergallery.com/news": "news",
+   "https://goodmothergallery.com/press": "news"
+  },
+  "site_notes": "Site organizes artists under a single /artists roster index, all exhibitions (past and current) under one large /exhibitions archive with per-show sub-pages (overview/works/installation_shots) that duplicate archive data, and news is split across /blog, /news, and /press index pages with many individual articles; no separate current-exhibitions or fairs page was found.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1107.5
+}
