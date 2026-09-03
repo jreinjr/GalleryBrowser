@@ -118,7 +118,11 @@ NAME_DENY_RE = re.compile(
     r"tar pits|children'?s museum|historical society|forest lawn|ripley|hair|barber|nails?|yoga|"
     r"cannabis|realty|real estate|dental|pawn|vape|smoke shop|car wash|holocaust|tolerance|"
     r"aviation|automotive|railway|railroad|madame tussauds|guinness|hollywood museum|mansion|"
-    r"architects)\b", re.I)
+    # civic / corporate one-room museums: everywhere, but Tokyo has dozens
+    r"architects|science museum|information cent(?:er|re)|broadcasting|meteorolog\w*|"
+    r"water supply|waterworks|sewerage|philatel\w*|postal museum|customs museum|"
+    r"police museum|fire museum|embassy|consulate|sovereignty)\b", re.I)
+LATIN_RE = re.compile(r"[A-Za-z]")
 # Carla's distribution list mixes in bookstores, framers, theatres, radio...
 LIST_NAME_DENY_RE = re.compile(
     r"\b(\w*books?|bookstore|bookshop|framing|printing|coffee|cafe|theatre|theater|eyeworks|"
@@ -448,6 +452,12 @@ def place_skip_reason(place: dict) -> str | None:
     m = NAME_DENY_RE.search(place.get("name") or "")
     if m:
         return f"name:{m.group(0).lower()}"
+    # Places returns the local-script name when a business has no English one
+    # (Tokyo: "ギャラリー樋口文庫"). The app is English-only and such a name
+    # matches no agent-written venue, so leave it to the LLM enumerator, which
+    # records a romanized name.
+    if not LATIN_RE.search(place.get("name") or ""):
+        return "name_not_latin"
     return None
 
 

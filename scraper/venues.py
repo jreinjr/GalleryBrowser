@@ -94,7 +94,13 @@ REOPEN_RE = re.compile(
 def _slug(text: str) -> str:
     s = unicodedata.normalize("NFKD", text)
     s = "".join(c for c in s if not unicodedata.combining(c))
-    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60] or "venue"
+    slug = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60]
+    if slug:
+        return slug
+    # A script-only name (Japanese, Cyrillic...) has no ASCII slug; a shared
+    # "venue" id would merge every such venue into one record, so key off a
+    # stable digest of the normalized name instead.
+    return "venue-" + hashlib.sha1(s.encode("utf-8")).hexdigest()[:10] if s else "venue"
 
 
 def venue_id(name: str) -> str:

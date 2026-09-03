@@ -207,7 +207,10 @@ def _norm_venue(name: str) -> str:
     s = unicodedata.normalize("NFKD", _html.unescape(name))
     s = "".join(c for c in s if not unicodedata.combining(c))
     s = s.lower().replace("&", " and ")
-    s = re.sub(r"[^a-z0-9]+", " ", s).strip()
+    # [\W_] and not [^a-z0-9]: on ASCII the two are identical (s is already
+    # lowercased), but this keeps CJK and other non-Latin letters instead of
+    # collapsing every Japanese venue name to the empty key.
+    s = re.sub(r"[\W_]+", " ", s).strip()
     if s.startswith("the "):
         s = s[4:]
     for suf in _NORM_STRIP_SUFFIXES:
@@ -742,11 +745,23 @@ RECORD_VENUE_SCHEMA = {
 }
 
 
-def normalize_zone(name: str | None, neighborhoods: list[str]) -> str | None:
+def zone_aliases(city_key: str | None) -> dict[str, str]:
+    """Normalized {district -> zone} from the city's `zone_aliases` config.
+    Cities whose district names do not nest inside the zone labels (Tokyo:
+    "Shinagawa" is in Tennozu, "Harajuku" in Shibuya/Omotesando) declare them
+    there so the agent does not have to guess our label."""
+    from cities import CITIES   # local import: cities.py must stay dependency-free
+    raw = (CITIES.get(city_key or "") or {}).get("zone_aliases") or {}
+    return {_norm_venue(k): v for k, v in raw.items()}
+
+
+def normalize_zone(name: str | None, neighborhoods: list[str],
+                   city_key: str | None = None) -> str | None:
     """Map an agent-written zone name onto the city's zone list: exact match,
-    else the single zone whose "/"-separated parts contain it (case- and
-    punctuation-insensitive), e.g. 'Pasadena' -> 'Pasadena/San Gabriel',
-    'Los Feliz' -> 'Los Feliz/NELA'. None when ambiguous or unknown."""
+    then the city's configured aliases, else the single zone whose
+    "/"-separated parts contain it (case- and punctuation-insensitive), e.g.
+    'Pasadena' -> 'Pasadena/San Gabriel', 'Los Feliz' -> 'Los Feliz/NELA'.
+    None when ambiguous or unknown."""
     if not isinstance(name, str):
         return None
     if name in neighborhoods:
@@ -757,6 +772,9 @@ def normalize_zone(name: str | None, neighborhoods: list[str]) -> str | None:
     exact = [z for z, parts in parts_by_zone.items() if key in parts]
     if len(exact) == 1:
         return exact[0]
+    alias = zone_aliases(city_key).get(key)
+    if alias in neighborhoods:
+        return alias
     loose = [z for z, parts in parts_by_zone.items()
              if any(key and len(key) >= 4 and (key in part or part in key) for part in parts)]
     return loose[0] if len(loose) == 1 else None
@@ -766,7 +784,7 @@ def record_venue(args: dict, city_key: str, neighborhoods: list[str], session: s
     """Append one venue to the city's durable directory (enumeration pass)."""
     if _norm_venue(str(args.get("city", ""))) not in (_norm_venue(city_key), _norm_venue(city_key.replace("-", " "))):
         raise ValueError(f"city must be '{city_key}'")
-    zone = normalize_zone(args.get("neighborhood"), neighborhoods)
+    zone = normalize_zone(args.get("neighborhood"), neighborhoods, city_key)
     if zone is None:
         raise ValueError(
             f"neighborhood '{args['neighborhood']}' is not one of {neighborhoods}")
@@ -1006,7 +1024,7 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         problems.append(
             f"show opens more than {FUTURE_SAVE_DAYS} days out — too far ahead to save; "
             "log_skip it with reason 'closed_or_between_shows' instead")
-    zone = normalize_zone(record["venue"].get("neighborhood"), neighborhoods)
+    zone = normalize_zone(record["venue"].get("neighborhood"), neighborhoods, city_key)
     if zone is None:
         problems.append(
             f"neighborhood '{record['venue']['neighborhood']}' is not one of {neighborhoods}"
