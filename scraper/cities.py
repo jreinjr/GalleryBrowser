@@ -133,6 +133,11 @@ CITIES = {
         # / street corners the Places sweep circles) + `anchors` (venue names
         # from the guidance above; zone_coverage checks the registry has them).
         "postal_re": r"\bCA\s+9[01]\d{3}\b",
+        # Directory/listing sites the enumerator should fetch before recording
+        # (build_enumerate_prompt). These used to be hardcoded in the prompt,
+        # so every city was told to look for LA's directories.
+        "directories": ["Gallery Platform LA (galleryplatform.la)",
+                        "Contemporary Art Review LA's venue list"],
         "zones": {
             "Downtown/Arts District": {
                 "areas": ["Grand Ave", "Little Tokyo", "Arts District", "Fashion District",
@@ -319,6 +324,11 @@ CITIES = {
         # the Places sweep circles, `anchors` are venues zone_coverage expects
         # the registry to know (from the guidance above - never from See Saw).
         "postal_re": r"\b1[0-7]\d-\d{4}\b",
+        "directories": ["Tokyo Art Beat (tokyoartbeat.com)",
+                        "CADAN (cadan.or.jp), the contemporary dealers' association",
+                        "ART iT (art-it.asia)",
+                        "the tenant lists of the gallery buildings themselves "
+                        "(complex665, Piramide, TERRADA ART COMPLEX, NADiff a/p/a/r/t)"],
         # Tokyo district names do not nest inside our zone labels the way LA's
         # do ("Shinagawa" is in Tennozu, "Harajuku" in Shibuya/Omotesando), so
         # tools.normalize_zone reads this map before its substring fallback.

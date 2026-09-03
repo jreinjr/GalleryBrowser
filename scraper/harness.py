@@ -352,6 +352,9 @@ def build_enumerate_prompt(city_key: str, cfg: dict, zone: str,
             + "\n".join(f'- "art galleries {a} {cfg["display_name"]}"' for a in areas)) if areas else ""
     missing = ("\nKNOWN VENUES NOT FOUND YET — find each one (its address/website) and the "
                "venues around it:\n- " + "\n- ".join(missing_anchors)) if missing_anchors else ""
+    dirs = cfg.get("directories") or []
+    dir_hint = ("e.g. " + ", ".join(dirs) + ", neighborhood art-walk guides"
+                if dirs else "city gallery directories, neighborhood art-walk guides")
     return f"""You are building a complete directory of publicly viewable art venues for a gallery-guide app.
 Today is {date.today().strftime('%A, %B %d, %Y')}.
 
@@ -361,7 +364,7 @@ ZONE: {zone}{' — ' + zone_notes if zone_notes else ''}
 GOAL: enumerate EVERY venue in this zone where the public can walk in and see art: commercial galleries of every size, museums, nonprofits, university galleries, photography galleries, artist-run and project spaces.
 
 METHOD:
-1. web_search broad queries ("{zone} {cfg['display_name']} art galleries", "art galleries {zone} {date.today().year}", district gallery guides, art-walk sites) and web_fetch at least 3 good directory/listing pages (e.g. Gallery Platform LA, Contemporary Art Review LA's venue list, neighborhood art-walk guides) BEFORE your first record_venue. Directory pages beat individual venue sites here.
+1. web_search broad queries ("{zone} {cfg['display_name']} art galleries", "art galleries {zone} {date.today().year}", district gallery guides, art-walk sites) and web_fetch at least 3 good directory/listing pages ({dir_hint}) BEFORE your first record_venue. Directory pages beat individual venue sites here.
 2. record_venue once per venue, with address/website when the page shows them. Do NOT fetch each venue's own site — a later pass researches shows and verifies details. Completeness beats precision: recording a venue that turns out closed is fine; MISSING one is the failure mode.
 3. web_search is for discovering NEW names only — never search a name you have already recorded or one on the ALREADY KNOWN list, and never run the same query twice.
 4. EXCLUDE: appointment-only private dealers with no public hours, framers/art-supply shops, tattoo/design studios, one-off pop-ups that already ended, and venues outside this zone (record only venues actually located in {zone}).
