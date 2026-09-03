@@ -77,6 +77,7 @@ def main() -> None:
 
     cities = cityconfig.discover()
     all_shows: list[dict] = []
+    all_venues: dict[str, dict] = {}   # venue_id -> public venue view (only venues with an emitted show)
     img_bytes = 0
     full_bytes = 0
     full_count = 0
@@ -84,7 +85,8 @@ def main() -> None:
 
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
-        venue_kinds = cityconfig.load_venue_kinds(cty["key"])
+        registry_venues = cityconfig.load_venues(cty["key"])
+        venue_kinds = {vid: v["kind"] for vid, v in registry_venues.items() if v.get("kind")}
         ranking = cityconfig.load_ranking(cty["key"])
         if shows and not any(s.get("featured") for s in shows):
             print(f"  note: {cty['key']} has no featured shows — featuring the first 3")
@@ -129,7 +131,21 @@ def main() -> None:
             v = s["venue"]
             map_x, map_y = mapgen.project(v["latitude"], v["longitude"], meta)
             rk = ranking.get(s["slug"]) or {}
+            # registry `kind` is the source of truth; the show record's boolean is
+            # only the fallback for a venue with no registry entry
             kind = venue_kinds.get(s.get("venue_id")) or ("museum" if v["is_museum"] else "gallery")
+            vid = s.get("venue_id")
+            rv = registry_venues.get(vid) or {}
+            # venue-level data (blurb, gallery rank) is read from the registry and
+            # exposed twice: on the embedded copy (no client join needed) and in
+            # the top-level `venues` map keyed by venueId (docs/GALLERIES.md)
+            if vid and rv and vid not in all_venues:
+                # only what the embedded copy lacks: address/hours/coords already
+                # ship on every show's venue object, so the map stays small
+                rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier",
+                                              "rank", "score", "verified", "neighborhood")}
+                rec["city"] = s["city"]
+                all_venues[vid] = {k: val for k, val in rec.items() if val is not None}
             all_shows.append({
                 "city": s["city"], "slug": s["slug"], "title": s["title"],
                 "artist": s.get("artist"), "startDate": s["start_date"], "endDate": s["end_date"],
@@ -139,12 +155,15 @@ def main() -> None:
                 # curated.json exists); the List tab's default sort
                 "rank": rk.get("rank", len(all_shows) + 1), "score": rk.get("score"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
+                "venueId": vid,
                 "venue": {
-                    "name": v["name"], "isMuseum": v["is_museum"], "kind": kind, "address": v["address"],
+                    "name": v["name"], "isMuseum": kind == "museum", "kind": kind, "address": v["address"],
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],
                     "hours": v["hours"], "phone": v.get("phone"), "website": v.get("website"),
                     "lat": v["latitude"], "lng": v["longitude"],
                     "mapX": round(map_x, 1), "mapY": round(map_y, 1),
+                    **{k: rv[k] for k in ("about", "tier", "rank") if rv.get(k) is not None},
+                    **({"id": vid} if vid else {}),
                 },
             })
 
@@ -153,6 +172,7 @@ def main() -> None:
         "attribution": mapgen.ATTRIBUTION,
         "cities": cities,
         "shows": all_shows,
+        "venues": all_venues,
     }
     data_js = "window.DEMO_DATA = " + json.dumps(data, ensure_ascii=False) + ";\n"
     (DIST / "data.js").write_text(data_js, encoding="utf-8")

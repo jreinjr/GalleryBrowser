@@ -49,14 +49,52 @@ def load_shows(city_key: str) -> list[dict]:
     return data.get("shows", [])
 
 
-def load_venue_kinds(city_key: str) -> dict[str, str]:
-    """venue_id -> kind (gallery / museum / nonprofit / project_space / ...) from the
-    venue registry; {} when the city has no registry."""
+PUBLISHABLE_ABOUT = ("official", "secondary")
+
+
+def published_about(v: dict) -> str | None:
+    """The venue blurb the apps may show: `about.text` only when the research
+    pass marked its provenance official/secondary (a QA-failed blurb keeps
+    source_kind but has text None; an unreviewed one has no source_kind)."""
+    about = v.get("about") or {}
+    text = about.get("text")
+    if text and about.get("source_kind") in PUBLISHABLE_ABOUT:
+        return text.strip() or None
+    return None
+
+
+def load_venues(city_key: str) -> dict[str, dict]:
+    """venue_id -> public venue view from the registry (content/venues/<city>.json,
+    see docs/GALLERIES.md); {} when the city has no registry. This is the only
+    place the web build reads registry fields, so new venue-level data (blurb,
+    rank, verification) is added here once."""
     f = CONTENT_DIR / "venues" / f"{city_key}.json"
     if not f.exists():
         return {}
     data = json.loads(f.read_text())
-    return {v["id"]: v.get("kind") for v in data.get("venues", []) if v.get("id") and v.get("kind")}
+    out: dict[str, dict] = {}
+    for v in data.get("venues", []):
+        vid = v.get("id")
+        if not vid:
+            continue
+        kind = v.get("kind") or ("museum" if v.get("is_museum") else "gallery")
+        out[vid] = {
+            "id": vid, "name": v.get("name"), "kind": kind, "isMuseum": kind == "museum",
+            "about": published_about(v),
+            "tier": v.get("tier"), "rank": v.get("rank"), "score": v.get("score"),
+            "verified": (v.get("verification") or {}).get("status") == "verified",
+            "website": v.get("website"), "hours": v.get("hours") or [],
+            "address": v.get("address"), "addressDetail": v.get("address_detail"),
+            "neighborhood": v.get("neighborhood"),
+            "lat": v.get("latitude"), "lng": v.get("longitude"),
+        }
+    return out
+
+
+def load_venue_kinds(city_key: str) -> dict[str, str]:
+    """venue_id -> kind (gallery / museum / nonprofit / project_space / ...) from the
+    venue registry; {} when the city has no registry."""
+    return {vid: v["kind"] for vid, v in load_venues(city_key).items() if v.get("kind")}
 
 
 def load_ranking(city_key: str) -> dict[str, dict]:
