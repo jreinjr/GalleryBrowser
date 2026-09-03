@@ -18,6 +18,13 @@ Hooks (called lazily from tools.py so the two modules can import each other):
     on_save_show, on_log_skip, on_record_venue, on_confirm_show,
     on_sweep_demoted, on_crosscheck, on_fetch
 
+`kind` (KINDS) is the single source of truth for what a venue is; `is_museum`
+is a derived mirror of `kind == "museum"`, resynced by merge_patch on every
+write and carried only because the show records and the apps decode it. Never
+patch it directly. Precedence for `kind`: a confirmed show or a curated
+directory wins, and a Google Places sweep fills it only when nothing else has
+(seed_venues.patch_for) — Places' `museum` type is too loose to retype a venue.
+
 A venue holds any number of concurrent shows (`last_known_shows`); scheduling
 keys off the EARLIEST-ending live show so a venue is re-checked whenever one
 of its shows turns over. `sources.seed.{places|gpla|carla}` records
@@ -42,7 +49,7 @@ from urllib.parse import urlparse
 
 import tools
 
-SCHEMA = 1
+SCHEMA = 2
 SCRAPER_DIR = Path(__file__).resolve().parent
 VENUES_DIR = tools.CONTENT_DIR / "venues"
 EVIDENCE_DIR = SCRAPER_DIR / ".cache" / "evidence"   # evidence paths are relative to SCRAPER_DIR
@@ -52,6 +59,7 @@ EVIDENCE_KEEP_PER_URL = 2
 EVIDENCE_PRUNE_DAYS = 45
 
 KINDS = ["gallery", "museum", "nonprofit", "project_space", "university", "other"]
+MUSEUM_KIND = "museum"
 STATUSES = ["active", "closed", "appointment_only", "out_of_scope", "duplicate", "unknown",
             "candidate"]   # candidate: domain seen in a session, not yet confirmed a venue
 URL_SOURCES = ["harness", "migration", "discovered", "agent", "manual"]
@@ -87,6 +95,24 @@ REOPEN_RE = re.compile(
     r"(open|opens|opening|reopen|reopens|reopening|next show|next exhibition|"
     r"upcoming)[^.;\n]{0,40}?\b(" + MONTHS + r")\.?\s+(\d{1,2})(?:st|nd|rd|th)?"
     r"(?:,?\s+(\d{4}))?", re.I)
+
+
+# --- venue kind ----------------------------------------------------------------
+
+def is_museum(v: dict) -> bool:
+    """The one museum test. `kind` is the source of truth; the stored
+    `is_museum` boolean is a derived mirror, kept in sync by merge_patch and
+    written only because the app payload and SAVE_SHOW_SCHEMA carry it."""
+    return (v.get("kind") or "") == MUSEUM_KIND
+
+
+def sync_museum_flag(v: dict) -> dict:
+    """Re-derive the mirrored boolean from `kind`, so the two can never drift.
+    They did: a Google Places sweep used to OR `is_museum` to true while
+    leaving `kind` alone, leaving four LA galleries flagged as museums."""
+    if v.get("kind") is not None:
+        v["is_museum"] = is_museum(v)
+    return v
 
 
 # --- identity ------------------------------------------------------------------
@@ -158,7 +184,43 @@ def empty_venue(vid: str, name: str) -> dict:
         "scrape_history": [], "sources": {"directory_ts": None, "directory_session": None,
                                           "shows": [], "crosscheck_ts": None},
         "notes": None,
+        **v2_blocks(),
     }
+
+
+# --- schema 2: galleries as first-class objects ---------------------------------
+# Added 2026-09-03 (galleries-first pipeline). Every block is additive; load_registry
+# back-fills them on old files so readers never KeyError. Writers:
+#   verification -> validate_venues.py (deterministic: Places + own site)
+#   about/facts/research -> research_venue.py (once per venue; full report under
+#                           content/venues/reports/<city>/<id>.json)
+#   features -> rank_venues.py (stored so re-ranking never re-fetches)
+
+def v2_blocks() -> dict:
+    return {
+        "verification": {"status": None, "ts": None, "checks": {}},
+        "about": {"text": None, "source_kind": None, "source_url": None, "evidence_path": None,
+                  "written_ts": None, "model": None, "hints": []},
+        "facts": {"founded_year": None, "founders": [], "locations_elsewhere": [],
+                  "program_focus": [], "roster_count": None, "exhibitions_total": None,
+                  "exhibitions_per_year": None, "first_exhibition_year": None,
+                  "solo_share": None},
+        "research": {"ts": None, "crawl_pages": None, "triaged": None, "report_path": None,
+                     "cost_usd": None, "gapfill": False},
+        "features": {},
+        "rank": None, "score": None, "score_breakdown": None,
+    }
+
+
+def ensure_v2(v: dict) -> dict:
+    """Back-fill schema-2 blocks in place (nested dict keys included)."""
+    for k, dflt in v2_blocks().items():
+        if k not in v or (isinstance(dflt, dict) and not isinstance(v.get(k), dict)):
+            v[k] = json.loads(json.dumps(dflt))
+        elif isinstance(dflt, dict):
+            for kk, dd in dflt.items():
+                v[k].setdefault(kk, json.loads(json.dumps(dd)))
+    return v
 
 
 def registry_exists(city: str) -> bool:
@@ -171,6 +233,9 @@ def load_registry(city: str) -> dict:
         try:
             reg = json.loads(p.read_text())
             if isinstance(reg, dict) and isinstance(reg.get("venues"), list):
+                if reg.get("schema", 1) < SCHEMA:
+                    for v in reg["venues"]:
+                        ensure_v2(v)
                 return reg
         except json.JSONDecodeError:
             pass
@@ -230,12 +295,14 @@ def find_venue(reg: dict, name: str | None, website: str | None = None,
 
 _LIST_UNION = ("aliases", "exhibitions_url_candidates")
 _LIST_APPEND = ("scrape_history",)
-_PROTECTED = ("id",)
+_PROTECTED = ("id", "is_museum")   # is_museum is derived from `kind`, never patched
 
 
 def merge_patch(v: dict, patch: dict) -> dict:
     """Apply a patch: None never overwrites a value; list fields union/append;
-    `last_known_shows` upserts by slug; nested `page`/`sources` merge shallowly."""
+    `last_known_shows` upserts by slug; nested `page`/`sources` merge shallowly.
+    `is_museum` is never taken from the patch — it is re-derived from `kind` on
+    the way out (see sync_museum_flag)."""
     for k, val in patch.items():
         if k in _PROTECTED or val is None:
             continue
@@ -260,7 +327,7 @@ def merge_patch(v: dict, patch: dict) -> dict:
             v[k] = base
         else:
             v[k] = val
-    return v
+    return sync_museum_flag(v)
 
 
 def _upsert_in(reg: dict, name: str, patch: dict, source: str,
@@ -359,7 +426,7 @@ def cadence_days(v: dict) -> int:
     tier = v.get("tier")
     if tier in CADENCE_BY_TIER:
         return CADENCE_BY_TIER[tier]
-    return MUSEUM_CADENCE if v.get("is_museum") else DEFAULT_CADENCE
+    return MUSEUM_CADENCE if is_museum(v) else DEFAULT_CADENCE
 
 
 def active_shows(v: dict, today: date | None = None) -> list[dict]:
@@ -566,14 +633,22 @@ def triage_places_only(city: str) -> dict:
 
 
 def due_venues(city: str, zone: str | None = None, today: date | None = None,
-               saved_keys: set[str] | None = None, include_places_only: bool = True) -> list[dict]:
+               saved_keys: set[str] | None = None, include_places_only: bool = True,
+               min_tier: int | None = None, min_score: float | None = None,
+               require_verified: bool = False, rank_weight: float = 0.0) -> list[dict]:
     """Venues that need an LLM scrape session, highest priority first. Each
     returned record carries `_priority` and `_reasons`.
 
     A venue with live saved shows is still due when its next_check passes,
     its page changed, or one of its shows ends within a week — the session
     then saves the venue's OTHER current shows (multiple shows per venue).
-    `saved_keys` is accepted for backward compatibility and ignored."""
+    `saved_keys` is accepted for backward compatibility and ignored.
+
+    Galleries-first (docs/GALLERIES.md): `require_verified` keeps only venues
+    whose `verification.status` is "verified"; `min_tier` / `min_score` drop
+    unranked venues and those below the cutoff (rank_venues.py apply writes
+    `tier`/`score`); `rank_weight * score` is added to the priority so the
+    ranking, not file order, decides who is scraped first."""
     today = today or date.today()
     reg = load_registry(city)
     out = []
@@ -581,6 +656,12 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
         if zone and v.get("neighborhood") != zone:
             continue
         if v.get("status") not in ("active", "unknown", "candidate", None):
+            continue
+        if require_verified and (v.get("verification") or {}).get("status") != "verified":
+            continue
+        if min_tier is not None and (v.get("tier") is None or v["tier"] > min_tier):
+            continue
+        if min_score is not None and (v.get("score") is None or v["score"] < min_score):
             continue
         scraped = v.get("last_scraped")
         nxt = _parse_date(v.get("next_check"))
@@ -650,6 +731,8 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
             # Never let a Places-only unknown outrank any venue someone vouched
             # for: they used to land at 50 and beat real galleries at 40.
             pr = min(pr, 10); reasons.append("places_only")
+        if rank_weight and v.get("score") is not None:
+            pr += rank_weight * float(v["score"]); reasons.append("ranked")
         rec = dict(v)
         rec["_priority"], rec["_reasons"] = pr, reasons
         out.append(rec)
@@ -1070,8 +1153,11 @@ def zone_coverage(city: str, zone: str, cfg: dict, min_enumerated: int = 4,
 def _venue_patch_from_show(record: dict, placement: str) -> dict:
     v = record["venue"]
     return {
-        "name": v["name"], "kind": "museum" if v.get("is_museum") else None,
-        "is_museum": bool(v.get("is_museum")), "status": "active",
+        # A show record carries only the boolean; map it up to `kind`, and only
+        # ever upward — an agent calling a museum a gallery must not demote a
+        # venue the registry already types as one.
+        "name": v["name"], "kind": MUSEUM_KIND if v.get("is_museum") else None,
+        "status": "active",
         "neighborhood": v.get("neighborhood"), "address": v.get("address"),
         "address_detail": v.get("address_detail"),
         "latitude": v.get("latitude"), "longitude": v.get("longitude"),
@@ -1189,7 +1275,6 @@ def on_record_venue(entry: dict, city: str) -> str:
             reg["venues"].append(v)
             v["next_check"] = date.today().isoformat()
         merge_patch(v, {"neighborhood": entry.get("neighborhood"), "kind": entry.get("kind"),
-                        "is_museum": True if entry.get("kind") == "museum" else None,
                         "address": entry.get("address"), "website": entry.get("website"),
                         "notes": entry.get("note"),
                         "sources": {"directory_ts": entry.get("ts"),

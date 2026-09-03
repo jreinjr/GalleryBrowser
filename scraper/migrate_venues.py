@@ -95,7 +95,6 @@ def seed_city(city: str, today: date) -> tuple[dict, dict, list[str]]:
         v = _get_or_create(reg, e["name"], e.get("website"), collisions)
         venues.merge_patch(v, {
             "neighborhood": e.get("neighborhood"), "kind": e.get("kind"),
-            "is_museum": True if e.get("kind") == "museum" else None,
             "address": e.get("address"), "website": e.get("website"), "notes": e.get("note"),
             "sources": {"directory_ts": e.get("ts"), "directory_session": e.get("session")}})
 

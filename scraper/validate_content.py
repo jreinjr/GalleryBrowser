@@ -12,16 +12,49 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from PIL import Image
 
+import seed_venues
 import tools
+import venues
 from cities import CITIES
 
 REQUIRED = set(tools.SAVE_SHOW_SCHEMA["required"])
 VENUE_REQUIRED = set(tools.SAVE_SHOW_SCHEMA["properties"]["venue"]["required"])
 
 
+def check_registry(city: str, problems: list[str], review: list[str]) -> str:
+    """Registry invariants. `kind` is the source of truth for museum-ness and
+    `is_museum` is a derived mirror (venues.sync_museum_flag), so the two must
+    agree — they silently drifted for four LA venues when a Google Places sweep
+    ORed the boolean to true without touching `kind`. The name check is the
+    second half of that guard: whatever Google says, a venue calling itself a
+    gallery is not a museum."""
+    path = venues._registry_file(city)
+    if not path.exists():
+        return f"{city}: no registry"
+    reg = json.loads(path.read_text())["venues"]
+    for v in reg:
+        vid = f"{city}/{v.get('id', '?')}"
+        kind = v.get("kind")
+        if kind is not None and kind not in venues.KINDS:
+            problems.append(f"{vid}: kind {kind!r} not one of {venues.KINDS}")
+        if bool(v.get("is_museum")) != venues.is_museum(v):
+            problems.append(f"{vid}: is_museum {v.get('is_museum')!r} disagrees with "
+                            f"kind {kind!r} ({v.get('name')})")
+        # Not an error: Whitechapel, Serpentine and Henry Art Gallery are real
+        # museums named Gallery. It is a review queue — the same shape caught
+        # Leica Gallery and Musichead Gallery, which were not.
+        if venues.is_museum(v) and seed_venues.GALLERY_NAME_RE.search(v.get("name") or ""):
+            review.append(f"{vid}: typed museum but named a gallery ({v.get('name')})")
+    museums = sum(1 for v in reg if venues.is_museum(v))
+    return f"{city}: {len(reg)} venues, {museums} museum"
+
+
 def main() -> int:
     problems: list[str] = []
+    review: list[str] = []
     summary: list[str] = []
+    for city in CITIES:
+        summary.append(check_registry(city, problems, review))
     for city in CITIES:
         path = tools.CONTENT_DIR / f"{city}.json"
         if not path.exists():
@@ -69,6 +102,9 @@ def main() -> int:
         )
 
     print("\n".join(summary))
+    if review:
+        print(f"\n{len(review)} to review (not failures):")
+        print("\n".join(f"  - {r}" for r in review))
     if problems:
         print(f"\n{len(problems)} PROBLEMS:")
         print("\n".join(f"  - {p}" for p in problems))

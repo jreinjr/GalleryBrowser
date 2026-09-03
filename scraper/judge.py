@@ -55,6 +55,7 @@ import curate  # noqa: E402
 import curation_store as store  # noqa: E402
 import harness  # noqa: E402
 import tools  # noqa: E402
+import venues  # noqa: E402
 from cities import CITIES  # noqa: E402
 from curation_keywords import merge_hits, scan_keywords  # noqa: E402
 from run_scrape import load_env  # noqa: E402
@@ -234,8 +235,9 @@ def format_user_message(show: dict, ev: dict, today: date) -> str:
         f"SHOW {show['slug']}",
         f"Title: {show.get('title') or '-'}",
         f"Artist: {show.get('artist') or '- (no artist listed: group / collection show)'}",
-        f"Venue: {v.get('name')} - registry tier: {tier}; museum: {'yes' if v.get('is_museum') else 'no'}; "
-        f"kind: {reg.get('kind') or 'unknown'}; neighborhood: {v.get('neighborhood') or reg.get('neighborhood') or '?'}",
+        f"Venue: {v.get('name')} - registry tier: {tier}; "
+        f"kind: {reg.get('kind') or 'unknown'}; museum: {'yes' if venues.is_museum(reg) else 'no'}; "
+        f"neighborhood: {v.get('neighborhood') or reg.get('neighborhood') or '?'}",
         f"Dates: {show.get('start_date') or '?'} to {show.get('end_date') or '?'} "
         f"(today {today.isoformat()}; {_date_notes(show, today)})",
         f"Images on file: {len(show.get('images') or [])}",

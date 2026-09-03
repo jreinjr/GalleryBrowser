@@ -70,7 +70,7 @@ def compute(city: str, seesaw_weight: float = 0.0) -> dict[str, dict]:
         nf = len(set().union(*(fairs.get(n, set()) for n in norms)))
         npress = len(set().union(*(press.get(n, set()) for n in norms)))
         ss = 1.0 if norms & feat else (0.5 if norms & allv else 0.0)
-        museum = 1.0 if v.get("is_museum") else 0.0
+        museum = 1.0 if venues.is_museum(v) else 0.0
         score = min(1.0, 0.50 * min(1, nf / 3) + 0.30 * min(1, npress / 3) + 0.20 * museum
                     + seesaw_weight * ss)
         tier = 1 if score >= 0.55 else 2 if score >= 0.25 else 3 if score > 0 else None
