@@ -52,6 +52,31 @@ body { position: static !important; inset: auto; overflow: auto; background: #10
 .card .card-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #111; }
 .card .carousel-dots { top: 12px; left: 12px; }
 
+/* Production rules the app no longer ships (the mockups still use them) */
+.list-filters {
+  position: sticky; top: 0; z-index: 4;
+  background: rgba(0, 0, 0, 0.82);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  padding: 0 0 6px;
+}
+.list-filters .search-bar { padding: 4px 16px 8px; }
+.chip-row { display: flex; gap: 8px; padding: 0 16px 8px; overflow-x: auto; scrollbar-width: none; }
+.chip-row::-webkit-scrollbar { display: none; }
+.chip-menu svg { width: 11px; height: 11px; }
+.list-status { display: flex; align-items: center; justify-content: space-between; padding: 2px 16px 0; min-height: 18px; }
+.list-count { font-size: 13px; color: var(--secondary); }
+.list-clear { font-size: 14px; color: var(--blue); font-weight: 500; }
+.list-results { margin-top: 8px; }
+.show-row .sr-name, .show-row .sr-venue { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.map-menu {
+  position: absolute; right: 12px; z-index: 12;
+  background: rgba(40, 40, 44, 0.92); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  border-radius: 13px; overflow: hidden; min-width: 210px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.map-menu button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; font-size: 16px; color: #fff; }
+.map-menu svg { width: 15px; height: 15px; color: #fff; }
+.card-footer { display: block; padding: 10px 14px; }
+
 /* ---------- Q1: filters ---------- */
 .nav-right { display: flex; align-items: center; gap: 10px; }
 .icon-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--field); color: #fff; display: flex; align-items: center; justify-content: center; position: relative; }
