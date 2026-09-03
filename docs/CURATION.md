@@ -282,3 +282,57 @@ scraper/.venv/bin/python scraper/curate.py apply --city los-angeles --params par
 then rebuild and deploy both sites as above. The email button's recipient is
 `--contact-email` (defaults to the project owner's address); `--site-url`
 overrides the base URL baked into share links.
+
+## Ranking galleries (galleries-first pipeline)
+
+Since 2026-09-03 galleries are first-class objects (data contracts in
+`docs/GALLERIES.md`). The pipeline for a new market runs **gallery stages
+first** and only then spends on shows:
+
+    python scraper/run_galleries.py --city tokyo --total-budget 60 --research-limit 100
+    #  priors   city_priors.py: fairs + curated lists (ADAA, CADAN, ...) -> fair_exhibitor / list_member signals
+    #  find     seed_venues (Places cache, directories) + LLM knowledge seed (candidates only) + zone enumeration
+    #  validate validate_venues.py: deterministic verification {verified|flagged|unverified} per venue ($0 + Places)
+    #  research research_venue.py: full-site crawl -> LLM page triage -> GalleryReport (about, founded,
+    #           roster, exhibition archive) once per venue; optional web gap-fill; venue judge
+    #  rank     rank_venues.py score/apply + venue_dashboard.py
+    python scraper/run_deep.py --city tokyo --galleries-first --total-budget 25 --min-tier 3
+    #  shows are scraped only at verified, ranked galleries; verify checks the show, not the venue
+
+`rank_venues.py` is `curate.py` for venues: 18 stored features, linear
+weights in `content/curation/params/venues-*.json`, gates, tier thresholds,
+and a JS mirror in the venue dashboard
+(`content/spend/reports/venues-<city>.html`) so weights can be tuned without
+any re-scrape. Features and where they come from:
+
+| feature | evidence | stage |
+|---|---|---|
+| hours_breadth | days/hours open per week from Google + site hours (`hours.py`); by-appointment ≈ 0 | $0 |
+| fairs, curated_lists | fair exhibitor lists, association / editorial lists (weighted per list) | priors |
+| press, directory | existing publication signals; GPLA / Carla / Tokyo Art Beat seeds | existing |
+| longevity, roster_size, show_cadence, multi_location | GalleryReport facts | research |
+| places_popularity, web_presence, wiki, kind_* | cached Places ratings; site flags; Wikipedia | $0 |
+| venue_judge | model-knowledge notability 0-10 (`research_venue.py judge`) | research |
+
+**Which galleries get researched** is not a fixed N. `research_venue.py run
+--select auto` (the driver's default) looks at the prior score distribution
+(printed as a histogram in the log) and takes every eligible venue with
+prestige evidence (a fair, a curated list, press, a judge verdict, a Wikipedia
+page) union the top 10% by prior score, capped at 250. Directory and
+enumeration mentions are listing evidence and count only through the score.
+Measured 2026-09-03: LA 130 evidence-bearing + top-10% floor 51 -> 131; both
+cities show a lump at 0.10-0.15 that is nothing but Google opening hours, and
+the cut sits above it. `--research-limit N` overrides when you want a number.
+
+Benchmark, reported not fitted: See Saw's LA venue set (19 registry venues)
+gets AUC 0.88 from the $0 features alone; tiers stay sparse until the
+research and priors features fill in, and thresholds are params.
+
+The **artists dataset** (`scraper/artists.py`, `content/artists/<city>.json`)
+merges rosters, exhibition archives and the show pool into deduplicated
+artist records linked to galleries; `artists.py report` writes
+`content/spend/reports/artists-<city>.md`. Backend only for now.
+
+`lint_descriptions.py` finds gallery-only prose in show descriptions,
+rewrites the show text and moves the spans to the venue's `about.hints`;
+review its dry-run table before `--apply` (it flags more than a human would).

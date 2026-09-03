@@ -55,6 +55,16 @@ against the venue's own site AND their pin resolves deterministically
 LLM never supplies coordinates). Unverified shows are demoted back to
 pending, never deleted.
 
+## Galleries first
+
+Galleries are first-class records (`content/venues/<city>.json`, contracts in
+`docs/GALLERIES.md`): found, validated, researched (one full-site report per
+gallery under `content/venues/reports/`), and ranked by `scraper/rank_venues.py`
+with a tunable dashboard, before any show is scraped. `scraper/run_galleries.py`
+runs those stages; `run_deep.py --galleries-first` then scrapes shows only at
+ranked, verified galleries. See the "Ranking galleries" section of
+`docs/CURATION.md`.
+
 ## Ranking the feed
 
 The pipeline decides which shows exist; `scraper/curate.py` decides their
