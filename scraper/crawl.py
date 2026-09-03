@@ -32,6 +32,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
@@ -51,6 +52,7 @@ FRESH_DAYS = 30
 MIN_TEXT_CHARS = 200          # a 200 with less text than this is re-tried through the renderer
 RENDER_MAX_CHARS = 120_000
 RENDER_TIMEOUT_S = 60
+RENDER_BUDGET = 60                    # Playwright renders per venue crawl
 MAX_SITEMAPS = 8
 SKIP_EXT = {
     ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif", ".bmp", ".tif", ".tiff", ".ico",
@@ -338,7 +340,28 @@ def _fresh(page: CrawlPage, now: int) -> bool:
     return (SCRAPER_DIR / page.evidence_path).exists()
 
 
-def fetch_page(fetcher: refresh.Fetcher, url: str, render: bool) -> dict:
+class RenderBudget:
+    """Rendering is the crawl's real cost: a JS-heavy site (75% of Tokyo gallery
+    sites) spawns one Playwright process per page at ~8s, so a 300-page crawl
+    burns 40 minutes of CPU while the model only ever reads a few sections.
+    The budget renders the first `n` pages that ask for it — section-fair queue
+    ordering means those are the about/exhibitions/roster pages, not the 200th
+    per-artist subpage — and leaves the rest their static text."""
+
+    def __init__(self, n: int = RENDER_BUDGET):
+        self.left = n
+        self.lock = threading.Lock()
+
+    def take(self) -> bool:
+        with self.lock:
+            if self.left <= 0:
+                return False
+            self.left -= 1
+            return True
+
+
+def fetch_page(fetcher: refresh.Fetcher, url: str, render: bool,
+               budget: "RenderBudget | None" = None) -> dict:
     """{status, final_url, title, text, html, rendered, error} for one URL."""
     r = fetcher.get(url)
     out = {"status": r.get("status"), "final_url": r.get("final_url") or url, "title": "",
@@ -346,13 +369,15 @@ def fetch_page(fetcher: refresh.Fetcher, url: str, render: bool) -> dict:
     if r.get("status") == 200 and r.get("html"):
         text, title = refresh.extract_main_text(r["html"])
         out["text"], out["title"], out["error"] = text, title, None
-        if render and (refresh.looks_js_rendered(r["html"], text) or len(text) < MIN_TEXT_CHARS):
+        if (render and (refresh.looks_js_rendered(r["html"], text) or len(text) < MIN_TEXT_CHARS)
+                and (budget is None or budget.take())):
             rd = render_page(url)
             if rd and len(rd["text"]) > len(text):
                 out.update({"text": rd["text"], "title": rd["title"] or title,
                             "html": rd["html"] or r["html"], "final_url": rd["final_url"],
                             "rendered": True})
-    elif render and r.get("status") in (403, 429, 503, None) and r.get("error") != "robots_disallow":
+    elif (render and r.get("status") in (403, 429, 503, None) and r.get("error") != "robots_disallow"
+            and (budget is None or budget.take())):
         # bot-walled or connection-refused: a real browser often gets through
         rd = render_page(url)
         if rd and rd["text"]:
@@ -363,7 +388,7 @@ def fetch_page(fetcher: refresh.Fetcher, url: str, render: bool) -> dict:
 
 def crawl_site(city: str, venue: dict, max_pages: int = 300, fetcher: refresh.Fetcher | None = None,
                render: bool = True, session: str | None = None, extra_urls: list[str] | None = None,
-               progress=None) -> CrawlIndex:
+               progress=None, render_budget: int = RENDER_BUDGET) -> CrawlIndex:
     """Crawl ``venue['website']`` (plus ``extra_urls``, e.g. pages the triage asked
     for) and return the CrawlIndex; pages fetched under FRESH_DAYS ago are reused."""
     fetcher = fetcher or refresh.Fetcher()
@@ -438,6 +463,7 @@ def crawl_site(city: str, venue: dict, max_pages: int = 300, fetcher: refresh.Fe
                 best_i, best_key = i, key
         return queue.pop(best_i)
 
+    budget = RenderBudget(render_budget)
     fetched_now = 0
     while queue:
         n_ok = len([p for p in idx.pages if p.evidence_path])
@@ -445,7 +471,7 @@ def crawl_site(city: str, venue: dict, max_pages: int = 300, fetcher: refresh.Fe
             idx.truncated = bool(queue)
             break
         url, depth, source = pick()
-        res = fetch_page(fetcher, url, render)
+        res = fetch_page(fetcher, url, render, budget)
         text = res["text"] or ""
         ev = None
         if res["status"] == 200 and text.strip():
