@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 234.3616,
-  "total_requests": 2105,
-  "total_web_searches": 2315,
-  "total_input_tokens": 9854773,
-  "total_output_tokens": 3302128,
-  "total_cache_write_tokens": 27281748,
-  "total_cache_read_tokens": 454950918,
+  "total_cost_usd": 245.329,
+  "total_requests": 2439,
+  "total_web_searches": 2424,
+  "total_input_tokens": 10535471,
+  "total_output_tokens": 3596836,
+  "total_cache_write_tokens": 28382944,
+  "total_cache_read_tokens": 469030425,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -2424,6 +2424,30 @@
       "cost_usd": 0.4215
     },
     {
+      "session": "enum-tokyo-ginza-kyobashi-1788453180",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 62,
+      "output_tokens": 20393,
+      "cache_write_tokens": 68175,
+      "cache_read_tokens": 1158891,
+      "web_searches": 16,
+      "cost_usd": 0.7663
+    },
+    {
+      "session": "enum-tokyo-roppongi-1788453160",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 1,
+      "input_tokens": 66,
+      "output_tokens": 12977,
+      "cache_write_tokens": 44030,
+      "cache_read_tokens": 863998,
+      "web_searches": 16,
+      "cost_usd": 0.5728
+    },
+    {
       "session": "judge-los-angeles-judge_v1-claude-opus-5-1788312448",
       "model": "claude-opus-5",
       "batch": false,
@@ -2470,6 +2494,18 @@
       "cache_read_tokens": 236072,
       "web_searches": 0,
       "cost_usd": 0.381
+    },
+    {
+      "session": "judge-los-angeles-judge_v1-claude-sonnet-5-1788378664",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 277,
+      "input_tokens": 188593,
+      "output_tokens": 177880,
+      "cache_write_tokens": 19183,
+      "cache_read_tokens": 5294508,
+      "web_searches": 0,
+      "cost_usd": 3.2628
     },
     {
       "session": "london-1788148709",
@@ -3041,6 +3077,138 @@
       "cache_read_tokens": 663262,
       "web_searches": 8,
       "cost_usd": 0.8824
+    },
+    {
+      "session": "verify-los-angeles-1788363513",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 54340,
+      "output_tokens": 3596,
+      "cache_write_tokens": 68994,
+      "cache_read_tokens": 267866,
+      "web_searches": 6,
+      "cost_usd": 0.4307
+    },
+    {
+      "session": "verify-los-angeles-1788363528",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 831,
+      "output_tokens": 15288,
+      "cache_write_tokens": 102900,
+      "cache_read_tokens": 605364,
+      "web_searches": 8,
+      "cost_usd": 0.6129
+    },
+    {
+      "session": "verify-los-angeles-1788363543",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 53236,
+      "output_tokens": 12771,
+      "cache_write_tokens": 179689,
+      "cache_read_tokens": 1361201,
+      "web_searches": 14,
+      "cost_usd": 1.0956
+    },
+    {
+      "session": "verify-los-angeles-1788363558",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 18,
+      "input_tokens": 68200,
+      "output_tokens": 12268,
+      "cache_write_tokens": 166667,
+      "cache_read_tokens": 2581305,
+      "web_searches": 8,
+      "cost_usd": 1.272
+    },
+    {
+      "session": "verify-los-angeles-1788363573",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 21134,
+      "output_tokens": 1497,
+      "cache_write_tokens": 36247,
+      "cache_read_tokens": 126064,
+      "web_searches": 3,
+      "cost_usd": 0.2031
+    },
+    {
+      "session": "verify-los-angeles-1788363588",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 24181,
+      "output_tokens": 3391,
+      "cache_write_tokens": 30981,
+      "cache_read_tokens": 117957,
+      "web_searches": 3,
+      "cost_usd": 0.2133
+    },
+    {
+      "session": "verify-los-angeles-1788363603",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 72306,
+      "output_tokens": 7198,
+      "cache_write_tokens": 90677,
+      "cache_read_tokens": 373133,
+      "web_searches": 7,
+      "cost_usd": 0.5879
+    },
+    {
+      "session": "verify-los-angeles-1788363618",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 24470,
+      "output_tokens": 3815,
+      "cache_write_tokens": 54484,
+      "cache_read_tokens": 194506,
+      "web_searches": 4,
+      "cost_usd": 0.3022
+    },
+    {
+      "session": "verify-los-angeles-1788363633",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 10475,
+      "output_tokens": 8092,
+      "cache_write_tokens": 30071,
+      "cache_read_tokens": 467981,
+      "web_searches": 8,
+      "cost_usd": 0.3506
+    },
+    {
+      "session": "verify-los-angeles-1788363648",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 44225,
+      "output_tokens": 5030,
+      "cache_write_tokens": 62780,
+      "cache_read_tokens": 191340,
+      "web_searches": 5,
+      "cost_usd": 0.384
+    },
+    {
+      "session": "verify-los-angeles-1788363663",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 118579,
+      "output_tokens": 10512,
+      "cache_write_tokens": 146318,
+      "cache_read_tokens": 475393,
+      "web_searches": 11,
+      "cost_usd": 0.9132
     },
     {
       "session": "verify-new-york-1788226376",
