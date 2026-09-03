@@ -142,3 +142,38 @@ class NonLatinVenueNames(unittest.TestCase):
                      "The Broad", "LACMA"):
             with self.subTest(name=real):
                 self.assertIsNone(seed_venues.place_skip_reason({"name": real, "types": []}))
+
+
+class DetailsGate(unittest.TestCase):
+    """A Places `details` call costs $0.02 and is the only source of a seeded
+    venue's website. The gate must keep real galleries whose names carry no
+    venue word, and drop the malls/tunnels/temple halls a type sweep returns."""
+
+    cfg = CITIES["tokyo"]
+
+    def test_keeps_anchor_venues_without_a_venue_word(self):
+        import seed_venues
+        for name in ("Perrotin", "NANZUKA", "ANOMALY", "KOSAKU KANECHIKA", "TARO NASU",
+                     "SCAI The Bathhouse", "WAKO WORKS OF ART", "ShugoArts",
+                     "21_21 Design Sight", "PARCEL"):
+            with self.subTest(name=name):
+                self.assertTrue(seed_venues.details_worth_paying(name, self.cfg))
+
+    def test_keeps_obvious_venue_names(self):
+        import seed_venues
+        for name in ("Gallery Koyanagi", "Mori Art Museum", "Shiseido Gallery",
+                     "Museum of Contemporary Art Tokyo"):
+            with self.subTest(name=name):
+                self.assertTrue(seed_venues.details_worth_paying(name, self.cfg))
+
+    def test_drops_type_sweep_noise(self):
+        import seed_venues
+        for name in ("Azabudai hills", "Roppongi Tunnel Wallart", "Theater 360",
+                     "Treasure Hall of Nogi Jinja", "Sumi.studio(UENO)", ""):
+            with self.subTest(name=name):
+                self.assertFalse(seed_venues.details_worth_paying(name, self.cfg))
+
+    def test_city_without_anchors_falls_back_to_the_name_test(self):
+        import seed_venues
+        self.assertTrue(seed_venues.details_worth_paying("Some Gallery", {}))
+        self.assertFalse(seed_venues.details_worth_paying("Some Mall", {}))

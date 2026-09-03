@@ -465,6 +465,29 @@ def place_kind(place: dict) -> str:
     return "museum" if "museum" in (place.get("types") or []) else "gallery"
 
 
+def _anchor_keys(cfg: dict) -> set[str]:
+    return {tools._norm_venue(a) for z in (cfg.get("zones") or {}).values()
+            for a in (z.get("anchors") or [])}
+
+
+def details_worth_paying(name: str, cfg: dict) -> bool:
+    """Is a $0.02 Places `details` call (the only source of a seeded venue's
+    website, and so of `places_plausible`) justified for this result?
+
+    A nearby sweep of type art_gallery/museum returns roughly half junk by
+    name - malls, tunnels, memorial halls, temple treasure houses. Paying for
+    all of it cost more than the scrape sessions it feeds. But a name filter
+    alone would drop the best galleries, because Perrotin, NANZUKA, ANOMALY,
+    KOSAKU KANECHIKA, Taro Nasu and SCAI The Bathhouse carry no venue word --
+    so the city's configured zone anchors are honoured too."""
+    if venues.PLAUSIBLE_VENUE_RE.search(name or ""):
+        return True
+    key = tools._norm_venue(name or "")
+    if not key:
+        return False
+    return any(k and (k in key or key in k) for k in _anchor_keys(cfg))
+
+
 def _split_circle(item: dict) -> list[dict]:
     """Four half-radius circles offset diagonally (denser coverage where a
     circle saturated; exact disk coverage is not the goal)."""
@@ -646,13 +669,15 @@ class Ctx:
     def __init__(self, city: str, apply: bool = False, zones: list[str] | None = None,
                  places_api: str = "auto", lookup: bool = False,
                  max_places_requests: int | None = None, refetch: bool = False,
-                 today: date | None = None, key: str | None = None, quiet: bool = False):
+                 today: date | None = None, key: str | None = None, quiet: bool = False,
+                 details_all: bool = False):
         self.city, self.cfg = city, CITIES[city]
         self.quiet = quiet
         self.city_name = self.cfg["display_name"]
         self.apply, self.zones = apply, (list(zones) if zones else None)
         self.places_api, self.lookup = places_api, lookup
         self.max_places_requests, self.refetch = max_places_requests, refetch
+        self.details_all = details_all
         self.today = today or date.today()
         self.key = key if key is not None else os.environ.get("GOOGLE_MAPS_API_KEY")
         self.reg = venues.load_registry(city)
@@ -852,6 +877,12 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
                                    "area": p["area"]})
             continue
         v, how = match_registry(ctx.reg, p["name"], p.get("website"), p["lat"], p["lng"])
+        if v is None and not ctx.details_all and not details_worth_paying(p["name"], ctx.cfg):
+            # No details call means no website, which means places_plausible is
+            # False and triage would park the venue anyway - so do not create it.
+            rep["skipped"].append({"name": p["name"], "reason": "name_not_venue_like",
+                                   "area": p["area"]})
+            continue
         if v is None and api_used == "legacy" and ctx.apply:
             det = None
             try:
@@ -1421,7 +1452,8 @@ def print_status(rows: list[dict]) -> None:
 def run(city: str, sources: list[str] | tuple[str, ...] = (), zones: list[str] | None = None,
         apply: bool = False, places_api: str = "auto", lookup: bool = False,
         resolve: bool = False, max_places_requests: int | None = None, refetch: bool = False,
-        status: bool = False, quiet: bool = False, today: date | None = None) -> dict:
+        status: bool = False, quiet: bool = False, today: date | None = None,
+        details_all: bool = False) -> dict:
     """In-process entry point (run_deep can call this before enumeration).
     Returns {"city", "apply", "sources": {name: report}, "stats", "status"?}."""
     cfg = CITIES[city]
@@ -1433,7 +1465,8 @@ def run(city: str, sources: list[str] | tuple[str, ...] = (), zones: list[str] |
         if bad:
             raise ValueError(f"unknown zones {bad}; valid: {cfg['neighborhoods']}")
     ctx = Ctx(city, apply=apply, zones=zones, places_api=places_api, lookup=lookup,
-              max_places_requests=max_places_requests, refetch=refetch, today=today, quiet=quiet)
+              max_places_requests=max_places_requests, refetch=refetch, today=today, quiet=quiet,
+              details_all=details_all)
     out: dict = {"city": city, "apply": apply, "sources": {}, "stats": ctx.stats}
     runners = {"places": seed_places, "gpla": seed_gpla, "carla": seed_carla, "evidence": seed_evidence}
     for s in [s for s in SOURCES if s in sources]:
@@ -1570,6 +1603,10 @@ def main() -> None:
     ap.add_argument("--max-places-requests", type=int, default=None,
                     help="cap on paid nearby requests; in dry-run this is the ONLY way paid Places calls happen")
     ap.add_argument("--refetch", action="store_true", help="ignore the 1-day HTML cache (GPLA/Carla)")
+    ap.add_argument("--details-all", action="store_true",
+                    help="pay the $0.02 Places details call for EVERY new nearby result, not "
+                         "only the ones whose name looks like an exhibition venue or matches a "
+                         "configured zone anchor (see details_worth_paying)")
     ap.add_argument("--vouch-parked", action="store_true",
                     help="probe parked Places-only venues' own websites ($0); an exhibitions "
                          "page with dates unparks them (--apply to write)")
@@ -1588,7 +1625,8 @@ def main() -> None:
     try:
         run(args.city, sources, zones, apply=args.apply, places_api=args.places_api,
             lookup=args.lookup, resolve=args.resolve_zones,
-            max_places_requests=args.max_places_requests, refetch=args.refetch, status=args.status)
+            max_places_requests=args.max_places_requests, refetch=args.refetch, status=args.status,
+            details_all=args.details_all)
     except ValueError as exc:
         sys.exit(str(exc))
 
