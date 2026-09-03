@@ -253,6 +253,7 @@ WORKFLOW for each show:
 WRITING THE DESCRIPTION — important:
 - Write 2-4 original paragraphs in your own words, in the informed, plainspoken tone of a good gallery guide: what the show is, what kinds of works are in it, context about the artist, and why it's worth seeing.
 - Synthesize facts from your research. Do NOT copy or lightly paraphrase the venue's press release or any article. If sources offer little text, write the description yourself from what the images and listings tell you.
+- Write about the SHOW, not the gallery: do not describe the gallery's history, program, roster, founders or space in the show description — the venue record carries that. One sentence of venue context is fine only when it explains the show (e.g. the show inaugurates a new space).
 
 QUALITY BAR:
 - Real shows, with dates verified against the venue's site. Never invent shows, dates, addresses, or images.
@@ -435,21 +436,69 @@ def _crosscheck_line(city_key: str, slug: str, crosscheck: dict) -> str:
     return ("\n    cross-check -> " + " | ".join(parts)) if parts else ""
 
 
+VENUE_VERIFIED_FRESH_DAYS = 30   # a venue-level verification this recent skips venue checks
+
+
+def venue_verified_date(city_key: str, show: dict, registry: dict | None = None,
+                        today: date | None = None) -> str | None:
+    """ISO date of the show's venue's deterministic verification
+    (validate_venues.py -> registry `verification`) when it is "verified" and
+    younger than VENUE_VERIFIED_FRESH_DAYS, else None. The verify agent then
+    checks the SHOW only (docs/GALLERIES.md, stage S2)."""
+    vid = show.get("venue_id")
+    if not vid:
+        return None
+    if registry is None:
+        import venues
+        registry = venues.index_by_id(venues.load_registry(city_key))
+    ver = (registry.get(vid) or {}).get("verification") or {}
+    if ver.get("status") != "verified" or not ver.get("ts"):
+        return None
+    today = today or date.today()
+    when = date.fromtimestamp(int(ver["ts"]))
+    if (today - when).days > VENUE_VERIFIED_FRESH_DAYS:
+        return None
+    return when.isoformat()
+
+
 def build_verify_prompt(city_key: str, cfg: dict, shows: list[dict]) -> str:
     crosscheck = {}
     cc_path = tools.CONTENT_DIR / "spend" / "crosscheck.json"
     if cc_path.exists():
         crosscheck = json.loads(cc_path.read_text())
+    try:
+        import venues
+        registry = venues.index_by_id(venues.load_registry(city_key))
+    except Exception:  # registry is optional for verification
+        registry = {}
+    verified_on = {s["slug"]: venue_verified_date(city_key, s, registry) for s in shows}
+
+    def _venue_bits(s: dict) -> str:
+        d = verified_on.get(s["slug"])
+        if d:
+            return (f" | VENUE FACTS VERIFIED {d} — check the SHOW only (dates, on view, second "
+                    "source); do not re-check hours/phone/website/address")
+        return (f" | {s['venue']['address']}"
+                f" | hours: {' / '.join(s['venue']['hours'])} | phone: {s['venue'].get('phone')}")
+
     inventory = "\n".join(
         f"- slug: {s['slug']} | {s.get('artist') or ''} \"{s['title']}\" at {s['venue']['name']}"
         f" | {s.get('start_date') or '?'}..{s.get('end_date') or 'END UNKNOWN'}"
         + (f" | dates_note: {s['dates_note']}" if s.get('dates_note') else "")
-        + f" | {s['venue']['address']}"
-        f" | hours: {' / '.join(s['venue']['hours'])} | phone: {s['venue'].get('phone')}"
-        f" | site: {s['venue'].get('website')} | sources: {', '.join(s['source_urls'][:2])}"
-        + _crosscheck_line(city_key, s['slug'], crosscheck)
+        + _venue_bits(s)
+        + f" | site: {s['venue'].get('website')} | sources: {', '.join(s['source_urls'][:2])}"
+        + ("" if verified_on.get(s["slug"]) else _crosscheck_line(city_key, s['slug'], crosscheck))
         for s in shows
     )
+    n_venue_verified = sum(1 for d in verified_on.values() if d)
+    venue_rule = ("" if not n_venue_verified else
+                  "\nVENUE FACTS ALREADY VERIFIED: a show whose line says VENUE FACTS VERIFIED had its "
+                  "venue (existence, address, hours, phone, website) confirmed deterministically "
+                  "within the last 30 days. For those shows skip step 2's venue checks entirely — "
+                  "spend no fetch or search on hours/phone/website/address — and verify only the "
+                  "exhibition itself (real, dates right, on view or opening within 7 days, second "
+                  "source). Still report a venue correction if the exhibition page itself shows the "
+                  "venue moved or closed.\n")
     second_source = SECOND_SOURCES.get(city_key, "Artsy (artsy.net)")
     return f"""You are an art-world fact checker auditing a gallery guide's saved records.
 Today is {date.today().strftime('%A, %B %d, %Y')}.
@@ -471,7 +520,7 @@ For EACH show, in order:
    - status "verified": everything checked out against the venue's own site.
    - status "corrected": the show is real and current but you fixed one or more fields (fill only the changed fields in corrections; null for the rest; say what changed in reason).
    - status "unverified": you could NOT confirm the show on the venue's own site (or another authoritative primary source when the venue site is genuinely broken), OR the venue appears closed, OR the show has already ended. Give a one-line reason.
-
+{venue_rule}
 CROSS-CHECK RULES (each show may carry a "cross-check ->" line of Google Maps / OSM data gathered today):
 - Google businessStatus CLOSED_PERMANENTLY or CLOSED_TEMPORARILY: mark the show unverified, unless the venue's own site currently and explicitly says it is open (explain in reason).
 - Google NOT FOUND, a COORDS_OFF flag, or COORDS_UNRESOLVED: apply extra scrutiny — confirm the address on the venue's own site and correct it if it differs (pins are geocoded automatically from the confirmed address; there is no coordinates field to correct). For galleries with multiple spaces, make sure the address is the space hosting THIS show.
