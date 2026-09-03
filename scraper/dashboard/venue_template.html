@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gallery Ranking Workshop</title>
+<style>
+/* ---- tokens: dark by default (webdemo house style), light via prefers-color-scheme ---- */
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0c; --surface: #161618; --surface-2: #1e1e21; --surface-3: #26262a;
+  --text: #f3f3f1; --text-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,.10);
+  --accent: #61adf2; --accent-soft: rgba(97,173,242,.16); --on-accent: #0b0b0c;
+  --good: #0ca30c; --warn: #fab219; --serious: #ec835a; --crit: #d03b3b;
+  /* categorical slots (dataviz reference palette, dark steps, validated on #161618) */
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --div-mid: #383835;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f9f9f7; --surface: #fcfcfb; --surface-2: #f0efec; --surface-3: #e6e5e0;
+    --text: #0b0b0b; --text-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,.10);
+    --accent: #1c6fc4; --accent-soft: rgba(42,120,214,.12); --on-accent: #fff;
+    --good: #006300;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+    --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7; --s8: #e34948;
+    --div-mid: #f0efec;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 17px; font-weight: 650; margin: 0; }
+h2 { font-size: 14px; font-weight: 650; margin: 18px 0 8px; }
+h3 { font-size: 13px; font-weight: 650; margin: 14px 0 6px; color: var(--text-2); }
+code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+button { font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+button:hover { background: var(--surface-3); }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+button.small { padding: 2px 7px; font-size: 12px; }
+button.on { outline: 2px solid var(--accent); }
+input, select { font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 5px; padding: 3px 6px; }
+input[type=number] { width: 68px; text-align: right; font-variant-numeric: tabular-nums; }
+input[type=range] { flex: 1; min-width: 60px; accent-color: var(--accent); padding: 0; background: transparent; border: 0; }
+input[type=checkbox] { accent-color: var(--accent); }
+.muted { color: var(--muted); }
+.dim { color: var(--text-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---- layout ---- */
+header.top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; padding: 10px 18px; background: var(--bg); border-bottom: 1px solid var(--border); }
+header .sub { color: var(--muted); font-size: 12px; margin-left: 10px; }
+nav.tabs { display: flex; gap: 4px; }
+nav.tabs button { background: transparent; border-color: transparent; color: var(--text-2); padding: 5px 12px; }
+nav.tabs button.on { background: var(--accent-soft); color: var(--text); }
+.hdr-kpis { margin-left: auto; display: flex; gap: 14px; font-size: 12px; color: var(--text-2); white-space: nowrap; }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid var(--border); }
+.badge.ok { background: rgba(12,163,12,.15); color: var(--good); border-color: rgba(12,163,12,.35); }
+.badge.bad { background: rgba(208,59,59,.18); color: var(--crit); border-color: rgba(208,59,59,.45); }
+.layout { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 18px; padding: 14px 18px 60px; }
+aside#controls { position: sticky; top: 52px; align-self: start; max-height: calc(100vh - 66px); overflow: auto; padding-right: 4px; }
+main { min-width: 0; }
+.tab { display: none; }
+.tab.on { display: block; }
+@media (max-width: 1000px) {
+  .layout { grid-template-columns: 1fr; }
+  aside#controls { position: static; max-height: none; }
+  .hdr-kpis { display: none; }
+}
+
+/* ---- controls ---- */
+details.sec { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+details.sec > summary { cursor: pointer; padding: 7px 10px; font-weight: 600; font-size: 12.5px; list-style: none; display: flex; align-items: center; gap: 6px; }
+details.sec > summary::before { content: "▸"; color: var(--muted); font-size: 10px; }
+details.sec[open] > summary::before { content: "▾"; }
+details.sec > .body { padding: 2px 10px 10px; }
+.row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.row label { flex: 0 0 138px; font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 6px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+tr.rat td { background: var(--surface-2); }
+.flip { color: var(--warn); font-weight: 600; }
+.row.wide label { flex: 1 1 auto; }
+.row select { flex: 1; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex: 0 0 10px; }
+.sw.hatch { background-image: repeating-linear-gradient(45deg, var(--c) 0 2px, transparent 2px 4px); background-color: color-mix(in srgb, var(--c) 30%, transparent); }
+.hint { font-size: 11px; color: var(--muted); margin: 4px 0 2px; }
+table.src { width: 100%; border-collapse: collapse; font-size: 12px; }
+table.src td { padding: 2px 3px; border-top: 1px solid var(--border); vertical-align: middle; }
+table.src input[type=number] { width: 56px; padding: 1px 4px; }
+.srcwrap { max-height: 280px; overflow: auto; }
+.btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ovlist { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0; }
+.ovlist .chip { cursor: pointer; }
+
+/* ---- kpis ---- */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 4px 0 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+.kpi .l { font-size: 11px; color: var(--muted); }
+.kpi .v { font-size: 20px; font-weight: 600; line-height: 1.2; }
+.kpi .d { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+
+/* ---- ranked list ---- */
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-2); margin: 6px 0 10px; align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin-bottom: 6px; }
+.card.feat { border-left: 3px solid var(--accent); }
+.card.gated { opacity: .82; }
+.card .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.card .rank { font-variant-numeric: tabular-nums; color: var(--muted); width: 26px; flex: 0 0 26px; font-size: 12px; }
+.card .ttl { font-weight: 600; }
+.card .art { color: var(--text-2); }
+.card .score { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; }
+.chip { display: inline-block; padding: 0 6px; border-radius: 999px; font-size: 11px; line-height: 17px; background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border); white-space: nowrap; }
+.chip.venue { background: var(--surface-3); color: var(--text); }
+.chip.f { background: var(--accent-soft); color: var(--text); border-color: transparent; font-weight: 600; }
+.chip.warn { color: var(--warn); }
+.chip.bad { color: var(--crit); }
+.chip.pin { color: var(--accent); }
+.chips { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.track { position: relative; height: 12px; background: var(--surface-2); border-radius: 3px; margin: 7px 0 5px 36px; }
+.stack { position: absolute; left: 0; top: 0; height: 100%; display: flex; gap: 2px; }
+.seg { height: 100%; background: var(--c); cursor: default; }
+.seg.hatch { background-image: repeating-linear-gradient(45deg, var(--c) 0 3px, transparent 3px 6px); background-color: color-mix(in srgb, var(--c) 35%, transparent); }
+.stack .seg:last-child { border-radius: 0 4px 4px 0; }
+.seg:hover { filter: brightness(1.2); }
+.thr { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--muted); }
+.thr::after { content: "t"; position: absolute; top: -13px; left: -3px; font-size: 9px; color: var(--muted); }
+.why { font-size: 12px; color: var(--text-2); margin-left: 36px; }
+.lift { font-size: 12px; margin-left: 36px; color: var(--text-2); }
+.lift b { color: var(--text); font-weight: 600; }
+.card .foot { display: flex; gap: 8px; align-items: center; margin: 4px 0 0 36px; }
+.cutoff { display: flex; align-items: center; gap: 10px; margin: 10px 0; color: var(--text-2); font-size: 12px; }
+.cutoff::before, .cutoff::after { content: ""; flex: 1; border-top: 2px dashed var(--axis); }
+.drawer { margin: 8px 0 2px 36px; padding-top: 8px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px 20px; font-size: 12px; }
+.drawer h4 { margin: 0 0 4px; font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+table.t { border-collapse: collapse; width: 100%; font-size: 12px; }
+table.t th { text-align: left; font-weight: 600; color: var(--muted); padding: 3px 6px; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+table.t td { padding: 3px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+table.t tr.hi td { background: var(--accent-soft); }
+.scroll { overflow-x: auto; max-width: 100%; }
+.sig { padding: 4px 0; border-bottom: 1px solid var(--border); }
+.sig .meta { color: var(--muted); font-size: 11px; }
+.sig .snip { color: var(--text-2); }
+.mini { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.mini .lbl { flex: 0 0 120px; color: var(--text-2); }
+.mini .bar { flex: 1; height: 6px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
+.mini .bar span { display: block; height: 100%; background: var(--s1); border-radius: 0 3px 3px 0; }
+.mini .val { width: 22px; text-align: right; font-variant-numeric: tabular-nums; }
+.rationale { color: var(--text-2); white-space: pre-wrap; }
+.divbar { position: relative; height: 8px; width: 90px; background: var(--surface-2); border-radius: 2px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+.divbar::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--axis); }
+.divbar span { position: absolute; top: 0; height: 100%; }
+.divbar .up { background: var(--s1); left: 50%; border-radius: 0 3px 3px 0; }
+.divbar .dn { background: var(--s8); right: 50%; border-radius: 3px 0 0 3px; }
+.notice { background: var(--surface); border: 1px dashed var(--axis); border-radius: 8px; padding: 12px 14px; color: var(--text-2); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px 12px; margin-bottom: 14px; }
+.panel h2 { margin-top: 2px; }
+svg.sweep { width: 100%; height: auto; display: block; }
+svg.sweep text { font: 10.5px system-ui, sans-serif; fill: var(--muted); }
+svg.sweep .grid { stroke: var(--grid); stroke-width: 1; }
+svg.sweep .axis { stroke: var(--axis); stroke-width: 1; }
+svg.sweep .l1 { fill: none; stroke: var(--s1); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+svg.sweep .l2 { fill: none; stroke: var(--s2); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+svg.sweep .cur { stroke: var(--accent); stroke-width: 1.5; }
+svg.sweep .x { stroke: var(--text-2); stroke-width: 1; }
+svg.sweep circle { stroke: var(--surface); stroke-width: 2; }
+.lk { display: inline-block; width: 14px; height: 2px; vertical-align: middle; border-radius: 1px; }
+#tip { position: fixed; z-index: 50; pointer-events: none; background: var(--surface-3); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 12px; max-width: 320px; white-space: pre-line; box-shadow: 0 4px 16px rgba(0,0,0,.35); }
+#tip b { font-weight: 650; }
+.slugline { font-size: 11px; color: var(--muted); }
+.lint { color: var(--muted); font-size: 11px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div><h1>Gallery ranking workshop</h1><span class="sub" id="hdr-meta"></span></div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="ranking" class="on">Ranking</button>
+      <button data-tab="benchmark">Benchmark</button>
+      <button data-tab="parity">Parity</button>
+    </nav>
+    <div class="hdr-kpis" id="hdr-kpis"></div>
+  </header>
+  <div class="layout">
+    <aside id="controls"></aside>
+    <main>
+      <section id="tab-ranking" class="tab on">
+        <div class="kpis" id="kpis"></div>
+        <div class="legend" id="legend"></div>
+        <div class="row" style="margin:0 0 8px"><input type="search" id="filter" placeholder="filter by name / id / neighborhood" style="flex:1"><label><input type="checkbox" id="show-gated"> show gated</label><label>rows <input type="number" id="max-rows" value="150" min="10" step="10"></label></div>
+        <div id="list"></div>
+      </section>
+      <section id="tab-benchmark" class="tab"></section>
+      <section id="tab-parity" class="tab"></section>
+    </main>
+  </div>
+  <div id="tip" hidden></div>
+</div>
+<!-- VENUE_DATA -->
+<script>
+<!-- VENUE_CORE -->
+
+/* =====================================================================
+ * 3. STATE + RENDERING (page-specific)
+ * ===================================================================*/
+const PRESET_KEY = 'venue-presets-' + CITY;
+let params = normalizeParams(clone(R.params_default || {}));
+const ui = { tab: 'ranking', expanded: new Set(), filter: '', showGated: false, maxRows: 150 };
+const state = { rows: [], bench: null, parity: null };
+
+function readHash() {
+  const m = /[#&]p=([A-Za-z0-9_-]+)/.exec(location.hash || '');
+  if (!m) return;
+  try { params = normalizeParams(mergeParams(normalizeParams(clone(R.params_default || {})), JSON.parse(b64urlDecode(m[1])))); } catch (e) { console.warn('bad #p=', e); }
+}
+function shareLink() {
+  const d = diffParams(params, R.params_default || {});
+  const base = location.href.replace(/#.*$/, '');
+  return Object.keys(d).length ? `${base}#p=${b64urlEncode(JSON.stringify(d))}` : base;
+}
+function recompute() { state.rows = rank(VENUES, params); state.bench = benchmark(state.rows); }
+function renderAll() { recompute(); renderHeader(); renderKPIs(); renderLegend(); renderList(); renderBenchmark(); }
+
+const slotColor = f => { const [n, hatch] = FEATURE_SLOT[f] || [1, false]; return [`var(--s${n})`, hatch]; };
+function barHTML(r, scale) {
+  let segs = '';
+  for (const f of STACK_ORDER) {
+    const c = r.contrib[f]; if (!c || c <= 0) continue;
+    const [col, hatch] = slotColor(f);
+    segs += `<div class="seg${hatch ? ' hatch' : ''}" style="--c:${col};width:${(100 * c / scale).toFixed(2)}%" data-tip="${esc(FEATURE_LABEL[f])}: ${fmt(r.features[f])} × w ${fmt(params.weights[f], 2)} = ${fmt(c)}\n${esc(r.basis[f])}"></div>`;
+  }
+  const neg = Object.entries(r.contrib).filter(([, c]) => c < 0).reduce((s, [, c]) => s + c, 0);
+  const t = params.tiers || {};
+  const thr = ['1', '2', '3'].filter(k => t[k] != null && +t[k] <= scale).map(k => `<div class="thr" style="left:${(100 * +t[k] / scale).toFixed(2)}%" data-tip="tier ${k} threshold ${t[k]}"></div>`).join('');
+  return `<div class="track"><div class="stack">${segs}</div>${thr}</div>${neg ? `<div class="why">negative terms ${fmt(neg)} (${Object.entries(r.contrib).filter(([, c]) => c < 0).map(([f, c]) => `${FEATURE_LABEL[f]} ${fmt(c, 2)}`).join(', ')})</div>` : ''}`;
+}
+function drawerHTML(r) {
+  const rows = FEATURES.map(f => `<tr${params.weights[f] ? '' : ' class="dim"'}><td>${esc(FEATURE_LABEL[f])}</td><td class="n">${fmt(r.features[f])}</td><td class="n">${fmt(params.weights[f], 2)}</td><td class="n">${fmt(r.contrib[f])}</td><td>${esc(r.basis[f])}</td></tr>`).join('');
+  const raw = r.raw || {};
+  const judge = raw.judge && Object.keys(raw.judge).length ? Object.entries(raw.judge).map(([variant, models]) => Object.entries(models).map(([m, x]) => `<div class="sig"><div class="meta">${esc(variant)} · ${esc(m)} · overall ${x.overall ?? '–'} · conf ${x.confidence ?? '–'}</div><div class="rationale">${esc(x.rationale || '')}</div></div>`).join('')).join('') : '<div class="muted">no venue judge verdict</div>';
+  return `<div class="drawer">
+    <div><h4>Why</h4><div class="scroll"><table class="t"><tr><th>feature</th><th class="n">value</th><th class="n">w</th><th class="n">contrib</th><th>basis</th></tr>${rows}</table></div></div>
+    <div><h4>Record</h4>
+      <div class="sig"><div class="meta">id <code>${esc(r.id)}</code> · kind ${esc(r.kind)} · status ${esc(r.status)} · verification ${esc(r.verification || '–')} · ${esc(r.neighborhood || 'no zone')}</div></div>
+      ${r.website ? `<div class="sig"><a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(r.website)}</a></div>` : ''}
+      ${r.report_path ? `<div class="sig">report: <code>${esc(r.report_path)}</code></div>` : '<div class="sig muted">no research report yet</div>'}
+      ${r.about ? `<div class="sig"><div class="rationale">${esc(r.about)}</div></div>` : ''}
+      ${raw.hours ? `<div class="sig"><div class="meta">hours parse</div>${esc(JSON.stringify(raw.hours))}</div>` : ''}
+      <h4 style="margin-top:8px">Venue judge</h4>${judge}
+    </div></div>`;
+}
+function rowHTML(r, scale) {
+  const open = ui.expanded.has(r.id);
+  const chips = [`<span class="chip venue">${esc(r.kind)}</span>`, r.neighborhood ? `<span class="chip">${esc(r.neighborhood)}</span>` : '', SEESAW_IDS.has(r.id) ? '<span class="chip pin" title="on the See Saw benchmark (not a feature unless leak_seesaw)">See Saw</span>' : '', r.verification ? `<span class="chip${r.verification === 'verified' ? ' f' : r.verification === 'flagged' ? ' bad' : ''}">${esc(r.verification)}</span>` : '', r.gate ? `<span class="chip bad">gated: ${esc(r.gate)}</span>` : ''].filter(Boolean).join('');
+  return `<div class="card${r.tier === 1 ? ' feat' : ''}${r.gate ? ' gated' : ''}" id="row-${esc(r.id)}">
+    <div class="head"><span class="rank">${r.rank ?? '–'}</span><span class="ttl">${esc(r.name)}</span><span class="chips">${chips}</span><span class="chip${r.tier ? ' f' : ''}">tier ${r.tier ?? '–'}</span><span class="score">${fmt(r.score)}</span></div>
+    ${barHTML(r, scale)}
+    <div class="foot"><button class="small" data-act="toggle" data-id="${esc(r.id)}">${open ? 'hide' : 'why'}</button>${r.website ? `<a class="chip" href="${esc(r.website)}" target="_blank" rel="noopener">site</a>` : ''}</div>
+    ${open ? drawerHTML(r) : ''}</div>`;
+}
+function renderList() {
+  const q = ui.filter.trim().toLowerCase();
+  let rows = state.rows.filter(r => ui.showGated || !r.gate);
+  if (q) rows = rows.filter(r => (r.name || '').toLowerCase().includes(q) || r.id.includes(q) || (r.neighborhood || '').toLowerCase().includes(q));
+  const scale = Math.max(0.2, ...state.rows.filter(r => !r.gate).slice(0, 1).map(r => r.score), +(params.tiers || {})['1'] || 0);
+  $('#list').innerHTML = rows.slice(0, ui.maxRows).map(r => rowHTML(r, scale)).join('') + (rows.length > ui.maxRows ? `<div class="notice">${rows.length - ui.maxRows} more — raise "rows" or filter.</div>` : '') || '<div class="notice">no venues match</div>';
+}
+function renderLegend() {
+  $('#legend').innerHTML = STACK_ORDER.filter(f => params.weights[f]).map(f => { const [c, h] = slotColor(f); return `<span><i class="sw${h ? ' hatch' : ''}" style="--c:${c};background:${h ? '' : c}"></i>${esc(FEATURE_LABEL[f])} ${fmt(params.weights[f], 2)}</span>`; }).join('');
+}
+function kpi(label, value, desc) { return `<div class="kpi"><div class="l">${esc(label)}</div><div class="v">${value}</div>${desc ? `<div class="d">${desc}</div>` : ''}</div>`; }
+function renderKPIs() {
+  const rows = state.rows, gated = rows.filter(r => r.gate).length;
+  const tiers = {}; for (const r of rows) if (!r.gate) { const k = String(r.tier); tiers[k] = (tiers[k] || 0) + 1; }
+  $('#kpis').innerHTML = kpi('venues', rows.length, `${gated} gated`) + kpi('tier 1', tiers['1'] || 0, `≥ ${params.tiers['1']}`) + kpi('tier 2', tiers['2'] || 0, `≥ ${params.tiers['2']}`) + kpi('tier 3', tiers['3'] || 0, `≥ ${params.tiers['3']}`) + kpi('unranked', tiers['null'] || 0, 'below tier 3') +
+    kpi('See Saw AUC', state.bench.auc == null ? '–' : fmt(state.bench.auc, 3), `${state.bench.pos} benchmark venues · reported, not fitted`);
+}
+function renderHeader() {
+  $('#hdr-meta').textContent = `${CITY} · scored ${R.today || ''} · params ${R.params_hash || ''}`;
+  $('#hdr-kpis').innerHTML = `<span>${state.rows.filter(r => !r.gate).length} ranked</span><span>AUC ${state.bench.auc == null ? '–' : fmt(state.bench.auc, 3)}</span>`;
+}
+function renderBenchmark() {
+  const b = state.bench;
+  const ss = state.rows.filter(r => SEESAW_IDS.has(r.id));
+  let h = `<div class="panel"><h2>See Saw venue benchmark <span class="badge">${b.n_seesaw} venues · AUC ${b.auc == null ? '–' : fmt(b.auc, 3)}</span></h2>
+  <div class="hint">Venues that appear on See Saw's LA "All Current Shows" / Featured snapshots vs every other ungated venue. AUC = P(See Saw venue outscores a random other venue). This is a sanity check only: See Saw is the held-out test set and <code>leak_seesaw</code> stays off (it is a feature you can switch on for experiments, which invalidates this number).</div>
+  <div class="scroll"><table class="t"><tr><th class="n">rank</th><th>venue</th><th class="n">score</th><th class="n">tier</th><th>gate</th><th>top contributions</th></tr>`;
+  for (const r of ss.sort((a, b2) => (a.rank ?? 1e9) - (b2.rank ?? 1e9))) {
+    const top = Object.entries(r.contrib).filter(([, c]) => c).sort((x, y) => Math.abs(y[1]) - Math.abs(x[1])).slice(0, 4).map(([f, c]) => `${FEATURE_LABEL[f]} ${c >= 0 ? '+' : ''}${fmt(c, 2)}`).join(', ');
+    h += `<tr><td class="n">${r.rank ?? '–'}</td><td><a href="#" data-act="goto" data-id="${esc(r.id)}">${esc(r.name)}</a></td><td class="n">${fmt(r.score)}</td><td class="n">${r.tier ?? '–'}</td><td>${esc(r.gate || '')}</td><td>${esc(top)}</td></tr>`;
+  }
+  h += '</table></div></div>';
+  // feature AUCs (single-feature ranking power)
+  const gated = state.rows.filter(r => !r.gate);
+  const pos = gated.filter(r => SEESAW_IDS.has(r.id)), neg = gated.filter(r => !SEESAW_IDS.has(r.id));
+  h += `<div class="panel"><h2>Single-feature AUC</h2><div class="hint">How well each feature alone separates See Saw venues from the rest (0.5 = chance). Coverage = share of ranked venues with a non-zero value.</div><div class="scroll"><table class="t"><tr><th>feature</th><th class="n">AUC</th><th class="n">coverage</th><th class="n">weight</th></tr>`;
+  for (const f of FEATURES) {
+    const a = auc(pos.map(r => r.features[f]), neg.map(r => r.features[f]));
+    const cov = gated.length ? gated.filter(r => r.features[f] > 0).length / gated.length : 0;
+    h += `<tr><td>${esc(FEATURE_LABEL[f])}</td><td class="n">${a == null ? '–' : fmt(a, 3)}</td><td class="n">${(100 * cov).toFixed(0)}%</td><td class="n">${fmt(params.weights[f], 2)}</td></tr>`;
+  }
+  h += '</table></div></div>';
+  $('#tab-benchmark').innerHTML = h;
+}
+function renderParity() {
+  const p = state.parity;
+  let h = `<div class="panel"><h2>Python / JS parity <span class="badge ${p.ok ? 'ok' : 'bad'}">${p.ok ? 'OK' : 'MISMATCH'} · max |JS − Python| = ${p.max_score_diff.toExponential(3)}</span></h2><div class="hint">Every venue re-scored in this page under <code>params_default</code> and compared with rank_venues.py's numbers (${p.n} venues; max feature diff ${p.max_feature_diff.toExponential(3)}; must be &lt; 1e-9).</div><div class="scroll"><table class="t"><tr><th>id</th><th class="n">JS</th><th class="n">Python</th><th class="n">|Δ|</th><th class="n">max |Δ feature|</th><th>feature</th></tr>`;
+  for (const r of p.rows) h += `<tr><td><code>${esc(r.id)}</code></td><td class="n">${fmt(r.js, 6)}</td><td class="n">${fmt(r.py, 6)}</td><td class="n">${r.diff.toExponential(2)}</td><td class="n">${r.feat_diff.toExponential(2)}</td><td>${esc(r.feat)}</td></tr>`;
+  h += '</table></div></div>';
+  h += `<div class="panel"><h2>Reproduce</h2><div class="hint">Export the params and run <code>rank_venues.py score --city ${esc(CITY)} --params &lt;file&gt;</code>; <code>apply</code> writes tier/rank/features to the registry. Share this weighting: <a href="${esc(shareLink())}" id="share-link">link</a> (the <code>#p=</code> suffix is a base64url JSON diff against the defaults).</div></div>`;
+  $('#tab-parity').innerHTML = h;
+}
+
+// ---- controls ----
+function numInput(path, o) { const v = getPath(params, path); return `<input type="number" data-path="${path}" data-kind="${o.int ? 'int' : o.nullable ? 'nullnum' : 'num'}" value="${v == null ? '' : v}"${o.min != null ? ` min="${o.min}"` : ''}${o.max != null ? ` max="${o.max}"` : ''} step="${o.step || 'any'}">`; }
+function numRow(label, path, o) { return `<div class="row"><label title="${esc(path)}">${esc(label)}</label>${numInput(path, o)}</div>`; }
+function rangeRow(label, path, o, swatch) {
+  const v = getPath(params, path); const sw = swatch ? (() => { const [c, h] = slotColor(swatch); return `<i class="sw${h ? ' hatch' : ''}" style="--c:${c};background:${h ? '' : c}"></i>`; })() : '';
+  return `<div class="row"><label title="${esc(path)}">${sw}${esc(label)}</label><input type="range" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v ?? 0}">${numInput(path, o)}</div>`;
+}
+function boolRow(label, path) { return `<div class="row wide"><label title="${esc(path)}"><input type="checkbox" data-path="${path}" data-kind="bool"${getPath(params, path) ? ' checked' : ''}> ${esc(label)}</label></div>`; }
+function selectRow(label, path, opts) { const v = getPath(params, path); return `<div class="row"><label title="${esc(path)}">${esc(label)}</label><select data-path="${path}" data-kind="str">${opts.map(([val, lab]) => `<option value="${esc(val)}"${String(val) === String(v) ? ' selected' : ''}>${esc(lab)}</option>`).join('')}</select></div>`; }
+function section(title, body, open) { return `<details class="sec"${open === false ? '' : ' open'}><summary>${esc(title)}</summary><div class="body">${body}</div></details>`; }
+function listRow(label, path, allValues) {
+  const cur = new Set(getPath(params, path) || []);
+  return `<div class="row wide"><label>${esc(label)}</label></div><div class="ovlist">${allValues.map(k => `<label class="chip"><input type="checkbox" data-list="${path}" data-val="${esc(k)}"${cur.has(k) ? ' checked' : ''}> ${esc(k)}</label>`).join('')}</div>`;
+}
+function judgeVariants() { const s = new Set([params.judge.variant]); for (const v of VENUES) for (const k of Object.keys((v.raw || {}).judge || {})) s.add(k); return [...s].filter(Boolean); }
+function loadPresets() { try { return JSON.parse(localStorage.getItem(PRESET_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function savePresets(p) { try { localStorage.setItem(PRESET_KEY, JSON.stringify(p)); } catch (e) { alert('localStorage unavailable: ' + e.message); } }
+function presetsHTML() {
+  const fileNames = Object.keys(FILE_PRESETS), localNames = Object.keys(loadPresets());
+  const opt = (kind, n) => `<option value="${esc(kind + ':' + n)}"${kind === 'file' && FILE_PRESETS[n].note ? ` title="${esc(FILE_PRESETS[n].note)}"` : ''}>${esc(n)}</option>`;
+  const groups = (fileNames.length ? `<optgroup label="content/curation/params/">${fileNames.map(n => opt('file', n)).join('')}</optgroup>` : '') + (localNames.length ? `<optgroup label="this browser">${localNames.map(n => opt('local', n)).join('')}</optgroup>` : '');
+  return `<div class="row"><select id="preset-sel" style="flex:1">${groups || '<option value="">(no presets)</option>'}</select><button class="small" data-act="preset-load">Load</button><button class="small" data-act="preset-del">Delete</button></div>
+  <div class="row"><input type="text" id="preset-name" placeholder="preset name" style="flex:1"><button class="small" data-act="preset-save">Save</button></div>
+  <div class="btns"><button class="primary" data-act="export">Export params JSON</button><button class="small" data-act="copy-link">Copy share link</button><label><button class="small" data-act="import-click">Import…</button><input type="file" id="import-file" accept="application/json,.json" hidden></label><button class="small" data-act="reset">Reset to default</button></div>
+  <div class="hint">File presets are <code>content/curation/params/venues-*.json</code> embedded at render time. Export writes the rank_venues.py params schema; <code>rank_venues.py apply --params &lt;file&gt;</code> persists a weighting to the registry. Nothing on this page fetches or scrapes.</div>`;
+}
+const KINDS_ALL = ['gallery', 'museum', 'nonprofit', 'project_space', 'university', 'other'];
+const STATUS_ALL = ['active', 'unknown', 'appointment_only', 'candidate', 'closed', 'out_of_scope', 'duplicate'];
+function renderControls() {
+  let h = '';
+  h += section('Gates', boolRow('Require verified (validate_venues.py)', 'gates.require_verified') + numRow('Min score', 'gates.min_score', { min: 0, max: 1, step: 0.01 }) + listRow('Kinds allowed (none = all)', 'gates.kinds', KINDS_ALL) + listRow('Exclude status', 'gates.exclude_status', STATUS_ALL));
+  h += section('Tier thresholds', ['1', '2', '3'].map(k => rangeRow(`tier ${k} ≥`, `tiers.${k}`, { min: 0, max: 1, step: 0.01 })).join(''));
+  h += section('Feature weights', FEATURES.map(f => rangeRow(FEATURE_LABEL[f], `weights.${f}`, { min: f.startsWith('kind_') ? -1 : 0, max: 1, step: 0.01 }, f)).join('') + '<div class="hint">kind weights may be negative (museums rank as institutions, not galleries)</div>');
+  h += section('Saturation references', numRow('fairs (distinct)', 'refs.fairs', { min: 0, step: 0.5 }) + numRow('curated lists', 'refs.lists', { min: 0, step: 0.5 }) + numRow('press outlets', 'refs.press', { min: 0, step: 0.5 }) + numRow('directories', 'refs.directory', { min: 0, step: 0.5 }) + numRow('longevity (years)', 'refs.longevity_years', { min: 0, step: 1 }) + numRow('roster (artists)', 'refs.roster', { min: 0, step: 1 }) + numRow('shows / year', 'refs.shows_per_year', { min: 0, step: 0.5 }) + numRow('other locations', 'refs.locations', { min: 0, step: 1 }) + numRow('Google reviews', 'refs.ratings', { min: 0, step: 50 }) + numRow('wiki sitelinks', 'refs.wiki_sitelinks', { min: 0, step: 1 }), false);
+  const listIds = [...new Set(VENUES.flatMap(v => [...((v.raw || {}).fairs || []), ...((v.raw || {}).lists || [])]))].sort();
+  h += section(`Fair / list weights (${listIds.length})`, listIds.length ? `<div class="srcwrap"><table class="src">${listIds.map(id => `<tr><td>${esc(id)}</td><td><input type="number" data-lw="${esc(id)}" min="0" max="3" step="0.1" value="${params.list_weights[id] != null ? params.list_weights[id] : 1}"></td></tr>`).join('')}</table></div><div class="hint">Multiplier per fair / curated list before saturation (default 1).</div>` : '<div class="muted">no fair or list signals yet — run the G0 priors sessions</div>', false);
+  h += section('Venue judge', selectRow('Variant', 'judge.variant', judgeVariants().map(v => [v, v])) + selectRow('Model', 'judge.model', JUDGE_MODELS) + `<div class="hint">${VENUES.filter(v => Object.keys((v.raw || {}).judge || {}).length).length} of ${VENUES.length} venues have a verdict</div>`, false);
+  h += section('Benchmark leakage', boolRow('leak_seesaw (See Saw presence as a feature — experiments only)', 'leak_seesaw'), false);
+  h += section('Presets & export', presetsHTML());
+  $('#controls').innerHTML = h;
+}
+function syncInputs(path, except) {
+  const v = getPath(params, path);
+  document.querySelectorAll(`[data-path="${path}"]`).forEach(el => { if (el === except) return; if (el.type === 'checkbox') el.checked = !!v; else el.value = v == null ? '' : v; });
+}
+function readInput(el) {
+  const kind = el.dataset.kind;
+  if (kind === 'bool') return !!el.checked;
+  if (kind === 'str') return el.value;
+  if (el.value === '' || el.value == null) return kind === 'nullnum' ? null : 0;
+  const n = kind === 'int' ? parseInt(el.value, 10) : parseFloat(el.value);
+  return Number.isNaN(n) ? (kind === 'nullnum' ? null : 0) : n;
+}
+function onControlInput(e) {
+  const el = e.target;
+  if (el.dataset && el.dataset.path) { setPath(params, el.dataset.path, readInput(el)); syncInputs(el.dataset.path, el); renderAll(); }
+  else if (el.dataset && el.dataset.list) { const cur = new Set(getPath(params, el.dataset.list) || []); if (el.checked) cur.add(el.dataset.val); else cur.delete(el.dataset.val); setPath(params, el.dataset.list, [...cur]); renderAll(); }
+  else if (el.dataset && el.dataset.lw) { const v = parseFloat(el.value); if (Number.isNaN(v) || v === 1) delete params.list_weights[el.dataset.lw]; else params.list_weights[el.dataset.lw] = v; renderAll(); }
+}
+function exportParams() { return orderedParams(clone(params)); }
+function exportParamsJSON() { return JSON.stringify(exportParams(), null, 2); }
+function downloadParams() {
+  const blob = new Blob([exportParamsJSON()], { type: 'application/json' }); const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = `venues-${CITY}-${(R.today || 'today')}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+function importParams(obj) { params = normalizeParams(mergeParams(normalizeParams(clone(R.params_default || {})), obj)); renderControls(); renderAll(); renderParity(); }
+function resetParams() { params = normalizeParams(clone(R.params_default || {})); renderControls(); renderAll(); renderParity(); }
+function showTab(name) { ui.tab = name; document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name)); document.querySelectorAll('.tab').forEach(s => s.classList.toggle('on', s.id === 'tab-' + name)); }
+function gotoRow(id) { ui.expanded.add(id); ui.showGated = true; $('#show-gated').checked = true; showTab('ranking'); renderList(); const el = document.getElementById('row-' + id); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if (!b) { const t = e.target.closest('nav.tabs button'); if (t) showTab(t.dataset.tab); return; }
+  const act = b.dataset.act;
+  if (act === 'toggle') { const id = b.dataset.id; if (ui.expanded.has(id)) ui.expanded.delete(id); else ui.expanded.add(id); renderList(); }
+  else if (act === 'goto') { e.preventDefault(); gotoRow(b.dataset.id); }
+  else if (act === 'export') downloadParams();
+  else if (act === 'copy-link') { const l = shareLink(); history.replaceState(null, '', l); (navigator.clipboard ? navigator.clipboard.writeText(l) : Promise.reject()).then(() => { b.textContent = 'Copied'; setTimeout(() => { b.textContent = 'Copy share link'; }, 1500); }, () => prompt('share link', l)); renderParity(); }
+  else if (act === 'import-click') $('#import-file').click();
+  else if (act === 'reset') resetParams();
+  else if (act === 'preset-save') { const name = ($('#preset-name').value || '').trim(); if (!name) { alert('name the preset first'); return; } const p = loadPresets(); p[name] = exportParams(); savePresets(p); $('#controls').querySelector('details.sec:last-of-type .body').innerHTML = presetsHTML(); $('#preset-sel').value = 'local:' + name; }
+  else if (act === 'preset-load') { const sel = $('#preset-sel').value; if (!sel) return; const i = sel.indexOf(':'), kind = sel.slice(0, i), name = sel.slice(i + 1); const obj = kind === 'file' ? (FILE_PRESETS[name] || {}).params : loadPresets()[name]; if (obj) importParams(obj); }
+  else if (act === 'preset-del') { const sel = $('#preset-sel').value; if (!sel) return; const i = sel.indexOf(':'), kind = sel.slice(0, i), name = sel.slice(i + 1); if (kind === 'file') { alert(`"${name}" is a file preset (${(FILE_PRESETS[name] || {}).file}) — delete it on disk, not here.`); return; } const p = loadPresets(); delete p[name]; savePresets(p); $('#controls').querySelector('details.sec:last-of-type .body').innerHTML = presetsHTML(); }
+});
+document.addEventListener('input', e => {
+  if (e.target.closest('#controls')) onControlInput(e);
+  else if (e.target.id === 'filter') { ui.filter = e.target.value; renderList(); }
+  else if (e.target.id === 'max-rows') { ui.maxRows = Math.max(10, parseInt(e.target.value, 10) || 150); renderList(); }
+});
+document.addEventListener('change', e => {
+  if (e.target.id === 'import-file') { const f = e.target.files && e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { try { importParams(JSON.parse(rd.result)); } catch (err) { alert('import failed: ' + err.message); } }; rd.readAsText(f); e.target.value = ''; }
+  else if (e.target.id === 'show-gated') { ui.showGated = !!e.target.checked; renderList(); }
+});
+const tipEl = $('#tip');
+function showTip(text, e) { tipEl.textContent = text; tipEl.hidden = false; moveTip(e); }
+function hideTip() { tipEl.hidden = true; }
+function moveTip(e) { const x = Math.min(e.clientX + 14, window.innerWidth - 330), y = e.clientY + 16; tipEl.style.left = x + 'px'; tipEl.style.top = y + 'px'; }
+document.addEventListener('mouseover', e => { const el = e.target.closest('[data-tip]'); if (el) showTip(el.dataset.tip, e); else hideTip(); });
+document.addEventListener('mousemove', e => { if (!tipEl.hidden && e.target.closest('[data-tip]')) moveTip(e); });
+
+window.dashboard = {
+  get params() { return params; },
+  set(path, value) { setPath(params, path, value); syncInputs(path); renderAll(); },
+  rows: () => state.rows, bench: () => state.bench, parity: () => state.parity,
+  top: (n) => state.rows.filter(r => !r.gate).slice(0, n || 25).map(r => r.id),
+  exportJSON: exportParamsJSON, importParams, resetParams, recompute: renderAll, shareLink,
+  fn: { computeFeatures, scoreVenue, gateFor, tierFor, rank, auc, benchmark, breadthValue, sat },
+};
+
+// boot
+readHash();
+state.parity = parityCheck();
+renderControls();
+renderAll();
+renderParity();
+if (!VENUES.length) $('#list').innerHTML = '<div class="notice">No data: open the generated <code>content/spend/reports/venues-&lt;city&gt;.html</code> (this file is the template).</div>';
+</script>
+</body>
+</html>
