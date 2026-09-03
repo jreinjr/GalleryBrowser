@@ -9,6 +9,8 @@
   'use strict';
 
   const SRC = 'venues';
+  // CARTO's vector basemap: no API key, and the venue-page card reuses it.
+  const STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
   // tier -> dot colour / radius. Keep in step with .map-legend in styles.css.
   const TIER_COLOR = { top: 'rgba(97, 173, 242, 0.95)', notable: 'rgba(255, 255, 255, 0.85)', listed: 'rgba(150, 150, 158, 0.55)' };
   const TIER_RADIUS = { top: 10.5, notable: 8, listed: 5.5 };
@@ -104,7 +106,7 @@
       const c = getCity();
       map = new maplibregl.Map({
         container: 'maplibre',
-        style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+        style: STYLE,
         bounds: cityBounds(c),
         fitBoundsOptions: { padding: 30 },
         attributionControl: { compact: true },
@@ -137,4 +139,5 @@
 
     return { ensureInit, cityChanged, applyFilter: renderPins };
   };
+  window.DemoMap.STYLE = STYLE;
 })();

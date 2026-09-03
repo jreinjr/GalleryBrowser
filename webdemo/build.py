@@ -7,7 +7,7 @@ Usage:
 Each image ships as a 1080px proxy plus, when the source out-resolves it, an
 @full variant (longest side capped at --full-side) the app swaps in on zoom.
 
-Re-runnable: image and map-tile work is cached, so post-scrape rebuilds are fast.
+Re-runnable: image work is cached, so post-scrape rebuilds are fast.
 """
 
 from __future__ import annotations
@@ -20,7 +20,6 @@ from pathlib import Path
 
 import cityconfig
 import images as image_pipe
-import mapgen
 
 HERE = Path(__file__).resolve().parent
 DIST = HERE / "dist" / "gallery-browser-demo"
@@ -81,7 +80,6 @@ def main() -> None:
     img_bytes = 0
     full_bytes = 0
     full_count = 0
-    map_bytes = 0
 
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
@@ -92,17 +90,6 @@ def main() -> None:
             print(f"  note: {cty['key']} has no featured shows — featuring the first 3")
             for s in shows[:3]:
                 s["featured"] = True
-
-        # city basemap for the venue-page card
-        points = [(s["venue"]["latitude"], s["venue"]["longitude"]) for s in shows]
-        img, meta = mapgen.build_city_map(points or [(cty["center"]["lat"], cty["center"]["lng"])],
-                                          (cty["center"]["lat"], cty["center"]["lng"]))
-        map_rel = f"maps/{cty['key']}.webp"
-        map_path = DIST / map_rel
-        map_path.parent.mkdir(parents=True, exist_ok=True)
-        img.save(map_path, "WEBP", quality=70, method=6)
-        map_bytes += map_path.stat().st_size
-        cty["map"] = {"src": map_rel, "w": img.width, "h": img.height}
 
         for s in shows:
             out_imgs = []
@@ -129,7 +116,6 @@ def main() -> None:
                 print(f"  warning: show {s['city']}/{s['slug']} has no usable images — skipped")
                 continue
             v = s["venue"]
-            map_x, map_y = mapgen.project(v["latitude"], v["longitude"], meta)
             rk = ranking.get(s["slug"]) or {}
             # registry `kind` is the source of truth; the show record's boolean is
             # only the fallback for a venue with no registry entry
@@ -161,7 +147,6 @@ def main() -> None:
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],
                     "hours": v["hours"], "phone": v.get("phone"), "website": v.get("website"),
                     "lat": v["latitude"], "lng": v["longitude"],
-                    "mapX": round(map_x, 1), "mapY": round(map_y, 1),
                     **{k: rv[k] for k in ("about", "tier", "rank") if rv.get(k) is not None},
                     **({"id": vid} if vid else {}),
                 },
@@ -169,7 +154,6 @@ def main() -> None:
 
     data = {
         "defaultCity": cityconfig.DEFAULT_CITY,
-        "attribution": mapgen.ATTRIBUTION,
         "cities": cities,
         "shows": all_shows,
         "venues": all_venues,
@@ -196,7 +180,7 @@ def main() -> None:
     print(f"  cities: {len(cities)}   shows: {len(all_shows)}")
     print(f"  code {human(code_bytes)} | data.js {human((DIST / 'data.js').stat().st_size)} "
           f"| proxies {human(img_bytes)} | full-res {human(full_bytes)} ({full_count}) "
-          f"| maps {human(map_bytes)} | total {human(total)}")
+          f"| total {human(total)}")
 
 
 if __name__ == "__main__":

@@ -58,11 +58,13 @@
   }
   const fmtLong = d => d.toLocaleDateString('en-US',
     { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-  function dateLine(s) {
+  const fmtShort = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  function dateLine(s, fmt) {
+    const f = fmt || fmtLong;
     const start = parseDate(s.startDate), end = parseDate(s.endDate);
     if (!end) return '';
-    if (start && start > new Date()) return 'Opens ' + fmtLong(start);
-    return 'Through ' + fmtLong(end);
+    if (start && start > new Date()) return 'Opens ' + f(start);
+    return 'Through ' + f(end);
   }
 
   const DAY = 86400e3;
@@ -943,20 +945,7 @@
   function venuePage(v, opts) {
     const asSheet = !!(opts && opts.asSheet);
     const inSheet = asSheet || !!(opts && opts.inSheet);
-    const cty = city();
-    const mapCard = el('div', { class: 'map-card' });
-    const img = el('img', { class: 'map-crop', src: cty.map.src, alt: '' });
-    img.style.width = cty.map.w + 'px';
-    img.style.height = cty.map.h + 'px';
-    const pinEl = el('div', { class: 'pin-marker', html: ICONS.pin });
-    mapCard.append(img, pinEl,
-      el('div', { class: 'map-attrib' }, DATA.attribution));
-    requestAnimationFrame(() => {
-      const Z = 1.8;
-      const cw = mapCard.clientWidth || 357, ch = 320;
-      img.style.transformOrigin = '0 0';
-      img.style.transform = `translate(${cw / 2 - v.mapX * Z}px, ${ch / 2 - v.mapY * Z}px) scale(${Z})`;
-    });
+    const mapCard = venueMapCard(v);
 
     const actions = el('div', { class: 'venue-actions' },
       el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
@@ -972,7 +961,8 @@
     const showsSection = shows.length
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, 'Shows'),
-          el('div', { class: 'group' }, ...shows.map(s => showRow(s, openShow, { hideVenue: true, hideStar: true }))))
+          el('div', { class: 'venue-show-list' },
+            ...shows.map((_, i) => venueShowCard(shows, i, openShow))))
       : null;
 
     const leading = asSheet
@@ -985,30 +975,83 @@
       el('div', { class: 'venue-body' },
         el('div', { class: 'venue-title' }, v.name),
         tierPill(galleryTier(v)),
+        showsSection,
         venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null,
         el('div', { class: 'venue-lines' },
           el('div', null, fullAddress(v)),
           ...v.hours.map(h => el('div', null, h))),
-        showsSection,
         mapCard,
         actions));
     page.appendChild(scroll);
     return page;
   }
 
+  // A venue's shows read as the Featured card in miniature — photo, frosted
+  // footer — at a third the height, so several fit above the fold. The venue is
+  // the subject of the page, so the second line carries dates, not the address.
+  function venueShowCard(shows, i, onOpen) {
+    const s = shows[i];
+    const open = () => (onOpen || pushDetailFromRow)(s);
+    const car = makeCarousel(s.images, { height: 124, onTap: open });
+    const text = el('div', { class: 'cf-text' },
+      el('div', { class: 'name' }, displayName(s)),
+      el('div', { class: 'sub' }, dateLine(s, fmtShort)));
+    text.addEventListener('click', open);
+    return el('div', { class: 'card venue-show-card' }, car,
+      el('div', { class: 'card-footer' }, text, bookmarkBtn(s)));
+  }
+
+  // The venue card runs the same MapLibre vector style as the Map tab. It used
+  // to crop a pre-stitched raster basemap, but CARTO's raster tiles now demand
+  // an API key and stamp every one of them; vector tiles are crisp at any zoom,
+  // carry their own attribution, and let the card pan.
+  // cooperativeGestures keeps one-finger drags scrolling the page, so the map
+  // can be interactive without trapping the scroll on touch.
+  const venueMaps = new Set();   // { node, map } — swept when the page is gone
+  let mapSweeper = null;
+  function trackMap(node, map) {
+    venueMaps.add({ node, map });
+    if (mapSweeper) return;
+    mapSweeper = new MutationObserver(() => {
+      venueMaps.forEach(e => {
+        if (e.node.isConnected) return;
+        e.map.remove();                       // frees the WebGL context
+        venueMaps.delete(e);
+      });
+      if (venueMaps.size) return;
+      mapSweeper.disconnect();
+      mapSweeper = null;
+    });
+    mapSweeper.observe(document.getElementById('app'), { childList: true, subtree: true });
+  }
+  function venueMapCard(v) {
+    const card = el('div', { class: 'map-card' });
+    if (!window.maplibregl) return card;
+    // the card has no size until it is on screen, so build the map a frame later
+    requestAnimationFrame(() => {
+      if (!card.isConnected) return;
+      const map = new maplibregl.Map({
+        container: card, style: DemoMap.STYLE,
+        center: [v.lng, v.lat], zoom: 15.5,
+        attributionControl: { compact: true },
+        cooperativeGestures: true,
+      });
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+      new maplibregl.Marker({ element: el('div', { class: 'pin-marker', html: ICONS.pin }), anchor: 'bottom' })
+        .setLngLat([v.lng, v.lat]).addTo(map);
+      trackMap(card, map);
+    });
+    return card;
+  }
+
   // onOpen(show) overrides the default push-to-detail (used inside sheets).
-  // opts.hideVenue: on a venue page the venue is the subject, so its rows carry
-  // the show alone instead of repeating the name and address above them.
-  function showRow(s, onOpen, opts) {
-    const bare = !!(opts && opts.hideVenue);
-    const star = opts && opts.hideStar ? null : tierStar(showTier(s));
-    const row = el('div', { class: 'show-row' },
+  function showRow(s, onOpen) {
+    return el('div', { class: 'show-row' },
       el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
-        el('div', { class: 'sr-name' }, star, el('span', { class: 'sr-txt' }, displayName(s))),
-        bare ? null : el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
-        bare ? null : el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
+        el('div', { class: 'sr-name' }, tierStar(showTier(s)), el('span', { class: 'sr-txt' }, displayName(s))),
+        el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+        el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
       bookmarkBtn(s));
-    return row;
   }
   function pushDetailFromRow(s) {
     const list = cityShows();

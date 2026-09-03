@@ -213,8 +213,8 @@
   function venuePage(g, afterTitle, opts) {
     const v = g.venue;
     const mapCard = el('div', { class: 'map-card' });
-    const im = el('img', { class: 'map-crop', src: DIST + city.map.src, alt: '', style: `width:${city.map.w}px;height:${city.map.h}px;transform-origin:0 0;transform:translate(${357 / 2 - v.mapX * 1.8}px,${160 - v.mapY * 1.8}px) scale(1.8)` });
-    mapCard.append(im, el('div', { class: 'pin-marker', html: ICONS.pin }), el('div', { class: 'map-attrib' }, DATA.attribution));
+    // the shipped card runs a live MapLibre map; these static phones just stand it in
+    mapCard.append(el('div', { class: 'pin-marker', html: ICONS.pin, style: 'position:absolute;left:50%;top:50%;transform:translate(-50%,-100%)' }));
     const actions = el('div', { class: 'venue-actions' },
       el('a', { class: 'capsule-btn' }, svg('walk'), el('span', null, 'Directions to venue')),
       el('a', { class: 'capsule-btn' }, svg('compass'), el('span', null, 'Open website')));

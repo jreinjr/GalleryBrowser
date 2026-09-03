@@ -15,7 +15,7 @@ Normally you don't run these by hand: `scraper/pipeline.py` chains
 scrape -> verify -> build -> deploy in one command (see the root README).
 Only published (verified) shows in `content/<city>.json` are built;
 `content/pending/` is ignored. Same URL on every deploy. Image
-recompression and map tiles are cached in `webdemo/.cache/`, so rebuilds are fast.
+recompression is cached in `webdemo/.cache/`, so rebuilds are fast.
 
 Knobs: `--img-cap 7` (images per show), `--max-width 1080`, `--quality 78` (WebP),
 `--full-side 3840`, `--full-quality 80` (full-res variants; `--full-side 0` disables).
@@ -27,13 +27,14 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
 
 ## Layout
 
-- `build.py` — orchestrator: reads `content/`, recompresses images to WebP, stitches a
-  CARTO dark basemap per city (venue-page map card), writes `data.js` + static files.
+- `build.py` — orchestrator: reads `content/`, recompresses images to WebP,
+  writes `data.js` + static files.
 - `cityconfig.py` — imports the scraper's `CITIES`; cities appear automatically once
   `content/<key>.json` exists.
-- `images.py` / `mapgen.py` — image + basemap pipelines (cached).
+- `images.py` — image pipeline (cached).
 - `template.html`, `styles.css`, `icons.js`, `app.js`, `map_maplibre.js` — the app.
-  Vanilla JS; the Map tab uses MapLibre GL + CARTO dark style; state persists in
+  Vanilla JS; the Map tab and the venue-page map card both use MapLibre GL +
+  CARTO's dark-matter vector style; state persists in
   `localStorage` (`selectedCityKey`, `savedShowIDs`, `filter`; same semantics as the iOS app).
 
 ## Filters, rank glyphs, map
@@ -75,8 +76,16 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
   page.
 - **Featured cards** carry a white bookmark button in the footer, the same
   control as the list rows.
-- Venue-page show rows carry the show alone: the venue name and address above
-  them are not repeated.
+- **Venue page** leads with Shows, then the blurb, then the address lines. Each
+  show is a Featured card in miniature — photo, frosted footer, bookmark — 124px
+  tall, about a third of a Featured card, and the footer's second line carries the
+  run dates rather than repeating the venue name.
+- The **venue map card** is a live MapLibre map (same style as the Map tab), not a
+  crop of a pre-stitched raster basemap: CARTO's raster tile CDN now requires an
+  API key and stamps "API KEY REQUIRED" across every tile. Vector tiles stay crisp
+  at any zoom and carry their own attribution. `cooperativeGestures` keeps a
+  one-finger drag scrolling the page, so panning takes two fingers (or ⌘/ctrl +
+  scroll to zoom); the +/− control covers the gated wheel zoom.
 
 ## Local test
 

@@ -107,7 +107,7 @@ function check(name, ok, detail) {
     return n === 0;
   })());
 
-  // Venue page: open the rank-1 venue's show, then its venue page; blurb between title and address
+  // Venue page: open the rank-1 venue's show, then its venue page; Shows above the blurb
   await page.click('#pages-list .list-results .show-row');
   await page.waitForSelector('#pages-list .venue-block');
   await page.click('#pages-list .venue-block');
@@ -120,16 +120,31 @@ function check(name, ok, detail) {
   });
   check('venue page shows the blurb', about.text === BLURB, about.text);
   check('rank-1 venue page shows the Top Gallery pill', about.pill === 'Top Gallery', about.pill);
-  check('blurb sits between title and address lines',
-    about.kids.indexOf('venue-about') === about.kids.indexOf('venue-title') + 1 && about.kids.indexOf('venue-lines') === about.kids.indexOf('venue-about') + 1,
+  check('Shows sit above the blurb, blurb above the address lines',
+    about.kids.indexOf('venue-shows') === about.kids.indexOf('venue-title') + 1
+      && about.kids.indexOf('venue-about') === about.kids.indexOf('venue-shows') + 1
+      && about.kids.indexOf('venue-lines') === about.kids.indexOf('venue-about') + 1,
     about.kids.join(','));
   check('blurb styled (max-width set)', /ch|px/.test(about.maxw || ''), about.maxw);
-  const vrows = await page.$$eval('#pages-list .venue-body .show-row', els => els.map(e => ({
+  const vcards = await page.$$eval('#pages-list .venue-body .venue-show-card', els => els.map(e => ({
+    h: Math.round(e.getBoundingClientRect().height),
+    img: !!e.querySelector('.carousel-slide img'),
+    name: (e.querySelector('.card-footer .name') || {}).textContent,
+    sub: (e.querySelector('.card-footer .sub') || {}).textContent,
+    save: !!e.querySelector('.bookmark-btn'),
     stars: e.querySelectorAll('.tier-star').length,
-    venue: !!e.querySelector('.sr-venue'), addr: !!e.querySelector('.sr-addr'),
   })));
-  check('venue-page rows drop the repeated venue name, address and show star',
-    vrows.length > 0 && vrows.every(v => !v.venue && !v.addr && v.stars === 0), JSON.stringify(vrows));
+  check('venue-page shows render as Featured-style cards', vcards.length > 0
+    && vcards.every(c => c.img && c.name && c.save && c.stars === 0), JSON.stringify(vcards));
+  check('the cards run about a third the height of a Featured card',
+    vcards.every(c => c.h >= 100 && c.h <= 140), vcards.map(c => c.h).join(','));
+  check('the card footer carries the run dates, not the venue name',
+    vcards.every(c => /^(Through|Opens) /.test(c.sub || '')), vcards.map(c => c.sub).join(' | '));
+  check('the venue map card is a live MapLibre canvas', await (async () => {
+    await page.waitForTimeout(400);
+    return page.$eval('#pages-list .venue-body .map-card',
+      m => !!m.querySelector('canvas.maplibregl-canvas') && !m.querySelector('img'));
+  })());
   check('the Top pill is the only rank mark on the gallery page',
     (await page.$$eval('#pages-list .venue-body .tier-pill, #pages-list .venue-body .tier-star', els => els.length)) === 1);
 

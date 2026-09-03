@@ -120,7 +120,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .bookmark-btn { background: rgba(0, 0, 0, 0.32); color: #fff; width: 36px; height: 36px; }
 .card-footer .bookmark-btn.saved { color: var(--blue); }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-footer .venue { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-footer .venue, .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---- Carousel ---- */
 .carousel { position: relative; overflow: hidden; background: #101010; }
@@ -189,20 +189,26 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
   position: relative; height: 320px; border-radius: 18px; overflow: hidden;
   margin: 18px 0; background: #14171c;
 }
-.map-card .map-crop { position: absolute; left: 0; top: 0; will-change: transform; }
-.map-card .pin-marker {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); z-index: 3;
-  width: 30px; height: 30px; color: var(--blue);
-}
-.map-attrib {
-  position: absolute; right: 6px; bottom: 4px; z-index: 3;
-  font-size: 9px; color: rgba(255, 255, 255, 0.45);
-  background: rgba(0, 0, 0, 0.35); padding: 1px 5px; border-radius: 4px;
-}
+.map-card .pin-marker { width: 30px; height: 30px; color: var(--blue); }
+/* MapLibre's chrome ships light; darken it to sit on the dark-matter basemap */
+.map-card .maplibregl-ctrl-group { background: rgba(28, 28, 30, 0.9); border: 0.5px solid var(--sep); }
+.map-card .maplibregl-ctrl-group button + button { border-top-color: var(--sep); }
+.map-card .maplibregl-ctrl-group button span { filter: invert(1); }
+.map-card .maplibregl-ctrl-attrib { background: rgba(0, 0, 0, 0.4) !important; font-size: 9px !important; }
+.map-card .maplibregl-ctrl-attrib a, .map-card .maplibregl-ctrl-attrib { color: rgba(255, 255, 255, 0.5) !important; }
+.map-card .maplibregl-ctrl-attrib-button { filter: invert(1); }
 .venue-actions { display: flex; flex-direction: column; gap: 12px; }
-.venue-shows { margin-top: 20px; }
-.venue-shows .group-header { padding: 0 16px 7px; }
-.venue-shows .group { margin: 0; }
+
+/* Shows at a venue: Featured cards in miniature (see venueShowCard in app.js) */
+.venue-shows { margin-top: 18px; }
+.venue-shows .group-header { padding: 0 2px 8px; }
+.venue-show-list { display: flex; flex-direction: column; gap: 12px; }
+.venue-show-card { border-radius: 14px; content-visibility: visible; }
+.venue-show-card .card-footer { padding: 6px 8px 6px 12px; }
+.venue-show-card .card-footer .name { font-size: 15px; }
+.venue-show-card .card-footer .sub { font-size: 12px; }
+.venue-show-card .bookmark-btn { width: 32px; height: 32px; }
+.venue-show-card .bookmark-btn svg { width: 14px; height: 14px; }
 
 /* ---- Lists ---- */
 .group { background: var(--row); border-radius: 12px; margin: 0 16px 22px; overflow: hidden; }
