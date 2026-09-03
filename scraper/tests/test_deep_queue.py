@@ -7,6 +7,7 @@ no network, no subprocess.
 
 from __future__ import annotations
 
+import json
 import sys
 import tempfile
 import time
@@ -145,3 +146,36 @@ class ParseVenueIdsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GalleriesFirstTests(unittest.TestCase):
+    """run_deep --galleries-first: ranked-file loader + roster on the TODO line."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self._cd = tools.CONTENT_DIR
+        tools.CONTENT_DIR = self.tmp
+
+    def tearDown(self):
+        tools.CONTENT_DIR = self._cd
+
+    def test_missing_ranked_file_exits_with_instructions(self):
+        with self.assertRaises(SystemExit) as cm:
+            run_deep.load_ranked("tokyo")
+        self.assertIn("rank_venues.py score --city tokyo", str(cm.exception))
+
+    def test_roster_from_report_on_todo_line(self):
+        rep = self.tmp / "venues" / "reports" / "tokyo" / "taka-ishii.json"
+        rep.parent.mkdir(parents=True)
+        rep.write_text(json.dumps({"roster": [{"name": f"Artist {i}", "status": "represented"}
+                                              for i in range(12)]
+                                   + [{"name": "Past Person", "status": "exhibited"}]}))
+        names = run_deep.venue_roster("tokyo", "taka-ishii")
+        self.assertEqual(len(names), 8)
+        self.assertNotIn("Past Person", names)
+        self.assertEqual(run_deep.venue_roster("tokyo", "nope"), [])
+        import run_scrape
+        msg = run_scrape.format_todo_message("Tokyo", "Roppongi", [
+            {"name": "Taka Ishii Gallery", "website": "https://takaishiigallery.com",
+             "represents": names[:2]}])
+        self.assertIn("represents: Artist 0, Artist 1", msg)

@@ -42,13 +42,13 @@ def spend_report() -> dict:
             if isinstance(entry, dict) and "cost_usd" in entry:  # skip non-ledger files
                 sessions.append(entry)
     total = {
-        "total_cost_usd": round(sum(s["cost_usd"] for s in sessions), 4),
-        "total_requests": sum(s["requests"] for s in sessions),
-        "total_web_searches": sum(s["web_searches"] for s in sessions),
-        "total_input_tokens": sum(s["input_tokens"] for s in sessions),
-        "total_output_tokens": sum(s["output_tokens"] for s in sessions),
-        "total_cache_write_tokens": sum(s["cache_write_tokens"] for s in sessions),
-        "total_cache_read_tokens": sum(s["cache_read_tokens"] for s in sessions),
+        "total_cost_usd": round(sum(s.get("cost_usd", 0.0) for s in sessions), 4),
+        "total_requests": sum(s.get("requests", 0) for s in sessions),
+        "total_web_searches": sum(s.get("web_searches", 0) for s in sessions),
+        "total_input_tokens": sum(s.get("input_tokens", 0) for s in sessions),
+        "total_output_tokens": sum(s.get("output_tokens", 0) for s in sessions),
+        "total_cache_write_tokens": sum(s.get("cache_write_tokens", 0) for s in sessions),
+        "total_cache_read_tokens": sum(s.get("cache_read_tokens", 0) for s in sessions),
         "sessions": sessions,
     }
     SPEND_DIR.mkdir(parents=True, exist_ok=True)
@@ -79,6 +79,8 @@ def format_todo_message(city_display: str, zone: str, venues: list[dict],
         if v.get("fetch_mode") == "js":
             tags.append("[JS-rendered site: use render_fetch on its exhibitions page]")
         line = f"{i}. {' — '.join(bits)}{kind}" + (" " + " ".join(tags) if tags else "")
+        if v.get("represents"):
+            line += "\n   represents: " + ", ".join(v["represents"])
         saved = v.get("already_saved") or []
         if saved:
             today = date.today().isoformat()

@@ -327,3 +327,41 @@ class SameSessionSkipTests(RegistryBase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GalleriesFirstCutoffTests(RegistryBase):
+    """docs/GALLERIES.md stage S1: due_venues cutoffs + rank weighting."""
+
+    def ranked(self, vid, tier, score, verified=True, **kw):
+        v = self.venue(vid, scraped_days_ago=None, **kw)
+        v["tier"], v["score"] = tier, score
+        v["verification"] = {"status": "verified" if verified else "unverified",
+                             "ts": ts(TODAY), "checks": {}}
+        return v
+
+    def test_require_verified_and_cutoffs(self):
+        top = self.ranked("regen", 1, 0.9)
+        mid = self.ranked("small-space", 3, 0.2)
+        unranked = self.venue("nobody", scraped_days_ago=None)
+        unverified = self.ranked("ghost", 1, 0.95, verified=False)
+        self.write(top, mid, unranked, unverified)
+        plain = self.due()
+        self.assertEqual(set(plain), {"regen", "small-space", "nobody", "ghost"})
+        self.assertEqual(set(self.due(require_verified=True)), {"regen", "small-space"})
+        # cutoffs alone do not imply verification (ghost is tier 1 but unverified)
+        self.assertEqual(set(self.due(min_tier=2)), {"regen", "ghost"})
+        self.assertEqual(set(self.due(min_tier=2, require_verified=True)), {"regen"})
+        self.assertEqual(set(self.due(min_score=0.5, require_verified=True)), {"regen"})
+        self.assertNotIn("nobody", self.due(min_score=0.0))   # unranked drop under any cutoff
+
+    def test_rank_weight_orders_the_queue(self):
+        top = self.ranked("regen", 1, 0.9)
+        mid = self.ranked("small-space", 3, 0.2)
+        self.write(mid, top)
+        base = [r["id"] for r in venues.due_venues("los-angeles", "Hollywood", TODAY)]
+        self.assertEqual(base, ["regen", "small-space"])   # equal priority -> id order
+        weighted = venues.due_venues("los-angeles", "Hollywood", TODAY, rank_weight=30)
+        self.assertEqual([r["id"] for r in weighted], ["regen", "small-space"])
+        self.assertIn("ranked", weighted[0]["_reasons"])
+        # tier 1 already carries +10 over tier 3; the rank term adds 30 * (0.9 - 0.2)
+        self.assertAlmostEqual(weighted[0]["_priority"] - weighted[1]["_priority"], 10 + 30 * 0.7)

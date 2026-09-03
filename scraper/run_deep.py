@@ -67,14 +67,17 @@ def parse_venue_ids(spec: str | None) -> set[str] | None:
 
 
 def zone_todo(city: str, zone: str, only_with_saves: bool = False,
-              venue_ids: set[str] | None = None, force_due: bool = False) -> list[dict]:
+              venue_ids: set[str] | None = None, force_due: bool = False,
+              rank_kw: dict | None = None) -> list[dict]:
     """Venues due for a scrape session in this zone (venues.due_venues: status,
     next_check, page-change signals, shows ending soon, upcoming-only saves,
     requeues). `only_with_saves` is the multi-show backfill: every active venue
     of ANY kind (galleries, museums, nonprofits, project spaces, universities)
     holding exactly one show on view now, regardless of schedule. `venue_ids`
     restricts the result to those registry ids; with `force_due` they are
-    included regardless of schedule or status (priority 100, reason 'forced')."""
+    included regardless of schedule or status (priority 100, reason 'forced').
+    `rank_kw` (galleries-first) is passed to venues.due_venues: require_verified,
+    min_tier, min_score, rank_weight — see docs/GALLERIES.md."""
     import venues
     if venue_ids and force_due:
         out = []
@@ -98,13 +101,53 @@ def zone_todo(city: str, zone: str, only_with_saves: bool = False,
                 out.append(rec)
         todo = sorted(out, key=lambda r: r["id"])
     else:
-        todo = venues.due_venues(city, zone, include_places_only=not EXCLUDE_PLACES_ONLY)
+        todo = venues.due_venues(city, zone, include_places_only=not EXCLUDE_PLACES_ONLY,
+                                 **(rank_kw or {}))
     if venue_ids:
         todo = [v for v in todo if v.get("id") in venue_ids]
     return todo
 
 
 EXCLUDE_PLACES_ONLY = False   # set from --exclude-places-only
+
+
+def ranked_file(city: str) -> Path:
+    return tools.CONTENT_DIR / "curation" / city / "venues_ranked.json"
+
+
+def load_ranked(city: str) -> dict:
+    """The gallery ranking (rank_venues.py score/apply) a galleries-first run
+    starts from. Exits with instructions when it is missing."""
+    p = ranked_file(city)
+    if not p.exists():
+        sys.exit(f"--galleries-first needs {p} — run\n"
+                 f"  python rank_venues.py score --city {city}\n"
+                 f"  python rank_venues.py apply --city {city}\n"
+                 "then retry (see docs/GALLERIES.md).")
+    return json.loads(p.read_text())
+
+
+def venue_roster(city: str, venue_id: str | None, limit: int = 8) -> list[str]:
+    """Represented artists from the venue's GalleryReport
+    (content/venues/reports/<city>/<id>.json), [] when there is none."""
+    if not venue_id:
+        return []
+    p = tools.CONTENT_DIR / "venues" / "reports" / city / f"{venue_id}.json"
+    if not p.exists():
+        return []
+    try:
+        rep = json.loads(p.read_text())
+    except (OSError, json.JSONDecodeError):
+        return []
+    names = [r.get("name") for r in rep.get("roster") or []
+             if r.get("name") and r.get("status") in (None, "represented", "estate")]
+    return names[:limit]
+
+
+def galleries_first_kw(args) -> dict:
+    """due_venues kwargs for a galleries-first run."""
+    return {"require_verified": True, "min_tier": args.min_tier,
+            "min_score": args.min_score, "rank_weight": args.rank_weight}
 
 
 def pick_batch(todo: list[dict], n: int, max_museums: int = 2,
@@ -114,11 +157,13 @@ def pick_batch(todo: list[dict], n: int, max_museums: int = 2,
     otherwise eat a whole session's budget) and at most `max_places_only`
     Google-Places-only venues (framers and decor shops share Places'
     art_gallery type; they must never fill a batch)."""
+    import venues
+
     batch, museums, places = [], 0, 0
     for v in todo:
         if len(batch) >= n:
             break
-        is_museum = bool(v.get("kind") == "museum" or v.get("is_museum"))
+        is_museum = venues.is_museum(v)
         is_places = "places_only" in (v.get("_reasons") or [])
         if is_museum and museums >= max_museums:
             continue
@@ -284,6 +329,16 @@ def main() -> None:
     parser.add_argument("--keyword-signals", action="store_true",
                         help="scrape sessions also record significance claims they read "
                              "on venue pages (curation evidence; non-strict record_signal)")
+    parser.add_argument("--galleries-first", action="store_true",
+                        help="galleries-first pipeline (docs/GALLERIES.md): no enumeration; scrape "
+                             "only VERIFIED venues from content/curation/<city>/venues_ranked.json, "
+                             "highest rank first")
+    parser.add_argument("--min-tier", type=int, default=None,
+                        help="galleries-first: only venues with tier <= N (1 = top)")
+    parser.add_argument("--min-score", type=float, default=None,
+                        help="galleries-first: only venues with rank score >= F")
+    parser.add_argument("--rank-weight", type=float, default=30.0,
+                        help="galleries-first: priority += rank_weight * score (default 30)")
     parser.add_argument("--skip-enumeration", action="store_true")
     parser.add_argument("--no-verify", action="store_true")
     parser.add_argument("--no-report", action="store_true")
@@ -353,6 +408,17 @@ def main() -> None:
             proc = subprocess.run([str(c) for c in cmd], stdout=lf,
                                   stderr=subprocess.STDOUT, env=env)
         return proc.returncode
+
+    rank_kw: dict | None = None
+    if args.galleries_first:
+        ranked = load_ranked(args.city)
+        rank_kw = galleries_first_kw(args)
+        n_ranked = sum(1 for v in ranked.get("venues", []) if v.get("rank") is not None)
+        print(f"=== STAGE 1: galleries-first — {n_ranked} ranked venue(s) from "
+              f"{ranked_file(args.city).name} (generated {ranked.get('generated_at')}); "
+              f"cutoffs tier<={args.min_tier} score>={args.min_score}, rank weight {args.rank_weight}; "
+              "enumeration skipped ===", flush=True)
+        args.skip_enumeration = True
 
     # ---------- stage 1: seed + enumerate ----------
     if args.skip_enumeration:
@@ -439,7 +505,7 @@ def main() -> None:
     # ---------- stage 2: scrape ----------
     print("=== STAGE 2: scrape ===", flush=True)
     todo_kw = dict(only_with_saves=args.only_venues_with_saves,
-                   venue_ids=venue_ids, force_due=args.force_due)
+                   venue_ids=venue_ids, force_due=args.force_due, rank_kw=rank_kw)
     once_per_run = args.only_venues_with_saves or args.force_due   # one batch per venue per run
     queue = ZoneQueue(zones, args.max_sessions_per_zone,
                       {z: len(zone_todo(args.city, z, **todo_kw)) for z in zones})
@@ -481,6 +547,8 @@ def main() -> None:
                         "status": v.get("status"),
                         "fetch_mode": (v.get("page") or {}).get("fetch_mode"),
                         "already_saved": _already_saved(v),
+                        "represents": venue_roster(args.city, v.get("id") or v.get("venue_id")),
+                        "tier": v.get("tier"), "score": v.get("score"),
                         "priority": v.get("_priority"),
                         "reasons": v.get("_reasons")}
                        for v in batch],
@@ -568,7 +636,8 @@ def main() -> None:
         "zones": zones,
         "run_spend_usd": round(run_spend(args.city, start_ts), 4),
         "shows_total": len(tools.all_city_shows(args.city)),
-        "remaining_todo": {z: len(zone_todo(args.city, z, venue_ids=venue_ids)) for z in zones},
+        "remaining_todo": {z: len(zone_todo(args.city, z, venue_ids=venue_ids, rank_kw=rank_kw))
+                           for z in zones},
         "queue": queue.snapshot(),
         "sessions": session_log,
         "verification": (verify_summary or {}).get("cities"),
