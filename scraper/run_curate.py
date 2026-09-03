@@ -31,6 +31,7 @@ from harness import DEFAULT_MODEL, MODELS, run_city  # noqa: E402
 from run_scrape import load_env  # noqa: E402
 
 FAIR_KINDS = ("fair",)
+LIST_KINDS = ("curated_list",)
 SWEEP_KINDS = ("publication_picks", "review_outlet", "news", "listing", "culture")
 
 
@@ -44,7 +45,8 @@ def select_units(city: str, variant: cp.Variant, args) -> list[dict]:
             pool = [s for s in pool if s.get("artist")]
         return pool
     sources = [s for s in store.load_sources(city) if s.get("active", True)]
-    kinds = FAIR_KINDS if variant.unit == "fair" else SWEEP_KINDS
+    kinds = (FAIR_KINDS if variant.unit == "fair" else LIST_KINDS if variant.unit == "list"
+             else SWEEP_KINDS)
     sources = [s for s in sources if s.get("kind") in kinds]
     if args.sources:
         want = set(args.sources.split(","))

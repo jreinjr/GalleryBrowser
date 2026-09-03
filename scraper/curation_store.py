@@ -77,7 +77,7 @@ MATCHER_VERSION = 2   # 2: identical distinctive-word sets match a venue ("Vielm
 BENCHMARK_DOMAINS = ["seesawmap.com", "seesaw.app"]
 
 SIGNAL_KINDS = ["pick", "review", "news", "listing", "fair_exhibitor",
-                "artist_activity", "award", "press_release_claim"]
+                "artist_activity", "award", "press_release_claim", "list_member"]
 SIGNAL_STRENGTHS = ["headline", "featured", "mentioned", "passing"]
 SNIPPET_MAX = 300
 
@@ -202,7 +202,7 @@ RECORD_SIGNAL_SCHEMA = {
         "published_at": {"type": ["string", "null"], "description": "ISO date YYYY-MM-DD the article/listing was published, or null when the page shows no date"},
         "kind": {
             "type": "string", "enum": SIGNAL_KINDS,
-            "description": "pick: editorial 'shows to see' recommendation; review: a critic reviewed the show itself; news: news coverage of the show; listing: appears in a neutral listings roundup; fair_exhibitor: the VENUE is on an art-fair exhibitor list (leave artist/title null); artist_activity: the artist's recent museum/biennial show, acquisition or major profile elsewhere; award: the artist won a major prize; press_release_claim: a significance claim from the venue's own text (first museum solo, retrospective, commissioned...)",
+            "description": "pick: editorial 'shows to see' recommendation; review: a critic reviewed the show itself; news: news coverage of the show; listing: appears in a neutral listings roundup; fair_exhibitor: the VENUE is on an art-fair exhibitor list (leave artist/title null); artist_activity: the artist's recent museum/biennial show, acquisition or major profile elsewhere; award: the artist won a major prize; press_release_claim: a significance claim from the venue's own text (first museum solo, retrospective, commissioned...); list_member: the VENUE is on a curated list / association roster (ADAA, CADAN, Contemporary Art Daily...; leave artist/title null)",
         },
         "strength": {
             "type": "string", "enum": SIGNAL_STRENGTHS,

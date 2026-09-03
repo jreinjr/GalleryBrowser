@@ -10,6 +10,7 @@ prompting is a matter of adding a new entry to VARIANTS.
     pubsweep_v1     sweep registered publications for current-show recommendations/reviews
     artist_heat_v1  per pooled show: the artist's recent institutional/press activity
     fairs_v1        art-fair exhibitor lists -> venue-level notability signals
+    lists_v1        curated lists / association rosters -> venue-level list_member signals
     keyword_v1      (block only) lets deep scrape sessions record significance
                     claims they already read on the venue's own pages
 
@@ -102,6 +103,14 @@ POOL (for reference — venue names we already track):
 {pool_inventory}
 """
 
+LISTS_SYSTEM = """You are a research assistant building a notability index of {city} art venues. Today is {today}.
+
+Membership in a dealers' association or inclusion in a curated gallery list is a durable prestige signal for a gallery. For each LIST in your first message, fetch its member/venue pages (use the search ideas if a page moved or is paginated; follow pagination) and, for every gallery or art space with a location in {city}, call record_signal with kind list_member, strength featured, venue = the gallery's name as listed, artist null, title null, source_id = the list's id, source_url = the page where the name appears, snippet = "Member of <list name> (<year or edition if shown>)" plus the gallery's listed city/district. Skip entries with no {city} location. One call per gallery per list. Record the gallery's website in the snippet when the page shows it (e.g. "... site: example.com").
+{common_rules}
+POOL (for reference — venue names we already track):
+{pool_inventory}
+"""
+
 KEYWORD_SIGNALS_BLOCK = """
 
 SIGNIFICANCE SIGNALS (cheap, optional, zero extra searches): while you are already reading a venue's own pages for a show you save, if the text makes a concrete significance claim — first museum / US / Los Angeles solo, retrospective or survey, biennial or major-institution history, a major award, a museum acquisition, a monumental commission, or it quotes a specific recent review or "must-see" listing — call record_signal once per claim: kind "press_release_claim" (or "review"/"pick" when it cites a named outlet's coverage, with that outlet as source_id), strength "featured", source_id "venue-site", source_url = the page you read, venue/artist/title = the show's, snippet = the claim in <= 300 characters, agent_pool_slug = the slug you are saving. Never spend a search or fetch on this; only record what you already read. Do not record anything for venues you skip."""
@@ -149,6 +158,13 @@ def _fairs_first(ctx: dict) -> str:
             "Reply with the one-line summary when done.")
 
 
+def _lists_first(ctx: dict) -> str:
+    return (f"LISTS to index this session ({len(ctx['items'])}):\n"
+            f"{sources_block(ctx['items'])}\n\n"
+            "Fetch each list's member/venue pages (all pages) and record every entry with a "
+            "location in the city. Reply with the one-line summary when done.")
+
+
 def _domains_of(items: list[dict]) -> list[str]:
     out: list[str] = []
     for s in items:
@@ -184,6 +200,14 @@ VARIANTS: dict[str, Variant] = {
         search_domains=lambda ctx: None,
         limits={"group_size": 3, "max_searches": 8, "max_fetches": 12, "max_iterations": 40,
                 "budget_usd": 3.0, "fetch_tokens": 12000},
+    ),
+    "lists_v1": Variant(
+        name="lists_v1", stage="signals", unit="list",
+        description="Curated lists / association rosters -> venue-level list_member signals.",
+        system_template=LISTS_SYSTEM, first_message=_lists_first,
+        search_domains=lambda ctx: None,
+        limits={"group_size": 3, "max_searches": 8, "max_fetches": 14, "max_iterations": 40,
+                "budget_usd": 2.0, "fetch_tokens": 12000},
     ),
 }
 
