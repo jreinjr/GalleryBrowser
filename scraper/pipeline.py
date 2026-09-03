@@ -106,6 +106,31 @@ def main() -> None:
         if "error" in job:
             failures.append(f"verify {job['job']}: {job['error']}")
 
+    # ---------- stage 2b: gallery-side housekeeping (non-fatal) ----------
+    # Description lint moves gallery-only prose off show records (docs/GALLERIES.md);
+    # the artists report is regenerated when artists.py exists.
+    for c in cities:
+        try:
+            import lint_descriptions
+            shows = lint_descriptions.select_shows(c, None, None, True)
+            if shows:
+                rows, _, meter = lint_descriptions.run_lint(c, shows, lint_descriptions.DEFAULT_MODEL, 8, False)
+                if meter.requests:
+                    meter.save()
+                res = lint_descriptions.apply_rows(c, rows)
+                print(f"lint {c}: {res['applied']} description(s) rewritten, "
+                      f"{res['hints']} hint(s) banked", flush=True)
+        except Exception as exc:  # noqa: BLE001 - housekeeping never blocks publication
+            print(f"lint {c} skipped: {exc}", flush=True)
+        try:
+            import artists
+            if hasattr(artists, "write_report"):
+                print(f"artists report {c}: {artists.write_report(c)}", flush=True)
+        except ImportError:
+            pass
+        except Exception as exc:  # noqa: BLE001
+            print(f"artists report {c} skipped: {exc}", flush=True)
+
     # ---------- stage 3: build ----------
     built = False
     if args.no_build:
