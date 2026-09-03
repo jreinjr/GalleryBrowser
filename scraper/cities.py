@@ -373,7 +373,7 @@ CITIES = {
             "Roppongi": {
                 "areas": ["Roppongi", "Nishi-Azabu", "Motoazabu", "Azabudai Hills",
                           "Tokyo Midtown Roppongi", "Toranomon Hills"],
-                "anchors": ["Mori Art Museum", "The National Art Center, Tokyo",
+                "anchors": ["Mori Art Museum", "National Art Center",
                             "Suntory Museum of Art", "21_21 DESIGN SIGHT",
                             "Taka Ishii Gallery", "ShugoArts", "Tomio Koyama Gallery",
                             "Perrotin", "Ota Fine Arts", "Wako Works of Art",
@@ -383,15 +383,15 @@ CITIES = {
                 "areas": ["Ginza", "Kyobashi Chuo-ku Tokyo", "Yurakucho",
                           "Shintomi Chuo-ku Tokyo", "Higashi-Ginza"],
                 "anchors": ["Artizon Museum", "Shiseido Gallery", "Gallery Koyanagi",
-                            "Ginza Graphic Gallery", "Ginza Maison Hermes Le Forum",
-                            "POLA Museum Annex", "Tokyo Gallery + BTAP",
+                            "Ginza Graphic Gallery", "Maison Hermes Le Forum",
+                            "POLA Museum Annex", "BTAP",
                             "Nichido Gallery", "Sokyo Ginza"],
             },
             "Nihonbashi/Bakurocho": {
                 "areas": ["Nihonbashi", "Bakurocho Tokyo", "Higashi-Nihonbashi",
                           "Kayabacho", "Ningyocho", "Jimbocho"],
                 "anchors": ["Mitsui Memorial Museum", "PARCEL",
-                            "Radi-um von Roentgenwerke"],
+                            "Roentgenwerke"],
             },
             "Shibuya/Omotesando": {
                 "areas": ["Shibuya", "Jingumae Harajuku", "Omotesando", "Aoyama Tokyo",
@@ -433,7 +433,7 @@ CITIES = {
                 "anchors": ["Tokyo Metropolitan Art Museum",
                             "The National Museum of Western Art", "Tokyo National Museum",
                             "The Ueno Royal Museum", "SCAI THE BATHHOUSE",
-                            "The University Art Museum, Tokyo University of the Arts"],
+                            "Tokyo University of the Arts"],
             },
             "Setagaya/West Tokyo": {
                 "areas": ["Setagaya", "Sangenjaya", "Shimokitazawa", "Nakano Tokyo",
