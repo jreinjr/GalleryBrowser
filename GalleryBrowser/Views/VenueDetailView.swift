@@ -28,6 +28,13 @@ struct VenueDetailView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
+                    if let about = venue.about, !about.isEmpty {
+                        Text(about)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.top, 6)
+                    }
                 }
 
                 if !shows.isEmpty {

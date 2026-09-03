@@ -16,6 +16,9 @@ struct Show: Identifiable, Codable, Hashable {
     let reception: String?
     let images: [String]
     let sourceUrls: [String]
+    /// Registry id of the venue (`venue_id`); absent on records saved before
+    /// the venue registry existed.
+    let venueId: String?
     let venue: Venue
 
     var id: String { "\(city)/\(slug)" }
@@ -59,6 +62,9 @@ struct Venue: Codable, Hashable {
     let website: String?
     let latitude: Double
     let longitude: Double
+    /// Short gallery blurb copied from the venue registry by
+    /// scraper/sync_shows.py (only official/secondary-sourced text is published).
+    let about: String?
 
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
