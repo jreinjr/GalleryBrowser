@@ -1,43 +1,923 @@
 {
- "schema": 1,
+ "schema": 2,
  "city": "los-angeles",
  "venue_id": "rajiv-menon-contemporary",
  "name": "Rajiv Menon Contemporary",
  "website": "https://www.rmcontemporary.com/",
- "generated_ts": 1788470599,
+ "generated_ts": 1788509501,
  "model": "claude-sonnet-5",
- "cost_usd": 0.0,
+ "cost_usd": 0.3873,
  "crawl": {
-  "pages": 0,
-  "sitemap": false,
-  "rendered": false,
-  "truncated": false,
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
   "index_path": ".cache/crawl/los-angeles/rajiv-menon-contemporary.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
- "founders": [],
- "directors": [],
- "locations": [],
- "program_focus": [],
- "hours_text": null,
- "roster": [],
- "exhibitions": [],
- "fairs_self_reported": [],
+ "about_text": "Rajiv Menon Contemporary is a Los Angeles gallery founded in 2023 by gallerist Rajiv Menon, who holds a PhD from New York University in global media and visual culture. The program centers on emerging and diasporic South Asian artists, aiming to expand collecting audiences within diasporic communities and to place new voices into museums and private collections. Initially operating from a Sunset Boulevard space, the gallery opened a permanent home on North Highland Avenue in 2025. Exhibitions have included thematic group shows exploring South Asian regional identity, such as a Kerala-focused Onam exhibition, alongside presentations at international art fairs. The gallery positions itself as a hub connecting South Asia and its diaspora with the broader Los Angeles art world, emphasizing education and connoisseurship alongside commercial representation.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.rmcontemporary.com/contact"
+ ],
+ "founded_year": 2023,
+ "founders": [
+  "Rajiv Menon"
+ ],
+ "directors": [
+  "Rajiv Menon"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "1311 N Highland Ave, Los Angeles, CA 90028, USA",
+   "since": 2025,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": "3110 W Sunset Blvd, Los Angeles, CA 90026",
+   "since": 2023,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "South Asian and diasporic art",
+  "emerging artists",
+  "painting",
+  "mixed media",
+  "identity and migration themes",
+  "regional South Asian focus"
+ ],
+ "hours_text": "Tuesday - Saturday, 12 PM - 6 PM",
+ "roster": [
+  {
+   "name": "Ekta Aggarwal",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Aman Aheer",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Aiza Ahmed",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Komail Aijazuddin",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Nibha Akireddy",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Tarek Sebastian al-Shammaa",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Mussarat Arif",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Amber Arifeen",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Raghav Babbar",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Anoushka Bhalla",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Vikrant Bhise",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Muvindu Binoy",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Adam de Boer",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Sanié Bokhari",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Soumya Sankar Bose",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Bhasha Chakrabarti",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Maithili Chaturvedi",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shivy Galtere",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Soft Geometry",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shyama Golden",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Arjuna Gunarathne",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Hamid Ali Hanbhi",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Abul Hisham",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Asif Hoque",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Noorain Inam",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Mohd. Intiyaz",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shamir Iqtidar",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Noormah Jamal",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Misha Japanwala",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Ahsan Javaid",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Melissa Joseph",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Sivasubramaniam Kajendran",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Keerat Kaur",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Russna Kaur",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Viraj Khanna",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shradha Kochhar",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Saju Kunhan",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Joya Mukerjee Logue",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Lakshmi Madhavan",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Utkarsh Makwana",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Ammama Malik",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Gisela McDaniel",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shailee Mehta",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Ahsan Memon",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Anoushka Mirchandani",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Mustafa Mohsin",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Tuda Muda",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Par Nair",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Surendran Nair",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Sid Pattni",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Rajni Perera",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Maria Qamar",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Asad Ali Qulander",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Irum Rahat",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Firi Rahman",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Purvai Rai",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Preetika Rajgariah",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Sahana Ramakrishnan",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Paree Rohera",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shrimanti Saha",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Hiba Schahbaz",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Maya Seas",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Devi Seetharam",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Tarini Sethi",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Manjari Sharma",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Anna Sidana",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Sajeela Siddiq",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Shahzia Sikander",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Kelly Sinnapah Mary",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Gurjeet Singh",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Jatinder Durhailay Singh",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Kuldeep Singh",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Khushna Sulaman-Butt",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Swapnaa Tamhane",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Nityan Unnikrishnan",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Maya Varadaraj",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Ricky Vasan",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Nadia Waheed",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Omer Wasim",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  },
+  {
+   "name": "Zeehan Wazed",
+   "status": "exhibited",
+   "source_url": "https://www.rmcontemporary.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Item Number: The Inaugural Exhibition",
+   "artists": [],
+   "start": "2023-11-09",
+   "end": "2023-11-18",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/8-item-number-the-inaugural-exhibition/publications"
+  },
+  {
+   "title": "Now Streaming",
+   "artists": [],
+   "start": "2024-02-13",
+   "end": "2024-03-01",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/7-now-streaming/works"
+  },
+  {
+   "title": "The Past is a Country: Indo-nostalgia in Contemporary Art",
+   "artists": [],
+   "start": "2024-03-15",
+   "end": "2024-06-04",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/6-the-past-is-a-country-indo-nostalgia-in-contemporary-art/press_release_text"
+  },
+  {
+   "title": "LIKE SHARE SUBSCRIBE",
+   "artists": [],
+   "start": "2024-07-14",
+   "end": "2024-07-28",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions"
+  },
+  {
+   "title": "Three Steps of Land",
+   "artists": [
+    "Abul Hisham",
+    "Devi Seetharam",
+    "Lakshmi Madhavan",
+    "Maya Varadaraj",
+    "Melissa Joseph",
+    "Nibha Akireddy",
+    "Nityan Unnikrishnan",
+    "Par Nair",
+    "Saju Kunhan",
+    "Sivasubramaniam Kajendran",
+    "Surendran Nair"
+   ],
+   "start": "2024-09-14",
+   "end": "2024-10-02",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/10-three-steps-of-land/works"
+  },
+  {
+   "title": "Untitled Art Miami Beach 2024: I-POP",
+   "artists": [
+    "Tarini Sethi",
+    "Viraj Khanna",
+    "Anamika Khanna"
+   ],
+   "start": "2024-12-04",
+   "end": "2024-12-08",
+   "year": 2024,
+   "kind": "fair",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/11-untitled-art-miami-beach-2024-i-pop/press_release_text"
+  },
+  {
+   "title": "EXHIBITIONISM",
+   "artists": [
+    "Aman Aheer",
+    "Asif Hoque",
+    "Anoushka Mirchandani",
+    "Bhasha Chakrabarti",
+    "Chitra Ganesh",
+    "Faiza Butt",
+    "Jagannath Panda",
+    "Joya Mukerjee Logue",
+    "Mustafa Mohsin",
+    "Nadia Waheed",
+    "Noorain Inam",
+    "Raghav Babbar",
+    "Ricky Vasan",
+    "Sahana Ramakrishnan",
+    "Sanié Bokhari",
+    "Shradha Kochhar",
+    "Shyama Golden",
+    "Sunil Gupta",
+    "Tarini Sethi"
+   ],
+   "start": "2025-02-17",
+   "end": "2025-03-30",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/12-exhibitionism/works"
+  },
+  {
+   "title": "Lahore Talkies",
+   "artists": [
+    "Ahsan Javaid",
+    "Hamid Ali Hanbhi"
+   ],
+   "start": "2025-04-08",
+   "end": "2025-05-10",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/14-lahore-talkies/works"
+  },
+  {
+   "title": "Meena / Veena",
+   "artists": [
+    "Noormah Jamal"
+   ],
+   "start": "2025-04-08",
+   "end": "2025-05-10",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/13-meena-veena/works"
+  },
+  {
+   "title": "LOOK",
+   "artists": [
+    "Sajeela Siddiq",
+    "Sid Pattni",
+    "Bhasha Chakrabarti",
+    "Ammama Malik",
+    "Arjuna Gunarathne",
+    "Asad Ali Qulander",
+    "Ekta Aggarwal",
+    "Irum Rahat",
+    "Maithili Chaturvedi",
+    "Maya Seas",
+    "Paree Rohera",
+    "Shamir Iqtidar",
+    "Shrimanti Saha",
+    "Soft Geometry",
+    "Zeehan Wazed"
+   ],
+   "start": "2025-05-23",
+   "end": "2025-06-20",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/15-look/press_release_text"
+  },
+  {
+   "title": "California Fables",
+   "artists": [
+    "Nibha Akireddy",
+    "Shivy Galtere"
+   ],
+   "start": "2025-06-27",
+   "end": "2025-08-30",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/17-california-fables-nibha-akireddy-and-shivy-galtere/overview"
+  },
+  {
+   "title": "Why Did I Say Yes?",
+   "artists": [
+    "Viraj Khanna"
+   ],
+   "start": "2025-06-27",
+   "end": "2025-08-30",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/16-why-did-i-say-yes/overview"
+  },
+  {
+   "title": "Non-Residency",
+   "artists": [
+    "Aman Aheer",
+    "Nibha Akireddy",
+    "Shyama Golden",
+    "Asif Hoque",
+    "Melissa Joseph",
+    "Viraj Khanna",
+    "Anoushka Mirchandani",
+    "Sahana Ramakrishnan",
+    "Maya Seas",
+    "Maya Varadaraj",
+    "Ricky Vasan"
+   ],
+   "start": "2025-08-09",
+   "end": "2025-09-30",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/18-non-residency/overview"
+  },
+  {
+   "title": "11th May 1980 Wedding Day",
+   "artists": [
+    "Saju Kunhan"
+   ],
+   "start": "2025-09-06",
+   "end": "2025-10-04",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/20-saju-kunhan-11th-may-1980-wedding-day/overview"
+  },
+  {
+   "title": "NORTH/SOUTH",
+   "artists": [
+    "Aiza Ahmed",
+    "Lakshmi Madhavan",
+    "Devi Seetharam",
+    "Jatinder Durhailay Singh"
+   ],
+   "start": "2025-09-06",
+   "end": "2025-10-04",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/19-north-south/overview"
+  },
+  {
+   "title": "LIVING MEMORY (UNTITLED, ART HOUSTON)",
+   "artists": [
+    "Joya Mukerjee Logue",
+    "Mustafa Mohsin"
+   ],
+   "start": "2025-09-19",
+   "end": "2025-09-21",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/21-living-memory-untitled-art-houston-joya-mukerjee-logue-mustafa-mohsin/works"
+  },
+  {
+   "title": "දුම් ලෝකය (Dhum Lōkaya)",
+   "artists": [
+    "Rajni Perera"
+   ],
+   "start": "2025-10-11",
+   "end": "2025-12-13",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/22-rajni-perera-dhum-lokaya/overview"
+  },
+  {
+   "title": "The Missing Figure",
+   "artists": [
+    "Ahsan Javaid",
+    "Sid Pattni",
+    "Ammama Malik"
+   ],
+   "start": "2025-12-03",
+   "end": "2025-12-07",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://www.rmcontemporary.com/exhibitions"
+  },
+  {
+   "title": "How to Hold a Wild Thing",
+   "artists": [
+    "Sanié Bokhari"
+   ],
+   "start": "2026-01-10",
+   "end": "2026-02-14",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/24-sanie-bokhari-how-to-hold-a-wild-thing/overview"
+  },
+  {
+   "title": "India Art Fair, Delhi",
+   "artists": [],
+   "start": "2026-02-05",
+   "end": "2026-02-08",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://www.rmcontemporary.com/exhibitions"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Sahana Ramakrishnan"
+   ],
+   "start": "2026-02-25",
+   "end": "2026-04-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/28-sahana-ramakrishnan/overview"
+  },
+  {
+   "title": "Speaking with the Same Tongue",
+   "artists": [
+    "Tarini Sethi"
+   ],
+   "start": "2026-02-25",
+   "end": "2026-04-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/26-tarini-sethi-speaking-with-the-same-tongue/overview"
+  },
+  {
+   "title": "Choreography of the Grid",
+   "artists": [
+    "Purvai Rai"
+   ],
+   "start": "2026-04-11",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/29-purvai-rai-choreography-of-the-grid/overview"
+  },
+  {
+   "title": "Imagining Elsewhere",
+   "artists": [
+    "Aiza Ahmed",
+    "Shradha Kochhar",
+    "Joya Mukerjee Logue",
+    "Ammama Malik",
+    "Rajni Perera",
+    "Hiba Schahbaz",
+    "Maya Seas",
+    "Anna Sidana",
+    "Shahzia Sikander",
+    "Kuldeep Singh",
+    "Khushna Sulaman-Butt"
+   ],
+   "start": "2026-05-30",
+   "end": "2026-07-11",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/30-imagining-elsewhere/overview"
+  },
+  {
+   "title": "I Got a Cut in My Flower Valley",
+   "artists": [
+    "Gurjeet Singh"
+   ],
+   "start": "2026-07-18",
+   "end": "2026-08-29",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/27-gurjeet-singh-i-got-a-cut-in-my-flower-valley/overview"
+  },
+  {
+   "title": "Sangam",
+   "artists": [
+    "Raghav Babbar"
+   ],
+   "start": "2026-09-12",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.rmcontemporary.com/exhibitions/31-raghav-babbar-sangam/overview"
+  }
+ ],
+ "fairs_self_reported": [
+  "India Art Fair, Delhi (2026)",
+  "Untitled Art Miami Beach (2024, 2025)",
+  "Untitled Art Houston (2025)"
+ ],
  "memberships_self_reported": [],
- "press_self_reported": [],
+ "venue_kind": "gallery",
+ "kind_confidence": 0.95,
+ "kind_evidence": "Menon describes the gallery as 'a commercial space' and it represents and sells artists' work at fairs and exhibitions.",
+ "press_self_reported": [
+  {
+   "outlet": "Interview Magazine",
+   "year": 2025,
+   "url": "https://www.rmcontemporary.com/press/13-at-his-namesake-gallery-rajiv-menon-wants-to"
+  },
+  {
+   "outlet": "Family Style",
+   "year": 2024,
+   "url": "https://www.rmcontemporary.com/press/5-for-kerala-rajiv-menon-contemporary-celebrates-indian-art-and-culture"
+  }
+ ],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": null,
+ "notes": "Founding date inferred from Family Style article (Sept 2024) referencing gallery founded 'last September' (2023); permanent Highland Ave location described as newly opening in Interview Magazine article (Feb 2025).",
+ "exhibitions_truncated": false,
  "triage": {
-  "labels": {},
-  "site_notes": "",
-  "fetch_more": []
+  "labels": {
+   "https://www.rmcontemporary.com/exhibitions/31-raghav-babbar-sangam": "exhibition_page",
+   "https://www.rmcontemporary.com/artists": "roster_index",
+   "https://www.rmcontemporary.com/contact": "contact_hours",
+   "https://www.rmcontemporary.com/fairs": "fairs",
+   "https://www.rmcontemporary.com/news": "news",
+   "https://www.rmcontemporary.com/press": "news",
+   "https://www.rmcontemporary.com/viewing-room/1-luisa-schultz": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions": "exhibitions_current",
+   "https://www.rmcontemporary.com/news/4-news-title-subtitle": "news",
+   "https://www.rmcontemporary.com/press/10-a-gallery-dedicated-to-south-asian-art-finds": "news",
+   "https://www.rmcontemporary.com/press/11-rajiv-menon-contemporary-celebrates-hollywood-launch": "news",
+   "https://www.rmcontemporary.com/press/12-rajiv-menon-contemporary-to-launch-permanent-la-space-weekly-news-roundup": "news",
+   "https://www.rmcontemporary.com/exhibitions/10-three-steps-of-land/works": "exhibition_page",
+   "https://www.rmcontemporary.com/press/13-at-his-namesake-gallery-rajiv-menon-wants-to": "news",
+   "https://www.rmcontemporary.com/press/15-rajiv-menon-contemporary-to-open-los-angeles-gallery.": "news",
+   "https://www.rmcontemporary.com/exhibitions/11-untitled-art-miami-beach-2024-i-pop/press_release_text": "exhibition_page",
+   "https://www.rmcontemporary.com/press/16-at-rajiv-menon-contemporary-in-los-angeles-south-the-gallerys-goal-is-not-just-to-carve": "news",
+   "https://www.rmcontemporary.com/press/17-rajiv-menon-contemporary-a-new-gallery-with-focus-the-gallerys-debut-exhibition-showcases-established-and-emerging": "news",
+   "https://www.rmcontemporary.com/exhibitions/12-exhibitionism/works": "exhibition_page",
+   "https://www.rmcontemporary.com/press/31-this-artist-has-big-feelings-about-indian-weddings-viraj-khannas-new-exhibition-at-rajiv-menon-contemporary": "news",
+   "https://www.rmcontemporary.com/exhibitions/13-meena-veena/works": "exhibition_page",
+   "https://www.rmcontemporary.com/press/38-a-new-stay-above-the-bar-permit-room-by-dishoom-unveils-its-artistic-lodgings": "news",
+   "https://www.rmcontemporary.com/exhibitions/14-lahore-talkies/works": "exhibition_page",
+   "https://www.rmcontemporary.com/press/39-non-residency-an-exhibition-where-indian-art-history-meets": "news",
+   "https://www.rmcontemporary.com/exhibitions/15-look/press_release_text": "exhibition_page",
+   "https://www.rmcontemporary.com/press/4-everyone-s-talking-about-this-los-angeles-art-gallery-diet-paratha": "news",
+   "https://www.rmcontemporary.com/exhibitions/16-why-did-i-say-yes/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/press/41-with-non-residency-rajiv-menon-asks-what-is-home-fourteen-artists.-one-iconic-palace.-a-debut-that": "news",
+   "https://www.rmcontemporary.com/press/5-for-kerala-rajiv-menon-contemporary-celebrates-indian-art-and-culture": "news",
+   "https://www.rmcontemporary.com/press/6-art-of-the-matter-in-conversation-with-gallerist-gallerist-rajiv-kannan-menon-is-elevating-childhood-memories": "news",
+   "https://www.rmcontemporary.com/exhibitions/17-california-fables-nibha-akireddy-and-shivy-galtere/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/press/7-whats-on-off-basel-these-are-the-2024-here-s-what-to-see-once-youve-seen-all": "news",
+   "https://www.rmcontemporary.com/press/8-heritage-and-identity-through-art-rajiv-menon-contemporarys-an-intergenerational-exhibition-celebrating-south-asian-and-diasporic": "news",
+   "https://www.rmcontemporary.com/exhibitions/18-non-residency/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/press/83-carla-the-dealers-rajiv-menon-connects-photos-and-text-claire-preston": "news",
+   "https://www.rmcontemporary.com/press/84-i-got-a-cut-in-my-flower-valley-esquire-india": "news",
+   "https://www.rmcontemporary.com/press/9-here-comes-the-art-art-culture-and-wild-west-origins-with-rajiv": "news",
+   "https://www.rmcontemporary.com/exhibitions/19-north-south/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions/20-saju-kunhan-11th-may-1980-wedding-day/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions/21-living-memory-untitled-art-houston-joya-mukerjee-logue-mustafa-mohsin/works": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions/22-rajni-perera-dhum-lokaya/overview": "exhibition_page",
+   "https://www.rmcontemporary.com/artists/114-purvai-rai/overview": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/23-untitled-art-miami-beach-the-missing-figure/overview": "fairs",
+   "https://www.rmcontemporary.com/artists/116-anna-sidana/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/24-sanie-bokhari-how-to-hold-a-wild-thing/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/exhibitions/25-india-art-fair-delhi/overview": "fairs",
+   "https://www.rmcontemporary.com/artists/117-shahzia-sikander/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/26-tarini-sethi-speaking-with-the-same-tongue/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/118-khushna-sulaman-butt/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/27-gurjeet-singh-i-got-a-cut-in-my-flower-valley/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/119-omer-wasim/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/120-raghav-babbar/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/28-sahana-ramakrishnan/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/30-preetika-rajgariah/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/29-purvai-rai-choreography-of-the-grid/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/31-noorain-inam/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/30-imagining-elsewhere/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/32-shailee-mehta/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/31-raghav-babbar-sangam/overview": "exhibitions_current",
+   "https://www.rmcontemporary.com/artists/34-tuda-muda/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/35-bhasha-chakrabarti/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/6-the-past-is-a-country-indo-nostalgia-in-contemporary-art/press_release_text": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions/7-now-streaming/works": "exhibition_page",
+   "https://www.rmcontemporary.com/exhibitions/8-item-number-the-inaugural-exhibition/publications": "exhibition_page",
+   "https://www.rmcontemporary.com/artists/37-asif-hoque/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/38-nibha-akireddy/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/40-anoushka-bhalla/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/44-kuldeep-singh/biography": "artist_page",
+   "https://www.rmcontemporary.com/artists/49-manjari-sharma/biography": "artist_page",
+   "https://www.rmcontemporary.com/exhibitions/past": "exhibitions_archive",
+   "https://www.rmcontemporary.com/about": "about"
+  },
+  "site_notes": "The site organizes content around a single /artists roster index (individual artist bio/works/press subpages are auxiliary and redundant with it), a large /artworks catalog of individual works, and per-exhibition micro-sites (each with overview/works/press subpages) referenced from a general /exhibitions hub that mixes current and past shows; a dedicated press/news blog covers gallery coverage, and /fairs lists art-fair participation, but there is no clearly separated exhibitions_archive or current page beyond the combined /exhibitions index. The site is a CMS-driven gallery database with per-artist subpages (biography/overview/works/exhibitions/press) and per-exhibition subpages (overview/works/press/installation_shots), but the inventory lacks the top-level roster index, exhibitions landing/archive pages, about, contact and news pages that the URL structure implies exist. The site is structured around individual artist pages (biography/exhibitions/press/works subpages) and individual artwork detail pages, both heavily represented in the inventory; a gallery-level roster index, exhibitions listing, about, contact, and news pages are referenced by the site structure but absent from",
+  "fetch_more": [
+   "https://www.rmcontemporary.com/artists",
+   "https://www.rmcontemporary.com/exhibitions",
+   "https://www.rmcontemporary.com/exhibitions/past",
+   "https://www.rmcontemporary.com/about",
+   "https://www.rmcontemporary.com/contact",
+   "https://www.rmcontemporary.com/news",
+   "https://www.rmcontemporary.com/fairs",
+   "https://www.rmcontemporary.com/artists",
+   "https://www.rmcontemporary.com/exhibitions",
+   "https://www.rmcontemporary.com/exhibitions/past",
+   "https://www.rmcontemporary.com/about",
+   "https://www.rmcontemporary.com/contact",
+   "https://www.rmcontemporary.com/news",
+   "https://www.rmcontemporary.com/fairs"
+  ]
  },
- "errors": [
-  "crawl: no readable pages"
- ],
- "duration_s": 196.0
+ "errors": [],
+ "duration_s": 1019.0
 }

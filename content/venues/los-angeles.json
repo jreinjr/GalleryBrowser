@@ -1,7 +1,7 @@
 {
  "schema": 3,
  "city": "los-angeles",
- "updated": 1788510050,
+ "updated": 1788510836,
  "venues": [
   {
    "id": "1301-pe",
@@ -66227,32 +66227,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Dataland is an immersive media-art venue in Downtown Los Angeles, created by Refik Anadol Studio, the practice founded in 2014 by artist Refik Anadol and artist-entrepreneur Efsun Erkılıç. Located inside The Grand LA across from Walt Disney Concert Hall, the 25,000-square-foot space unfolds across five galleries, including the long-running Infinity Room. Its inaugural exhibition, Machine Dreams: Rainforest, is powered by the studio's Large Nature Model, an AI system trained on ecological data such as LiDAR scans, field recordings, and environmental sensor readings gathered through international scientific collaborations. The program centers on data-driven, generative works that translate natural and biometric information into immersive visual, sound, and scent environments, continuing the studio's decade-long practice of large-scale algorithmic art.",
+    "source_kind": "official",
+    "source_url": "https://dataland.art/about",
+    "evidence_path": ".cache/evidence/los-angeles/ebd993d3630437a1-1788510152.txt",
+    "written_ts": 1788510836,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
+    "founders": [
+     "Refik Anadol",
+     "Efsun Erkılıç"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "AI-generated immersive art",
+     "data and nature-based AI art",
+     "multisensory installation",
+     "generative art"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 1,
+    "exhibitions_per_year": 1.0,
+    "first_exhibition_year": 2027,
+    "solo_share": 1.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
-    "gapfill": false
+    "ts": 1788510836,
+    "crawl_pages": 300,
+    "triaged": 25,
+    "report_path": "content/venues/reports/los-angeles/dataland.json",
+    "cost_usd": 0.1214,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -199416,29 +199425,29 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [
-     "Ketchum, Idaho"
-    ],
+    "locations_elsewhere": [],
     "program_focus": [
-     "contemporary painting",
-     "ceramics",
+     "emerging contemporary artists",
      "photography",
-     "sculpture",
-     "emerging artists"
+     "ceramics",
+     "painting",
+     "queer and diasporic narratives",
+     "Los Angeles-based program"
     ],
-    "roster_count": 2,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 30,
+    "exhibitions_total": 230,
+    "exhibitions_per_year": 19.17,
+    "first_exhibition_year": 2015,
+    "solo_share": 0.71
    },
    "research": {
-    "ts": null,
+    "ts": 1788510523,
     "crawl_pages": 300,
-    "triaged": 0,
+    "triaged": 210,
     "report_path": "content/venues/reports/los-angeles/ochi.json",
-    "cost_usd": 0.1951,
-    "gapfill": false
+    "cost_usd": 2.202,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -199546,8 +199555,8 @@
     "params_hash": "07d1765dfd19",
     "gate": null
    },
-   "kind_source": null,
-   "kind_evidence": null
+   "kind_source": "research",
+   "kind_evidence": "Site lists a roster of represented artists, participates in major commercial art fairs (Frieze, NADA, Armory), and announces artist representation ('OCHI is pleased to announce representation of...')."
   },
   {
    "id": "odd-ark-la",
@@ -218540,32 +218549,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Rajiv Menon Contemporary is a Los Angeles gallery founded in 2023 by gallerist Rajiv Menon, who holds a PhD from New York University in global media and visual culture. The program centers on emerging and diasporic South Asian artists, aiming to expand collecting audiences within diasporic communities and to place new voices into museums and private collections. Initially operating from a Sunset Boulevard space, the gallery opened a permanent home on North Highland Avenue in 2025. Exhibitions have included thematic group shows exploring South Asian regional identity, such as a Kerala-focused Onam exhibition, alongside presentations at international art fairs. The gallery positions itself as a hub connecting South Asia and its diaspora with the broader Los Angeles art world, emphasizing education and connoisseurship alongside commercial representation.",
+    "source_kind": "official",
+    "source_url": "https://www.rmcontemporary.com/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788510520,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2023,
+    "founders": [
+     "Rajiv Menon"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
+    "program_focus": [
+     "South Asian and diasporic art",
+     "emerging artists",
+     "painting",
+     "mixed media",
+     "identity and migration themes",
+     "regional South Asian focus"
+    ],
     "roster_count": 0,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "exhibitions_total": 26,
+    "exhibitions_per_year": 6.5,
+    "first_exhibition_year": 2023,
+    "solo_share": 0.38
    },
    "research": {
-    "ts": null,
-    "crawl_pages": 0,
-    "triaged": 0,
+    "ts": 1788510520,
+    "crawl_pages": 300,
+    "triaged": 71,
     "report_path": "content/venues/reports/los-angeles/rajiv-menon-contemporary.json",
-    "cost_usd": 0.0,
-    "gapfill": false
+    "cost_usd": 0.3873,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -218670,8 +218689,8 @@
     "params_hash": "07d1765dfd19",
     "gate": null
    },
-   "kind_source": null,
-   "kind_evidence": null
+   "kind_source": "research",
+   "kind_evidence": "Menon describes the gallery as 'a commercial space' and it represents and sells artists' work at fairs and exhibitions."
   },
   {
    "id": "ramona-museum-of-california-history",
@@ -276724,7 +276743,9 @@
    "exhibitions_url_candidates": [
     "https://www.vonlintel.com"
    ],
-   "hours": [],
+   "hours": [
+    "Tuesday to Saturday 12pm to 6pm"
+   ],
    "phone": null,
    "google": null,
    "last_scraped": 1788302689,
@@ -276787,32 +276808,43 @@
     "checks": {}
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Von Lintel Gallery is a commercial gallery founded by Tarrah von Lintel, who opened her first space in Munich in 1993 before relocating to New York's Chelsea district in 1999 and later to Los Angeles. The gallery represents a select roster of artists working primarily in painting, photography, and unique works on paper, with a particular emphasis on experimental and camera-less photographic processes. Its artists' work appears in major public collections including The Metropolitan Museum of Art, MoMA, the Whitney, and LACMA. The gallery is a member of the Art Dealers Association of America, and Tarrah von Lintel serves on its board.",
+    "source_kind": "official",
+    "source_url": "http://www.vonlintel.com/About.html",
+    "evidence_path": ".cache/evidence/los-angeles/caf84641953ce93a-1788509219.txt",
+    "written_ts": 1788510553,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 1993,
+    "founders": [
+     "Tarrah von Lintel"
+    ],
+    "locations_elsewhere": [
+     "Santa Monica"
+    ],
+    "program_focus": [
+     "painting",
+     "photography",
+     "works on paper",
+     "camera-less photography",
+     "experimental photography"
+    ],
+    "roster_count": 26,
+    "exhibitions_total": 169,
+    "exhibitions_per_year": 5.45,
+    "first_exhibition_year": 1996,
+    "solo_share": 0.88
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
-    "gapfill": false
+    "ts": 1788510553,
+    "crawl_pages": 110,
+    "triaged": 59,
+    "report_path": "content/venues/reports/los-angeles/von-lintel.json",
+    "cost_usd": 1.5518,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -276914,8 +276946,8 @@
     "directory": 0.11,
     "places_popularity": 0.0403
    },
-   "kind_source": null,
-   "kind_evidence": null
+   "kind_source": "research",
+   "kind_evidence": "Represents a selective roster of artists and is a member of the Art Dealers Association of America (ADAA), a commercial dealers' trade group."
   },
   {
    "id": "vpam",

@@ -1,12 +1,12 @@
 {
- "schema": 1,
+ "schema": 2,
  "city": "los-angeles",
  "venue_id": "la-loma-projects",
  "name": "La Loma Projects",
  "website": "https://www.lalomaprojects.com/",
- "generated_ts": 1788469406,
+ "generated_ts": 1788509712,
  "model": "claude-sonnet-5",
- "cost_usd": 0.0,
+ "cost_usd": 0.3041,
  "crawl": {
   "pages": 109,
   "sitemap": true,
@@ -14,31 +14,810 @@
   "truncated": false,
   "index_path": ".cache/crawl/los-angeles/la-loma-projects.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
- "founders": [],
- "directors": [],
- "locations": [],
- "program_focus": [],
- "hours_text": null,
- "roster": [],
- "exhibitions": [],
- "fairs_self_reported": [],
+ "about_text": "La Loma Projects is a Los Angeles gallery founded in 2019 by Kirk Nelson, which began informally in his home near La Loma Road before expanding in 2021 into a more formal exhibition space on North Figueroa Street. The gallery has built long-term relationships with a roster of established and mid-career artists while continuing to introduce new voices. Its program favors idea-driven exhibitions exploring the relationship between objects and meaning alongside painterly, handmade work attentive to humor, domesticity, materiality, and the natural world. La Loma also maintains an appointment-only annex space in Pasadena and regularly presents artists at international art fairs.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.lalomaprojects.com/about"
+ ],
+ "founded_year": 2019,
+ "founders": [
+  "Kirk Nelson"
+ ],
+ "directors": [
+  "Kirk Nelson"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "6516 North Figueroa, Los Angeles, CA 90042",
+   "since": 2021,
+   "current": true
+  },
+  {
+   "city": "Pasadena",
+   "address": "1357 Brixton Road, Pasadena, CA 91105 (Annex, by appointment only)",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "idea-driven exhibitions",
+  "painterly, handmade work",
+  "materiality and craft",
+  "domesticity and the natural world",
+  "emerging and mid-career artists"
+ ],
+ "hours_text": "Thursday - Saturday 11am - 5pm",
+ "roster": [
+  {
+   "name": "Merrick Adams",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Scott Marvel Cassidy",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Gerald Davis",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Skylar Hughes",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Stan Kaplan",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Jasmine Little",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Rebecca Partridge",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Jude Pauli",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  },
+  {
+   "name": "Losel Yauch",
+   "status": "represented",
+   "source_url": "https://www.lalomaprojects.com/about"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Household Effects",
+   "artists": [],
+   "start": "2019-04-14",
+   "end": "2019-05-05",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/household-effects"
+  },
+  {
+   "title": "Summer Formal",
+   "artists": [],
+   "start": "2019-07-21",
+   "end": "2019-09-08",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/summer-formal"
+  },
+  {
+   "title": "So Far",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/sofarshow"
+  },
+  {
+   "title": "Demifigures",
+   "artists": [],
+   "start": "2020-02-02",
+   "end": "2020-04-05",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/demifigures-1"
+  },
+  {
+   "title": "Pauli & Paules",
+   "artists": [
+    "Jude Pauli",
+    "Adrian Paules"
+   ],
+   "start": "2020-10-18",
+   "end": "2020-11-29",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/pauli-paules"
+  },
+  {
+   "title": "Hot Tropics",
+   "artists": [],
+   "start": "2021-06-19",
+   "end": "2021-08-15",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/hot-tropics"
+  },
+  {
+   "title": "Mineral Mythology",
+   "artists": [
+    "Aaron Morse"
+   ],
+   "start": "2021-11-06",
+   "end": "2022-01-09",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/mineral-mythology"
+  },
+  {
+   "title": "Seeking Arrangements",
+   "artists": [
+    "Daniel Gibson",
+    "Patricia Iglesias Peco",
+    "Stan Kaplan"
+   ],
+   "start": "2022-02-05",
+   "end": "2022-03-27",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/seeking-arrangements"
+  },
+  {
+   "title": "INT/EXT",
+   "artists": [
+    "Samantha Roth",
+    "Jake Sheiner",
+    "Emilio Villalba"
+   ],
+   "start": "2022-04-16",
+   "end": "2022-06-05",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/int/ext"
+  },
+  {
+   "title": "Summertime Rolls",
+   "artists": [
+    "Michelle Blade",
+    "Rema Ghuloum",
+    "Roger Herman",
+    "Soumya Netrabile"
+   ],
+   "start": "2022-07-17",
+   "end": "2022-08-28",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/summertime-rolls"
+  },
+  {
+   "title": "Octet",
+   "artists": [
+    "Jude Pauli"
+   ],
+   "start": "2022-09-17",
+   "end": "2022-10-30",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/octet"
+  },
+  {
+   "title": "Goals",
+   "artists": [
+    "Meegan Barnes",
+    "Nadjib Benali",
+    "Gary Clement",
+    "John Collins",
+    "Shaun Ellison",
+    "Marc Etherington",
+    "Salomon Huerta",
+    "Aaron Jones",
+    "Evan Jones",
+    "Kelly Lynn Jones",
+    "Brian Lotti",
+    "Devin Morrison",
+    "Faye Sanders",
+    "Jake Sheiner",
+    "Pace Taylor",
+    "Liz Walsh"
+   ],
+   "start": "2022-10-02",
+   "end": "2022-11-02",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/goals"
+  },
+  {
+   "title": "Dancing Feels a lot Like Falling",
+   "artists": [
+    "Pace Taylor"
+   ],
+   "start": "2022-11-12",
+   "end": "2023-01-15",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/dancing"
+  },
+  {
+   "title": "Who Are You?",
+   "artists": [
+    "Meegan Barnes",
+    "Seth Bogart",
+    "Delia Brown",
+    "Chivas Clem",
+    "Isis Davis-Marks",
+    "Tanya Haden",
+    "Nano Hernandez",
+    "Ramiro Hernandez",
+    "Salomon Huerta",
+    "Maximilian Xeno Karnig",
+    "Alex Katz",
+    "Kurt Kauper",
+    "David Korty",
+    "Devin Morrison",
+    "Kirk Nelson",
+    "Tin Nguyen",
+    "Sara O’Donnell",
+    "Beryl Odette",
+    "Gay Ribisi",
+    "Conrad Ruiz",
+    "Jennifer Schlosberg",
+    "Jake Sheiner",
+    "Aaron Smith",
+    "Joe Sola",
+    "Pace Taylor",
+    "Emilio Villalba",
+    "Beatrice Wood",
+    "Karen Yasinsky"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/who-are-you"
+  },
+  {
+   "title": "Black Holes - In Front Of",
+   "artists": [
+    "Alice Könitz",
+    "Scott Marvel Cassidy"
+   ],
+   "start": "2023-02-18",
+   "end": "2023-03-26",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/blackholes-infrontof"
+  },
+  {
+   "title": "Homecoming",
+   "artists": [
+    "Amy Bessone",
+    "Gerald Davis",
+    "Mari Eastman",
+    "Patricia Iglesias Peco",
+    "Jasmine Little",
+    "Ken Gun Min",
+    "Jude Pauli",
+    "Jennifer Rochlin"
+   ],
+   "start": "2023-04-01",
+   "end": "2023-05-21",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/homecoming"
+  },
+  {
+   "title": "I’m Looking Through You",
+   "artists": [
+    "Nancy Friedland",
+    "Stan Kaplan",
+    "Kaveri Nair",
+    "Katie Shapiro",
+    "Losel Yauch",
+    "Lindsay Preston Zappas"
+   ],
+   "start": "2023-06-25",
+   "end": "2023-08-13",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/im-looking-through-you"
+  },
+  {
+   "title": "Microgreens",
+   "artists": [
+    "JP Munro",
+    "Malisa Humphrey",
+    "Laura Vahlberg",
+    "Stephanie Guerrero",
+    "Bradney Lane",
+    "Brian Lotti",
+    "Emily Marchand",
+    "Sarah Ippolito"
+   ],
+   "start": "2023-07-08",
+   "end": "2023-08-13",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/microgreens"
+  },
+  {
+   "title": "Above the Sea and Below the Sky",
+   "artists": [
+    "Merrick Adams",
+    "Carolyn Case",
+    "Fritz Chesnut",
+    "Emma Corrall"
+   ],
+   "start": "2024-01-13",
+   "end": "2024-02-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/atsabts"
+  },
+  {
+   "title": "Heavy Weather",
+   "artists": [
+    "Nancy Friedland"
+   ],
+   "start": "2024-02-17",
+   "end": "2024-04-05",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/heavy-weather"
+  },
+  {
+   "title": "Sea Form",
+   "artists": [
+    "Carrie Gundersdorf"
+   ],
+   "start": "2024-02-25",
+   "end": "2024-04-05",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/sea-form"
+  },
+  {
+   "title": "DUET",
+   "artists": [
+    "Renée Estée"
+   ],
+   "start": "2024-04-04",
+   "end": "2024-04-30",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/duet"
+  },
+  {
+   "title": "The Dream Syndicate",
+   "artists": [
+    "Natalie Cruz",
+    "Ryan Dobrowski",
+    "Tran Truong",
+    "Erica Vincenzi"
+   ],
+   "start": "2024-04-14",
+   "end": "2024-06-02",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/dream-syndicate"
+  },
+  {
+   "title": "Dream Syndication",
+   "artists": [
+    "Natalie Cruz",
+    "Ryan Dobrowski",
+    "Erica Vincenzi",
+    "Tran Truong",
+    "Sylvia Fernandez",
+    "Stan Kaplan",
+    "Skylar Hughes",
+    "Brian Lotti",
+    "Jude Pauli"
+   ],
+   "start": "2024-04-20",
+   "end": "2024-05-18",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/dream-syndication"
+  },
+  {
+   "title": "California Suite",
+   "artists": [
+    "Kim Fisher",
+    "Lecia Dole-Recio",
+    "Nora Shields"
+   ],
+   "start": "2024-06-22",
+   "end": "2024-07-28",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/california-suite"
+  },
+  {
+   "title": "A Place Between",
+   "artists": [
+    "Amy Bay",
+    "Shiela Laufer",
+    "Sherise Lee",
+    "Anya Roberts-Toney"
+   ],
+   "start": "2024-06-23",
+   "end": "2024-08-31",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/a-place-between"
+  },
+  {
+   "title": "Oasis",
+   "artists": [
+    "Paul Davies",
+    "Raffi Kalenderian",
+    "Annie Lapin",
+    "Jasmine Little"
+   ],
+   "start": "2024-08-01",
+   "end": "2024-08-31",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/oasis"
+  },
+  {
+   "title": "Jeweled Earth",
+   "artists": [
+    "Niki Ford",
+    "Jieun Reiner"
+   ],
+   "start": "2024-08-19",
+   "end": "2024-09-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/jeweled-earth"
+  },
+  {
+   "title": "At This Hour",
+   "artists": [
+    "Losel Yauch"
+   ],
+   "start": "2024-09-14",
+   "end": "2024-10-26",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/at-this-hour"
+  },
+  {
+   "title": "Wildflowers, Night",
+   "artists": [
+    "Rebecca Partridge"
+   ],
+   "start": "2024-09-15",
+   "end": "2024-10-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/wildflowers-night"
+  },
+  {
+   "title": "Ziggurat",
+   "artists": [
+    "Jude Pauli"
+   ],
+   "start": "2024-11-02",
+   "end": "2024-12-14",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/ziggurat"
+  },
+  {
+   "title": "Lover’s Concerto",
+   "artists": [
+    "Kate Pincus-Whitney",
+    "Merrick Adams",
+    "Nabilah Nordin",
+    "Nick Modrzewski",
+    "Jude Pauli",
+    "David Korty",
+    "Yoora Lee",
+    "Jungwoo Lee"
+   ],
+   "start": "2024-12-17",
+   "end": "2025-02-15",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/lovers-concert"
+  },
+  {
+   "title": "Waves & Frequencies",
+   "artists": [
+    "Tessa Greene O'Brien",
+    "Kathryn Lynch"
+   ],
+   "start": "2025-02-15",
+   "end": "2025-03-29",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/waves-and-frequencies"
+  },
+  {
+   "title": "Officer McGinty Writes a Ticket and Other Works",
+   "artists": [
+    "Joe Sola"
+   ],
+   "start": "2025-03-08",
+   "end": "2025-04-12",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/officer-mcguinty"
+  },
+  {
+   "title": "Dusk, Dawn, Day",
+   "artists": [
+    "Rebecca Partridge"
+   ],
+   "start": "2025-04-17",
+   "end": "2025-05-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/dusk-dawn-and-day"
+  },
+  {
+   "title": "Field Recordings",
+   "artists": [
+    "Fritz Chesnut"
+   ],
+   "start": "2025-09-18",
+   "end": "2025-10-18",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/frtiz-chestnut-fieldrecordings"
+  },
+  {
+   "title": "Maria",
+   "artists": [
+    "Scott Marvel Cassidy"
+   ],
+   "start": "2025-10-23",
+   "end": "2025-11-29",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/maria"
+  },
+  {
+   "title": "Wintergreen",
+   "artists": [
+    "Merrick Adams",
+    "Theodora Allen",
+    "Math Bass",
+    "Amy Bessone",
+    "Paul Davies",
+    "Jeremy Everett",
+    "Jae Ko",
+    "Mimi Lauter",
+    "Nate Lewis",
+    "Laurie Nye",
+    "Rebecca Partridge",
+    "Jennifer Rochlin"
+   ],
+   "start": "2025-12-11",
+   "end": "2026-01-31",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/wintergreen"
+  },
+  {
+   "title": "I Know You Are But What Am I?",
+   "artists": [
+    "Rebecca Brown",
+    "Edgar Bryan",
+    "Paul Davies",
+    "Kyle De Lotto",
+    "Ryan Dobrowski",
+    "Sylvia Fernandez",
+    "An Hoang",
+    "Raina Lee",
+    "Jake Longstreth",
+    "Jared McGriff",
+    "Dave Muller",
+    "Jude Pauli",
+    "Cindy Phenix",
+    "Aaron Michael Skolnick",
+    "Kansas Smeaton",
+    "Joe Sola"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/i-know-you-are-but-what-am-i"
+  },
+  {
+   "title": "The Stars Before Us All",
+   "artists": [
+    "Emily Kame Kngwarreye",
+    "Timo Hogan",
+    "Rover Thomas",
+    "Djirrirra Wunuŋmurra",
+    "Betty Chimney",
+    "Raylene Walatinna",
+    "Regina Pilawuk Wilson",
+    "Vicki Yatjiki Cullinan"
+   ],
+   "start": "2026-02-12",
+   "end": "2026-03-28",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/the-stars-before-us-all"
+  },
+  {
+   "title": "Almost Famous",
+   "artists": [
+    "Dave Muller",
+    "Akea Brionne",
+    "Tariku Shiferaw",
+    "Preslav Kostov",
+    "Olivia Hill",
+    "Tyler Vlahovich",
+    "Cindy Phenix",
+    "Alex Becerra",
+    "Nick Modrzewski",
+    "Jessica Jackson Hutchins",
+    "Nevena Prijić",
+    "Nabilah Nordin",
+    "Skylar Hughes",
+    "Raina Lee",
+    "Kate Pincus-Whitney",
+    "Gerald Davis"
+   ],
+   "start": "2026-02-21",
+   "end": "2026-03-21",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.lalomaprojects.com/almost-famous"
+  },
+  {
+   "title": "Self-Portrait Looking at the Sunrise",
+   "artists": [
+    "Gerald Davis"
+   ],
+   "start": "2026-04-11",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.lalomaprojects.com/self-portrait-looking-at-the-sunrise"
+  },
+  {
+   "title": "Shanghai Zoo",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "other",
+   "source_url": "https://www.lalomaprojects.com/shanghai-zoo"
+  }
+ ],
+ "fairs_self_reported": [
+  "Aspen Art Fair",
+  "Felix Art Fair",
+  "NADA New York",
+  "NADA Miami",
+  "Sydney Contemporary",
+  "The Armory Show",
+  "Untitled Houston",
+  "Future Fair",
+  "Material Art Fair"
+ ],
  "memberships_self_reported": [],
+ "venue_kind": "gallery",
+ "kind_confidence": 0.9,
+ "kind_evidence": "Gallery represents and exhibits a roster of artists and participates in commercial art fairs (NADA, Armory, Aspen, Felix, etc.).",
  "press_self_reported": [],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": null,
+ "notes": "Roster reflects the persistent 'Artists' navigation list on the site; other artists (e.g. Casey Baden, Alan Prazniak, Adrian Paules, Rebecca Brown, Jieun Reiner, Pace Taylor) appear only in exhibition/fair pages and were not included in the roster list.",
+ "exhibitions_truncated": false,
  "triage": {
-  "labels": {},
-  "site_notes": "",
-  "fetch_more": []
+  "labels": {
+   "https://www.lalomaprojects.com/about": "about",
+   "https://www.lalomaprojects.com/exhibitions": "exhibitions_current",
+   "https://www.lalomaprojects.com/fairs-copy": "fairs",
+   "https://www.lalomaprojects.com/fairs-3": "fairs",
+   "https://www.lalomaprojects.com/current-fair": "fairs",
+   "https://www.lalomaprojects.com/future-fair": "fairs",
+   "https://www.lalomaprojects.com/future-fair-2024": "fairs",
+   "https://www.lalomaprojects.com/material-2024": "fairs",
+   "https://www.lalomaprojects.com/nada-2023": "fairs",
+   "https://www.lalomaprojects.com/future-fair-2023": "fairs",
+   "https://www.lalomaprojects.com/nada-2024": "fairs",
+   "https://www.lalomaprojects.com/felix-2025": "fairs",
+   "https://www.lalomaprojects.com/spike": "fairs",
+   "https://www.lalomaprojects.com/aspen-art-fair-2025": "fairs",
+   "https://www.lalomaprojects.com/the-armory-show-2025": "fairs",
+   "https://www.lalomaprojects.com/sydney-contemporary-2025": "fairs",
+   "https://www.lalomaprojects.com/nada-2025": "fairs",
+   "https://www.lalomaprojects.com/felix-2026": "fairs",
+   "https://www.lalomaprojects.com/armory-2025": "fairs",
+   "https://www.lalomaprojects.com/claire-colette": "artist_page",
+   "https://www.lalomaprojects.com/jason-david": "artist_page",
+   "https://www.lalomaprojects.com/gerald-davis-fsidm": "artist_page",
+   "https://www.lalomaprojects.com/nick-aguayo": "artist_page",
+   "https://www.lalomaprojects.com/skylar-hughes-1": "artist_page",
+   "https://www.lalomaprojects.com/casey-baden": "artist_page",
+   "https://www.lalomaprojects.com/alan-prazniak": "artist_page",
+   "https://www.lalomaprojects.com/stan-kaplan-featured-works": "artist_page",
+   "https://www.lalomaprojects.com/adrian-paules-with-resume": "artist_page",
+   "https://www.lalomaprojects.com/losel-yauch": "artist_page",
+   "https://www.lalomaprojects.com/scott-marvel-cassidy": "artist_page",
+   "https://www.lalomaprojects.com/modesto-hoover-wagoon-meet": "artist_page",
+   "https://www.lalomaprojects.com/rebecca-partridge": "artist_page",
+   "https://www.lalomaprojects.com/brian-lotti": "artist_page",
+   "https://www.lalomaprojects.com/merrick-adams": "artist_page",
+   "https://www.lalomaprojects.com/judepauli": "artist_page",
+   "https://www.lalomaprojects.com/household-effects": "exhibition_page",
+   "https://www.lalomaprojects.com/summer-formal": "exhibition_page",
+   "https://www.lalomaprojects.com/sofarshow": "exhibition_page",
+   "https://www.lalomaprojects.com/pauli-paules": "exhibition_page",
+   "https://www.lalomaprojects.com/demifigures-1": "exhibition_page",
+   "https://www.lalomaprojects.com/hot-tropics": "exhibition_page",
+   "https://www.lalomaprojects.com/shanghai-zoo": "exhibition_page",
+   "https://www.lalomaprojects.com/goals": "exhibition_page",
+   "https://www.lalomaprojects.com/mineral-mythology": "exhibition_page",
+   "https://www.lalomaprojects.com/seeking-arrangements": "exhibition_page",
+   "https://www.lalomaprojects.com/summertime-rolls": "exhibition_page",
+   "https://www.lalomaprojects.com/octet": "exhibition_page",
+   "https://www.lalomaprojects.com/dancing": "exhibition_page",
+   "https://www.lalomaprojects.com/who-are-you": "exhibition_page",
+   "https://www.lalomaprojects.com/blackholes-infrontof": "exhibition_page",
+   "https://www.lalomaprojects.com/homecoming": "exhibition_page",
+   "https://www.lalomaprojects.com/atsabts": "exhibition_page",
+   "https://www.lalomaprojects.com/im-looking-through-you": "exhibition_page",
+   "https://www.lalomaprojects.com/microgreens": "exhibition_page",
+   "https://www.lalomaprojects.com/jeweled-earth": "exhibition_page",
+   "https://www.lalomaprojects.com/heavy-weather": "exhibition_page",
+   "https://www.lalomaprojects.com/sea-form": "exhibition_page",
+   "https://www.lalomaprojects.com/duet": "exhibition_page",
+   "https://www.lalomaprojects.com/dream-syndicate": "exhibition_page",
+   "https://www.lalomaprojects.com/dream-syndication": "exhibition_page",
+   "https://www.lalomaprojects.com/california-suite": "exhibition_page",
+   "https://www.lalomaprojects.com/a-place-between": "exhibition_page",
+   "https://www.lalomaprojects.com/oasis": "exhibition_page",
+   "https://www.lalomaprojects.com/at-this-hour": "exhibition_page",
+   "https://www.lalomaprojects.com/wildflowers-night": "exhibition_page",
+   "https://www.lalomaprojects.com/ziggurat": "exhibition_page",
+   "https://www.lalomaprojects.com/lovers-concert": "exhibition_page",
+   "https://www.lalomaprojects.com/waves-and-frequencies": "exhibition_page",
+   "https://www.lalomaprojects.com/officer-mcguinty": "exhibition_page",
+   "https://www.lalomaprojects.com/dusk-dawn-and-day": "exhibition_page",
+   "https://www.lalomaprojects.com/frtiz-chestnut-fieldrecordings": "exhibition_page",
+   "https://www.lalomaprojects.com/maria": "exhibition_page",
+   "https://www.lalomaprojects.com/wintergreen": "exhibition_page",
+   "https://www.lalomaprojects.com/the-stars-before-us-all": "exhibition_page",
+   "https://www.lalomaprojects.com/almost-famous": "exhibition_page",
+   "https://www.lalomaprojects.com/self-portrait-looking-at-the-sunrise": "exhibition_page",
+   "https://www.lalomaprojects.com/i-know-you-are-but-what-am-i": "exhibition_page",
+   "https://www.lalomaprojects.com/int/ext": "exhibition_page",
+   "https://www.lalomaprojects.com/artists": "roster_index",
+   "https://www.lalomaprojects.com/exhibitions/past": "exhibitions_archive",
+   "https://www.lalomaprojects.com/contact": "contact_hours"
+  },
+  "site_notes": "The site is built as a flat collection of individually-slugged pages (one per exhibition, artist, and fair) with no visible master roster or chronological archive list, so exhibitions and artists were labeled individually rather than via an index; several near-duplicate 'shows/featured-works/cv/template' utility pages per artist were treated as other, and no dedicated contact/hours page was found in the inventory.",
+  "fetch_more": [
+   "https://www.lalomaprojects.com/artists",
+   "https://www.lalomaprojects.com/exhibitions/past",
+   "https://www.lalomaprojects.com/contact"
+  ]
  },
- "errors": [
-  "triage: api APIConnectionError: Connection error.",
-  "profile: api APIConnectionError: Connection error."
- ],
- "duration_s": 1192.3
+ "errors": [],
+ "duration_s": 205.6
 }

@@ -1,166 +1,1835 @@
 {
- "schema": 1,
+ "schema": 2,
  "city": "los-angeles",
  "venue_id": "moran-moran",
  "name": "Morán Morán",
  "website": "https://moranmorangallery.com",
- "generated_ts": 1788470795,
+ "generated_ts": 1788509201,
  "model": "claude-sonnet-5",
- "cost_usd": 0.1666,
+ "cost_usd": 0.9062,
  "crawl": {
   "pages": 300,
-  "sitemap": false,
+  "sitemap": true,
   "rendered": false,
   "truncated": true,
   "index_path": ".cache/crawl/los-angeles/moran-moran.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
+ "about_text": "Morán Morán is a contemporary art gallery founded in Los Angeles in 2008. Since its early years the gallery has built a program centered on representing emerging and mid-career artists while also presenting historical material, often inviting curators and artists to organize exhibitions, performances, and happenings that push beyond the conventional gallery format. This freeform, experimental approach has become part of the gallery's identity, alongside a stated commitment to inclusivity and diversity in its programming. The gallery represents a roster whose members have received major fellowships and awards and whose works are held in numerous international museum collections. In addition to its Los Angeles space, the gallery maintains a project space in Paris and regularly participates in international art fairs.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://moranmorangallery.com/information"
+ ],
+ "founded_year": 2008,
  "founders": [],
  "directors": [],
  "locations": [
   {
    "city": "Los Angeles",
-   "address": null,
+   "address": "641 N. Western Avenue, Los Angeles, CA 90004",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Paris",
+   "address": "5 Rue Saint-Gilles, Paris 75003",
    "since": null,
    "current": true
   }
  ],
- "program_focus": [],
- "hours_text": null,
+ "program_focus": [
+  "contemporary art",
+  "emerging and mid-career artists",
+  "historical material",
+  "video and installation",
+  "experimental performance",
+  "painting"
+ ],
+ "hours_text": "Los Angeles: Monday through Friday, 10am to 5pm, Weekends closed (Summer Hours); Paris: By appointment",
  "roster": [
   {
-   "name": "Brian Belott",
+   "name": "Ryan Trecartin",
    "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Claire Chambless",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Chelsea Culprit",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Keltie Ferris",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Eve Fowler",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Michael Genovese",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Luis Gispert",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "George Herms",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Becky Kolsrud",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Estate of Robert Mapplethorpe",
-   "status": "estate",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "RJ Messineo",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Kenny Rivero",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Anders Ruhwald",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Jacolby Satterwhite",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "David Benjamin Sherry",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/ryan-trecartin"
   },
   {
    "name": "Cauleen Smith",
    "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Agathe Snow",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/cauleen-smith"
   },
   {
    "name": "Estate of Dash Snow",
    "status": "estate",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/estate-of-dash-snow"
   },
   {
-   "name": "Willie Stewart",
+   "name": "Chelsea Culprit",
    "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/chelsea-culprit"
   },
   {
    "name": "SoiL Thornton",
    "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/torey-thornton"
   },
   {
-   "name": "Ryan Trecartin",
+   "name": "Brian Belott",
    "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Kon Trubkovich",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
-  },
-  {
-   "name": "Oscar Tuazon",
-   "status": "represented",
-   "source_url": "https://moranmorangallery.com/"
+   "source_url": "https://moranmorangallery.com/artists/brian-belott"
   }
  ],
- "exhibitions": [],
- "fairs_self_reported": [],
+ "exhibitions": [
+  {
+   "title": "It Ain’t Fair 2008",
+   "artists": [],
+   "start": "2008-12-02",
+   "end": "2008-12-09",
+   "year": 2008,
+   "kind": "fair",
+   "source_url": "https://moranmorangallery.com/exhibitions/2008"
+  },
+  {
+   "title": "It’s Not The Heat, It’s The Humility",
+   "artists": [
+    "Michael Genovese"
+   ],
+   "start": "2009-06-13",
+   "end": "2009-07-25",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2009"
+  },
+  {
+   "title": "It Ain’t Fair 2009",
+   "artists": [],
+   "start": "2009-12-02",
+   "end": "2009-12-06",
+   "year": 2009,
+   "kind": "fair",
+   "source_url": "https://moranmorangallery.com/exhibitions/2009"
+  },
+  {
+   "title": "It Ain’t Fair 2010",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2010,
+   "kind": "fair",
+   "source_url": "https://moranmorangallery.com/exhibitions/2010"
+  },
+  {
+   "title": "Dadarhea",
+   "artists": [],
+   "start": "2010-08-13",
+   "end": "2010-09-04",
+   "year": 2010,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2010"
+  },
+  {
+   "title": "No Cause",
+   "artists": [
+    "Ari Marcopoulos"
+   ],
+   "start": "2010-09-11",
+   "end": "2010-10-09",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2010"
+  },
+  {
+   "title": "Untitled Photographs",
+   "artists": [
+    "Tim Barber"
+   ],
+   "start": "2010-11-13",
+   "end": "2010-11-27",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2010"
+  },
+  {
+   "title": "Skins",
+   "artists": [],
+   "start": "2010-12-02",
+   "end": "2010-12-05",
+   "year": 2010,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2010"
+  },
+  {
+   "title": "Form Forming Formation",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2011-04-30",
+   "end": "2011-05-11",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "Somewhere To Go",
+   "artists": [
+    "Sam Falls"
+   ],
+   "start": "2011-05-21",
+   "end": "2011-06-11",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "Post 9-11",
+   "artists": [],
+   "start": "2011-06-30",
+   "end": "2011-08-27",
+   "year": 2011,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "Character Gestures",
+   "artists": [
+    "Jose Parla"
+   ],
+   "start": "2011-09-09",
+   "end": "2011-10-29",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "A Meal I Make with My Mother",
+   "artists": [
+    "Bert Rodriguez"
+   ],
+   "start": "2011-11-19",
+   "end": "2011-12-03",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "It Ain't Fair 2011: Materialism",
+   "artists": [],
+   "start": "2011-12-01",
+   "end": "2011-12-04",
+   "year": 2011,
+   "kind": "fair",
+   "source_url": "https://moranmorangallery.com/exhibitions/2011"
+  },
+  {
+   "title": "The Fall, The Ball, and The Wall",
+   "artists": [
+    "Daniel Arsham"
+   ],
+   "start": "2012-01-20",
+   "end": "2012-02-16",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "All Oyster, No Pearl",
+   "artists": [
+    "Luis Gispert"
+   ],
+   "start": "2012-04-07",
+   "end": "2012-05-10",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "Leap Second",
+   "artists": [
+    "Kon Trubkovich"
+   ],
+   "start": "2012-05-18",
+   "end": "2012-06-20",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "Too Old For Toys, Too Young For Boys",
+   "artists": [],
+   "start": "2012-06-30",
+   "end": "2012-08-31",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "Seven Rain Paintings",
+   "artists": [
+    "Lucien Smith"
+   ],
+   "start": "2012-09-15",
+   "end": "2012-10-20",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "White Flight",
+   "artists": [
+    "Dean Blunt"
+   ],
+   "start": "2012-11-03",
+   "end": "2012-11-04",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "Tout Dit (2D)",
+   "artists": [
+    "Agathe Snow"
+   ],
+   "start": "2012-11-10",
+   "end": "2012-12-08",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "It Ain't Fair 2012",
+   "artists": [],
+   "start": "2012-12-06",
+   "end": "2012-12-09",
+   "year": 2012,
+   "kind": "fair",
+   "source_url": "https://moranmorangallery.com/exhibitions/2012"
+  },
+  {
+   "title": "Lines and Cracks and Zebras and Horses",
+   "artists": [
+    "Michael Genovese"
+   ],
+   "start": "2013-01-12",
+   "end": "2013-02-09",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "No Man's Land",
+   "artists": [
+    "Nick van Woert"
+   ],
+   "start": "2013-02-22",
+   "end": "2013-04-06",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "Wonderful Land",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2013-04-18",
+   "end": "2013-05-17",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "Haptic Translations",
+   "artists": [],
+   "start": "2013-07-19",
+   "end": "2013-08-22",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "EMERGIO",
+   "artists": [
+    "George Herms"
+   ],
+   "start": "2013-09-14",
+   "end": "2013-10-26",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "Immediate Surroundings",
+   "artists": [
+    "Kim Ye"
+   ],
+   "start": "2013-11-09",
+   "end": "2013-12-14",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2013"
+  },
+  {
+   "title": "Bloody English",
+   "artists": [],
+   "start": "2014-01-18",
+   "end": "2014-02-15",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "As Above, So Below",
+   "artists": [
+    "Robert Mapplethorpe"
+   ],
+   "start": "2014-02-28",
+   "end": "2014-03-29",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "Kick the Tires and Light the Fires",
+   "artists": [
+    "Daniel Arsham"
+   ],
+   "start": "2014-04-04",
+   "end": "2014-05-03",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "Tender 2 The Sunshine Room",
+   "artists": [
+    "Charlie Billingham"
+   ],
+   "start": "2014-05-22",
+   "end": "2014-06-28",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "Some Narrow Sleeping",
+   "artists": [
+    "Torey Thornton"
+   ],
+   "start": "2014-09-06",
+   "end": "2014-10-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "How Lovely Is Me Being As I Am",
+   "artists": [
+    "Jacolby Satterwhite"
+   ],
+   "start": "2014-11-15",
+   "end": "2014-12-31",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2014"
+  },
+  {
+   "title": "House Of The Rising Sun",
+   "artists": [
+    "Kon Trubkovich"
+   ],
+   "start": "2015-01-17",
+   "end": "2015-02-14",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Some Stew You Got Inside Your Plastic Bag, and You Always Organize The Parts So Close",
+   "artists": [],
+   "start": "2015-02-21",
+   "end": "2015-03-28",
+   "year": 2015,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Ground and Figures",
+   "artists": [
+    "Diana Al-Hadid"
+   ],
+   "start": "2015-04-11",
+   "end": "2015-05-16",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Aqua Regia",
+   "artists": [
+    "Luis Gispert"
+   ],
+   "start": "2015-05-29",
+   "end": "2015-06-27",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Queer Fantasy",
+   "artists": [],
+   "start": "2015-07-11",
+   "end": "2015-08-21",
+   "year": 2015,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Just Dropped In To See What Condition My Condition Was In",
+   "artists": [
+    "Nick van Woert"
+   ],
+   "start": "2015-09-12",
+   "end": "2015-10-10",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Never Had A Dream",
+   "artists": [
+    "Eric N. Mack"
+   ],
+   "start": "2015-10-17",
+   "end": "2015-11-10",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Paradise Fire",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2015-11-14",
+   "end": "2015-12-23",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2015"
+  },
+  {
+   "title": "Puuuuuuuuuuffs",
+   "artists": [
+    "Brian Belott"
+   ],
+   "start": "2016-01-16",
+   "end": "2016-02-13",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Allergic to Morning",
+   "artists": [
+    "Lucien Smith"
+   ],
+   "start": "2016-03-05",
+   "end": "2016-04-02",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Intervals",
+   "artists": [
+    "Michael Genovese"
+   ],
+   "start": "2016-03-05",
+   "end": "2016-04-02",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Paper in Practice",
+   "artists": [],
+   "start": "2016-04-09",
+   "end": "2016-05-07",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Robert Mapplethorpe: Dark and Light",
+   "artists": [
+    "Robert Mapplethorpe"
+   ],
+   "start": "2016-05-21",
+   "end": "2016-06-25",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "War Games",
+   "artists": [],
+   "start": "2016-06-02",
+   "end": "2016-07-24",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Eternal",
+   "artists": [
+    "Marco Barrera",
+    "George Herms",
+    "Agathe Snow"
+   ],
+   "start": "2016-07-09",
+   "end": "2016-09-02",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "The Comforts of Bath",
+   "artists": [
+    "Charlie Billingham"
+   ],
+   "start": "2016-09-16",
+   "end": "2016-10-29",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Your Face In The Mirror Isn't Your Face, Similar To Plastic Silverware",
+   "artists": [],
+   "start": "2016-11-19",
+   "end": "2016-12-23",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2016"
+  },
+  {
+   "title": "Sleeping in a beam of sunlight",
+   "artists": [
+    "Terence Koh"
+   ],
+   "start": "2017-01-28",
+   "end": "2017-03-11",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "Where the Sidewalk Ends",
+   "artists": [],
+   "start": "2017-04-01",
+   "end": "2017-05-19",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "Cosmas and Damian",
+   "artists": [
+    "Lucien Smith"
+   ],
+   "start": "2017-06-03",
+   "end": "2017-07-22",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "The Hand is the Mind is the Bomb that Blows",
+   "artists": [
+    "Anders Ruhwald"
+   ],
+   "start": "2017-09-09",
+   "end": "2017-10-07",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "Vigil",
+   "artists": [
+    "Kon Trubkovich"
+   ],
+   "start": "2017-10-13",
+   "end": "2017-11-11",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "When you look in eyes you can only look into one at a time, unless you're further away and aligned perfectly with mirrored feature spacing",
+   "artists": [
+    "Torey Thornton"
+   ],
+   "start": "2017-11-18",
+   "end": "2017-12-31",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2017"
+  },
+  {
+   "title": "Deathless Rufus: Defend Østerfælden",
+   "artists": [
+    "Bendix Harms"
+   ],
+   "start": "2018-01-20",
+   "end": "2018-02-24",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "Empire/Osborne",
+   "artists": [
+    "Peles Empire",
+    "Oliver Osborne"
+   ],
+   "start": "2018-03-03",
+   "end": "2018-04-07",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "Character Study",
+   "artists": [
+    "Daniel Arsham"
+   ],
+   "start": "2018-04-21",
+   "end": "2018-06-09",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "Form Shapes Language",
+   "artists": [],
+   "start": "2018-07-14",
+   "end": "2018-08-25",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "Monuments",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2018-09-08",
+   "end": "2018-10-27",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "ITSOFOMO (In the Shadow of Forward Motion)",
+   "artists": [
+    "David Wojnarowicz",
+    "Ben Neill"
+   ],
+   "start": "2018-10-28",
+   "end": "2018-10-29",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "Objects to Identify",
+   "artists": [],
+   "start": "2018-11-10",
+   "end": "2018-12-22",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2018"
+  },
+  {
+   "title": "RELIEF",
+   "artists": [
+    "Keltie Ferris"
+   ],
+   "start": "2019-02-15",
+   "end": "2019-03-23",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "In Between Days",
+   "artists": [
+    "Willie Stewart"
+   ],
+   "start": "2019-03-30",
+   "end": "2019-05-18",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "A Two-Person Exhibition",
+   "artists": [
+    "George Herms",
+    "Terence Koh"
+   ],
+   "start": "2019-06-01",
+   "end": "2019-07-06",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "Please recall to me everything you have thought of",
+   "artists": [],
+   "start": "2019-07-13",
+   "end": "2019-08-24",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "These Sounds Fall Into My Mind",
+   "artists": [
+    "Eve Fowler"
+   ],
+   "start": "2019-09-07",
+   "end": "2019-10-05",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "Can Opener Door Stop",
+   "artists": [
+    "Brian Belott"
+   ],
+   "start": "2019-10-12",
+   "end": "2019-11-09",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "OTTO 95.8",
+   "artists": [
+    "Kiko Kostadinov"
+   ],
+   "start": "2019-11-16",
+   "end": "2019-12-21",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2019"
+  },
+  {
+   "title": "Night Suns / Desire Lines",
+   "artists": [
+    "Tommy Malekoff"
+   ],
+   "start": "2020-01-04",
+   "end": "2020-02-01",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "Face It",
+   "artists": [
+    "Eric N. Mack"
+   ],
+   "start": "2020-02-08",
+   "end": "2020-03-07",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "4:00 Universe",
+   "artists": [
+    "RJ Messineo"
+   ],
+   "start": "2020-03-14",
+   "end": "2020-08-22",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "In Fifteen Images",
+   "artists": [
+    "Robert Mapplethorpe"
+   ],
+   "start": "2020-06-16",
+   "end": "2020-07-21",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "Century Garden",
+   "artists": [
+    "Anders Ruhwald"
+   ],
+   "start": "2020-07-14",
+   "end": "2020-08-25",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "I is Someone Else",
+   "artists": [
+    "David Wojnarowicz"
+   ],
+   "start": "2020-09-26",
+   "end": "2020-11-07",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "Nothing to Wear",
+   "artists": [
+    "Chelsea Culprit"
+   ],
+   "start": "2020-10-21",
+   "end": "2020-11-24",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "Forms of Life",
+   "artists": [
+    "Tunji Adeniyi-Jones",
+    "Lonnie Holley",
+    "Willa Nasatir"
+   ],
+   "start": "2020-11-18",
+   "end": "2020-12-19",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2020"
+  },
+  {
+   "title": "LIST POEMS",
+   "artists": [
+    "Eve Fowler"
+   ],
+   "start": "2021-03-08",
+   "end": "2021-04-19",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Leave without second course (7)",
+   "artists": [
+    "Charlie Billingham"
+   ],
+   "start": "2021-04-22",
+   "end": "2021-05-24",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Mapplethorpe: Escultura",
+   "artists": [
+    "Robert Mapplethorpe"
+   ],
+   "start": "2021-06-19",
+   "end": "2021-08-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "My Child will be named after me, Invasive, or was it Prayer? I need to check my notes.",
+   "artists": [],
+   "start": "2021-08-21",
+   "end": "2021-09-11",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Love Like Salt",
+   "artists": [
+    "Luis Gispert"
+   ],
+   "start": "2021-09-21",
+   "end": "2021-10-23",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "DASHCAM – Dash Snow: Photographs of Life",
+   "artists": [
+    "Dash Snow"
+   ],
+   "start": "2021-09-25",
+   "end": "2021-10-19",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Dogs, Egg, Windows, Women",
+   "artists": [
+    "Sara Knowland"
+   ],
+   "start": "2021-10-21",
+   "end": "2021-12-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Melodic Virtues",
+   "artists": [
+    "Tunji Adeniyi-Jones"
+   ],
+   "start": "2021-10-28",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "Fetiche",
+   "artists": [],
+   "start": "2021-11-04",
+   "end": "2022-01-22",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2021"
+  },
+  {
+   "title": "One Enormous Day",
+   "artists": [
+    "Agathe Snow"
+   ],
+   "start": "2022-01-08",
+   "end": "2022-02-05",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "I'm Missing",
+   "artists": [
+    "Kenny Rivero"
+   ],
+   "start": "2022-02-08",
+   "end": "2022-03-05",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Just Like Water",
+   "artists": [
+    "Jacolby Satterwhite"
+   ],
+   "start": "2022-02-12",
+   "end": "2022-03-12",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "This is the Living Vessel: Body",
+   "artists": [
+    "Anders Ruhwald"
+   ],
+   "start": "2022-03-09",
+   "end": "2022-04-09",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Amygdala in Repose",
+   "artists": [
+    "Chelsea Culprit"
+   ],
+   "start": "2022-03-19",
+   "end": "2022-04-16",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Recent Work",
+   "artists": [
+    "Joan Semmel"
+   ],
+   "start": "2022-04-20",
+   "end": "2022-05-26",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Gloria",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2022-04-23",
+   "end": "2022-06-11",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "A Form of Magic",
+   "artists": [],
+   "start": "2022-06-01",
+   "end": "2022-07-02",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Concrete Spiritual",
+   "artists": [],
+   "start": "2022-06-25",
+   "end": "2022-08-13",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Land",
+   "artists": [
+    "Kon Trubkovich"
+   ],
+   "start": "2022-07-06",
+   "end": "2022-08-20",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Cherry Blossoms are Razor Blades",
+   "artists": [
+    "John Giorno"
+   ],
+   "start": "2022-09-17",
+   "end": "2022-10-22",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "The hand that forms a mirror",
+   "artists": [],
+   "start": "2022-09-17",
+   "end": "2022-10-22",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Cuts",
+   "artists": [
+    "Eric N. Mack"
+   ],
+   "start": "2022-09-21",
+   "end": "2022-10-22",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "My Caldera",
+   "artists": [
+    "Cauleen Smith"
+   ],
+   "start": "2022-11-04",
+   "end": "2023-01-14",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Go to hell, bitch",
+   "artists": [
+    "Borna Sammak"
+   ],
+   "start": "2022-11-09",
+   "end": "2023-01-14",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2022"
+  },
+  {
+   "title": "Tranquil Dive",
+   "artists": [
+    "Tunji Adeniyi-Jones"
+   ],
+   "start": "2023-02-07",
+   "end": "2023-03-22",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Ghosts of the Boulevard",
+   "artists": [
+    "Becky Kolsrud"
+   ],
+   "start": "2023-02-11",
+   "end": "2023-04-01",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "+++c+o+n+t+a+c+t+++",
+   "artists": [
+    "Keltie Ferris"
+   ],
+   "start": "2023-03-29",
+   "end": "2023-05-27",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Piano Paintings",
+   "artists": [
+    "RJ Messineo"
+   ],
+   "start": "2023-04-14",
+   "end": "2023-05-26",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Hello Walls",
+   "artists": [
+    "Willie Stewart"
+   ],
+   "start": "2023-06-10",
+   "end": "2023-07-14",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Max Payday",
+   "artists": [
+    "Nancy Lupo"
+   ],
+   "start": "2023-06-14",
+   "end": "2023-08-26",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Private Property",
+   "artists": [
+    "cameron clayborn"
+   ],
+   "start": "2023-07-29",
+   "end": "2023-08-25",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "This American Life",
+   "artists": [
+    "Lizzie Fitch",
+    "Calvin Marcus",
+    "Borna Sammak",
+    "Martine Syms",
+    "Ryan Trecartin",
+    "Robin F. Williams",
+    "Dena Yago"
+   ],
+   "start": "2023-09-08",
+   "end": "2023-10-28",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Watch Yourself",
+   "artists": [
+    "Robin F. Williams"
+   ],
+   "start": "2023-09-20",
+   "end": "2023-11-04",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "A Project Curated by Artists: 15 Years of ACP",
+   "artists": [],
+   "start": "2023-11-11",
+   "end": "2024-02-03",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2023"
+  },
+  {
+   "title": "Entre las manos del tiempo",
+   "artists": [
+    "Raúl de Nieves"
+   ],
+   "start": "2024-02-06",
+   "end": "2024-03-23",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Robert Mapplethorpe: Animism, Faith, Violence, and Conquest",
+   "artists": [
+    "Robert Mapplethorpe"
+   ],
+   "start": "2024-02-24",
+   "end": "2024-05-04",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Table Wear",
+   "artists": [
+    "Jo Messer"
+   ],
+   "start": "2024-04-10",
+   "end": "2024-05-25",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Painting, the shorter of the longest (Morán Morán), 2024",
+   "artists": [
+    "Soil Thornton"
+   ],
+   "start": "2024-05-18",
+   "end": "2024-06-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "New Moon",
+   "artists": [
+    "David Benjamin Sherry"
+   ],
+   "start": "2024-06-26",
+   "end": "2024-07-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Days of 2024",
+   "artists": [
+    "Eve Fowler"
+   ],
+   "start": "2024-06-28",
+   "end": "2024-08-17",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Los Angeles Water School (LAWS)",
+   "artists": [
+    "Oscar Tuazon"
+   ],
+   "start": "2024-09-07",
+   "end": "2024-11-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Posthumously Speaking: Dear Dear Summer Some Are",
+   "artists": [
+    "Kenny Rivero"
+   ],
+   "start": "2024-11-16",
+   "end": "2025-01-25",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2024"
+  },
+  {
+   "title": "Plant Works",
+   "artists": [
+    "Anders Ruhwald"
+   ],
+   "start": "2025-02-15",
+   "end": "2025-04-05",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Play",
+   "artists": [],
+   "start": "2025-04-26",
+   "end": "2025-07-05",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Haptic Fantastic",
+   "artists": [
+    "Luis Gispert"
+   ],
+   "start": "2025-07-26",
+   "end": "2025-09-03",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Warmer, Warmer",
+   "artists": [
+    "Erin Morris"
+   ],
+   "start": "2025-07-26",
+   "end": "2025-09-03",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Spleen",
+   "artists": [
+    "Claire Chambless"
+   ],
+   "start": "2025-09-20",
+   "end": "2025-10-25",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Dash Snow: Carrion",
+   "artists": [
+    "Dash Snow"
+   ],
+   "start": "2025-10-21",
+   "end": "2025-11-29",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Heartland",
+   "artists": [
+    "William Schaeuble"
+   ],
+   "start": "2025-11-20",
+   "end": "2025-12-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions/2025"
+  },
+  {
+   "title": "Pocket",
+   "artists": [
+    "Amelia Lockwood"
+   ],
+   "start": "2026-01-10",
+   "end": "2026-02-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://moranmorangallery.com/exhibitions"
+  },
+  {
+   "title": "PLY WOULD",
+   "artists": [
+    "Lizzie Fitch",
+    "Ryan Trecartin"
+   ],
+   "start": "2026-02-21",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions"
+  },
+  {
+   "title": "From Now On",
+   "artists": [],
+   "start": "2026-07-11",
+   "end": "2026-08-15",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://moranmorangallery.com/exhibitions"
+  }
+ ],
+ "fairs_self_reported": [
+  "The Armory Show",
+  "Felix",
+  "Art Basel",
+  "Paris+ par Art Basel",
+  "INDEPENDENT",
+  "Dallas Art Fair",
+  "Frieze",
+  "ZⓈONAMACO"
+ ],
  "memberships_self_reported": [],
- "press_self_reported": [],
+ "venue_kind": "gallery",
+ "kind_confidence": 0.95,
+ "kind_evidence": "Established in 2008, Morán Morán focuses on exhibitions of contemporary art, representing emerging and mid-career artists, and participates in commercial art fairs.",
+ "press_self_reported": [
+  {
+   "outlet": "The New York Times",
+   "year": 2022,
+   "url": "https://moranmorangallery.com/what-does-it-mean-to-be-a-young-black-queer-artist-right-now"
+  },
+  {
+   "outlet": "The New York Times",
+   "year": 2022,
+   "url": "https://moranmorangallery.com/selections/coercive-beliefs"
+  }
+ ],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": null,
+ "notes": "Site includes a Mexico City exhibition location (AV. HORACIO 1022, POLANCO) associated with a 2023 show, but the gallery's own Information page lists only Los Angeles and Paris as its spaces, so Mexico City was not added as a formal location. Extensive press mention lists exist on individual artist pages but lack dates or URLs and were not itemized.",
+ "exhibitions_truncated": false,
  "triage": {
-  "labels": {},
-  "site_notes": "",
-  "fetch_more": []
+  "labels": {
+   "https://moranmorangallery.com/exhibitions": "exhibitions_current",
+   "https://moranmorangallery.com/fairs": "fairs",
+   "https://moranmorangallery.com/news": "news",
+   "https://moranmorangallery.com/information": "contact_hours",
+   "https://moranmorangallery.com/artists/brian-belott": "artist_page",
+   "https://moranmorangallery.com/artists/claire-chambless": "artist_page",
+   "https://moranmorangallery.com/artists/chelsea-culprit": "artist_page",
+   "https://moranmorangallery.com/artists/keltie-ferris": "artist_page",
+   "https://moranmorangallery.com/artists/eve-fowler": "artist_page",
+   "https://moranmorangallery.com/artists/michael-genovese": "artist_page",
+   "https://moranmorangallery.com/artists/luis-gispert": "artist_page",
+   "https://moranmorangallery.com/artists/george-herms": "artist_page",
+   "https://moranmorangallery.com/artists/becky-kolsrud": "artist_page",
+   "https://moranmorangallery.com/artists/estate-of-robert-mapplethorpe": "artist_page",
+   "https://moranmorangallery.com/artists/rj-messineo": "artist_page",
+   "https://moranmorangallery.com/artists/kenny-rivero": "artist_page",
+   "https://moranmorangallery.com/artists/anders-ruhwald": "artist_page",
+   "https://moranmorangallery.com/artists/jacolby-satterwhite": "artist_page",
+   "https://moranmorangallery.com/artists/david-benjamin-sherry": "artist_page",
+   "https://moranmorangallery.com/artists/cauleen-smith": "artist_page",
+   "https://moranmorangallery.com/artists/agathe-snow": "artist_page",
+   "https://moranmorangallery.com/artists/estate-of-dash-snow": "artist_page",
+   "https://moranmorangallery.com/artists/willie-stewart": "artist_page",
+   "https://moranmorangallery.com/artists/torey-thornton": "artist_page",
+   "https://moranmorangallery.com/artists/ryan-trecartin": "artist_page",
+   "https://moranmorangallery.com/artists/kon-trubkovich": "artist_page",
+   "https://moranmorangallery.com/artists/oscar-tuazon": "artist_page",
+   "https://moranmorangallery.com/exhibition/asherah-grove": "exhibition_page",
+   "https://moranmorangallery.com/exhibition/circle-house": "exhibition_page",
+   "https://moranmorangallery.com/exhibitions/2025": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2024": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2023": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2022": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2021": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2020": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2019": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2018": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2017": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2016": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2015": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2014": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2013": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2012": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2011": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2010": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2009": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2008": "exhibitions_archive",
+   "https://moranmorangallery.com/selections/she-did-it-casja-von-zeipel": "news",
+   "https://moranmorangallery.com/selections/coercive-beliefs": "news",
+   "https://moranmorangallery.com/selections/worst-orange": "news",
+   "https://moranmorangallery.com/selections/the-annotated-asger-jorn": "news",
+   "https://moranmorangallery.com/selections/double-layers": "news",
+   "https://moranmorangallery.com/selections/island-life": "news",
+   "https://moranmorangallery.com/opening-this-summer-directionless-is-a-sweeping-group-exhibition-organised-by-artist-rashid-johnson": "news",
+   "https://moranmorangallery.com/monuments": "news",
+   "https://moranmorangallery.com/in-l-a-a-loss-of-nerve-at-the-hammer-but-art-hits-in-the-galleries": "news",
+   "https://moranmorangallery.com/10-art-shows-to-see-in-los-angeles-this-october": "news",
+   "https://moranmorangallery.com/the-100-best-artworks": "news",
+   "https://moranmorangallery.com/the-best-booths-at-felix-la": "news",
+   "https://moranmorangallery.com/what-to-watch-at-momas-doc-fortnight-festival": "news",
+   "https://moranmorangallery.com/for-this-years-frieze-projects-8-angeleno-artists-are-making-work-that-reflects-the-citys-enduring-resilience": "news",
+   "https://moranmorangallery.com/headed-to-los-angeles-for-la-art-week": "news",
+   "https://moranmorangallery.com/in-a-new-museum-show": "news",
+   "https://moranmorangallery.com/get-a-load-of-jamian-juliano-villani": "news",
+   "https://moranmorangallery.com/alice-coltrane-artists-muse-and-sonic-healer-coltrane-a-jazz-virtuoso-who-devoted-much-of-her-life-to-a-spiritual-journey-is-a-beacon-for-todays-artists": "news",
+   "https://moranmorangallery.com/frieze-projects": "news",
+   "https://moranmorangallery.com/frieze-editors-on-what-to-look-forward-to-in-2025-from-the-monuments-exhibition-in-los-angeles-to-the-inaugural-bukhara-biennial-in-uzbekistan": "news",
+   "https://moranmorangallery.com/frieze-los-angeles-has-announced-the-artists-and-work-to-be-featured-in-frieze-projects": "news",
+   "https://moranmorangallery.com/us-artist-transforms-former-confederate-monument-into-heartfelt-symbol": "news",
+   "https://moranmorangallery.com/this-november-here-are-the-13": "news",
+   "https://moranmorangallery.com/pst-art-review-part-3": "news",
+   "https://moranmorangallery.com/oscar-tuazon-builds-activist-prototypes": "news",
+   "https://moranmorangallery.com/why-the-pre-eminent-artists-of-internet-culture-escaped-to-rural-ohio": "news",
+   "https://moranmorangallery.com/art-in-the-fjords-dive-into-oslos-astrup-fearnley-museum": "news",
+   "https://moranmorangallery.com/can-visual-artists-get-people-to-vote": "news",
+   "https://moranmorangallery.com/inside-artist-ryan-trecartins-aspen-art-week-ensemble": "news",
+   "https://moranmorangallery.com/why-are-robert-mapplethorpes-provocative-images": "news",
+   "https://moranmorangallery.com/i-had-an-ipod-on-my-pussy-an-eight-minute-cig-with-artist-jacolby-satterwhite": "news",
+   "https://moranmorangallery.com/the-nigeria-imaginary-is-dialogical": "news",
+   "https://moranmorangallery.com/9-contemporary-artists-mastering-maximalist-patterns": "news",
+   "https://moranmorangallery.com/drylongso-review-charming-90s-indie-is-a-genre-resistant-film-that-keeps-its-diy-dazzle": "news",
+   "https://moranmorangallery.com/rotting-fruit-an-animatronic-mouse-and-other-highlights-of-the-venice-biennale": "news",
+   "https://moranmorangallery.com/this-year-marks-africas-largest-ever-participation-at-the-venice-biennale-heres-what-to-expect": "news",
+   "https://moranmorangallery.com/in-the-nigeria-pavilion-criticism-meets-optimism": "news",
+   "https://moranmorangallery.com/5-curators-share-a-sneak-peek-of-their-venice-biennale-pavilions": "news",
+   "https://moranmorangallery.com/entre-las-manos-del-tiempo": "news",
+   "https://moranmorangallery.com/cauleen-smith-is-shining-a-light-on-the-powerful-poetry-of-wanda-coleman-and-the-contours-of-los-angeles-that-inspired-her": "news",
+   "https://moranmorangallery.com/cauleen-smith-the-wanda-coleman-songbook": "news",
+   "https://moranmorangallery.com/a-project-curated-by-artists-15-years-of-acp-at-moran-moran": "news",
+   "https://moranmorangallery.com/cauleen-smith-presents-an-ode-to-wanda-coleman": "news",
+   "https://moranmorangallery.com/sixth-edition-of-prospect-new-orleans-will-feature-49-artists-works-throughout-the-city": "news",
+   "https://moranmorangallery.com/the-divine-dissatisfaction-of-music": "news",
+   "https://moranmorangallery.com/artist-ryan-trecartin-built-his-career-on-the-internet-now-hes-decided-its-pretty-boring": "news",
+   "https://moranmorangallery.com/a-new-york-art-debut-a-los-angeles-love-song": "news",
+   "https://moranmorangallery.com/on-the-cover-of-new-york-a-practical-guide-to-polyamory": "news",
+   "https://moranmorangallery.com/the-most-anticipated-art-shows-and-exhibitions-of-2024": "news",
+   "https://moranmorangallery.com/cauleen-smith-exhibition-mines-the-damage-done-by-mineral-extraction": "news",
+   "https://moranmorangallery.com/sarah-harrelsons-artists-to-watch-during-miami-art-week": "news",
+   "https://moranmorangallery.com/moran-moran-now-represent-ryan-trecartin": "news",
+   "https://moranmorangallery.com/to-do-twenty-five-things-to-see-hear-watch-and-read": "news",
+   "https://moranmorangallery.com/what-to-see-in-n-y-c-galleries-in-november": "news",
+   "https://moranmorangallery.com/bma-debuts-raul-de-nieves-and-imagine-you-are-here-meyerhoff-becker-biennial-commission": "news",
+   "https://moranmorangallery.com/l-a-in-mexico-city-nancy-lupo-at-moran-moran": "news",
+   "https://moranmorangallery.com/once-within-a-time-review-godfrey-reggio-and-jon-kanes-bardic-fantasy-of-the-real": "news",
+   "https://moranmorangallery.com/cameron-clayborn-private-property": "news",
+   "https://moranmorangallery.com/with-a-love-poem-and-acid-beat-a-grand-space-feels-the-heat": "news",
+   "https://moranmorangallery.com/jacolby-satterwhite-and-kelsey-lu-on-radical-awakenings-and-video-games": "news",
+   "https://moranmorangallery.com/thinking-about-nonmemory-mike-kelleys-work-in-dialogue-with-artists-curated-by-jay-ezra-nayssan-at-hauser-wirth-dtla": "news",
+   "https://moranmorangallery.com/jacolby-satterwhites-first-major-survey-opens-at-saic-galleries": "news",
+   "https://moranmorangallery.com/maximalist-survey-of-new-video-art-puts-you-in-an-audiovisual-groove": "news",
+   "https://moranmorangallery.com/christies-london-is-teaming-up-with-nigerias-museum-of-west-african-art-for-a-benefit-sale-of-work-by-yinka-shonibare-kehinde-wiley-and-more": "news",
+   "https://moranmorangallery.com/new-mexico-gallery-shows-art-in-fallen-tree-trunks-and-on-branches-for-one-day-show-in-the-mountains": "news",
+   "https://moranmorangallery.com/meet-the-five-artists-representing-american-contemporary-art-in-copenhagen-this-summer": "news",
+   "https://moranmorangallery.com/datebook-the-art-worlds-summer-happenings-to-add-to-your-calendar": "news",
+   "https://moranmorangallery.com/how-childhood-inspires-artists-and-their-art": "news",
+   "https://moranmorangallery.com/10-buzzy-gallery-shows-not-to-miss-in-new-york-this-month-from-uptown-to-tribeca": "news",
+   "https://moranmorangallery.com/speaking-in-tongues": "news",
+   "https://moranmorangallery.com/brian-belotts-satirical-modernist-grids": "news",
+   "https://moranmorangallery.com/and-the-award-for-best-press-release-goes-to-brian-belott": "news",
+   "https://moranmorangallery.com/who-has-the-most-artists-in-the-whitney-biennial-these-non-blue-chip-galleries-represent-more-than-a-quarter-of-the-show": "news",
+   "https://moranmorangallery.com/the-new-whitney-biennial-made-me-see-art-history-in-a-new-way": "news",
+   "https://moranmorangallery.com/soft-power-the-whitney-biennial-is-an-elegant-but-safe-portrait-of-right-now": "news",
+   "https://moranmorangallery.com/2019-whitney-biennial-announces-participating-artists": "news",
+   "https://moranmorangallery.com/on-the-verge-of-failure": "news",
+   "https://moranmorangallery.com/brian-belotts-time-pieces": "news",
+   "https://moranmorangallery.com/brian-belott-interviewed-by-ross-simonini": "news",
+   "https://moranmorangallery.com/brian-belott": "news",
+   "https://moranmorangallery.com/brian-belott-to-sell-works-at-new-york-museums-for-arbitrary-prices": "news",
+   "https://moranmorangallery.com/the-power-and-complexity-of-childrens-art-an-interview-with-brian-belott": "news",
+   "https://moranmorangallery.com/what-to-see-in-new-york-art-galleries-this-week-2": "news",
+   "https://moranmorangallery.com/dreaming-and-anti-art-how-brian-belott-rocked-londons-serpentine-pavilion": "news",
+   "https://moranmorangallery.com/brian-belott-puts-puff-in-his-stuff": "news",
+   "https://moranmorangallery.com/dallas-museum-of-art-acquires-12-pieces-from-the-dallas-art-fair-including-works-by-three-texas-artists": "news",
+   "https://moranmorangallery.com/how-i-became-an-artist-chelsea-culprit": "news",
+   "https://moranmorangallery.com/expo-chicago-2022-artist-highlights": "news",
+   "https://moranmorangallery.com/the-9-best-booths-at-expo-chicago-from-dazzling-peacocks-to-new-vogue-covers-honoring-black-and-indigenous-women-activists": "news",
+   "https://moranmorangallery.com/devastation": "news",
+   "https://moranmorangallery.com/more-more-more": "news",
+   "https://moranmorangallery.com/the-deeper-meaning-behind-this-clermont-twins-illustration": "news",
+   "https://moranmorangallery.com/chelsea-culprit": "news",
+   "https://moranmorangallery.com/4-breakout-artists-from-the-los-angeles-art-fairs-who-collectors-would-be-wise-to-watch-in-the-months-ahead": "news",
+   "https://moranmorangallery.com/chelsea-culprit-3": "news",
+   "https://moranmorangallery.com/malas-madres-en-consecuencia-un-enigma-chelsea-culprit": "news",
+   "https://moranmorangallery.com/chelsea-culprits-nocturnal-chimeras": "news",
+   "https://moranmorangallery.com/in-praise-of-underdogs": "news",
+   "https://moranmorangallery.com/goings-on-about-town": "news",
+   "https://moranmorangallery.com/what-to-see-in-new-york-art-galleries-this-week-3": "news",
+   "https://moranmorangallery.com/chelsea-culprit-expone-pintura-y-neones-en-el-barba-azul": "news",
+   "https://moranmorangallery.com/chelsea-culprit-miss-universe": "news",
+   "https://moranmorangallery.com/miss-universe": "news",
+   "https://moranmorangallery.com/chelsea-culprit-2": "news",
+   "https://moranmorangallery.com/fifteen-years-ago-keltie-ferris-was-peter-halleys-student-the-artists-now-friends-sat-down-to-talk-shop-as-they-debut-new-work": "news",
+   "https://moranmorangallery.com/keltie-ferris-relief": "news",
+   "https://moranmorangallery.com/keltie-ferris-3": "news",
+   "https://moranmorangallery.com/keltie-ferris-shows-something-that-almost-seemed-no-longer-possible": "news",
+   "https://moranmorangallery.com/keltie-ferris-on-display": "news",
+   "https://moranmorangallery.com/pay-attention-to-this-live-wire": "news",
+   "https://moranmorangallery.com/keltie-ferris": "news",
+   "https://moranmorangallery.com/painting-as-total-environment": "news",
+   "https://moranmorangallery.com/10-of-the-most-eye-opening-artworks-at-art-basel-miami-beach": "news",
+   "https://moranmorangallery.com/keltie-ferris-2": "news",
+   "https://moranmorangallery.com/3-sentence-reviews-keltie-ferris-for-starters": "news",
+   "https://moranmorangallery.com/review-keltie-ferris": "news",
+   "https://moranmorangallery.com/paintings-full-arsenal": "news",
+   "https://moranmorangallery.com/eve-fowler-3": "news",
+   "https://moranmorangallery.com/eve-fowler-new-work": "news",
+   "https://moranmorangallery.com/meet-las-art-community-eve-fowler-says-i-learn-more-when-i-see-art-with-friends": "news",
+   "https://moranmorangallery.com/portfolio-by-eve-fowler": "news",
+   "https://moranmorangallery.com/eve-fowler-at-moran-moran": "news",
+   "https://moranmorangallery.com/word-play-and-womens-work-with-eve-fowler": "news",
+   "https://moranmorangallery.com/for-these-20-women-artists-rapunzel-and-dyketactics-are-just-the-beginning": "news",
+   "https://moranmorangallery.com/please-recall-to-me-everything-you-have-thought-of": "news",
+   "https://moranmorangallery.com/spotlighting-lesbian-artists-as-central-players-in-californias-queer-history": "news",
+   "https://moranmorangallery.com/eve-fowler": "news",
+   "https://moranmorangallery.com/eve-fowler-what-a-slight-what-a-sound-what-a-universal-shudder": "news",
+   "https://moranmorangallery.com/eve-fowler-gertrude-steins-work-really-affected-me": "news",
+   "https://moranmorangallery.com/l-a-women": "news",
+   "https://moranmorangallery.com/review-eve-fowler": "news",
+   "https://moranmorangallery.com/a-two-year-100-billboard-celebration-of-going-west": "news",
+   "https://moranmorangallery.com/eve-fowler-appropriates-gertrude-stein": "news",
+   "https://moranmorangallery.com/eve-fowler-2": "news",
+   "https://moranmorangallery.com/review-eve-fowler-imagines-gertrude-steins-words": "news",
+   "https://moranmorangallery.com/momas-postconceptual-curators": "news",
+   "https://moranmorangallery.com/interview-eve-fowler": "news",
+   "https://moranmorangallery.com/2186-2": "news",
+   "https://moranmorangallery.com/review-michael-genovese": "news",
+   "https://moranmorangallery.com/bridge-time": "news",
+   "https://moranmorangallery.com/the-monocle-arts-review": "news",
+   "https://moranmorangallery.com/spotting-cracks-in-the-system": "news",
+   "https://moranmorangallery.com/but-not-simpler": "news",
+   "https://moranmorangallery.com/mca-winter-artist-in-residence-michael-genovese": "news",
+   "https://moranmorangallery.com/vice-magazines-october-music-issue": "news",
+   "https://moranmorangallery.com/bling-with-a-cheeky-ring-in-luis-gisperts-aqua-regia-exhibition": "news",
+   "https://moranmorangallery.com/artist-luis-gispert-connects-visual-artistry-and-hip-hop-culture-in-a-new-exhibition": "news",
+   "https://moranmorangallery.com/gold-chains-float-on-asphalt-in-the-art-of-luis-gispert": "news",
+   "https://moranmorangallery.com/luis-gisperts-art-of-gold": "news",
+   "https://moranmorangallery.com/luis-gispert-the-joker": "news",
+   "https://moranmorangallery.com/luis-gispert-new-photographs-deception-custom-counterfeit-creations": "news",
+   "https://moranmorangallery.com/artifacts": "news",
+   "https://moranmorangallery.com/luis-gisperts-latest-kreayshawns": "news",
+   "https://moranmorangallery.com/review-luis-gispert": "news",
+   "https://moranmorangallery.com/a-celebration-of-the-rat-bastards": "news",
+   "https://moranmorangallery.com/group-show-at-moran-bondaroff": "news",
+   "https://moranmorangallery.com/the-20-best-booths-at-art-basel": "news",
+   "https://moranmorangallery.com/george-herms-discusses-his-archives-and-exhibition-in-austin-texas": "news",
+   "https://moranmorangallery.com/george-herms-re-emerges": "news",
+   "https://moranmorangallery.com/review-george-herms-xenophilia": "news",
+   "https://moranmorangallery.com/contemporary-artists-are-reviving-vanitas-reflecting-on-death-and-decadence": "news",
+   "https://moranmorangallery.com/pick-of-the-week-becky-kolsrud": "news",
+   "https://moranmorangallery.com/becky-kolsruds-elegies-explores-the-poignancy-of-pandemic-grief": "news",
+   "https://moranmorangallery.com/becky-kolsrud": "news",
+   "https://moranmorangallery.com/profile-becky-kolsrud": "news",
+   "https://moranmorangallery.com/new-york-becky-kolsrud-elegies-at-jtt-through-march-13th-2021": "news",
+   "https://moranmorangallery.com/as-frieze-los-angeles-opens-three-young-california-artists-are-reinventing-what-figurative-painting-can-be": "news",
+   "https://moranmorangallery.com/editors-picks-12-things-to-see-in-new-york-this-week": "news",
+   "https://moranmorangallery.com/allegorical-nudes-becky-kolsrud-at-jtt-new-york": "news",
+   "https://moranmorangallery.com/fleeting-impressions-and-abundance-of-detail": "news",
+   "https://moranmorangallery.com/becky-kolsrud-at-tif-sigfrids": "news",
+   "https://moranmorangallery.com/becky-kolsrud-young-artists-2017": "news",
+   "https://moranmorangallery.com/the-freshmen-four-art-basel-miami-first-timers-to-know": "news",
+   "https://moranmorangallery.com/the-15-must-see-galleries-at-art-basel-miami-2016": "news",
+   "https://moranmorangallery.com/these-20-female-artists-are-pushing-figurative-painting-forward": "news",
+   "https://moranmorangallery.com/inside-a-new-robert-mapplethorpe-exhibition": "news",
+   "https://moranmorangallery.com/has-robert-mapplethorpes-moment-passed": "news",
+   "https://moranmorangallery.com/guggenheim-launches-photography-fellowship-with-gift-from-robert-mapplethorpe-foundation": "news",
+   "https://moranmorangallery.com/honouring-robert-mapplethorpes-unexpected-images": "news",
+   "https://moranmorangallery.com/mapplethorpe-at-the-guggenheim-bill-viola-at-the-royal-academy": "news",
+   "https://moranmorangallery.com/robert-mapplethorpe-was-one-of-the-most-controversial-artists-of-the-80s": "news",
+   "https://moranmorangallery.com/robert-mapplethorpes-photos-no-longer-seem-shocking-in-2019": "news",
+   "https://moranmorangallery.com/mapplethorpe-show-in-portugal-sparks-censorship-controversy": "news",
+   "https://moranmorangallery.com/robert-mapplethorpe": "news",
+   "https://moranmorangallery.com/rj-messineo": "news",
+   "https://moranmorangallery.com/motha-is-preserving-transgender-hirstory": "news",
+   "https://moranmorangallery.com/second-surfaces-rj-messineo-interviewed-by-tom-burr": "news",
+   "https://moranmorangallery.com/making-messes-for-the-future": "news",
+   "https://moranmorangallery.com/studio-visit-kenny-rivero": "news",
+   "https://moranmorangallery.com/galerie-x-art-for-change": "news",
+   "https://moranmorangallery.com/kenny-riveros-tricks-of-the-eye": "news",
+   "https://moranmorangallery.com/chucka-chucka-chucka-poom-poom-kenny-rivero-interviewed-by-melissa-joseph": "news",
+   "https://moranmorangallery.com/what-kenny-rivero-learned-about-being-an-artist-working-as-a-doorman-at-a-fancy-manhattan-building": "news",
+   "https://moranmorangallery.com/moveable-feasts": "news",
+   "https://moranmorangallery.com/in-person-again-the-2021-armory-show-celebrates-superlatives": "news",
+   "https://moranmorangallery.com/kenny-rivero-palm-oil-rum-honey-yellow-flowers-at-bmac": "news",
+   "https://moranmorangallery.com/kenny-rivero-is-painting-the-monsters-we-choose-to-ignore": "news",
+   "https://moranmorangallery.com/2020-a-year-in-new-york-exhibitions-and-more": "news",
+   "https://moranmorangallery.com/kenny-riveros-new-paintings-poetically-explore-his-fear-of-death-as-a-person-of-color-in-america": "news",
+   "https://moranmorangallery.com/five-new-york-gallery-shows-to-see-this-winter": "news",
+   "https://moranmorangallery.com/editors-picks-8-events-for-your-art-calendar-this-week-from-a-new-release-on-50-women-sculptors-to-a-nicolas-party-chat": "news",
+   "https://moranmorangallery.com/kenny-rivero-takes-a-journey-through-the-valley-of-the-shadow-of-death-in-a-new-body-of-paintings": "news",
+   "https://moranmorangallery.com/perez-art-museum-miami-announces-nada-acquisition-gift": "news",
+   "https://moranmorangallery.com/kenny-rivero-i-can-love-you-better": "news",
+   "https://moranmorangallery.com/wander-into-a-dim-daring-art-installation-that-evokes-detroits-troubled-past-and-rattles-your-own-memories": "news",
+   "https://moranmorangallery.com/come-for-the-ceramics-exhibition-stay-for-the-hallucinatory-interior-design-at-this-italian-house-museum": "news",
+   "https://moranmorangallery.com/asger-oluf-jorn-meets-artist-anders-herwald-ruhwald": "news",
+   "https://moranmorangallery.com/zsonamaco-2018-design-with-life": "news",
+   "https://moranmorangallery.com/anders-ruhwald-why-i-create": "news",
+   "https://moranmorangallery.com/8-game-changing-contemporary-ceramists-to-add-to-your-collection": "news",
+   "https://moranmorangallery.com/anders-ruhwald-at-moran-moran": "news",
+   "https://moranmorangallery.com/art-on-fire-from-rodins-bombed-thinker-to-ruhwalds-ceramic-sculptures": "news",
+   "https://moranmorangallery.com/a-ceramicist-displays-his-private-experiments-in-clay": "news",
+   "https://moranmorangallery.com/stepping-into-an-uncanny-reconstruction-of-a-detroit-apartment": "news",
+   "https://moranmorangallery.com/in-governors-island-seven-video-artists-imagine-radical-futures": "news",
+   "https://moranmorangallery.com/12-lgbtq-artists-having-institutional-shows-this-pride-month": "news",
+   "https://moranmorangallery.com/the-metropolitan-museums-great-hall-to-be-transformed-by-kaleidoscopic-jacolby-satterwhite-video-installation": "news",
+   "https://moranmorangallery.com/nairy-baghramian-and-jacolby-satterwhite-win-prestigious-met-commissions": "news",
+   "https://moranmorangallery.com/met-museum-commissions-to-bring-contemporary-art-front-and-center": "news",
+   "https://moranmorangallery.com/drag-tech-and-lgbtq-desire-an-exhibit-documents-decades-of-queer-art-experimentation": "news",
+   "https://moranmorangallery.com/jacolby-satterwhite-a-feeling-of-healing": "news",
+   "https://moranmorangallery.com/which-artists-should-you-be-watching-sandra-jackson-dumont-hilton-als-and-other-artnet-innovators-share-their-picks": "news",
+   "https://moranmorangallery.com/jacolby-satterwhite-for-freedoms-patrick-martinez-and-more-to-produce-art-for-la3c-penske-medias-new-culture-and-creativity-festival": "news",
+   "https://moranmorangallery.com/brooklyn-at-basel-meet-the-artists-repping-the-borough-in-miami": "news",
+   "https://moranmorangallery.com/michael-r-jackson-and-jacolby-satterwhite-on-making-art-in-a-shifting-culture": "news",
+   "https://moranmorangallery.com/two-art-commissions-look-at-lincoln-centers-history-anew": "news",
+   "https://moranmorangallery.com/the-new-hall-sparkles-with-new-art-by-nina-chanel-abney-and-jacolby-satterwhite": "news",
+   "https://moranmorangallery.com/two-artists-are-reimagining-the-future-of-lincoln-center": "news",
+   "https://moranmorangallery.com/what-the-worlds-top-collectors-bought-in-2022-from-warhol-digital-works-to-dazzling-abstractions": "news",
+   "https://moranmorangallery.com/go-easy-on-me-front-triennial": "news",
+   "https://moranmorangallery.com/what-does-it-mean-to-be-a-young-black-queer-artist-right-now": "news",
+   "https://moranmorangallery.com/clevelands-front-international-triennial-explores-healing-through-art-making": "news",
+   "https://moranmorangallery.com/jacolby-satterwhite-on-seeking-utopia-in-pygmalions-ugly-season": "news",
+   "https://moranmorangallery.com/artists-are-putting-their-stamp-on-lincoln-center": "news",
+   "https://moranmorangallery.com/the-artist-creating-mind-bending-new-worlds-from-the-queer-black-experience": "news",
+   "https://moranmorangallery.com/blood-orange-as-a-cyberpunk-hero": "news",
+   "https://moranmorangallery.com/the-most-important-moments-in-art-in-2020": "news",
+   "https://moranmorangallery.com/art-became-a-form-of-escapism-for-me-watch-how-video-games-inspire-jacolby-satterwhites-artistic-lexicon": "news",
+   "https://moranmorangallery.com/art-21-documents-jacolby-satterwhites-artistic-advancements": "news",
+   "https://moranmorangallery.com/inside-jacolby-satterwhites-fantastical-audiovisual-world": "news",
+   "https://moranmorangallery.com/enter-solange-collaborator-jacolby-satterwhites-virtual-reality-den": "news",
+   "https://moranmorangallery.com/jacolby-satterwhites-celestial-zero-gravity-dreamscapes": "news",
+   "https://moranmorangallery.com/the-circularity-of-jacolby-satterwhite-a-3d-artist-with-a-360-point-of-view": "news",
+   "https://moranmorangallery.com/an-artist-who-works-to-lana-del-rey-and-the-hum-of-cable-news": "news",
+   "https://moranmorangallery.com/jacolby-satterwhites-hallucinatory-dreamscapes-come-to-life-in-two-exhibitions": "news",
+   "https://moranmorangallery.com/my-palette-is-a-40-gigabyte-hard-drive": "news",
+   "https://moranmorangallery.com/science-fiction-dreams-rendered-in-three-dimensions": "news",
+   "https://moranmorangallery.com/were-in-the-age-of-the-remix-watch-jacolby-satterwhite-use-his-own-body-to-shift-perceptions-of-his-persona": "news",
+   "https://moranmorangallery.com/here-are-23-outstanding-museum-shows-across-the-us-that-you-wont-want-to-miss-this-fall": "news",
+   "https://moranmorangallery.com/jacolby-satterwhites-collab-with-nick-weiss-is-an-ode-to-his-mother": "news",
+   "https://moranmorangallery.com/artists": "roster_index",
+   "https://moranmorangallery.com/exhibitions/2007": "exhibitions_archive",
+   "https://moranmorangallery.com/exhibitions/2006": "exhibitions_archive",
+   "https://moranmorangallery.com/news/page/2": "news",
+   "https://moranmorangallery.com/news/page/3": "news",
+   "https://moranmorangallery.com/exhibitions/past": "exhibitions_archive",
+   "https://moranmorangallery.com/about": "about",
+   "https://moranmorangallery.com/contact": "contact_hours"
+  },
+  "site_notes": "The site organizes content by /artists/{slug} for individual artist pages (no single roster index page was found in the inventory, though the nav clearly has an 'Artists' link), /exhibitions/{year} archive pages going back to 2008 (and likely earlier), and a large flat collection of press/news article slugs at the domain root; contact info lives under /information and fairs under /fairs. This slice of the inventory consists almost entirely of individual press/news articles about represented artists (Brian Belott, Chelsea Culprit, Keltie Ferris, Eve Fowler, Luis Gispert, George Herms, Becky Kolsrud, Robert Mapplethorpe, RJ Messineo, etc.), functioning as the gallery's press archive; core structural pages like roster index, about, exhibitions current/archive, and contact are not present in this batch and likely exist elsewhere in the site. This slice of the inventory consists almost entirely of press/news articles about gallery artists (Kenny Rivero, Anders Ruhwald, Jacolby Satterwhite, etc.); no roster, about, exhibitions, or contact pages appear in this batch, suggesting those are organized elsewhere on the site.",
+  "fetch_more": [
+   "https://moranmorangallery.com/artists",
+   "https://moranmorangallery.com/exhibitions/2007",
+   "https://moranmorangallery.com/exhibitions/2006",
+   "https://moranmorangallery.com/news/page/2",
+   "https://moranmorangallery.com/news/page/3",
+   "https://moranmorangallery.com/artists",
+   "https://moranmorangallery.com/exhibitions",
+   "https://moranmorangallery.com/exhibitions/past",
+   "https://moranmorangallery.com/about",
+   "https://moranmorangallery.com/contact"
+  ]
  },
- "errors": [
-  "triage: max_tokens"
- ],
- "duration_s": 866.6
+ "errors": [],
+ "duration_s": 510.5
 }

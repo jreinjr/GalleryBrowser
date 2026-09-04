@@ -1,0 +1,626 @@
+{
+ "schema": 2,
+ "city": "los-angeles",
+ "venue_id": "gattopardo",
+ "name": "Gattopardo",
+ "website": "https://gattopardo.la/",
+ "generated_ts": 1788509201,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1335,
+ "crawl": {
+  "pages": 45,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/gattopardo.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Glendale",
+   "address": "918 Ruberta Ave, Glendale, CA 91201",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": "open Thursday - Saturday, 12 - 5 pm and by appointment",
+ "roster": [
+  {
+   "name": "George Stoll",
+   "status": "exhibited",
+   "source_url": "https://gattopardo.la/George-Stoll"
+  },
+  {
+   "name": "Jason Yates",
+   "status": "exhibited",
+   "source_url": "https://gattopardo.la/Jason-Yates"
+  },
+  {
+   "name": "Wayne Koestenbaum",
+   "status": "exhibited",
+   "source_url": "https://gattopardo.la/Wayne-Koestenbaum"
+  },
+  {
+   "name": "Stanya Kahn",
+   "status": "exhibited",
+   "source_url": "https://gattopardo.la/Stanya-Kahn"
+  },
+  {
+   "name": "Gwyneth Bulawsky",
+   "status": "exhibited",
+   "source_url": "https://gattopardo.la/Gwyneth-Bulawsky"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": null,
+   "artists": [],
+   "start": "2021-04-01",
+   "end": null,
+   "year": 2021,
+   "kind": "other",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "The Ansonia Survey Part II",
+   "artists": [
+    "Cara Chan",
+    "Maxfield Hegedus",
+    "Nick Malkin",
+    "Vicente Ruiz-Abogado",
+    "Audra Wist"
+   ],
+   "start": "2021-08-28",
+   "end": "2021-10-10",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Dogs Who Are Poets and Movie Stars",
+   "artists": [
+    "Gabriel Madan"
+   ],
+   "start": "2021-10-16",
+   "end": "2021-12-11",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/Dogs-Who-Are-Poets-and-Movie-Stars"
+  },
+  {
+   "title": "Other Animals",
+   "artists": [
+    "Ren Ebel",
+    "Juliana Halpert"
+   ],
+   "start": "2022-01-08",
+   "end": "2022-01-08",
+   "year": 2022,
+   "kind": "other",
+   "source_url": "https://gattopardo.la/Other-Animal"
+  },
+  {
+   "title": "Air Kiss",
+   "artists": [
+    "Alexa Almany",
+    "Kevin Bouton-Scott",
+    "Jane Dashley",
+    "Julia Dzwonkoski",
+    "David Johnson",
+    "Alex Lemke",
+    "Olivia Mole",
+    "Sean T. Randolph",
+    "Li Zeng",
+    "Marcus Zúñiga"
+   ],
+   "start": "2022-01-22",
+   "end": "2022-03-05",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/air-kiss-original"
+  },
+  {
+   "title": "Frieze Los Angeles Focus Section",
+   "artists": [],
+   "start": "2022-02-17",
+   "end": "2022-02-20",
+   "year": 2022,
+   "kind": "fair",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "T Time",
+   "artists": [
+    "Manyu Gao"
+   ],
+   "start": "2022-05-14",
+   "end": "2022-07-01",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/Manyu-Gao-T-Time"
+  },
+  {
+   "title": "Where the Hours Go",
+   "artists": [
+    "Gabriel Cohen",
+    "Margarethe Drexel",
+    "Kyle Jorgensen"
+   ],
+   "start": "2022-07-23",
+   "end": "2022-08-27",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/Where-the-Hours-Go"
+  },
+  {
+   "title": "New Rules for Painting",
+   "artists": [
+    "Elliott Hundley",
+    "Dan Talbot"
+   ],
+   "start": "2022-09-10",
+   "end": "2022-10-08",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/New-Rules-for-Painting"
+  },
+  {
+   "title": "You are my Sun and You are my Moon (for River & Logan)",
+   "artists": [
+    "Adam D. Miller"
+   ],
+   "start": "2022-10-15",
+   "end": "2022-11-12",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/You-are-my-Sun-and-You-are-my-Moon-for-River-Logan"
+  },
+  {
+   "title": "The Maestro says it's Mozart but it sounds like bubble gum",
+   "artists": [
+    "Charlie Engelman",
+    "Laura Larraz"
+   ],
+   "start": "2022-11-20",
+   "end": "2022-12-04",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/The-Maestro-says-it-s-Mozart"
+  },
+  {
+   "title": "NADA Miami Project Booth and Outdoor Sculpture",
+   "artists": [],
+   "start": "2022-11-30",
+   "end": "2022-12-03",
+   "year": 2022,
+   "kind": "fair",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Happy Hour Ceramics",
+   "artists": [
+    "Ashley Campbell",
+    "Brian Porray"
+   ],
+   "start": "2022-12-10",
+   "end": "2023-01-28",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/Happy-Hour-Ceramics"
+  },
+  {
+   "title": "Intersect Palm Springs",
+   "artists": [],
+   "start": "2023-02-09",
+   "end": "2023-02-12",
+   "year": 2023,
+   "kind": "fair",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "AN INTRODUCTION TO THE WORLD OF C & K",
+   "artists": [
+    "COBRA",
+    "Ken Kagami"
+   ],
+   "start": "2023-02-19",
+   "end": "2023-03-12",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/C-K-current"
+  },
+  {
+   "title": "A Bear Shits in the Woods",
+   "artists": [
+    "Olivia Mole"
+   ],
+   "start": "2023-03-18",
+   "end": "2023-04-15",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/Olivia-Mole-A-Bear-Shits-in-the-Woods"
+  },
+  {
+   "title": "Wilshire Courtyard",
+   "artists": [
+    "Alex Lemke"
+   ],
+   "start": "2023-04-22",
+   "end": "2023-05-20",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "This table's too long to hold hands.",
+   "artists": [
+    "Sean T. Randolph"
+   ],
+   "start": "2023-05-28",
+   "end": null,
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Wrong Number",
+   "artists": [
+    "Kim Fisher",
+    "Florian Morlat"
+   ],
+   "start": "2023-09-27",
+   "end": "2023-11-04",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/Wrong-Number"
+  },
+  {
+   "title": "The Warmth of the Day Leaves Shadows on the Ground",
+   "artists": [
+    "Alexa Almany",
+    "Gwyneth Bulawsky",
+    "Mike Chattem",
+    "Manyu Gao",
+    "Blake Jacobsen",
+    "Gabriel Madan",
+    "Reuben Merringer",
+    "Adam D. Miller",
+    "Juliana Paciulli",
+    "Brian Porray"
+   ],
+   "start": "2024-01-14",
+   "end": "2024-02-17",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/TWOTDLSOtG"
+  },
+  {
+   "title": "Space Webs",
+   "artists": [
+    "Jennifer West"
+   ],
+   "start": "2024-02-25",
+   "end": "2024-04-13",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "The Beach",
+   "artists": [
+    "Lyndsey Marko"
+   ],
+   "start": "2024-02-25",
+   "end": "2024-04-13",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "God, where are the eyes of a murderer?",
+   "artists": [
+    "Gabriel Cohen"
+   ],
+   "start": "2024-04-21",
+   "end": "2024-06-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "An Insomniac's Guide to the Night",
+   "artists": [
+    "Bernard Cooper"
+   ],
+   "start": "2024-06-16",
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "FLY! BE FREE!",
+   "artists": [
+    "Joshua Aster"
+   ],
+   "start": "2024-06-16",
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "My Soul is Full of Barking Dogs",
+   "artists": [
+    "Gabriel Madan"
+   ],
+   "start": "2024-09-14",
+   "end": "2024-10-19",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/Gabriel-Madan-Barking-Dogs"
+  },
+  {
+   "title": "Out of the Blue",
+   "artists": [
+    "Juliana Paciulli"
+   ],
+   "start": "2024-09-14",
+   "end": "2024-10-19",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Nocturne",
+   "artists": [
+    "Olivia Mole"
+   ],
+   "start": "2024-10-26",
+   "end": "2024-12-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/Olivia-Mole-Nocturne"
+  },
+  {
+   "title": "The Persistence of Heaven and Earth",
+   "artists": [
+    "Mike Chattem"
+   ],
+   "start": "2024-10-26",
+   "end": "2024-12-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Atmospheric River",
+   "artists": [
+    "Ren Ebel",
+    "Juliana Halpert",
+    "Gordon Matta-Clark",
+    "T. Kelly Mason",
+    "Olivia Mole",
+    "Jasminne Morataya",
+    "Josh Schaedel",
+    "Diana Thater",
+    "Jennifer West",
+    "Jason Yates"
+   ],
+   "start": "2025-02-16",
+   "end": "2025-03-15",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://gattopardo.la/Atmospheric-River"
+  },
+  {
+   "title": "Hurt to Walk: Selections from 2015 - 2025",
+   "artists": [
+    "Jason Yates"
+   ],
+   "start": "2025-03-29",
+   "end": "2025-05-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "The Shapes a Giggle Makes",
+   "artists": [
+    "Wayne Koestenbaum"
+   ],
+   "start": "2025-03-29",
+   "end": "2025-05-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "The Scattershot Plot is a Dead Giveaway",
+   "artists": [
+    "Dirk Knibbe"
+   ],
+   "start": "2025-06-08",
+   "end": "2025-07-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "in vain: vanitas, vanitatum, omnia vanitas",
+   "artists": [
+    "George Stoll"
+   ],
+   "start": "2025-06-08",
+   "end": "2025-08-23",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Space Film",
+   "artists": [
+    "T. Kelly Mason"
+   ],
+   "start": "2025-08-31",
+   "end": "2025-09-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Love Hours: rites and curses",
+   "artists": [
+    "Stanya Kahn"
+   ],
+   "start": "2025-09-27",
+   "end": "2025-11-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "Secondary Source",
+   "artists": [
+    "Madeline Ludwig-Leone"
+   ],
+   "start": "2026-02-21",
+   "end": "2026-04-05",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  },
+  {
+   "title": "We Begin to Wilt Beneath the Son",
+   "artists": [
+    "Gwyneth Bulawsky"
+   ],
+   "start": "2026-06-13",
+   "end": "2026-07-25",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://gattopardo.la/previous-exhibitions"
+  }
+ ],
+ "fairs_self_reported": [
+  "NADA Miami",
+  "Frieze Los Angeles",
+  "Intersect Palm Springs"
+ ],
+ "memberships_self_reported": [],
+ "venue_kind": "gallery",
+ "kind_confidence": 0.8,
+ "kind_evidence": "Participation in Frieze Los Angeles, NADA Miami, and Intersect Palm Springs indicates a commercial gallery representing artists at art fairs.",
+ "press_self_reported": [
+  {
+   "outlet": "The Observer",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The Art Newspaper",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Cultured",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Hyperallergic",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artnet",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artillery Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Financial Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "ArtForum",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The New York Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Foundwork",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "HypeArt Review",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Carla",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Ursula Magazine",
+   "year": null,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "exhibitions_truncated": false,
+ "triage": {
+  "labels": {
+   "https://gattopardo.la/previous-exhibitions": "exhibitions_archive",
+   "https://gattopardo.la/press": "news",
+   "https://gattopardo.la/info-page": "contact_hours",
+   "https://gattopardo.la/Gwyneth-Bulawsky": "artist_page",
+   "https://gattopardo.la/Stanya-Kahn": "artist_page",
+   "https://gattopardo.la/George-Stoll": "artist_page",
+   "https://gattopardo.la/Jason-Yates": "artist_page",
+   "https://gattopardo.la/Wayne-Koestenbaum": "artist_page",
+   "https://gattopardo.la/Atmospheric-River": "exhibition_page",
+   "https://gattopardo.la/Olivia-Mole-Nocturne": "exhibition_page",
+   "https://gattopardo.la/Gabriel-Madan-Barking-Dogs": "exhibition_page",
+   "https://gattopardo.la/TWOTDLSOtG": "exhibition_page",
+   "https://gattopardo.la/Wrong-Number": "exhibition_page",
+   "https://gattopardo.la/Olivia-Mole-A-Bear-Shits-in-the-Woods": "exhibition_page",
+   "https://gattopardo.la/C-K-current": "exhibitions_current",
+   "https://gattopardo.la/Dirk-Knibbe-at-Intersect-Palm-Springs": "fairs",
+   "https://gattopardo.la/Happy-Hour-Ceramics": "exhibition_page",
+   "https://gattopardo.la/NADA-Miami": "fairs",
+   "https://gattopardo.la/The-Maestro-says-it-s-Mozart": "exhibition_page",
+   "https://gattopardo.la/You-are-my-Sun-and-You-are-my-Moon-for-River-Logan": "exhibition_page",
+   "https://gattopardo.la/New-Rules-for-Painting": "exhibition_page",
+   "https://gattopardo.la/Where-the-Hours-Go": "exhibition_page",
+   "https://gattopardo.la/Manyu-Gao-T-Time": "exhibition_page",
+   "https://gattopardo.la/air-kiss-original": "exhibition_page",
+   "https://gattopardo.la/Frieze-LA-2022": "fairs",
+   "https://gattopardo.la/Other-Animal": "exhibition_page",
+   "https://gattopardo.la/Dogs-Who-Are-Poets-and-Movie-Stars": "exhibition_page"
+  },
+  "site_notes": "The site has no dedicated roster index; each artist gets a standalone short page (a handful labeled here as representative), and past shows are consolidated into one long 'previous-exhibitions' archive with many dates, while individual exhibition/fair pages exist for detail beyond that list.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 299.6
+}

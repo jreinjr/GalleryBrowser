@@ -1,0 +1,113 @@
+{
+ "schema": 2,
+ "city": "los-angeles",
+ "venue_id": "dataland",
+ "name": "Dataland",
+ "website": "https://dataland.art",
+ "generated_ts": 1788510051,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1214,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/dataland.jsonl"
+ },
+ "about_text": "Dataland is an immersive media-art venue in Downtown Los Angeles, created by Refik Anadol Studio, the practice founded in 2014 by artist Refik Anadol and artist-entrepreneur Efsun Erkılıç. Located inside The Grand LA across from Walt Disney Concert Hall, the 25,000-square-foot space unfolds across five galleries, including the long-running Infinity Room. Its inaugural exhibition, Machine Dreams: Rainforest, is powered by the studio's Large Nature Model, an AI system trained on ecological data such as LiDAR scans, field recordings, and environmental sensor readings gathered through international scientific collaborations. The program centers on data-driven, generative works that translate natural and biometric information into immersive visual, sound, and scent environments, continuing the studio's decade-long practice of large-scale algorithmic art.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://dataland.art/about"
+ ],
+ "founded_year": null,
+ "founders": [
+  "Refik Anadol",
+  "Efsun Erkılıç"
+ ],
+ "directors": [
+  "Refik Anadol"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "100 S Grand Ave, Los Angeles, CA 90012, USA",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "AI-generated immersive art",
+  "data and nature-based AI art",
+  "multisensory installation",
+  "generative art"
+ ],
+ "hours_text": "Sunday: 10am–8pm; Monday: closed; Tuesday: 11am–8pm; Wednesday: 11am–8pm; Thursday: 11am–10pm; Friday: 11am–10pm; Saturday: 10am–10pm",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Machine Dreams: Rainforest",
+   "artists": [
+    "Refik Anadol"
+   ],
+   "start": null,
+   "end": "2027-01-31",
+   "year": 2027,
+   "kind": "solo",
+   "source_url": "https://dataland.art/exhibitions/machine-dreams-rainforest"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "venue_kind": "other",
+ "kind_confidence": 0.4,
+ "kind_evidence": "Site markets itself as a ticketed 'Museum of AI Arts' but has no collection and sells limited editions directly, unlike a collecting museum or dealer gallery.",
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Dataland is a single-studio production by Refik Anadol Studio; it does not represent or exhibit outside artists, and sells limited-edition data-based artworks (e.g., the QUALIA Genesis Collection) directly rather than through gallery representation.",
+ "exhibitions_truncated": false,
+ "triage": {
+  "labels": {
+   "https://dataland.art/about": "about",
+   "https://dataland.art/about/galleries": "about",
+   "https://dataland.art/about/large-nature-model": "about",
+   "https://dataland.art/about/living-encyclopedia": "about",
+   "https://dataland.art/about/plan-your-visit": "contact_hours",
+   "https://dataland.art/about/contact": "contact_hours",
+   "https://dataland.art/tickets": "contact_hours",
+   "https://dataland.art/exhibitions": "exhibitions_current",
+   "https://dataland.art/exhibitions/machine-dreams-rainforest": "exhibition_page",
+   "https://dataland.art/collections": "roster_index",
+   "https://dataland.art/blog": "news",
+   "https://dataland.art/blog/announcing-datalands-ai-artist-residency": "news",
+   "https://dataland.art/blog/announcing-the-launch-of-the-living-encyclopedia-large-nature-model": "news",
+   "https://dataland.art/blog/dataland-living-museum": "news",
+   "https://dataland.art/blog/infinity-room": "news",
+   "https://dataland.art/blog/introducing-data-points": "news",
+   "https://dataland.art/blog/introducing-the-dataland-ai-artist-residency": "news",
+   "https://dataland.art/blog/large-nature-model-data-collection": "news",
+   "https://dataland.art/blog/qualia": "news",
+   "https://dataland.art/blog/refik-anadol-studio-debuted-living-archive-nature-at-the-world-economic-forum-2024": "news",
+   "https://dataland.art/blog/refik-anadol-studio-presents-a-mesmerizing-artwork-during-jensen-huangs-keynote-at-nvidia-gtc-2024": "news",
+   "https://dataland.art/blog?page=2": "news",
+   "https://dataland.art/collections/biome-lumina": "other",
+   "https://dataland.art/contact": "contact_hours",
+   "https://dataland.art/artists": "roster_index"
+  },
+  "site_notes": "Dataland's site is organized around a small 'about' cluster, a blog used as news, a single current exhibition, and a large NFT-style collection gallery (Biome Lumina #1-1000) that dominates the inventory; there is no true artist roster or exhibitions archive, since the museum format centers on data-driven digital art collections rather than represented artists. This inventory slice consists entirely of individual NFT token pages from a single 'BIOME LUMINA' collection (1000 editions), which are collectible item pages rather than gallery/roster/exhibition content; no about, roster, exhibition, news, or contact pages appear in this batch. This inventory slice consists entirely of individual NFT token pages from a single collection (BIOME LUMINA #204-263), which are catalog/artwork detail pages, not venue-structure pages; no about, roster, exhibition, or contact pages appear in this batch.",
+  "fetch_more": [
+   "https://dataland.art/exhibitions/machine-dreams-rainforest",
+   "https://dataland.art/blog?page=2",
+   "https://dataland.art/collections/biome-lumina",
+   "https://dataland.art/about",
+   "https://dataland.art/exhibitions",
+   "https://dataland.art/contact",
+   "https://dataland.art/about",
+   "https://dataland.art/exhibitions",
+   "https://dataland.art/artists",
+   "https://dataland.art/contact"
+  ]
+ },
+ "errors": [],
+ "duration_s": 785.3
+}
