@@ -62,6 +62,20 @@ class Verdicts(unittest.TestCase):
         self.assertEqual(self.v({"name": "Los Angeles Modern Auctions"})[0], "not_a_venue")
         self.assertEqual(self.v({"name": "Skidmore Contemporary Art", "note": "private dealing"})[0], "not_a_venue")
 
+    def test_stale_or_online_site_is_not_proof(self):
+        self.assertEqual(vo.latest_dated_year("Klara Liden, April 6 – May 6, 2017. Nina, January 27 - March 10, 2018"), 2018)
+        self.assertEqual(vo.latest_dated_year("opens 2026-09-25; 12 Oct 2024"), 2026)
+        self.assertIsNone(vo.latest_dated_year("no dates here"))
+        self.assertEqual(vo.latest_dated_year("May 2030 show; Oct 2025", today_year=2026), 2025)   # far-future years are noise
+        stale = dict(LIVE, dated={"latest_year": 2018, "stale": True, "online": False})
+        verdict, why = self.v({}, pl={"found": False}, site=stale)
+        self.assertEqual((verdict, why[0]), ("unverified", "site's newest dated show is from 2018"))
+        online = dict(LIVE, dated={"latest_year": 2026, "stale": False, "online": True})
+        self.assertEqual(self.v({}, pl={"found": False}, site=online)[0], "unverified")
+        self.assertEqual(self.v({}, pl=OPEN, site=online)[0], "miss")      # Places OPERATIONAL still confirms the space
+        fresh = dict(LIVE, dated={"latest_year": 2026, "stale": False, "online": False})
+        self.assertEqual(self.v({}, pl={"found": False}, site=fresh)[0], "miss")
+
     def test_unverified_when_not_confirmable(self):
         verdict, why = self.v({}, pl=dict(OPEN, status="CLOSED_TEMPORARILY"), site=dict(LIVE, site_vouched=False))
         self.assertEqual(verdict, "unverified")

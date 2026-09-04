@@ -16,6 +16,9 @@ real, open venue the pipeline missed, and if so why. Per entry:
                 coordinates, and whether the result's name actually matches
     site        validate_venues.site_checks on the website Places (or the entry)
                 gives: live, vouched as an art venue, closed notice, exhibitions page
+    dated       newest dated show on the exhibitions/current page: a live, venue-looking
+                site whose newest show is years old (or that only describes online
+                exhibitions) is NOT proof of an open programme -> unverified
     zone        seed_venues.assign_zone -> inside the city's zone footprint or not
     coverage    was the name on Gallery Platform LA / Carla (the two directory
                 seeds), in the cached Places nearby sweep (and if so why the sweep
@@ -84,6 +87,64 @@ def _load_env() -> None:
 
 def words(text: str | None) -> set[str]:
     return crosscheck._name_words(text) - GENERIC
+
+
+MONTHS = "jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec"
+SHOW_DATE_RE = re.compile(rf"\b(?:{MONTHS})[a-z]*\.?\s+(?:\d{{1,2}},?\s+)?(20\d\d)\b|\b\d{{1,2}}\s+(?:{MONTHS})[a-z]*\.?\s+(20\d\d)\b|\b(20\d\d)-\d\d-\d\d\b", re.I)
+STALE_DAYS = 540          # no dated show in ~18 months -> the site is not evidence of an open programme
+ONLINE_RE = re.compile(r"\bonline(?:-| )(?:only|exhibition|viewing room)\b", re.I)
+
+
+def latest_dated_year(text: str, today_year: int | None = None) -> int | None:
+    """Newest plausible show year on a page (next year at most — a '2030' is a typo
+    or an artist's dates, not a show)."""
+    top = (today_year or time.gmtime().tm_year) + 1
+    years = [int(next(g for g in m.groups() if g)) for m in SHOW_DATE_RE.finditer(text or "")]
+    years = [y for y in years if 1990 <= y <= top]
+    return max(years) if years else None
+
+
+SHOW_PAGES = ("/exhibitions", "/current", "/past", "/exhibitions/past", "/current-exhibitions")
+
+
+def _page_text(fetcher, url: str, render: bool) -> str:
+    r = fetcher.get(url)
+    if r["status"] != 200 or not r["html"]:
+        return ""
+    text, _title = refresh.extract_main_text(r["html"])
+    if render and (refresh.looks_js_rendered(r["html"], text) or len(text) < 300):
+        try:
+            text = json.loads(tools.render_fetch(r["final_url"], 20000)).get("text") or text
+        except (json.JSONDecodeError, TypeError, OSError):
+            pass
+    return text or ""
+
+
+def stale_check(fetcher, website: str | None, exhibitions_url: str | None, render: bool, today_year: int) -> dict:
+    """{latest_year, stale, online, pages} across the exhibitions page and the usual
+    show-list paths: the newest dated show anywhere on them, and whether the newest
+    ones are labelled online exhibitions."""
+    out = {"latest_year": None, "stale": None, "online": False, "pages": []}
+    if not website:
+        return out
+    base = website if website.startswith("http") else "https://" + website
+    base = base.rstrip("/")
+    # the homepage counts too: a site with no dated show anywhere is not evidence of a programme
+    urls = [u for u in dict.fromkeys([exhibitions_url] + [base + p for p in SHOW_PAGES] + [base]) if u]
+    chars = 0
+    for u in urls:
+        text = _page_text(fetcher, u, render)
+        if len(text) < 200:
+            continue
+        chars += len(text)
+        y = latest_dated_year(text, today_year)
+        out["pages"].append({"url": u, "latest_year": y, "online": bool(ONLINE_RE.search(text))})
+        if y and (out["latest_year"] is None or y > out["latest_year"]):
+            out["latest_year"], out["online"] = y, bool(ONLINE_RE.search(text))
+    # a whole year's grace on top of STALE_DAYS/365 (dates are read at year precision)
+    out["stale"] = (out["latest_year"] is not None and today_year - out["latest_year"] > (STALE_DAYS // 365) + 1) \
+        or (out["latest_year"] is None and chars > 300)
+    return out
 
 
 def name_matches(name: str, found: str | None) -> bool:
@@ -243,6 +304,13 @@ def verdict_for(entry: dict, near: list[dict], pl: dict, site: dict, zone: str |
     if zone is None and entry.get("_geo") is not None:
         return "out_of_footprint", [f"{pl.get('address') or entry.get('address')} is beyond every configured zone (>{seed_venues.ZONE_MAX_M} m)"]
     confirmed = (name_ok and pl.get("status") == "OPERATIONAL") or (site.get("website_live") and site.get("site_vouched"))
+    dated = site.get("dated") or {}
+    if confirmed and dated.get("stale"):
+        # a live, venue-looking site whose newest dated show is years old is not proof of an open programme
+        return "unverified", [f"site's newest dated show is from {dated['latest_year']}" if dated.get("latest_year")
+                              else "no dated show on the site at all"] + why
+    if confirmed and dated.get("online") and not (name_ok and pl.get("status") == "OPERATIONAL"):
+        return "unverified", ["site describes online exhibitions — physical space unconfirmed"] + why
     if not confirmed:
         r = []
         if name_ok and pl.get("status") not in (None, "OPERATIONAL"):
@@ -284,7 +352,7 @@ def verdict_for(entry: dict, near: list[dict], pl: dict, site: dict, zone: str |
 
 
 def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch: bool,
-        render: bool = True) -> dict:
+        render: bool = True, ranks: list[int] | None = None) -> dict:
     _load_env()
     key = os.environ.get("GOOGLE_MAPS_API_KEY") if network else None
     ts = int(time.time())
@@ -295,7 +363,17 @@ def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch
         raise SystemExit(f"no {rank_venues.order_file(city)}")
     _mo, res = rank_venues.resolve_order(order, reg)
     todo_ranks = {u["rank"] for u in res["unresolved"]}
-    entries = [e for e in order["entries"] if e.get("rank") in todo_ranks]
+    if ranks:
+        todo_ranks = set(ranks)
+    by_id = venues.index_by_id(reg)
+    entries = []
+    for e in order["entries"]:
+        if e.get("rank") not in todo_ranks:
+            continue
+        v = by_id.get(e.get("id") or "")
+        if v:   # re-check of a seeded/known venue: its registry website and address are the hints
+            e = dict(e, website=e.get("website") or v.get("website"), address=e.get("address") or v.get("address"))
+        entries.append(e)
     fetcher = refresh.Fetcher()
     vctx = validate_venues.Ctx(city, fetcher, key, 0, network, True, render, session)
     sctx = seed_venues.Ctx(city, refetch=refetch, key=key or "") if network else None
@@ -324,6 +402,8 @@ def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch
         website = (pl.get("website") if pl["matched"] else None) or e.get("website")
         fake = {"id": venues.venue_id(name), "name": name, "website": website, "exhibitions_url": None}
         site = validate_venues.site_checks(fake, vctx) if website else {"website": None}
+        if site.get("website_live"):
+            site["dated"] = stale_check(fetcher, site.get("final_url") or website, site.get("exhibitions_url"), render, time.gmtime().tm_year)
         geo = {"lat": pl.get("lat"), "lng": pl.get("lng"), "source": "places"} if pl["matched"] and pl.get("lat") is not None else None
         if geo is None and e.get("address") and key:
             # precise geocode of the hint; a second try drops the unit/zip tail ("4619 W Washington Blvd, Los Angeles")
@@ -344,7 +424,7 @@ def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch
                "hints": {k: e.get(k) for k in ("address", "website") if e.get(k)},
                "verdict": verdict, "why": why, "zone": zone, "geo": geo, "near_misses": near,
                "places": {k: pl.get(k) for k in ("found", "matched", "mismatch", "address_seen", "name", "status", "address", "website", "phone", "hours", "lat", "lng", "metro", "cached", "skipped", "error")},
-               "site": {k: site.get(k) for k in ("website", "website_live", "site_vouched", "closed_notice", "exhibitions_page", "exhibitions_url", "js_only", "final_url")},
+               "site": {k: site.get(k) for k in ("website", "website_live", "site_vouched", "closed_notice", "exhibitions_page", "exhibitions_url", "js_only", "final_url", "dated")},
                "coverage": c}
         rows.append(row)
         print(f"  #{row['rank']:<4} {name:<34} {verdict:<16} {'; '.join(why)[:150]}", flush=True)
@@ -368,8 +448,9 @@ def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch
 def seed(city: str, order: dict, rows: list[dict], session: str) -> list[str]:
     """Create registry records for the misses (and confirmed-but-unverified rows),
     then pin their ids in the order file."""
-    picked = [r for r in rows if r["verdict"] == "miss"
-              or (r["verdict"] == "unverified" and r["places"].get("matched") and r["places"].get("status") == "OPERATIONAL")]
+    known = {e.get("rank") for e in order["entries"] if e.get("id")}
+    picked = [r for r in rows if r["rank"] not in known and (r["verdict"] == "miss"
+              or (r["verdict"] == "unverified" and r["places"].get("matched") and r["places"].get("status") == "OPERATIONAL"))]
     if not picked:
         return []
     upserts = []
@@ -416,8 +497,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-network", action="store_true")
     ap.add_argument("--no-render", action="store_true")
     ap.add_argument("--refetch", action="store_true", help="ignore cached lookups / directory pages")
+    ap.add_argument("--ranks", help="re-check these list ranks (comma-separated) even when they already resolve; never re-seeds them")
     a = ap.parse_args(argv)
-    run(a.city, a.apply, a.max_places_requests, not a.no_network, a.refetch, render=not a.no_render)
+    ranks = [int(x) for x in a.ranks.split(",")] if a.ranks else None
+    run(a.city, a.apply, a.max_places_requests, not a.no_network, a.refetch, render=not a.no_render, ranks=ranks)
     return 0
 
 

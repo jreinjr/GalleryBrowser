@@ -1,0 +1,754 @@
+{
+ "session": "verify-order-los-angeles-1788509958",
+ "city": "los-angeles",
+ "ts": 1788509958,
+ "n": 8,
+ "apply": false,
+ "counts": {
+  "miss": 4,
+  "unverified": 4,
+  "closed": 0,
+  "not_found": 0,
+  "out_of_footprint": 0,
+  "not_a_venue": 0
+ },
+ "spend": {
+  "places_requests": 0,
+  "cost_usd": 0.0,
+  "fetches": 8,
+  "renders": 3
+ },
+ "rows": [
+  {
+   "rank": 32,
+   "name": "Tanya Leighton",
+   "neighborhood": "West Adams",
+   "note": null,
+   "hints": {
+    "address": "4654 W Washington Blvd, Los Angeles, CA 90016, USA",
+    "website": "https://www.tanyaleighton.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "outside every swept Places circle (nearest 2323 m away, r 1181 m)",
+    "no zone-enumeration session named it",
+    "registry near-miss: tanya-leighton (active)"
+   ],
+   "zone": "Culver City/West Adams",
+   "geo": {
+    "lat": 34.0396931,
+    "lng": -118.3412071,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "tanya-leighton",
+     "name": "Tanya Leighton",
+     "status": "active"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Tanya Leighton Gallery",
+    "status": "OPERATIONAL",
+    "address": "4654 W Washington Blvd, Los Angeles, CA 90016, USA",
+    "website": "https://www.tanyaleighton.com/",
+    "phone": "(302) 197-2220",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 5:00 PM",
+     "Wednesday: 11:00 AM – 5:00 PM",
+     "Thursday: 11:00 AM – 5:00 PM",
+     "Friday: 11:00 AM – 5:00 PM",
+     "Saturday: 11:00 AM – 5:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 34.0396931,
+    "lng": -118.3412071,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.tanyaleighton.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.tanyaleighton.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.tanyaleighton.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.tanyaleighton.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.tanyaleighton.com/current",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.tanyaleighton.com",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 2323,
+     "radius_m": 1181,
+     "type": "art_gallery",
+     "inside": false
+    }
+   }
+  },
+  {
+   "rank": 51,
+   "name": "Gaga & Reena Spaulings",
+   "neighborhood": "Hollywood",
+   "note": null,
+   "hints": {
+    "address": "6916 Santa Monica Blvd, Los Angeles, CA 90038",
+    "website": "https://gagareena.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "Places only knows a listing outside the metro: 165 E Broadway 2nd floor, New York, NY 10002, USA"
+   ],
+   "zone": "Hollywood",
+   "geo": {
+    "lat": 34.090409,
+    "lng": -118.341094,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "gaga-and-reena-spaulings",
+     "name": "Gaga & Reena Spaulings",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Reena Spaulings Fine Art",
+    "address_seen": "165 E Broadway 2nd floor, New York, NY 10002, USA",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://gagareena.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://gagareena.com/",
+    "dated": {
+     "latest_year": 2018,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://gagareena.com/current",
+       "latest_year": 2018,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 166,
+     "radius_m": 1250,
+     "type": "art_gallery",
+     "inside": true
+    }
+   }
+  },
+  {
+   "rank": 60,
+   "name": "Lowell Ryan Projects",
+   "neighborhood": "West Adams",
+   "note": null,
+   "hints": {
+    "address": "4619 W Washington Blvd, Los Angeles, CA 90016",
+    "website": "https://www.lowellryanprojects.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site describes online exhibitions — physical space unconfirmed",
+    "places returned a different business: 'Range Projects Gallery'"
+   ],
+   "zone": "Culver City/West Adams",
+   "geo": {
+    "lat": 34.0400754,
+    "lng": -118.3404535,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "lowell-ryan-projects",
+     "name": "Lowell Ryan Projects",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Range Projects Gallery",
+    "address_seen": "3718 W Slauson Ave, Los Angeles, CA 90043, USA",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.lowellryanprojects.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.lowellryanprojects.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": true,
+     "pages": [
+      {
+       "url": "https://www.lowellryanprojects.com/past",
+       "latest_year": 2026,
+       "online": true
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [
+     "los-angeles-mid-city-westside-1.log",
+     "enum-los-angeles-culver-city-west-adams-1788300747.log"
+    ],
+    "circle": {
+     "dist_m": 2305,
+     "radius_m": 1181,
+     "type": "art_gallery",
+     "inside": false
+    }
+   }
+  },
+  {
+   "rank": 143,
+   "name": "Timothy Yarger Fine Art",
+   "neighborhood": "Jefferson Park",
+   "note": null,
+   "hints": {
+    "address": "354 N Bedford Dr, Beverly Hills, CA 90210",
+    "website": "https://www.yargerfinearts.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all",
+    "places returned a different business: '354 N Bedford Dr'"
+   ],
+   "zone": "Beverly Hills",
+   "geo": {
+    "lat": 34.0678472,
+    "lng": -118.4045586,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "timothy-yarger",
+     "name": "Timothy Yarger Fine Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "354 N Bedford Dr",
+    "address_seen": "354 N Bedford Dr, Beverly Hills, CA 90210, USA",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.yargerfinearts.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.yargerfinearts.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.yargerfinearts.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 640,
+     "radius_m": 2500,
+     "type": "art_gallery",
+     "inside": true
+    }
+   }
+  },
+  {
+   "rank": 146,
+   "name": "The Lapis Press",
+   "neighborhood": "Culver City",
+   "note": "editions",
+   "hints": {
+    "address": "8563 Higuera St, Culver City, CA 90232, USA",
+    "website": "http://www.lapispress.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "sits inside a swept Places circle (art_gallery, r 2500 m, 1293 m from centre) yet was not returned — not typed art_gallery on Google, or beyond the per-circle result cap",
+    "no zone-enumeration session named it",
+    "registry near-miss: lapis-press (active)"
+   ],
+   "zone": "Culver City/West Adams",
+   "geo": {
+    "lat": 34.0227444,
+    "lng": -118.3829014,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "lapis-press",
+     "name": "The Lapis Press",
+     "status": "active"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "THE LAPIS PRESS",
+    "status": "OPERATIONAL",
+    "address": "8563 Higuera St, Culver City, CA 90232, USA",
+    "website": "http://www.lapispress.com/",
+    "phone": "(310) 558-7700",
+    "hours": [
+     "Monday: 9:00 AM – 5:00 PM",
+     "Tuesday: 9:00 AM – 5:00 PM",
+     "Wednesday: 9:00 AM – 5:00 PM",
+     "Thursday: 9:00 AM – 5:00 PM",
+     "Friday: Closed",
+     "Saturday: Closed",
+     "Sunday: Closed"
+    ],
+    "lat": 34.0227444,
+    "lng": -118.3829014,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.lapispress.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://lapispress.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://lapispress.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://lapispress.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://lapispress.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 1293,
+     "radius_m": 2500,
+     "type": "art_gallery",
+     "inside": true
+    }
+   }
+  },
+  {
+   "rank": 163,
+   "name": "The Loft at Liz's",
+   "neighborhood": "La Brea",
+   "note": null,
+   "hints": {
+    "address": "453 S La Brea Ave, Los Angeles, CA 90036, USA",
+    "website": "http://www.theloftatlizs.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "seen by the Places nearby sweep but dropped: name:antique",
+    "no zone-enumeration session named it",
+    "registry near-miss: loft-at-liz-s (active)"
+   ],
+   "zone": "Mid-Wilshire/Koreatown",
+   "geo": {
+    "lat": 34.0652711,
+    "lng": -118.3441241,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "loft-at-liz-s",
+     "name": "The Loft at Liz's",
+     "status": "active"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Liz's Antique Hardware & The Loft at Liz's",
+    "status": "OPERATIONAL",
+    "address": "453 S La Brea Ave, Los Angeles, CA 90036, USA",
+    "website": "http://www.theloftatlizs.com/",
+    "phone": "(323) 939-4403",
+    "hours": [
+     "Monday: 10:00 AM – 6:00 PM",
+     "Tuesday: 10:00 AM – 6:00 PM",
+     "Wednesday: 10:00 AM – 6:00 PM",
+     "Thursday: 10:00 AM – 6:00 PM",
+     "Friday: 10:00 AM – 6:00 PM",
+     "Saturday: 10:00 AM – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 34.0652711,
+    "lng": -118.3441241,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.theloftatlizs.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://theloftatlizs.com/current-event/",
+    "js_only": false,
+    "final_url": "https://theloftatlizs.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://theloftatlizs.com/current-event/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://theloftatlizs.com/current",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://theloftatlizs.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": {
+     "name": "Liz's Antique Hardware & The Loft at Liz's",
+     "status": "OPERATIONAL",
+     "skip": "name:antique",
+     "query": null
+    },
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 332,
+     "radius_m": 800,
+     "type": "art_gallery",
+     "inside": true
+    }
+   }
+  },
+  {
+   "rank": 177,
+   "name": "Corita Art Center",
+   "neighborhood": "Hollywood",
+   "note": null,
+   "hints": {
+    "address": "811 Traction Ave #3a, Los Angeles, CA 90013, USA",
+    "website": "https://corita.org/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "sits inside a swept Places circle (art_gallery, r 731 m, 291 m from centre) yet was not returned — not typed art_gallery on Google, or beyond the per-circle result cap",
+    "named in enumeration/scrape logs (enum-los-angeles-downtown-arts-district-1788313774.log) but no record_venue landed",
+    "registry near-miss: corita-art-center (active)"
+   ],
+   "zone": "Downtown/Arts District",
+   "geo": {
+    "lat": 34.0452492,
+    "lng": -118.2353516,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "corita-art-center",
+     "name": "Corita Art Center",
+     "status": "active"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Corita Art Center",
+    "status": "OPERATIONAL",
+    "address": "811 Traction Ave #3a, Los Angeles, CA 90013, USA",
+    "website": "https://corita.org/",
+    "phone": "(323) 450-4650",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: Closed",
+     "Thursday: Closed",
+     "Friday: Closed",
+     "Saturday: 11:00 AM – 3:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 34.0452492,
+    "lng": -118.2353516,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://corita.org/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.corita.org/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.corita.org/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.corita.org/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.corita.org",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [
+     "enum-los-angeles-downtown-arts-district-1788313774.log"
+    ],
+    "circle": {
+     "dist_m": 291,
+     "radius_m": 731,
+     "type": "art_gallery",
+     "inside": true
+    }
+   }
+  },
+  {
+   "rank": 181,
+   "name": "Beacon Arts Building",
+   "neighborhood": "Inglewood",
+   "note": null,
+   "hints": {
+    "address": "808 N La Brea Ave, Inglewood, CA 90302, USA",
+    "website": "http://beaconartsbuilding.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "South LA/Inglewood",
+   "geo": {
+    "lat": 33.9735843,
+    "lng": -118.3573689,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "beacon-arts-building",
+     "name": "Beacon Arts Building",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Beacon Arts Building Artist Studio Complex",
+    "status": "OPERATIONAL",
+    "address": "808 N La Brea Ave, Inglewood, CA 90302, USA",
+    "website": "http://beaconartsbuilding.com/",
+    "phone": "(760) 641-5469",
+    "hours": [
+     "Monday: Open 24 hours",
+     "Tuesday: Open 24 hours",
+     "Wednesday: Open 24 hours",
+     "Thursday: Open 24 hours",
+     "Friday: Open 24 hours",
+     "Saturday: Open 24 hours",
+     "Sunday: Open 24 hours"
+    ],
+    "lat": 33.9735843,
+    "lng": -118.3573689,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://beaconartsbuilding.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://laartiststudios.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://laartiststudios.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    }
+   },
+   "coverage": {
+    "gpla": null,
+    "carla": null,
+    "sweep": null,
+    "enumeration_logs": [],
+    "circle": {
+     "dist_m": 1361,
+     "radius_m": 2500,
+     "type": "museum",
+     "inside": true
+    }
+   }
+  }
+ ]
+}

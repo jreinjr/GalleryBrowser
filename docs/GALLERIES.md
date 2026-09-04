@@ -117,13 +117,18 @@ cached Places text search + details per name (a retry with "gallery" appended wh
 result is another business; listings outside the metro do not count), `validate_venues.site_checks`
 on the website (live / vouched / closed notice / exhibitions page; a Places "permanently closed"
 against a live site with an exhibitions page is flagged for a hand check, not trusted),
+a stale-site check (newest dated show across the exhibitions / current / past pages and the
+homepage: a live, venue-looking site whose newest show is years old, has no dated show at all, or
+only describes online exhibitions is NOT proof of an open programme → `unverified`),
 `seed_venues.assign_zone` for the footprint, and a coverage probe of the nets that should have
 caught it (Gallery Platform LA, Carla, the cached Places nearby sweep with
 `place_skip_reason`, the swept circles, the enumeration logs). Verdicts: `miss` (real, open, in
 footprint — `why` names the nets it fell through), `unverified`, `closed`, `not_found`,
 `out_of_footprint`, `not_a_venue` (auction / bookstore / advisory / private dealing / co-op …).
 `--apply` seeds the misses (status active when verified, `sources.seed.order` carries the list
-rank) and pins their ids in `venue_order.json`; then `rank_venues.py apply` ranks them. Report:
+rank) and pins their ids in `venue_order.json`; then `rank_venues.py apply` ranks them.
+`--ranks 60,143` re-checks chosen entries (seeded ones included, using their registry website and
+address as hints) without re-seeding. Entries may carry `address` / `website` hints added by hand. Report:
 `content/spend/reports/verify-order-<city>-<ts>.json`.
 
 Feature names (all 0..1): hours_breadth, fairs, curated_lists, press, directory, longevity,
