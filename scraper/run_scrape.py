@@ -22,6 +22,9 @@ from cities import CITIES  # noqa: E402
 from harness import DEFAULT_MODEL, MODELS, SPEND_DIR, run_city  # noqa: E402
 
 
+run_deep_UNZONED = "(no zone)"     # mirrors run_deep.UNZONED without importing it
+
+
 def load_env() -> None:
     env_path = Path(__file__).resolve().parent.parent / ".env"
     if env_path.exists():
@@ -99,7 +102,9 @@ def format_todo_message(city_display: str, zone: str, venues: list[dict],
                          "venue is between shows, log_skip closed_or_between_shows with the "
                          "opening date")
         lines.append(line)
-    return (f"Work your TODO list for the {zone} zone of {city_display}.\n\n"
+    where = f"the {zone} zone of {city_display}" if zone not in (None, run_deep_UNZONED) \
+        else f"{city_display} (these venues have no zone on file — set the neighborhood you find)"
+    return (f"Work your TODO list for {where}.\n\n"
             "TODO — attempt each of these venues this session, in order:\n"
             + "\n".join(lines)
             + "\n\nEvery TODO venue must end in at least one save_show of a show on view NOW, "
@@ -234,7 +239,9 @@ def main() -> None:
                 max_fetches=max(18, 5 * expected),
                 max_iterations=max(45, 9 * expected),
                 budget_usd=budget,
-                neighborhoods=[todo["zone"]],
+                # UNZONED batches carry venues with no neighborhood: they must
+                # not hard-enforce a shard, so save_show may use any city zone.
+                neighborhoods=None if todo["zone"] in (None, run_deep_UNZONED) else [todo["zone"]],
                 deep=True, first_user_message=msg,
                 keyword_signals=args.keyword_signals,
                 todo_venues=todo_venue_keys(venues),

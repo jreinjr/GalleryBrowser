@@ -66,6 +66,9 @@ def parse_venue_ids(spec: str | None) -> set[str] | None:
     return {venues.venue_id(t) for t in toks if t}
 
 
+UNZONED = "(no zone)"     # synthetic bucket for venues whose neighborhood is null
+
+
 def zone_todo(city: str, zone: str, only_with_saves: bool = False,
               venue_ids: set[str] | None = None, force_due: bool = False,
               rank_kw: dict | None = None) -> list[dict]:
@@ -357,6 +360,13 @@ def main() -> None:
             sys.exit(f"unknown zones: {bad} (valid: {all_zones})")
     else:
         zones = list(all_zones)
+        # A venue with no neighborhood is invisible to a zone-driven run: 23
+        # verified Tokyo galleries sat unscraped because a Places lookup had
+        # created them without one. They get a synthetic bucket so a missing
+        # zone can never again silently drop a gallery from the scrape.
+        import venues as _v
+        if any(not x.get("neighborhood") for x in _v.load_registry(args.city).get("venues", [])):
+            zones.append(UNZONED)
 
     venue_ids = parse_venue_ids(args.venue_ids)
     if args.force_due and not venue_ids:

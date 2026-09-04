@@ -1,0 +1,130 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "barnsdall-junior-arts-center",
+ "name": "Barnsdall Junior Arts Center Gallery",
+ "website": "https://barnsdallarts.lacity.gov/bjacgallery/",
+ "generated_ts": 1788495042,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.083,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/barnsdall-junior-arts-center.jsonl"
+ },
+ "about_text": "Barnsdall Junior Arts Center (BJAC) Gallery is a public exhibition space within Barnsdall Art Park, operated by the City of Los Angeles Department of Cultural Affairs (DCA). It is part of a cluster of facilities that also includes the Barnsdall Arts Center (BAC) and the Junior Arts Center itself, all located at 4814 Hollywood Blvd. in Los Angeles. As a civic institution, the gallery's programming is guided by DCA's values framework emphasizing inclusion, diversity, equity, excellence, and access, aiming to deliver arts and cultural programming as a public service to residents and visitors of Los Angeles.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://barnsdallarts.lacity.gov/about"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [
+  "Sarah Shin"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "4814 Hollywood Blvd., Los Angeles, CA 90027",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "public civic arts programming",
+  "community-oriented exhibitions"
+ ],
+ "hours_text": "Monday – Friday: 9:00am – 5:30pm; Closed all official City holidays",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Synthesis",
+   "artists": [],
+   "start": "2024-07-10",
+   "end": "2024-09-21",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "Day of the Dead: Looking Towards Our Past and Future",
+   "artists": [],
+   "start": "2024-11-02",
+   "end": "2024-11-23",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "Fostering Photovoice",
+   "artists": [],
+   "start": "2025-01-25",
+   "end": "2025-03-08",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "Re-envisioning Resilience: Reflections on the LA Wildfires",
+   "artists": [],
+   "start": "2025-06-07",
+   "end": "2025-08-02",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "Day of the Dead: Memoirs of Loss and Renewal",
+   "artists": [],
+   "start": "2025-10-16",
+   "end": "2025-11-01",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "Haiti: After the Earthquake(s) We Danced",
+   "artists": [
+    "Huáscar Robles"
+   ],
+   "start": "2026-01-24",
+   "end": "2026-03-21",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/previous"
+  },
+  {
+   "title": "2026 Student Showcase: Threads of Creativity",
+   "artists": [],
+   "start": "2026-08-29",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://barnsdallarts.lacity.gov/bjacgallery/current"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Site describes BAC, BJAC, and BJAC Gallery as facilities operated by the City of Los Angeles, DCA. No founding year, founders, artist roster, fairs, memberships, or press were found in the supplied pages.",
+ "triage": {
+  "labels": {
+   "https://barnsdallarts.lacity.gov/visit": "contact_hours",
+   "https://barnsdallarts.lacity.gov/about": "about",
+   "https://barnsdallarts.lacity.gov/calendar": "exhibitions_current",
+   "https://barnsdallarts.lacity.gov/bjacgallery": "exhibitions_current",
+   "https://barnsdallarts.lacity.gov/bjacgallery/previous": "exhibitions_archive",
+   "https://barnsdallarts.lacity.gov/bjacgallery/current": "exhibitions_current",
+   "https://barnsdallarts.lacity.gov/calendar/barnsdall-arts-event-calendar": "exhibitions_current",
+   "https://barnsdallarts.lacity.gov/about/staff": "about"
+  },
+  "site_notes": "This is a city government arts center site (not a commercial gallery); most inventory rows belong to the unrelated lacity.gov domain and are irrelevant. The Barnsdall pages cover about/staff, visiting info, current gallery show (bjacgallery/current), and a past exhibitions archive (bjacgallery/previous), but there is no artist roster since it is a rotating juried/community gallery.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1860.2
+}

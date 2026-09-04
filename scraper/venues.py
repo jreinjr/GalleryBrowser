@@ -63,6 +63,7 @@ MUSEUM_KIND = "museum"
 STATUSES = ["active", "closed", "appointment_only", "out_of_scope", "duplicate", "unknown",
             "candidate"]   # candidate: domain seen in a session, not yet confirmed a venue
 URL_SOURCES = ["harness", "migration", "discovered", "agent", "manual"]
+UNZONED = "(no zone)"    # run_deep's bucket for venues with no neighborhood
 CADENCE_BY_TIER = {1: 7, 2: 14, 3: 21}
 DEFAULT_CADENCE = 21
 MUSEUM_CADENCE = 14
@@ -346,7 +347,12 @@ def _upsert_in(reg: dict, name: str, patch: dict, source: str,
         if name != v["name"] and name not in v["aliases"]:
             v["aliases"].append(name)
         if protect_existing:
-            patch = {k: val for k, val in patch.items() if k not in protect_existing}
+            # Protection stops a re-seed from RESETTING a value someone
+            # established; it must not stop one from FILLING a null. Blocking
+            # both left 23 verified Tokyo galleries with no zone, and a
+            # zone-less venue is invisible to run_deep, which iterates zones.
+            patch = {k: val for k, val in patch.items()
+                     if k not in protect_existing or v.get(k) in (None, "", [])}
     merge_patch(v, patch)
     tb = v.setdefault("sources", {}).setdefault("touched_by", [])
     if source not in tb:
@@ -653,7 +659,10 @@ def due_venues(city: str, zone: str | None = None, today: date | None = None,
     reg = load_registry(city)
     out = []
     for v in reg.get("venues", []):
-        if zone and v.get("neighborhood") != zone:
+        if zone == UNZONED:
+            if v.get("neighborhood"):
+                continue
+        elif zone and v.get("neighborhood") != zone:
             continue
         if v.get("status") not in ("active", "unknown", "candidate", None):
             continue

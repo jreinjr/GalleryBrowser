@@ -577,3 +577,17 @@ class SeedFlowTests(TempEnv):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProtectExistingFillsNulls(unittest.TestCase):
+    """protect_existing guards an established value, not an empty slot."""
+
+    def test_null_is_filled_but_set_value_is_kept(self):
+        reg = {"schema": 2, "city": "tokyo", "venues": []}
+        v, _ = venues._upsert_in(reg, "Misa Shin Gallery", {"neighborhood": None}, "seed")
+        v, _ = venues._upsert_in(reg, "Misa Shin Gallery", {"neighborhood": "Roppongi"},
+                                 "resolve", protect_existing=("neighborhood",))
+        self.assertEqual(v["neighborhood"], "Roppongi")
+        v, _ = venues._upsert_in(reg, "Misa Shin Gallery", {"neighborhood": "Ginza/Kyobashi"},
+                                 "reseed", protect_existing=("neighborhood",))
+        self.assertEqual(v["neighborhood"], "Roppongi")

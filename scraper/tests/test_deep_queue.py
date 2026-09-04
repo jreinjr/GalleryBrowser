@@ -12,6 +12,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest import mock
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -191,3 +192,18 @@ class AttemptedOncePerRun(unittest.TestCase):
         self.assertEqual([v["id"] for v in run_deep.pick_batch(left, 6)], ["maki"])
         attempted.update(v["id"] for v in left)
         self.assertEqual([v for v in todo if v["id"] not in attempted], [])
+
+
+class UnzonedBucket(unittest.TestCase):
+    """A venue with no neighborhood is still reachable by a zone-driven run."""
+
+    def test_due_venues_unzoned_selects_only_nulls(self):
+        reg = {"schema": 2, "city": "tokyo", "venues": [
+            dict(venues.empty_venue("a", "A"), neighborhood=None, status="active",
+                 verification={"status": "verified", "ts": 1, "checks": {}}, tier=2),
+            dict(venues.empty_venue("b", "B"), neighborhood="Roppongi", status="active",
+                 verification={"status": "verified", "ts": 1, "checks": {}}, tier=2)]}
+        with mock.patch.object(venues, "load_registry", return_value=reg):
+            got = venues.due_venues("tokyo", zone=venues.UNZONED, min_tier=2,
+                                    require_verified=True)
+        self.assertEqual([v["id"] for v in got], ["a"])

@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 383.1707,
-  "total_requests": 4203,
-  "total_web_searches": 2677,
-  "total_input_tokens": 30730271,
-  "total_output_tokens": 11217922,
-  "total_cache_write_tokens": 30647866,
-  "total_cache_read_tokens": 508793909,
+  "total_cost_usd": 404.6909,
+  "total_requests": 4468,
+  "total_web_searches": 2802,
+  "total_input_tokens": 32787304,
+  "total_output_tokens": 12215051,
+  "total_cache_write_tokens": 32269850,
+  "total_cache_read_tokens": 519443603,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -2283,6 +2283,18 @@
       "cost_usd": 0.3225
     },
     {
+      "session": "deep-tokyo-ebisu-meguro-1788496507",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 7,
+      "input_tokens": 20,
+      "output_tokens": 2836,
+      "cache_write_tokens": 21510,
+      "cache_read_tokens": 161321,
+      "web_searches": 0,
+      "cost_usd": 0.1144
+    },
+    {
       "session": "deep-tokyo-ginza-kyobashi-1788493280",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2293,6 +2305,18 @@
       "cache_read_tokens": 3190236,
       "web_searches": 7,
       "cost_usd": 1.2775
+    },
+    {
+      "session": "deep-tokyo-ginza-kyobashi-1788496415",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 7,
+      "input_tokens": 23714,
+      "output_tokens": 7216,
+      "cache_write_tokens": 82168,
+      "cache_read_tokens": 592399,
+      "web_searches": 4,
+      "cost_usd": 0.4835
     },
     {
       "session": "deep-tokyo-kiyosumi-shirakawa-1788493504",
@@ -2307,6 +2331,18 @@
       "cost_usd": 0.1922
     },
     {
+      "session": "deep-tokyo-kiyosumi-shirakawa-1788496526",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 10,
+      "output_tokens": 1547,
+      "cache_write_tokens": 37967,
+      "cache_read_tokens": 99582,
+      "web_searches": 1,
+      "cost_usd": 0.1403
+    },
+    {
       "session": "deep-tokyo-nihonbashi-bakurocho-1788493320",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2317,6 +2353,30 @@
       "cache_read_tokens": 509537,
       "web_searches": 2,
       "cost_usd": 0.3983
+    },
+    {
+      "session": "deep-tokyo-nihonbashi-bakurocho-1788496376",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 10,
+      "input_tokens": 2275,
+      "output_tokens": 8123,
+      "cache_write_tokens": 67850,
+      "cache_read_tokens": 517595,
+      "web_searches": 3,
+      "cost_usd": 0.3889
+    },
+    {
+      "session": "deep-tokyo-no-zone-1788496979",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 7,
+      "input_tokens": 20,
+      "output_tokens": 11661,
+      "cache_write_tokens": 88851,
+      "cache_read_tokens": 557609,
+      "web_searches": 3,
+      "cost_usd": 0.4803
     },
     {
       "session": "deep-tokyo-roppongi-1788493240",
@@ -2355,6 +2415,18 @@
       "cost_usd": 0.252
     },
     {
+      "session": "deep-tokyo-roppongi-1788496335",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 10,
+      "input_tokens": 39462,
+      "output_tokens": 10361,
+      "cache_write_tokens": 90912,
+      "cache_read_tokens": 881124,
+      "web_searches": 0,
+      "cost_usd": 0.586
+    },
+    {
       "session": "deep-tokyo-shibuya-omotesando-1788493340",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2365,6 +2437,30 @@
       "cache_read_tokens": 740199,
       "web_searches": 1,
       "cost_usd": 0.4612
+    },
+    {
+      "session": "deep-tokyo-shibuya-omotesando-1788496355",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 12,
+      "input_tokens": 30,
+      "output_tokens": 18139,
+      "cache_write_tokens": 153693,
+      "cache_read_tokens": 1290328,
+      "web_searches": 7,
+      "cost_usd": 0.8937
+    },
+    {
+      "session": "deep-tokyo-shibuya-omotesando-1788496999",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 13,
+      "input_tokens": 44,
+      "output_tokens": 11596,
+      "cache_write_tokens": 123193,
+      "cache_read_tokens": 1525713,
+      "web_searches": 11,
+      "cost_usd": 0.8392
     },
     {
       "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
@@ -2425,6 +2521,18 @@
       "cache_read_tokens": 176509,
       "web_searches": 0,
       "cost_usd": 0.1286
+    },
+    {
+      "session": "deep-tokyo-shinjuku-kagurazaka-1788496395",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 10,
+      "input_tokens": 4261,
+      "output_tokens": 10438,
+      "cache_write_tokens": 80016,
+      "cache_read_tokens": 601918,
+      "web_searches": 5,
+      "cost_usd": 0.4833
     },
     {
       "session": "deep-tokyo-tennozu-1788493260",
@@ -2844,6 +2952,18 @@
       "cost_usd": 3.2628
     },
     {
+      "session": "judge-tokyo-judge_v1-claude-sonnet-5-1788494515",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 46,
+      "input_tokens": 32837,
+      "output_tokens": 21941,
+      "cache_write_tokens": 5122,
+      "cache_read_tokens": 230490,
+      "web_searches": 0,
+      "cost_usd": 0.344
+    },
+    {
       "session": "lint-los-angeles-1788457625",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -3098,13 +3218,13 @@
       "session": "research-los-angeles-1788460239",
       "model": "claude-sonnet-5",
       "batch": false,
-      "requests": 516,
-      "input_tokens": 9767622,
-      "output_tokens": 3377023,
-      "cache_write_tokens": 93829,
-      "cache_read_tokens": 639791,
+      "requests": 586,
+      "input_tokens": 10679022,
+      "output_tokens": 3998940,
+      "cache_write_tokens": 103778,
+      "cache_read_tokens": 719992,
       "web_searches": 0,
-      "cost_usd": 53.668
+      "cost_usd": 61.7509
     },
     {
       "session": "research-tokyo-1788467469",
@@ -3146,13 +3266,25 @@
       "session": "research-tokyo-1788492141",
       "model": "claude-sonnet-5",
       "batch": false,
-      "requests": 20,
-      "input_tokens": 483993,
-      "output_tokens": 98312,
+      "requests": 32,
+      "input_tokens": 643280,
+      "output_tokens": 250748,
       "cache_write_tokens": 2186,
-      "cache_read_tokens": 27988,
+      "cache_read_tokens": 40768,
       "web_searches": 0,
-      "cost_usd": 1.9622
+      "cost_usd": 3.8077
+    },
+    {
+      "session": "research-tokyo-1788495204",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 14,
+      "input_tokens": 534018,
+      "output_tokens": 67194,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 19020,
+      "web_searches": 11,
+      "cost_usd": 1.8538
     },
     {
       "session": "seattle-1788144234",
@@ -3804,6 +3936,174 @@
       "cache_read_tokens": 8016063,
       "web_searches": 23,
       "cost_usd": 2.5096
+    },
+    {
+      "session": "verify-tokyo-1788494088",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 77515,
+      "output_tokens": 14244,
+      "cache_write_tokens": 201255,
+      "cache_read_tokens": 1268897,
+      "web_searches": 23,
+      "cost_usd": 1.2844
+    },
+    {
+      "session": "verify-tokyo-1788494103",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 88474,
+      "output_tokens": 5728,
+      "cache_write_tokens": 77047,
+      "cache_read_tokens": 368163,
+      "web_searches": 8,
+      "cost_usd": 0.5805
+    },
+    {
+      "session": "verify-tokyo-1788494118",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 6,
+      "output_tokens": 823,
+      "cache_write_tokens": 16660,
+      "cache_read_tokens": 25226,
+      "web_searches": 1,
+      "cost_usd": 0.0649
+    },
+    {
+      "session": "verify-tokyo-1788494133",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 301,
+      "output_tokens": 2030,
+      "cache_write_tokens": 43041,
+      "cache_read_tokens": 185687,
+      "web_searches": 4,
+      "cost_usd": 0.2056
+    },
+    {
+      "session": "verify-tokyo-1788494148",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 10919,
+      "output_tokens": 1760,
+      "cache_write_tokens": 23643,
+      "cache_read_tokens": 56353,
+      "web_searches": 1,
+      "cost_usd": 0.1198
+    },
+    {
+      "session": "verify-tokyo-1788494163",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 10125,
+      "output_tokens": 1765,
+      "cache_write_tokens": 33900,
+      "cache_read_tokens": 76515,
+      "web_searches": 3,
+      "cost_usd": 0.168
+    },
+    {
+      "session": "verify-tokyo-1788494178",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 19656,
+      "output_tokens": 2415,
+      "cache_write_tokens": 65475,
+      "cache_read_tokens": 266107,
+      "web_searches": 4,
+      "cost_usd": 0.3204
+    },
+    {
+      "session": "verify-tokyo-1788494193",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 8,
+      "input_tokens": 64815,
+      "output_tokens": 7851,
+      "cache_write_tokens": 121631,
+      "cache_read_tokens": 1070469,
+      "web_searches": 11,
+      "cost_usd": 0.8363
+    },
+    {
+      "session": "verify-tokyo-1788496754",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 9711,
+      "output_tokens": 2503,
+      "cache_write_tokens": 39170,
+      "cache_read_tokens": 102871,
+      "web_searches": 3,
+      "cost_usd": 0.193
+    },
+    {
+      "session": "verify-tokyo-1788496769",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 9718,
+      "output_tokens": 1217,
+      "cache_write_tokens": 27979,
+      "cache_read_tokens": 63601,
+      "web_searches": 2,
+      "cost_usd": 0.1343
+    },
+    {
+      "session": "verify-tokyo-1788496784",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 124,
+      "output_tokens": 860,
+      "cache_write_tokens": 22393,
+      "cache_read_tokens": 54969,
+      "web_searches": 1,
+      "cost_usd": 0.0858
+    },
+    {
+      "session": "verify-tokyo-1788496799",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 11626,
+      "output_tokens": 5306,
+      "cache_write_tokens": 79100,
+      "cache_read_tokens": 197346,
+      "web_searches": 8,
+      "cost_usd": 0.3935
+    },
+    {
+      "session": "verify-tokyo-1788496814",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 46524,
+      "output_tokens": 3915,
+      "cache_write_tokens": 69860,
+      "cache_read_tokens": 238116,
+      "web_searches": 8,
+      "cost_usd": 0.4345
+    },
+    {
+      "session": "verify-tokyo-1788496829",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 141,
+      "output_tokens": 1307,
+      "cache_write_tokens": 39599,
+      "cache_read_tokens": 105294,
+      "web_searches": 3,
+      "cost_usd": 0.1634
     },
     {
       "session": "verify-venice-1788226511",
