@@ -68,7 +68,9 @@ function check(name, ok, detail) {
   }, [CITY, BLURB]);
   await page.goto(`http://localhost:${PORT}/`);
   await page.click('.tab-btn[data-tab="list"]');
-  await page.waitForSelector('#pages-list .icon-btn');
+  await page.waitForSelector('#pages-list .lib-row.all');
+  await page.click('#pages-list .lib-row.all');   // the flat list is the library's pinned "All shows"
+  await page.waitForSelector('#pages-list .list-results');
   const info = await page.evaluate(() => ({
     ...window.__TEST,
     venuesEmitted: Object.keys(window.DEMO_DATA.venues || {}).length,
@@ -78,7 +80,7 @@ function check(name, ok, detail) {
   check('venue.id mirrors show.venueId', info.allHaveId);
 
   // Gallery rank sort: widen to all venues and all shows in the filter sheet, pick the sort
-  await page.click('#pages-list .icon-btn');
+  await page.click('#pages-list .page:last-child .icon-btn');
   await page.waitForSelector('.sheet.open .filter-sheet');
   await page.click('.sheet.open .seg-row[data-seg="showRank"] button[data-value="all"]');
   await page.click('.sheet.open .seg-row[data-seg="kind"] button[data-value="all"]');
@@ -101,9 +103,9 @@ function check(name, ok, detail) {
   check('sort row Gallery rank checked', sortChecked != null);
   check('the gallery rank stays off the show detail venue block', await (async () => {
     await page.click('#pages-list .list-results .show-row .sr-text');
-    await page.waitForSelector('#pages-list .page-push .detail-body');
-    const n = await page.$$eval('#pages-list .page-push .vb-name .tier-star', els => els.length);
-    await page.evaluate(() => document.querySelector('#pages-list .page-push').remove());
+    await page.waitForSelector('#pages-list .page:last-child .detail-body');
+    const n = await page.$$eval('#pages-list .page:last-child .vb-name .tier-star', els => els.length);
+    await page.evaluate(() => document.querySelector('#pages-list .page:last-child').remove());
     return n === 0;
   })());
 
@@ -151,6 +153,8 @@ function check(name, ok, detail) {
   // ---- the gallery page lists shows one card each; the deck lives on Featured ----
   await page.evaluate(() => { const root = document.getElementById('pages-list');
     while (root.children.length > 1) root.lastElementChild.remove(); });
+  await page.click('#pages-list .lib-row.all');      // the root is the library; the rows live on All shows
+  await page.waitForSelector('#pages-list .list-results .show-row');
   const many = await page.evaluate(() => {           // the LA venue running the most shows
     const n = {}; window.DEMO_DATA.shows.filter(s => s.city === 'los-angeles')
       .forEach(s => (n[s.venue.name] = (n[s.venue.name] || 0) + 1));

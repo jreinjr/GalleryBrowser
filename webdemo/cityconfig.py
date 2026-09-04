@@ -22,6 +22,15 @@ AVAILABILITY_NOTES = {"venice": "Available through Sunday, November 22"}
 
 DEFAULT_CITY = "seattle"
 
+# IANA zone per city: the Discover function computes "today", "this weekend"
+# and opening hours in the city's own time, not the visitor's device time.
+CITY_TZ = {
+    "seattle": "America/Los_Angeles", "new-york": "America/New_York",
+    "los-angeles": "America/Los_Angeles", "tokyo": "Asia/Tokyo",
+    "berlin": "Europe/Berlin", "london": "Europe/London", "paris": "Europe/Paris",
+    "venice": "Europe/Rome",
+}
+
 
 def discover() -> list[dict]:
     """Cities with content, in CITIES declaration order; warn on orphans."""
@@ -106,3 +115,23 @@ def load_ranking(city_key: str) -> dict[str, dict]:
     data = json.loads(f.read_text())
     rows = data.get("ranked") or data.get("featured") or []
     return {r["slug"]: {"rank": r["rank"], "score": r.get("score")} for r in rows if r.get("slug")}
+
+
+def load_lists(city_key: str, published_slugs: set[str]) -> list[dict]:
+    """Curated lists authored in content/lists/<city>.json, as the app's Lists
+    tab shows them: {id, name, desc, kind: 'list'|'route', entries: [{slug, note}]}.
+    Entries whose show is not published are dropped; a list left empty is
+    dropped too (the app hides lists whose shows have all closed at runtime)."""
+    f = CONTENT_DIR / "lists" / f"{city_key}.json"
+    if not f.exists():
+        return []
+    data = json.loads(f.read_text())
+    out = []
+    for l in data.get("lists", []):
+        entries = [{"slug": e["slug"], "note": e.get("note")}
+                   for e in l.get("entries", []) if e.get("slug") in published_slugs]
+        if not entries or not l.get("id") or not l.get("name"):
+            continue
+        out.append({"id": l["id"], "name": l["name"], "desc": l.get("desc"),
+                    "kind": "route" if l.get("kind") == "route" else "list", "entries": entries})
+    return out

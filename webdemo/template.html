@@ -37,11 +37,16 @@
         <div><i class="t-notable"></i><span>Notable</span></div>
         <div><i class="t-listed"></i><span>Listed</span></div>
       </div>
+      <div id="map-ctx" class="ctx-pill" hidden></div>
+    </main>
+    <main id="screen-discover" class="tab-screen">
+      <div id="pages-discover" class="tab-pages"></div>
     </main>
     <nav id="tabbar">
       <button class="tab-btn active" data-tab="featured"><span class="ico"></span><span>Featured</span></button>
-      <button class="tab-btn" data-tab="list"><span class="ico"></span><span>List</span></button>
+      <button class="tab-btn" data-tab="list"><span class="ico"></span><span>Lists</span></button>
       <button class="tab-btn" data-tab="map"><span class="ico"></span><span>Map</span></button>
+      <button class="tab-btn" data-tab="discover"><span class="ico"></span><span>Discover</span></button>
     </nav>
     <div id="sheet-root"></div>
     <div id="viewer-root"></div>
@@ -54,7 +59,7 @@
 <script>
   // tab bar icons
   document.querySelectorAll('.tab-btn').forEach(function (b) {
-    var names = { featured: 'star', list: 'list', map: 'map' };
+    var names = { featured: 'star', list: 'list', map: 'map', discover: 'sparkle' };
     b.querySelector('.ico').outerHTML = window.ICONS[names[b.dataset.tab]];
   });
 </script>
