@@ -449,19 +449,52 @@ def select_venues(city: str, ids: list[str] | None, limit: int | None, force: bo
 
 # --- triage + compile -------------------------------------------------------------------------
 
+TRIAGE_BATCH = 120     # inventory rows per triage call
+MIN_USABLE_PAGES = 2   # fewer readable pages than this = transport failure, retry later
+
+
 def triage(client, idx: crawl.CrawlIndex, venue: dict, meter: Meter, max_rows: int = 400) -> tuple[dict[int, str], list[FetchMore], str, float, str | None]:
-    """labels by inventory index, fetch_more, notes, cost, error."""
+    """labels by inventory index, fetch_more, notes, cost, error.
+
+    The inventory is labelled in batches: one label per page means a 300-page
+    site overruns the output cap in a single call (`triage: max_tokens` left
+    Mizuma with an empty report), and a batch that still overruns is halved."""
     lines = crawl.inventory_lines(idx, limit=max_rows)
-    user = (f"VENUE: {venue['name']} ({venue.get('kind') or 'gallery'}), site {idx.site}\n"
-            f"INVENTORY ({len(lines)} pages; index | url | title | chars | dates):\n" + "\n".join(lines)
-            + "\n\nLabel the pages and list fetch_more.")
-    out, err, cost = structured_call(client, TRIAGE_SYSTEM, user, TRIAGE_SCHEMA, TriageOut, meter,
-                                     max_tokens=8000)
-    if err or out is None:
-        return {}, [], "", cost, err
     n = len(idx.ok_pages())
-    labels = {p.i: p.label for p in out.pages if 0 <= p.i < n and p.label != "other"}
-    return labels, out.fetch_more, out.site_notes, cost, None
+    labels: dict[int, str] = {}
+    more: list[FetchMore] = []
+    notes: list[str] = []
+    cost = 0.0
+    errs: list[str] = []
+
+    def run(batch: list[str], depth: int = 0) -> None:
+        nonlocal cost
+        user = (f"VENUE: {venue['name']} ({venue.get('kind') or 'gallery'}), site {idx.site}\n"
+                f"INVENTORY ({len(batch)} of {len(lines)} pages; index | url | title | chars | dates):\n"
+                + "\n".join(batch) + "\n\nLabel these pages and list fetch_more.")
+        out, err, c = structured_call(client, TRIAGE_SYSTEM, user, TRIAGE_SCHEMA, TriageOut, meter,
+                                      max_tokens=8000)
+        cost += c
+        if err == "max_tokens" and len(batch) > 10 and depth < 5:
+            mid = len(batch) // 2
+            run(batch[:mid], depth + 1)
+            run(batch[mid:], depth + 1)
+            return
+        if err or out is None:
+            errs.append(err or "no output")
+            return
+        for p in out.pages:
+            if 0 <= p.i < n and p.label != "other":
+                labels[p.i] = p.label
+        more.extend(out.fetch_more)
+        if out.site_notes:
+            notes.append(out.site_notes)
+
+    for i in range(0, len(lines), TRIAGE_BATCH):
+        run(lines[i:i + TRIAGE_BATCH])
+    if not labels and errs:
+        return {}, [], "", cost, errs[0]
+    return labels, more, " ".join(notes)[:1200], cost, (errs[0] if errs else None)
 
 
 def _labelled_pages(idx: crawl.CrawlIndex, labels: dict[int, str], extra: dict[str, str]) -> list[tuple[str, crawl.CrawlPage]]:
@@ -788,10 +821,20 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
                 "model": MODEL if rep["about_text"] else None,
             })
             v["facts"].update(facts)
-            v["research"].update({"ts": int(time.time()), "crawl_pages": rep["crawl"].get("pages"),
+            # A crawl that read almost nothing is a transport failure, not a
+            # finding about the gallery (five venues were banked for a year on
+            # ConnectTimeouts during a loaded run). Leave `ts` null so the next
+            # pass retries; the report and its errors are still written.
+            usable = len(idx.ok_pages()) >= MIN_USABLE_PAGES and (
+                rep["about_text"] or rep["roster"] or rep["exhibitions"])
+            v["research"].update({"ts": int(time.time()) if usable else None,
+                                  "crawl_pages": rep["crawl"].get("pages"),
                                   "triaged": len(rep["triage"]["labels"]),
                                   "report_path": str(p.relative_to(tools.CONTENT_DIR.parent)),
-                                  "cost_usd": rep["cost_usd"], "gapfill": gap})
+                                  "cost_usd": rep["cost_usd"], "gapfill": gap,
+                                  "incomplete": not usable})
+            if not usable:
+                rep["errors"].append("not banked: too little readable content, will retry")
             if rep.get("hours_text") and not v.get("hours"):
                 v["hours"] = [rep["hours_text"]]
     log(f"  [{vid}] done ${cost:.3f} in {rep['duration_s']}s -> {p}")

@@ -1,0 +1,2326 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "biscuit",
+ "name": "biscuit gallery",
+ "website": "https://biscuitgallery.com/",
+ "generated_ts": 1788478238,
+ "model": "claude-sonnet-5",
+ "cost_usd": 1.414,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/biscuit.jsonl"
+ },
+ "about_text": "biscuit gallery is a contemporary art gallery that opened in Shibuya, Tokyo in March 2021 before relocating to Shinjuku in June 2025. Alongside its Tokyo space it is preparing a second venue in Karuizawa, Nagano, due to open in summer 2026. The gallery represents a roster of emerging Japanese and Asian painters, photographers and mixed-media artists, and regularly presents them at international art fairs across Asia and Europe. Its program has included group and solo shows spanning painting, photography, sculpture and installation, often highlighting younger and Gen Z artists exploring identity, memory and material experimentation. Beyond its exhibition program, biscuit gallery runs an online shop, an art storage service, and 'grid next,' an open-call initiative supporting the discovery of new artists.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://biscuitgallery.com/about"
+ ],
+ "founded_year": 2021,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Matsui Bldg. 8F, 3-32-10 Shinjuku, Shinjuku-ku, Tokyo 160-0022",
+   "since": 2025,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": null,
+   "since": 2021,
+   "current": false
+  },
+  {
+   "city": "Karuizawa",
+   "address": "Kyukaruizawa Tennis Court Street, Nagano",
+   "since": 2026,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "emerging Japanese artists",
+  "contemporary painting and photography",
+  "mixed-media and sculpture",
+  "Gen Z / young generation artists",
+  "international art fair program"
+ ],
+ "hours_text": "Thu – Sun 13:00 – 19:00 (Wed by appointment / Closed Mon–Tue)",
+ "roster": [
+  {
+   "name": "Ai Natori",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Anna Yang",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Aoi Yokomura",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Azisaka Koji",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Chiaki Matsumoto",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Cocona Murayama",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Hal Osawa",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Iyo Yoshizumi",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Kodai Mishiro",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Kosuke Ajiro",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Machi Sugita",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Marino Funahashi",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Michelle Tsang Yeuk Suet",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Miyu Yamada",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Nagisa Tsuji",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Nanami Hayashi",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Sawako Nasu",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Suyeont",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Shutaro Kunihiro",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Takahiro Matsumoto",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Wakumi Kanno",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yasuaki Kuroda",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yennie Ebihara",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yu Tomooka",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yuiha Yamaguchi",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yulala Mori",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yuuki Kitazawa",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  },
+  {
+   "name": "Yuzuki",
+   "status": "represented",
+   "source_url": "https://shop.biscuitgallery.com/pages/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "biscuit gallery Opening Exhibition I",
+   "artists": [
+    "五十嵐大地",
+    "岡田佑里奈",
+    "清川漠",
+    "トモトシ",
+    "中澤ふくみ",
+    "森井沙季"
+   ],
+   "start": "2021-03-12",
+   "end": "2021-03-28",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/biscuit-gallery-opening-exhibition-i"
+  },
+  {
+   "title": "biscuit gallery opening Exhibition II",
+   "artists": [
+    "石井海音",
+    "木村翔馬",
+    "服部芽生",
+    "御村紗也",
+    "山田康平",
+    "山本捷平"
+   ],
+   "start": "2021-04-01",
+   "end": "2021-04-18",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/biscuit-gallery-opening-exhibition-ii"
+  },
+  {
+   "title": "gjallarhorn",
+   "artists": [
+    "五十嵐大地"
+   ],
+   "start": "2021-04-29",
+   "end": "2021-05-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/daichi-igarashi_2021apr"
+  },
+  {
+   "title": "リトル・ヴォイス",
+   "artists": [
+    "ミノリ"
+   ],
+   "start": "2021-05-27",
+   "end": "2021-06-13",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "花びらのワルツ",
+   "artists": [
+    "やましたあつこ"
+   ],
+   "start": "2021-05-27",
+   "end": "2021-06-13",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/atsuko-yamashita-2021"
+  },
+  {
+   "title": "Rock is Dead",
+   "artists": [
+    "水戸部七絵"
+   ],
+   "start": "2021-06-24",
+   "end": "2021-07-11",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Rock is Dead",
+   "artists": [
+    "Nanae Mitobe"
+   ],
+   "start": "2021-06-24",
+   "end": "2021-07-11",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/nanaemitobe-rockisdead"
+  },
+  {
+   "title": "perspective",
+   "artists": [
+    "三浦光雅",
+    "井上七海"
+   ],
+   "start": "2021-07-29",
+   "end": "2021-08-09",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "ｂ⇔ｄ",
+   "artists": [
+    "多田恋一朗",
+    "那須佐和子"
+   ],
+   "start": "2021-08-19",
+   "end": "2021-08-29",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/bd"
+  },
+  {
+   "title": "positive",
+   "artists": [
+    "永田優美"
+   ],
+   "start": "2021-09-09",
+   "end": "2021-09-19",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "第６の予言 \"The 6th prophecy -The first sentence-\"",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2021-09-11",
+   "end": "2021-09-20",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "three",
+   "artists": [
+    "宮林妃奈子",
+    "田中幹希",
+    "田中綾子"
+   ],
+   "start": "2021-09-23",
+   "end": "2021-10-03",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "three",
+   "artists": [
+    "Hinako Miyabayashi",
+    "Motoki Tanaka",
+    "Ayako Tanaka"
+   ],
+   "start": "2021-09-23",
+   "end": "2021-10-03",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/three"
+  },
+  {
+   "title": "妙な穴面",
+   "artists": [
+    "小林椋",
+    "山本直輝"
+   ],
+   "start": "2021-10-14",
+   "end": "2021-10-24",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "妙な穴面",
+   "artists": [
+    "Muku Kobayashi",
+    "Naoki Yamamoto"
+   ],
+   "start": "2021-10-14",
+   "end": "2021-10-24",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/strange-hole-face"
+  },
+  {
+   "title": "Welcome to the Painting Jungle",
+   "artists": [
+    "東慎也",
+    "飯田美穂"
+   ],
+   "start": "2021-11-03",
+   "end": "2021-11-21",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Welcome to the Painting Jungle",
+   "artists": [
+    "Shinya Azuma",
+    "Miho Iida"
+   ],
+   "start": "2021-11-03",
+   "end": "2021-11-21",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/welcome-to-the-painting-jungle"
+  },
+  {
+   "title": "金魚空間9周年記念展 星野有紀x永田優美x桜井旭",
+   "artists": [
+    "永田優美",
+    "星野有紀",
+    "桜井旭"
+   ],
+   "start": "2021-11-13",
+   "end": "2021-11-28",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Collectors' Collective Vol.5",
+   "artists": [
+    "石川賢司",
+    "ゆとりーマン",
+    "gutsurohi"
+   ],
+   "start": "2021-12-02",
+   "end": "2021-12-19",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/collectors-collective-vol5"
+  },
+  {
+   "title": "Glossy Pure Stroke",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2021-12-04",
+   "end": "2021-12-26",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Nos sumus luna, Vmbra luceat",
+   "artists": [
+    "Yumeno Goto"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/nos-sumus-luna-vmbra-luceat"
+  },
+  {
+   "title": "re",
+   "artists": [
+    "Takafumi Ohba",
+    "Takumi Kikuchi",
+    "Yuki Koyano",
+    "Kota Suzuki",
+    "Kanako Taniguchi",
+    "Yuki Ideguchi",
+    "Arisa Nakahara"
+   ],
+   "start": "2022-01-06",
+   "end": "2022-01-23",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/re"
+  },
+  {
+   "title": "「re」",
+   "artists": [],
+   "start": "2022-01-06",
+   "end": "2022-01-23",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "exhibition from shu",
+   "artists": [
+    "岡田佑里奈",
+    "藤本純輝",
+    "松岡柚歩",
+    "三浦光雅"
+   ],
+   "start": "2022-01-27",
+   "end": "2022-02-06",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/exhibition-from-shu"
+  },
+  {
+   "title": "「exhibition from shu」",
+   "artists": [],
+   "start": "2022-01-27",
+   "end": "2022-02-06",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "最終観測者、？",
+   "artists": [
+    "那須佐和子",
+    "布田葉太郎"
+   ],
+   "start": "2022-02-10",
+   "end": "2022-02-20",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "最終観測者、？",
+   "artists": [
+    "Sawako Nasu",
+    "Yotaro Fuda"
+   ],
+   "start": "2022-02-10",
+   "end": "2022-02-20",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/thelastone"
+  },
+  {
+   "title": "biscuit gallery first anniversary exhibition「grid」",
+   "artists": [],
+   "start": "2022-03-03",
+   "end": "2022-03-27",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid",
+   "artists": [
+    "青木悠太朗",
+    "AHMED MANNAN",
+    "新井浩太",
+    "有村佳奈",
+    "飯田美穂",
+    "五十嵐大地",
+    "石井海音",
+    "井上りか子",
+    "岡田佑里奈",
+    "木村美有",
+    "斉藤弥主子",
+    "齊藤拓未",
+    "渋谷七奈",
+    "鈴木秀尚",
+    "高久秀美",
+    "城蛍",
+    "田中綾子",
+    "谷口正造",
+    "坪山斉",
+    "仲衿香",
+    "中田有美",
+    "永田優美",
+    "那須佐和子",
+    "西浦裕太",
+    "フカミエリ",
+    "藤田つぐみ",
+    "布田葉太郎",
+    "水戸部七絵",
+    "ミノリ",
+    "渡邊涼太",
+    "Liao Yuan Yi",
+    "新井碧",
+    "大渕花波",
+    "勝木杏吏",
+    "加藤昌美",
+    "カワウソカフェ",
+    "川端健太",
+    "木津本麗",
+    "黒坂祐",
+    "後藤夢乃",
+    "高尾岳央",
+    "西村昂祐",
+    "野田ジャスミン",
+    "古川諒子",
+    "松浦美桜香",
+    "南谷理加",
+    "御村紗也",
+    "宮林妃奈子",
+    "山田康平",
+    "山ノ内陽介"
+   ],
+   "start": "2022-03-03",
+   "end": "2022-03-27",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/grid"
+  },
+  {
+   "title": "かわいい。とは何か",
+   "artists": [
+    "石井海音",
+    "野澤梓",
+    "永田優美"
+   ],
+   "start": "2022-04-02",
+   "end": "2022-04-22",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO",
+   "artists": [
+    "高尾岳央",
+    "山中雪乃",
+    "井上りか子"
+   ],
+   "start": "2022-04-07",
+   "end": "2022-04-17",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO",
+   "artists": [
+    "Takehiro Takao",
+    "Yukino Yamanaka",
+    "Rikako Inoue"
+   ],
+   "start": "2022-04-07",
+   "end": "2022-04-17",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solosolosolo"
+  },
+  {
+   "title": "gap",
+   "artists": [
+    "山ノ内陽介",
+    "渡邊涼太"
+   ],
+   "start": "2022-04-21",
+   "end": "2022-05-01",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "fictional reality.",
+   "artists": [
+    "フカミエリ"
+   ],
+   "start": "2022-05-05",
+   "end": "2022-05-22",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "warp",
+   "artists": [
+    "石井海音"
+   ],
+   "start": "2022-05-05",
+   "end": "2022-05-22",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "warp",
+   "artists": [
+    "Amane Ishii"
+   ],
+   "start": "2022-05-05",
+   "end": null,
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/warp"
+  },
+  {
+   "title": "それを隠すように",
+   "artists": [
+    "山田康平",
+    "長島伊織"
+   ],
+   "start": "2022-05-26",
+   "end": "2022-06-12",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "ノンフィクション・イメージ",
+   "artists": [
+    "長島伊織"
+   ],
+   "start": "2022-05-26",
+   "end": "2022-06-12",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Nos sumus luna, Vmbra luceat（私たちは月、光を放つための影）",
+   "artists": [
+    "後藤夢乃"
+   ],
+   "start": "2022-06-26",
+   "end": "2022-07-10",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "DREAM IN OUT 刊行記念展",
+   "artists": [
+    "岡田佑里奈"
+   ],
+   "start": "2022-08-31",
+   "end": "2022-09-04",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/dream-in-out"
+  },
+  {
+   "title": "biscuit gallery Curator Projects 第1弾企画〜松江李穂キュレーション「影をしたためる notes of shadows」",
+   "artists": [
+    "菊谷達史",
+    "前田春日美"
+   ],
+   "start": "2022-09-08",
+   "end": "2022-09-25",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "notes of shadows",
+   "artists": [
+    "Tatsushi Kikuya",
+    "Kasumi Maeda"
+   ],
+   "start": "2022-09-08",
+   "end": null,
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/notes-of-shadows"
+  },
+  {
+   "title": "SOLO SOLO SOLO Vol.2",
+   "artists": [
+    "杉山日向子",
+    "鈴木秀尚",
+    "中風森滋"
+   ],
+   "start": "2022-10-06",
+   "end": "2022-10-23",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO Vol.2",
+   "artists": [
+    "Hinako Sugiyama",
+    "Hidetaka Suzuki",
+    "Shinji Nakakaze"
+   ],
+   "start": "2022-10-06",
+   "end": "2022-10-23",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solosolosolo-vol2"
+  },
+  {
+   "title": "SOLO SOLO SOLO Vol.3",
+   "artists": [
+    "Midori Arai",
+    "Rika Minamitani",
+    "Kousuke Nishimura"
+   ],
+   "start": "2022-11-03",
+   "end": "2022-11-20",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solosolosolo-vol3"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.３",
+   "artists": [
+    "新井碧",
+    "南谷理加",
+    "西村昂祐"
+   ],
+   "start": "2022-11-03",
+   "end": "2022-11-20",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO Vol.4",
+   "artists": [
+    "Akihiro Hasegawa",
+    "Daichi Igarashi",
+    "R E M A"
+   ],
+   "start": "2022-11-24",
+   "end": "2022-12-11",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solosolosolo-vol4"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.4",
+   "artists": [
+    "長谷川彰宏",
+    "五十嵐大地",
+    "REMA"
+   ],
+   "start": "2022-11-24",
+   "end": "2022-12-11",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Collectors Collective Collection",
+   "artists": [
+    "コバヤシマヒロ",
+    "HIRO",
+    "柵木頼人"
+   ],
+   "start": "2022-12-15",
+   "end": "2022-12-24",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/ccc"
+  },
+  {
+   "title": "空という言葉を忘れて空を見ることができますか？",
+   "artists": [
+    "吉田紳平",
+    "ミノリ"
+   ],
+   "start": "2023-01-12",
+   "end": "2023-01-29",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "6 drawings",
+   "artists": [
+    "中澤ふくみ",
+    "後藤夢乃",
+    "フカミエリ",
+    "南谷理加",
+    "松浦美桜香",
+    "玉住聖"
+   ],
+   "start": "2023-02-02",
+   "end": "2023-02-19",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/6drawings"
+  },
+  {
+   "title": "biscuit gallery 2nd anniversary exhibition「grid2」",
+   "artists": [],
+   "start": "2023-02-25",
+   "end": "2023-04-16",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid2",
+   "artists": [
+    "新井碧",
+    "石﨑朝子",
+    "石山未来",
+    "井上りか子",
+    "海老原イェニ",
+    "王之玉",
+    "岡田佑里奈",
+    "笠井麻衣子",
+    "カトウ",
+    "加藤昌美",
+    "勝木杏吏",
+    "菊谷達史",
+    "木津本麗",
+    "北島麻里子",
+    "木村萌",
+    "粂原愛",
+    "工藤玲那",
+    "栗原巳侑",
+    "後藤夢乃",
+    "古西穂波",
+    "GORILLA PARK",
+    "蔡云逸",
+    "齊藤拓未",
+    "下村悠天",
+    "杉田万智",
+    "杉山日向子",
+    "鈴木秀尚",
+    "高尾岳央",
+    "髙木優希",
+    "高瀬栞菜",
+    "髙橋健太",
+    "玉住聖",
+    "仲衿香",
+    "那須佐和子",
+    "中風森滋",
+    "西村昂祐",
+    "長谷川彰宏",
+    "林果林",
+    "福原優太",
+    "藤川さき",
+    "布田葉太郎",
+    "古川諒子",
+    "松浦美桜香",
+    "松田ハル",
+    "三浦光雅",
+    "南谷理加",
+    "宮﨑菖子",
+    "茂木淳史",
+    "本岡景太",
+    "森博幸",
+    "山田康平",
+    "山田美優",
+    "山田優アントニ",
+    "山中雪乃",
+    "Liao Yuan Yi",
+    "レパー",
+    "渡邊涼太"
+   ],
+   "start": "2023-02-25",
+   "end": "2023-04-16",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/grid2"
+  },
+  {
+   "title": "6番目の感覚",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2023-04-27",
+   "end": "2023-05-14",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "6番目の感覚",
+   "artists": [
+    "Yosuke Yamanouchi"
+   ],
+   "start": "2023-04-27",
+   "end": null,
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/sixth-sense"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.5",
+   "artists": [
+    "カトウ",
+    "廖元溢",
+    "木津本麗"
+   ],
+   "start": "2023-05-18",
+   "end": "2023-06-04",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.5",
+   "artists": [
+    "Kato",
+    "Liao Yuan Yi",
+    "Rei Kizumoto"
+   ],
+   "start": "2023-05-18",
+   "end": "2023-06-04",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solosolosolovol-5"
+  },
+  {
+   "title": "境界域",
+   "artists": [
+    "五十嵐大地",
+    "奥村研太郎"
+   ],
+   "start": "2023-06-08",
+   "end": "2023-06-25",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/daichi_igarashi-kentaro_okumura"
+  },
+  {
+   "title": "銀座 蔦屋書店 GINZA ATRIUMグループ展",
+   "artists": [],
+   "start": "2023-06-17",
+   "end": "2023-07-04",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Sunny, Rainy,",
+   "artists": [
+    "那須佐和子"
+   ],
+   "start": "2023-06-29",
+   "end": "2023-07-16",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Sunny, Rainy,",
+   "artists": [
+    "Sawako Nasu"
+   ],
+   "start": "2023-06-29",
+   "end": null,
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/sunny-rainy"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.6",
+   "artists": [
+    "GORILLA PARK",
+    "三浦光雅",
+    "齊藤拓未"
+   ],
+   "start": "2023-07-20",
+   "end": "2023-08-06",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "silence and innocence",
+   "artists": [
+    "山中雪乃",
+    "山ノ内陽介"
+   ],
+   "start": "2023-08-17",
+   "end": "2023-09-03",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "silence and innocence",
+   "artists": [
+    "Yukino Yamanaka",
+    "Yosuke Yamanouchi"
+   ],
+   "start": "2023-08-17",
+   "end": "2023-09-03",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/silence-and-innocence"
+  },
+  {
+   "title": "positive",
+   "artists": [
+    "Yumi Nagata"
+   ],
+   "start": "2023-09-09",
+   "end": "2023-09-19",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/yumi-nagata-positive"
+  },
+  {
+   "title": "かわいそうなジェーン・ブラウンさんは国民に演説を行った",
+   "artists": [
+    "古川諒子"
+   ],
+   "start": "2023-09-14",
+   "end": "2023-10-01",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "かわいそうなジェーン・ブラウンさんは国民に演説を行った",
+   "artists": [
+    "Ryoko Furukawa",
+    "Hidetaka Suzuki"
+   ],
+   "start": "2023-09-14",
+   "end": "2023-10-01",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/ryokofurukawa_solo-exhibition"
+  },
+  {
+   "title": "鳥と鏡",
+   "artists": [
+    "鈴木秀尚",
+    "古川諒子"
+   ],
+   "start": "2023-09-14",
+   "end": "2023-10-01",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "biscuit gallery group exhibition 「re2」",
+   "artists": [],
+   "start": "2023-10-08",
+   "end": "2023-10-28",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "re2",
+   "artists": [
+    "Ai Kumehara",
+    "Kenta Takahashi"
+   ],
+   "start": "2023-10-08",
+   "end": "2023-10-28",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/re2"
+  },
+  {
+   "title": "幻像のラプソティー",
+   "artists": [
+    "大澤巴瑠",
+    "岡田佑里奈",
+    "仲衿香"
+   ],
+   "start": "2023-11-02",
+   "end": "2023-11-19",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "幻像のラプソティー",
+   "artists": [
+    "Hal Osawa",
+    "Yurina Okada",
+    "Erika Naka"
+   ],
+   "start": "2023-11-02",
+   "end": "2023-11-19",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/rhapsodicspectrum"
+  },
+  {
+   "title": "那須佐和子展覧会のご案内 2人展「GENEー世代を超えた遺伝子たち－」/グループ展「マイマップでラインとシェイプを描画する」",
+   "artists": [
+    "那須佐和子"
+   ],
+   "start": "2023-11-19",
+   "end": "2023-12-28",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Dawn + Drawn",
+   "artists": [
+    "山田美優"
+   ],
+   "start": "2023-11-23",
+   "end": "2023-12-10",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/dawn-drawn"
+  },
+  {
+   "title": "biscuit gallery Christmas exhibition",
+   "artists": [
+    "岡田佑里奈",
+    "城蛍",
+    "中風森滋",
+    "那須佐和子",
+    "西浦裕太",
+    "福原優太",
+    "三代宏大"
+   ],
+   "start": "2023-12-14",
+   "end": "2023-12-24",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/biscuit-gallery-christmas-exhibition"
+  },
+  {
+   "title": "Hello, Art",
+   "artists": [],
+   "start": "2024-01-11",
+   "end": "2024-01-31",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "TRUE ROMANCE",
+   "artists": [
+    "森ゆらら"
+   ],
+   "start": "2024-01-11",
+   "end": "2024-01-28",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "TRUE ROMANCE",
+   "artists": [
+    "Yulala Mori"
+   ],
+   "start": "2024-01-11",
+   "end": "2024-01-28",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/true-romance"
+  },
+  {
+   "title": "帰路にまざまざと知る",
+   "artists": [
+    "Christos Mavrodis",
+    "袁方洲",
+    "田中小太郎",
+    "Lily Spacey",
+    "添田奈那",
+    "ペロンミ"
+   ],
+   "start": "2024-02-01",
+   "end": "2024-02-18",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/enlighten-things-in-a-way-to-home"
+  },
+  {
+   "title": "帰路にまざまざと知る",
+   "artists": [
+    "袁方洲",
+    "Christos Mavrodis",
+    "添田奈那",
+    "田中小太郎",
+    "ペロンミ",
+    "リリースペイシー"
+   ],
+   "start": "2024-02-01",
+   "end": "2024-02-18",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/"
+  },
+  {
+   "title": "biscuit gallery 3rd anniversary exhibition「grid3」",
+   "artists": [],
+   "start": "2024-02-24",
+   "end": "2024-04-14",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid3",
+   "artists": [],
+   "start": "2024-02-24",
+   "end": "2024-04-14",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/grid3"
+  },
+  {
+   "title": "Encounter with your imaginations",
+   "artists": [],
+   "start": "2024-02-29",
+   "end": "2024-04-25",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "那須佐和子 グループ展参加のご案内〜Inaugural Group Exhibition NISO（London）",
+   "artists": [
+    "那須佐和子"
+   ],
+   "start": "2024-03-20",
+   "end": "2024-04-20",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "岡田佑里奈 KYOTOGRAPHIE 京都国際写真祭 2024",
+   "artists": [
+    "岡田佑里奈"
+   ],
+   "start": "2024-04-13",
+   "end": "2024-05-12",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.7",
+   "artists": [
+    "下村悠天",
+    "海老原イェニ",
+    "三代宏大"
+   ],
+   "start": "2024-04-25",
+   "end": "2024-05-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.7",
+   "artists": [
+    "Yutaka Shimomura",
+    "Yennie Ebihara",
+    "Kodai Mishiro"
+   ],
+   "start": "2024-04-25",
+   "end": "2024-05-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solo-solo-solo-vol-7"
+  },
+  {
+   "title": "山ノ内陽介個展「形而上的ビバリウム」CANDYBAR Gallery（京都）",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2024-04-26",
+   "end": "2024-05-25",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "International Dialogue",
+   "artists": [],
+   "start": "2024-05-18",
+   "end": "2024-06-09",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "International Dialogue",
+   "artists": [
+    "Seongeun Lee",
+    "Rentaro Kawamoto",
+    "Elizabeth Ibarra",
+    "Sawako Nasu",
+    "Hanna Zelleke Collin",
+    "Emumoto",
+    "Fu Ning",
+    "Takuro Goto"
+   ],
+   "start": "2024-05-18",
+   "end": "2024-06-09",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/international-dialogue"
+  },
+  {
+   "title": "Shadow",
+   "artists": [
+    "岡田佑里奈"
+   ],
+   "start": "2024-06-15",
+   "end": "2024-07-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Shadow",
+   "artists": [
+    "Yurina Okada"
+   ],
+   "start": "2024-06-15",
+   "end": "2024-07-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/shadow"
+  },
+  {
+   "title": "山田美優、三代宏大〜海外グループ展参加のご案内",
+   "artists": [
+    "山田美優",
+    "三代宏大"
+   ],
+   "start": "2024-06-22",
+   "end": "2024-07-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Serendipity Vol.1&2 DAFT about DRAFT FLAGSHIP STORE",
+   "artists": [],
+   "start": "2024-07-04",
+   "end": "2024-09-10",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "6 drawings vol.2",
+   "artists": [
+    "網代幸介",
+    "長島伊織",
+    "林果林",
+    "ミノリ",
+    "森ゆらら",
+    "山田美優"
+   ],
+   "start": "2024-07-13",
+   "end": "2024-08-04",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/6drawings-vol2"
+  },
+  {
+   "title": "粂原愛 個展「静寂の聲」京都 蔦屋書店",
+   "artists": [
+    "粂原愛"
+   ],
+   "start": "2024-07-20",
+   "end": "2024-08-06",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid next : Emerging Artists Showcase",
+   "artists": [],
+   "start": "2024-08-10",
+   "end": "2024-08-25",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid next : Emerging Artists Showcase",
+   "artists": [
+    "ayaqu+s",
+    "池上創",
+    "遠藤文香",
+    "大濱孝太郎",
+    "大濱統太郎",
+    "金井花織",
+    "kokeshisky",
+    "後藤理菜",
+    "酒井建治",
+    "佐藤らら",
+    "須釜衣緒里",
+    "杉本ひなた",
+    "中村夏野",
+    "中村光美",
+    "NARI",
+    "八田亜美",
+    "原田匠悟",
+    "三坂日奈子",
+    "MISATO ANDO",
+    "宮山亮太",
+    "山谷菜月",
+    "やまわき てるり",
+    "弓月/yuzuki",
+    "吉積彩乃",
+    "Lea Embeli"
+   ],
+   "start": "2024-08-10",
+   "end": "2024-08-25",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/gridnext"
+  },
+  {
+   "title": "see you again",
+   "artists": [
+    "松本崇宏"
+   ],
+   "start": "2024-08-31",
+   "end": "2024-09-22",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "see you again",
+   "artists": [
+    "Takahiro Matsumoto"
+   ],
+   "start": "2024-08-31",
+   "end": "2024-09-22",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/see-you-again"
+  },
+  {
+   "title": "那須佐和子海外初個展「Vestige」",
+   "artists": [
+    "那須佐和子"
+   ],
+   "start": "2024-09-18",
+   "end": "2024-11-09",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Golden Cloud Pro Wrestling",
+   "artists": [
+    "森博幸"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/golden-cloud-pro-wrestling"
+  },
+  {
+   "title": "Intersection2 銀座 蔦屋書店 GINZA ATRIUM",
+   "artists": [],
+   "start": "2024-09-28",
+   "end": "2024-10-16",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Pairspective 001",
+   "artists": [
+    "宮山亮太",
+    "弓月/yuzuki"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Pairspective 001",
+   "artists": [
+    "Ryota Miyayama",
+    "弓月/yuzuki"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/pairspective-001"
+  },
+  {
+   "title": "ゴールデン・クラウド・プロレスリング",
+   "artists": [
+    "森博幸"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "補の分身",
+   "artists": [
+    "中澤ふくみ"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "補の分身",
+   "artists": [
+    "Fukumi Nakazawa"
+   ],
+   "start": "2024-09-28",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/the-complementary-other-body"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.8",
+   "artists": [
+    "藤田野々",
+    "斉藤七海",
+    "本岡景太"
+   ],
+   "start": "2024-10-24",
+   "end": "2024-11-10",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.8",
+   "artists": [
+    "Nono Fujita",
+    "Nanami Saito",
+    "Keita Motooka"
+   ],
+   "start": "2024-10-24",
+   "end": "2024-11-10",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solo-solo-solo-vol-8"
+  },
+  {
+   "title": "Pairspective 002『Cosmos』",
+   "artists": [
+    "岡田佑里奈",
+    "Jörgen Axelvall"
+   ],
+   "start": "2024-10-31",
+   "end": "2024-11-03",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "山田美優、鈴木秀尚〜海外グループ展参加のご案内",
+   "artists": [
+    "山田美優",
+    "鈴木秀尚"
+   ],
+   "start": "2024-11-05",
+   "end": "2024-11-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Pairspective 002 『Cosmos』",
+   "artists": [
+    "Yurina Okada",
+    "Jörgen Axelvall"
+   ],
+   "start": "2024-11-14",
+   "end": "2024-12-01",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/pairspective-002"
+  },
+  {
+   "title": "a hole",
+   "artists": [
+    "角田笑香"
+   ],
+   "start": "2024-11-14",
+   "end": "2024-12-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/a-hole"
+  },
+  {
+   "title": "月光と狂気",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2024-11-14",
+   "end": "2024-12-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.9 by grid next",
+   "artists": [
+    "原田匠悟",
+    "やまわきてるり",
+    "八田亜美"
+   ],
+   "start": "2024-12-07",
+   "end": "2024-12-22",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "SOLO SOLO SOLO vol.9 by grid next",
+   "artists": [
+    "Shogo Harada",
+    "Teruri Yamawaki",
+    "Ami Hatta"
+   ],
+   "start": "2024-12-07",
+   "end": "2024-12-22",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/solo-solo-solo-vol-9"
+  },
+  {
+   "title": "In the pocket",
+   "artists": [
+    "辻一徹"
+   ],
+   "start": "2025-01-11",
+   "end": "2025-01-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Pairspective 003 『Regis Oil Fieldhouse』",
+   "artists": [
+    "Kotaro Ohama",
+    "Totaro Ohama"
+   ],
+   "start": "2025-01-11",
+   "end": "2025-01-26",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/pairspective-003"
+  },
+  {
+   "title": "Pairspective 003『Regis Oil Fieldhouse』",
+   "artists": [
+    "大濱孝太郎",
+    "大濱統太郎"
+   ],
+   "start": "2025-01-11",
+   "end": "2025-01-26",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "かみさま.jpg",
+   "artists": [
+    "タカハシマホ"
+   ],
+   "start": "2025-01-11",
+   "end": "2025-01-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "bridge",
+   "artists": [
+    "NISO"
+   ],
+   "start": "2025-01-30",
+   "end": "2025-02-16",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Roche Projects Group Exhibition Galerie Lulla（LA）",
+   "artists": [
+    "那須佐和子"
+   ],
+   "start": "2025-02-04",
+   "end": "2025-02-18",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Serendipity Vol.3 DAFT about DRAFT FLAGSHIP STORE",
+   "artists": [],
+   "start": "2025-02-06",
+   "end": "2025-03-18",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "biscuit gallery 4th anniversary exhibition「grid4」",
+   "artists": [],
+   "start": "2025-02-22",
+   "end": "2025-03-30",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "4月 又は あの子 又は その他",
+   "artists": [
+    "弓月/yuzuki"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-05-04",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Pairspective 004『Little voices』",
+   "artists": [
+    "山田美優",
+    "斉藤七海"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-05-04",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Sanctuary of Peace",
+   "artists": [
+    "長田沙央梨"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-05-04",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "WHAT CAFE EXHIBITION vol.41：ON PAPER：Art and Print Market",
+   "artists": [],
+   "start": "2025-05-03",
+   "end": "2025-05-06",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "doors - biscuit gallery farewell exhibition in Shibuya",
+   "artists": [],
+   "start": "2025-05-10",
+   "end": "2025-05-25",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "不滅",
+   "artists": [
+    "堀尾昭子",
+    "那須佐和子"
+   ],
+   "start": "2025-06-15",
+   "end": "2025-07-06",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "emerge",
+   "artists": [],
+   "start": "2025-06-18",
+   "end": "2025-07-07",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "花と人と車",
+   "artists": [
+    "アジサカコウジ"
+   ],
+   "start": "2025-06-28",
+   "end": "2025-07-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Second Signal",
+   "artists": [],
+   "start": "2025-07-13",
+   "end": "2025-07-27",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "内なる神話",
+   "artists": [
+    "網代幸介"
+   ],
+   "start": "2025-08-02",
+   "end": "2025-08-24",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Serendipity Vol.4 DAFT about DRAFT FLAGSHIP STORE",
+   "artists": [],
+   "start": "2025-08-28",
+   "end": "2025-10-14",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid next：Emerging Artists Showcase 2025",
+   "artists": [],
+   "start": "2025-08-30",
+   "end": "2025-09-14",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "夢",
+   "artists": [
+    "森ゆらら"
+   ],
+   "start": "2025-09-20",
+   "end": "2025-10-05",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Nowhere Land",
+   "artists": [
+    "山田美優"
+   ],
+   "start": "2025-10-11",
+   "end": "2025-10-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "nekis",
+   "artists": [
+    "辻凪彩"
+   ],
+   "start": "2025-10-18",
+   "end": "2025-11-02",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "かたちあるものたちのはなし",
+   "artists": [
+    "カトウ"
+   ],
+   "start": "2025-10-29",
+   "end": "2025-11-03",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "6 drawings vol.3",
+   "artists": [],
+   "start": "2025-11-08",
+   "end": "2025-11-23",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "反射光を受けて、境界線に立つ",
+   "artists": [
+    "杉田万智"
+   ],
+   "start": "2025-11-29",
+   "end": "2025-12-21",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "太古の残滓をくみ上げる",
+   "artists": [
+    "山ノ内陽介"
+   ],
+   "start": "2025-11-29",
+   "end": "2025-12-21",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "undercurrent",
+   "artists": [
+    "名取藍"
+   ],
+   "start": "2026-01-10",
+   "end": "2026-01-25",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "In House：from the biscuit gallery Collection",
+   "artists": [],
+   "start": "2026-01-31",
+   "end": "2026-02-15",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid5",
+   "artists": [],
+   "start": "2026-02-21",
+   "end": "2026-04-05",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Serendipity Vol.6 DAFT about DRAFT FLAGSHIP STORE",
+   "artists": [],
+   "start": "2026-03-05",
+   "end": "2026-05-12",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "気配",
+   "artists": [
+    "菅野湧己"
+   ],
+   "start": "2026-04-11",
+   "end": "2026-04-26",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Be here now Blackbird Gallery（名古屋）",
+   "artists": [],
+   "start": "2026-04-26",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "WHAT CAFE EXHIBITION vol.45：ON PAPER：Art and Print Market",
+   "artists": [],
+   "start": "2026-04-29",
+   "end": "2026-05-06",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "small, everyday wonders",
+   "artists": [
+    "村山心南"
+   ],
+   "start": "2026-05-13",
+   "end": "2026-05-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "草木ものいふ",
+   "artists": [
+    "黒田恭章"
+   ],
+   "start": "2026-06-06",
+   "end": "2026-06-29",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "花と怒り",
+   "artists": [
+    "アジサカコウジ"
+   ],
+   "start": "2026-07-04",
+   "end": "2026-07-26",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "シャイン・オン！アート展｜若手アーティストと子どもたちが描く、ホスピタル・ファシリティドッグ®のアート展",
+   "artists": [],
+   "start": "2026-07-29",
+   "end": "2026-08-01",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "弓月 個展「さむたい」",
+   "artists": [
+    "弓月"
+   ],
+   "start": "2026-08-06",
+   "end": "2026-08-11",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "grid next : 2026 – Emerging Artists Showcase",
+   "artists": [],
+   "start": "2026-08-15",
+   "end": "2026-08-30",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=past"
+  },
+  {
+   "title": "Remain / Still",
+   "artists": [
+    "Takahiro Matsumoto"
+   ],
+   "start": "2026-09-05",
+   "end": "2026-09-20",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=upcoming"
+  },
+  {
+   "title": "MEET YOUR ART FESTIVAL 2026",
+   "artists": [],
+   "start": "2026-10-09",
+   "end": "2026-10-12",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://biscuitgallery.com/category/exhibition?status=upcoming"
+  },
+  {
+   "title": "ノンフィクション・イメージ",
+   "artists": [
+    "Iori Nagashima",
+    "Kohei Yamada"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "group",
+   "source_url": "https://biscuitgallery.com/nonfiction-image"
+  }
+ ],
+ "fairs_self_reported": [
+  "Art Fair Tokyo 2022",
+  "Art Fair Tokyo 2023",
+  "Art Fair Tokyo 2024",
+  "Art Fair Asia Fukuoka 2023",
+  "Art Osaka 2023",
+  "Art Osaka 2024",
+  "Art Busan 2024",
+  "Art Central Hong Kong 2024",
+  "Kiaf SEOUL 2023",
+  "Kiaf SEOUL 2024",
+  "Asia NOW 2024",
+  "ARTBAY TOKYO Art Festival 2024",
+  "ArtMoments 2024 (Jakarta)"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "The site also describes a 'grid next' open-call exhibition program for discovering young artists, an online shop, a newsletter/waiting list system for pre-sale price lists, and an art storage service; some fair pages describe artists as 'management' or 'associate' artists rather than strictly 'represented,' which may not perfectly align with the represented-artist roster list.",
+ "triage": {
+  "labels": {
+   "https://shop.biscuitgallery.com/pages/exhibitions": "exhibitions_current",
+   "https://biscuitgallery.com/category/exhibition?status=current": "exhibitions_current",
+   "https://shop.biscuitgallery.com/pages/artists": "roster_index",
+   "https://biscuitgallery.com/category/exhibition?status=upcoming": "exhibitions_current",
+   "https://biscuitgallery.com/category/exhibition?status=past": "exhibitions_archive",
+   "https://biscuitgallery.com/biscuit-gallery-opening-exhibition-i": "exhibition_page",
+   "https://biscuitgallery.com/biscuit-gallery-opening-exhibition-ii": "exhibition_page",
+   "https://biscuitgallery.com/20210225-1": "news",
+   "https://biscuitgallery.com/daichi-igarashi_2021apr": "exhibition_page",
+   "https://biscuitgallery.com/opening-exhibition-mei-hattori": "news",
+   "https://biscuitgallery.com/minori_2021": "exhibition_page",
+   "https://biscuitgallery.com/atsuko-yamashita-2021": "exhibition_page",
+   "https://biscuitgallery.com/nanaemitobe-rockisdead": "exhibition_page",
+   "https://biscuitgallery.com/mms": "news",
+   "https://biscuitgallery.com/kogamiura-nanamiinoue-perspective": "exhibition_page",
+   "https://biscuitgallery.com/bd": "exhibition_page",
+   "https://biscuitgallery.com/yumi-nagata-positive": "exhibition_page",
+   "https://biscuitgallery.com/three": "exhibition_page",
+   "https://biscuitgallery.com/yousuke-yamanouchi-202109": "news",
+   "https://biscuitgallery.com/strange-hole-face": "exhibition_page",
+   "https://biscuitgallery.com/welcome-to-the-painting-jungle": "exhibition_page",
+   "https://biscuitgallery.com/collectors-collective-vol5": "exhibition_page",
+   "https://biscuitgallery.com/yumi-nagata-taiwan": "news",
+   "https://biscuitgallery.com/re": "exhibition_page",
+   "https://biscuitgallery.com/yosukeyamanouchi-glossypurestroke": "exhibition_page",
+   "https://biscuitgallery.com/exhibition-from-shu": "exhibition_page",
+   "https://biscuitgallery.com/media-re": "news",
+   "https://biscuitgallery.com/sawako-nasu-triple-exhibition": "news",
+   "https://biscuitgallery.com/yurina-okada-aft2022": "fairs",
+   "https://biscuitgallery.com/thelastone": "exhibition_page",
+   "https://biscuitgallery.com/grid": "exhibition_page",
+   "https://biscuitgallery.com/1st-anniversary-book": "news",
+   "https://biscuitgallery.com/solosolosolo": "exhibition_page",
+   "https://biscuitgallery.com/yuminagata-whatcuteis": "news",
+   "https://biscuitgallery.com/gap": "exhibition_page",
+   "https://biscuitgallery.com/warp-fictionalreality": "news",
+   "https://biscuitgallery.com/warp": "exhibition_page",
+   "https://biscuitgallery.com/fictionalreality": "exhibition_page",
+   "https://biscuitgallery.com/likehidingit": "exhibition_page",
+   "https://biscuitgallery.com/nonfiction-image": "exhibition_page",
+   "https://biscuitgallery.com/iorinagashima-koheiyamada-news": "news",
+   "https://biscuitgallery.com/nos-sumus-luna-vmbra-luceat": "exhibition_page",
+   "https://biscuitgallery.com/notes-of-shadows": "exhibition_page",
+   "https://biscuitgallery.com/dream-in-out": "exhibition_page",
+   "https://biscuitgallery.com/solosolosolo-vol2": "exhibition_page",
+   "https://biscuitgallery.com/curatorproject": "news",
+   "https://biscuitgallery.com/solosolosolo-vol3": "exhibition_page",
+   "https://biscuitgallery.com/areaevent_halloween2022": "news",
+   "https://biscuitgallery.com/solosolosolo-vol4": "exhibition_page",
+   "https://biscuitgallery.com/curatorprojecten": "news",
+   "https://biscuitgallery.com/curatorproject-2zh": "news",
+   "https://biscuitgallery.com/ccc": "exhibition_page",
+   "https://biscuitgallery.com/spiralxmasmarket-2022": "news",
+   "https://biscuitgallery.com/minori-shimpei_yoshida": "exhibition_page",
+   "https://biscuitgallery.com/wintervacation2022": "contact_hours",
+   "https://biscuitgallery.com/onlineshop-open": "news",
+   "https://biscuitgallery.com/6drawings": "exhibition_page",
+   "https://biscuitgallery.com/grid2": "exhibition_page",
+   "https://biscuitgallery.com/artfairtokyo2023": "fairs",
+   "https://biscuitgallery.com/artfairtokyo2023en": "fairs",
+   "https://biscuitgallery.com/sixth-sense": "exhibition_page",
+   "https://biscuitgallery.com/yurinaokada-roka": "news",
+   "https://biscuitgallery.com/solosolosolo-vol5": "exhibition_page",
+   "https://biscuitgallery.com/biscuitgallery_karuizawa": "news",
+   "https://biscuitgallery.com/daichi_igarashi-kentaro_okumura": "exhibition_page",
+   "https://biscuitgallery.com/sunny-rainy": "exhibition_page",
+   "https://biscuitgallery.com/intersection": "news",
+   "https://biscuitgallery.com/artfairtokyo-2023": "fairs",
+   "https://biscuitgallery.com/%e3%80%90news%e3%80%91%e9%82%a3%e9%a0%88%e4%bd%90%e5%92%8c%e5%ad%90-%e3%80%8cmeet-your-art%e3%80%8d-%e5%87%ba%e6%bc%94%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b": "news",
+   "https://biscuitgallery.com/kiaf-seoul-2023": "fairs",
+   "https://biscuitgallery.com/art-osaka-2023": "fairs",
+   "https://biscuitgallery.com/solosolosolovol-6": "exhibition_page",
+   "https://biscuitgallery.com/silence-and-innocence": "exhibition_page",
+   "https://biscuitgallery.com/on-paper-works": "news",
+   "https://biscuitgallery.com/on-paper-worksen": "news",
+   "https://biscuitgallery.com/ec-open": "news",
+   "https://biscuitgallery.com/ec-openen": "news",
+   "https://biscuitgallery.com/art-fair-asia-fukuoka-2023": "fairs",
+   "https://biscuitgallery.com/ryokofurukawa_solo-exhibition": "exhibition_page",
+   "https://biscuitgallery.com/hidetaka-suzuki_solo-exhibition": "exhibition_page",
+   "https://biscuitgallery.com/re2": "exhibition_page",
+   "https://biscuitgallery.com/rhapsodicspectrum": "exhibition_page",
+   "https://biscuitgallery.com/global-action": "exhibition_page",
+   "https://biscuitgallery.com/yurinaokada_jill-stuart": "news",
+   "https://biscuitgallery.com/yurinaokada_jill-stuarten": "news",
+   "https://biscuitgallery.com/sawako-nasu_exhibitions": "news",
+   "https://biscuitgallery.com/dawn-drawn": "exhibition_page",
+   "https://biscuitgallery.com/biscuit-gallery-christmas-exhibition": "exhibition_page",
+   "https://biscuitgallery.com/spiralxmasmarket-2023": "news",
+   "https://biscuitgallery.com/grid-next-news": "news",
+   "https://biscuitgallery.com/true-romance": "exhibition_page",
+   "https://biscuitgallery.com/grid3": "exhibition_page",
+   "https://biscuitgallery.com/artfairtokyo-2024": "fairs",
+   "https://biscuitgallery.com/global-actionen": "news",
+   "https://biscuitgallery.com/enlighten-things-in-a-way-to-home": "exhibition_page",
+   "https://biscuitgallery.com/hello-art-draft": "news",
+   "https://biscuitgallery.com/art-central-hongkong-2024": "fairs",
+   "https://biscuitgallery.com/artfairtokyo-2022": "fairs",
+   "https://biscuitgallery.com/solo-solo-solo-vol-7": "exhibition_page",
+   "https://biscuitgallery.com/encounter-with-your-imaginations": "news",
+   "https://biscuitgallery.com/sawako-nasu-niso": "news",
+   "https://biscuitgallery.com/gridnext": "exhibition_page",
+   "https://biscuitgallery.com/art-busan-2024": "fairs",
+   "https://biscuitgallery.com/sawako-nasu-rug": "news",
+   "https://biscuitgallery.com/yosukeyamanouchi-metaphysical-vivarium": "news",
+   "https://biscuitgallery.com/kyotographie2024": "news",
+   "https://biscuitgallery.com/international-dialogue": "exhibition_page",
+   "https://biscuitgallery.com/art-osaka-2024": "fairs",
+   "https://biscuitgallery.com/shadow": "exhibition_page",
+   "https://biscuitgallery.com/2024-06": "news",
+   "https://biscuitgallery.com/6drawings-vol2": "exhibition_page",
+   "https://biscuitgallery.com/serendipity-vol1_vol2": "exhibition_page",
+   "https://biscuitgallery.com/aikumehara_the-voice-of-silence": "news",
+   "https://biscuitgallery.com/kiaf-seoul-2024": "fairs",
+   "https://biscuitgallery.com/gridnext-2025": "news",
+   "https://biscuitgallery.com/20240809": "fairs",
+   "https://biscuitgallery.com/biscuit-gallery-press": "news",
+   "https://biscuitgallery.com/see-you-again": "exhibition_page",
+   "https://biscuitgallery.com/artbay-tokyo-2024": "fairs",
+   "https://biscuitgallery.com/sawako-nasu-vestige": "news",
+   "https://biscuitgallery.com/golden-cloud-pro-wrestling": "exhibition_page",
+   "https://biscuitgallery.com/the-complementary-other-body": "exhibition_page",
+   "https://biscuitgallery.com/pairspective-001": "exhibition_page",
+   "https://biscuitgallery.com/yulala-mori-myaf2024": "news",
+   "https://biscuitgallery.com/intersection2": "news",
+   "https://biscuitgallery.com/asia-now-2024": "fairs",
+   "https://biscuitgallery.com/pairspective-002": "exhibition_page",
+   "https://biscuitgallery.com/solo-solo-solo-vol-8": "exhibition_page",
+   "https://biscuitgallery.com/moonlight-and-madness": "exhibition_page",
+   "https://biscuitgallery.com/a-hole": "exhibition_page",
+   "https://biscuitgallery.com/daydream": "news",
+   "https://biscuitgallery.com/solo-solo-solo-vol-9": "exhibition_page",
+   "https://biscuitgallery.com/spiralxmasmarket-2024": "news",
+   "https://biscuitgallery.com/god-jpg": "exhibition_page",
+   "https://biscuitgallery.com/in-the-pocket": "exhibition_page",
+   "https://biscuitgallery.com/pairspective-003": "exhibition_page",
+   "https://biscuitgallery.com/biscuit-gallery-press-vol-2": "news",
+   "https://biscuitgallery.com/about": "about",
+   "https://biscuitgallery.com/contact": "contact_hours"
+  },
+  "site_notes": "The site is a WordPress blog-style gallery site with a separate Shopify shop subdomain hosting the artist roster and product pages; exhibitions are split into current/upcoming/past category feeds rather than a static archive, and there is no dedicated 'about' or 'contact/hours' page in the crawl despite the gallery clearly having physical locations (Shibuya, Karuizawa).",
+  "fetch_more": [
+   "https://biscuitgallery.com/about",
+   "https://biscuitgallery.com/contact"
+  ]
+ },
+ "errors": [],
+ "duration_s": 1112.6
+}

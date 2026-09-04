@@ -1,0 +1,916 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "landing",
+ "name": "The Landing",
+ "website": "http://www.thelandinggallery.com/",
+ "generated_ts": 1788477475,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2211,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/landing.jsonl"
+ },
+ "about_text": "The Landing is a fine art gallery in Los Angeles specializing in historically significant twentieth-century postwar works, with particular attention to art made in California, alongside a program of contemporary artists. Operating from a 2,800-square-foot space on Jefferson Boulevard, the gallery presents a rotating schedule of solo, two-person, and thematic group exhibitions. It represents a roster that spans both historical and living artists, bridging mid-century West Coast art history with current practice. The gallery is led by owner Gerard O'Brien and participates regularly in major art fairs across the United States.",
+ "source_kind": "official",
+ "source_urls": [
+  "http://www.thelandinggallery.com/about"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "5118 w Jefferson Blvd., Los Angeles, CA 90016",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "20th century postwar California art",
+  "contemporary art",
+  "solo/two-person/group exhibitions",
+  "historical and living artists"
+ ],
+ "hours_text": "Tuesday-Saturday, 11 a.m.-6 p.m.",
+ "roster": [
+  {
+   "name": "Jeremy Anderson",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Yevgeniya Baras",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Richard Bowman",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Ryan Fenchel",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Leslie Kerr",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Matt Phillips",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Fred Reichman",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Jonathan Ryan",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  },
+  {
+   "name": "Amanda Valdez",
+   "status": "represented",
+   "source_url": "http://www.thelandinggallery.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "painting, drawing, sculpture",
+   "artists": [
+    "JB Blunk"
+   ],
+   "start": "2015-11-14",
+   "end": "2016-01-23",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/jb-blunk-solo-show"
+  },
+  {
+   "title": "massing the void",
+   "artists": [
+    "Morgan MacLean"
+   ],
+   "start": "2016-02-06",
+   "end": "2016-03-12",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/morgan-maclean"
+  },
+  {
+   "title": "LIVE from the Landing",
+   "artists": [
+    "Lukas Geronimas"
+   ],
+   "start": "2016-03-19",
+   "end": "2016-04-30",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/lukas-geronimas"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Fred Reichman",
+    "Eleanor Ray"
+   ],
+   "start": "2016-05-21",
+   "end": "2016-07-16",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/fred-reichman-and-eleanor-ray"
+  },
+  {
+   "title": "3 Women",
+   "artists": [
+    "Tanya Aguiñiga",
+    "Loie Hollowell",
+    "Lenore Tawney"
+   ],
+   "start": "2016-07-23",
+   "end": "2016-09-17",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/3-women"
+  },
+  {
+   "title": "Rat Bastard Protective Association",
+   "artists": [
+    "Wallace Berman",
+    "Robert Branaman",
+    "Joan Brown",
+    "Bruce Conner",
+    "Jean Conner",
+    "Jay DeFeo",
+    "Wally Hedrick",
+    "George Herms",
+    "Alvin Light",
+    "Michael McClure",
+    "Manuel Neri",
+    "Carlos Villa"
+   ],
+   "start": "2016-10-01",
+   "end": "2017-01-07",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/rbpa"
+  },
+  {
+   "title": "Signifying Form",
+   "artists": [
+    "Elizabeth Catlett",
+    "Maren Hassinger",
+    "Samella Lewis",
+    "Dominique Moody",
+    "Senga Nengudi",
+    "Alison Saar",
+    "Betye Saar",
+    "Beulah Woodard",
+    "Brenna Youngblood"
+   ],
+   "start": "2017-04-01",
+   "end": "2017-07-01",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/signifying-form"
+  },
+  {
+   "title": "The Useful and the Decorative",
+   "artists": [
+    "Don Edler",
+    "Ryan Fenchel",
+    "Gabrielle Garland",
+    "Alexandra Hedison",
+    "Garry Knox Bennett",
+    "Myrton Purkiss",
+    "John Zane Zappas"
+   ],
+   "start": "2017-07-14",
+   "end": "2017-09-02",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/the-useful-and-the-decorative"
+  },
+  {
+   "title": "\"Taking the World Apart is Easy, It is Getting it Back Together in an Acceptable Form That is Difficult\"",
+   "artists": [
+    "Jeremy Anderson"
+   ],
+   "start": "2017-09-16",
+   "end": "2017-12-16",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/taking-the-world-apart-is-easy"
+  },
+  {
+   "title": "Towards Something Standing Open",
+   "artists": [
+    "Yevgeniya Baras"
+   ],
+   "start": "2018-01-27",
+   "end": "2018-03-31",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/towards-something-standing-open"
+  },
+  {
+   "title": "1959-1964",
+   "artists": [
+    "Robert McChesney",
+    "Emerson Woelffer"
+   ],
+   "start": "2018-04-07",
+   "end": "2018-05-12",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/woelffer-mcchesney"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Mattea Perrotta",
+    "Jonathan Ryan"
+   ],
+   "start": "2018-05-19",
+   "end": "2018-07-07",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/mattea-perrotta-jonathan-ryan"
+  },
+  {
+   "title": "Materializations",
+   "artists": [
+    "Mike Cloud",
+    "Brenda Goodman",
+    "Ariel Herwitz",
+    "Sangram Majumdar",
+    "Christy Matson",
+    "Ben Medansky",
+    "Ezra Tessler",
+    "Amanda Valdez",
+    "Jake Walker"
+   ],
+   "start": "2018-07-14",
+   "end": "2018-09-01",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/materializations"
+  },
+  {
+   "title": "Santa Barbara: 1960s - 1980s",
+   "artists": [
+    "Ken Nack",
+    "Michael Arntz"
+   ],
+   "start": "2018-09-22",
+   "end": "2018-11-03",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/ken-nack-michael-arntz-santa-barbara"
+  },
+  {
+   "title": "Odd Bouquet",
+   "artists": [
+    "Ryan Fenchel"
+   ],
+   "start": "2018-11-10",
+   "end": "2018-12-22",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/odd-bouquet"
+  },
+  {
+   "title": "Radiant Abstractions",
+   "artists": [
+    "Richard Bowman"
+   ],
+   "start": "2019-02-02",
+   "end": "2019-04-27",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/radiant-abstractions"
+  },
+  {
+   "title": "Wild Child",
+   "artists": [
+    "Amanda Valdez"
+   ],
+   "start": "2019-05-04",
+   "end": "2019-06-15",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/wild-child"
+  },
+  {
+   "title": "Dilexi Gallery: Disparate Ontologies",
+   "artists": [
+    "John Altoon",
+    "Jeremy Anderson",
+    "Joel Barletta",
+    "Billy Al Bengston",
+    "John Chamberlain",
+    "William Dubin",
+    "Paul Feeley",
+    "Llyn Foulkes",
+    "Sidney Geist",
+    "Joe Goode",
+    "Sidney Gordin",
+    "Rodger Jacobsen",
+    "Norman Kanter",
+    "Leslie Kerr",
+    "Harry Kramer",
+    "Frank Lobdell",
+    "Alan Lynch",
+    "Philip Makanna",
+    "Robert Morris",
+    "Ed Moses",
+    "Ron Nagle",
+    "Irving Petlin",
+    "Raymond Rocklin",
+    "Hassel Smith",
+    "Sam Tchakalian",
+    "Horst Trave",
+    "H. C. Westermann",
+    "Neil Williams"
+   ],
+   "start": "2019-06-22",
+   "end": "2019-08-17",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/dilexi-gallery-show"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Jonathan Ryan"
+   ],
+   "start": "2019-09-07",
+   "end": "2019-10-26",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/jonathan-ryan-sept-2019"
+  },
+  {
+   "title": "LOS COLORES de ASSIMILATION",
+   "artists": [
+    "Leonardo E. Marmol"
+   ],
+   "start": "2019-11-16",
+   "end": "2020-01-19",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/leonardo-marmol-nov-2019"
+  },
+  {
+   "title": "LONE STARS",
+   "artists": [
+    "Chuck Arnoldi",
+    "Leonardo E. Marmol"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2020,
+   "kind": "fair",
+   "source_url": "http://www.thelandinggallery.com/lone-stars-1"
+  },
+  {
+   "title": "On a New Coast",
+   "artists": [
+    "Brenda Goodman"
+   ],
+   "start": "2020-01-25",
+   "end": "2020-03-14",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/brenda-goodman"
+  },
+  {
+   "title": "In the Sixties",
+   "artists": [
+    "Leslie Kerr"
+   ],
+   "start": "2020-07-22",
+   "end": "2020-09-05",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/leslie-kerr"
+  },
+  {
+   "title": "Lost Paradise",
+   "artists": [
+    "Martín Nuñez"
+   ],
+   "start": "2020-07-22",
+   "end": "2020-09-05",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/martin-nunez"
+  },
+  {
+   "title": "I Sit by the Window",
+   "artists": [
+    "Yevgeniya Baras"
+   ],
+   "start": "2020-09-16",
+   "end": "2020-10-28",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/baras-viewing-room"
+  },
+  {
+   "title": "Studio Viewing Room",
+   "artists": [
+    "Leonardo E. Marmol"
+   ],
+   "start": "2020-09-16",
+   "end": "2020-10-10",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/marmol-viewing-room"
+  },
+  {
+   "title": "Studio Viewing Room",
+   "artists": [
+    "JB Blunk"
+   ],
+   "start": "2020-10-13",
+   "end": "2020-11-14",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/jb-blunk-2020"
+  },
+  {
+   "title": "Feel Daze",
+   "artists": [
+    "Ryan Fenchel"
+   ],
+   "start": "2020-11-21",
+   "end": "2021-01-09",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/ryan-fenchel-feel-daze-1"
+  },
+  {
+   "title": "Viewing Room",
+   "artists": [
+    "Jonathan Ryan"
+   ],
+   "start": "2020-11-21",
+   "end": "2021-01-09",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/j-ryan-viewing-room-2021"
+  },
+  {
+   "title": "OBJECT LESSONS",
+   "artists": [
+    "Larry Bell",
+    "Joe Goode",
+    "Jessie Homer French",
+    "Timothy Washington",
+    "Billy Al Bengston"
+   ],
+   "start": "2020-12-01",
+   "end": "2020-12-12",
+   "year": 2020,
+   "kind": "fair",
+   "source_url": "http://www.thelandinggallery.com/object-lessons-1"
+  },
+  {
+   "title": "Viewing Room",
+   "artists": [
+    "Fred Reichman"
+   ],
+   "start": "2021-01-19",
+   "end": "2021-01-30",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/fred-reichman-viewing-room"
+  },
+  {
+   "title": "blurred life time",
+   "artists": [
+    "Mike Cloud",
+    "Sam Jablon"
+   ],
+   "start": "2021-02-06",
+   "end": "2021-03-20",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/mike-cloud-sam-jablon"
+  },
+  {
+   "title": "New Iconography: Artists Raising Children",
+   "artists": [
+    "Catherine Opie",
+    "Matt Bollinger"
+   ],
+   "start": "2021-03-27",
+   "end": "2021-05-08",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/new-iconography"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Yevgeniya Baras"
+   ],
+   "start": "2021-05-22",
+   "end": "2021-07-03",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/yevgeniya-baras-2021"
+  },
+  {
+   "title": "Remain in Light",
+   "artists": [
+    "Matt Phillips"
+   ],
+   "start": "2021-05-22",
+   "end": "2021-07-03",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/matt-phillips-remain-in-light"
+  },
+  {
+   "title": "Evenfall",
+   "artists": [
+    "Aili Schmeltz"
+   ],
+   "start": "2021-07-10",
+   "end": "2021-08-21",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/aili-schmeltz-evenfall"
+  },
+  {
+   "title": "a new light",
+   "artists": [
+    "Anne Lindberg"
+   ],
+   "start": "2021-07-10",
+   "end": "2021-08-21",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/anne-lindberg-a-new-light"
+  },
+  {
+   "title": "Earthbound",
+   "artists": [
+    "Jonathan Ryan"
+   ],
+   "start": "2021-09-18",
+   "end": "2021-11-06",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/jonathan-ryan-earthbound"
+  },
+  {
+   "title": "The Deep Way",
+   "artists": [
+    "Amanda Valdez"
+   ],
+   "start": "2021-11-13",
+   "end": "2022-01-08",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://www.thelandinggallery.com/amanda-valdez-the-deep-way"
+  },
+  {
+   "title": "10 Year Anniversary Exhibition Part II: 21st Century Contemporary Program",
+   "artists": [
+    "Yevgeniya Baras",
+    "Nick Dahlen",
+    "Roy Dowell",
+    "Brad Eberhard",
+    "Chris Fallon",
+    "Ryan Fenchel",
+    "Future Retrieval",
+    "Lukas Geronimas",
+    "Henry Glavin",
+    "Brenda Goodman",
+    "Michael Handley",
+    "Benjamin Heiken",
+    "Maxwell Hendler",
+    "Sam Jablon",
+    "Jason Karolak",
+    "Mie Kongo",
+    "Anne Lindberg",
+    "Leo Marmol",
+    "Casey McCafferty",
+    "Morgan McClean",
+    "Nick McPhail",
+    "Adam Miller",
+    "Chris Miller",
+    "Martine Nunez",
+    "Mattea Perrotta",
+    "Matt Phillips",
+    "Tim Presley",
+    "Jonathan Ryan",
+    "Aili Schmeltz",
+    "Howard Schwartzberg",
+    "Alex Stern",
+    "Candace Thatcher",
+    "Dani Tull",
+    "Amanda Valdez",
+    "Yelena Yemchuk",
+    "Zane Zappas"
+   ],
+   "start": "2026-03-07",
+   "end": "2026-04-18",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "http://www.thelandinggallery.com/10-year-anniversary-exhibition-part-2-21st-century-contemporary-program"
+  }
+ ],
+ "fairs_self_reported": [
+  "Untitled Art, Miami Beach (December 2-7, 2025)",
+  "Untitled Houston (September 18-21, 2025)",
+  "NADA Miami (December 3-7, 2024)",
+  "NADA Miami (December 5-9, 2023)",
+  "NADA New York (May 18-21, 2023)",
+  "Intersect Palm Springs (February 9-12, 2023)",
+  "NADA Miami (November 30-December 3, 2022)",
+  "NADA New York (May 5-8, 2022)",
+  "Intersect Palm Springs (February 10-13, 2022)",
+  "FOG Design+Art (January 20-23, 2022)",
+  "NADA Miami (December 1-4, 2021)",
+  "OBJECT LESSONS (December 1-12, 2020)",
+  "LONE STARS (Venice Beach off-site for NADA Miami 2020)",
+  "Independent New York (March 6-8, 2020)",
+  "ALAC - Art Los Angeles Contemporary (February 14-16, 2020)",
+  "FOG Art & Design (January 15-19, 2020)",
+  "NADA Miami (December 5-8, 2019)",
+  "Dallas Art Fair (April 11-14, 2019)",
+  "Independent New York (March 7-10, 2019)",
+  "ART LOS ANGELES CONTEMPORARY (February 13-17, 2019)",
+  "FOG Design+Art (January 17-20, 2019)",
+  "NADA Miami (December 6-9, 2018)",
+  "NADA New York (March 8-11, 2018)",
+  "FOG Design+Art (January 11-14, 2018)",
+  "NADA Miami (December 7-10, 2017)",
+  "NADA New York (March 2-5, 2017)",
+  "NADA Miami Beach (December 1-4, 2016)",
+  "NADA New York (May 5-8, 2016)"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Two Coats of Paint",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Diva Corp USA",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artillery",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The Semi-Finalist",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "KCRW",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art Forum",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Galerie",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Sight Unseen",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Maake",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art and Cake",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art & Object",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The New York Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artnet News",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "LA Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Flaunt",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Contemporary Art Review",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "LA Weekly",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Hyperallergic",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Fabrik",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artnews",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Rally",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The Huffington Post",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "International Art and Culture",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Elephant",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artspace",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Whitewall",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Blouin Art Info",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Art News",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "The Creators Project",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artsy",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Cultured Magazine",
+   "year": null,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Press list compiled from headings on the press page; outlets and article titles are as listed but publication years and URLs were not provided in the source text.",
+ "triage": {
+  "labels": {
+   "http://www.thelandinggallery.com/": "exhibitions_current",
+   "http://www.thelandinggallery.com/10-year-anniversary-exhibition-part-2-21st-century-contemporary-program": "exhibition_page",
+   "http://www.thelandinggallery.com/nada-new-york-2018-gallery": "fairs",
+   "http://www.thelandinggallery.com/fog-2018": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-2018-gallery": "fairs",
+   "http://www.thelandinggallery.com/dallas-art-fair-2019-1": "fairs",
+   "http://www.thelandinggallery.com/independent-art-fair-2019-gallery": "fairs",
+   "http://www.thelandinggallery.com/alac-2019-gallery": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-2019-2": "fairs",
+   "http://www.thelandinggallery.com/about": "about",
+   "http://www.thelandinggallery.com/nada-installation-views": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-beach-2016-images": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-2017-installation-views": "fairs",
+   "http://www.thelandinggallery.com/mattea-perrotta-and-jonathan-ryan-press-release": "exhibition_page",
+   "http://www.thelandinggallery.com/materializations": "exhibition_page",
+   "http://www.thelandinggallery.com/2017": "exhibitions_archive",
+   "http://www.thelandinggallery.com/2016": "exhibitions_archive",
+   "http://www.thelandinggallery.com/fairs": "fairs",
+   "http://www.thelandinggallery.com/mattea-perrotta-jonathan-ryan": "exhibition_page",
+   "http://www.thelandinggallery.com/woelffer-mcchesney": "exhibition_page",
+   "http://www.thelandinggallery.com/towards-something-standing-open": "exhibition_page",
+   "http://www.thelandinggallery.com/taking-the-world-apart-is-easy": "exhibition_page",
+   "http://www.thelandinggallery.com/the-useful-and-the-decorative": "exhibition_page",
+   "http://www.thelandinggallery.com/artists": "roster_index",
+   "http://www.thelandinggallery.com/signifying-form": "exhibition_page",
+   "http://www.thelandinggallery.com/rbpa": "exhibition_page",
+   "http://www.thelandinggallery.com/3-women": "exhibition_page",
+   "http://www.thelandinggallery.com/fred-reichman-and-eleanor-ray": "exhibition_page",
+   "http://www.thelandinggallery.com/lukas-geronimas": "exhibition_page",
+   "http://www.thelandinggallery.com/morgan-maclean": "exhibition_page",
+   "http://www.thelandinggallery.com/jb-blunk-solo-show": "exhibition_page",
+   "http://www.thelandinggallery.com/ken-nack-michael-arntz-santa-barbara": "exhibition_page",
+   "http://www.thelandinggallery.com/nada-new-york-2018": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-2017": "fairs",
+   "http://www.thelandinggallery.com/odd-bouquet": "exhibition_page",
+   "http://www.thelandinggallery.com/press": "news",
+   "http://www.thelandinggallery.com/fog-design-art": "fairs",
+   "http://www.thelandinggallery.com/nada-new-york-2017-1": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-beach": "fairs",
+   "http://www.thelandinggallery.com/nada-new-york-2016-new": "fairs",
+   "http://www.thelandinggallery.com/nada-miami-2018": "fairs",
+   "http://www.thelandinggallery.com/radiant-abstractions": "exhibition_page",
+   "http://www.thelandinggallery.com/wild-child": "exhibition_page",
+   "http://www.thelandinggallery.com/2018": "exhibitions_archive",
+   "http://www.thelandinggallery.com/dallas-art-fair-2019-2": "fairs",
+   "http://www.thelandinggallery.com/independent-new-york-2019-1": "fairs",
+   "http://www.thelandinggallery.com/alac-2019-1": "fairs",
+   "http://www.thelandinggallery.com/dilexi-gallery-show": "exhibition_page",
+   "http://www.thelandinggallery.com/jonathan-ryan-sept-2019": "exhibition_page",
+   "http://www.thelandinggallery.com/leonardo-marmol-nov-2019": "exhibition_page",
+   "http://www.thelandinggallery.com/brenda-goodman": "exhibition_page",
+   "http://www.thelandinggallery.com/nada-miami-2019-1": "fairs",
+   "http://www.thelandinggallery.com/2019": "exhibitions_archive",
+   "http://www.thelandinggallery.com/independent-art-fair-2020": "fairs",
+   "http://www.thelandinggallery.com/alac": "fairs",
+   "http://www.thelandinggallery.com/2020": "exhibitions_archive",
+   "http://www.thelandinggallery.com/martin-nunez": "exhibition_page",
+   "http://www.thelandinggallery.com/leslie-kerr": "exhibition_page",
+   "http://www.thelandinggallery.com/baras-viewing-room": "exhibition_page",
+   "http://www.thelandinggallery.com/jb-blunk-2020": "exhibition_page",
+   "http://www.thelandinggallery.com/marmol-viewing-room": "exhibition_page",
+   "http://www.thelandinggallery.com/2021": "exhibitions_archive",
+   "http://www.thelandinggallery.com/ryan-fenchel-feel-daze-1": "exhibition_page",
+   "http://www.thelandinggallery.com/lone-stars-1": "exhibition_page",
+   "http://www.thelandinggallery.com/object-lessons-1": "exhibition_page",
+   "http://www.thelandinggallery.com/mike-cloud-sam-jablon": "exhibition_page",
+   "http://www.thelandinggallery.com/new-iconography": "exhibition_page",
+   "http://www.thelandinggallery.com/aili-schmeltz-evenfall": "exhibition_page",
+   "http://www.thelandinggallery.com/anne-lindberg-a-new-light": "exhibition_page",
+   "http://www.thelandinggallery.com/matt-phillips-remain-in-light": "exhibition_page",
+   "http://www.thelandinggallery.com/yevgeniya-baras-2021": "exhibition_page",
+   "http://www.thelandinggallery.com/j-ryan-viewing-room-2021": "exhibition_page",
+   "http://www.thelandinggallery.com/fred-reichman-viewing-room": "exhibition_page",
+   "http://www.thelandinggallery.com/jonathan-ryan-earthbound": "exhibition_page",
+   "http://www.thelandinggallery.com/amanda-valdez-the-deep-way": "exhibition_page"
+  },
+  "site_notes": "The site is a Squarespace-style gallery site organized by individual exhibition micro-sites (each show has its own main page plus separate images/press/CV/press-release sub-pages) rather than a single chronological archive; yearly index pages (2016-2021) serve as the closest thing to an exhibitions_archive. A single 'artists' page (97) serves as the roster index, so individual artist pages were not labeled separately. Numerous fair-specific micro-sites (NADA, FOG, ALAC, Dallas Art Fair, Independent) exist alongside a general 'fairs' overview page; no dedicated contact/hours page was found in the inventory.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1544.1
+}

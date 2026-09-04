@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "city": "tokyo",
- "updated": 1788477280,
+ "updated": 1788480005,
  "venues": [
   {
    "id": "019",
@@ -12100,7 +12100,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Tue./Wed./Thu./Fri./Sat. 12:00 – 18:00, Closed on Sunday, Monday and National Holiday"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -12196,19 +12198,24 @@
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary Japanese artists",
+     "sculpture and installation",
+     "photography and video",
+     "painting"
+    ],
+    "roster_count": 42,
+    "exhibitions_total": 65,
+    "exhibitions_per_year": 7.22,
+    "first_exhibition_year": 2018,
+    "solo_share": 0.82
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788479937,
+    "crawl_pages": 300,
+    "triaged": 304,
+    "report_path": "content/venues/reports/tokyo/anomaly.json",
+    "cost_usd": 0.5967,
     "gapfill": false
    },
    "features": {
@@ -24129,7 +24136,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "12:00–19:00, closed Mon–Tue"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -24228,31 +24237,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "AWASE gallery is a contemporary art gallery in Shinjuku, Tokyo, founded in 2025 by architect Riku Matsui and artist Kohei Yamada and based at the \"nudge field\" complex. Kohei Yamada curates the annual program, while Riku Matsui brings an architectural perspective, and the two develop exhibitions exploring the ambiguous theme of \"Landscape.\" The program highlights artists and architects whose work engages with space and structure, spanning abstract painting, sculpture, and installation, with an emphasis on emerging talent from Japan and elsewhere in Asia. The gallery also runs a companion project space, On, in the same building, used for curated shows, cross-disciplinary collaborations, and rentable presentations for outside organizations.",
+    "source_kind": "official",
+    "source_url": "https://awase-gallery.com/about",
+    "evidence_path": ".cache/evidence/tokyo/b83ec9f182e30564-1788479201.txt",
+    "written_ts": 1788479542,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2025,
+    "founders": [
+     "Riku Matsui",
+     "Kohei Yamada"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary art",
+     "architecture-art collaboration",
+     "Landscape theme",
+     "emerging Japanese and Asian artists",
+     "painting",
+     "sculpture"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 39,
+    "exhibitions_per_year": 19.5,
+    "first_exhibition_year": 2025,
+    "solo_share": 0.31
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788479542,
+    "crawl_pages": 81,
+    "triaged": 62,
+    "report_path": "content/venues/reports/tokyo/awase.json",
+    "cost_usd": 0.4173,
     "gapfill": false
    },
    "features": {
@@ -27987,7 +28006,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Thu – Sun 13:00 – 19:00 (Wed by appointment / Closed Mon–Tue)"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -28102,31 +28123,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "biscuit gallery is a contemporary art gallery that opened in Shibuya, Tokyo in March 2021 before relocating to Shinjuku in June 2025. Alongside its Tokyo space it is preparing a second venue in Karuizawa, Nagano, due to open in summer 2026. The gallery represents a roster of emerging Japanese and Asian painters, photographers and mixed-media artists, and regularly presents them at international art fairs across Asia and Europe. Its program has included group and solo shows spanning painting, photography, sculpture and installation, often highlighting younger and Gen Z artists exploring identity, memory and material experimentation. Beyond its exhibition program, biscuit gallery runs an online shop, an art storage service, and 'grid next,' an open-call initiative supporting the discovery of new artists.",
+    "source_kind": "official",
+    "source_url": "https://biscuitgallery.com/about",
+    "evidence_path": ".cache/evidence/tokyo/87c533beb9dace03-1788478944.txt",
+    "written_ts": 1788479351,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2021,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging Japanese artists",
+     "contemporary painting and photography",
+     "mixed-media and sculpture",
+     "Gen Z / young generation artists",
+     "international art fair program"
+    ],
+    "roster_count": 28,
+    "exhibitions_total": 160,
+    "exhibitions_per_year": 26.67,
+    "first_exhibition_year": 2021,
+    "solo_share": 0.36
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788479351,
+    "crawl_pages": 300,
+    "triaged": 139,
+    "report_path": "content/venues/reports/tokyo/biscuit.json",
+    "cost_usd": 1.414,
     "gapfill": false
    },
    "features": {
@@ -99454,31 +99481,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Gallery Side 2 is a contemporary art gallery in Tokyo's Roppongi district, representing a small international roster of artists working across painting, sculpture, installation and photography. Its program brings together Japanese artists such as Jun Fujita, Takeo Hanazawa, Eikei Inamori, Shiko Sato and Masaru Tatsuki with Southeast Asian and Italian figures including Udomsak Krisanamis, Thaiwijit Puengkasemsomboon, Michelangelo Consani and the late Santi Alleruzzo, alongside internationally established names like Rirkrit Tiravanija, Peter McDonald and Jae Yong Rhee. The gallery has staged solo and group exhibitions by these artists over more than two decades, and periodically presents special projects and pop-up events in its space.",
+    "source_kind": "official",
+    "source_url": "https://www.galleryside2.net/artists",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788480005,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary painting",
+     "Japanese contemporary art",
+     "Southeast Asian contemporary art",
+     "international contemporary artists",
+     "installation and photography"
+    ],
+    "roster_count": 12,
+    "exhibitions_total": 62,
+    "exhibitions_per_year": 3.65,
+    "first_exhibition_year": 2010,
+    "solo_share": 0.63
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480005,
+    "crawl_pages": 300,
+    "triaged": 82,
+    "report_path": "content/venues/reports/tokyo/gallery-side-2.json",
+    "cost_usd": 0.3291,
     "gapfill": false
    },
    "features": {
@@ -104805,31 +104838,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Gallery Tsubaki is a contemporary art gallery in the Kyobashi district of Tokyo, near Ginza. According to the gallery's own diary, its director left his father's gallery, Tsubaki Kindai Garou, to open Gallery Tsubaki around 1984. Since then it has built a program centered on Japanese artists working across painting, sculpture, ceramics, woodblock printmaking and photography, with a particular fondness for surreal, fantastical and meticulously crafted imagery. The gallery represents a large roster of emerging and mid-career Japanese artists, several of whom it has shown continuously for decades, and it regularly places their work in international art fairs across Taipei, Seoul, Busan and beyond, positioning itself as an advocate for Japanese contemporary art in the wider Asian market.",
+    "source_kind": "official",
+    "source_url": "https://www.gallery-tsubaki.net/diary/diary2015-1-3.html",
+    "evidence_path": ".cache/evidence/tokyo/ea4c2505882a003e-1788478084.txt",
+    "written_ts": 1788478879,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 1984,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary Japanese painting and sculpture",
+     "woodblock and traditional printmaking",
+     "ceramics and superrealist craft objects",
+     "photography",
+     "surreal and fantastical imagery",
+     "emerging and mid-career Japanese artists"
+    ],
+    "roster_count": 66,
+    "exhibitions_total": 127,
+    "exhibitions_per_year": 4.88,
+    "first_exhibition_year": 2001,
+    "solo_share": 0.87
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788478879,
+    "crawl_pages": 300,
+    "triaged": 40,
+    "report_path": "content/venues/reports/tokyo/gallery-tsubaki.json",
+    "cost_usd": 0.6895,
     "gapfill": false
    },
    "features": {
@@ -136630,7 +136670,9 @@
    "exhibitions_url": "https://en.gallery-kaikaikiki.com/2012/11/exhibition-event/",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Closed except during exhibitions or events."
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -136710,31 +136752,36 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Kaikai Kiki Gallery occupies the basement of an office building in Motoazabu, Tokyo, that once served as the private viewing room for Kaikai Kiki's headquarters. The space was reopened as a public gallery in March 2008, after Kaikai Kiki relocated from a prefab studio in Saitama's Asaka city to Tokyo in 2006. The gallery presents exhibitions of its own roster of Kaikai Kiki artists alongside international figures such as Mark Grotjahn, Matthew Monahan, Seonna Hong and Friedrich Kunath, aiming to build connections between Japanese and international contemporary art. Its stated goal is to manage artists and sell work in a way that gives art new social value, continuing to invite artists from both Japan and abroad to exhibit in its roughly 197 square meter exhibition space.",
+    "source_kind": "official",
+    "source_url": "https://en.gallery-kaikaikiki.com/about",
+    "evidence_path": ".cache/evidence/tokyo/a47a2a7db8d74343-1788476210.txt",
+    "written_ts": 1788477753,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2008,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "resident Kaikai Kiki artists",
+     "contemporary Japanese art",
+     "international contemporary artists",
+     "painting and sculpture"
+    ],
+    "roster_count": 13,
+    "exhibitions_total": 132,
+    "exhibitions_per_year": 6.95,
+    "first_exhibition_year": 2008,
+    "solo_share": 0.79
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788477753,
+    "crawl_pages": 304,
+    "triaged": 39,
+    "report_path": "content/venues/reports/tokyo/kaikai-kiki.json",
+    "cost_usd": 1.4241,
     "gapfill": false
    },
    "features": {
@@ -143984,7 +144031,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "12:00–19:00, and by appointment. Closed: Sunday, Monday, Tuesday, national holidays"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -144101,19 +144150,23 @@
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary painting",
+     "Japanese and American artists",
+     "postwar and contemporary Japanese art"
+    ],
+    "roster_count": 11,
+    "exhibitions_total": 101,
+    "exhibitions_per_year": 6.73,
+    "first_exhibition_year": 2012,
+    "solo_share": 0.8
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788478238,
+    "crawl_pages": 123,
+    "triaged": 83,
+    "report_path": "content/venues/reports/tokyo/koki-arts.json",
+    "cost_usd": 0.5711,
     "gapfill": false
    },
    "features": {
@@ -146581,7 +146634,7 @@
     "solo_share": null
    },
    "research": {
-    "ts": 1788470795,
+    "ts": null,
     "crawl_pages": 0,
     "triaged": 0,
     "report_path": "content/venues/reports/tokyo/kotaro-nukaga.json",
@@ -167096,33 +167149,43 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Mizuma Art Gallery was founded in Tokyo in 1994 by executive director Mizuma Sueo. The gallery introduces Japanese and Asian artists with distinctive, style-independent sensibilities to the international art scene. As contemporary art markets in Asia expanded, Mizuma opened a Beijing space in 2008 and a Singapore gallery at Gillman Barracks in 2012, followed by an artist residence, Rumah Kijang Mizuma, in Yogyakarta in 2014 to foster exchange between Japanese and Indonesian artists. The gallery is known for active participation in major international fairs such as Art Basel Hong Kong and The Armory Show, and for producing artists who have gone on to international careers.",
+    "source_kind": "official",
+    "source_url": "https://mizuma-art.co.jp/about",
+    "evidence_path": ".cache/evidence/tokyo/8bf87bc00160d3af-1788477669.txt",
+    "written_ts": 1788477788,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [
-     "Singapore"
+    "founded_year": 1994,
+    "founders": [
+     "Mizuma Sueo"
     ],
-    "program_focus": [],
-    "roster_count": 0,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Singapore",
+     "Yogyakarta"
+    ],
+    "program_focus": [
+     "contemporary Japanese art",
+     "Southeast Asian contemporary art",
+     "cross-generational program",
+     "embroidery and textile art",
+     "ceramics and painting",
+     "international art fair presence"
+    ],
+    "roster_count": 62,
+    "exhibitions_total": 3,
+    "exhibitions_per_year": 3.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 1.0
    },
    "research": {
-    "ts": 1788472981,
+    "ts": 1788477788,
     "crawl_pages": 300,
-    "triaged": 0,
+    "triaged": 298,
     "report_path": "content/venues/reports/tokyo/mizuma-art.json",
-    "cost_usd": 0.1671,
+    "cost_usd": 0.2392,
     "gapfill": false
    },
    "features": {
@@ -167248,7 +167311,9 @@
    "exhibitions_url": "https://mizuma-art.co.jp/en/exhibitions",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Tokyo: Tue-Sat 12:00-19:00 (closed Sun, Mon, holidays); Singapore: Tue-Sat 11:00-19:00, Sun 11:00-18:00 (closed Mon, holidays)"
+   ],
    "phone": null,
    "google": null,
    "last_scraped": null,
@@ -167310,31 +167375,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Mizuma Art Gallery was founded in Tokyo in 1994 by Executive Director Sueo Mizuma. Since then it has built a program centered on Japanese and, increasingly, Southeast and East Asian artists whose work resists passing stylistic trends. The gallery expanded internationally, opening Mizuma Gallery in Singapore's Gillman Barracks in 2012, running the Rumah Kijang Mizuma residency in Yogyakarta from 2014 to 2019, and operating Mizuma & Kips in New York with Kips Gallery from 2018 to 2023. It regularly takes part in major international fairs such as Art Basel Hong Kong, Art Dubai and Art Taipei. In 2024 the gallery marked its thirtieth anniversary as a longstanding platform for contemporary art from diverse Asian backgrounds.",
+    "source_kind": "official",
+    "source_url": "https://mizuma-art.co.jp/en/about",
+    "evidence_path": ".cache/evidence/tokyo/8bf87bc00160d3af-1788477657.txt",
+    "written_ts": 1788477851,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 1994,
+    "founders": [
+     "Sueo Mizuma"
+    ],
+    "locations_elsewhere": [
+     "Singapore"
+    ],
+    "program_focus": [
+     "contemporary Japanese art",
+     "Southeast Asian and East Asian artists",
+     "embroidery and mixed media",
+     "painting and photography",
+     "sculpture and installation"
+    ],
+    "roster_count": 62,
+    "exhibitions_total": 3,
+    "exhibitions_per_year": 3.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 1.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788477851,
+    "crawl_pages": 300,
+    "triaged": 302,
+    "report_path": "content/venues/reports/tokyo/mizuma-art-gallery-ichigaya.json",
+    "cost_usd": 0.2382,
     "gapfill": false
    },
    "features": {
@@ -178026,11 +178101,11 @@
     "solo_share": null
    },
    "research": {
-    "ts": 1788473001,
+    "ts": null,
     "crawl_pages": 1,
     "triaged": 0,
     "report_path": "content/venues/reports/tokyo/nanzuka.json",
-    "cost_usd": 0.0052,
+    "cost_usd": 0.005,
     "gapfill": false
    },
    "features": {
@@ -183153,7 +183228,9 @@
    "exhibitions_url": "https://www.nishimura-gallery.com/",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "10:30 – 18:30, Closed on Sundays, Mondays and National Holidays"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -183281,19 +183358,24 @@
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "postwar and contemporary Japanese art",
+     "sculpture",
+     "international contemporary art",
+     "painting and drawing"
+    ],
+    "roster_count": 17,
+    "exhibitions_total": 62,
+    "exhibitions_per_year": 3.44,
+    "first_exhibition_year": 2009,
+    "solo_share": 0.56
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788477555,
+    "crawl_pages": 251,
+    "triaged": 75,
+    "report_path": "content/venues/reports/tokyo/nishimura.json",
+    "cost_usd": 0.2874,
     "gapfill": false
    },
    "features": {
@@ -222683,7 +222765,7 @@
     "solo_share": null
    },
    "research": {
-    "ts": 1788470599,
+    "ts": null,
     "crawl_pages": 0,
     "triaged": 0,
     "report_path": "content/venues/reports/tokyo/shugoarts.json",
@@ -236578,7 +236660,7 @@
     "solo_share": null
    },
    "research": {
-    "ts": 1788470921,
+    "ts": null,
     "crawl_pages": 0,
     "triaged": 0,
     "report_path": "content/venues/reports/tokyo/take-ninagawa.json",
@@ -238528,7 +238610,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Opening hours: 11:00-19:00, Closed: Sun, Mon, Public Holiday"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -238646,19 +238730,25 @@
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary conceptual art",
+     "international roster",
+     "Japanese photography",
+     "postwar estate representation",
+     "multimedia/installation art"
+    ],
+    "roster_count": 32,
+    "exhibitions_total": 123,
+    "exhibitions_per_year": 7.69,
+    "first_exhibition_year": 2011,
+    "solo_share": 0.8
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788479166,
+    "crawl_pages": 302,
+    "triaged": 40,
+    "report_path": "content/venues/reports/tokyo/taro-nasu.json",
+    "cost_usd": 0.393,
     "gapfill": false
    },
    "features": {
@@ -263162,7 +263252,7 @@
     "text": null,
     "source_kind": null,
     "source_url": null,
-    "evidence_path": null,
+    "evidence_path": ".cache/evidence/tokyo/ed635fcaccabc8fc-1788476896.txt",
     "written_ts": null,
     "model": null,
     "hints": []
@@ -263170,20 +263260,33 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Hong Kong",
+     "Taipei",
+     "Beijing",
+     "Karuizawa",
+     "Singapore",
+     "Seoul"
+    ],
+    "program_focus": [
+     "Gutai movement",
+     "postwar Japanese art",
+     "contemporary Chinese art",
+     "contemporary Asian art",
+     "international contemporary painting"
+    ],
+    "roster_count": 105,
+    "exhibitions_total": 23,
+    "exhibitions_per_year": 5.75,
+    "first_exhibition_year": 2023,
+    "solo_share": 0.57
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788477732,
+    "crawl_pages": 300,
+    "triaged": 41,
+    "report_path": "content/venues/reports/tokyo/whitestone.json",
+    "cost_usd": 0.2262,
     "gapfill": false
    },
    "features": {
@@ -270774,7 +270877,9 @@
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Tue.-Sat. 12:00-19:00, Closed Sun., Mon., National Holiday"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -270884,31 +270989,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "YUKI-SIS is a contemporary art gallery in Tokyo's Nihombashi Kayabacho district, currently directed by Yuki Terajima. The gallery's name blends the director's own name with the Egyptian goddess Isis. Before settling in Kayabacho in 2023, the gallery operated in other Tokyo neighborhoods linked by the word \"bridge\" (hashi), including Asakusabashi and near Nihombashi Mitsukoshimae. Its current space, on the second floor of the Koura Dai-Ichi Building overlooking a river and bridge leading to Tokyo Bay, sits among several other galleries in the same building. YUKI-SIS presents a program spanning painting, photography, printmaking, sculpture, and animation, and participates in art fairs such as Art Fair Tokyo.",
+    "source_kind": "official",
+    "source_url": "http://yuki-sis.com/infomap.html",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788479305,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary Japanese artists",
+     "photography",
+     "painting/printmaking",
+     "animation art",
+     "sculpture"
+    ],
+    "roster_count": 17,
+    "exhibitions_total": 113,
+    "exhibitions_per_year": 7.53,
+    "first_exhibition_year": 2012,
+    "solo_share": 0.71
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788479305,
+    "crawl_pages": 300,
+    "triaged": 155,
+    "report_path": "content/venues/reports/tokyo/yuki-sis.json",
+    "cost_usd": 0.9697,
     "gapfill": false
    },
    "features": {
@@ -271264,7 +271375,9 @@
    "exhibitions_url": "https://yukikomizutani.com/exhibitions/",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Tue, Wed, Thu, Fri, Sat: 12:00 - 18:00; Closed on Sundays, Mondays and National Holidays"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -271380,31 +271493,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "YUKIKOMIZUTANI is a contemporary art gallery in Tokyo, founded in 2021 with the aim of bringing contemporary art from Tokyo to an international audience. The gallery is based inside TERRADA ART COMPLEX in Tennozu, an area where the Meguro River meets Tokyo Bay, home to the largest concentration of galleries in Japan. Through its exhibition program, YUKIKOMIZUTANI supports a diverse roster of artists working across painting, sculpture, textile and installation, and takes part in major art fairs in Japan and abroad. The gallery describes its mission as elevating the role of art in contemporary culture while helping develop Tennozu Isle into a significant arts and culture hub.",
+    "source_kind": "official",
+    "source_url": "https://yukikomizutani.com/about",
+    "evidence_path": ".cache/evidence/tokyo/790d46698e21376b-1788477764.txt",
+    "written_ts": 1788478509,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2021,
+    "founders": [
+     "Yukiko Mizutani"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary Japanese art",
+     "nihonga and mixed media",
+     "emerging and mid-career Japanese artists",
+     "installation and sculpture",
+     "textile and fiber art"
+    ],
+    "roster_count": 12,
+    "exhibitions_total": 38,
+    "exhibitions_per_year": 6.33,
+    "first_exhibition_year": 2021,
+    "solo_share": 0.79
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788478509,
+    "crawl_pages": 300,
+    "triaged": 67,
+    "report_path": "content/venues/reports/tokyo/yukikomizutani.json",
+    "cost_usd": 0.3149,
     "gapfill": false
    },
    "features": {
