@@ -190,9 +190,19 @@ def extract_image_urls(url: str) -> str:
     return json.dumps({"page": resp.url, "candidates": out})
 
 
+# Windows refuses to create a file whose stem is a DOS device name, so a venue
+# like "CON_" would slug to a path no Windows clone can check out. Slugs become
+# file names (venue reports, image dirs), so escape them here, at the source.
+_WIN_RESERVED = {"con", "prn", "aux", "nul",
+                 *(f"com{i}" for i in range(1, 10)),
+                 *(f"lpt{i}" for i in range(1, 10))}
+
+
 def _slugify(text: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-    return slug[:60] or "untitled"
+    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60]
+    if slug in _WIN_RESERVED:
+        slug += "-"  # idempotent: the strip above runs before this check
+    return slug or "untitled"
 
 
 _NORM_STRIP_SUFFIXES = (" gallery", " galleries", " fine art", " fine arts")
