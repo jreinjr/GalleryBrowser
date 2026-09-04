@@ -214,8 +214,9 @@ function overlaps(labels) {
       sheets: document.querySelectorAll('#sheet-root .sheet').length,
       venue: !!document.querySelector('#sheet-root .venue-title'),
       rows: document.querySelectorAll('#sheet-root .venue-show-card').length,
+      deck: +(document.querySelector('#sheet-root .venue-show-stack') || {}).dataset.shows,
     }));
-    check('M4b single-show dot opens the venue page', st.sheets === 1 && st.venue && st.rows === 1, JSON.stringify(st));
+    check('M4b single-show dot opens the venue page', st.sheets === 1 && st.venue && st.rows === 1 && st.deck === 1, JSON.stringify(st));
     await closeSheet();
   }
   {
@@ -226,9 +227,10 @@ function overlaps(labels) {
       sheets: document.querySelectorAll('#sheet-root .sheet').length,
       venue: !!document.querySelector('#sheet-root .venue-title'),
       rows: document.querySelectorAll('#sheet-root .venue-show-card').length,
+      deck: +(document.querySelector('#sheet-root .venue-show-stack') || {}).dataset.shows,
     }));
     check('M5 multi-show dot opens the venue page with every show',
-      st.sheets === 1 && st.venue && st.rows === targets.many.n, JSON.stringify(st) + ` / ${targets.many.n}`);
+      st.sheets === 1 && st.venue && st.rows === 1 && st.deck === targets.many.n, JSON.stringify(st) + ` / ${targets.many.n}`);
     await closeSheet();
   }
 

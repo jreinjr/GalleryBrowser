@@ -134,10 +134,10 @@ function check(name, ok, detail) {
     save: !!e.querySelector('.bookmark-btn'),
     stars: e.querySelectorAll('.tier-star').length,
   })));
-  check('venue-page shows render as Featured-style cards', vcards.length > 0
+  check('venue-page shows render as one Featured-style card', vcards.length === 1
     && vcards.every(c => c.img && c.name && c.save && c.stars === 0), JSON.stringify(vcards));
-  check('the cards run about a third the height of a Featured card',
-    vcards.every(c => c.h >= 100 && c.h <= 140), vcards.map(c => c.h).join(','));
+  check('the card runs about two thirds the height of a Featured card',
+    vcards.every(c => c.h === 248), vcards.map(c => c.h).join(','));
   check('the card footer carries the run dates, not the venue name',
     vcards.every(c => /^(Through|Opens) /.test(c.sub || '')), vcards.map(c => c.sub).join(' | '));
   check('the venue map card is a live MapLibre canvas', await (async () => {
@@ -147,6 +147,56 @@ function check(name, ok, detail) {
   })());
   check('the Top pill is the only rank mark on the gallery page',
     (await page.$$eval('#pages-list .venue-body .tier-pill, #pages-list .venue-body .tier-star', els => els.length)) === 1);
+
+  // ---- the deck: a venue's shows collapse into one card the footer swipes through ----
+  await page.evaluate(() => { const root = document.getElementById('pages-list');
+    while (root.children.length > 1) root.lastElementChild.remove(); });
+  const many = await page.evaluate(() => {           // the LA venue running the most shows
+    const n = {}; window.DEMO_DATA.shows.filter(s => s.city === 'los-angeles')
+      .forEach(s => (n[s.venue.name] = (n[s.venue.name] || 0) + 1));
+    const name = Object.keys(n).sort((a, b) => n[b] - n[a])[0];
+    return { name, n: n[name] };
+  });
+  await page.locator('#pages-list .list-results .show-row', { hasText: many.name }).first().locator('.sr-text').click();
+  await page.waitForSelector('#pages-list .venue-block');
+  await page.click('#pages-list .venue-block');
+  await page.waitForSelector('#pages-list .venue-show-stack');
+  await page.waitForTimeout(500);            // let the push animation settle before aiming at the footer
+  const deck = await page.evaluate(() => {
+    const w = document.querySelector('#pages-list .venue-show-stack');
+    return { shows: +w.dataset.shows, cards: w.querySelectorAll('.venue-show-card').length,
+      sheets: w.querySelectorAll('.stack-sheet').length,
+      count: (w.querySelector('.cf-count') || {}).textContent,
+      name: w.querySelector('.name').textContent };
+  });
+  check(`a venue's ${many.n} shows deal into one card`,
+    deck.shows === many.n && deck.cards === 1, JSON.stringify(deck));
+  check('sheets behind the card suggest the deck', deck.sheets === Math.min(many.n - 1, 2), `${deck.sheets}`);
+  check('the footer counts the deck', deck.count === `1 / ${many.n}`, deck.count);
+
+  const swipe = async dir => {
+    const b = await page.$eval('#pages-list .venue-show-card .card-footer',
+      e => { const r = e.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+    await page.mouse.move(b.x, b.y); await page.mouse.down();
+    await page.mouse.move(b.x + dir * 60, b.y, { steps: 6 }); await page.mouse.up();
+    await page.waitForTimeout(400);
+  };
+  const face = () => page.evaluate(() => ({ c: document.querySelector('#pages-list .cf-count').textContent,
+    n: document.querySelector('#pages-list .venue-show-card .name').textContent }));
+  await swipe(-1);
+  const next = await face();
+  check('swiping the footer left deals the next show',
+    next.c === `2 / ${many.n}` && next.n !== deck.name, JSON.stringify(next));
+  await swipe(1); await swipe(1);
+  check('swiping right wraps to the back of the deck',
+    (await face()).c === `${many.n} / ${many.n}`, (await face()).c);
+  await swipe(-1);
+  const up = await face();
+  await page.click('#pages-list .venue-show-card .cf-text');
+  await page.waitForSelector('#pages-list .page-push .detail-body');
+  const opened = await page.$eval('#pages-list .page-push .detail-body',
+    d => (d.querySelector('.detail-artist') || d.querySelector('.detail-title')).textContent);
+  check('tapping the card opens the show that is face up', opened === up.n, `${opened} vs ${up.n}`);
 
   await browser.close();
   server.close();

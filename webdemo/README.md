@@ -76,10 +76,15 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
   page.
 - **Featured cards** carry a white bookmark button in the footer, the same
   control as the list rows.
-- **Venue page** leads with Shows, then the blurb, then the address lines. Each
-  show is a Featured card in miniature — photo, frosted footer, bookmark — 124px
-  tall, about a third of a Featured card, and the footer's second line carries the
-  run dates rather than repeating the venue name.
+- **Venue page** leads with Shows, then the blurb, then the address lines. Every
+  show the venue is running deals into ONE card — the Featured card in miniature
+  (photo, frosted footer, bookmark), 248px tall against the Featured card's full
+  width. Sheets peeking out below say how deep the deck is (two at most, however
+  many shows there are); swiping the footer left or right deals the next show and
+  wraps, the counter beside the bookmark says where you are, and a tap on the card
+  or its text opens whichever show is face up. The photo strip above the footer
+  keeps its own image carousel. The venue is the subject of the page, so the
+  footer's second line carries the run dates rather than repeating the venue name.
 - The **venue map card** is a live MapLibre map (same style as the Map tab), not a
   crop of a pre-stitched raster basemap: CARTO's raster tile CDN now requires an
   API key and stamps "API KEY REQUIRED" across every tile. Vector tiles stay crisp

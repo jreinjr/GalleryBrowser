@@ -961,8 +961,7 @@
     const showsSection = shows.length
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, 'Shows'),
-          el('div', { class: 'venue-show-list' },
-            ...shows.map((_, i) => venueShowCard(shows, i, openShow))))
+          venueShowStack(shows, openShow))
       : null;
 
     const leading = asSheet
@@ -986,19 +985,64 @@
     return page;
   }
 
-  // A venue's shows read as the Featured card in miniature — photo, frosted
-  // footer — at a third the height, so several fit above the fold. The venue is
-  // the subject of the page, so the second line carries dates, not the address.
-  function venueShowCard(shows, i, onOpen) {
-    const s = shows[i];
-    const open = () => (onOpen || pushDetailFromRow)(s);
-    const car = makeCarousel(s.images, { height: 124, onTap: open });
-    const text = el('div', { class: 'cf-text' },
-      el('div', { class: 'name' }, displayName(s)),
-      el('div', { class: 'sub' }, dateLine(s, fmtShort)));
-    text.addEventListener('click', open);
-    return el('div', { class: 'card venue-show-card' }, car,
-      el('div', { class: 'card-footer' }, text, bookmarkBtn(s)));
+  // Every show a venue is running collapses into ONE card — the Featured card
+  // in miniature (photo, frosted footer), with sheets peeking out behind it when
+  // there is more than one. Swiping the footer deals the next show; the photo
+  // strip above it keeps its own image carousel, and a tap opens whichever show
+  // is face up. The venue is the subject of the page, so the footer's second
+  // line carries the run dates rather than repeating the name and address.
+  const SHOW_CARD_H = 248;
+  const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
+  function venueShowStack(shows, onOpen) {
+    let idx = 0;
+    let swipedAt = 0;             // a swipe ends over the card: don't let it open a show too
+    const card = el('div', { class: 'card venue-show-card' });
+    const stack = el('div', { class: 'venue-show-stack', 'data-shows': shows.length });
+    for (let d = Math.min(shows.length - 1, STACK_MAX); d >= 1; d--)
+      stack.appendChild(el('i', { class: 'stack-sheet d' + d }));
+    stack.appendChild(card);
+
+    function deal(step) {
+      idx = (idx + step + shows.length) % shows.length;
+      swipedAt = Date.now();
+      paint(step);
+    }
+    // one step per gesture, once the drag reads as horizontal
+    function wireSwipe(node) {
+      let x0 = null, y0 = null;
+      node.addEventListener('pointerdown', e => { x0 = e.clientX; y0 = e.clientY; });
+      node.addEventListener('pointermove', e => {
+        if (x0 == null) return;
+        const dx = e.clientX - x0, dy = e.clientY - y0;
+        if (Math.abs(dx) < 14 || Math.abs(dx) <= Math.abs(dy)) return;
+        x0 = null;
+        deal(dx < 0 ? 1 : -1);
+      });
+      const end = () => { x0 = null; };
+      node.addEventListener('pointerup', end);
+      node.addEventListener('pointercancel', end);
+    }
+
+    function paint(step) {
+      const s = shows[idx];
+      const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
+      const text = el('div', { class: 'cf-text' },
+        el('div', { class: 'name' }, displayName(s)),
+        el('div', { class: 'sub' }, dateLine(s, fmtShort)));
+      text.addEventListener('click', open);
+      const footer = el('div', { class: 'card-footer' }, text,
+        shows.length > 1 ? el('div', { class: 'cf-count' }, `${idx + 1} / ${shows.length}`) : null,
+        bookmarkBtn(s));
+      if (shows.length > 1) wireSwipe(footer);
+      card.innerHTML = '';
+      card.append(makeCarousel(s.images, { height: SHOW_CARD_H, onTap: open }), footer);
+      card.classList.remove('deal-next', 'deal-prev');
+      if (!step) return;
+      void card.offsetWidth;                  // restart the animation on a re-deal
+      card.classList.add(step > 0 ? 'deal-next' : 'deal-prev');
+    }
+    paint(0);
+    return stack;
   }
 
   // The venue card runs the same MapLibre vector style as the Map tab. It used
