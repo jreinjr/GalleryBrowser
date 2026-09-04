@@ -1,6 +1,6 @@
 {
  "city": "los-angeles",
- "generated_at": 1788505451,
+ "generated_at": 1788508439,
  "today": "2026-09-04",
  "params_default": {
   "version": 1,
@@ -106,6 +106,7 @@
     "overduin-and-co",
     "chateau-shatto",
     "michael-benevento",
+    "tanya-leighton",
     "james-fuentes",
     "nonaka-hill",
     "rosegallery",
@@ -125,6 +126,7 @@
     "richard-heller"
    ],
    "3": [
+    "gaga-and-reena-spaulings",
     "various-small-fires-vsf",
     "1301-pe",
     "hoffman-donahue",
@@ -133,6 +135,7 @@
     "parker",
     "landing",
     "ochi",
+    "lowell-ryan-projects",
     "nazarian-curcio",
     "wilding-cran",
     "baert",
@@ -211,8 +214,10 @@
     "7811",
     "jack-rutberg-fine-arts",
     "maxwell-alexander",
+    "timothy-yarger",
     "allouche-gallery-los-angeles",
     "taylor",
+    "lapis-press",
     "babst",
     "beyond-the-streets",
     "kp-projects-merry-karnowsky",
@@ -227,6 +232,7 @@
     "sugar-press-art",
     "tiger-strikes-asteroid",
     "cadfab-creative",
+    "loft-at-liz-s",
     "artspace-warehouse",
     "dorado-806-projects",
     "green-bus-artspace-e2-artspace",
@@ -239,9 +245,11 @@
     "art-share-l-a",
     "la-artcore-union-center-for-the-arts",
     "mak-center-for-art-and-architecture",
+    "corita-art-center",
     "tierra-del-sol",
     "gallery-825",
     "launch-la",
+    "beacon-arts-building",
     "building-bridges-art-exchange",
     "artists",
     "vincent-price-art-museum",
@@ -251,7 +259,7 @@
   },
   "manual_order_source": "market"
  },
- "params_hash": "c92b6fc5f17d",
+ "params_hash": "07d1765dfd19",
  "feature_names": [
   "hours_breadth",
   "fairs",
@@ -3765,6 +3773,114 @@
    "tier": 2
   },
   {
+   "id": "tanya-leighton",
+   "name": "Tanya Leighton",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Culver City/West Adams",
+   "status": "active",
+   "verification": "verified",
+   "website": "https://www.tanyaleighton.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.7715,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.35,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "5 day(s)/wk, 30 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "exhibitions_url",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 5,
+     "hours_per_week": 30.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": true,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.21053184761074134,
+   "contrib": {
+    "hours_breadth": 0.12344,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 32,
+   "tier": 2
+  },
+  {
    "id": "james-fuentes",
    "name": "James Fuentes",
    "kind": "gallery",
@@ -3869,7 +3985,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 32,
+   "rank": 33,
    "tier": 2
   },
   {
@@ -3980,7 +4096,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 33,
+   "rank": 34,
    "tier": 2
   },
   {
@@ -4089,7 +4205,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 34,
+   "rank": 35,
    "tier": 2
   },
   {
@@ -4200,7 +4316,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 35,
+   "rank": 36,
    "tier": 2
   },
   {
@@ -4311,7 +4427,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 36,
+   "rank": 37,
    "tier": 2
   },
   {
@@ -4414,7 +4530,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 37,
+   "rank": 38,
    "tier": 2
   },
   {
@@ -4517,7 +4633,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 38,
+   "rank": 39,
    "tier": 2
   },
   {
@@ -4636,7 +4752,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 39,
+   "rank": 40,
    "tier": 2
   },
   {
@@ -4749,7 +4865,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 40,
+   "rank": 41,
    "tier": 2
   },
   {
@@ -4852,7 +4968,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 41,
+   "rank": 42,
    "tier": 2
   },
   {
@@ -4956,7 +5072,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 42,
+   "rank": 43,
    "tier": 2
   },
   {
@@ -5069,7 +5185,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 43,
+   "rank": 44,
    "tier": 2
   },
   {
@@ -5180,7 +5296,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 44,
+   "rank": 45,
    "tier": 2
   },
   {
@@ -5297,7 +5413,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 45,
+   "rank": 46,
    "tier": 2
   },
   {
@@ -5409,7 +5525,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 46,
+   "rank": 47,
    "tier": 2
   },
   {
@@ -5516,7 +5632,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 47,
+   "rank": 48,
    "tier": 2
   },
   {
@@ -5627,8 +5743,111 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 48,
+   "rank": 49,
    "tier": 2
+  },
+  {
+   "id": "gaga-and-reena-spaulings",
+   "name": "Gaga & Reena Spaulings",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Hollywood",
+   "status": "unknown",
+   "verification": "unverified",
+   "website": "https://gagareena.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "no hours on record",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "nothing fetched",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": null,
+    "hours_status": "unknown",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": false,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.08709184761074135,
+   "contrib": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 50,
+   "tier": 3
   },
   {
    "id": "various-small-fires-vsf",
@@ -5733,7 +5952,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 49,
+   "rank": 51,
    "tier": 3
   },
   {
@@ -5845,7 +6064,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 50,
+   "rank": 52,
    "tier": 3
   },
   {
@@ -5951,7 +6170,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 51,
+   "rank": 53,
    "tier": 3
   },
   {
@@ -6063,7 +6282,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 52,
+   "rank": 54,
    "tier": 3
   },
   {
@@ -6175,7 +6394,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 53,
+   "rank": 55,
    "tier": 3
   },
   {
@@ -6286,7 +6505,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 54,
+   "rank": 56,
    "tier": 3
   },
   {
@@ -6399,7 +6618,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 55,
+   "rank": 57,
    "tier": 3
   },
   {
@@ -6510,7 +6729,110 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 56,
+   "rank": 58,
+   "tier": 3
+  },
+  {
+   "id": "lowell-ryan-projects",
+   "name": "Lowell Ryan Projects",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Culver City/West Adams",
+   "status": "active",
+   "verification": "verified",
+   "website": "https://www.lowellryanprojects.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "no hours on record",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "nothing fetched",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": null,
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": false,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.08709184761074135,
+   "contrib": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 59,
    "tier": 3
   },
   {
@@ -6624,7 +6946,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 57,
+   "rank": 60,
    "tier": 3
   },
   {
@@ -6738,7 +7060,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 58,
+   "rank": 61,
    "tier": 3
   },
   {
@@ -6847,7 +7169,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 59,
+   "rank": 62,
    "tier": 3
   },
   {
@@ -6959,7 +7281,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 60,
+   "rank": 63,
    "tier": 3
   },
   {
@@ -7072,7 +7394,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 61,
+   "rank": 64,
    "tier": 3
   },
   {
@@ -7183,7 +7505,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 62,
+   "rank": 65,
    "tier": 3
   },
   {
@@ -7286,7 +7608,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 63,
+   "rank": 66,
    "tier": 3
   },
   {
@@ -7394,7 +7716,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 64,
+   "rank": 67,
    "tier": 3
   },
   {
@@ -7501,7 +7823,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 65,
+   "rank": 68,
    "tier": 3
   },
   {
@@ -7612,7 +7934,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 66,
+   "rank": 69,
    "tier": 3
   },
   {
@@ -7715,7 +8037,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 67,
+   "rank": 70,
    "tier": 3
   },
   {
@@ -7827,7 +8149,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 68,
+   "rank": 71,
    "tier": 3
   },
   {
@@ -7939,7 +8261,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 69,
+   "rank": 72,
    "tier": 3
   },
   {
@@ -8052,7 +8374,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 70,
+   "rank": 73,
    "tier": 3
   },
   {
@@ -8159,7 +8481,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 71,
+   "rank": 74,
    "tier": 3
   },
   {
@@ -8265,7 +8587,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 72,
+   "rank": 75,
    "tier": 3
   },
   {
@@ -8378,7 +8700,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 73,
+   "rank": 76,
    "tier": 3
   },
   {
@@ -8484,7 +8806,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 74,
+   "rank": 77,
    "tier": 3
   },
   {
@@ -8592,7 +8914,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 75,
+   "rank": 78,
    "tier": 3
   },
   {
@@ -8701,7 +9023,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 76,
+   "rank": 79,
    "tier": 3
   },
   {
@@ -8817,7 +9139,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 77,
+   "rank": 80,
    "tier": 3
   },
   {
@@ -8918,7 +9240,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 78,
+   "rank": 81,
    "tier": 3
   },
   {
@@ -9024,7 +9346,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 79,
+   "rank": 82,
    "tier": 3
   },
   {
@@ -9132,7 +9454,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 80,
+   "rank": 83,
    "tier": 3
   },
   {
@@ -9245,7 +9567,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 81,
+   "rank": 84,
    "tier": 3
   },
   {
@@ -9353,7 +9675,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 82,
+   "rank": 85,
    "tier": 3
   },
   {
@@ -9456,7 +9778,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 83,
+   "rank": 86,
    "tier": 3
   },
   {
@@ -9564,7 +9886,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 84,
+   "rank": 87,
    "tier": 3
   },
   {
@@ -9672,7 +9994,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 85,
+   "rank": 88,
    "tier": 3
   },
   {
@@ -9775,7 +10097,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 86,
+   "rank": 89,
    "tier": 3
   },
   {
@@ -9878,7 +10200,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 87,
+   "rank": 90,
    "tier": 3
   },
   {
@@ -9986,7 +10308,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 88,
+   "rank": 91,
    "tier": 3
   },
   {
@@ -10094,7 +10416,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 89,
+   "rank": 92,
    "tier": 3
   },
   {
@@ -10203,7 +10525,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 90,
+   "rank": 93,
    "tier": 3
   },
   {
@@ -10315,7 +10637,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 91,
+   "rank": 94,
    "tier": 3
   },
   {
@@ -10428,7 +10750,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 92,
+   "rank": 95,
    "tier": 3
   },
   {
@@ -10531,7 +10853,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 93,
+   "rank": 96,
    "tier": 3
   },
   {
@@ -10641,7 +10963,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 94,
+   "rank": 97,
    "tier": 3
   },
   {
@@ -10749,7 +11071,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 95,
+   "rank": 98,
    "tier": 3
   },
   {
@@ -10860,7 +11182,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 96,
+   "rank": 99,
    "tier": 3
   },
   {
@@ -10968,7 +11290,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 97,
+   "rank": 100,
    "tier": 3
   },
   {
@@ -11081,7 +11403,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 98,
+   "rank": 101,
    "tier": 3
   },
   {
@@ -11189,7 +11511,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 99,
+   "rank": 102,
    "tier": 3
   },
   {
@@ -11292,7 +11614,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 100,
+   "rank": 103,
    "tier": 3
   },
   {
@@ -11396,7 +11718,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 101,
+   "rank": 104,
    "tier": 3
   },
   {
@@ -11512,7 +11834,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 102,
+   "rank": 105,
    "tier": 3
   },
   {
@@ -11613,7 +11935,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 103,
+   "rank": 106,
    "tier": 3
   },
   {
@@ -11723,7 +12045,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 104,
+   "rank": 107,
    "tier": 3
   },
   {
@@ -11826,7 +12148,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 105,
+   "rank": 108,
    "tier": 3
   },
   {
@@ -11930,7 +12252,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 106,
+   "rank": 109,
    "tier": 3
   },
   {
@@ -12037,7 +12359,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 107,
+   "rank": 110,
    "tier": 3
   },
   {
@@ -12145,7 +12467,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 108,
+   "rank": 111,
    "tier": 3
   },
   {
@@ -12258,7 +12580,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 109,
+   "rank": 112,
    "tier": 3
   },
   {
@@ -12369,7 +12691,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 110,
+   "rank": 113,
    "tier": 3
   },
   {
@@ -12482,7 +12804,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 111,
+   "rank": 114,
    "tier": 3
   },
   {
@@ -12590,7 +12912,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 112,
+   "rank": 115,
    "tier": 3
   },
   {
@@ -12693,7 +13015,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 113,
+   "rank": 116,
    "tier": 3
   },
   {
@@ -12803,7 +13125,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 114,
+   "rank": 117,
    "tier": 3
   },
   {
@@ -12916,7 +13238,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 115,
+   "rank": 118,
    "tier": 3
   },
   {
@@ -13019,7 +13341,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 116,
+   "rank": 119,
    "tier": 3
   },
   {
@@ -13122,7 +13444,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 117,
+   "rank": 120,
    "tier": 3
   },
   {
@@ -13234,7 +13556,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 118,
+   "rank": 121,
    "tier": 3
   },
   {
@@ -13342,7 +13664,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 119,
+   "rank": 122,
    "tier": 3
   },
   {
@@ -13450,7 +13772,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 120,
+   "rank": 123,
    "tier": 3
   },
   {
@@ -13553,7 +13875,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 121,
+   "rank": 124,
    "tier": 3
   },
   {
@@ -13661,7 +13983,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 122,
+   "rank": 125,
    "tier": 3
   },
   {
@@ -13769,7 +14091,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 123,
+   "rank": 126,
    "tier": 3
   },
   {
@@ -13877,7 +14199,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 124,
+   "rank": 127,
    "tier": 3
   },
   {
@@ -13982,7 +14304,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 125,
+   "rank": 128,
    "tier": 3
   },
   {
@@ -14090,7 +14412,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 126,
+   "rank": 129,
    "tier": 3
   },
   {
@@ -14196,7 +14518,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 127,
+   "rank": 130,
    "tier": 3
   },
   {
@@ -14297,7 +14619,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 128,
+   "rank": 131,
    "tier": 3
   },
   {
@@ -14403,7 +14725,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 129,
+   "rank": 132,
    "tier": 3
   },
   {
@@ -14504,7 +14826,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 130,
+   "rank": 133,
    "tier": 3
   },
   {
@@ -14610,7 +14932,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 131,
+   "rank": 134,
    "tier": 3
   },
   {
@@ -14719,7 +15041,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 132,
+   "rank": 135,
    "tier": 3
   },
   {
@@ -14825,7 +15147,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 133,
+   "rank": 136,
    "tier": 3
   },
   {
@@ -14931,7 +15253,110 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 134,
+   "rank": 137,
+   "tier": 3
+  },
+  {
+   "id": "timothy-yarger",
+   "name": "Timothy Yarger Fine Art",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Beverly Hills",
+   "status": "active",
+   "verification": "verified",
+   "website": "https://www.yargerfinearts.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "no hours on record",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "nothing fetched",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": null,
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": false,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.08709184761074135,
+   "contrib": {
+    "hours_breadth": 0.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 138,
    "tier": 3
   },
   {
@@ -15037,7 +15462,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 135,
+   "rank": 139,
    "tier": 3
   },
   {
@@ -15140,7 +15565,115 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 136,
+   "rank": 140,
+   "tier": 3
+  },
+  {
+   "id": "lapis-press",
+   "name": "The Lapis Press",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Culver City/West Adams",
+   "status": "active",
+   "verification": "verified",
+   "website": "http://www.lapispress.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.7127,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.35,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "4 day(s)/wk, 32 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "exhibitions_url",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 4,
+     "hours_per_week": 32.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": true,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.20112384761074137,
+   "contrib": {
+    "hours_breadth": 0.11403200000000001,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 141,
    "tier": 3
   },
   {
@@ -15248,7 +15781,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 137,
+   "rank": 142,
    "tier": 3
   },
   {
@@ -15359,7 +15892,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 138,
+   "rank": 143,
    "tier": 3
   },
   {
@@ -15467,7 +16000,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 139,
+   "rank": 144,
    "tier": 3
   },
   {
@@ -15575,7 +16108,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 140,
+   "rank": 145,
    "tier": 3
   },
   {
@@ -15686,7 +16219,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 141,
+   "rank": 146,
    "tier": 3
   },
   {
@@ -15797,7 +16330,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 142,
+   "rank": 147,
    "tier": 3
   },
   {
@@ -15905,7 +16438,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 143,
+   "rank": 148,
    "tier": 3
   },
   {
@@ -16017,7 +16550,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 144,
+   "rank": 149,
    "tier": 3
   },
   {
@@ -16120,7 +16653,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 145,
+   "rank": 150,
    "tier": 3
   },
   {
@@ -16223,7 +16756,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 146,
+   "rank": 151,
    "tier": 3
   },
   {
@@ -16331,7 +16864,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 147,
+   "rank": 152,
    "tier": 3
   },
   {
@@ -16434,7 +16967,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 148,
+   "rank": 153,
    "tier": 3
   },
   {
@@ -16543,7 +17076,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 149,
+   "rank": 154,
    "tier": 3
   },
   {
@@ -16646,7 +17179,115 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 150,
+   "rank": 155,
+   "tier": 3
+  },
+  {
+   "id": "loft-at-liz-s",
+   "name": "The Loft at Liz's",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Mid-Wilshire/Koreatown",
+   "status": "active",
+   "verification": "verified",
+   "website": "http://www.theloftatlizs.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 1.0,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.35,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "6 day(s)/wk, 48 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "exhibitions_url",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 6,
+     "hours_per_week": 48.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": true,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.24709184761074135,
+   "contrib": {
+    "hours_breadth": 0.16,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 156,
    "tier": 3
   },
   {
@@ -16752,7 +17393,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 151,
+   "rank": 157,
    "tier": 3
   },
   {
@@ -16856,7 +17497,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 152,
+   "rank": 158,
    "tier": 3
   },
   {
@@ -16959,7 +17600,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 153,
+   "rank": 159,
    "tier": 3
   },
   {
@@ -17062,7 +17703,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 154,
+   "rank": 160,
    "tier": 3
   },
   {
@@ -17170,7 +17811,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 155,
+   "rank": 161,
    "tier": 3
   },
   {
@@ -17273,7 +17914,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 156,
+   "rank": 162,
    "tier": 3
   },
   {
@@ -17387,7 +18028,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 157,
+   "rank": 163,
    "tier": 3
   },
   {
@@ -17501,7 +18142,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 158,
+   "rank": 164,
    "tier": 3
   },
   {
@@ -17614,7 +18255,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 159,
+   "rank": 165,
    "tier": 3
   },
   {
@@ -17727,7 +18368,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 160,
+   "rank": 166,
    "tier": 3
   },
   {
@@ -17833,7 +18474,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 161,
+   "rank": 167,
    "tier": 3
   },
   {
@@ -17938,7 +18579,115 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 162,
+   "rank": 168,
+   "tier": 3
+  },
+  {
+   "id": "corita-art-center",
+   "name": "Corita Art Center",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Downtown/Arts District",
+   "status": "active",
+   "verification": "verified",
+   "website": "https://corita.org/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.126,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.35,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "1 day(s)/wk, 4 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "exhibitions_url",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 1,
+     "hours_per_week": 4.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": true,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.10725184761074134,
+   "contrib": {
+    "hours_breadth": 0.02016,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 169,
    "tier": 3
   },
   {
@@ -18053,7 +18802,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 163,
+   "rank": 170,
    "tier": 3
   },
   {
@@ -18159,7 +18908,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 164,
+   "rank": 171,
    "tier": 3
   },
   {
@@ -18265,7 +19014,115 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 165,
+   "rank": 172,
+   "tier": 3
+  },
+  {
+   "id": "beacon-arts-building",
+   "name": "Beacon Arts Building",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "South LA/Inglewood",
+   "status": "active",
+   "verification": "verified",
+   "website": "http://beaconartsbuilding.com/",
+   "report_path": null,
+   "about": null,
+   "features": {
+    "hours_breadth": 0.9129,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "7 day(s)/wk, 35 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "order",
+    "longevity": "no report",
+    "roster_size": "no report",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "no report",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "nothing fetched",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 7,
+     "hours_per_week": 35.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "order"
+    ],
+    "years": null,
+    "founded_basis": null,
+    "roster_count": null,
+    "exhibitions_per_year": null,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": false,
+     "dates": false,
+     "about": false,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.23315584761074135,
+   "contrib": {
+    "hours_breadth": 0.146064,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.0,
+    "roster_size": 0.0,
+    "roster_strength": 0.0,
+    "show_cadence": 0.0,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 173,
    "tier": 3
   },
   {
@@ -18368,7 +19225,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 166,
+   "rank": 174,
    "tier": 3
   },
   {
@@ -18479,7 +19336,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 167,
+   "rank": 175,
    "tier": 3
   },
   {
@@ -18587,7 +19444,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 168,
+   "rank": 176,
    "tier": 3
   },
   {
@@ -18700,7 +19557,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 169,
+   "rank": 177,
    "tier": 3
   },
   {
@@ -18803,7 +19660,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 170,
+   "rank": 178,
    "tier": 3
   },
   {
@@ -18913,7 +19770,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 171,
+   "rank": 179,
    "tier": null
   },
   {
@@ -19024,7 +19881,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 172,
+   "rank": 180,
    "tier": null
   },
   {
@@ -19136,7 +19993,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 173,
+   "rank": 181,
    "tier": null
   },
   {
@@ -19470,7 +20327,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 174,
+   "rank": 182,
    "tier": null
   },
   {
@@ -19582,7 +20439,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 175,
+   "rank": 183,
    "tier": null
   },
   {
@@ -19693,7 +20550,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 176,
+   "rank": 184,
    "tier": null
   },
   {
@@ -19915,7 +20772,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 177,
+   "rank": 185,
    "tier": null
   },
   {
@@ -20028,7 +20885,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 178,
+   "rank": 186,
    "tier": null
   },
   {
@@ -20139,7 +20996,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 179,
+   "rank": 187,
    "tier": null
   },
   {
@@ -20247,7 +21104,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 180,
+   "rank": 188,
    "tier": null
   },
   {
@@ -20364,7 +21221,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 181,
+   "rank": 189,
    "tier": null
   },
   {
@@ -20475,7 +21332,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 182,
+   "rank": 190,
    "tier": null
   },
   {
@@ -20700,7 +21557,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 183,
+   "rank": 191,
    "tier": null
   },
   {
@@ -20815,7 +21672,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 184,
+   "rank": 192,
    "tier": null
   },
   {
@@ -20923,7 +21780,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 185,
+   "rank": 193,
    "tier": null
   },
   {
@@ -21145,7 +22002,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 186,
+   "rank": 194,
    "tier": null
   },
   {
@@ -22026,7 +22883,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 187,
+   "rank": 195,
    "tier": null
   },
   {
@@ -22134,7 +22991,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 188,
+   "rank": 196,
    "tier": null
   },
   {
@@ -22245,7 +23102,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 189,
+   "rank": 197,
    "tier": null
   },
   {
@@ -22356,7 +23213,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 190,
+   "rank": 198,
    "tier": null
   },
   {
@@ -22467,7 +23324,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 191,
+   "rank": 199,
    "tier": null
   },
   {
@@ -22578,7 +23435,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 192,
+   "rank": 200,
    "tier": null
   },
   {
@@ -22689,7 +23546,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 193,
+   "rank": 201,
    "tier": null
   },
   {
@@ -22906,7 +23763,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 194,
+   "rank": 202,
    "tier": null
   },
   {
@@ -23012,7 +23869,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 195,
+   "rank": 203,
    "tier": null
   },
   {
@@ -23226,7 +24083,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 196,
+   "rank": 204,
    "tier": null
   },
   {
@@ -23660,7 +24517,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 197,
+   "rank": 205,
    "tier": null
   },
   {
@@ -23987,7 +24844,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 198,
+   "rank": 206,
    "tier": null
   },
   {
@@ -24095,7 +24952,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 199,
+   "rank": 207,
    "tier": null
   },
   {
@@ -24422,7 +25279,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 200,
+   "rank": 208,
    "tier": null
   },
   {
@@ -24535,7 +25392,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 201,
+   "rank": 209,
    "tier": null
   },
   {
@@ -24643,7 +25500,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 202,
+   "rank": 210,
    "tier": null
   },
   {
@@ -24751,7 +25608,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 203,
+   "rank": 211,
    "tier": null
   },
   {
@@ -24965,7 +25822,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 204,
+   "rank": 212,
    "tier": null
   },
   {
@@ -25071,7 +25928,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 205,
+   "rank": 213,
    "tier": null
   },
   {
@@ -25177,7 +26034,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 206,
+   "rank": 214,
    "tier": null
   },
   {
@@ -25285,7 +26142,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 207,
+   "rank": 215,
    "tier": null
   },
   {
@@ -25389,7 +26246,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 208,
+   "rank": 216,
    "tier": null
   },
   {
@@ -25495,7 +26352,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 209,
+   "rank": 217,
    "tier": null
   },
   {
@@ -25601,7 +26458,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 210,
+   "rank": 218,
    "tier": null
   },
   {
@@ -25815,7 +26672,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 211,
+   "rank": 219,
    "tier": null
   },
   {
@@ -25921,7 +26778,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 212,
+   "rank": 220,
    "tier": null
   },
   {
@@ -26027,7 +26884,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 213,
+   "rank": 221,
    "tier": null
   },
   {
@@ -26133,7 +26990,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 214,
+   "rank": 222,
    "tier": null
   },
   {
@@ -26241,7 +27098,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 215,
+   "rank": 223,
    "tier": null
   },
   {
@@ -26455,7 +27312,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 216,
+   "rank": 224,
    "tier": null
   },
   {
@@ -26561,7 +27418,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 217,
+   "rank": 225,
    "tier": null
   },
   {
@@ -26667,7 +27524,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 218,
+   "rank": 226,
    "tier": null
   },
   {
@@ -26888,7 +27745,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 219,
+   "rank": 227,
    "tier": null
   },
   {
@@ -27105,7 +27962,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 220,
+   "rank": 228,
    "tier": null
   },
   {
@@ -27211,7 +28068,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 221,
+   "rank": 229,
    "tier": null
   },
   {
@@ -27317,7 +28174,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 222,
+   "rank": 230,
    "tier": null
   },
   {
@@ -27423,7 +28280,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 223,
+   "rank": 231,
    "tier": null
   },
   {
@@ -27529,7 +28386,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 224,
+   "rank": 232,
    "tier": null
   },
   {
@@ -27635,7 +28492,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 225,
+   "rank": 233,
    "tier": null
   },
   {
@@ -27746,7 +28603,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 226,
+   "rank": 234,
    "tier": null
   },
   {
@@ -28175,7 +29032,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 227,
+   "rank": 235,
    "tier": null
   },
   {
@@ -28281,7 +29138,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 228,
+   "rank": 236,
    "tier": null
   },
   {
@@ -28387,7 +29244,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 229,
+   "rank": 237,
    "tier": null
   },
   {
@@ -28493,7 +29350,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 230,
+   "rank": 238,
    "tier": null
   },
   {
@@ -28599,7 +29456,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 231,
+   "rank": 239,
    "tier": null
   },
   {
@@ -28705,7 +29562,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 232,
+   "rank": 240,
    "tier": null
   },
   {
@@ -28813,7 +29670,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 233,
+   "rank": 241,
    "tier": null
   },
   {
@@ -29029,7 +29886,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 234,
+   "rank": 242,
    "tier": null
   },
   {
@@ -29137,7 +29994,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 235,
+   "rank": 243,
    "tier": null
   },
   {
@@ -29243,7 +30100,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 236,
+   "rank": 244,
    "tier": null
   },
   {
@@ -29351,7 +30208,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 237,
+   "rank": 245,
    "tier": null
   },
   {
@@ -29457,7 +30314,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 238,
+   "rank": 246,
    "tier": null
   },
   {
@@ -29563,7 +30420,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 239,
+   "rank": 247,
    "tier": null
   },
   {
@@ -29777,7 +30634,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 240,
+   "rank": 248,
    "tier": null
   },
   {
@@ -29883,7 +30740,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 241,
+   "rank": 249,
    "tier": null
   },
   {
@@ -29989,7 +30846,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 242,
+   "rank": 250,
    "tier": null
   },
   {
@@ -30095,7 +30952,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 243,
+   "rank": 251,
    "tier": null
   },
   {
@@ -30201,7 +31058,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 244,
+   "rank": 252,
    "tier": null
   },
   {
@@ -30413,7 +31270,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 245,
+   "rank": 253,
    "tier": null
   },
   {
@@ -30519,7 +31376,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 246,
+   "rank": 254,
    "tier": null
   },
   {
@@ -30625,7 +31482,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 247,
+   "rank": 255,
    "tier": null
   },
   {
@@ -30731,7 +31588,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 248,
+   "rank": 256,
    "tier": null
   },
   {
@@ -30839,7 +31696,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 249,
+   "rank": 257,
    "tier": null
   },
   {
@@ -30945,7 +31802,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 250,
+   "rank": 258,
    "tier": null
   },
   {
@@ -31051,7 +31908,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 251,
+   "rank": 259,
    "tier": null
   },
   {
@@ -31157,7 +32014,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 252,
+   "rank": 260,
    "tier": null
   },
   {
@@ -31263,7 +32120,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 253,
+   "rank": 261,
    "tier": null
   },
   {
@@ -31369,7 +32226,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 254,
+   "rank": 262,
    "tier": null
   },
   {
@@ -31477,7 +32334,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 255,
+   "rank": 263,
    "tier": null
   },
   {
@@ -31691,7 +32548,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 256,
+   "rank": 264,
    "tier": null
   },
   {
@@ -31797,7 +32654,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 257,
+   "rank": 265,
    "tier": null
   },
   {
@@ -31903,7 +32760,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 258,
+   "rank": 266,
    "tier": null
   },
   {
@@ -32232,7 +33089,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 259,
+   "rank": 267,
    "tier": null
   },
   {
@@ -32338,7 +33195,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 260,
+   "rank": 268,
    "tier": null
   },
   {
@@ -32444,7 +33301,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 261,
+   "rank": 269,
    "tier": null
   },
   {
@@ -32550,7 +33407,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 262,
+   "rank": 270,
    "tier": null
   },
   {
@@ -32656,7 +33513,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 263,
+   "rank": 271,
    "tier": null
   },
   {
@@ -32762,7 +33619,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 264,
+   "rank": 272,
    "tier": null
   },
   {
@@ -32868,7 +33725,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 265,
+   "rank": 273,
    "tier": null
   },
   {
@@ -32974,7 +33831,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 266,
+   "rank": 274,
    "tier": null
   },
   {
@@ -33188,7 +34045,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 267,
+   "rank": 275,
    "tier": null
   },
   {
@@ -33300,7 +34157,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 268,
+   "rank": 276,
    "tier": null
   },
   {
@@ -33406,7 +34263,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 269,
+   "rank": 277,
    "tier": null
   },
   {
@@ -33512,7 +34369,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 270,
+   "rank": 278,
    "tier": null
   },
   {
@@ -33726,7 +34583,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 271,
+   "rank": 279,
    "tier": null
   },
   {
@@ -33832,7 +34689,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 272,
+   "rank": 280,
    "tier": null
   },
   {
@@ -33938,7 +34795,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 273,
+   "rank": 281,
    "tier": null
   },
   {
@@ -34044,7 +34901,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 274,
+   "rank": 282,
    "tier": null
   },
   {
@@ -34150,7 +35007,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 275,
+   "rank": 283,
    "tier": null
   },
   {
@@ -34256,7 +35113,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 276,
+   "rank": 284,
    "tier": null
   },
   {
@@ -34361,7 +35218,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 277,
+   "rank": 285,
    "tier": null
   },
   {
@@ -34468,7 +35325,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 278,
+   "rank": 286,
    "tier": null
   },
   {
@@ -34576,7 +35433,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 279,
+   "rank": 287,
    "tier": null
   },
   {
@@ -34682,7 +35539,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 280,
+   "rank": 288,
    "tier": null
   },
   {
@@ -34788,7 +35645,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 281,
+   "rank": 289,
    "tier": null
   },
   {
@@ -34894,7 +35751,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 282,
+   "rank": 290,
    "tier": null
   },
   {
@@ -35000,7 +35857,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 283,
+   "rank": 291,
    "tier": null
   },
   {
@@ -35106,7 +35963,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 284,
+   "rank": 292,
    "tier": null
   },
   {
@@ -35212,7 +36069,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 285,
+   "rank": 293,
    "tier": null
   },
   {
@@ -35318,7 +36175,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 286,
+   "rank": 294,
    "tier": null
   },
   {
@@ -35424,7 +36281,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 287,
+   "rank": 295,
    "tier": null
   },
   {
@@ -35530,7 +36387,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 288,
+   "rank": 296,
    "tier": null
   },
   {
@@ -35636,7 +36493,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 289,
+   "rank": 297,
    "tier": null
   },
   {
@@ -35742,7 +36599,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 290,
+   "rank": 298,
    "tier": null
   },
   {
@@ -35848,7 +36705,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 291,
+   "rank": 299,
    "tier": null
   },
   {
@@ -35954,7 +36811,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 292,
+   "rank": 300,
    "tier": null
   },
   {
@@ -36060,7 +36917,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 293,
+   "rank": 301,
    "tier": null
   },
   {
@@ -36166,7 +37023,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 294,
+   "rank": 302,
    "tier": null
   },
   {
@@ -36272,7 +37129,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 295,
+   "rank": 303,
    "tier": null
   },
   {
@@ -36484,7 +37341,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 296,
+   "rank": 304,
    "tier": null
   },
   {
@@ -36590,7 +37447,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 297,
+   "rank": 305,
    "tier": null
   },
   {
@@ -36696,7 +37553,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 298,
+   "rank": 306,
    "tier": null
   },
   {
@@ -36802,7 +37659,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 299,
+   "rank": 307,
    "tier": null
   },
   {
@@ -36908,7 +37765,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 300,
+   "rank": 308,
    "tier": null
   },
   {
@@ -37014,7 +37871,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 301,
+   "rank": 309,
    "tier": null
   },
   {
@@ -37120,7 +37977,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 302,
+   "rank": 310,
    "tier": null
   },
   {
@@ -37226,7 +38083,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 303,
+   "rank": 311,
    "tier": null
   },
   {
@@ -37332,7 +38189,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 304,
+   "rank": 312,
    "tier": null
   },
   {
@@ -37438,7 +38295,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 305,
+   "rank": 313,
    "tier": null
   },
   {
@@ -37544,7 +38401,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 306,
+   "rank": 314,
    "tier": null
   },
   {
@@ -37650,7 +38507,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 307,
+   "rank": 315,
    "tier": null
   },
   {
@@ -37756,7 +38613,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 308,
+   "rank": 316,
    "tier": null
   },
   {
@@ -37862,7 +38719,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 309,
+   "rank": 317,
    "tier": null
   },
   {
@@ -37968,7 +38825,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 310,
+   "rank": 318,
    "tier": null
   },
   {
@@ -38074,7 +38931,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 311,
+   "rank": 319,
    "tier": null
   },
   {
@@ -38180,7 +39037,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 312,
+   "rank": 320,
    "tier": null
   },
   {
@@ -38392,7 +39249,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 313,
+   "rank": 321,
    "tier": null
   },
   {
@@ -38498,7 +39355,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 314,
+   "rank": 322,
    "tier": null
   },
   {
@@ -38604,7 +39461,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 315,
+   "rank": 323,
    "tier": null
   },
   {
@@ -38710,7 +39567,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 316,
+   "rank": 324,
    "tier": null
   },
   {
@@ -38816,7 +39673,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 317,
+   "rank": 325,
    "tier": null
   },
   {
@@ -38922,7 +39779,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 318,
+   "rank": 326,
    "tier": null
   },
   {
@@ -39028,7 +39885,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 319,
+   "rank": 327,
    "tier": null
   },
   {
@@ -39239,7 +40096,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 320,
+   "rank": 328,
    "tier": null
   },
   {
@@ -39345,7 +40202,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 321,
+   "rank": 329,
    "tier": null
   },
   {
@@ -39451,7 +40308,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 322,
+   "rank": 330,
    "tier": null
   },
   {
@@ -39557,7 +40414,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 323,
+   "rank": 331,
    "tier": null
   },
   {
@@ -39663,7 +40520,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 324,
+   "rank": 332,
    "tier": null
   },
   {
@@ -39771,7 +40628,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 325,
+   "rank": 333,
    "tier": null
   },
   {
@@ -39877,7 +40734,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 326,
+   "rank": 334,
    "tier": null
   },
   {
@@ -39983,7 +40840,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 327,
+   "rank": 335,
    "tier": null
   },
   {
@@ -40309,7 +41166,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 328,
+   "rank": 336,
    "tier": null
   },
   {
@@ -40415,7 +41272,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 329,
+   "rank": 337,
    "tier": null
   },
   {
@@ -40632,7 +41489,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 330,
+   "rank": 338,
    "tier": null
   },
   {
@@ -40738,7 +41595,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 331,
+   "rank": 339,
    "tier": null
   },
   {
@@ -40844,7 +41701,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 332,
+   "rank": 340,
    "tier": null
   },
   {
@@ -40950,7 +41807,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 333,
+   "rank": 341,
    "tier": null
   },
   {
@@ -41056,7 +41913,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 334,
+   "rank": 342,
    "tier": null
   },
   {
@@ -41162,7 +42019,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 335,
+   "rank": 343,
    "tier": null
   },
   {
@@ -41268,7 +42125,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 336,
+   "rank": 344,
    "tier": null
   },
   {
@@ -41374,7 +42231,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 337,
+   "rank": 345,
    "tier": null
   },
   {
@@ -41480,7 +42337,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 338,
+   "rank": 346,
    "tier": null
   },
   {
@@ -41586,7 +42443,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 339,
+   "rank": 347,
    "tier": null
   },
   {
@@ -41692,7 +42549,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 340,
+   "rank": 348,
    "tier": null
   },
   {
@@ -41798,7 +42655,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 341,
+   "rank": 349,
    "tier": null
   },
   {
@@ -41904,7 +42761,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 342,
+   "rank": 350,
    "tier": null
   },
   {
@@ -42010,7 +42867,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 343,
+   "rank": 351,
    "tier": null
   },
   {
@@ -42116,7 +42973,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 344,
+   "rank": 352,
    "tier": null
   },
   {
@@ -42222,7 +43079,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 345,
+   "rank": 353,
    "tier": null
   },
   {
@@ -42328,7 +43185,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 346,
+   "rank": 354,
    "tier": null
   },
   {
@@ -42434,7 +43291,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 347,
+   "rank": 355,
    "tier": null
   },
   {
@@ -42540,7 +43397,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 348,
+   "rank": 356,
    "tier": null
   },
   {
@@ -42754,7 +43611,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 349,
+   "rank": 357,
    "tier": null
   },
   {
@@ -42860,7 +43717,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 350,
+   "rank": 358,
    "tier": null
   },
   {
@@ -43077,7 +43934,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 351,
+   "rank": 359,
    "tier": null
   },
   {
@@ -43183,7 +44040,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 352,
+   "rank": 360,
    "tier": null
   },
   {
@@ -43289,7 +44146,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 353,
+   "rank": 361,
    "tier": null
   },
   {
@@ -43395,7 +44252,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 354,
+   "rank": 362,
    "tier": null
   },
   {
@@ -43501,7 +44358,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 355,
+   "rank": 363,
    "tier": null
   },
   {
@@ -43713,7 +44570,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 356,
+   "rank": 364,
    "tier": null
   },
   {
@@ -43819,7 +44676,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 357,
+   "rank": 365,
    "tier": null
   },
   {
@@ -43925,7 +44782,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 358,
+   "rank": 366,
    "tier": null
   },
   {
@@ -44031,7 +44888,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 359,
+   "rank": 367,
    "tier": null
   },
   {
@@ -44137,7 +44994,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 360,
+   "rank": 368,
    "tier": null
   },
   {
@@ -44243,7 +45100,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 361,
+   "rank": 369,
    "tier": null
   },
   {
@@ -44349,7 +45206,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 362,
+   "rank": 370,
    "tier": null
   },
   {
@@ -44455,7 +45312,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 363,
+   "rank": 371,
    "tier": null
   },
   {
@@ -44561,7 +45418,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 364,
+   "rank": 372,
    "tier": null
   },
   {
@@ -44667,7 +45524,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 365,
+   "rank": 373,
    "tier": null
   },
   {
@@ -44773,7 +45630,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 366,
+   "rank": 374,
    "tier": null
   },
   {
@@ -44879,7 +45736,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 367,
+   "rank": 375,
    "tier": null
   },
   {
@@ -44985,7 +45842,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 368,
+   "rank": 376,
    "tier": null
   },
   {
@@ -45091,7 +45948,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 369,
+   "rank": 377,
    "tier": null
   },
   {
@@ -45197,7 +46054,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 370,
+   "rank": 378,
    "tier": null
   },
   {
@@ -45303,7 +46160,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 371,
+   "rank": 379,
    "tier": null
   },
   {
@@ -45409,7 +46266,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 372,
+   "rank": 380,
    "tier": null
   },
   {
@@ -45515,7 +46372,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 373,
+   "rank": 381,
    "tier": null
   },
   {
@@ -45621,7 +46478,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 374,
+   "rank": 382,
    "tier": null
   },
   {
@@ -45727,7 +46584,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 375,
+   "rank": 383,
    "tier": null
   },
   {
@@ -46049,7 +46906,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 376,
+   "rank": 384,
    "tier": null
   },
   {
@@ -46155,7 +47012,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 377,
+   "rank": 385,
    "tier": null
   },
   {
@@ -46261,7 +47118,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 378,
+   "rank": 386,
    "tier": null
   },
   {
@@ -46367,7 +47224,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 379,
+   "rank": 387,
    "tier": null
   },
   {
@@ -46473,7 +47330,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 380,
+   "rank": 388,
    "tier": null
   },
   {
@@ -46579,7 +47436,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 381,
+   "rank": 389,
    "tier": null
   },
   {
@@ -46685,7 +47542,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 382,
+   "rank": 390,
    "tier": null
   },
   {
@@ -46791,7 +47648,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 383,
+   "rank": 391,
    "tier": null
   },
   {
@@ -46897,7 +47754,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 384,
+   "rank": 392,
    "tier": null
   },
   {
@@ -47003,7 +47860,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 385,
+   "rank": 393,
    "tier": null
   },
   {
@@ -47109,7 +47966,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 386,
+   "rank": 394,
    "tier": null
   },
   {
@@ -47215,7 +48072,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 387,
+   "rank": 395,
    "tier": null
   },
   {
@@ -47321,7 +48178,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 388,
+   "rank": 396,
    "tier": null
   },
   {
@@ -47427,7 +48284,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 389,
+   "rank": 397,
    "tier": null
   },
   {
@@ -47533,7 +48390,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 390,
+   "rank": 398,
    "tier": null
   },
   {
@@ -47639,7 +48496,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 391,
+   "rank": 399,
    "tier": null
   },
   {
@@ -47745,7 +48602,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 392,
+   "rank": 400,
    "tier": null
   },
   {
@@ -47955,7 +48812,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 393,
+   "rank": 401,
    "tier": null
   },
   {
@@ -48061,7 +48918,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 394,
+   "rank": 402,
    "tier": null
   },
   {
@@ -48167,7 +49024,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 395,
+   "rank": 403,
    "tier": null
   },
   {
@@ -48273,7 +49130,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 396,
+   "rank": 404,
    "tier": null
   },
   {
@@ -48379,7 +49236,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 397,
+   "rank": 405,
    "tier": null
   },
   {
@@ -48485,7 +49342,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 398,
+   "rank": 406,
    "tier": null
   },
   {
@@ -48591,7 +49448,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 399,
+   "rank": 407,
    "tier": null
   },
   {
@@ -48697,7 +49554,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 400,
+   "rank": 408,
    "tier": null
   },
   {
@@ -48906,7 +49763,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 401,
+   "rank": 409,
    "tier": null
   },
   {
@@ -49012,7 +49869,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 402,
+   "rank": 410,
    "tier": null
   },
   {
@@ -49118,7 +49975,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 403,
+   "rank": 411,
    "tier": null
   },
   {
@@ -49224,7 +50081,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 404,
+   "rank": 412,
    "tier": null
   },
   {
@@ -49330,7 +50187,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 405,
+   "rank": 413,
    "tier": null
   },
   {
@@ -49436,7 +50293,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 406,
+   "rank": 414,
    "tier": null
   },
   {
@@ -49648,7 +50505,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 407,
+   "rank": 415,
    "tier": null
   },
   {
@@ -49754,7 +50611,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 408,
+   "rank": 416,
    "tier": null
   },
   {
@@ -50074,7 +50931,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 409,
+   "rank": 417,
    "tier": null
   },
   {
@@ -50180,7 +51037,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 410,
+   "rank": 418,
    "tier": null
   },
   {
@@ -50286,7 +51143,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 411,
+   "rank": 419,
    "tier": null
   },
   {
@@ -50392,7 +51249,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 412,
+   "rank": 420,
    "tier": null
   },
   {
@@ -50606,7 +51463,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 413,
+   "rank": 421,
    "tier": null
   },
   {
@@ -50712,7 +51569,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 414,
+   "rank": 422,
    "tier": null
   },
   {
@@ -50815,7 +51672,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 415,
+   "rank": 423,
    "tier": null
   },
   {
@@ -50921,7 +51778,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 416,
+   "rank": 424,
    "tier": null
   },
   {
@@ -51027,7 +51884,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 417,
+   "rank": 425,
    "tier": null
   },
   {
@@ -51133,7 +51990,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 418,
+   "rank": 426,
    "tier": null
   },
   {
@@ -51236,7 +52093,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 419,
+   "rank": 427,
    "tier": null
   },
   {
@@ -51347,7 +52204,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 420,
+   "rank": 428,
    "tier": null
   },
   {
@@ -51453,7 +52310,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 421,
+   "rank": 429,
    "tier": null
   },
   {
@@ -51559,7 +52416,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 422,
+   "rank": 430,
    "tier": null
   },
   {
@@ -51665,7 +52522,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 423,
+   "rank": 431,
    "tier": null
   },
   {
@@ -51876,7 +52733,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 424,
+   "rank": 432,
    "tier": null
   },
   {
@@ -51979,7 +52836,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 425,
+   "rank": 433,
    "tier": null
   },
   {
@@ -52082,7 +52939,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 426,
+   "rank": 434,
    "tier": null
   },
   {
@@ -52185,7 +53042,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 427,
+   "rank": 435,
    "tier": null
   },
   {
@@ -52291,7 +53148,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 428,
+   "rank": 436,
    "tier": null
   },
   {
@@ -52397,7 +53254,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 429,
+   "rank": 437,
    "tier": null
   },
   {
@@ -52503,7 +53360,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 430,
+   "rank": 438,
    "tier": null
   },
   {
@@ -52717,7 +53574,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 431,
+   "rank": 439,
    "tier": null
   },
   {
@@ -53140,7 +53997,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 432,
+   "rank": 440,
    "tier": null
   },
   {
@@ -53246,7 +54103,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 433,
+   "rank": 441,
    "tier": null
   },
   {
@@ -53352,7 +54209,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 434,
+   "rank": 442,
    "tier": null
   },
   {
@@ -53563,7 +54420,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 435,
+   "rank": 443,
    "tier": null
   },
   {
@@ -53666,7 +54523,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 436,
+   "rank": 444,
    "tier": null
   },
   {
@@ -53769,7 +54626,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 437,
+   "rank": 445,
    "tier": null
   },
   {
@@ -53880,7 +54737,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 438,
+   "rank": 446,
    "tier": null
   },
   {
@@ -53991,7 +54848,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 439,
+   "rank": 447,
    "tier": null
   },
   {
@@ -54097,7 +54954,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 440,
+   "rank": 448,
    "tier": null
   },
   {
@@ -54203,7 +55060,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 441,
+   "rank": 449,
    "tier": null
   },
   {
@@ -54309,7 +55166,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 442,
+   "rank": 450,
    "tier": null
   },
   {
@@ -54412,7 +55269,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 443,
+   "rank": 451,
    "tier": null
   },
   {
@@ -54515,7 +55372,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 444,
+   "rank": 452,
    "tier": null
   },
   {
@@ -54936,7 +55793,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 445,
+   "rank": 453,
    "tier": null
   },
   {
@@ -55042,7 +55899,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 446,
+   "rank": 454,
    "tier": null
   },
   {
@@ -55148,7 +56005,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 447,
+   "rank": 455,
    "tier": null
   },
   {
@@ -55362,7 +56219,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 448,
+   "rank": 456,
    "tier": null
   },
   {
@@ -55468,7 +56325,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 449,
+   "rank": 457,
    "tier": null
   },
   {
@@ -55574,7 +56431,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 450,
+   "rank": 458,
    "tier": null
   },
   {
@@ -55680,7 +56537,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 451,
+   "rank": 459,
    "tier": null
   },
   {
@@ -55786,7 +56643,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 452,
+   "rank": 460,
    "tier": null
   },
   {
@@ -55892,7 +56749,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 453,
+   "rank": 461,
    "tier": null
   },
   {
@@ -55995,7 +56852,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 454,
+   "rank": 462,
    "tier": null
   },
   {
@@ -56421,7 +57278,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 455,
+   "rank": 463,
    "tier": null
   },
   {
@@ -56527,7 +57384,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 456,
+   "rank": 464,
    "tier": null
   },
   {
@@ -56733,7 +57590,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 457,
+   "rank": 465,
    "tier": null
   },
   {
@@ -56836,7 +57693,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 458,
+   "rank": 466,
    "tier": null
   },
   {
@@ -57050,7 +57907,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 459,
+   "rank": 467,
    "tier": null
   },
   {
@@ -57156,7 +58013,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 460,
+   "rank": 468,
    "tier": null
   },
   {
@@ -57262,7 +58119,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 461,
+   "rank": 469,
    "tier": null
   },
   {
@@ -57368,7 +58225,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 462,
+   "rank": 470,
    "tier": null
   },
   {
@@ -57473,7 +58330,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 463,
+   "rank": 471,
    "tier": null
   },
   {
@@ -57578,7 +58435,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 464,
+   "rank": 472,
    "tier": null
   },
   {
@@ -57683,7 +58540,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 465,
+   "rank": 473,
    "tier": null
   },
   {
@@ -57788,7 +58645,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 466,
+   "rank": 474,
    "tier": null
   },
   {
@@ -57894,7 +58751,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 467,
+   "rank": 475,
    "tier": null
   },
   {
@@ -58000,7 +58857,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 468,
+   "rank": 476,
    "tier": null
   },
   {
@@ -58103,7 +58960,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 469,
+   "rank": 477,
    "tier": null
   },
   {
@@ -58633,7 +59490,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 470,
+   "rank": 478,
    "tier": null
   },
   {
@@ -58739,7 +59596,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 471,
+   "rank": 479,
    "tier": null
   },
   {
@@ -58845,7 +59702,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 472,
+   "rank": 480,
    "tier": null
   },
   {
@@ -59160,7 +60017,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 473,
+   "rank": 481,
    "tier": null
   },
   {
@@ -59263,7 +60120,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 474,
+   "rank": 482,
    "tier": null
   },
   {
@@ -59585,7 +60442,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 475,
+   "rank": 483,
    "tier": null
   },
   {
@@ -59688,7 +60545,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 476,
+   "rank": 484,
    "tier": null
   },
   {
@@ -59791,7 +60648,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 477,
+   "rank": 485,
    "tier": null
   },
   {
@@ -59894,7 +60751,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 478,
+   "rank": 486,
    "tier": null
   },
   {
@@ -59997,7 +60854,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 479,
+   "rank": 487,
    "tier": null
   },
   {
@@ -60100,7 +60957,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 480,
+   "rank": 488,
    "tier": null
   },
   {
@@ -60206,7 +61063,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 481,
+   "rank": 489,
    "tier": null
   },
   {
@@ -60632,7 +61489,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 482,
+   "rank": 490,
    "tier": null
   },
   {
@@ -60738,7 +61595,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 483,
+   "rank": 491,
    "tier": null
   },
   {
@@ -60844,7 +61701,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 484,
+   "rank": 492,
    "tier": null
   },
   {
@@ -60950,7 +61807,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 485,
+   "rank": 493,
    "tier": null
   },
   {
@@ -61056,7 +61913,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 486,
+   "rank": 494,
    "tier": null
   },
   {
@@ -61162,7 +62019,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 487,
+   "rank": 495,
    "tier": null
   },
   {
@@ -61371,7 +62228,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 488,
+   "rank": 496,
    "tier": null
   },
   {
@@ -61474,7 +62331,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 489,
+   "rank": 497,
    "tier": null
   },
   {
@@ -61783,7 +62640,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 490,
+   "rank": 498,
    "tier": null
   },
   {
@@ -62092,7 +62949,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 491,
+   "rank": 499,
    "tier": null
   },
   {
@@ -62298,7 +63155,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 492,
+   "rank": 500,
    "tier": null
   },
   {
@@ -62609,7 +63466,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 493,
+   "rank": 501,
    "tier": null
   },
   {
@@ -62815,7 +63672,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 494,
+   "rank": 502,
    "tier": null
   },
   {
@@ -63124,7 +63981,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 495,
+   "rank": 503,
    "tier": null
   },
   {
@@ -63330,7 +64187,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 496,
+   "rank": 504,
    "tier": null
   },
   {
@@ -63433,7 +64290,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 497,
+   "rank": 505,
    "tier": null
   },
   {
@@ -63536,7 +64393,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 498,
+   "rank": 506,
    "tier": null
   },
   {
@@ -63950,7 +64807,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 499,
+   "rank": 507,
    "tier": null
   },
   {
@@ -64053,7 +64910,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 500,
+   "rank": 508,
    "tier": null
   },
   {
@@ -64156,7 +65013,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 501,
+   "rank": 509,
    "tier": null
   },
   {
@@ -64362,7 +65219,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 502,
+   "rank": 510,
    "tier": null
   },
   {
@@ -64465,7 +65322,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 503,
+   "rank": 511,
    "tier": null
   },
   {
@@ -64568,7 +65425,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 504,
+   "rank": 512,
    "tier": null
   },
   {
@@ -64671,7 +65528,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 505,
+   "rank": 513,
    "tier": null
   },
   {
@@ -64774,7 +65631,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 506,
+   "rank": 514,
    "tier": null
   },
   {
@@ -64980,7 +65837,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 507,
+   "rank": 515,
    "tier": null
   },
   {
@@ -65083,7 +65940,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 508,
+   "rank": 516,
    "tier": null
   },
   {
@@ -65186,7 +66043,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 509,
+   "rank": 517,
    "tier": null
   },
   {
@@ -65289,7 +66146,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 510,
+   "rank": 518,
    "tier": null
   },
   {
@@ -65392,7 +66249,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 511,
+   "rank": 519,
    "tier": null
   },
   {
@@ -65598,7 +66455,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 512,
+   "rank": 520,
    "tier": null
   },
   {
@@ -65701,7 +66558,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 513,
+   "rank": 521,
    "tier": null
   },
   {
@@ -65804,7 +66661,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 514,
+   "rank": 522,
    "tier": null
   },
   {
@@ -65907,7 +66764,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 515,
+   "rank": 523,
    "tier": null
   },
   {
@@ -66010,7 +66867,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 516,
+   "rank": 524,
    "tier": null
   },
   {
@@ -66216,7 +67073,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 517,
+   "rank": 525,
    "tier": null
   },
   {
@@ -66319,7 +67176,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 518,
+   "rank": 526,
    "tier": null
   },
   {
@@ -66525,7 +67382,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 519,
+   "rank": 527,
    "tier": null
   },
   {
@@ -66630,7 +67487,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 520,
+   "rank": 528,
    "tier": null
   },
   {
@@ -67042,7 +67899,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 521,
+   "rank": 529,
    "tier": null
   },
   {
@@ -67145,7 +68002,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 522,
+   "rank": 530,
    "tier": null
   },
   {
@@ -67248,7 +68105,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 523,
+   "rank": 531,
    "tier": null
   },
   {
@@ -67351,7 +68208,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 524,
+   "rank": 532,
    "tier": null
   },
   {
@@ -67557,7 +68414,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 525,
+   "rank": 533,
    "tier": null
   },
   {
@@ -67660,7 +68517,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 526,
+   "rank": 534,
    "tier": null
   },
   {
@@ -67763,7 +68620,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 527,
+   "rank": 535,
    "tier": null
   },
   {
@@ -67866,7 +68723,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 528,
+   "rank": 536,
    "tier": null
   },
   {
@@ -67969,7 +68826,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 529,
+   "rank": 537,
    "tier": null
   },
   {
@@ -68072,7 +68929,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 530,
+   "rank": 538,
    "tier": null
   },
   {
@@ -68175,7 +69032,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 531,
+   "rank": 539,
    "tier": null
   },
   {
@@ -68381,7 +69238,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 532,
+   "rank": 540,
    "tier": null
   },
   {
@@ -68484,7 +69341,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 533,
+   "rank": 541,
    "tier": null
   },
   {
@@ -68587,7 +69444,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 534,
+   "rank": 542,
    "tier": null
   },
   {
@@ -68692,7 +69549,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 535,
+   "rank": 543,
    "tier": null
   },
   {
@@ -68795,7 +69652,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 536,
+   "rank": 544,
    "tier": null
   },
   {
@@ -68898,7 +69755,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 537,
+   "rank": 545,
    "tier": null
   },
   {
@@ -69001,7 +69858,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 538,
+   "rank": 546,
    "tier": null
   },
   {
@@ -69104,7 +69961,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 539,
+   "rank": 547,
    "tier": null
   },
   {
@@ -69207,7 +70064,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 540,
+   "rank": 548,
    "tier": null
   },
   {
@@ -69312,7 +70169,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 541,
+   "rank": 549,
    "tier": null
   },
   {
@@ -69518,7 +70375,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 542,
+   "rank": 550,
    "tier": null
   },
   {
@@ -69621,7 +70478,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 543,
+   "rank": 551,
    "tier": null
   },
   {
@@ -69724,7 +70581,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 544,
+   "rank": 552,
    "tier": null
   },
   {
@@ -69827,7 +70684,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 545,
+   "rank": 553,
    "tier": null
   },
   {
@@ -69930,7 +70787,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 546,
+   "rank": 554,
    "tier": null
   },
   {
@@ -70136,7 +70993,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 547,
+   "rank": 555,
    "tier": null
   },
   {
@@ -70239,7 +71096,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 548,
+   "rank": 556,
    "tier": null
   },
   {
@@ -70342,7 +71199,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 549,
+   "rank": 557,
    "tier": null
   },
   {
@@ -70445,7 +71302,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 550,
+   "rank": 558,
    "tier": null
   },
   {
@@ -70548,7 +71405,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 551,
+   "rank": 559,
    "tier": null
   },
   {
@@ -70651,7 +71508,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 552,
+   "rank": 560,
    "tier": null
   },
   {
@@ -70966,7 +71823,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 553,
+   "rank": 561,
    "tier": null
   },
   {
@@ -71392,7 +72249,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 554,
+   "rank": 562,
    "tier": null
   },
   {
@@ -71604,7 +72461,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 555,
+   "rank": 563,
    "tier": null
   },
   {
@@ -71710,7 +72567,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 556,
+   "rank": 564,
    "tier": null
   },
   {
@@ -71816,7 +72673,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 557,
+   "rank": 565,
    "tier": null
   },
   {
@@ -71922,7 +72779,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 558,
+   "rank": 566,
    "tier": null
   },
   {
@@ -72028,7 +72885,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 559,
+   "rank": 567,
    "tier": null
   },
   {
@@ -72134,7 +72991,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 560,
+   "rank": 568,
    "tier": null
   },
   {
@@ -72240,7 +73097,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 561,
+   "rank": 569,
    "tier": null
   },
   {
@@ -72346,7 +73203,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 562,
+   "rank": 570,
    "tier": null
   },
   {
@@ -72452,7 +73309,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 563,
+   "rank": 571,
    "tier": null
   },
   {
@@ -72767,7 +73624,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 564,
+   "rank": 572,
    "tier": null
   },
   {
@@ -73085,7 +73942,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 565,
+   "rank": 573,
    "tier": null
   },
   {
@@ -73186,7 +74043,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 566,
+   "rank": 574,
    "tier": null
   },
   {
@@ -73393,7 +74250,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 567,
+   "rank": 575,
    "tier": null
   },
   {
@@ -73499,7 +74356,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 568,
+   "rank": 576,
    "tier": null
   },
   {
@@ -73600,7 +74457,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 569,
+   "rank": 577,
    "tier": null
   },
   {
@@ -73706,7 +74563,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 570,
+   "rank": 578,
    "tier": null
   },
   {
@@ -73812,7 +74669,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 571,
+   "rank": 579,
    "tier": null
   },
   {
@@ -73918,7 +74775,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 572,
+   "rank": 580,
    "tier": null
   },
   {
@@ -74024,7 +74881,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 573,
+   "rank": 581,
    "tier": null
   },
   {
@@ -74236,7 +75093,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 574,
+   "rank": 582,
    "tier": null
   },
   {
@@ -74448,7 +75305,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 575,
+   "rank": 583,
    "tier": null
   },
   {
@@ -74761,7 +75618,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 576,
+   "rank": 584,
    "tier": null
   },
   {
@@ -75074,7 +75931,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 577,
+   "rank": 585,
    "tier": null
   },
   {
@@ -75281,7 +76138,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 578,
+   "rank": 586,
    "tier": null
   },
   {
@@ -75382,7 +76239,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 579,
+   "rank": 587,
    "tier": null
   },
   {
@@ -75594,7 +76451,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 580,
+   "rank": 588,
    "tier": null
   },
   {
@@ -75695,7 +76552,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 581,
+   "rank": 589,
    "tier": null
   },
   {
@@ -75801,7 +76658,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 582,
+   "rank": 590,
    "tier": null
   },
   {
@@ -75902,7 +76759,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 583,
+   "rank": 591,
    "tier": null
   },
   {
@@ -76003,7 +76860,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 584,
+   "rank": 592,
    "tier": null
   },
   {
@@ -76104,7 +76961,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 585,
+   "rank": 593,
    "tier": null
   },
   {
@@ -76210,7 +77067,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 586,
+   "rank": 594,
    "tier": null
   },
   {
@@ -76311,7 +77168,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 587,
+   "rank": 595,
    "tier": null
   },
   {
@@ -76523,7 +77380,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 588,
+   "rank": 596,
    "tier": null
   },
   {
@@ -76629,7 +77486,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 589,
+   "rank": 597,
    "tier": null
   },
   {
@@ -76730,7 +77587,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 590,
+   "rank": 598,
    "tier": null
   },
   {
@@ -76831,7 +77688,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 591,
+   "rank": 599,
    "tier": null
   },
   {
@@ -76937,7 +77794,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 592,
+   "rank": 600,
    "tier": null
   },
   {
@@ -77043,7 +77900,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 593,
+   "rank": 601,
    "tier": null
   },
   {
@@ -77149,7 +78006,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 594,
+   "rank": 602,
    "tier": null
   },
   {
@@ -77255,7 +78112,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 595,
+   "rank": 603,
    "tier": null
   },
   {
@@ -77356,7 +78213,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 596,
+   "rank": 604,
    "tier": null
   },
   {
@@ -77560,7 +78417,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 597,
+   "rank": 605,
    "tier": null
   },
   {
@@ -77666,7 +78523,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 598,
+   "rank": 606,
    "tier": null
   },
   {
@@ -77873,7 +78730,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 599,
+   "rank": 607,
    "tier": null
   },
   {
@@ -77979,7 +78836,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 600,
+   "rank": 608,
    "tier": null
   },
   {
@@ -78080,7 +78937,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 601,
+   "rank": 609,
    "tier": null
   },
   {
@@ -78284,7 +79141,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 602,
+   "rank": 610,
    "tier": null
   },
   {
@@ -78385,7 +79242,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 603,
+   "rank": 611,
    "tier": null
   },
   {
@@ -78486,7 +79343,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 604,
+   "rank": 612,
    "tier": null
   },
   {
@@ -78587,7 +79444,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 605,
+   "rank": 613,
    "tier": null
   },
   {
@@ -78693,7 +79550,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 606,
+   "rank": 614,
    "tier": null
   },
   {
@@ -78900,7 +79757,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 607,
+   "rank": 615,
    "tier": null
   },
   {
@@ -79001,7 +79858,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 608,
+   "rank": 616,
    "tier": null
   },
   {
@@ -79208,7 +80065,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 609,
+   "rank": 617,
    "tier": null
   },
   {
@@ -79309,7 +80166,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 610,
+   "rank": 618,
    "tier": null
   },
   {
@@ -79410,7 +80267,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 611,
+   "rank": 619,
    "tier": null
   },
   {
@@ -79511,7 +80368,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 612,
+   "rank": 620,
    "tier": null
   },
   {
@@ -79612,7 +80469,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 613,
+   "rank": 621,
    "tier": null
   },
   {
@@ -79713,7 +80570,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 614,
+   "rank": 622,
    "tier": null
   },
   {
@@ -79814,7 +80671,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 615,
+   "rank": 623,
    "tier": null
   },
   {
@@ -79915,7 +80772,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 616,
+   "rank": 624,
    "tier": null
   },
   {
@@ -80016,7 +80873,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 617,
+   "rank": 625,
    "tier": null
   },
   {
@@ -80429,7 +81286,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 618,
+   "rank": 626,
    "tier": null
   },
   {
@@ -80530,7 +81387,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 619,
+   "rank": 627,
    "tier": null
   },
   {
@@ -80631,7 +81488,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 620,
+   "rank": 628,
    "tier": null
   },
   {
@@ -80732,7 +81589,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 621,
+   "rank": 629,
    "tier": null
   },
   {
@@ -80833,7 +81690,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 622,
+   "rank": 630,
    "tier": null
   },
   {
@@ -80934,7 +81791,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 623,
+   "rank": 631,
    "tier": null
   },
   {
@@ -81040,7 +81897,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 624,
+   "rank": 632,
    "tier": null
   },
   {
@@ -81141,7 +81998,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 625,
+   "rank": 633,
    "tier": null
   },
   {
@@ -81242,7 +82099,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 626,
+   "rank": 634,
    "tier": null
   },
   {
@@ -81343,7 +82200,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 627,
+   "rank": 635,
    "tier": null
   },
   {
@@ -81444,7 +82301,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 628,
+   "rank": 636,
    "tier": null
   },
   {
@@ -81964,7 +82821,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 629,
+   "rank": 637,
    "tier": null
   },
   {
@@ -82065,7 +82922,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 630,
+   "rank": 638,
    "tier": null
   },
   {
@@ -82166,7 +83023,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 631,
+   "rank": 639,
    "tier": null
   },
   {
@@ -82267,7 +83124,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 632,
+   "rank": 640,
    "tier": null
   },
   {
@@ -82368,7 +83225,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 633,
+   "rank": 641,
    "tier": null
   },
   {
@@ -82469,7 +83326,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 634,
+   "rank": 642,
    "tier": null
   },
   {
@@ -82570,7 +83427,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 635,
+   "rank": 643,
    "tier": null
   },
   {
@@ -82671,7 +83528,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 636,
+   "rank": 644,
    "tier": null
   },
   {
@@ -82772,7 +83629,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 637,
+   "rank": 645,
    "tier": null
   },
   {
@@ -83188,7 +84045,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 638,
+   "rank": 646,
    "tier": null
   },
   {
@@ -83289,7 +84146,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 639,
+   "rank": 647,
    "tier": null
   },
   {
@@ -83390,7 +84247,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 640,
+   "rank": 648,
    "tier": null
   },
   {
@@ -83491,7 +84348,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 641,
+   "rank": 649,
    "tier": null
   },
   {
@@ -83592,7 +84449,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 642,
+   "rank": 650,
    "tier": null
   },
   {
@@ -83693,7 +84550,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 643,
+   "rank": 651,
    "tier": null
   },
   {
@@ -83794,7 +84651,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 644,
+   "rank": 652,
    "tier": null
   },
   {
@@ -83895,7 +84752,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 645,
+   "rank": 653,
    "tier": null
   },
   {
@@ -83996,7 +84853,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 646,
+   "rank": 654,
    "tier": null
   },
   {
@@ -84097,7 +84954,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 647,
+   "rank": 655,
    "tier": null
   },
   {
@@ -84198,7 +85055,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 648,
+   "rank": 656,
    "tier": null
   },
   {
@@ -84299,7 +85156,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 649,
+   "rank": 657,
    "tier": null
   },
   {
@@ -84400,7 +85257,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 650,
+   "rank": 658,
    "tier": null
   },
   {
@@ -84501,7 +85358,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 651,
+   "rank": 659,
    "tier": null
   },
   {
@@ -84602,7 +85459,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 652,
+   "rank": 660,
    "tier": null
   },
   {
@@ -84703,7 +85560,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 653,
+   "rank": 661,
    "tier": null
   },
   {
@@ -84804,7 +85661,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 654,
+   "rank": 662,
    "tier": null
   },
   {
@@ -84905,7 +85762,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 655,
+   "rank": 663,
    "tier": null
   },
   {
@@ -85006,7 +85863,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 656,
+   "rank": 664,
    "tier": null
   },
   {
@@ -85319,7 +86176,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 657,
+   "rank": 665,
    "tier": null
   },
   {
@@ -85420,7 +86277,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 658,
+   "rank": 666,
    "tier": null
   },
   {
@@ -85521,7 +86378,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 659,
+   "rank": 667,
    "tier": null
   },
   {
@@ -85622,7 +86479,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 660,
+   "rank": 668,
    "tier": null
   },
   {
@@ -85723,7 +86580,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 661,
+   "rank": 669,
    "tier": null
   },
   {
@@ -85824,7 +86681,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 662,
+   "rank": 670,
    "tier": null
   },
   {
@@ -85925,7 +86782,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 663,
+   "rank": 671,
    "tier": null
   },
   {
@@ -86026,7 +86883,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 664,
+   "rank": 672,
    "tier": null
   },
   {
@@ -86127,7 +86984,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 665,
+   "rank": 673,
    "tier": null
   },
   {
@@ -86228,7 +87085,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 666,
+   "rank": 674,
    "tier": null
   },
   {
@@ -86329,7 +87186,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 667,
+   "rank": 675,
    "tier": null
   },
   {
@@ -86430,7 +87287,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 668,
+   "rank": 676,
    "tier": null
   },
   {
@@ -86531,7 +87388,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 669,
+   "rank": 677,
    "tier": null
   },
   {
@@ -86632,7 +87489,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 670,
+   "rank": 678,
    "tier": null
   },
   {
@@ -86733,7 +87590,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 671,
+   "rank": 679,
    "tier": null
   },
   {
@@ -86834,7 +87691,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 672,
+   "rank": 680,
    "tier": null
   },
   {
@@ -86935,7 +87792,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 673,
+   "rank": 681,
    "tier": null
   },
   {
@@ -87781,7 +88638,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 674,
+   "rank": 682,
    "tier": null
   },
   {
@@ -87882,7 +88739,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 675,
+   "rank": 683,
    "tier": null
   },
   {
@@ -87983,7 +88840,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 676,
+   "rank": 684,
    "tier": null
   },
   {
@@ -88084,7 +88941,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 677,
+   "rank": 685,
    "tier": null
   },
   {
@@ -88185,7 +89042,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 678,
+   "rank": 686,
    "tier": null
   },
   {
@@ -88286,7 +89143,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 679,
+   "rank": 687,
    "tier": null
   },
   {
@@ -88387,7 +89244,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 680,
+   "rank": 688,
    "tier": null
   },
   {
@@ -88488,7 +89345,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 681,
+   "rank": 689,
    "tier": null
   },
   {
@@ -88589,7 +89446,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 682,
+   "rank": 690,
    "tier": null
   },
   {
@@ -88690,7 +89547,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 683,
+   "rank": 691,
    "tier": null
   },
   {
@@ -88791,7 +89648,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 684,
+   "rank": 692,
    "tier": null
   },
   {
@@ -88892,7 +89749,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 685,
+   "rank": 693,
    "tier": null
   },
   {
@@ -88993,7 +89850,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 686,
+   "rank": 694,
    "tier": null
   },
   {
@@ -89094,7 +89951,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 687,
+   "rank": 695,
    "tier": null
   },
   {
@@ -89195,7 +90052,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 688,
+   "rank": 696,
    "tier": null
   },
   {
@@ -89296,7 +90153,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 689,
+   "rank": 697,
    "tier": null
   },
   {
@@ -89397,7 +90254,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 690,
+   "rank": 698,
    "tier": null
   },
   {
@@ -89498,7 +90355,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 691,
+   "rank": 699,
    "tier": null
   },
   {
@@ -89599,7 +90456,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 692,
+   "rank": 700,
    "tier": null
   },
   {
@@ -89700,7 +90557,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 693,
+   "rank": 701,
    "tier": null
   },
   {
@@ -89801,7 +90658,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 694,
+   "rank": 702,
    "tier": null
   },
   {
@@ -89902,7 +90759,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 695,
+   "rank": 703,
    "tier": null
   },
   {
@@ -90003,7 +90860,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 696,
+   "rank": 704,
    "tier": null
   },
   {
@@ -90104,7 +90961,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 697,
+   "rank": 705,
    "tier": null
   },
   {
@@ -90205,7 +91062,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 698,
+   "rank": 706,
    "tier": null
   },
   {
@@ -90306,7 +91163,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 699,
+   "rank": 707,
    "tier": null
   },
   {
@@ -90407,7 +91264,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 700,
+   "rank": 708,
    "tier": null
   },
   {
@@ -90508,7 +91365,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 701,
+   "rank": 709,
    "tier": null
   },
   {
@@ -90609,7 +91466,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 702,
+   "rank": 710,
    "tier": null
   },
   {
@@ -90710,7 +91567,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 703,
+   "rank": 711,
    "tier": null
   },
   {
@@ -90811,7 +91668,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 704,
+   "rank": 712,
    "tier": null
   },
   {
@@ -90912,7 +91769,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 705,
+   "rank": 713,
    "tier": null
   },
   {
@@ -91013,7 +91870,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 706,
+   "rank": 714,
    "tier": null
   },
   {
@@ -91114,7 +91971,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 707,
+   "rank": 715,
    "tier": null
   },
   {
@@ -91215,7 +92072,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 708,
+   "rank": 716,
    "tier": null
   },
   {
@@ -91316,7 +92173,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 709,
+   "rank": 717,
    "tier": null
   },
   {
@@ -91417,7 +92274,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 710,
+   "rank": 718,
    "tier": null
   },
   {
@@ -91518,7 +92375,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 711,
+   "rank": 719,
    "tier": null
   },
   {
@@ -91619,7 +92476,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 712,
+   "rank": 720,
    "tier": null
   },
   {
@@ -91720,7 +92577,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 713,
+   "rank": 721,
    "tier": null
   },
   {
@@ -91821,7 +92678,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 714,
+   "rank": 722,
    "tier": null
   },
   {
@@ -91922,7 +92779,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 715,
+   "rank": 723,
    "tier": null
   },
   {
@@ -92023,7 +92880,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 716,
+   "rank": 724,
    "tier": null
   },
   {
@@ -92124,7 +92981,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 717,
+   "rank": 725,
    "tier": null
   },
   {
@@ -92225,7 +93082,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 718,
+   "rank": 726,
    "tier": null
   },
   {
@@ -92326,7 +93183,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 719,
+   "rank": 727,
    "tier": null
   },
   {
@@ -92427,7 +93284,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 720,
+   "rank": 728,
    "tier": null
   },
   {
@@ -92528,7 +93385,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 721,
+   "rank": 729,
    "tier": null
   },
   {
@@ -92629,7 +93486,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 722,
+   "rank": 730,
    "tier": null
   },
   {
@@ -92730,7 +93587,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 723,
+   "rank": 731,
    "tier": null
   },
   {
@@ -92831,7 +93688,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 724,
+   "rank": 732,
    "tier": null
   },
   {
@@ -93141,7 +93998,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 725,
+   "rank": 733,
    "tier": null
   },
   {
@@ -93242,7 +94099,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 726,
+   "rank": 734,
    "tier": null
   },
   {
@@ -93661,7 +94518,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 727,
+   "rank": 735,
    "tier": null
   },
   {
@@ -93762,7 +94619,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 728,
+   "rank": 736,
    "tier": null
   },
   {
@@ -93863,7 +94720,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 729,
+   "rank": 737,
    "tier": null
   },
   {
@@ -93964,7 +94821,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 730,
+   "rank": 738,
    "tier": null
   },
   {
@@ -94065,7 +94922,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 731,
+   "rank": 739,
    "tier": null
   },
   {
@@ -94166,7 +95023,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 732,
+   "rank": 740,
    "tier": null
   },
   {
@@ -94267,7 +95124,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 733,
+   "rank": 741,
    "tier": null
   },
   {
@@ -94368,7 +95225,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 734,
+   "rank": 742,
    "tier": null
   },
   {
@@ -94469,7 +95326,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 735,
+   "rank": 743,
    "tier": null
   },
   {
@@ -94570,7 +95427,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 736,
+   "rank": 744,
    "tier": null
   },
   {
@@ -94671,7 +95528,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 737,
+   "rank": 745,
    "tier": null
   },
   {
@@ -94772,7 +95629,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 738,
+   "rank": 746,
    "tier": null
   },
   {
@@ -94873,7 +95730,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 739,
+   "rank": 747,
    "tier": null
   },
   {
@@ -95075,7 +95932,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 740,
+   "rank": 748,
    "tier": null
   },
   {
@@ -95176,7 +96033,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 741,
+   "rank": 749,
    "tier": null
   },
   {
@@ -95378,7 +96235,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 742,
+   "rank": 750,
    "tier": null
   },
   {
@@ -95479,7 +96336,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 743,
+   "rank": 751,
    "tier": null
   },
   {
@@ -95580,7 +96437,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 744,
+   "rank": 752,
    "tier": null
   },
   {
@@ -95681,7 +96538,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 745,
+   "rank": 753,
    "tier": null
   },
   {
@@ -95782,7 +96639,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 746,
+   "rank": 754,
    "tier": null
   },
   {
@@ -95883,7 +96740,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 747,
+   "rank": 755,
    "tier": null
   },
   {
@@ -95984,7 +96841,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 748,
+   "rank": 756,
    "tier": null
   },
   {
@@ -96085,7 +96942,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 749,
+   "rank": 757,
    "tier": null
   },
   {
@@ -96186,7 +97043,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 750,
+   "rank": 758,
    "tier": null
   },
   {
@@ -96287,7 +97144,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 751,
+   "rank": 759,
    "tier": null
   },
   {
@@ -96388,7 +97245,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 752,
+   "rank": 760,
    "tier": null
   },
   {
@@ -96489,7 +97346,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 753,
+   "rank": 761,
    "tier": null
   },
   {
@@ -96590,7 +97447,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 754,
+   "rank": 762,
    "tier": null
   },
   {
@@ -96691,7 +97548,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 755,
+   "rank": 763,
    "tier": null
   },
   {
@@ -96792,7 +97649,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 756,
+   "rank": 764,
    "tier": null
   },
   {
@@ -96893,7 +97750,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 757,
+   "rank": 765,
    "tier": null
   },
   {
@@ -96994,7 +97851,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 758,
+   "rank": 766,
    "tier": null
   },
   {
@@ -97095,7 +97952,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 759,
+   "rank": 767,
    "tier": null
   },
   {
@@ -97196,7 +98053,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 760,
+   "rank": 768,
    "tier": null
   },
   {
@@ -97297,7 +98154,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 761,
+   "rank": 769,
    "tier": null
   },
   {
@@ -97398,7 +98255,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 762,
+   "rank": 770,
    "tier": null
   },
   {
@@ -97499,7 +98356,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 763,
+   "rank": 771,
    "tier": null
   },
   {
@@ -97600,7 +98457,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 764,
+   "rank": 772,
    "tier": null
   },
   {
@@ -97701,7 +98558,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 765,
+   "rank": 773,
    "tier": null
   },
   {
@@ -97802,7 +98659,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 766,
+   "rank": 774,
    "tier": null
   },
   {
@@ -97903,7 +98760,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 767,
+   "rank": 775,
    "tier": null
   },
   {
@@ -98004,7 +98861,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 768,
+   "rank": 776,
    "tier": null
   },
   {
@@ -98105,7 +98962,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 769,
+   "rank": 777,
    "tier": null
   },
   {
@@ -98206,7 +99063,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 770,
+   "rank": 778,
    "tier": null
   },
   {
@@ -98307,7 +99164,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 771,
+   "rank": 779,
    "tier": null
   },
   {
@@ -98408,7 +99265,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 772,
+   "rank": 780,
    "tier": null
   },
   {
@@ -98509,7 +99366,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 773,
+   "rank": 781,
    "tier": null
   },
   {
@@ -98610,7 +99467,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 774,
+   "rank": 782,
    "tier": null
   },
   {
@@ -98711,7 +99568,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 775,
+   "rank": 783,
    "tier": null
   },
   {
@@ -98812,7 +99669,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 776,
+   "rank": 784,
    "tier": null
   },
   {
@@ -98913,7 +99770,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 777,
+   "rank": 785,
    "tier": null
   },
   {
@@ -99014,7 +99871,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 778,
+   "rank": 786,
    "tier": null
   },
   {
@@ -99115,7 +99972,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 779,
+   "rank": 787,
    "tier": null
   },
   {
@@ -99216,7 +100073,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 780,
+   "rank": 788,
    "tier": null
   },
   {
@@ -99317,7 +100174,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 781,
+   "rank": 789,
    "tier": null
   },
   {
@@ -99418,7 +100275,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 782,
+   "rank": 790,
    "tier": null
   },
   {
@@ -99519,7 +100376,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 783,
+   "rank": 791,
    "tier": null
   },
   {
@@ -99620,7 +100477,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 784,
+   "rank": 792,
    "tier": null
   },
   {
@@ -99822,7 +100679,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 785,
+   "rank": 793,
    "tier": null
   },
   {
@@ -99923,7 +100780,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 786,
+   "rank": 794,
    "tier": null
   },
   {
@@ -100024,7 +100881,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 787,
+   "rank": 795,
    "tier": null
   },
   {
@@ -100125,7 +100982,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 788,
+   "rank": 796,
    "tier": null
   },
   {
@@ -100226,7 +101083,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 789,
+   "rank": 797,
    "tier": null
   },
   {
@@ -100327,7 +101184,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 790,
+   "rank": 798,
    "tier": null
   },
   {
@@ -100428,7 +101285,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 791,
+   "rank": 799,
    "tier": null
   },
   {
@@ -100529,7 +101386,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 792,
+   "rank": 800,
    "tier": null
   },
   {
@@ -100630,7 +101487,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 793,
+   "rank": 801,
    "tier": null
   },
   {
@@ -100731,7 +101588,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 794,
+   "rank": 802,
    "tier": null
   },
   {
@@ -100832,7 +101689,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 795,
+   "rank": 803,
    "tier": null
   },
   {
@@ -100933,7 +101790,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 796,
+   "rank": 804,
    "tier": null
   },
   {
@@ -101034,7 +101891,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 797,
+   "rank": 805,
    "tier": null
   },
   {
@@ -101135,7 +101992,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 798,
+   "rank": 806,
    "tier": null
   },
   {
@@ -101236,7 +102093,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 799,
+   "rank": 807,
    "tier": null
   },
   {
@@ -101337,7 +102194,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 800,
+   "rank": 808,
    "tier": null
   },
   {
@@ -101438,7 +102295,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 801,
+   "rank": 809,
    "tier": null
   },
   {
@@ -101539,7 +102396,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 802,
+   "rank": 810,
    "tier": null
   },
   {
@@ -101640,7 +102497,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 803,
+   "rank": 811,
    "tier": null
   },
   {
@@ -101842,7 +102699,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 804,
+   "rank": 812,
    "tier": null
   },
   {
@@ -101943,7 +102800,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 805,
+   "rank": 813,
    "tier": null
   },
   {
@@ -102044,7 +102901,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 806,
+   "rank": 814,
    "tier": null
   },
   {
@@ -102145,7 +103002,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 807,
+   "rank": 815,
    "tier": null
   },
   {
@@ -102246,7 +103103,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 808,
+   "rank": 816,
    "tier": null
   },
   {
@@ -102347,7 +103204,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 809,
+   "rank": 817,
    "tier": null
   },
   {
@@ -102448,7 +103305,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 810,
+   "rank": 818,
    "tier": null
   },
   {
@@ -102549,7 +103406,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 811,
+   "rank": 819,
    "tier": null
   },
   {
@@ -102650,7 +103507,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 812,
+   "rank": 820,
    "tier": null
   },
   {
@@ -102751,7 +103608,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 813,
+   "rank": 821,
    "tier": null
   },
   {
@@ -102852,7 +103709,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 814,
+   "rank": 822,
    "tier": null
   },
   {
@@ -102953,7 +103810,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 815,
+   "rank": 823,
    "tier": null
   },
   {
@@ -103054,7 +103911,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 816,
+   "rank": 824,
    "tier": null
   },
   {
@@ -103155,7 +104012,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 817,
+   "rank": 825,
    "tier": null
   },
   {
@@ -103256,7 +104113,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 818,
+   "rank": 826,
    "tier": null
   },
   {
@@ -103357,7 +104214,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 819,
+   "rank": 827,
    "tier": null
   },
   {
@@ -103458,7 +104315,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 820,
+   "rank": 828,
    "tier": null
   },
   {
@@ -103559,7 +104416,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 821,
+   "rank": 829,
    "tier": null
   },
   {
@@ -103660,7 +104517,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 822,
+   "rank": 830,
    "tier": null
   },
   {
@@ -103761,7 +104618,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 823,
+   "rank": 831,
    "tier": null
   },
   {
@@ -103862,7 +104719,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 824,
+   "rank": 832,
    "tier": null
   },
   {
@@ -103963,7 +104820,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 825,
+   "rank": 833,
    "tier": null
   },
   {
@@ -104064,7 +104921,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 826,
+   "rank": 834,
    "tier": null
   },
   {
@@ -104165,7 +105022,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 827,
+   "rank": 835,
    "tier": null
   },
   {
@@ -104266,7 +105123,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 828,
+   "rank": 836,
    "tier": null
   },
   {
@@ -104367,7 +105224,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 829,
+   "rank": 837,
    "tier": null
   },
   {
@@ -104468,7 +105325,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 830,
+   "rank": 838,
    "tier": null
   },
   {
@@ -104670,7 +105527,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 831,
+   "rank": 839,
    "tier": null
   },
   {
@@ -104771,7 +105628,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 832,
+   "rank": 840,
    "tier": null
   },
   {
@@ -104872,7 +105729,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 833,
+   "rank": 841,
    "tier": null
   },
   {
@@ -104973,7 +105830,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 834,
+   "rank": 842,
    "tier": null
   },
   {
@@ -105074,7 +105931,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 835,
+   "rank": 843,
    "tier": null
   },
   {
@@ -105175,7 +106032,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 836,
+   "rank": 844,
    "tier": null
   },
   {
@@ -105276,7 +106133,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 837,
+   "rank": 845,
    "tier": null
   },
   {
@@ -105377,7 +106234,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 838,
+   "rank": 846,
    "tier": null
   },
   {
@@ -105478,7 +106335,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 839,
+   "rank": 847,
    "tier": null
   },
   {
@@ -105579,7 +106436,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 840,
+   "rank": 848,
    "tier": null
   },
   {
@@ -105680,7 +106537,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 841,
+   "rank": 849,
    "tier": null
   },
   {
@@ -105781,7 +106638,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 842,
+   "rank": 850,
    "tier": null
   },
   {
@@ -105882,7 +106739,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 843,
+   "rank": 851,
    "tier": null
   },
   {
@@ -105983,7 +106840,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 844,
+   "rank": 852,
    "tier": null
   },
   {
@@ -106084,7 +106941,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 845,
+   "rank": 853,
    "tier": null
   },
   {
@@ -106185,7 +107042,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 846,
+   "rank": 854,
    "tier": null
   },
   {
@@ -106286,7 +107143,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 847,
+   "rank": 855,
    "tier": null
   },
   {
@@ -106387,7 +107244,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 848,
+   "rank": 856,
    "tier": null
   },
   {
@@ -106488,7 +107345,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 849,
+   "rank": 857,
    "tier": null
   },
   {
@@ -106589,7 +107446,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 850,
+   "rank": 858,
    "tier": null
   },
   {
@@ -106690,7 +107547,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 851,
+   "rank": 859,
    "tier": null
   },
   {
@@ -106791,7 +107648,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 852,
+   "rank": 860,
    "tier": null
   },
   {
@@ -106892,7 +107749,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 853,
+   "rank": 861,
    "tier": null
   },
   {
@@ -106993,7 +107850,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 854,
+   "rank": 862,
    "tier": null
   },
   {
@@ -107094,7 +107951,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 855,
+   "rank": 863,
    "tier": null
   },
   {
@@ -107195,7 +108052,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 856,
+   "rank": 864,
    "tier": null
   },
   {
@@ -107498,7 +108355,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 857,
+   "rank": 865,
    "tier": null
   },
   {
@@ -107700,7 +108557,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 858,
+   "rank": 866,
    "tier": null
   },
   {
@@ -107801,7 +108658,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 859,
+   "rank": 867,
    "tier": null
   },
   {
@@ -107902,7 +108759,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 860,
+   "rank": 868,
    "tier": null
   },
   {
@@ -108003,7 +108860,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 861,
+   "rank": 869,
    "tier": null
   },
   {
@@ -108104,7 +108961,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 862,
+   "rank": 870,
    "tier": null
   },
   {
@@ -108205,7 +109062,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 863,
+   "rank": 871,
    "tier": null
   },
   {
@@ -108306,7 +109163,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 864,
+   "rank": 872,
    "tier": null
   },
   {
@@ -108407,7 +109264,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 865,
+   "rank": 873,
    "tier": null
   },
   {
@@ -117866,20 +118723,8 @@
    "2": 50
   },
   "n_entries": 200,
-  "ranked": 170,
+  "ranked": 178,
   "unresolved": [
-   {
-    "rank": 32,
-    "name": "Tanya Leighton"
-   },
-   {
-    "rank": 51,
-    "name": "Gaga & Reena Spaulings"
-   },
-   {
-    "rank": 60,
-    "name": "Lowell Ryan Projects"
-   },
    {
     "rank": 88,
     "name": "Danziger Gallery"
@@ -117893,32 +118738,12 @@
     "name": "Kylin Gallery"
    },
    {
-    "rank": 143,
-    "name": "Timothy Yarger Fine Art"
-   },
-   {
-    "rank": 146,
-    "name": "The Lapis Press"
-   },
-   {
     "rank": 152,
     "name": "Ellie Mayer Gallery"
    },
    {
-    "rank": 163,
-    "name": "The Loft at Liz's"
-   },
-   {
     "rank": 169,
     "name": "ArtPic"
-   },
-   {
-    "rank": 177,
-    "name": "Corita Art Center"
-   },
-   {
-    "rank": 181,
-    "name": "Beacon Arts Building"
    },
    {
     "rank": 183,
@@ -118031,7 +118856,7 @@
    "art-practice"
   ],
   "n_seesaw": 19,
-  "auc": 0.8687916204217536,
+  "auc": 0.8691245189664651,
   "seesaw_tiers": {
    "1": 3,
    "2": 5,
@@ -118044,18 +118869,18 @@
    18,
    25,
    28,
-   32,
-   43,
-   46,
-   50,
-   72,
-   76,
-   80,
-   82,
-   99,
-   129,
-   181,
-   185
+   33,
+   44,
+   47,
+   52,
+   75,
+   79,
+   83,
+   85,
+   102,
+   132,
+   189,
+   193
   ]
  },
  "presets": {
@@ -118265,12 +119090,12 @@
   }
  },
  "counts": {
-  "venues": 1121,
+  "venues": 1129,
   "gated": 256,
   "tiers": {
    "1": 20,
-   "2": 28,
-   "3": 122,
+   "2": 29,
+   "3": 129,
    "None": 695
   }
  }

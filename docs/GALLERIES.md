@@ -111,6 +111,21 @@ curation site shows the live list under a "Hand-ordered list (live)" banner that
 Los Angeles: the client's 200-entry "Los Angeles galleries" list (2026-09-03) is the applied
 ranking; `venues-la-ranked200.json` is the automatic preset behind it.
 
+**Verifying the unresolved entries** — `verify_order.py --city C [--apply]` takes every order entry
+the registry does not know and asks whether it is a real, open venue the pipeline missed: one
+cached Places text search + details per name (a retry with "gallery" appended when the first
+result is another business; listings outside the metro do not count), `validate_venues.site_checks`
+on the website (live / vouched / closed notice / exhibitions page; a Places "permanently closed"
+against a live site with an exhibitions page is flagged for a hand check, not trusted),
+`seed_venues.assign_zone` for the footprint, and a coverage probe of the nets that should have
+caught it (Gallery Platform LA, Carla, the cached Places nearby sweep with
+`place_skip_reason`, the swept circles, the enumeration logs). Verdicts: `miss` (real, open, in
+footprint — `why` names the nets it fell through), `unverified`, `closed`, `not_found`,
+`out_of_footprint`, `not_a_venue` (auction / bookstore / advisory / private dealing / co-op …).
+`--apply` seeds the misses (status active when verified, `sources.seed.order` carries the list
+rank) and pins their ids in `venue_order.json`; then `rank_venues.py apply` ranks them. Report:
+`content/spend/reports/verify-order-<city>-<ts>.json`.
+
 Feature names (all 0..1): hours_breadth, fairs, curated_lists, press, directory, longevity,
 roster_size, roster_strength, show_cadence, multi_location, places_popularity, web_presence,
 venue_judge, wiki, kind_gallery, kind_nonprofit, kind_museum, seesaw_presence (off).
