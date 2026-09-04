@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "kp-projects-merry-karnowsky",
+ "name": "KP Projects (Merry Karnowsky Gallery)",
+ "website": "http://www.kpprojects.net",
+ "generated_ts": 1788498652,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0059,
+ "crawl": {
+  "pages": 1,
+  "sitemap": false,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/kp-projects-merry-karnowsky.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "633 N. La Brea Avenue, Los Angeles CA 90036",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": "Tues – Sat, 12PM to 6PM",
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "http://www.kpprojects.net/artists": "roster_index",
+   "http://www.kpprojects.net/exhibitions": "exhibitions_current",
+   "http://www.kpprojects.net/past-exhibitions": "exhibitions_archive",
+   "http://www.kpprojects.net/about": "about",
+   "http://www.kpprojects.net/contact": "contact_hours"
+  },
+  "site_notes": "Only the homepage was crawled with minimal content, giving no direct evidence of site structure; likely a single-page or JS-driven site with navigation to artists, exhibitions, and contact info not captured in this inventory.",
+  "fetch_more": [
+   "http://www.kpprojects.net/artists",
+   "http://www.kpprojects.net/exhibitions",
+   "http://www.kpprojects.net/past-exhibitions",
+   "http://www.kpprojects.net/about",
+   "http://www.kpprojects.net/contact"
+  ]
+ },
+ "errors": [],
+ "duration_s": 38.4
+}

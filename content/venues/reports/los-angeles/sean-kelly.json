@@ -1,0 +1,913 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "sean-kelly",
+ "name": "Sean Kelly",
+ "website": "skny.com",
+ "generated_ts": 1788497888,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.5404,
+ "crawl": {
+  "pages": 250,
+  "sitemap": false,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/sean-kelly.jsonl"
+ },
+ "about_text": "Sean Kelly is a contemporary art gallery founded in 1991 by dealer Sean Kelly, originally opening its first public space on Mercer Street in SoHo before moving to a larger Chelsea location in 2001 and then to its current 22,000-square-foot building at 475 Tenth Avenue in 2012. In 2021 the gallery expanded to Los Angeles, opening a second space at 1357 N Highland Avenue. Known for an intellectually driven, internationally oriented program, Sean Kelly represents a diverse roster spanning painting, sculpture, photography, and performance, including figures such as Marina Abramović, Kehinde Wiley, and Idris Khan, alongside a growing group of emerging artists. The gallery is active on the international art-fair circuit and regularly collaborates with major museums worldwide.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://skny.com/gallery"
+ ],
+ "founded_year": 1991,
+ "founders": [
+  "Sean Kelly"
+ ],
+ "directors": [
+  "Cécile Panzieri",
+  "Jeffrey Grove",
+  "Adair Lentini",
+  "Ben Polsky",
+  "Brandon Tho Harris"
+ ],
+ "locations": [
+  {
+   "city": "New York",
+   "address": "475 Tenth Avenue, New York, NY 10018",
+   "since": 2012,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": "1357 N Highland Ave, Los Angeles, CA 90028",
+   "since": 2021,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "43 Mercer Street",
+   "since": 1991,
+   "current": false
+  },
+  {
+   "city": "New York",
+   "address": "29th Street, Chelsea",
+   "since": 2001,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "contemporary painting, sculpture, and photography",
+  "performance and body-based art",
+  "international contemporary roster",
+  "cross-cultural and historical dialogues",
+  "emerging and established generations"
+ ],
+ "hours_text": "By appointment only",
+ "roster": [
+  {
+   "name": "Marina Abramović",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Lindsay Adams",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Luke Agada",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Dawoud Bey",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "James Casebere",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Kristy Chan",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Julian Charrière",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "David Claerbout",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Jose Dávila",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Awol Erizku",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Magdiel García Almanza",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Ana González",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Laurent Grasso",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Johan Grimonprez",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Candida Höfer",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "The Estate of Ilse D'Hollander",
+   "status": "estate",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Rebecca Horn",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Donna Huanca",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Callum Innes",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Harminder Judge",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Idris Khan",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Joseph Kosuth",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Liu Wei",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Peter Liversidge",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Anthony McCall",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Hugo McCloud",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Mariko Mori",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Sam Moyer",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Hilda Palafox",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Brian Rochefort",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Julião Sarmento",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Shahzia Sikander",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Loló Soldevilla",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Alec Soth",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Sun Xun",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Frank Thiel",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Janaina Tschäpe",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Kehinde Wiley",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  },
+  {
+   "name": "Wu Chi-Tsung",
+   "status": "represented",
+   "source_url": "https://skny.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Buried Sunshine",
+   "artists": [
+    "Julian Charrière"
+   ],
+   "start": "2024-01-12",
+   "end": "2024-03-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Drowning in Harmony",
+   "artists": [
+    "John Guzman"
+   ],
+   "start": "2024-01-12",
+   "end": "2024-03-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Photographic Memory",
+   "artists": [
+    "Jose Dávila"
+   ],
+   "start": "2024-01-20",
+   "end": "2024-03-09",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "VERDES",
+   "artists": [
+    "Ana González"
+   ],
+   "start": "2024-01-20",
+   "end": "2024-03-09",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "273 Days",
+   "artists": [
+    "Natasza Niedziółka"
+   ],
+   "start": "2024-03-15",
+   "end": "2024-05-04",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "After…",
+   "artists": [
+    "Idris Khan"
+   ],
+   "start": "2024-03-15",
+   "end": "2024-05-04",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Turn",
+   "artists": [
+    "Callum Innes"
+   ],
+   "start": "2024-03-16",
+   "end": "2024-05-04",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "As For Now",
+   "artists": [
+    "Hugo McCloud"
+   ],
+   "start": "2024-05-11",
+   "end": "2024-06-22",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "It Never Entered My Mind",
+   "artists": [],
+   "start": "2024-05-18",
+   "end": "2024-07-27",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Seeds of Time",
+   "artists": [
+    "James Casebere"
+   ],
+   "start": "2024-06-27",
+   "end": "2024-08-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "The Color of Shadows",
+   "artists": [
+    "Ilse D'Hollander"
+   ],
+   "start": "2024-06-27",
+   "end": "2024-08-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "a sky filled with clouds and the smell of blood oranges",
+   "artists": [
+    "Janaina Tschäpe"
+   ],
+   "start": "2024-09-06",
+   "end": "2024-10-19",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Staring at the Moon",
+   "artists": [
+    "Brian Rochefort"
+   ],
+   "start": "2024-09-14",
+   "end": "2024-11-02",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Artificialis",
+   "artists": [
+    "Laurent Grasso"
+   ],
+   "start": "2024-10-25",
+   "end": "2024-12-21",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Europa / America",
+   "artists": [
+    "Candida Höfer"
+   ],
+   "start": "2024-11-16",
+   "end": "2025-01-11",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Bruma",
+   "artists": [
+    "Ana González"
+   ],
+   "start": "2025-01-10",
+   "end": "2025-02-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Stony the Road",
+   "artists": [
+    "Dawoud Bey"
+   ],
+   "start": "2025-01-10",
+   "end": "2025-02-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Fading Origin",
+   "artists": [
+    "Wu Chi-Tsung"
+   ],
+   "start": "2025-01-18",
+   "end": "2025-03-08",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Keep Your Wonder Moving",
+   "artists": [
+    "Lindsay Adams"
+   ],
+   "start": "2025-01-18",
+   "end": "2025-03-08",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/lindsay-adams"
+  },
+  {
+   "title": "Advice for Young Artists",
+   "artists": [
+    "Alec Soth"
+   ],
+   "start": "2025-03-07",
+   "end": "2025-04-18",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/alec-soth6"
+  },
+  {
+   "title": "Future Memory",
+   "artists": [
+    "Joseph Kosuth"
+   ],
+   "start": "2025-03-07",
+   "end": "2025-04-18",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/joseph-kosuth4"
+  },
+  {
+   "title": "Trust Me, Be Careful, I Like Your Shoes",
+   "artists": [
+    "Zipora Fried"
+   ],
+   "start": "2025-03-15",
+   "end": "2025-05-03",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Subject to change",
+   "artists": [
+    "Sam Moyer"
+   ],
+   "start": "2025-05-02",
+   "end": "2025-06-14",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/sam-moyer3"
+  },
+  {
+   "title": "Moon, Turn the Flames...Gently Gently Away",
+   "artists": [
+    "Awol Erizku"
+   ],
+   "start": "2025-05-16",
+   "end": "2025-07-03",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/awol-erizku2"
+  },
+  {
+   "title": "Faktura / Tektonika",
+   "artists": [],
+   "start": "2025-06-27",
+   "end": "2025-08-01",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/faktura-tektonika"
+  },
+  {
+   "title": "How to Win",
+   "artists": [
+    "Sadie Barnette"
+   ],
+   "start": "2025-06-27",
+   "end": "2025-08-01",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/sadie-barnette"
+  },
+  {
+   "title": "Ground Work",
+   "artists": [],
+   "start": "2025-07-17",
+   "end": "2025-08-29",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/ground-work"
+  },
+  {
+   "title": "Camouflage",
+   "artists": [
+    "Anthony Olubunmi Akinbola"
+   ],
+   "start": "2025-09-05",
+   "end": "2025-10-18",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/anthony-olubunmi-akinbola"
+  },
+  {
+   "title": "Wherever I went, I went when I was sleeping",
+   "artists": [
+    "Harminder Judge"
+   ],
+   "start": "2025-09-05",
+   "end": "2025-10-18",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/harminder-judge"
+  },
+  {
+   "title": "The Poetic Dimension",
+   "artists": [
+    "James Casebere",
+    "Jose Dávila"
+   ],
+   "start": "2025-09-13",
+   "end": "2025-11-01",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/james-casebere-and-jose-davila"
+  },
+  {
+   "title": "Radiance",
+   "artists": [
+    "Mariko Mori"
+   ],
+   "start": "2025-10-31",
+   "end": "2025-12-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/mariko-mori3"
+  },
+  {
+   "title": "De Tierra y Susurros",
+   "artists": [
+    "Hilda Palafox"
+   ],
+   "start": "2026-01-09",
+   "end": "2026-02-21",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/hilda-palafox"
+  },
+  {
+   "title": "Ground Work (Field Revision)",
+   "artists": [],
+   "start": "2026-01-09",
+   "end": "2026-02-21",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/ground-work-field-revision"
+  },
+  {
+   "title": "RÍO",
+   "artists": [
+    "Ana González"
+   ],
+   "start": "2026-02-27",
+   "end": "2026-04-11",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/ana-gonzalez3"
+  },
+  {
+   "title": "Short Letter, Long Farewell",
+   "artists": [
+    "Kristy Chan"
+   ],
+   "start": "2026-02-27",
+   "end": "2026-04-11",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/kristy-chan"
+  },
+  {
+   "title": "SOIL",
+   "artists": [
+    "Lindsay Adams"
+   ],
+   "start": "2026-04-17",
+   "end": "2026-06-06",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/lindsay-adams2"
+  },
+  {
+   "title": "The Simple Act of Positioning",
+   "artists": [
+    "Jose Dávila"
+   ],
+   "start": "2026-04-17",
+   "end": "2026-06-06",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/jose-davila5"
+  },
+  {
+   "title": "Acana",
+   "artists": [
+    "Magdiel García Almanza"
+   ],
+   "start": "2026-06-13",
+   "end": "2026-08-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/magdiel-garcia-almanza"
+  },
+  {
+   "title": "The Audacity of Scale",
+   "artists": [],
+   "start": "2026-06-13",
+   "end": "2026-08-07",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/past"
+  },
+  {
+   "title": "Solid Light, 1973, 2020, 2026",
+   "artists": [
+    "Anthony McCall"
+   ],
+   "start": "2026-09-11",
+   "end": "2026-10-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/anthony-mccall7"
+  },
+  {
+   "title": "When the Center Holds",
+   "artists": [
+    "Luke Agada"
+   ],
+   "start": "2026-09-11",
+   "end": "2026-10-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://skny.com/exhibitions/luke-agada"
+  },
+  {
+   "title": "The Audacity of Scale",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "group",
+   "source_url": "https://skny.com/exhibitions/the-audacity-of-scale"
+  }
+ ],
+ "fairs_self_reported": [
+  "Art Basel Miami Beach",
+  "Zona Maco",
+  "The Armory Show",
+  "TEFAF Maastricht",
+  "TEFAF New York",
+  "Frieze London",
+  "Frieze Los Angeles",
+  "Art Basel",
+  "Art Basel Unlimited",
+  "Aspen Art Fair",
+  "EXPO Chicago",
+  "Art Basel Qatar"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Whitewall",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Financial Times",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Artsy",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Cultured",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "The Art Newspaper",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "ARTnews",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "Galerie Magazine",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "Barron's Penta",
+   "year": 2022,
+   "url": null
+  },
+  {
+   "outlet": "artnet News",
+   "year": 2021,
+   "url": null
+  },
+  {
+   "outlet": "ARTnews",
+   "year": 2021,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "exhibitions_truncated": false,
+ "triage": {
+  "labels": {
+   "https://skny.com/artists": "roster_index",
+   "https://skny.com/exhibitions": "exhibitions_current",
+   "https://www.skny.com/exhibitions": "exhibitions_current",
+   "https://skny.com/exhibitions/upcoming": "exhibitions_current",
+   "https://skny.com/news-events": "news",
+   "https://www.skny.com/news-events": "news",
+   "https://skny.com/ct/zui-xin-xiao-xi": "news",
+   "https://skny.com/art-fairs": "fairs",
+   "https://www.skny.com/art-fairs": "fairs",
+   "https://skny.com/ct/yi-shu-bo-lan-hui": "fairs",
+   "https://skny.com/gallery": "about",
+   "https://www.skny.com/gallery": "about",
+   "https://skny.com/ct/hua-lang": "about",
+   "https://skny.com/en/gallery": "about",
+   "https://www.skny.com/exhibitions/anthony-mccall7": "exhibition_page",
+   "https://www.skny.com/exhibitions/luke-agada": "exhibition_page",
+   "https://skny.com/exhibitions/anthony-mccall7": "exhibition_page",
+   "https://skny.com/exhibitions/luke-agada": "exhibition_page",
+   "https://skny.com/exhibitions/the-audacity-of-scale": "exhibition_page",
+   "https://skny.com/exhibitions/magdiel-garcia-almanza": "exhibition_page",
+   "https://skny.com/exhibitions/jose-davila5": "exhibition_page",
+   "https://skny.com/exhibitions/lindsay-adams2": "exhibition_page",
+   "https://skny.com/exhibitions/ana-gonzalez3": "exhibition_page",
+   "https://skny.com/exhibitions/kristy-chan": "exhibition_page",
+   "https://skny.com/accessibility": "contact_hours",
+   "https://www.skny.com/accessibility": "contact_hours",
+   "https://skny.com/ct/accessibility": "contact_hours",
+   "https://skny.com/en/accessibility": "contact_hours",
+   "https://skny.com/artists/ana-gonzalez": "artist_page",
+   "https://skny.com/exhibitions/ground-work-field-revision": "exhibition_page",
+   "https://skny.com/news-events/in-conversation-marina-abramovic-ivo-van-hove": "news",
+   "https://skny.com/art-fairs/tefaf-new-york-2025": "fairs",
+   "https://skny.com/artists/laurent-grasso": "artist_page",
+   "https://skny.com/exhibitions/hilda-palafox": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-balkan-erotic-epic-at-the-ruhrtriennale": "news",
+   "https://skny.com/art-fairs/frieze-los-angeles-2025": "fairs",
+   "https://www.skny.com/ct/yi-shu-jia": "roster_index",
+   "https://skny.com/artists/johan-grimonprez": "artist_page",
+   "https://skny.com/exhibitions/mariko-mori3": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-skin-salt-and-tears": "news",
+   "https://skny.com/art-fairs/zona-maco-2025": "fairs",
+   "https://www.skny.com/ct/zui-xin-xiao-xi": "news",
+   "https://skny.com/artists/candida-hofer": "artist_page",
+   "https://skny.com/exhibitions/james-casebere-and-jose-davila": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-in-the-labour-of-care": "news",
+   "https://skny.com/art-fairs/art-basel-miami-beach-2024": "fairs",
+   "https://www.skny.com/ct/yi-shu-bo-lan-hui": "fairs",
+   "https://skny.com/artists/the-estate-of-ilse-dhollander": "artist_page",
+   "https://skny.com/exhibitions/anthony-olubunmi-akinbola": "exhibition_page",
+   "https://skny.com/news-events/wu-chi-tsung-in-crossing-lines-from-line-to-thread": "news",
+   "https://skny.com/art-fairs/frieze-london-2024": "fairs",
+   "https://skny.com/artists/rebecca-horn": "artist_page",
+   "https://skny.com/exhibitions/harminder-judge": "exhibition_page",
+   "https://skny.com/news-events/art-vital-12-years-of-ulay-marina-abramovic": "news",
+   "https://skny.com/art-fairs/the-armory-show-2024": "fairs",
+   "https://skny.com/artists/donna-huanca": "artist_page",
+   "https://skny.com/exhibitions/ground-work": "exhibition_page",
+   "https://skny.com/news-events/jose-davila-common-effort": "news",
+   "https://skny.com/art-fairs/art-basel-unlimited-20242": "fairs",
+   "https://www.skny.com/ct/hua-lang": "about",
+   "https://www.skny.com/en/gallery": "about",
+   "https://skny.com/artists/callum-innes": "artist_page",
+   "https://skny.com/exhibitions/sadie-barnette": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-self-portrait-2002-2013": "news",
+   "https://skny.com/art-fairs/art-basel-unlimited-2024": "fairs",
+   "https://skny.com/artists/harminder-judge": "artist_page",
+   "https://skny.com/exhibitions/faktura-tektonika": "exhibition_page",
+   "https://skny.com/news-events/dawoud-bey-in-photography-and-the-black-arts-movement-1955-1985": "news",
+   "https://skny.com/art-fairs/art-basel-2024": "fairs",
+   "https://www.skny.com/ct/zhan-lan": "exhibitions_current",
+   "https://skny.com/artists/idris-khan": "artist_page",
+   "https://skny.com/exhibitions/awol-erizku2": "exhibition_page",
+   "https://skny.com/news-events/dawoud-bey-material-histories-living-landscapes": "news",
+   "https://skny.com/art-fairs/tefaf-new-york-2024": "fairs",
+   "https://skny.com/artists/joseph-kosuth": "artist_page",
+   "https://skny.com/exhibitions/sam-moyer3": "exhibition_page",
+   "https://skny.com/news-events/remembering-christine-borland": "news",
+   "https://skny.com/art-fairs/tefaf-maastricht-2024": "fairs",
+   "https://skny.com/artists/liu-wei": "artist_page",
+   "https://skny.com/exhibitions/zipora-fried": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-in-bienal-del-agua-the-traces-of-water": "news",
+   "https://skny.com/art-fairs/tefaf-maastricht-20242": "fairs",
+   "https://skny.com/artists/peter-liversidge": "artist_page",
+   "https://skny.com/exhibitions/alec-soth6": "exhibition_page",
+   "https://skny.com/news-events/candida-hofer-perfect-beauty": "news",
+   "https://skny.com/art-fairs/frieze-los-angeles-2024": "fairs",
+   "https://skny.com/artists/anthony-mccall": "artist_page",
+   "https://skny.com/exhibitions/joseph-kosuth4": "exhibition_page",
+   "https://skny.com/news-events/marina-abramovic-in-daydream-air-becomes-art": "news",
+   "https://skny.com/art-fairs/zona-maco-2024": "fairs",
+   "https://skny.com/artists/hugo-mccloud": "artist_page",
+   "https://skny.com/artists/mariko-mori": "artist_page",
+   "https://skny.com/exhibitions/lindsay-adams": "exhibition_page",
+   "https://skny.com/exhibitions/wu-chi-tsung2": "exhibition_page",
+   "https://www.skny.com/art-fairs/aspen-art-fair-2026": "fairs",
+   "https://skny.com/news-events/donna-huanca-in-stellprobe": "news",
+   "https://skny.com/exhibitions/past": "exhibitions_archive",
+   "https://skny.com/contact": "contact_hours",
+   "https://skny.com/artists?page=2": "roster_index",
+   "https://skny.com/about": "about"
+  },
+  "site_notes": "Site is organized around hub pages (Artists, Exhibitions, News & Events, Art Fairs, Publications, Video, Collect Wisely, Gallery) each linking to many individual sub-pages for artists, exhibitions, fairs, and news items; there is a full roster_index and a combined current/upcoming exhibitions list but no clear separate exhibitions_archive, and no dedicated contact/hours page was found in the inventory despite likely existing in site navigation. The site is organized around distinct CMS sections (/artists, /exhibitions, /news-events, /art-fairs, /publications, /video, /podcast) with parallel Chinese-language (/ct/) and English (/en/) mirrors for a few core pages like Gallery and Collect Wisely; no roster index, exhibitions index, exhibitions archive, or contact page appears in the inventory despite clear evidence they exist (e.g., the Chinese 藝術家/展覽 pages). Site uses per-artist and per-exhibition subpages under /artists and /exhibitions rather than a single long roster or archive listing, so a roster index and paginated exhibition archive likely exist separately but are absent from this sample; additional content sections include publications, video, podcast, and news-events.",
+  "fetch_more": [
+   "https://skny.com/exhibitions/past",
+   "https://skny.com/contact",
+   "https://skny.com/artists?page=2",
+   "https://skny.com/artists",
+   "https://skny.com/exhibitions",
+   "https://skny.com/exhibitions/past",
+   "https://skny.com/news-events",
+   "https://skny.com/art-fairs",
+   "https://skny.com/about",
+   "https://skny.com/contact",
+   "https://skny.com/artists",
+   "https://skny.com/exhibitions",
+   "https://skny.com/exhibitions/past",
+   "https://skny.com/about",
+   "https://skny.com/contact",
+   "https://skny.com/art-fairs"
+  ]
+ },
+ "errors": [],
+ "duration_s": 440.5
+}

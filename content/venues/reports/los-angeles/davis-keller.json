@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "davis-keller",
+ "name": "Davis Keller Gallery",
+ "website": "https://www.daviskellergallery.com/",
+ "generated_ts": 1788497616,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0238,
+ "crawl": {
+  "pages": 19,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/davis-keller.jsonl"
+ },
+ "about_text": "Davis Keller is a contemporary art gallery and studio management firm based in Downtown Los Angeles. Co-founded by Sarah Davis and Rachel Keller, the gallery pairs studio management and business mentorship for artists with exhibition and advisory services for collectors. It stages shows in its Los Angeles space intended to help artists build income and collector relationships, while also offering artwork placement and art advisory services that emphasize direct, ongoing relationships between collectors and contemporary artists. The gallery is currently open to visitors by appointment only.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.daviskellergallery.com/about"
+ ],
+ "founded_year": null,
+ "founders": [
+  "Sarah Davis",
+  "Rachel Keller"
+ ],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "1206 Maple Avenue Suite 908, Los Angeles, CA 90015",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "studio management",
+  "artist advisory",
+  "contemporary art",
+  "emerging artists"
+ ],
+ "hours_text": "Open by appointment",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Alex Constable: Other People's Rooms",
+   "artists": [
+    "Alex Constable"
+   ],
+   "start": "2026-06-27",
+   "end": "2026-08-15",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.daviskellergallery.com/alex-constable-other-peoples-rooms"
+  },
+  {
+   "title": "In Studio: a selection of work by Genevieve Gaignard, Júlia Godoy, Katherina Olschbaur, and Emily Velez Nelms",
+   "artists": [
+    "Genevieve Gaignard",
+    "Júlia Godoy",
+    "Katherina Olschbaur",
+    "Emily Velez Nelms"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "group",
+   "source_url": "https://www.daviskellergallery.com/previous"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "The Art Newspaper",
+   "year": 2026,
+   "url": null
+  },
+  {
+   "outlet": "Financial Times",
+   "year": 2026,
+   "url": null
+  },
+  {
+   "outlet": "The Art Newspaper",
+   "year": 2026,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://www.daviskellergallery.com/about": "about",
+   "https://www.daviskellergallery.com/contact": "contact_hours",
+   "https://www.daviskellergallery.com/exhibitions": "exhibitions_archive",
+   "https://www.daviskellergallery.com/previous": "exhibitions_archive",
+   "https://www.daviskellergallery.com/press": "news",
+   "https://www.daviskellergallery.com/alex-constable-other-peoples-rooms": "exhibition_page"
+  },
+  "site_notes": "Small single-artist-focused gallery site with no roster index; the exhibition pages are all duplicate item-id variants of one Alex Constable show, and 'previous'/'exhibitions' pages appear to be empty archive placeholders.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 79.1
+}

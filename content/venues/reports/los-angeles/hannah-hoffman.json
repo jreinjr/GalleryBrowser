@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "hannah-hoffman",
+ "name": "Hannah Hoffman Gallery",
+ "website": "https://www.hannahhoffmangallery.com",
+ "generated_ts": 1788497888,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.4863,
+ "crawl": {
+  "pages": 1,
+  "sitemap": false,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/hannah-hoffman.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "New York",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Beverly Hills",
+   "address": null,
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [
+  "UNTITLED, San Francisco (2017)",
+  "Dallas Art Fair (2017)"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Only a homepage listing of exhibitions and three cities (New York, Los Angeles, Beverly Hills) was provided; no about text, artist roster, hours, or other details were present in the supplied content.",
+ "exhibitions_truncated": false,
+ "triage": {
+  "labels": {
+   "https://www.hannahhoffmangallery.com/artists": "roster_index",
+   "https://www.hannahhoffmangallery.com/exhibitions": "exhibitions_current",
+   "https://www.hannahhoffmangallery.com/about": "about",
+   "https://www.hannahhoffmangallery.com/contact": "contact_hours"
+  },
+  "site_notes": "Only the homepage was crawled, which has minimal text; the site's real structure (roster, exhibitions, about, contact) is not represented in the inventory and must be inferred from typical gallery navigation.",
+  "fetch_more": [
+   "https://www.hannahhoffmangallery.com/artists",
+   "https://www.hannahhoffmangallery.com/exhibitions",
+   "https://www.hannahhoffmangallery.com/about",
+   "https://www.hannahhoffmangallery.com/contact"
+  ]
+ },
+ "errors": [],
+ "gapfill": {
+  "urls": [
+   "https://www.artnews.com/art-news/news/hannah-hoffman-bridget-donahue-gallery-merger-1234751560/",
+   "https://www.artsy.net/partner/hannah-hoffman-gallery-and-galerie-balice-hertling",
+   "https://whitewall.art/art/hannah-hoffman-redefines-role-gallerist/",
+   "https://www.contemporaryartlibrary.org/venue/hannah-hoffman-gallery-8496",
+   "https://www.artnews.com/art-news/news/hannah-hoffman-bridget-donahue-gallery-merger-1234751560/",
+   "https://www.artsy.net/partner/hannah-hoffman-gallery-and-galerie-balice-hertling"
+  ],
+  "notes": "FAIRS: UNTITLED, San Francisco (2017); Dallas Art Fair (2017)\n\nMEMBERSHIPS: unknown\n\nSOURCES:\n- https://www.meer.com/hannah-hoffman/en\n- https://www.meer.com/hoffman-donahue-beverluy-hills/en\n- https://whitewall.art/art/hannah-hoffman-redefines-role-gallerist/\n- https://www.artnews.com/art-news/news/hannah-hoffman-bridget-donahue-gallery-merger-1234751560/\n- https://www.artsy.net/show/hannah-hoffman-gallery-hannah-hoffman-gallery-at-untitled-san-francisco-2017\n- https://www.artsy.net/show/hannah-hoffman-gallery-hannah-hoffman-gallery-at-dallas-art-fair-2017"
+ },
+ "duration_s": 152.0
+}
