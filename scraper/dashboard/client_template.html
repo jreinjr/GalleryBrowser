@@ -227,7 +227,7 @@ const G_WEIGHT_INFO = {
 };
 const G_GATE_INFO = {
   'gates.require_verified': ['Verified only', 'Only galleries whose website, address and Google listing we have checked. Unverified spaces are still ranked but marked.'],
-  'gates.kinds': ['Exclude museums', 'Galleries, nonprofits and project spaces only. Museums still appear in the app’s List and Map tabs.'],
+  'gates.kinds': ['Exclude museums', 'Galleries, nonprofits and project spaces only. Museums still appear in the app’s List and Map tabs.'],   // replaced by gKindsGateInfo() when the live default is narrower
   'tiers.1': ['Tier 1 cutoff', 'Score needed for tier 1 — the galleries the app treats as must-see.'],
   'tiers.2': ['Tier 2 cutoff', 'Score needed for tier 2.'],
   'tiers.3': ['Tier 3 cutoff', 'Score needed for tier 3 — the bar a gallery must clear for us to scrape its shows at all.'],
@@ -300,6 +300,12 @@ function recompute() {
 // ---- gallery gate helpers ----
 function gMuseumsExcluded(p) { const k = ((p || gparams).gates || {}).kinds || []; return k.length > 0 && !k.includes('museum'); }
 const G_DEFAULT_EXCLUDES = gMuseumsExcluded(GDEFAULT);
+// Label for the kinds gate: the live default may allow only commercial galleries, not every non-museum kind.
+function gKindsGateInfo() {
+  const on = gKindsOn();
+  if (on.length === 1 && on[0] === 'gallery') return ['Commercial galleries only', 'Nonprofits, project spaces, university galleries and museums are left out of the ranking. They still appear in the app’s List and Map tabs.'];
+  return G_GATE_INFO['gates.kinds'];
+}
 function gKindsOn() { return G_DEFAULT_EXCLUDES ? clone(GDEFAULT.gates.kinds) : NON_MUSEUM_KINDS.slice(); }
 function gKindsOff() { return G_DEFAULT_EXCLUDES ? [] : clone(GDEFAULT.gates.kinds); }
 function gClampTiers(changed) {
@@ -350,7 +356,7 @@ function gRenderControls() {
   const gi = G_GATE_INFO;
   $('#gates').innerHTML =
     boolCtl('gates.require_verified', gi['gates.require_verified'][0], gi['gates.require_verified'][1], { scope: 'g' }) +
-    boolCtl('gates.kinds', gi['gates.kinds'][0], gi['gates.kinds'][1], { scope: 'g', kind: 'museumgate' }) +
+    boolCtl('gates.kinds', gKindsGateInfo()[0], gKindsGateInfo()[1], { scope: 'g', kind: 'museumgate' }) +
     ['1', '2', '3'].map(k => rangeCtl(`tiers.${k}`, gi[`tiers.${k}`][0], gi[`tiers.${k}`][1], { scope: 'g', min: 0, max: 1, step: 0.01 })).join('');
   const hidden = [];
   let h = '';
