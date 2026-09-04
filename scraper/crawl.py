@@ -53,6 +53,9 @@ MIN_TEXT_CHARS = 200          # a 200 with less text than this is re-tried throu
 RENDER_MAX_CHARS = 120_000
 RENDER_TIMEOUT_S = 60
 RENDER_BUDGET = 60                    # Playwright renders per venue crawl
+TRANSIENT_ERRORS = ("ConnectTimeout", "ReadTimeout", "Timeout", "ConnectionError",
+                    "ChunkedEncodingError", "TooManyRedirects")
+RETRY_PAUSE_S = 3.0
 MAX_SITEMAPS = 8
 SKIP_EXT = {
     ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif", ".bmp", ".tif", ".tiff", ".ico",
@@ -472,6 +475,11 @@ def crawl_site(city: str, venue: dict, max_pages: int = 300, fetcher: refresh.Fe
             break
         url, depth, source = pick()
         res = fetch_page(fetcher, url, render, budget)
+        if res["status"] is None and res["error"] in TRANSIENT_ERRORS:
+            # a timeout under load is not evidence about the site: one retry,
+            # after the politeness gap, before the page is banked as unreadable
+            time.sleep(RETRY_PAUSE_S)
+            res = fetch_page(fetcher, url, render, budget)
         text = res["text"] or ""
         ev = None
         if res["status"] == 200 and text.strip():

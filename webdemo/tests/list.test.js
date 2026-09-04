@@ -217,18 +217,58 @@ function check(name, ok, detail) {
   await sortBy('Ranking');
   await closeSheet();
 
-  // 6. Featured shares the state; bookmark from the card
+  // 6. Featured shares the state; a venue's concurrent shows deal through one card
   await page.click('.tab-btn[data-tab="featured"]');
   await page.waitForSelector('#pages-featured .card');
-  const cards = await page.$$eval('#pages-featured .card', e => e.length);
-  check('Featured feed shows the same filtered set', cards === data.total, `${cards} cards / ${data.total}`);
+  const feed = await page.$$eval('#pages-featured .feed > *',
+    els => els.map(e => +(e.dataset.shows || 1)));
+  const cards = feed.length;
+  check('Featured feed covers the same filtered set',
+    feed.reduce((a, b) => a + b, 0) === data.total, `${cards} cards over ${data.total} shows`);
+  check('Featured feed is one card per venue, not per show',
+    cards === await page.evaluate(() => new Set(window.DemoDebug.filteredShows()
+      .map(s => window.__venueKey(s.venue))).size), `${cards} cards`);
+  check('a venue running several shows deals them from one card', await (async () => {
+    const deep = feed.filter(n => n > 1).length;
+    if (!deep) return false;                       // the payload must exercise the case
+    const i = feed.findIndex(n => n > 1);
+    const st = await page.evaluate(n => {
+      const e = document.querySelectorAll('#pages-featured .feed > *')[n];
+      return { sheets: e.querySelectorAll('.stack-sheet').length,
+               cards: e.querySelectorAll('.card').length,
+               count: (e.querySelector('.cf-count') || {}).textContent };
+    }, i);
+    return st.cards === 1 && st.sheets === Math.min(feed[i] - 1, 2) && st.count === `1 / ${feed[i]}`;
+  })(), `${feed.filter(n => n > 1).length} decks in the feed`);
+  check('swiping a deck footer deals the next show, and a tap opens the face-up one', await (async () => {
+    const i = feed.findIndex(n => n > 1);
+    await page.evaluate(n => document.querySelectorAll('#pages-featured .feed > *')[n]
+      .scrollIntoView({ block: 'center' }), i);
+    await page.waitForTimeout(400);
+    const sel = `#pages-featured .feed > *:nth-child(${i + 1})`;
+    const before = await page.$eval(sel + ' .name', e => e.textContent);
+    const b = await page.$eval(sel + ' .card-footer',
+      e => { const r = e.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+    await page.mouse.move(b.x, b.y); await page.mouse.down();
+    await page.mouse.move(b.x - 60, b.y, { steps: 6 }); await page.mouse.up();
+    await page.waitForTimeout(420);
+    const after = await page.evaluate(sel => ({ n: document.querySelector(sel + ' .name').textContent,
+      c: document.querySelector(sel + ' .cf-count').textContent }), sel);
+    if (after.n === before || after.c !== `2 / ${feed[i]}`) return false;
+    await page.click(sel + ' .cf-text');
+    await page.waitForSelector('#pages-featured .page-push .detail-body');
+    const opened = await page.$eval('#pages-featured .page-push .detail-body',
+      d => (d.querySelector('.detail-artist') || d.querySelector('.detail-title')).textContent);
+    await page.evaluate(() => document.querySelector('#pages-featured .page-push').remove());
+    return opened === after.n;
+  })());
   check('Featured badge matches', (await badge('#pages-featured')) === '2');
   check('cards carry no rank star', (await page.$$eval('#pages-featured .card .tier-star', els => els.length)) === 0);
   await page.click('#pages-featured .card .bookmark-btn');
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('savedShowIDs')));
   check('card bookmark saves the show', saved.length === 1, JSON.stringify(saved));
   check('card bookmark shows saved', await page.$eval('#pages-featured .card .bookmark-btn', e => e.classList.contains('saved')));
-  check('card bookmark is white when unsaved', await page.$eval('#pages-featured .card:nth-child(2) .bookmark-btn', e => getComputedStyle(e).color === 'rgb(255, 255, 255)'));
+  check('card bookmark is white when unsaved', await page.$eval('#pages-featured .feed > *:nth-child(2) .bookmark-btn', e => getComputedStyle(e).color === 'rgb(255, 255, 255)'));
   await page.click('.tab-btn[data-tab="list"]');
   check('list row bookmark mirrors it', await page.$eval('#pages-list .show-row .bookmark-btn', e => e.classList.contains('saved')));
   // "Saved only" became the List group's My Shows option

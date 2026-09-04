@@ -138,8 +138,8 @@ function check(name, ok, detail) {
   })));
   check('venue-page shows render as Featured-style cards', vcards.length > 0
     && vcards.every(c => c.img && c.name && c.save && c.stars === 0), JSON.stringify(vcards));
-  check('the cards run about a third the height of a Featured card',
-    vcards.every(c => c.h >= 100 && c.h <= 140), vcards.map(c => c.h).join(','));
+  check('the cards run about two thirds the height of a Featured card',
+    vcards.every(c => c.h === 248), vcards.map(c => c.h).join(','));
   check('the card footer carries the run dates, not the venue name',
     vcards.every(c => /^(Through|Opens) /.test(c.sub || '')), vcards.map(c => c.sub).join(' | '));
   check('the venue map card is a live MapLibre canvas', await (async () => {
@@ -149,6 +149,48 @@ function check(name, ok, detail) {
   })());
   check('the Top pill is the only rank mark on the gallery page',
     (await page.$$eval('#pages-list .venue-body .tier-pill, #pages-list .venue-body .tier-star', els => els.length)) === 1);
+
+  // ---- the gallery page lists shows one card each; the deck lives on Featured ----
+  await page.evaluate(() => { const root = document.getElementById('pages-list');
+    while (root.children.length > 1) root.lastElementChild.remove(); });
+  await page.click('#pages-list .lib-row.all');      // the root is the library; the rows live on All shows
+  await page.waitForSelector('#pages-list .list-results .show-row');
+  const many = await page.evaluate(() => {           // the LA venue running the most shows
+    const n = {}; window.DEMO_DATA.shows.filter(s => s.city === 'los-angeles')
+      .forEach(s => (n[s.venue.name] = (n[s.venue.name] || 0) + 1));
+    const name = Object.keys(n).sort((a, b) => n[b] - n[a])[0];
+    return { name, n: n[name] };
+  });
+  await page.locator('#pages-list .list-results .show-row', { hasText: many.name }).first().locator('.sr-text').click();
+  await page.waitForSelector('#pages-list .venue-block');
+  await page.click('#pages-list .venue-block');
+  await page.waitForSelector('#pages-list .venue-show-list');
+  await page.waitForTimeout(500);
+  const listed = await page.evaluate(() => ({
+    cards: document.querySelectorAll('#pages-list .venue-show-card').length,
+    stacks: document.querySelectorAll('#pages-list .venue-body .show-stack').length,
+    counters: document.querySelectorAll('#pages-list .venue-body .cf-count').length,
+  }));
+  check(`the gallery page lists all ${many.n} shows as separate cards`,
+    listed.cards === many.n, JSON.stringify(listed));
+  check('no deck on the gallery page — no sheets, nothing to swipe',
+    listed.stacks === 0 && listed.counters === 0, JSON.stringify(listed));
+
+  // shows at one gallery are geocoded per show and drift a metre or two, so the
+  // venue key must be the registry id — a coordinate key splits one venue into two
+  check('geocode drift never splits a venue in two', await page.evaluate(() => {
+    const byId = {}, drift = [];
+    window.DEMO_DATA.shows.forEach(s => {
+      const id = s.venueId || s.venue.id;
+      if (!id) return;
+      (byId[id] = byId[id] || new Set()).add(`${s.venue.lat.toFixed(5)},${s.venue.lng.toFixed(5)}`);
+    });
+    Object.entries(byId).forEach(([id, pos]) => { if (pos.size > 1) drift.push(id); });
+    return drift.every(id => {
+      const ss = window.DEMO_DATA.shows.filter(s => (s.venueId || s.venue.id) === id);
+      return new Set(ss.map(s => window.__venueKey(s.venue))).size === 1;
+    }) && drift.length > 0;                       // and the payload must still exercise the case
+  }), 'venues with per-show coordinate drift all key as one');
 
   await browser.close();
   server.close();

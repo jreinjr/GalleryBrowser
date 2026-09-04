@@ -149,10 +149,24 @@ header), `DISCOVER_ALLOW_NO_ORIGIN=1` (curl and the eval).
   page.
 - **Featured cards** carry a white bookmark button in the footer, the same
   control as the list rows.
-- **Venue page** leads with Shows, then the blurb, then the address lines. Each
-  show is a Featured card in miniature — photo, frosted footer, bookmark — 124px
-  tall, about a third of a Featured card, and the footer's second line carries the
-  run dates rather than repeating the venue name.
+- **Featured is one card per venue, not per show** (`showDeck` in `app.js`). A
+  gallery running several shows at once deals them through a single card instead
+  of repeating itself down the feed: sheets peek out below to say how deep the
+  deck is (two at most, however many shows), swiping the footer left or right
+  deals the next show and wraps, a counter beside the bookmark says where you
+  are, and a tap opens whichever show is face up — the detail page still gets a
+  stepper over every show in the filtered set. The photo strip keeps its own
+  image carousel, and `touch-action: pan-y` on the footer means a vertical drag
+  still scrolls the feed. A venue with one show is a plain card: no sheets, no
+  counter, nothing to swipe.
+- **Venue page** leads with Shows, then the blurb, then the address lines, and
+  lists the venue's shows one card each — the same card at 248px, about two
+  thirds of a Featured card. No deck here: the venue is already the subject, so
+  the shows are laid out rather than stacked, and the footer's second line
+  carries the run dates instead of repeating the venue name.
+- Venues are identified by the registry `venueId`, not by name + coordinate:
+  shows at one gallery are geocoded per show and drift a metre or two, which a
+  coordinate key splits into two venues (two feed rows, two map pins).
 - The **venue map card** is a live MapLibre map (same style as the Map tab), not a
   crop of a pre-stitched raster basemap: CARTO's raster tile CDN now requires an
   API key and stamps "API KEY REQUIRED" across every tile. Vector tiles stay crisp
