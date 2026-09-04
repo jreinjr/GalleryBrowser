@@ -435,5 +435,21 @@ class ResearchTests(TempCaches):
         self.assertIsNone(facts["roster_count"])
 
 
+
+class NormalizeUrlTests(unittest.TestCase):
+    def test_unparseable_href_is_dropped_not_raised(self):
+        # Gallery Koyanagi's site links "http://リンク：https://…": urljoin/urlparse
+        # raise ValueError on the fullwidth colon; the crawl must skip it.
+        bad = "http://リンク：https://example.com/x"
+        self.assertIsNone(crawl.normalize_url(bad))
+        self.assertIsNone(crawl.normalize_url(bad, "https://gallerykoyanagi.com/en/"))
+        html = f'<a href="{bad}">x</a><a href="/en/exhibitions/">y</a>'
+        self.assertEqual(crawl.extract_links(html, "https://gallerykoyanagi.com/en/"),
+                         ["https://gallerykoyanagi.com/en/exhibitions"])
+        html = f'<base href="{bad}"><a href="/en/about/">z</a>'
+        self.assertEqual(crawl.extract_links(html, "https://gallerykoyanagi.com/en/"),
+                         ["https://gallerykoyanagi.com/en/about"])
+
+
 if __name__ == "__main__":
     unittest.main()

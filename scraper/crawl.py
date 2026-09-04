@@ -78,11 +78,11 @@ def normalize_url(url: str, base: str | None = None) -> str | None:
     url = url.strip()
     if url.lower().startswith(SKIP_SCHEMES):
         return None
-    if base:
-        url = urljoin(base, url)
     try:
+        if base:
+            url = urljoin(base, url)
         p = urlparse(url)
-    except ValueError:
+    except ValueError:   # e.g. href "http://リンク：https://…" (fullwidth colon in the host)
         return None
     if p.scheme not in ("http", "https") or not p.netloc:
         return None
@@ -148,7 +148,12 @@ def extract_links(html: str, page_url: str) -> list[str]:
         p.feed(html or "")
     except Exception:  # noqa: BLE001 - sloppy HTML never aborts a crawl
         pass
-    base = urljoin(page_url, p.base) if p.base else page_url
+    base = page_url
+    if p.base:
+        try:
+            base = urljoin(page_url, p.base)
+        except ValueError:
+            pass
     out, seen = [], set()
     for href in p.links:
         n = normalize_url(href, base)
