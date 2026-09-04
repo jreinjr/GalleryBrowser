@@ -30,8 +30,10 @@ header { position: sticky; top: 0; z-index: 20; background: rgba(245,245,242,0.9
 .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 #layout { max-width: 1280px; margin: 0 auto; padding: 18px 20px 80px; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 22px; align-items: start; }
 aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; max-height: calc(100vh - 80px); overflow: auto; }
-.panel-tabs { display: none; gap: 8px; margin-bottom: 8px; }
+.panel-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
 .panel-tabs .btn { flex: 1; }
+.panel-tabs .btn[data-body] { display: none; }
+.panel-tabs .btn.reset { flex: 0 0 auto; margin-left: auto; }
 .panel-tabs .btn.on { background: var(--ink); color: #fff; border-color: var(--ink); }
 .export-body { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 4px; }
 .manual { background: #fbeedc; border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.45; margin-bottom: 10px; color: #5c3d0e; }
@@ -133,7 +135,9 @@ table.t td.b { color: var(--muted); font-size: 12px; }
 @media (max-width: 900px) {
   #layout { grid-template-columns: 1fr; padding: 12px 12px 80px; gap: 12px; }
   aside { position: static; max-height: none; padding: 12px; }
-  .panel-tabs { display: flex; }
+  .panel-tabs .btn[data-body] { display: block; }
+  .panel-tabs .btn.reset { flex: 1; margin-left: 0; }
+  .panel-tabs { margin-bottom: 8px; }
   .panel-body { display: none; }
   aside.show-tune #tune-body, aside.show-export #export-body { display: block; }
   .export-body { margin-top: 0; border-top: 0; padding-top: 0; }
@@ -152,7 +156,7 @@ table.t td.b { color: var(--muted); font-size: 12px; }
 <header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="tabs" id="mode" hidden><button data-mode="galleries">Galleries</button><button data-mode="shows">Shows</button></div><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
 <div id="layout">
   <aside id="panel">
-    <div class="panel-tabs"><button class="btn" id="panel-toggle" data-body="tune">Tune the ranking</button><button class="btn" id="export-toggle" data-body="export">Export</button></div>
+    <div class="panel-tabs"><button class="btn" id="panel-toggle" data-body="tune">Tune the ranking</button><button class="btn" id="export-toggle" data-body="export">Export</button><button class="btn reset" data-act="reset" title="Back to the live settings">Reset to live</button></div>
     <div class="panel-body" id="tune-body">
       <h2 id="gates-h">Feed gates</h2>
       <div id="gates"></div>
@@ -170,7 +174,6 @@ table.t td.b { color: var(--muted); font-size: 12px; }
         <button class="btn" data-act="sms">Text link</button>
         <button class="btn" data-act="share" id="share-btn" hidden>Share…</button>
         <button class="btn" data-act="download">Download params JSON</button>
-        <button class="btn" data-act="reset">Reset to live</button>
       </div>
       <div class="hint" id="export-hint">One link carries your gallery and show settings; it encodes only what you changed, so it can be texted or emailed and opened on any device. A hand-set order travels with the link, the email and text bodies, and the params JSON.</div>
     </div>
@@ -834,10 +837,10 @@ document.addEventListener('click', e => {
   else if (act === 'gauto') gAuto();
 });
 // mobile: "Tune the ranking" / "Export" open one panel body at a time (desktop shows both; see the 900px media query)
-for (const btn of document.querySelectorAll('.panel-tabs .btn')) btn.addEventListener('click', () => {
+for (const btn of document.querySelectorAll('.panel-tabs .btn[data-body]')) btn.addEventListener('click', () => {
   const panel = $('#panel'), cls = 'show-' + btn.dataset.body, on = panel.classList.contains(cls);
   panel.classList.remove('show-tune', 'show-export');
-  document.querySelectorAll('.panel-tabs .btn').forEach(x => x.classList.remove('on'));
+  document.querySelectorAll('.panel-tabs .btn[data-body]').forEach(x => x.classList.remove('on'));
   if (!on) { panel.classList.add(cls); btn.classList.add('on'); }
 });
 // drag to reorder gallery cards (HTML5 DnD; ▲▼ buttons cover touch devices)
