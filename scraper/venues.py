@@ -21,9 +21,15 @@ Hooks (called lazily from tools.py so the two modules can import each other):
 `kind` (KINDS) is the single source of truth for what a venue is; `is_museum`
 is a derived mirror of `kind == "museum"`, resynced by merge_patch on every
 write and carried only because the show records and the apps decode it. Never
-patch it directly. Precedence for `kind`: a confirmed show or a curated
-directory wins, and a Google Places sweep fills it only when nothing else has
-(seed_venues.patch_for) — Places' `museum` type is too loose to retype a venue.
+patch it directly. Every write of `kind` goes through set_kind, which records
+where the type came from (`kind_source`, KIND_SOURCES low -> high: default <
+places < directory < agent < show < research < manual) and refuses a
+lower-ranked source: a directory import cannot retype what research decided,
+research cannot retype a manual `set-kind`. Directories (GPLA, Carla) list
+nonprofits and art centers as members and used to hardcode them all "gallery"
+with nothing downstream allowed to fix it (Armory Center for the Arts sat as a
+gallery while its own report said "not a commercial gallery"); research_venue
+now classifies from the venue's own pages and outranks the seed.
 
 A venue holds any number of concurrent shows (`last_known_shows`); scheduling
 keys off the EARLIEST-ending live show so a venue is re-checked whenever one
@@ -49,7 +55,7 @@ from urllib.parse import urlparse
 
 import tools
 
-SCHEMA = 2
+SCHEMA = 3
 SCRAPER_DIR = Path(__file__).resolve().parent
 VENUES_DIR = tools.CONTENT_DIR / "venues"
 EVIDENCE_DIR = SCRAPER_DIR / ".cache" / "evidence"   # evidence paths are relative to SCRAPER_DIR
@@ -60,6 +66,26 @@ EVIDENCE_PRUNE_DAYS = 45
 
 KINDS = ["gallery", "museum", "nonprofit", "project_space", "university", "other"]
 MUSEUM_KIND = "museum"
+# Who typed the venue, weakest first. set_kind lets a source overwrite an equal
+# or lower-ranked one and never a higher one.
+KIND_SOURCES = ["default", "places", "directory", "agent", "show", "research", "manual"]
+# The one definition of each kind, handed to every model that emits one
+# (record_venue, seed-llm, research profile/classify) so the enum is not bare.
+KIND_DEFS = {
+    "gallery": "commercial gallery: sells work, represents artists or is dealer-run "
+               "(artist-run spaces that sell count)",
+    "museum": "museum proper: a collecting institution or kunsthalle-scale public museum "
+              "(The Broad, Hammer, MOCA, ICA LA, Mori Art Museum); a named museum stays "
+              "museum even when a university runs it",
+    "nonprofit": "non-commercial exhibition space that is not a museum: 501(c)(3) or "
+                 "public-interest art center, foundation exhibition space, cultural "
+                 "center, city or municipal gallery, artist-run nonprofit",
+    "university": "campus gallery run by a school or university (not a named museum)",
+    "project_space": "small independent or artist-run space with no roster and no "
+                     "institutional incorporation: pop-up, apartment or studio-front space",
+    "other": "auction house, art fair, shop or bookstore, framer, studio",
+}
+KIND_HELP = "; ".join(f"{k} = {t}" for k, t in KIND_DEFS.items())
 STATUSES = ["active", "closed", "appointment_only", "out_of_scope", "duplicate", "unknown",
             "candidate"]   # candidate: domain seen in a session, not yet confirmed a venue
 URL_SOURCES = ["harness", "migration", "discovered", "agent", "manual"]
@@ -114,6 +140,29 @@ def sync_museum_flag(v: dict) -> dict:
     if v.get("kind") is not None:
         v["is_museum"] = is_museum(v)
     return v
+
+
+def kind_rank(source: str | None) -> int:
+    """Position in KIND_SOURCES; unknown / missing provenance ranks lowest."""
+    return KIND_SOURCES.index(source) if source in KIND_SOURCES else 0
+
+
+def set_kind(v: dict, kind: str | None, source: str, evidence: str | None = None) -> bool:
+    """The only writer of `kind`. Applies when `kind` is in the vocabulary and
+    `source` ranks at least as high as the source that typed the venue
+    before (KIND_SOURCES); records `kind_source` / `kind_evidence` and resyncs
+    the museum mirror. Returns True when the kind itself changed."""
+    if kind not in KINDS or source not in KIND_SOURCES:
+        return False
+    if kind_rank(source) < kind_rank(v.get("kind_source")):
+        return False
+    changed = v.get("kind") != kind
+    v["kind"] = kind
+    v["kind_source"] = source
+    if evidence is not None or changed:
+        v["kind_evidence"] = evidence
+    sync_museum_flag(v)
+    return changed
 
 
 # --- identity ------------------------------------------------------------------
@@ -210,11 +259,13 @@ def v2_blocks() -> dict:
                      "cost_usd": None, "gapfill": False},
         "features": {},
         "rank": None, "score": None, "score_breakdown": None,
+        # schema 3: who typed the venue (KIND_SOURCES) and the line of evidence
+        "kind_source": None, "kind_evidence": None,
     }
 
 
 def ensure_v2(v: dict) -> dict:
-    """Back-fill schema-2 blocks in place (nested dict keys included)."""
+    """Back-fill schema-2/3 blocks in place (nested dict keys included)."""
     for k, dflt in v2_blocks().items():
         if k not in v or (isinstance(dflt, dict) and not isinstance(v.get(k), dict)):
             v[k] = json.loads(json.dumps(dflt))
@@ -366,18 +417,24 @@ def find_venue(reg: dict, name: str | None, website: str | None = None,
 
 _LIST_UNION = ("aliases", "exhibitions_url_candidates")
 _LIST_APPEND = ("scrape_history",)
-_PROTECTED = ("id", "is_museum")   # is_museum is derived from `kind`, never patched
+# is_museum is derived from `kind`; kind_source / kind_evidence are written only
+# by set_kind (a patch carries them as the provenance OF its `kind`, see merge_patch)
+_PROTECTED = ("id", "is_museum", "kind_source", "kind_evidence")
 
 
 def merge_patch(v: dict, patch: dict) -> dict:
     """Apply a patch: None never overwrites a value; list fields union/append;
     `last_known_shows` upserts by slug; nested `page`/`sources` merge shallowly.
     `is_museum` is never taken from the patch — it is re-derived from `kind` on
-    the way out (see sync_museum_flag)."""
+    the way out (see sync_museum_flag). `kind` goes through set_kind with the
+    patch's `kind_source` (default "agent", the record_venue path), so a
+    lower-ranked writer cannot retype a venue."""
     for k, val in patch.items():
         if k in _PROTECTED or val is None:
             continue
-        if k in _LIST_UNION:
+        if k == "kind":
+            set_kind(v, val, patch.get("kind_source") or "agent", patch.get("kind_evidence"))
+        elif k in _LIST_UNION:
             cur = v.setdefault(k, [])
             for item in val:
                 if item and item not in cur:
@@ -1255,7 +1312,7 @@ def _venue_patch_from_show(record: dict, placement: str) -> dict:
         # ever upward — an agent calling a museum a gallery must not demote a
         # venue the registry already types as one.
         "name": v["name"], "kind": MUSEUM_KIND if v.get("is_museum") else None,
-        "status": "active",
+        "kind_source": "show", "status": "active",
         "neighborhood": v.get("neighborhood"), "address": v.get("address"),
         "address_detail": v.get("address_detail"),
         "latitude": v.get("latitude"), "longitude": v.get("longitude"),
@@ -1789,6 +1846,20 @@ def cmd_audit(city: str) -> dict:
     return out
 
 
+def cmd_set_kind(city: str, vid: str, kind: str, why: str) -> dict:
+    """`venues.py set-kind`: the manual override. Source "manual" is the top of
+    KIND_SOURCES, so no seed, agent or research pass can undo it."""
+    with locked_registry(city) as reg:
+        v = index_by_id(reg).get(vid)
+        if v is None:
+            raise SystemExit(f"{city}: no venue {vid!r}")
+        ensure_v2(v)
+        before = v.get("kind")
+        set_kind(v, kind, "manual", why)
+        print(f"{vid}: {before} -> {v['kind']} (manual: {why})")
+        return json.loads(json.dumps(v))
+
+
 def main() -> None:
     import argparse
     from cities import CITIES
@@ -1803,9 +1874,17 @@ def main() -> None:
     rq.add_argument("--city", required=True, choices=sorted(CITIES))
     rq.add_argument("--apply", action="store_true", help="write next_check/requeue_reasons")
     rq.add_argument("--cohorts", default=None, help="comma subset of the cohort names")
+    sk = sub.add_parser("set-kind", help="manually type a venue; outranks every automated writer")
+    sk.add_argument("--city", required=True, choices=sorted(CITIES))
+    sk.add_argument("--id", required=True, help="venue id")
+    sk.add_argument("--kind", required=True, choices=KINDS)
+    sk.add_argument("--why", required=True, help="one line of evidence, stored as kind_evidence")
     args = ap.parse_args()
     if args.cmd == "dedupe":
         cmd_dedupe(args.city, args.apply)
+        return
+    if args.cmd == "set-kind":
+        cmd_set_kind(args.city, args.id, args.kind, args.why)
         return
     if args.cmd == "audit":
         cmd_audit(args.city)

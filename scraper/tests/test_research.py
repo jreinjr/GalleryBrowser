@@ -189,9 +189,11 @@ class CrawlerTests(TempCaches):
 class _StubClient:
     """messages.create returns canned structured outputs keyed by the system prompt."""
 
-    def __init__(self):
+    def __init__(self, profile_kind="gallery", profile_conf=0.9, kind_verdicts=None):
         self.calls = []
         self.messages = self
+        self.profile_kind, self.profile_conf = profile_kind, profile_conf
+        self.kind_verdicts = kind_verdicts or {}
 
     def create(self, **req):
         self.calls.append(req)
@@ -220,7 +222,14 @@ class _StubClient:
                    "roster": [{"name": "Ada Painter", "status": "represented", "source_url": "u"},
                               {"name": "Bo Sculptor", "status": "represented", "source_url": "u"},
                               {"name": "Cy Estate", "status": "estate", "source_url": "u"}],
-                   "fairs_self_reported": [], "memberships_self_reported": [], "press_self_reported": [], "notes": None}
+                   "fairs_self_reported": [], "memberships_self_reported": [], "press_self_reported": [], "notes": None,
+                   "venue_kind": self.profile_kind, "kind_confidence": self.profile_conf,
+                   "kind_evidence": "founded as a commercial gallery representing painters"}
+        elif system == rv.KIND_SYSTEM:
+            # classify: the dossier names the venue; the canned verdicts are keyed by it
+            name = user.splitlines()[0]
+            kind, conf = self.kind_verdicts.get(name.split(": ", 1)[1], ("gallery", 0.9))
+            out = {"venue_kind": kind, "confidence": conf, "evidence": f"dossier says {kind}"}
         elif system == rv.EXHIBITIONS_SYSTEM:
             ex = []
             if "Heavy" in user:
@@ -297,6 +306,10 @@ class ResearchTests(TempCaches):
             self.assertIsNotNone(rv2["research"]["ts"])
             self.assertEqual(rv2["hours"], ["Wednesday to Saturday 11am to 6pm"])
             self.assertIsNone(rv2["verification"]["status"], "research must not touch verification")
+            # the profile pass typed the venue: same kind, but now research-sourced
+            self.assertEqual(rep["venue_kind"], "gallery")
+            self.assertEqual(rv2["kind"], "gallery")
+            self.assertEqual(rv2["kind_source"], "research")
             # rerun rule
             picked, skipped = rv.select_venues("los-angeles", None, None, False)
             self.assertEqual(picked, [])
@@ -340,6 +353,77 @@ class ResearchTests(TempCaches):
                 rv.store.city_dir = saved_store
         finally:
             anthropic.Anthropic = saved
+
+    def test_profile_retypes_a_directory_seeded_gallery(self):
+        """The Armory shape: GPLA seeded it "gallery", its own about page says
+        nonprofit. Research outranks the directory and fixes the kind; a
+        low-confidence verdict leaves it alone; a manual set-kind is never touched."""
+        with FixtureSite() as site:
+            v = self._seed_registry(site.root)
+            with venues.locked_registry("los-angeles") as reg:
+                venues.set_kind(venues.index_by_id(reg)[v["id"]], "gallery", "directory")
+            client = _StubClient(profile_kind="nonprofit", profile_conf=0.95)
+            rep = rv.research_one(client, "los-angeles", v, rv.Meter("research-test"), _args(), "s",
+                                  fetcher=refresh.Fetcher(spacing=0), log=lambda *_: None)
+            self.assertEqual(rep["venue_kind"], "nonprofit")
+            rv2 = venues.index_by_id(venues.load_registry("los-angeles"))[v["id"]]
+            self.assertEqual((rv2["kind"], rv2["is_museum"], rv2["kind_source"]), ("nonprofit", False, "research"))
+            self.assertTrue(rv2["kind_evidence"].startswith("founded as"))
+            # below the confidence floor: no write (reset the record by hand —
+            # a directory-ranked set_kind would rightly be refused now)
+            with venues.locked_registry("los-angeles") as reg:
+                venues.index_by_id(reg)[v["id"]].update({"kind": "gallery", "kind_source": "directory"})
+            rv.research_one(_StubClient(profile_kind="museum", profile_conf=0.4), "los-angeles", v,
+                            rv.Meter("research-test"), _args(force=True), "s", fetcher=refresh.Fetcher(spacing=0),
+                            log=lambda *_: None)
+            rv2 = venues.index_by_id(venues.load_registry("los-angeles"))[v["id"]]
+            self.assertEqual(rv2["kind"], "gallery")
+            # manual wins over research
+            with venues.locked_registry("los-angeles") as reg:
+                venues.set_kind(venues.index_by_id(reg)[v["id"]], "project_space", "manual", "owner told us")
+            rv.research_one(_StubClient(profile_kind="museum", profile_conf=0.99), "los-angeles", v,
+                            rv.Meter("research-test"), _args(force=True), "s", fetcher=refresh.Fetcher(spacing=0),
+                            log=lambda *_: None)
+            rv2 = venues.index_by_id(venues.load_registry("los-angeles"))[v["id"]]
+            self.assertEqual((rv2["kind"], rv2["kind_source"]), ("project_space", "manual"))
+
+    def test_classify_dry_run_then_apply(self):
+        """`classify` reads saved reports: dry run writes only the review file;
+        --apply retypes confident changes and skips low-confidence ones."""
+        with venues.locked_registry("los-angeles") as reg:
+            for vid, name, kind in (("armory", "Armory Center", "gallery"), ("shy", "Shy Space", "gallery"),
+                                    ("broad", "The Broad", "museum"), ("noreport", "No Report", "gallery")):
+                v = venues.empty_venue(vid, name)
+                v.update({"status": "active", "website": f"https://{vid}.test"})
+                venues.set_kind(v, kind, "directory")
+                reg["venues"].append(v)
+        for vid in ("armory", "shy", "broad"):
+            rv.save_report({"schema": rv.REPORT_SCHEMA, "city": "los-angeles", "venue_id": vid, "name": vid,
+                            "about_text": "about", "notes": None, "roster": [], "exhibitions": []})
+        verdicts = {"Armory Center": ("nonprofit", 0.93), "Shy Space": ("project_space", 0.5),
+                    "The Broad": ("museum", 0.99)}
+        args = SimpleNamespace(city="los-angeles", venue_ids=None, status="active", limit=None,
+                               min_confidence=0.7, workers=1, apply=False)
+        rv.cmd_classify(args, client=_StubClient(kind_verdicts=verdicts))
+        reviews = sorted((rv.REPORTS_DIR / "los-angeles").glob("kind-review-*.json"))
+        self.assertEqual(len(reviews), 1)
+        review = json.loads(reviews[0].read_text())
+        self.assertFalse(review["applied"])
+        by = {r["venue_id"]: r for r in review["rows"]}
+        self.assertEqual(set(by), {"armory", "shy", "broad"}, "venues without a report are skipped")
+        self.assertTrue(by["armory"]["changed"] and not by["armory"]["applied"])
+        self.assertFalse(by["broad"]["changed"])
+        reg = venues.load_registry("los-angeles")
+        self.assertEqual(venues.index_by_id(reg)["armory"]["kind"], "gallery", "dry run writes nothing")
+        args.apply = True
+        rv.cmd_classify(args, client=_StubClient(kind_verdicts=verdicts))
+        reg = venues.index_by_id(venues.load_registry("los-angeles"))
+        self.assertEqual((reg["armory"]["kind"], reg["armory"]["kind_source"]), ("nonprofit", "research"))
+        self.assertEqual(reg["shy"]["kind"], "gallery", "0.5 is below the floor")
+        self.assertEqual(reg["broad"]["kind"], "museum")
+        self.assertEqual(rv.load_report("los-angeles", "armory")["venue_kind"], "nonprofit")
+        review = json.loads(sorted((rv.REPORTS_DIR / "los-angeles").glob("kind-review-*.json"))[-1].read_text())
+        self.assertTrue({r["venue_id"]: r["applied"] for r in review["rows"]}["armory"])
 
     def test_merge_and_facts_helpers(self):
         merged = rv.merge_exhibitions([[{"title": "A", "artists": ["X"], "year": 2020, "kind": "solo", "source_url": "u"}],

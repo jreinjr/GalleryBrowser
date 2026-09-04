@@ -24,7 +24,7 @@ export function customTools(c) {
         properties: {
           query: { type: 'string', description: 'Free-text topic: medium, theme, movement, mood, or an artist to be "similar to". Omit for pure filters.' },
           neighborhoods: { type: 'array', items: { type: 'string', enum: c.neighborhoods }, description: 'Exact neighborhood names from the list.' },
-          venue_kind: { type: 'string', enum: ['gallery', 'museum', 'any'], description: 'gallery = every non-museum venue.' },
+          venue_kind: { type: 'string', enum: ['gallery', 'museum', 'any'], description: 'gallery = commercial galleries only; museum = museums only; any (default) = also nonprofits, university galleries, project spaces and other venues.' },
           gallery_tier: { type: 'string', enum: ['top', 'notable', 'any'] },
           show_tier: { type: 'string', enum: ['picks', 'featured', 'any'] },
           status: { type: 'string', enum: ['on_view', 'upcoming', 'any'], description: 'Default on_view. any = on view or upcoming.' },
@@ -41,12 +41,12 @@ export function customTools(c) {
     },
     {
       name: 'find_venues',
-      description: 'List venues (galleries, museums, project spaces) by neighborhood, kind, or tier, including venues with no show on view. Call this when the person asks about galleries or museums themselves rather than shows, or wants a walk in an area with few current shows. Returns each venue with its shows on view.',
+      description: 'List venues (commercial galleries, museums, nonprofits, university galleries, project spaces) by neighborhood, kind, or tier, including venues with no show on view. Call this when the person asks about galleries or museums themselves rather than shows, or wants a walk in an area with few current shows. Returns each venue with its shows on view.',
       input_schema: {
         type: 'object', additionalProperties: false,
         properties: {
           neighborhoods: { type: 'array', items: { type: 'string', enum: c.neighborhoods } },
-          kind: { type: 'string', enum: ['gallery', 'museum', 'any'] },
+          kind: { type: 'string', enum: ['gallery', 'museum', 'any'], description: 'gallery = commercial galleries only; museum = museums only; any (default) = also nonprofits, university galleries, project spaces and other venues.' },
           tier: { type: 'string', enum: ['top', 'notable', 'any'] },
           query: { type: 'string', description: 'Words to match in the venue name, blurb, program focus or roster.' },
           with_shows_only: { type: 'boolean' },

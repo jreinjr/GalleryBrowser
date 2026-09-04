@@ -1335,9 +1335,10 @@
   // The venue-kind split. `kind` is the registry's source of truth ('gallery',
   // 'museum', 'nonprofit', 'project_space', 'university', 'other'); isMuseum is
   // the derived mirror and only the fallback for records built before kind was
-  // carried through. Nonprofits and project spaces count as galleries — only
-  // museums are set apart.
-  const showIsMuseum = s => (s.venue.kind ? s.venue.kind === 'museum' : !!s.venue.isMuseum);
+  // carried through. The filter is strict (2026-09-03): Galleries is the
+  // gallery kind only, Museums the museum kind only; nonprofits, university
+  // galleries, project spaces and other venues appear under All venues alone.
+  const venueKind = s => s.venue.kind || (s.venue.isMuseum ? 'museum' : 'gallery');
 
   // Pure: shows -> shows passing every active filter.
   function filterShows(shows, f) {
@@ -1349,8 +1350,8 @@
       if (inList && !inList.has(showId(s))) return false;
       if (!matchesQuery(s, t)) return false;
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
-      if (f.kind === 'museums' && !showIsMuseum(s)) return false;
-      if (f.kind === 'galleries' && showIsMuseum(s)) return false;
+      if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
+      if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
       if (f.showRank === 'featured' && !s.featured) return false;
       if (f.showRank === 'picks' && !s.editorsPick) return false;
       if (f.galleryRank !== 'all') {

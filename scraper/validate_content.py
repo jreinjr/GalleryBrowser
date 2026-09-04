@@ -37,6 +37,9 @@ def check_registry(city: str, problems: list[str], review: list[str]) -> str:
         kind = v.get("kind")
         if kind is not None and kind not in venues.KINDS:
             problems.append(f"{vid}: kind {kind!r} not one of {venues.KINDS}")
+        src = v.get("kind_source")
+        if src is not None and src not in venues.KIND_SOURCES:
+            problems.append(f"{vid}: kind_source {src!r} not one of {venues.KIND_SOURCES}")
         if bool(v.get("is_museum")) != venues.is_museum(v):
             problems.append(f"{vid}: is_museum {v.get('is_museum')!r} disagrees with "
                             f"kind {kind!r} ({v.get('name')})")

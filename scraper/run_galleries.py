@@ -35,6 +35,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import tools  # noqa: E402
+import venues  # noqa: E402
 from cities import CITIES  # noqa: E402
 from harness import DEFAULT_MODEL, MODELS, SPEND_DIR  # noqa: E402
 
@@ -53,7 +54,8 @@ LLM_SEED_SCHEMA = {
             "website": {"type": ["string", "null"]},
             "district": {"type": ["string", "null"]},
             "kind": {"type": "string", "enum": ["gallery", "museum", "nonprofit",
-                                                  "project_space", "university", "other"]},
+                                                  "project_space", "university", "other"],
+                     "description": venues.KIND_HELP},
             "confidence": {"type": "number", "description": "0..1"},
         }}}},
 }
@@ -186,7 +188,7 @@ def llm_seed(city: str, apply: bool, model: str = DEFAULT_MODEL) -> dict:
             # merges `sources` one level deep, so a bare {"seed": {"llm": ...}}
             # replaced the whole seed dict.
             import seed_venues
-            patch = {"kind": g["kind"], "status": "candidate", "website": g.get("website"),
+            patch = {"kind": g["kind"], "kind_source": "agent", "status": "candidate", "website": g.get("website"),
                      "neighborhood": zone,
                      "sources": seed_venues.seed_block(None, "llm", {
                          "ts": ts, "confidence": g["confidence"], "district": g.get("district")}),

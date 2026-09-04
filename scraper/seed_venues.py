@@ -670,13 +670,16 @@ def patch_for(v: dict | None, full: dict) -> dict:
     `kind` follows the fill-if-missing rule like everything else, which is what
     gives Places the lowest precedence: a venue already typed by a directory or
     by a confirmed show keeps that type. `is_museum` is not patched at all —
-    venues.merge_patch derives it from `kind`."""
+    venues.merge_patch derives it from `kind`. `kind_source` is the provenance
+    OF the patch's kind, so it travels only when `kind` itself is written (an
+    existing venue always has a kind; stamping "directory" on a type the
+    directory did not set would lie about who typed it)."""
     if v is None:
         return {k: val for k, val in full.items() if val is not None}
     out: dict = {}
     has_coords = v.get("latitude") is not None and v.get("longitude") is not None
     for k, val in full.items():
-        if val is None or k in NEW_ONLY_FIELDS or k in DERIVED_FIELDS:
+        if val is None or k in NEW_ONLY_FIELDS or k in DERIVED_FIELDS or k == "kind_source":
             continue
         if k in ALWAYS_MERGE_FIELDS:
             out[k] = val
@@ -685,6 +688,8 @@ def patch_for(v: dict | None, full: dict) -> dict:
                 out[k] = val
         elif not v.get(k):
             out[k] = val
+    if "kind" in out and full.get("kind_source"):
+        out["kind_source"] = full["kind_source"]
     return out
 
 
@@ -937,7 +942,7 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
         _record_collision(rep, v, p["name"], p.get("website"))
         kind = place_kind(p)
         full = {
-            "kind": kind, "status": "unknown",
+            "kind": kind, "kind_source": "places", "status": "unknown",
             "neighborhood": zone, "address": _clean_address(p.get("address")),
             "latitude": p["lat"], "longitude": p["lng"], "coords_source": "places",
             "website": p.get("website"), "phone": p.get("phone"), "hours": p.get("hours") or None,
@@ -1044,7 +1049,9 @@ def seed_gpla(ctx: Ctx, rep: dict) -> None:
             continue
         now = int(time.time())
         full = {
-            "kind": "gallery", "status": "unknown", "neighborhood": zone,
+            # GPLA lists nonprofits and art centers among its members; "gallery" is
+            # only the directory's default and research_venue outranks it
+            "kind": "gallery", "kind_source": "directory", "status": "unknown", "neighborhood": zone,
             "address": d.get("address"),
             "latitude": geo["lat"] if geo else None, "longitude": geo["lng"] if geo else None,
             "coords_source": "geocode" if geo else None,
@@ -1165,7 +1172,7 @@ def seed_carla(ctx: Ctx, rep: dict) -> None:
             continue
         now = int(time.time())
         full = {
-            "kind": "gallery", "status": "unknown", "neighborhood": zone, "website": r["website"],
+            "kind": "gallery", "kind_source": "directory", "status": "unknown", "neighborhood": zone, "website": r["website"],
             "address": address,
             "latitude": coords[0] if coords else None, "longitude": coords[1] if coords else None,
             "coords_source": ("places" if zone_by == "places_cache" else "lookup") if coords else None,

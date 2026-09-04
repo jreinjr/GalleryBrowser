@@ -291,6 +291,71 @@ class MuseumFlagTests(unittest.TestCase):
         self.assertEqual(v["kind"], "gallery")
 
 
+class KindPrecedenceTests(unittest.TestCase):
+    """Every write of `kind` goes through set_kind, which keeps the provenance
+    (`kind_source`, KIND_SOURCES) and refuses a lower-ranked writer. This is
+    what lets research fix the Armory Center for the Arts (GPLA-seeded
+    "gallery", its own site says nonprofit) and stops a later seed undoing it."""
+
+    def test_rank_order(self):
+        v = _venue("x", "X")
+        self.assertIsNone(v["kind_source"])
+        self.assertFalse(venues.set_kind(v, "gallery", "directory"), "same kind: nothing changed ...")
+        self.assertEqual((v["kind"], v["kind_source"]), ("gallery", "directory"), "... but the provenance is recorded")
+        self.assertFalse(venues.set_kind(v, "museum", "places"), "Places cannot retype a directory venue")
+        self.assertEqual(v["kind"], "gallery")
+        self.assertTrue(venues.set_kind(v, "nonprofit", "research", "501(c)(3) per its about page"))
+        self.assertEqual((v["kind"], v["is_museum"], v["kind_evidence"]), ("nonprofit", False, "501(c)(3) per its about page"))
+        self.assertFalse(venues.set_kind(v, "museum", "show"), "a show's is_museum ratchet loses to research")
+        self.assertFalse(venues.set_kind(v, "gallery", "agent"))
+        self.assertTrue(venues.set_kind(v, "nonprofit", "research", "same rank may overwrite") is False)  # same kind: unchanged
+        self.assertEqual(v["kind_evidence"], "same rank may overwrite")
+        self.assertTrue(venues.set_kind(v, "museum", "manual", "client says so"))
+        self.assertTrue(v["is_museum"])
+        self.assertFalse(venues.set_kind(v, "gallery", "research"), "nothing automated undoes a manual set-kind")
+        self.assertEqual(v["kind"], "museum")
+
+    def test_vocabulary_guard(self):
+        v = _venue("x", "X")
+        self.assertFalse(venues.set_kind(v, "bogus", "manual"))
+        self.assertFalse(venues.set_kind(v, "museum", "nobody"))
+        self.assertEqual(v["kind"], "gallery")
+
+    def test_merge_patch_routes_kind_through_set_kind(self):
+        v = _venue("x", "X")
+        venues.merge_patch(v, {"kind": "museum"})                       # unlabeled patch = agent
+        self.assertEqual((v["kind"], v["kind_source"], v["is_museum"]), ("museum", "agent", True))
+        venues.merge_patch(v, {"kind": "gallery", "kind_source": "places"})
+        self.assertEqual(v["kind"], "museum", "a lower-ranked patch is ignored")
+        venues.merge_patch(v, {"kind": "nonprofit", "kind_source": "research", "kind_evidence": "e"})
+        self.assertEqual((v["kind"], v["kind_source"], v["kind_evidence"]), ("nonprofit", "research", "e"))
+        # provenance fields never travel on their own
+        venues.merge_patch(v, {"kind_source": "manual", "kind_evidence": "sneaky"})
+        self.assertEqual((v["kind_source"], v["kind_evidence"]), ("research", "e"))
+
+    def test_show_patch_carries_its_source(self):
+        rec = {"slug": "s", "title": "T", "venue": {"name": "V", "is_museum": True}}
+        p = venues._venue_patch_from_show(rec, "published")
+        self.assertEqual((p["kind"], p["kind_source"]), ("museum", "show"))
+        rec["venue"]["is_museum"] = False
+        self.assertIsNone(venues._venue_patch_from_show(rec, "published")["kind"])
+
+    def test_patch_for_moves_kind_source_only_with_kind(self):
+        full = {"kind": "gallery", "kind_source": "directory", "status": "unknown", "address": "1 A St"}
+        self.assertEqual(sv.patch_for(None, full)["kind_source"], "directory")
+        existing = _venue("x", "X")                                      # already typed (default gallery)
+        p = sv.patch_for(existing, full)
+        self.assertNotIn("kind", p)
+        self.assertNotIn("kind_source", p, "no provenance stamp on a kind the seed did not set")
+
+    def test_ensure_v2_backfills_provenance(self):
+        v = {"id": "old", "name": "Old", "kind": "gallery", "is_museum": False}
+        venues.ensure_v2(v)
+        self.assertIn("kind_source", v)
+        self.assertIsNone(v["kind_source"])
+        self.assertIsNone(v["kind_evidence"])
+
+
 class RegistryTests(TempEnv):
     def test_bulk_upsert_idempotent_and_alias_domain_merge(self):
         rows = [{"name": "1301 PE", "source": "seed-gpla",

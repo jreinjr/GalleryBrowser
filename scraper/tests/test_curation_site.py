@@ -263,6 +263,11 @@ class GalleryLinkTests(unittest.TestCase):
             site.token_from_link("#g=BBB")
 
     def test_gallery_diff_merge_round_trip(self):
+        # the client gate is "Galleries only" = allowlist ["gallery"]; the legacy
+        # five-kind list from older share links must still decode as a custom gate
+        for kinds in (["gallery"], ["gallery", "nonprofit", "project_space", "university", "other"]):
+            tok = site.encode_diff({"gates": {"kinds": kinds}})
+            self.assertEqual(site.decode_gallery_link(tok, VREPORT["params_default"])["gates"]["kinds"], kinds)
         kinds = ["gallery", "nonprofit", "project_space", "university", "other"]
         diff = {"gates": {"kinds": kinds}, "tiers": {"1": 0.6}, "weights": {"kind_museum": -0.3}}
         tok = site.encode_diff(diff)

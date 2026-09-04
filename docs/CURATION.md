@@ -267,8 +267,10 @@ in the header:
   (`dashboard/venue_core.js`, the mirror of `rank_venues.py`) from
   `content/curation/<city>/venues_ranked.json`; its default settings are the
   report's `params_default`, i.e. what `rank_venues.py apply` wrote to the
-  registry. The client knobs are three gates (verified only, exclude museums —
-  expressed as a `gates.kinds` allowlist of every non-museum kind — and the three
+  registry. The client knobs are three gates (verified only, "Galleries only" —
+  expressed as the `gates.kinds` allowlist `["gallery"]`; museums, nonprofits,
+  university galleries, project spaces and other kinds are gated out, and any
+  other non-empty allowlist is a custom gate shown unchecked — and the three
   tier cutoffs, kept ordered) plus the 14 feature weights, each with a one-line
   explanation. Weights whose feature is zero for every venue in the city
   (`venue_judge` and `wiki` until `venue_judge.jsonl` / `venue_wiki.jsonl` exist)

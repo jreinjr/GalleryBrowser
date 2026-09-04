@@ -214,7 +214,10 @@ const G_CLIENT_PATHS = GR.client_paths || [];
 const GCOV = GR.coverage || {};
 const GCOUNTS = GR.counts || {};
 const GLIVE = new Map(GVENUES.map(v => [v.id, { rank: v.rank_live, tier: v.tier_live, gate: v.gate_live }]));
-const NON_MUSEUM_KINDS = Object.keys(G.KIND_GROUP || {}).filter(k => k !== 'museum');
+// The kind gate is strict (2026-09-03): "Galleries only" ranks the gallery kind alone.
+// Museums, nonprofits, university galleries, project spaces and other venues are gated
+// out; any other non-empty allowlist is a custom gate and shows the toggle unchecked.
+const GALLERY_ONLY_KINDS = ['gallery'];
 const DEFAULT_MODE = (R.default_mode === 'galleries' && HAS_G) ? 'galleries' : 'shows';
 
 const WEIGHT_INFO = {
@@ -253,7 +256,7 @@ const G_WEIGHT_INFO = {
 };
 const G_GATE_INFO = {
   'gates.require_verified': ['Verified only', 'Only galleries whose website, address and Google listing we have checked. Unverified spaces are still ranked but marked.'],
-  'gates.kinds': ['Exclude museums', 'Galleries, nonprofits and project spaces only. Museums still appear in the app’s List and Map tabs.'],   // replaced by gKindsGateInfo() when the live default is narrower
+  'gates.kinds': ['Galleries only', 'Rank commercial galleries only. Museums, nonprofits, university galleries, project spaces and other venues are left out of the ranking; the app shows them under All venues (museums also under Museums). Off = every kind is ranked.'],
   'tiers.1': ['Tier 1 cutoff', 'Score needed for tier 1 — the galleries the app treats as must-see.'],
   'tiers.2': ['Tier 2 cutoff', 'Score needed for tier 2.'],
   'tiers.3': ['Tier 3 cutoff', 'Score needed for tier 3 — the bar a gallery must clear for us to scrape its shows at all.'],
@@ -357,15 +360,11 @@ function gAuto() { gparams.manual_order = null; renderControls(); renderAll(); t
 function gOrderLines() { return gstate.rows.filter(r => !r.gate && r.tier != null).map(r => `${r.rank}. ${r.name || r.id} (tier ${r.tier})`); }
 
 // ---- gallery gate helpers ----
-function gMuseumsExcluded(p) { const k = ((p || gparams).gates || {}).kinds || []; return k.length > 0 && !k.includes('museum'); }
-const G_DEFAULT_EXCLUDES = gMuseumsExcluded(GDEFAULT);
+function gGalleriesOnly(p) { const k = ((p || gparams).gates || {}).kinds || []; return k.length === GALLERY_ONLY_KINDS.length && GALLERY_ONLY_KINDS.every(x => k.includes(x)); }
+const G_DEFAULT_EXCLUDES = gGalleriesOnly(GDEFAULT);
 // Label for the kinds gate: the live default may allow only commercial galleries, not every non-museum kind.
-function gKindsGateInfo() {
-  const on = gKindsOn();
-  if (on.length === 1 && on[0] === 'gallery') return ['Galleries only', 'Include only venues we know to be commercial galleries. Nonprofits, project spaces, university galleries and museums are left out of the ranking (they still appear in the app’s List and Map tabs). Off = every kind is ranked.'];
-  return G_GATE_INFO['gates.kinds'];
-}
-function gKindsOn() { return G_DEFAULT_EXCLUDES ? clone(GDEFAULT.gates.kinds) : NON_MUSEUM_KINDS.slice(); }
+function gKindsGateInfo() { return G_GATE_INFO['gates.kinds']; }
+function gKindsOn() { return GALLERY_ONLY_KINDS.slice(); }
 function gKindsOff() { return G_DEFAULT_EXCLUDES ? [] : clone(GDEFAULT.gates.kinds); }
 function gClampTiers(changed) {
   const t = gparams.tiers;
@@ -395,7 +394,7 @@ function numCtl(path, label, info, o) {
 function boolCtl(path, label, info, o) {
   o = o || {};
   const scope = o.scope || 's', kind = o.kind || 'bool';
-  const checked = kind === 'museumgate' ? gMuseumsExcluded(gparams) : !!getPath(paramsOf(scope), path);
+  const checked = kind === 'museumgate' ? gGalleriesOnly(gparams) : !!getPath(paramsOf(scope), path);
   const id = `cb-${scope}-${path.replace(/\./g, '-')}`;
   return `<div class="ctl check"><input type="checkbox" id="${id}" data-scope="${scope}" data-path="${path}" data-kind="${kind}"${checked ? ' checked' : ''}><label class="lbl" for="${id}"><b>${esc(label)}</b>${infoBtn(info)}</label></div>`;
 }
@@ -423,7 +422,7 @@ function gRenderControls() {
   for (const f of order) {
     if (!(GCOV[f] > 0) && f !== 'kind_museum') { hidden.push(G_NICE[f]); continue; }
     const o = { scope: 'g', min: 0, max: 1, step: 0.01 };
-    if (f === 'kind_museum') { o.min = -0.5; o.max = 0.5; if (gMuseumsExcluded(gparams)) { o.disabled = true; o.note = 'museums are excluded by the gate above'; } }
+    if (f === 'kind_museum') { o.min = -0.5; o.max = 0.5; if (gGalleriesOnly(gparams)) { o.disabled = true; o.note = 'museums are excluded by the Galleries only gate above'; } }
     h += rangeCtl(`weights.${f}`, G_WEIGHT_INFO[f][0], G_WEIGHT_INFO[f][1], o, gSwatchHTML(f));
   }
   if (hidden.length) h += `<div class="hint">Not shown: ${esc(hidden.join(', '))} — no data for ${esc(R.city_name || CITY)} yet (kept at the live weight).</div>`;
@@ -442,7 +441,7 @@ function syncInputs(scope, path, except) {
   const v = getPath(paramsOf(scope), path);
   document.querySelectorAll(`[data-scope="${scope}"][data-path="${path}"]`).forEach(el => {
     if (el === except) return;
-    if (el.type === 'checkbox') el.checked = el.dataset.kind === 'museumgate' ? gMuseumsExcluded(gparams) : !!v;
+    if (el.type === 'checkbox') el.checked = el.dataset.kind === 'museumgate' ? gGalleriesOnly(gparams) : !!v;
     else el.value = v == null ? '' : v;
   });
 }
@@ -884,7 +883,7 @@ window.site = {
   g: {
     get params() { return gparams; }, rows: () => gstate.rows, ranked: () => gstate.ranked.map(r => r.id), diff: gDiffParams,
     set(path, v) { setPath(gparams, path, v); if (path.startsWith('tiers.')) gClampTiers(path); renderControls(); renderAll(); },
-    museumsExcluded: () => gMuseumsExcluded(gparams), applyShared: applySharedGalleries, has: HAS_G,
+    galleriesOnly: () => gGalleriesOnly(gparams), applyShared: applySharedGalleries, has: HAS_G,
     manual: gManual, move: gMoveTo, step: gStep, add: gAdd, remove: gRemove, auto: gAuto, orderLines: gOrderLines, flat: gFlat,
     fn: { rank: G.rank, computeFeatures: G.computeFeatures, scoreVenue: G.scoreVenue, gateFor: G.gateFor, tierFor: G.tierFor },
   },

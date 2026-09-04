@@ -342,7 +342,7 @@ SAVE_SHOW_SCHEMA = {
                           "hours", "phone", "website"],
             "properties": {
                 "name": {"type": "string"},
-                "is_museum": {"type": "boolean"},
+                "is_museum": {"type": "boolean", "description": "true only for a museum proper (a collecting institution or kunsthalle-scale public museum). Nonprofit art centers, foundations, university galleries, artist-run and project spaces are false."},
                 "address": {"type": "string", "description": "Street address, e.g. '212 Third Ave S'. Must match the venue's own site exactly — the map pin is geocoded from it."},
                 "address_detail": {"type": ["string", "null"], "description": "Suite/floor, or null"},
                 "neighborhood": {"type": "string", "description": "One of the city's configured neighborhoods"},
@@ -774,7 +774,8 @@ RECORD_VENUE_SCHEMA = {
         "name": {"type": "string", "description": "Venue name in its standard form"},
         "neighborhood": {"type": "string", "description": "The zone being enumerated"},
         "kind": {"type": "string",
-                 "enum": ["gallery", "museum", "nonprofit", "project_space", "university", "other"]},
+                 "enum": ["gallery", "museum", "nonprofit", "project_space", "university", "other"],
+                 "description": "gallery = commercial gallery (sells work / represents artists); museum = museum proper (collecting institution or kunsthalle-scale public museum); nonprofit = non-commercial exhibition space that is not a museum (art center, foundation, cultural center, municipal gallery); university = campus gallery; project_space = small independent or artist-run space with no roster; other = auction house, fair, shop, framer, studio"},
         "address": {"type": ["string", "null"], "description": "Street address when the directory page shows one, else null"},
         "website": {"type": ["string", "null"], "description": "Venue website URL when shown, else null"},
         "note": {"type": ["string", "null"], "description": "Anything useful: district, focus, 'inside Bergamot Station', etc."},

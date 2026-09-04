@@ -64,7 +64,7 @@ import venues  # noqa: E402
 from cities import CITIES  # noqa: E402
 from run_scrape import load_env  # noqa: E402
 
-REPORT_SCHEMA = 1
+REPORT_SCHEMA = 2   # 2: venue_kind / kind_confidence / kind_evidence
 REPORTS_DIR = tools.CONTENT_DIR / "venues" / "reports"
 MODEL = "claude-sonnet-5"
 EFFORT = "medium"
@@ -156,6 +156,18 @@ class ProfileOut(BaseModel):
     memberships_self_reported: list[str]
     press_self_reported: list[PressItem]
     notes: str | None
+    venue_kind: Literal["gallery", "museum", "nonprofit", "project_space", "university", "other"] = Field(
+        description="What kind of organization this is, decided from what the pages say (see the rules)")
+    kind_confidence: float = Field(description="0..1: how clearly the pages settle venue_kind; below 0.5 when they do not say")
+    kind_evidence: str | None = Field(description="At most 25 words: the page statement that decides venue_kind (nonprofit status, mission, admission, selling or representing artists), or null")
+
+
+class KindOut(BaseModel):
+    """`classify`: retype an already-researched venue from its dossier."""
+    model_config = ConfigDict(extra="forbid")
+    venue_kind: Literal["gallery", "museum", "nonprofit", "project_space", "university", "other"]
+    confidence: float = Field(description="0..1: how clearly the dossier settles the kind; below 0.5 when it does not")
+    evidence: str = Field(description="At most 25 words: the fact that decides the kind")
 
 
 class ExhibitionOut(BaseModel):
@@ -205,6 +217,7 @@ class VenueJudgeOut(BaseModel):
 
 TRIAGE_SCHEMA = _schema(TriageOut)
 PROFILE_SCHEMA = _schema(ProfileOut)
+KIND_SCHEMA = _schema(KindOut)
 EXHIBITIONS_SCHEMA = _schema(ExhibitionsOut)
 CHECK_SCHEMA = _schema(CheckOut)
 VENUE_JUDGE_SCHEMA = _schema(VenueJudgeOut)
@@ -240,6 +253,11 @@ PROFILE_SYSTEM = """You are compiling a factual profile of one art venue for a g
 - locations: every space the gallery says it runs, including other cities; current=false for closed spaces.
 - hours_text: as posted, one line; program_focus: 2-6 tags.
 - fairs_self_reported / memberships_self_reported / press_self_reported: only what the pages state.
+- venue_kind: what the organization IS, from what the pages say: """ + venues.KIND_HELP + """. Decide from nonprofit / 501(c)(3) / foundation / public status, mission statements, admission, and whether it sells or represents artists. "Gallery" in a name does not make a commercial gallery (Armory Center for the Arts is a nonprofit); "museum" in a name does not make a museum without a collection or a public-museum program. kind_confidence below 0.5 when the pages do not settle it; kind_evidence = the deciding statement, at most 25 words.
+"""
+
+KIND_SYSTEM = """You classify one art venue for a gallery guide from a compiled dossier: its own about text, a researcher's notes, program, roster and exhibition counts, hours, memberships and Google listing types. Kinds: """ + venues.KIND_HELP + """.
+Rules: decide from what the organization says it is (nonprofit / 501(c)(3) / foundation / public or municipal status, mission, admission) and does (sells or represents artists = gallery). "Gallery" in a name does not make a commercial gallery; "museum" in a name does not make a museum without a collection or a public-museum program. A campus space is university unless it is a named museum. Rental galleries and artist-run spaces that sell are gallery; artist-run spaces that do not are project_space unless incorporated as a nonprofit. confidence below 0.5 when the dossier does not settle it; evidence = the deciding fact, at most 25 words.
 """
 
 EXHIBITIONS_SYSTEM = """You are extracting the exhibition history of one art venue from pages of its own website (labelled below). Return EVERY exhibition the pages list, oldest to newest, one entry each:
@@ -270,6 +288,7 @@ LOCATIONS: city - address (since year) ; ...
 ROSTER: represented artists, comma-separated, or unknown
 FAIRS: fairs the gallery has exhibited at, or unknown
 MEMBERSHIPS: associations / curated lists, or unknown
+KIND: gallery | museum | nonprofit | university | project_space | other - and the one-line reason (nonprofit status, mission, sells / represents artists)
 SOURCES: the URLs you relied on
 Only state what a source you read says. Do not pad. Stop when done."""
 
@@ -626,6 +645,60 @@ def _city_name(city: str) -> str:
     return (CITIES.get(city) or {}).get("display_name", city)
 
 
+# --- venue kind -----------------------------------------------------------------------------------
+# The profile pass reads the venue's own about page, so it is the best-placed
+# classifier in the pipeline: directory seeds hardcode "gallery" for every
+# member (GPLA lists the Armory Center for the Arts), and before this nothing
+# downstream was allowed to fix that. venues.set_kind enforces precedence:
+# research outranks seeds, shows and agents, and never a manual set-kind.
+
+KIND_MIN_CONFIDENCE = 0.7
+
+
+def apply_kind_from_report(v: dict, rep: dict) -> tuple[str | None, str] | None:
+    """Write the report's venue_kind onto the registry record when confident.
+    Returns (old, new) when the kind changed, else None."""
+    kind, conf = rep.get("venue_kind"), rep.get("kind_confidence")
+    if kind not in venues.KINDS or conf is None or float(conf) < KIND_MIN_CONFIDENCE:
+        return None
+    before = v.get("kind")
+    if venues.set_kind(v, kind, "research", rep.get("kind_evidence")):
+        return before, kind
+    return None
+
+
+def kind_user_message(v: dict, rep: dict | None) -> str:
+    """The dossier `classify` hands the model: everything the registry and the
+    saved report know that bears on what the organization is."""
+    rep = rep or {}
+    facts = v.get("facts") or {}
+    about = (v.get("about") or {}).get("text") or rep.get("about_text") or "(none)"
+    places = ((v.get("sources") or {}).get("seed") or {}).get("places") or {}
+    google = v.get("google") or {}
+    roster = [r["name"] for r in rep.get("roster") or [] if r.get("status") in ("represented", "estate")]
+    lines = [
+        f"VENUE {v['id']}: {v['name']}",
+        f"current kind: {v.get('kind')} (typed by: {v.get('kind_source') or 'seed default'})",
+        f"website: {v.get('website') or '?'}; neighborhood: {v.get('neighborhood') or '?'}; address: {v.get('address') or '?'}",
+        f"founded: {facts.get('founded_year') or rep.get('founded_year') or '?'}; founders: {', '.join(facts.get('founders') or rep.get('founders') or []) or '?'}",
+        f"program: {', '.join(facts.get('program_focus') or rep.get('program_focus') or []) or '?'}",
+        f"represented roster: {len(roster)} artist(s); exhibitions on record: {facts.get('exhibitions_total') or len(rep.get('exhibitions') or []) or '?'}",
+        f"hours: {rep.get('hours_text') or '; '.join(v.get('hours') or []) or '?'}",
+        f"memberships / lists (self-reported): {', '.join(rep.get('memberships_self_reported') or []) or 'none stated'}",
+        f"fairs (self-reported): {', '.join(rep.get('fairs_self_reported') or []) or 'none stated'}",
+        f"Google listing: {google.get('name') or '?'}; types: {', '.join(places.get('types') or []) or '?'}",
+        "",
+        "ABOUT (its own site or a secondary source):",
+        about,
+        "",
+        "RESEARCHER NOTES:",
+        rep.get("notes") or "(none)",
+        "",
+        "Return the kind JSON.",
+    ]
+    return "\n".join(lines)
+
+
 # --- gap-fill (agentic) ------------------------------------------------------------------------
 
 def gapfill(client, venue: dict, city: str, meter: Meter, max_uses: int = 6, max_iter: int = 12) -> tuple[str, list[str], float]:
@@ -698,6 +771,7 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
                  "source_urls": [], "founded_year": None, "founders": [], "directors": [],
                  "locations": [], "program_focus": [], "hours_text": None, "roster": [],
                  "exhibitions": [], "fairs_self_reported": [], "memberships_self_reported": [],
+                 "venue_kind": None, "kind_confidence": None, "kind_evidence": None,
                  "press_self_reported": [], "claims_supported": True, "unsupported_claims": [],
                  "notes": None, "exhibitions_truncated": False,
                  "triage": {"labels": {}, "site_notes": "", "fetch_more": []},
@@ -749,7 +823,8 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
             d = prof.model_dump()
             rep.update({k: d[k] for k in ("about_text", "founded_year", "founders", "directors", "locations",
                                           "program_focus", "hours_text", "roster", "fairs_self_reported",
-                                          "memberships_self_reported", "press_self_reported", "notes")})
+                                          "memberships_self_reported", "press_self_reported", "notes",
+                                          "venue_kind", "kind_confidence", "kind_evidence")})
             if d.get("about_text"):
                 rep["source_kind"] = "official"
                 rep["source_urls"] = [u for u in [d.get("about_source_url")] if u] or \
@@ -805,6 +880,8 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
                 for k in ("founded_year",):
                     if rep.get(k) is None and d.get(k) is not None:
                         rep[k] = d[k]
+                if rep.get("venue_kind") is None and d.get("venue_kind"):
+                    rep.update({k: d.get(k) for k in ("venue_kind", "kind_confidence", "kind_evidence")})
                 for k in ("founders", "roster", "fairs_self_reported", "memberships_self_reported", "locations"):
                     if not rep.get(k) and d.get(k):
                         rep[k] = d[k]
@@ -830,6 +907,9 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
                 "model": MODEL if rep["about_text"] else None,
             })
             v["facts"].update(facts)
+            kc = apply_kind_from_report(v, rep)
+            if kc:
+                log(f"  [{vid}] kind: {kc[0]} -> {kc[1]} ({rep.get('kind_evidence') or 'no evidence line'})")
             # A crawl that read almost nothing is a transport failure, not a
             # finding about the gallery (five venues were banked for a year on
             # ConnectTimeouts during a loaded run). Leave `ts` null so the next
@@ -1067,6 +1147,130 @@ def cmd_judge(args) -> int:
     return 0
 
 
+def cmd_classify(args, client=None) -> int:
+    """Retype already-researched venues from their dossiers. Dry run prints the
+    proposed changes and writes content/venues/reports/<city>/kind-review-<ts>.json;
+    --apply writes the confident changes through venues.set_kind("research").
+    --from-review PATH skips the model and applies a review file as reviewed, so
+    the list shown to the client is exactly what lands."""
+    city = args.city
+    if getattr(args, "from_review", None):
+        return _apply_kind_review(city, Path(args.from_review), float(args.min_confidence), bool(args.apply))
+    ids = _venue_ids_arg(args.venue_ids)
+    statuses = {s.strip() for s in (args.status or "active,appointment_only").split(",") if s.strip()}
+    reg = venues.load_registry(city)
+    jobs, no_report, manual = [], 0, 0
+    for v in sorted(reg["venues"], key=lambda x: x["id"]):
+        if ids:
+            if v["id"] not in ids:
+                continue
+        elif v.get("status") not in statuses:
+            continue
+        if v.get("kind_source") == "manual":
+            manual += 1
+            continue
+        rep = load_report(city, v["id"])
+        if rep is None:
+            no_report += 1
+            continue
+        jobs.append((v, rep))
+        if args.limit and len(jobs) >= args.limit:
+            break
+    print(f"{city}: {len(jobs)} venue(s) to classify; {no_report} without a report skipped, {manual} manual skipped")
+    if not jobs:
+        return 0
+    if client is None:
+        load_env()
+        import anthropic
+        client = anthropic.Anthropic(max_retries=3)
+    ts = int(time.time())
+    meter = Meter(f"classify-{city}-{ts}")
+    lock = threading.Lock()
+    rows: list[dict] = []
+
+    def one(job):
+        v, rep = job
+        out, err, cost = structured_call(client, KIND_SYSTEM, kind_user_message(v, rep), KIND_SCHEMA,
+                                         KindOut, meter, max_tokens=600)
+        row = {"venue_id": v["id"], "name": v["name"], "old": v.get("kind"),
+               "old_source": v.get("kind_source"), "new": out.venue_kind if out else None,
+               "confidence": round(max(0.0, min(1.0, out.confidence)), 3) if out else None,
+               "evidence": out.evidence.strip() if out else None, "error": err,
+               "changed": bool(out) and out.venue_kind != v.get("kind"), "applied": False,
+               "cost_usd": round(cost, 5)}
+        with lock:
+            rows.append(row)
+
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+        list(pool.map(one, jobs[:1]))     # first call alone warms the prompt cache
+        list(pool.map(one, jobs[1:]))
+    meter.m.save()
+    rows.sort(key=lambda r: (not r["changed"], r["name"].lower()))
+    min_conf = float(args.min_confidence)
+    for r in rows:
+        if r["error"]:
+            print(f"  {r['venue_id']:<40} FAILED {r['error']}")
+            continue
+        mark = "" if not r["changed"] else ("  APPLY" if r["confidence"] >= min_conf else "  low-confidence")
+        arrow = f"{r['old']} -> {r['new']}" if r["changed"] else f"{r['old']} (unchanged)"
+        print(f"  {r['venue_id']:<40} {arrow:<28} conf {r['confidence']:.2f}{mark}  {r['evidence'][:90]}")
+    review = {"city": city, "ts": ts, "model": MODEL, "min_confidence": min_conf, "applied": bool(args.apply),
+              "cost_usd": round(meter.dollars, 4), "rows": rows}
+    review_path = REPORTS_DIR / city / f"kind-review-{ts}.json"
+    review_path.parent.mkdir(parents=True, exist_ok=True)
+    applied = _apply_kind_rows(city, rows, min_conf) if args.apply else 0
+    review_path.write_text(json.dumps(review, indent=1, ensure_ascii=False))
+    changed = sum(1 for r in rows if r["changed"])
+    confident = sum(1 for r in rows if r["changed"] and not r["error"] and r["confidence"] >= min_conf)
+    print(f"{len(rows)} classified, {changed} would change ({confident} at >= {min_conf:.2f}); "
+          f"{'applied ' + str(applied) if args.apply else 'dry run, nothing written'}; "
+          f"${meter.dollars:.3f} -> {review_path}")
+    return 0
+
+
+def _apply_kind_rows(city: str, rows: list[dict], min_conf: float) -> int:
+    """Write the confident, changed rows of a review through set_kind("research");
+    marks each row `applied` and mirrors the verdict into the saved report."""
+    applied = 0
+    with venues.locked_registry(city) as reg:
+        by_id = venues.index_by_id(reg)
+        for r in rows:
+            if r.get("error") or not r.get("changed") or (r.get("confidence") or 0) < min_conf:
+                continue
+            v = by_id.get(r["venue_id"])
+            if v is None:
+                continue
+            venues.ensure_v2(v)
+            if venues.set_kind(v, r["new"], "research", r.get("evidence")):
+                r["applied"] = True
+                applied += 1
+                rep = load_report(city, v["id"])
+                if rep is not None:
+                    rep.update({"venue_kind": r["new"], "kind_confidence": r["confidence"],
+                                "kind_evidence": r.get("evidence")})
+                    save_report(rep)
+    return applied
+
+
+def _apply_kind_review(city: str, path: Path, min_conf: float, apply: bool) -> int:
+    review = json.loads(path.read_text())
+    if review.get("city") != city:
+        raise SystemExit(f"{path} is a {review.get('city')} review, not {city}")
+    rows = review["rows"]
+    todo = [r for r in rows if r.get("changed") and not r.get("error") and (r.get("confidence") or 0) >= min_conf]
+    for r in todo:
+        print(f"  {r['venue_id']:<40} {r['old']} -> {r['new']:<14} conf {r['confidence']:.2f}  {(r.get('evidence') or '')[:90]}")
+    if not apply:
+        print(f"{len(todo)} row(s) would apply from {path}; dry run")
+        return 0
+    applied = _apply_kind_rows(city, rows, min_conf)
+    review["applied"] = True
+    review["applied_ts"] = int(time.time())
+    path.write_text(json.dumps(review, indent=1, ensure_ascii=False))
+    print(f"applied {applied} of {len(todo)} from {path}")
+    return 0
+
+
 def cmd_report(args) -> int:
     city = args.city
     d = REPORTS_DIR / city
@@ -1116,8 +1320,18 @@ def main(argv: list[str] | None = None) -> int:
     j.add_argument("--workers", type=int, default=4)
     j.add_argument("--force", action="store_true")
     rp = sub.add_parser("report"); rp.add_argument("--city", required=True, choices=sorted(CITIES))
+    cl = sub.add_parser("classify", help="retype researched venues from their dossiers (dry run unless --apply)")
+    cl.add_argument("--city", required=True, choices=sorted(CITIES))
+    cl.add_argument("--venue-ids", help="a,b or @file (ignores --status)")
+    cl.add_argument("--status", default="active,appointment_only", help="comma list of statuses to include")
+    cl.add_argument("--limit", type=int)
+    cl.add_argument("--min-confidence", type=float, default=KIND_MIN_CONFIDENCE)
+    cl.add_argument("--workers", type=int, default=4)
+    cl.add_argument("--apply", action="store_true", help="write changes to the registry and reports")
+    cl.add_argument("--from-review", help="apply an existing kind-review-<ts>.json instead of calling the model")
     args = ap.parse_args(argv)
-    return {"run": cmd_run, "check": cmd_check, "judge": cmd_judge, "report": cmd_report}[args.cmd](args)
+    return {"run": cmd_run, "check": cmd_check, "judge": cmd_judge, "report": cmd_report,
+            "classify": cmd_classify}[args.cmd](args)
 
 
 if __name__ == "__main__":

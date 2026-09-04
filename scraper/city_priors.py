@@ -568,7 +568,7 @@ def apply_candidates(city: str, new: list[dict], tagged: list[dict],
             prior_srcs = [s for s in r["sources"] if not s.startswith("press:")]
             if prior_only and not prior_srcs:
                 continue
-            patch = {"kind": "gallery", "status": "candidate", "website": r.get("website"),
+            patch = {"kind": "gallery", "kind_source": "default", "status": "candidate", "website": r.get("website"),
                      "sources": {"seed": {"priors": {"ts": now, "lists": prior_srcs}},
                                  "candidate": {"ts": now, "why": "city_priors",
                                                "sources": r["sources"]}},

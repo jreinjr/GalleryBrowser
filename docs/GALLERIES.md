@@ -20,6 +20,8 @@ facts:        {founded_year, founders[], locations_elsewhere[], program_focus[],
                roster_count, exhibitions_total, exhibitions_per_year,
                first_exhibition_year, solo_share}                          # research_venue.py
 research:     {ts, crawl_pages, triaged, report_path, cost_usd, gapfill}   # research_venue.py
+kind_source:  default|places|directory|agent|show|research|manual|null      # venues.set_kind (schema 3)
+kind_evidence: str|null   # the line that decided `kind`; see venues.KIND_SOURCES for precedence
 features:     {<name>: {value: float 0..1, basis: str, ts: int}}           # rank_venues.py
 rank, score, score_breakdown                                               # rank_venues.py apply
 ```
@@ -33,7 +35,7 @@ Written by `research_venue.py`, tracked in git. Strict shape:
 
 ```
 {
-  "schema": 1, "city", "venue_id", "name", "website", "generated_ts", "model",
+  "schema": 2, "city", "venue_id", "name", "website", "generated_ts", "model",
   "cost_usd", "crawl": {"pages": int, "sitemap": bool, "rendered": bool, "index_path"},
   "about_text": str|null, "source_kind": "official"|"secondary"|null, "source_urls": [str],
   "founded_year": int|null, "founders": [str], "directors": [str],
@@ -45,9 +47,17 @@ Written by `research_venue.py`, tracked in git. Strict shape:
                    "kind": "solo"|"group"|"fair"|"other", "source_url": str}],
   "fairs_self_reported": [str], "memberships_self_reported": [str],
   "press_self_reported": [{"outlet": str, "year": int|null, "url": str|null}],
-  "claims_supported": bool, "unsupported_claims": [str], "notes": str|null
+  "claims_supported": bool, "unsupported_claims": [str], "notes": str|null,
+  "venue_kind": kind|null, "kind_confidence": float|null, "kind_evidence": str|null   # schema 2
 }
 ```
+
+`kind` is classified by the profile pass from the venue's own pages (definitions in
+`venues.KIND_DEFS`) and written back through `venues.set_kind(..., "research")` when
+`kind_confidence >= 0.7`; research outranks every seed, show and agent write, and
+never a manual `venues.py set-kind`. `research_venue.py classify --city X [--apply]`
+re-types already-researched venues from their saved reports (dry run prints the
+proposed changes and writes `content/venues/reports/<city>/kind-review-<ts>.json`).
 
 ## Ranking (`content/curation/<city>/venues_ranked.json`)
 

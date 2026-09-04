@@ -218,7 +218,11 @@ function grounding(doc, matched, hitTerms) {
   return null;
 }
 
-const KIND_OK = { gallery: v => v.kind !== 'museum', museum: v => v.kind === 'museum', any: () => true };
+// Strict kinds (2026-09-03): gallery is the commercial-gallery kind only, museum the
+// museum kind only; nonprofits, university galleries, project spaces and other venues
+// are reachable with 'any' and carry their kind as a flag / catalog tag.
+const KIND_OK = { gallery: v => v.kind === 'gallery', museum: v => v.kind === 'museum', any: () => true };
+const kindTag = k => (k && k !== 'gallery' ? k : null);
 
 export function findShows(c, input, today) {
   const inp = input || {};
@@ -299,7 +303,7 @@ export function hitView(c, s, today, why) {
   const v = c.venues[s.venueId] || {};
   const flags = [];
   if (s.editorsPick) flags.push('editors_pick'); else if (s.featured) flags.push('featured');
-  if (s.venueKind === 'museum') flags.push('museum');
+  if (kindTag(s.venueKind)) flags.push(kindTag(s.venueKind));
   if (s.galleryTier === 'top') flags.push('top_gallery'); else if (s.galleryTier === 'notable') flags.push('notable_gallery');
   if (s.datesNote || (s.datesConfidence && s.datesConfidence !== 'high')) flags.push('dates_approximate');
   const out = { id: s.id, artist: s.artist || null, title: s.title, venue: s.venueName, venue_id: s.venueId, neighborhood: s.neighborhood,
@@ -383,7 +387,7 @@ export function catalog(c, today) {
   const line = s => {
     const v = c.venues[s.venueId] || {};
     const names = s.artists && s.artists.length ? s.artists.slice(0, 3).join(', ') + (s.artists.length > 3 ? ` +${s.artists.length - 3}` : '') : (s.artist || '-');
-    const tags = [s.neighborhood, v.kind === 'museum' ? 'museum' : null, s.galleryTier === 'top' ? 'T' : s.galleryTier === 'notable' ? 'N' : null].filter(Boolean).join(', ');
+    const tags = [s.neighborhood, kindTag(v.kind), s.galleryTier === 'top' ? 'T' : s.galleryTier === 'notable' ? 'N' : null].filter(Boolean).join(', ');
     const approx = s.datesNote || (s.datesConfidence && s.datesConfidence !== 'high') ? ' ~' : '';
     const parts = [s.id, names, clip(s.title, 70), `${s.venueName} (${tags})`, `${s.startDate || '?'}..${s.endDate || 'open'}${approx}`];
     if (s.receptionDate && s.receptionDate >= today) parts.push(`${s.receptionKind === 'opening' ? 'rcpt' : s.receptionKind} ${s.receptionDate}`);
@@ -396,7 +400,7 @@ export function catalog(c, today) {
   const upcoming = c.shows.filter(s => showStatus(s, today) === 'upcoming' && s.startDate <= soon).sort((a, b) => a.startDate.localeCompare(b.startDate));
   return [
     '<catalog>',
-    '# One line per show: id | artists | title | venue (neighborhood[, museum][, T=top gallery|N=notable]) | start..end (~ = dates approximate) | rcpt/talk/closing DATE | pick|feat',
+    '# One line per show: id | artists | title | venue (neighborhood[, museum|nonprofit|university|project_space|other — absent means a commercial gallery][, T=top gallery|N=notable]) | start..end (~ = dates approximate) | rcpt/talk/closing DATE | pick|feat',
     `## ON VIEW (${onView.length})`, ...onView.map(line),
     `## UPCOMING within 30 days (${upcoming.length})`, ...upcoming.map(line),
     '</catalog>',

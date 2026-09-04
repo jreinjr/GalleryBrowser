@@ -130,7 +130,10 @@ header), `DISCOVER_ALLOW_NO_ORIGIN=1` (curl and the eval).
   defaults). Ranking comes from the last `curate.py apply`
   (`content/curation/<city>/curated.json` → `ranked`), falling back to file order;
   `build.py` also embeds each venue's registry `kind`, `rank` and `tier`.
-  "Galleries" means every non-museum venue (nonprofits and project spaces included).
+  The Venue Type filter is strict (2026-09-03): "Galleries" is the `gallery` kind
+  only and "Museums" the `museum` kind only; nonprofits, university galleries,
+  project spaces and other venues appear under "All venues" alone. The Discover
+  tools' `venue_kind` / `kind` follow the same rule (`any` reaches everything).
 - **Rank star.** Only the top tier is marked, and only where it is the subject.
   A filled blue star means Editor's Pick for a show and Top Gallery for a
   gallery; Featured and Notable get no mark. List rows star the show name;
