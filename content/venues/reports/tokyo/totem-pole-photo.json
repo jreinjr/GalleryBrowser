@@ -1,0 +1,3919 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "totem-pole-photo",
+ "name": "Totem Pole Photo Gallery",
+ "website": "http://tppg.jp/",
+ "generated_ts": 1788482785,
+ "model": "claude-sonnet-5",
+ "cost_usd": 1.8147,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/totem-pole-photo.jsonl"
+ },
+ "about_text": "Totem Pole Photo Gallery is an artist-run photography space in Tokyo's Shinjuku ward, founded in 2008. It is operated collectively by twelve photographer-members who organize regular exhibitions of their own work alongside curated shows, events, workshops, and gallery rentals. Located on the first floor of the Dai-ni Fujikawa Building in Yotsuya, the gallery focuses on contemporary photographic practice, presenting a rotating program shaped by its member artists rather than a fixed roster of represented names outside the collective.",
+ "source_kind": "official",
+ "source_urls": [
+  "http://tppg.jp/about"
+ ],
+ "founded_year": 2008,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Dai-ni Fujikawa Bldg.1F, 4-22, Yotsuya, Shinjuku-ku, Tokyo 160-0004, Japan",
+   "since": 2008,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "member-run photography exhibitions",
+  "contemporary Japanese photography",
+  "workshops and gallery rental"
+ ],
+ "hours_text": "Open 12:00 - 19:00 (Closed Mondays)",
+ "roster": [
+  {
+   "name": "有元伸也 / Shinya Arimoto",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "淵上裕太",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "姜美善",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "水島貴大",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "坂本陽",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "ジョン・サイパル / John Sypal",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "宛超凡",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "楊喻雯",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "佐方晴登",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "藤本篤史",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "蔡嘉辰",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  },
+  {
+   "name": "新井悠史",
+   "status": "represented",
+   "source_url": "http://tppg.jp/about"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "ariphoto2008 vol.1",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2008-01-22",
+   "end": "2008-01-27",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2008-vol-1"
+  },
+  {
+   "title": "ariphoto2008 vol.2",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2008-04-01",
+   "end": "2008-04-13",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2008-vol-2"
+  },
+  {
+   "title": "calcutta – kathmandu 1994",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2008-04-29",
+   "end": "2008-05-04",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/calcutta-kathmandu-1994"
+  },
+  {
+   "title": "ariphoto2008 vol.3",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2008-08-26",
+   "end": "2008-09-07",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2008-vol-3"
+  },
+  {
+   "title": "ariphoto2008 vol.4",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2008-11-04",
+   "end": "2008-11-16",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2008-vol-4"
+  },
+  {
+   "title": "ariphoto2009 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2009-03-24",
+   "end": "2009-04-05",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2009-vol-1"
+  },
+  {
+   "title": "東京ロンリーハートランド",
+   "artists": [
+    "水島貴大 / Mizushima Takahiro"
+   ],
+   "start": "2009-04-21",
+   "end": "2009-04-26",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tokyo-lonely-heartland"
+  },
+  {
+   "title": "ariphoto2009 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2009-07-28",
+   "end": "2009-08-09",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2009-vol-2"
+  },
+  {
+   "title": "A Straight Line of Vision",
+   "artists": [
+    "ジョン サイパル / John Sypal"
+   ],
+   "start": "2009-09-29",
+   "end": "2009-10-04",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-straight-line-of-vision"
+  },
+  {
+   "title": "ariphoto2009 vol.3 / WHY NOW TIBET",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2009-10-06",
+   "end": "2009-10-11",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/why-now-tibet"
+  },
+  {
+   "title": "ariphoto2010 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2010-03-02",
+   "end": "2010-03-14",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2010-vol-1"
+  },
+  {
+   "title": "ariphoto selection vol.1",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2010-07-06",
+   "end": "2010-07-11",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-selection-vol-1"
+  },
+  {
+   "title": "ariphoto2010 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2010-08-24",
+   "end": "2010-09-05",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2010-vol-2"
+  },
+  {
+   "title": "真昼の蛾 (2002)",
+   "artists": [
+    "有元伸也"
+   ],
+   "start": "2010-09-07",
+   "end": "2010-09-12",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/mahirunoga-2002"
+  },
+  {
+   "title": "眼に映る。すべからく、",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2010-10-19",
+   "end": "2010-10-24",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/meniutsuru-subekaraku"
+  },
+  {
+   "title": "newcomer",
+   "artists": [
+    "姜美善"
+   ],
+   "start": "2011-02-08",
+   "end": "2011-02-13",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/newcomer"
+  },
+  {
+   "title": "ariphoto2011 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2011-04-05",
+   "end": "2011-04-17",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2011-vol-1"
+  },
+  {
+   "title": "ariphoto selection vol.2",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2011-06-14",
+   "end": "2011-06-26",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-selection-vol-2"
+  },
+  {
+   "title": "an endless attraction",
+   "artists": [
+    "ジョン サイパル / John Sypal"
+   ],
+   "start": "2011-08-16",
+   "end": "2011-08-21",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/an-endless-attraction"
+  },
+  {
+   "title": "ariphoto2011 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2011-08-23",
+   "end": "2011-09-04",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2011-vol-2"
+  },
+  {
+   "title": "SITE",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2011-11-08",
+   "end": "2011-11-20",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/site"
+  },
+  {
+   "title": "ariphoto2012 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2012-01-17",
+   "end": "2012-01-29",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2012-vol-1"
+  },
+  {
+   "title": "吉日",
+   "artists": [
+    "関口直樹"
+   ],
+   "start": "2012-01-31",
+   "end": "2012-02-12",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kitchijitsu"
+  },
+  {
+   "title": "PORTRAIT different two eyes",
+   "artists": [
+    "ソン・ミンス"
+   ],
+   "start": "2012-02-14",
+   "end": "2012-02-19",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/portrait-different-two-eyes"
+  },
+  {
+   "title": "2011 -PLATEAU-",
+   "artists": [
+    "鳥居甲禄 / Torii Kiroku"
+   ],
+   "start": "2012-02-21",
+   "end": "2012-02-26",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/2011-plateau"
+  },
+  {
+   "title": "Let Me Out",
+   "artists": [
+    "菱沼勇夫"
+   ],
+   "start": "2012-02-28",
+   "end": "2012-03-11",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/let-me-out"
+  },
+  {
+   "title": "随写 vol. 1 / Zuisha vol.1",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2012-03-13",
+   "end": "2012-03-18",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-1"
+  },
+  {
+   "title": "誰かの温度の夢を見る / want temperature of someone",
+   "artists": [
+    "大久保恵 / Okubo Megumi"
+   ],
+   "start": "2012-03-20",
+   "end": "2012-04-01",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/want-temperature-of-someone"
+  },
+  {
+   "title": "Azul / アズール",
+   "artists": [
+    "Morohoshi Yumie"
+   ],
+   "start": "2012-04-03",
+   "end": "2012-04-08",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/azul"
+  },
+  {
+   "title": "生け簀 / fish preserve",
+   "artists": [
+    "角田環"
+   ],
+   "start": "2012-04-10",
+   "end": "2012-04-15",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/fish-preserve"
+  },
+  {
+   "title": "ariphoto2012 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2012-04-17",
+   "end": "2012-04-29",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2012-vol-2"
+  },
+  {
+   "title": "Mr.Liberty",
+   "artists": [
+    "シノハラユウタ"
+   ],
+   "start": "2012-05-01",
+   "end": "2012-05-06",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/mr-liberty"
+  },
+  {
+   "title": "近所論・臨海に曝す",
+   "artists": [
+    "大西みつぐ"
+   ],
+   "start": "2012-05-08",
+   "end": "2012-05-20",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/rinkainisarasu"
+  },
+  {
+   "title": "TOKYO STREAM",
+   "artists": [
+    "甲斐啓二郎 / Kai Keijiro"
+   ],
+   "start": "2012-05-22",
+   "end": "2012-06-03",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tokyo-stream"
+  },
+  {
+   "title": "TPPG member exhibition vol.5 “This IZU photo”",
+   "artists": [
+    "有元伸也",
+    "John Sypal",
+    "新名安奈",
+    "関口直樹",
+    "大久保恵",
+    "甲斐啓二郎",
+    "菱沼勇夫",
+    "比留間達朗",
+    "松木もも子"
+   ],
+   "start": "2012-06-05",
+   "end": "2012-06-17",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tppg-member-exhibition-vol-5-this-izu-photo"
+  },
+  {
+   "title": "TPPG new member exhibition",
+   "artists": [
+    "John Sypal",
+    "新名安奈",
+    "菱沼勇夫",
+    "大久保恵",
+    "甲斐啓二郎",
+    "松木もも子"
+   ],
+   "start": "2012-06-19",
+   "end": "2012-07-01",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tppg-new-member-exhibition"
+  },
+  {
+   "title": "いつかの向こう",
+   "artists": [
+    "林朋奈"
+   ],
+   "start": "2012-07-03",
+   "end": "2012-07-08",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/itsukanomukou"
+  },
+  {
+   "title": "dreamin' portrait",
+   "artists": [
+    "玉村敬太"
+   ],
+   "start": "2012-07-10",
+   "end": "2012-07-15",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/dreamin-portrait"
+  },
+  {
+   "title": "コドモ リミテッド",
+   "artists": [
+    "安彦裕介"
+   ],
+   "start": "2012-07-17",
+   "end": "2012-07-22",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kokomo-limited"
+  },
+  {
+   "title": "随写 vol. 2 / Zuisha vol.2",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2012-07-24",
+   "end": "2012-08-05",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-2"
+  },
+  {
+   "title": "BAKU",
+   "artists": [
+    "Suzuki Yosuke"
+   ],
+   "start": "2012-08-07",
+   "end": "2012-08-12",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/baku"
+  },
+  {
+   "title": "ariphoto2012 vol.3",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2012-08-28",
+   "end": "2012-09-09",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2012-vol-3"
+  },
+  {
+   "title": "新宿物語 / Shinjuku Story",
+   "artists": [
+    "駒瀬由宗",
+    "突田創生"
+   ],
+   "start": "2012-09-11",
+   "end": "2012-09-23",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "https://tppg.jp/shinjuku-story"
+  },
+  {
+   "title": "Lives and Dialogues",
+   "artists": [
+    "砺波周平",
+    "加茂匠"
+   ],
+   "start": "2012-09-25",
+   "end": "2012-09-30",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "https://tppg.jp/lives-and-dialogues"
+  },
+  {
+   "title": "ariphoto selection vol.3",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2012-10-02",
+   "end": "2012-10-07",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-selection-vol-3"
+  },
+  {
+   "title": "Nebraska",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2012-10-23",
+   "end": "2012-11-04",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/nebraska"
+  },
+  {
+   "title": "SITE 2",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2012-11-06",
+   "end": "2012-11-18",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/site-2"
+  },
+  {
+   "title": "紐先の蝶 / Wonderer Butterfly",
+   "artists": [
+    "水島貴大 / Mizushima Takahiro"
+   ],
+   "start": "2012-11-27",
+   "end": "2012-12-02",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wonderer-butterfly"
+  },
+  {
+   "title": "随写 vol. 3 / Zuisha vol.3",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2012-12-18",
+   "end": "2012-12-23",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-3"
+  },
+  {
+   "title": "ariphoto2013 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2013-01-15",
+   "end": "2013-01-27",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2013-vol-1"
+  },
+  {
+   "title": "観察と考察 I / observation and study Ⅰ",
+   "artists": [
+    "五味航",
+    "星野佳奈",
+    "櫻岡貴大",
+    "横張隆史"
+   ],
+   "start": "2013-01-29",
+   "end": "2013-02-10",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://tppg.jp/observation-and-study"
+  },
+  {
+   "title": "Let Me Out 2",
+   "artists": [
+    "菱沼勇夫"
+   ],
+   "start": "2013-02-12",
+   "end": "2013-02-24",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/let-me-out-2"
+  },
+  {
+   "title": "Plain Pictures",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2013-02-26",
+   "end": "2013-03-10",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/plain-pictures"
+  },
+  {
+   "title": "33",
+   "artists": [
+    "大塚秀樹",
+    "植田真紗美",
+    "池田雅美"
+   ],
+   "start": "2013-03-12",
+   "end": "2013-03-31",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://tppg.jp/33-2"
+  },
+  {
+   "title": "随写 vol. 4 / Zuisha vol.4",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2013-04-02",
+   "end": "2013-04-14",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-4"
+  },
+  {
+   "title": "ariphoto2013 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2013-04-16",
+   "end": "2013-04-28",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2013-vol-2"
+  },
+  {
+   "title": "KITAKAZE",
+   "artists": [
+    "松井宏樹"
+   ],
+   "start": "2013-05-07",
+   "end": "2013-05-12",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kitakaze"
+  },
+  {
+   "title": "photogenic drawing",
+   "artists": [
+    "刑部信人",
+    "新名安奈",
+    "森嶋夕貴",
+    "中島ゆう子"
+   ],
+   "start": "2013-05-14",
+   "end": "2013-05-26",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://tppg.jp/photogenic-drawing"
+  },
+  {
+   "title": "五十嵐岳彦展 / Takahiko Igarashi Exhibition",
+   "artists": [
+    "五十嵐岳彦"
+   ],
+   "start": "2013-05-28",
+   "end": "2013-06-02",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/takahiko-igarashi-exhibition"
+  },
+  {
+   "title": "PORTRAITS",
+   "artists": [
+    "TPPG members"
+   ],
+   "start": "2013-06-04",
+   "end": "2013-06-16",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tppg-member-exhibition-vol-6-portraits"
+  },
+  {
+   "title": "雨の匂い / The air after shower",
+   "artists": [
+    "菊地教彦"
+   ],
+   "start": "2013-06-18",
+   "end": "2013-06-23",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-air-after-shower"
+  },
+  {
+   "title": "冬の終わりはいつも憂鬱 / Winter ends with melancholy",
+   "artists": [
+    "大久保恵 / Okubo Megumi"
+   ],
+   "start": "2013-06-25",
+   "end": "2013-07-07",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/winter-ends-with-melancholy"
+  },
+  {
+   "title": "夜光虫 / Noctiluca",
+   "artists": [
+    "松木もも子"
+   ],
+   "start": "2013-07-09",
+   "end": "2013-07-14",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/noctiluca"
+  },
+  {
+   "title": "On The Spot",
+   "artists": [
+    "ジョン サイパル"
+   ],
+   "start": "2013-07-16",
+   "end": "2013-07-28",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-spot"
+  },
+  {
+   "title": "babies",
+   "artists": [
+    "Sekiguchi Hiroto"
+   ],
+   "start": "2013-07-30",
+   "end": "2013-08-04",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/babies"
+  },
+  {
+   "title": "AN ISLAND",
+   "artists": [
+    "鳥居甲禄 / Torii Kiroku"
+   ],
+   "start": "2013-08-06",
+   "end": "2013-08-11",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/an-island"
+  },
+  {
+   "title": "随写 vol. 5 / Zuisha vol.5",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2013-08-20",
+   "end": "2013-08-25",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-5"
+  },
+  {
+   "title": "欲視録 / Yokushiroku",
+   "artists": [
+    "広瀬耕平 / Hirose Kouhei"
+   ],
+   "start": "2013-08-27",
+   "end": "2013-09-01",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/yokushiroku"
+  },
+  {
+   "title": "「Water Balloon」 不可解な部位 / An enigmatic part",
+   "artists": [
+    "寺田哲史 / Terada Satoshi"
+   ],
+   "start": "2013-09-03",
+   "end": "2013-09-08",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/water-balloon-an-enigmatic-part"
+  },
+  {
+   "title": "忘れたふりしてる / pretending to forget",
+   "artists": [
+    "南阿沙美"
+   ],
+   "start": "2013-09-10",
+   "end": "2013-09-15",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/pretending-to-forget"
+  },
+  {
+   "title": "土にかえれ / Going Back to Your Birthplace",
+   "artists": [
+    "諸星由美恵"
+   ],
+   "start": "2013-09-17",
+   "end": "2013-09-22",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/going-back-to-your-birthplace"
+  },
+  {
+   "title": "Shrove Tuesday",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2013-09-24",
+   "end": "2013-09-29",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/shrove-tuesday-2"
+  },
+  {
+   "title": "ariphoto2013 vol.3",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2013-10-01",
+   "end": "2013-10-13",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2013-vol-3"
+  },
+  {
+   "title": "滲んで見えない / Nijinde – Mienai",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2013-10-14",
+   "end": "2013-10-27",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/nijinde-mienai"
+  },
+  {
+   "title": "ariphoto selection vol.4",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2013-10-29",
+   "end": "2013-11-03",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-selection-vol-4"
+  },
+  {
+   "title": "夜を縫う",
+   "artists": [
+    "大久保恵 / Okubo Megumi"
+   ],
+   "start": "2013-11-05",
+   "end": "2013-11-17",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/yoruwonuu"
+  },
+  {
+   "title": "Landscape",
+   "artists": [
+    "TPPG members"
+   ],
+   "start": "2013-11-19",
+   "end": "2013-11-24",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tppg-member-exhibition-vol-7-landscape"
+  },
+  {
+   "title": "随写 vol. 6 / Zuisha vol.6",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2013-11-26",
+   "end": "2013-12-08",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-6"
+  },
+  {
+   "title": "Let Me Out 3",
+   "artists": [
+    "菱沼勇夫"
+   ],
+   "start": "2013-12-10",
+   "end": "2013-12-22",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/let-me-out-3"
+  },
+  {
+   "title": "ariphoto2014 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2014-01-14",
+   "end": "2014-01-26",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2014-vol-1"
+  },
+  {
+   "title": "GRAF vol.07 写真の心臓へ",
+   "artists": [
+    "本山周平",
+    "松井宏樹",
+    "片山亮",
+    "錦戸俊康",
+    "宮澤佐保"
+   ],
+   "start": "2014-01-28",
+   "end": "2014-02-09",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://tppg.jp/graf-vol-07"
+  },
+  {
+   "title": "Journey to the End of the night",
+   "artists": [
+    "マヌエル・ファン・ダイク"
+   ],
+   "start": "2014-02-11",
+   "end": "2014-02-16",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/journey-to-the-end-of-the-night"
+  },
+  {
+   "title": "Six of one, and half a dozen of the other",
+   "artists": [
+    "佐々木謙介"
+   ],
+   "start": "2014-02-18",
+   "end": "2014-02-23",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/six-of-one-and-half-a-dozen-of-the-other"
+  },
+  {
+   "title": "Motown",
+   "artists": [
+    "山本圭一"
+   ],
+   "start": "2014-02-25",
+   "end": "2014-03-02",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/motown"
+  },
+  {
+   "title": "The Elderly",
+   "artists": [
+    "呉康琦"
+   ],
+   "start": "2014-03-04",
+   "end": "2014-03-09",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-elderly"
+  },
+  {
+   "title": "消えていく前に / Before this memory is gone",
+   "artists": [
+    "Kikuchi Masami"
+   ],
+   "start": "2014-03-25",
+   "end": "2014-03-30",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/before-this-memory-is-gone"
+  },
+  {
+   "title": "Life in Transition; Myanmar",
+   "artists": [
+    "オーイン・ルアンワッタナスク"
+   ],
+   "start": "2014-04-01",
+   "end": "2014-04-06",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/life-in-transition-myanmar"
+  },
+  {
+   "title": "Temporary file 1",
+   "artists": [
+    "小林真行"
+   ],
+   "start": "2014-04-08",
+   "end": "2014-04-13",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/temporary-file-1"
+  },
+  {
+   "title": "随写 vol. 7 / Zuisha vol.7",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2014-04-15",
+   "end": "2014-04-27",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-7"
+  },
+  {
+   "title": "手負いの熊 / Wounded Bears",
+   "artists": [
+    "甲斐啓二郎 / Kai Keijiro"
+   ],
+   "start": "2014-05-06",
+   "end": "2014-05-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wounded-bears-1"
+  },
+  {
+   "title": "愛と異端 -tranquilizer- / Love and Heresy -Tranquilizer-",
+   "artists": [
+    "千葉雅人"
+   ],
+   "start": "2014-05-20",
+   "end": "2014-05-25",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/love-and-heresy-tranquilizer"
+  },
+  {
+   "title": "Snap",
+   "artists": [
+    "有元伸也",
+    "大久保恵",
+    "甲斐啓二郎",
+    "John Sypal",
+    "新名安奈",
+    "菱沼勇夫",
+    "比留間達朗",
+    "松木もも子"
+   ],
+   "start": "2014-05-27",
+   "end": "2014-06-08",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tppg-member-exhibition-vol-8-snap"
+  },
+  {
+   "title": "化物 / bakemono",
+   "artists": [
+    "Ryuichi Adachi"
+   ],
+   "start": "2014-06-10",
+   "end": "2014-06-15",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/bakemono"
+  },
+  {
+   "title": "深奥のクラゲ / Jellyfish of the depth",
+   "artists": [
+    "松木もも子"
+   ],
+   "start": "2014-06-17",
+   "end": "2014-06-22",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/jellyfish-of-the-depth"
+  },
+  {
+   "title": "冬の終わりはいつも憂鬱 Ⅱ / Winter ends with melancholy Ⅱ",
+   "artists": [
+    "大久保恵 / Okubo Megumi"
+   ],
+   "start": "2014-06-24",
+   "end": "2014-07-06",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/winter-ends-with-melancholy-2"
+  },
+  {
+   "title": "Ashbourne & Maracanã ~フットボールの母国と王国~",
+   "artists": [
+    "Kai Keijiro"
+   ],
+   "start": "2014-07-08",
+   "end": "2014-07-13",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ashbourne-maracana"
+  },
+  {
+   "title": "め・き・で / Make It Death",
+   "artists": [
+    "ダン・エプソープ"
+   ],
+   "start": "2014-07-15",
+   "end": "2014-07-20",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/make-it-death"
+  },
+  {
+   "title": "Wonderwall",
+   "artists": [
+    "フサノケイゴ / Keigo Fusano"
+   ],
+   "start": "2014-07-22",
+   "end": "2014-07-27",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wonderwall"
+  },
+  {
+   "title": "paradise",
+   "artists": [
+    "曽根真由美"
+   ],
+   "start": "2014-07-29",
+   "end": "2014-08-03",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/paradise"
+  },
+  {
+   "title": "オレとメシ / Soul Food & Me",
+   "artists": [
+    "程田耕平"
+   ],
+   "start": "2014-08-05",
+   "end": "2014-08-10",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/soul-food-me"
+  },
+  {
+   "title": "Outskirts",
+   "artists": [
+    "山崎弘義"
+   ],
+   "start": "2014-08-19",
+   "end": "2014-08-24",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/outskirts"
+  },
+  {
+   "title": "随写 vol. 8 / Zuisha vol.8",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2014-08-26",
+   "end": "2014-09-07",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-8"
+  },
+  {
+   "title": "おり / ori",
+   "artists": [
+    "佐々木碧"
+   ],
+   "start": "2014-09-09",
+   "end": "2014-09-21",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ori"
+  },
+  {
+   "title": "MOMENT NOMAD",
+   "artists": [
+    "田形千紘"
+   ],
+   "start": "2014-09-23",
+   "end": "2014-10-05",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/moment-nomad"
+  },
+  {
+   "title": "ま / Ma",
+   "artists": [
+    "比留間達朗"
+   ],
+   "start": "2014-10-07",
+   "end": "2014-10-19",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ma"
+  },
+  {
+   "title": "ariphoto2014 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2014-10-21",
+   "end": "2014-11-02",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2014-vol-2"
+  },
+  {
+   "title": "Nebraska / Aksarben",
+   "artists": [
+    "John Sypal",
+    "Jesse Freeman"
+   ],
+   "start": "2014-11-04",
+   "end": "2014-11-09",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://tppg.jp/nebraska-aksarben"
+  },
+  {
+   "title": "Another Place / 余所",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2014-11-11",
+   "end": "2014-11-16",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/another-place"
+  },
+  {
+   "title": "東の島 / Island Of East",
+   "artists": [
+    "木下悠"
+   ],
+   "start": "2014-11-18",
+   "end": "2014-11-30",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/island-of-east"
+  },
+  {
+   "title": "寡言の街 / Reticence Town",
+   "artists": [
+    "広瀬耕平"
+   ],
+   "start": "2014-12-02",
+   "end": "2014-12-07",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/reticence-town"
+  },
+  {
+   "title": "外側を流れる / It flows through the outside",
+   "artists": [
+    "大久保恵"
+   ],
+   "start": "2014-12-09",
+   "end": "2014-12-21",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/it-flows-through-the-outside"
+  },
+  {
+   "title": "随写 vol. 9 / Zuisha vol.9",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2015-01-13",
+   "end": "2015-01-25",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-9"
+  },
+  {
+   "title": "NIGHT UP",
+   "artists": [
+    "鈴木竜馬"
+   ],
+   "start": "2015-01-27",
+   "end": "2015-02-08",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/night-up"
+  },
+  {
+   "title": "欲視録 / Yokushiroku",
+   "artists": [
+    "広瀬耕平 / Hirose Kouhei"
+   ],
+   "start": "2015-02-10",
+   "end": "2015-02-15",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/yokushiroku-2"
+  },
+  {
+   "title": "ぐっでい / Good Day",
+   "artists": [
+    "比留間達朗"
+   ],
+   "start": "2015-02-17",
+   "end": "2015-03-01",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/good-day"
+  },
+  {
+   "title": "Gaijin Like Me",
+   "artists": [
+    "ジョン サイパル"
+   ],
+   "start": "2015-03-03",
+   "end": "2015-03-08",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/gaijin-like-me"
+  },
+  {
+   "title": "A Handful of Darkness / 一握りの闇",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2015-03-10",
+   "end": "2015-03-15",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-handful-of-darkness-2"
+  },
+  {
+   "title": "A TOWN FOR SLEEP",
+   "artists": [
+    "五十嵐翔平 / Shohei Ikarashi"
+   ],
+   "start": "2015-03-17",
+   "end": "2015-03-22",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-town-for-sleep"
+  },
+  {
+   "title": "Vestige",
+   "artists": [
+    "宮川和治 / Kazuharu Miyagawa"
+   ],
+   "start": "2015-03-24",
+   "end": "2015-03-29",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/vestige"
+  },
+  {
+   "title": "彼者誰 / Kawatare",
+   "artists": [
+    "菱沼勇夫"
+   ],
+   "start": "2015-03-31",
+   "end": "2015-04-12",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kawatare"
+  },
+  {
+   "title": "Kage",
+   "artists": [
+    "菱沼勇夫"
+   ],
+   "start": "2015-04-14",
+   "end": "2015-05-03",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kage-1"
+  },
+  {
+   "title": "空隙の海 / The Sea of Empty",
+   "artists": [
+    "マヌエル・ファン・ダイク"
+   ],
+   "start": "2015-05-12",
+   "end": "2015-05-17",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-sea-of-empty"
+  },
+  {
+   "title": "手負いの熊 / Wounded Bears",
+   "artists": [
+    "甲斐啓二郎 / Kai Keijiro"
+   ],
+   "start": "2015-05-19",
+   "end": "2015-05-31",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wounded-bears-2"
+  },
+  {
+   "title": "ariphoto2015 vol.1",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2015-06-02",
+   "end": "2015-06-14",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2015-vol-1"
+  },
+  {
+   "title": "瞼に映る黄色",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2015-06-16",
+   "end": "2015-06-28",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/mabutani-utsuru-kiiro"
+  },
+  {
+   "title": "Flowers",
+   "artists": [
+    "菅原淑美"
+   ],
+   "start": "2015-07-14",
+   "end": "2015-07-26",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/flowers"
+  },
+  {
+   "title": "Silence, belongs to nothing.",
+   "artists": [
+    "目良敦"
+   ],
+   "start": "2015-07-28",
+   "end": "2015-08-02",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/silence-belongs-to-nothing"
+  },
+  {
+   "title": "Spitz",
+   "artists": [
+    "宮本祐昌"
+   ],
+   "start": "2015-08-04",
+   "end": "2015-08-09",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/spitz"
+  },
+  {
+   "title": "随写 vol. 10 / Zuisha vol.10",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2015-08-11",
+   "end": "2015-08-16",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-10"
+  },
+  {
+   "title": "A Handful of Darkness vol.2",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2015-08-18",
+   "end": "2015-08-30",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-handful-of-darkness-vol-2"
+  },
+  {
+   "title": "VISION",
+   "artists": [
+    "水島貴大 / Mizushima Takahiro"
+   ],
+   "start": "2015-09-01",
+   "end": "2015-09-06",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/vision"
+  },
+  {
+   "title": "「還る」 / kaeru",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2015-09-08",
+   "end": "2015-09-13",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kaeru"
+  },
+  {
+   "title": "あの夏は、あの９月は / Late summer, Miyazaki 2007, 2011",
+   "artists": [
+    "諸星由美恵"
+   ],
+   "start": "2015-09-15",
+   "end": "2015-09-20",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/late-summer-miyazaki-2007-2011"
+  },
+  {
+   "title": "Kitchen Garden",
+   "artists": [
+    "水村丈夫"
+   ],
+   "start": "2015-09-22",
+   "end": "2015-09-27",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kitchen-garden-2"
+  },
+  {
+   "title": "骨の髄 / Down to the Bone",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2015-09-29",
+   "end": "2015-10-11",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/down-to-the-bone"
+  },
+  {
+   "title": "studies",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2015-10-13",
+   "end": "2015-10-25",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/studies"
+  },
+  {
+   "title": "ariphoto2015 vol.2",
+   "artists": [
+    "Shinya Arimoto"
+   ],
+   "start": "2015-10-27",
+   "end": "2015-11-08",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto2015-vol-2"
+  },
+  {
+   "title": "随写 vol. 11 / Zuisha vol.11",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2015-11-24",
+   "end": "2015-11-29",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-11"
+  },
+  {
+   "title": "父を辿る旅 / TRACE THE LIFE OF MY FATHER",
+   "artists": [
+    "石井加奈子 / Canaco Ishii"
+   ],
+   "start": "2015-12-01",
+   "end": "2015-12-06",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/trace-the-life-of-my-father"
+  },
+  {
+   "title": "共鳴する子宮",
+   "artists": [
+    "調子麻実"
+   ],
+   "start": "2016-01-12",
+   "end": "2016-01-24",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kyoumeisurushikyuu"
+  },
+  {
+   "title": "知らない丘 / Strange hill",
+   "artists": [
+    "藤巻いづみ"
+   ],
+   "start": "2016-01-26",
+   "end": "2016-01-31",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/strange-hill"
+  },
+  {
+   "title": "TOKYO LONELY HEART LAND",
+   "artists": [
+    "水島貴大 / Mizushima Takahiro"
+   ],
+   "start": "2016-02-02",
+   "end": "2016-02-14",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tokyo-lonely-heart-land-2"
+  },
+  {
+   "title": "A Handful of Darkness vol.3 / 一握りの闇 vol.3",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2016-02-16",
+   "end": "2016-02-28",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-handful-of-darkness-vol-3"
+  },
+  {
+   "title": "随写 vol. 12 / Zuisha vol.12",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2016-03-01",
+   "end": "2016-03-13",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-12"
+  },
+  {
+   "title": "Buenos días",
+   "artists": [
+    "Kanta Nomura"
+   ],
+   "start": "2016-03-15",
+   "end": "2016-03-27",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/buenos-dias"
+  },
+  {
+   "title": "どうすることもできない",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2016-03-29",
+   "end": "2016-04-10",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/dousurukotomodekinai"
+  },
+  {
+   "title": "neuron",
+   "artists": [
+    "須藤広幸"
+   ],
+   "start": "2016-04-12",
+   "end": "2016-04-24",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/neuron"
+  },
+  {
+   "title": "随写 vol. 13 / Zuisha vol.13",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2016-04-26",
+   "end": "2016-05-08",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-13"
+  },
+  {
+   "title": "骨の髄 / Down to the Bone",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2016-05-10",
+   "end": "2016-05-22",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/down-to-the-bone-2"
+  },
+  {
+   "title": "愛 / AI",
+   "artists": [
+    "千葉雅人"
+   ],
+   "start": "2016-05-24",
+   "end": "2016-05-29",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/love-ai"
+  },
+  {
+   "title": "世界の入口 / An Overture",
+   "artists": [
+    "清水コウ / Co Shimizu"
+   ],
+   "start": "2016-05-31",
+   "end": "2016-06-05",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/an-overture"
+  },
+  {
+   "title": "虻 2 / The Fly 2",
+   "artists": [
+    "千葉雅人"
+   ],
+   "start": "2016-06-07",
+   "end": "2016-06-12",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-fly-2"
+  },
+  {
+   "title": "欲視録 / Yokushiroku",
+   "artists": [
+    "広瀬耕平 / Hirose Kouhei"
+   ],
+   "start": "2016-06-14",
+   "end": "2016-06-26",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/yokushiroku-5"
+  },
+  {
+   "title": "Behind Glass",
+   "artists": [
+    "Manuel van Dyck"
+   ],
+   "start": "2016-06-28",
+   "end": "2016-07-03",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/behind-glass"
+  },
+  {
+   "title": "New inside — スタイルを適用した新しい写真 —",
+   "artists": [
+    "安彦裕介",
+    "浅田慧子"
+   ],
+   "start": "2016-07-05",
+   "end": "2016-07-10",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://tppg.jp/new-inside-new-things-created-for-you"
+  },
+  {
+   "title": "まぶたに煙 / smoky mirror",
+   "artists": [
+    "近藤みどり"
+   ],
+   "start": "2016-07-12",
+   "end": "2016-07-17",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/smoky-mirror"
+  },
+  {
+   "title": "Long Hug Town",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2016-07-19",
+   "end": "2016-07-31",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/long-hug-town"
+  },
+  {
+   "title": "A Handful of Darkness vol.4 / 一握りの闇 vol.4",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2016-08-02",
+   "end": "2016-08-14",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-handful-of-darkness-vol-4"
+  },
+  {
+   "title": "Cue",
+   "artists": [
+    "新名 安奈"
+   ],
+   "start": "2016-08-16",
+   "end": "2016-08-28",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/cue"
+  },
+  {
+   "title": "同猫棲時代 / Co – Nekotation Era",
+   "artists": [
+    "中矢昌行",
+    "ション・マーク・リー",
+    "ジョン・サイパル"
+   ],
+   "start": "2016-08-30",
+   "end": "2016-09-11",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://tppg.jp/co-nekotation-era"
+  },
+  {
+   "title": "TIBETAN WAY",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2016-09-27",
+   "end": "2016-10-02",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tibetan-way"
+  },
+  {
+   "title": "手負いの熊 / Wounded Bears",
+   "artists": [
+    "甲斐啓二郎 / Keijiro Kai"
+   ],
+   "start": "2016-10-04",
+   "end": "2016-10-16",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wounded-bears-3-2"
+  },
+  {
+   "title": "路上〜私の心を奪うために〜",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2016-10-18",
+   "end": "2016-10-30",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/rojou-watasinokokorowo"
+  },
+  {
+   "title": "随写 vol. 14 / Zuisha vol.14",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2016-11-01",
+   "end": "2016-11-06",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-14"
+  },
+  {
+   "title": "Real Fur",
+   "artists": [
+    "寺田哲史"
+   ],
+   "start": "2016-11-08",
+   "end": "2016-11-13",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/real-fur"
+  },
+  {
+   "title": "A Handful of Darkness vol.5 / 一握りの闇 vol.5",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2016-11-15",
+   "end": "2016-11-27",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-handful-of-darkness-vol-5"
+  },
+  {
+   "title": "Long Hug Town #2",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2016-11-29",
+   "end": "2016-12-11",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/long-hug-town-2"
+  },
+  {
+   "title": "霧は深い – dance with fog",
+   "artists": [
+    "磯貝琢哉"
+   ],
+   "start": "2016-12-13",
+   "end": "2016-12-25",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/dance-with-fog"
+  },
+  {
+   "title": "By the Water / 水辺にて",
+   "artists": [
+    "Wan Chaofan"
+   ],
+   "start": "2017-01-10",
+   "end": "2017-01-22",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/by-the-water"
+  },
+  {
+   "title": "Bougé:持続の瞬間",
+   "artists": [
+    "Oh Jaewoong"
+   ],
+   "start": "2017-01-24",
+   "end": "2017-02-05",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/bouge-jizokunojikan"
+  },
+  {
+   "title": "Everything is Garbage",
+   "artists": [
+    "Colin Barey"
+   ],
+   "start": "2017-02-07",
+   "end": "2017-02-12",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/everything-is-garbage"
+  },
+  {
+   "title": "随写 vol. 15 / Zuisha vol.15",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2017-02-14",
+   "end": "2017-02-26",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-15"
+  },
+  {
+   "title": "0番地 / Zero District",
+   "artists": [
+    "島田啓奨 / Keisuke Shimada"
+   ],
+   "start": "2017-02-28",
+   "end": "2017-03-05",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zero-district"
+  },
+  {
+   "title": "東・北 / East・North",
+   "artists": [
+    "梁爽"
+   ],
+   "start": "2017-03-07",
+   "end": "2017-03-12",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/east-north"
+  },
+  {
+   "title": "土を織る / Weave the soil",
+   "artists": [
+    "広瀬耕平 / Hirose Kouhei"
+   ],
+   "start": "2017-03-14",
+   "end": "2017-03-26",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/weave-the-soil"
+  },
+  {
+   "title": "Uncertain Half",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp",
+    "マヌエル・ファン・ダイク / Manuel van Dyck"
+   ],
+   "start": "2017-03-28",
+   "end": "2017-04-02",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://tppg.jp/uncertain-half"
+  },
+  {
+   "title": "Spotlight",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2017-04-04",
+   "end": "2017-04-16",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/spotlight"
+  },
+  {
+   "title": "満ち来る潮 / Tide Rises",
+   "artists": [
+    "宛超凡 / Wan Chaofan"
+   ],
+   "start": "2017-04-18",
+   "end": "2017-04-30",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tide-rises"
+  },
+  {
+   "title": "Facility Tour",
+   "artists": [
+    "水村丈夫"
+   ],
+   "start": "2017-05-02",
+   "end": "2017-05-07",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/facility-tour"
+  },
+  {
+   "title": "H i g h l i g h t",
+   "artists": [
+    "キム アルム"
+   ],
+   "start": "2017-05-09",
+   "end": "2017-05-21",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/highlight"
+  },
+  {
+   "title": "Opens and Stands Up",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2017-05-23",
+   "end": "2017-06-04",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/opens-and-stands-up"
+  },
+  {
+   "title": "night knot",
+   "artists": [
+    "姜美善"
+   ],
+   "start": "2017-06-06",
+   "end": "2017-06-18",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/night-knot"
+  },
+  {
+   "title": "Behind Glass vol.2",
+   "artists": [
+    "Manuel van Dyck"
+   ],
+   "start": "2017-06-20",
+   "end": "2017-06-25",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/behind-glass-vol-2"
+  },
+  {
+   "title": "いったい何があったのさ",
+   "artists": [
+    "横島清二"
+   ],
+   "start": "2017-06-27",
+   "end": "2017-07-09",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ittainanigaattanosa"
+  },
+  {
+   "title": "ariphoto vol.29",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2017-07-11",
+   "end": "2017-07-23",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-vol-29"
+  },
+  {
+   "title": "随写 vol. 16 / Zuisha vol.16",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2017-07-25",
+   "end": "2017-08-06",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-16"
+  },
+  {
+   "title": "Complete World of Nothing",
+   "artists": [
+    "ダン・エプソープ"
+   ],
+   "start": "2017-08-08",
+   "end": "2017-08-20",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/complete-world-of-nothing-2"
+  },
+  {
+   "title": "視線をみる",
+   "artists": [
+    "磯貝琢哉"
+   ],
+   "start": "2017-08-22",
+   "end": "2017-08-27",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/shisenwomiru"
+  },
+  {
+   "title": "Resonance",
+   "artists": [
+    "Giovanni Pascarella"
+   ],
+   "start": "2017-08-29",
+   "end": "2017-09-03",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/resonance"
+  },
+  {
+   "title": "満ち来る潮Ⅱ / Tide RisesⅡ",
+   "artists": [
+    "宛超凡 / Wan Chaofan"
+   ],
+   "start": "2017-09-05",
+   "end": "2017-09-17",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tide-rises-2"
+  },
+  {
+   "title": "ariphoto vol.30",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2017-09-19",
+   "end": "2017-10-01",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-vol-30"
+  },
+  {
+   "title": "路上 Ⅰ",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2017-10-03",
+   "end": "2017-10-15",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-1"
+  },
+  {
+   "title": "房総ワンダーアイランド / Boso Wonder Island",
+   "artists": [
+    "Yuki Uchida"
+   ],
+   "start": "2017-10-17",
+   "end": "2017-10-22",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/boso-wonder-island"
+  },
+  {
+   "title": "Whereabouts",
+   "artists": [],
+   "start": "2017-10-24",
+   "end": "2017-10-29",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://tppg.jp/whereabouts"
+  },
+  {
+   "title": "SITE 3",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2017-10-31",
+   "end": "2017-11-12",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/site-3"
+  },
+  {
+   "title": "Long Hug Town #3",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2017-11-28",
+   "end": "2017-12-10",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/long-hug-town-3"
+  },
+  {
+   "title": "随写 vol. 17 / Zuisha vol.17",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2017-12-12",
+   "end": "2017-12-24",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-17"
+  },
+  {
+   "title": "声を聴いて / Listen to my heart",
+   "artists": [
+    "関田晋也"
+   ],
+   "start": "2018-01-16",
+   "end": "2018-01-21",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/listen-to-my-heart"
+  },
+  {
+   "title": "MAINE ONE",
+   "artists": [
+    "Peter Tallaksen"
+   ],
+   "start": "2018-01-23",
+   "end": "2018-01-28",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/maine-one"
+  },
+  {
+   "title": "HOMI",
+   "artists": [
+    "千賀英俊"
+   ],
+   "start": "2018-01-30",
+   "end": "2018-02-04",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/homi"
+  },
+  {
+   "title": "This Game We Play",
+   "artists": [
+    "Giovanni Pascarella"
+   ],
+   "start": "2018-02-06",
+   "end": "2018-02-11",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/this-game-we-play"
+  },
+  {
+   "title": "Choosing \"facts\"",
+   "artists": [
+    "Gang Misun"
+   ],
+   "start": "2018-02-13",
+   "end": "2018-02-25",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/choosing-facts-2018"
+  },
+  {
+   "title": "その森で観てきたものの全てあるいは一部 / All or part of what I have seen in that forest",
+   "artists": [
+    "久光菜津美 / Natsumi Hisamitsu"
+   ],
+   "start": "2018-02-27",
+   "end": "2018-03-04",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/all-or-part-of-what-i-have"
+  },
+  {
+   "title": "Photo Spot / 駐写場",
+   "artists": [
+    "ジョン サイパル"
+   ],
+   "start": "2018-03-06",
+   "end": "2018-03-18",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/photo-spot"
+  },
+  {
+   "title": "Idiot Sequence",
+   "artists": [
+    "コリン・ベーリー"
+   ],
+   "start": "2018-03-20",
+   "end": "2018-03-25",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/idiot-sequence"
+  },
+  {
+   "title": "Complete World of Nothing",
+   "artists": [
+    "ダン・エプソープ"
+   ],
+   "start": "2018-03-27",
+   "end": "2018-04-08",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/complete-world-of-nothing"
+  },
+  {
+   "title": "Animals",
+   "artists": [
+    "Blake Andrews / ブレイク アンドリュース"
+   ],
+   "start": "2018-04-10",
+   "end": "2018-04-15",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/animals"
+  },
+  {
+   "title": "ariphoto vol.31",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2018-04-17",
+   "end": "2018-04-29",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-vol-31"
+  },
+  {
+   "title": "路上 Ⅱ",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2018-05-01",
+   "end": "2018-05-13",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-2"
+  },
+  {
+   "title": "Long Hug Town #4",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2018-05-15",
+   "end": "2018-05-27",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/long-hug-town-4"
+  },
+  {
+   "title": "Crossing the River",
+   "artists": [
+    "周 越"
+   ],
+   "start": "2018-05-29",
+   "end": "2018-06-03",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/crossing-the-river"
+  },
+  {
+   "title": "METROPOLIS Ⅰ",
+   "artists": [
+    "宛超凡"
+   ],
+   "start": "2018-06-05",
+   "end": "2018-06-17",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/metropolis-%e2%85%b0"
+  },
+  {
+   "title": "Soldier",
+   "artists": [
+    "姜在求"
+   ],
+   "start": "2018-06-19",
+   "end": "2018-07-01",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/soldier"
+  },
+  {
+   "title": "LANDSCAPE PROBE",
+   "artists": [
+    "寺崎珠真"
+   ],
+   "start": "2018-07-03",
+   "end": "2018-07-08",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/landscape-probe"
+  },
+  {
+   "title": "オレンジという青",
+   "artists": [
+    "須藤広幸"
+   ],
+   "start": "2018-07-10",
+   "end": "2018-07-22",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/orenjitoiuao"
+  },
+  {
+   "title": "ガラガラ / garagara",
+   "artists": [
+    "比留間達朗"
+   ],
+   "start": "2018-07-24",
+   "end": "2018-08-05",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/garagara"
+  },
+  {
+   "title": "スペース / Space",
+   "artists": [
+    "松岡美紀"
+   ],
+   "start": "2018-08-07",
+   "end": "2018-08-12",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/space"
+  },
+  {
+   "title": "随写 vol. 18 / Zuisha vol.18",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2018-08-14",
+   "end": "2018-08-19",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-18"
+  },
+  {
+   "title": "Wave tossed, but unsunk.",
+   "artists": [
+    "坂本 陽 / Minami Sakamoto"
+   ],
+   "start": "2018-08-21",
+   "end": "2018-08-26",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wave-tossed-but-unsunk"
+  },
+  {
+   "title": "日々のノイ '17-18 / Daily Noi cat '17-18",
+   "artists": [
+    "オオムロ トモノブ"
+   ],
+   "start": "2018-08-28",
+   "end": "2018-09-02",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/daily-noi-cat-17-18"
+  },
+  {
+   "title": "ariphoto vol.32",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2018-09-04",
+   "end": "2018-09-16",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/ariphoto-vol-32"
+  },
+  {
+   "title": "洛中洛外観察日記 其の弐",
+   "artists": [
+    "布垣昌邦"
+   ],
+   "start": "2018-10-02",
+   "end": "2018-10-14",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/rakuchurakugaikansatsunikki-2"
+  },
+  {
+   "title": "User Consumer",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2018-10-16",
+   "end": "2018-10-28",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/user-consumer-3"
+  },
+  {
+   "title": "All in the past",
+   "artists": [
+    "新名 安奈 / Shimmyo Anna"
+   ],
+   "start": "2018-10-30",
+   "end": "2018-11-11",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/all-in-the-past"
+  },
+  {
+   "title": "Observing Objects",
+   "artists": [
+    "宛超凡"
+   ],
+   "start": "2018-11-13",
+   "end": "2018-11-25",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/observing-objects"
+  },
+  {
+   "title": "路上 三",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2018-11-27",
+   "end": "2018-12-09",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-3"
+  },
+  {
+   "title": "鼓動のクロッキー / Croquis of Heartbeat",
+   "artists": [
+    "新井 悠史"
+   ],
+   "start": "2019-01-15",
+   "end": "2019-01-20",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/croquis-of-heartbeat"
+  },
+  {
+   "title": "輪郭を辿る / Follow the contour",
+   "artists": [
+    "比嘉 緩奈"
+   ],
+   "start": "2019-01-22",
+   "end": "2019-01-27",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/follow-the-contour"
+  },
+  {
+   "title": "随写 vol. 19 / Zuisha vol.19",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2019-01-29",
+   "end": "2019-02-03",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-19"
+  },
+  {
+   "title": "A Pretty Sweet Fruit",
+   "artists": [
+    "コリン・ベーリー / Colin Barey"
+   ],
+   "start": "2019-02-05",
+   "end": "2019-02-10",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-pretty-sweet-fruit"
+  },
+  {
+   "title": "To the souvenir of time",
+   "artists": [
+    "陳 伊寧 / Chen Yining"
+   ],
+   "start": "2019-02-12",
+   "end": "2019-02-17",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/to-the-souvenir-of-time"
+  },
+  {
+   "title": "蜘蛛の糸Ⅲ / KUMO NO ITO Ⅲ",
+   "artists": [
+    "新井晃平",
+    "圓谷真唯"
+   ],
+   "start": "2019-02-19",
+   "end": "2019-02-24",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://tppg.jp/kumo-no-ito-3"
+  },
+  {
+   "title": "Homewear",
+   "artists": [
+    "張 瑜眞"
+   ],
+   "start": "2019-02-26",
+   "end": "2019-03-10",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/homewear"
+  },
+  {
+   "title": "VENUS",
+   "artists": [
+    "金 芝淑 / KIM ZI SOOK"
+   ],
+   "start": "2019-02-26",
+   "end": "2019-03-10",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/venus"
+  },
+  {
+   "title": "Choosing \"facts\"",
+   "artists": [
+    "Gang Misun"
+   ],
+   "start": "2019-03-12",
+   "end": "2019-03-24",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/choosing-facts-2019"
+  },
+  {
+   "title": "User Consumer",
+   "artists": [
+    "ダン・エプソープ / Dan Epthorp"
+   ],
+   "start": "2019-03-26",
+   "end": "2019-03-31",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/user-consumer"
+  },
+  {
+   "title": "影絵遊び / 그림자놀이",
+   "artists": [
+    "尹 勝俊",
+    "玄 夕慧",
+    "朱 龍聲",
+    "洪 辰煊"
+   ],
+   "start": "2019-04-02",
+   "end": "2019-04-14",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://tppg.jp/kageeasobi"
+  },
+  {
+   "title": "バタフライ / Butterfly",
+   "artists": [
+    "Minami Sakamoto"
+   ],
+   "start": "2019-04-16",
+   "end": "2019-04-28",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/butterfly"
+  },
+  {
+   "title": "A Straight Line of Vision",
+   "artists": [
+    "ジョン サイパル / John Sypal"
+   ],
+   "start": "2019-04-30",
+   "end": "2019-05-12",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/a-straight-line-of-vision-2"
+  },
+  {
+   "title": "Charanga",
+   "artists": [
+    "Keijiro Kai"
+   ],
+   "start": "2019-05-14",
+   "end": "2019-05-26",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/charanga"
+  },
+  {
+   "title": "路上 Ⅳ / On the street 4",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2019-05-28",
+   "end": "2019-06-09",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-4"
+  },
+  {
+   "title": "満ち来る潮 Ⅲ / Tide Rises Ⅲ",
+   "artists": [
+    "宛超凡 / Wan Chaofan"
+   ],
+   "start": "2019-06-11",
+   "end": "2019-06-23",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tide-rises-3"
+  },
+  {
+   "title": "WOMXN / ウィミン",
+   "artists": [
+    "DEBY SUCHA"
+   ],
+   "start": "2019-07-02",
+   "end": "2019-07-07",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/womxn"
+  },
+  {
+   "title": "Good as I Been to You Pt.1",
+   "artists": [
+    "田 凱"
+   ],
+   "start": "2019-07-09",
+   "end": "2019-07-21",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/good-as-i-been-to-you-pt-1"
+  },
+  {
+   "title": "SITE 4",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2019-07-23",
+   "end": "2019-08-04",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/site-4"
+  },
+  {
+   "title": "That Bright Planet",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2019-08-06",
+   "end": "2019-08-18",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/that-bright-planet"
+  },
+  {
+   "title": "Anthropocene",
+   "artists": [
+    "長谷川 友里 / Yuri Hasegawa"
+   ],
+   "start": "2019-08-20",
+   "end": "2019-09-01",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/anthropocene"
+  },
+  {
+   "title": "かお、顔、貌",
+   "artists": [
+    "石井 仁志"
+   ],
+   "start": "2019-09-03",
+   "end": "2019-09-15",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kao-kao-kao"
+  },
+  {
+   "title": "薩摩漂流奇譚 / Wonder Wonder Satsuma Journey",
+   "artists": [
+    "諸星 由美恵 / Yumie Morohoshi"
+   ],
+   "start": "2019-09-17",
+   "end": "2019-09-22",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/wonder-wonder-satsuma-journey"
+  },
+  {
+   "title": "DATE STAMPED",
+   "artists": [
+    "ジョン サイパル"
+   ],
+   "start": "2019-09-24",
+   "end": "2019-10-06",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/date-stamped"
+  },
+  {
+   "title": "Family Project",
+   "artists": [
+    "べ・ジンヒ"
+   ],
+   "start": "2019-10-08",
+   "end": "2019-10-20",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/family-project"
+  },
+  {
+   "title": "随写 vol. 20 / Zuisha vol.20",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2019-11-05",
+   "end": "2019-11-17",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-20"
+  },
+  {
+   "title": "IDLE COLLAGE CRITIQUE",
+   "artists": [
+    "相澤 亮"
+   ],
+   "start": "2019-11-19",
+   "end": "2019-11-24",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/idle-collage-critique"
+  },
+  {
+   "title": "on the water. under the sky.",
+   "artists": [
+    "飯田耕治"
+   ],
+   "start": "2019-11-26",
+   "end": "2019-12-01",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-water-under-the-sky"
+  },
+  {
+   "title": "反抗の輪郭 / Rebellious contour",
+   "artists": [
+    "坂本陽"
+   ],
+   "start": "2019-12-03",
+   "end": "2019-12-15",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/rebellious-contour"
+  },
+  {
+   "title": "ICU / Intensive Care Unit",
+   "artists": [
+    "野々山 裕樹"
+   ],
+   "start": "2020-01-14",
+   "end": "2020-01-19",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/icu-intensive-care-unit"
+  },
+  {
+   "title": "C403 Uncertain",
+   "artists": [
+    "Zheng Chengwei"
+   ],
+   "start": "2020-01-21",
+   "end": "2020-01-26",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/c-403-uncertain"
+  },
+  {
+   "title": "二月雪 / Nigatsuyuki",
+   "artists": [
+    "楊喻雯"
+   ],
+   "start": "2020-01-28",
+   "end": "2020-02-02",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/nigatsuyuki"
+  },
+  {
+   "title": "The Tokyo Crowd",
+   "artists": [
+    "ジョン サイパル"
+   ],
+   "start": "2020-02-04",
+   "end": "2020-02-16",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-tokyo-crowd"
+  },
+  {
+   "title": "Choosing \"facts\"",
+   "artists": [
+    "姜美善"
+   ],
+   "start": "2020-02-18",
+   "end": "2020-03-01",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/choosing-facts-2020"
+  },
+  {
+   "title": "路上Ⅴ / On the street 5",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2020-03-03",
+   "end": "2020-03-15",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-5"
+  },
+  {
+   "title": "Generate",
+   "artists": [
+    "田 凱"
+   ],
+   "start": "2020-03-17",
+   "end": "2020-03-29",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/generate"
+  },
+  {
+   "title": "白い日陰がさす庭 / The white shaded backyard",
+   "artists": [
+    "李建英"
+   ],
+   "start": "2020-03-31",
+   "end": "2020-04-12",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-white-shaded-backyard"
+  },
+  {
+   "title": "路上Ⅵ / On the street 6",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2020-06-02",
+   "end": "2020-06-21",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-6"
+  },
+  {
+   "title": "BURNING IN THE STONE",
+   "artists": [
+    "Wan Chaofan"
+   ],
+   "start": "2020-06-23",
+   "end": "2020-07-05",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/burning-in-the-stone"
+  },
+  {
+   "title": "Local public bath \"Sento\"",
+   "artists": [
+    "松原豊"
+   ],
+   "start": "2020-07-07",
+   "end": "2020-07-19",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/local-public-bath-sento"
+  },
+  {
+   "title": "Tokyo Debugger 2019",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2020-07-21",
+   "end": "2020-08-02",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tokyo-debugger-2019"
+  },
+  {
+   "title": "路上Ⅶ / On the street 7",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2020-08-04",
+   "end": "2020-08-16",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-7"
+  },
+  {
+   "title": "paraiso",
+   "artists": [
+    "並木舞"
+   ],
+   "start": "2020-08-18",
+   "end": "2020-08-23",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/paraiso"
+  },
+  {
+   "title": "Dwelling Unit",
+   "artists": [
+    "田 凱"
+   ],
+   "start": "2020-08-25",
+   "end": "2020-09-06",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/dwelling-unit"
+  },
+  {
+   "title": "遠く溢れる / I still can see (surely)",
+   "artists": [
+    "菊池 真未"
+   ],
+   "start": "2020-09-08",
+   "end": "2020-09-13",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/i-still-can-see-surely"
+  },
+  {
+   "title": "私が生きた今日の風景 / The scene I lived today.",
+   "artists": [
+    "姜美善"
+   ],
+   "start": "2020-09-15",
+   "end": "2020-09-27",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-scene-i-lived-today"
+  },
+  {
+   "title": "BLOW-UP",
+   "artists": [
+    "宛超凡",
+    "唐雅怡"
+   ],
+   "start": "2020-09-29",
+   "end": "2020-10-11",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://tppg.jp/blow-up"
+  },
+  {
+   "title": "綺羅の晴れ着 / kira no haregi",
+   "artists": [
+    "甲斐啓二郎"
+   ],
+   "start": "2020-10-13",
+   "end": "2020-10-25",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/kira-no-haregi"
+  },
+  {
+   "title": "canal",
+   "artists": [
+    "Yusuke Abico"
+   ],
+   "start": "2020-10-27",
+   "end": "2020-11-08",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/canal"
+  },
+  {
+   "title": "Tokyo Debugger, Complete",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2020-11-10",
+   "end": "2020-11-22",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tokyo-debugger-complete"
+  },
+  {
+   "title": "随写 vol. 21 / Zuisha vol.21",
+   "artists": [
+    "John Sypal"
+   ],
+   "start": "2020-11-24",
+   "end": "2020-12-06",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/zuisha-vol-21"
+  },
+  {
+   "title": "路上Ⅷ / On the street 8",
+   "artists": [
+    "淵上裕太"
+   ],
+   "start": "2020-12-08",
+   "end": "2020-12-20",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/on-the-street-8"
+  },
+  {
+   "title": "Telescope",
+   "artists": [
+    "坂本陽"
+   ],
+   "start": "2021-01-19",
+   "end": "2021-01-31",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/telescope"
+  },
+  {
+   "title": "虚な身体、離脱 / Empty Body, Break Away",
+   "artists": [
+    "田 凱"
+   ],
+   "start": "2021-02-02",
+   "end": "2021-02-07",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/empty-body-leaving"
+  },
+  {
+   "title": "The Roleless Role",
+   "artists": [
+    "張曼惠"
+   ],
+   "start": "2021-02-09",
+   "end": "2021-02-14",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-roleless-role"
+  },
+  {
+   "title": "ペトリコール / Petrichor",
+   "artists": [
+    "新名安奈"
+   ],
+   "start": "2021-02-16",
+   "end": "2021-02-21",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/shinmmyoanna_petrichor"
+  },
+  {
+   "title": "THE NEGATIVE ~ネ我より月面~",
+   "artists": [
+    "川口翼"
+   ],
+   "start": "2021-02-23",
+   "end": "2021-02-28",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/the-negative"
+  },
+  {
+   "title": "\"Photo Beachcombing: Found Photo Association\"",
+   "artists": [
+    "篠塚祐介",
+    "ジョン・サイパル"
+   ],
+   "start": "2021-03-02",
+   "end": "2021-03-14",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://tppg.jp/found-photo-association"
+  },
+  {
+   "title": "石蔵が見える / The View of Stone Warehouse",
+   "artists": [
+    "福田 晴紀 / Haruki Fukuda"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "街と人と Rebirth -Tokyo Carnival-",
+   "artists": [],
+   "start": "2024-10-08",
+   "end": "2024-10-13",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "無尽蔵 / Infinity Scene",
+   "artists": [
+    "陸超 / アスピリン / Aspirin"
+   ],
+   "start": "2024-10-15",
+   "end": "2024-10-20",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "根 / Roots",
+   "artists": [
+    "蔡 嘉辰 / Jiachen Cai"
+   ],
+   "start": "2024-10-22",
+   "end": "2024-10-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "事実の選択 / Choosing \"facts\" / 사실의 선택",
+   "artists": [
+    "姜美善 / カンミソン / gang,misun / 강 미선"
+   ],
+   "start": "2024-10-29",
+   "end": "2024-11-10",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "環島回憶錄 Part 2 / Memoirs of Huandao Part 2",
+   "artists": [
+    "水島 貴大 / Takahiro Mizushima"
+   ],
+   "start": "2024-11-12",
+   "end": "2024-11-24",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "随写 vol.26 / Zuisha vol.26",
+   "artists": [
+    "ジョン サイパル / John Sypal"
+   ],
+   "start": "2024-11-26",
+   "end": "2024-12-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "アフターオール / after all",
+   "artists": [
+    "蓮井元彦 / Motohiko Hasui"
+   ],
+   "start": "2024-12-03",
+   "end": "2024-12-08",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "大きな物語の歴史II/大地と闘争 / History of Grand narrative II",
+   "artists": [
+    "佐方 晴登 / Haruto Sakata"
+   ],
+   "start": "2024-12-10",
+   "end": "2024-12-15",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "Volcanic breath, echo of life",
+   "artists": [
+    "曹 岳川 / CAO YUECHUAN / ソウガクセン"
+   ],
+   "start": "2024-12-17",
+   "end": "2024-12-22",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2024"
+  },
+  {
+   "title": "京西の地 / West of the Capital",
+   "artists": [
+    "劉建兵 / Liu Jianbing"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "肌と距離 / Skin and Distance",
+   "artists": [
+    "淵上裕太 / Yuta Fuchikami"
+   ],
+   "start": "2025-08-26",
+   "end": "2025-09-07",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "上海の周縁 / Shanghai Periphery",
+   "artists": [
+    "李雲鵬 / Li Yunpeng"
+   ],
+   "start": "2025-09-09",
+   "end": "2025-09-14",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "S'scape",
+   "artists": [
+    "李 建英 (イ・ゴニョン) / 이 건영 / Gun Young Lee"
+   ],
+   "start": "2025-09-16",
+   "end": "2025-09-28",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "Telescope",
+   "artists": [
+    "坂本 陽 / Sakamoto Minami"
+   ],
+   "start": "2025-09-30",
+   "end": "2025-10-12",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "These Are The Things",
+   "artists": [
+    "蔡嘉辰 / Jiachen Cai"
+   ],
+   "start": "2025-10-14",
+   "end": "2025-10-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "街と人と -Players' Player-",
+   "artists": [],
+   "start": "2025-10-28",
+   "end": "2025-11-02",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "To Take Root Again",
+   "artists": [
+    "楊喩雯 / Yang Yuwen"
+   ],
+   "start": "2025-11-04",
+   "end": "2025-11-16",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "さっちん / Memories of Sachiko",
+   "artists": [
+    "水島 貴大 / Takahiro Mizushima"
+   ],
+   "start": "2025-11-18",
+   "end": "2025-11-30",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "三里塚-大きな物語の歴史III/小さな物語へ / Sanrizuka – History of Grand narrative III / To small narratives",
+   "artists": [
+    "佐方 晴登 / Haruto Sakata"
+   ],
+   "start": "2025-12-09",
+   "end": "2025-12-21",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2025"
+  },
+  {
+   "title": "むかしむかし / Mukashi Mukashi",
+   "artists": [
+    "じょん さいぱる / John Sypal"
+   ],
+   "start": "2026-07-07",
+   "end": "2026-07-19",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2026"
+  },
+  {
+   "title": "新宿 / SHINJUKU",
+   "artists": [
+    "淵上裕太 / Yuta Fuchikami"
+   ],
+   "start": "2026-07-21",
+   "end": "2026-08-02",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2026"
+  },
+  {
+   "title": "理想と荒野のあいだ / A Town in Waiting",
+   "artists": [
+    "古佳⽴ / Koo Jia Lih"
+   ],
+   "start": "2026-08-03",
+   "end": "2026-08-16",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2026"
+  },
+  {
+   "title": "雙北青年/Youth in East Asia, Taipei and New Taipei",
+   "artists": [
+    "水島 貴大 / Takahiro Mizushima"
+   ],
+   "start": "2026-08-18",
+   "end": "2026-08-23",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2026"
+  },
+  {
+   "title": "白河夜船 / Moonlight Voyage",
+   "artists": [
+    "史 文斌 / シ ウェンビン / Wenbin Shi"
+   ],
+   "start": "2026-08-25",
+   "end": "2026-08-30",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/tag/past-2026"
+  },
+  {
+   "title": "あの山に登ったって / Even if I were to climb that mountain.",
+   "artists": [
+    "藤本篤史 / Atsushi Fujimoto"
+   ],
+   "start": "2026-09-01",
+   "end": "2026-09-13",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/current"
+  },
+  {
+   "title": "キジバト / Tokyo Turtle Dove 3",
+   "artists": [
+    "有元伸也 / Shinya Arimoto"
+   ],
+   "start": "2026-09-15",
+   "end": "2026-09-27",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/upcoming"
+  },
+  {
+   "title": "参造化 / Communing with the Cosmos",
+   "artists": [
+    "陸超 / アスピリン / Aspirin"
+   ],
+   "start": "2026-09-29",
+   "end": "2026-10-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/upcoming"
+  },
+  {
+   "title": "宝石と薔薇 / Gems and A Rose",
+   "artists": [
+    "蔡云逸 / Clarice Yunyi Cai",
+    "楊喩雯 / Yang Yuwen"
+   ],
+   "start": "2026-10-06",
+   "end": "2026-10-18",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://tppg.jp/upcoming"
+  },
+  {
+   "title": "事実の選択 / Choosing \"facts\" / 사실의 선택",
+   "artists": [
+    "姜美善 / カンミソン / gang,misun / 강 미선"
+   ],
+   "start": "2026-10-20",
+   "end": "2026-11-01",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tppg.jp/upcoming"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Gallery is artist-run/collective; 'members' are treated as represented roster since the gallery presents them as its core artist group.",
+ "triage": {
+  "labels": {
+   "https://tppg.jp/current": "exhibitions_current",
+   "https://tppg.jp/upcoming": "exhibitions_current",
+   "https://tppg.jp/tag/exhibitions": "exhibitions_archive",
+   "https://tppg.jp/tag/past-2026": "exhibitions_archive",
+   "https://tppg.jp/telescope": "exhibition_page",
+   "https://tppg.jp/empty-body-leaving": "exhibition_page",
+   "https://tppg.jp/the-roleless-role": "exhibition_page",
+   "https://tppg.jp/c-403-uncertain": "exhibition_page",
+   "https://tppg.jp/on-the-street-8": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-21": "exhibition_page",
+   "https://tppg.jp/tokyo-debugger-complete": "exhibition_page",
+   "https://tppg.jp/canal": "exhibition_page",
+   "https://tppg.jp/kira-no-haregi": "exhibition_page",
+   "https://tppg.jp/shinmmyoanna_petrichor": "exhibition_page",
+   "https://tppg.jp/tokyo-debugger-2019": "exhibition_page",
+   "https://tppg.jp/dwelling-unit": "exhibition_page",
+   "https://tppg.jp/the-scene-i-lived-today": "exhibition_page",
+   "https://tppg.jp/on-the-street-6": "exhibition_page",
+   "https://tppg.jp/generate": "exhibition_page",
+   "https://tppg.jp/on-the-street-5": "exhibition_page",
+   "https://tppg.jp/blow-up": "exhibition_page",
+   "https://tppg.jp/choosing-facts-2020": "exhibition_page",
+   "https://tppg.jp/the-tokyo-crowd": "exhibition_page",
+   "https://tppg.jp/the-negative": "exhibition_page",
+   "https://tppg.jp/icu-intensive-care-unit": "exhibition_page",
+   "https://tppg.jp/tokyo-lonely-heartland": "exhibition_page",
+   "https://tppg.jp/nigatsuyuki": "exhibition_page",
+   "https://tppg.jp/the-white-shaded-backyard": "exhibition_page",
+   "https://tppg.jp/burning-in-the-stone": "exhibition_page",
+   "https://tppg.jp/local-public-bath-sento": "exhibition_page",
+   "https://tppg.jp/paraiso": "exhibition_page",
+   "https://tppg.jp/i-still-can-see-surely": "exhibition_page",
+   "https://tppg.jp/wave-tossed-but-unsunk": "exhibition_page",
+   "https://tppg.jp/butterfly": "exhibition_page",
+   "https://tppg.jp/rebellious-contour": "exhibition_page",
+   "https://tppg.jp/good-as-i-been-to-you-pt-1": "exhibition_page",
+   "https://tppg.jp/newcomer": "exhibition_page",
+   "https://tppg.jp/night-knot": "exhibition_page",
+   "https://tppg.jp/choosing-facts-2018": "exhibition_page",
+   "https://tppg.jp/choosing-facts-2019-2": "exhibition_page",
+   "https://tppg.jp/choosing-facts-2019": "exhibition_page",
+   "https://tppg.jp/choosing-facts-2018-2": "exhibition_page",
+   "https://tppg.jp/by-the-water": "exhibition_page",
+   "https://tppg.jp/tide-rises-2": "exhibition_page",
+   "https://tppg.jp/tide-rises": "exhibition_page",
+   "https://tppg.jp/metropolis-%e2%85%b0": "exhibition_page",
+   "https://tppg.jp/observing-objects": "exhibition_page",
+   "https://tppg.jp/tide-rises-3": "exhibition_page",
+   "https://tppg.jp/family-project": "exhibition_page",
+   "https://tppg.jp/wonderer-butterfly": "exhibition_page",
+   "https://tppg.jp/vision": "exhibition_page",
+   "https://tppg.jp/tokyo-lonely-heart-land-2": "exhibition_page",
+   "https://tppg.jp/long-hug-town": "exhibition_page",
+   "https://tppg.jp/long-hug-town-2": "exhibition_page",
+   "https://tppg.jp/long-hug-town-3": "exhibition_page",
+   "https://tppg.jp/long-hug-town-4": "exhibition_page",
+   "https://tppg.jp/that-bright-planet": "exhibition_page",
+   "https://tppg.jp/on-the-street-7": "exhibition_page",
+   "https://tppg.jp/mabutani-utsuru-kiiro": "exhibition_page",
+   "https://tppg.jp/kaeru": "exhibition_page",
+   "https://tppg.jp/dousurukotomodekinai": "exhibition_page",
+   "https://tppg.jp/rojou-watasinokokorowo": "exhibition_page",
+   "https://tppg.jp/spotlight": "exhibition_page",
+   "https://tppg.jp/on-the-street-1": "exhibition_page",
+   "https://tppg.jp/on-the-street-2": "exhibition_page",
+   "https://tppg.jp/on-the-street-3": "exhibition_page",
+   "https://tppg.jp/on-the-street-4": "exhibition_page",
+   "https://tppg.jp/meniutsuru-subekaraku": "exhibition_page",
+   "https://tppg.jp/site": "exhibition_page",
+   "https://tppg.jp/site-2": "exhibition_page",
+   "https://tppg.jp/nijinde-mienai": "exhibition_page",
+   "https://tppg.jp/studies": "exhibition_page",
+   "https://tppg.jp/cue": "exhibition_page",
+   "https://tppg.jp/site-3": "exhibition_page",
+   "https://tppg.jp/all-in-the-past": "exhibition_page",
+   "https://tppg.jp/site-4": "exhibition_page",
+   "https://tppg.jp/a-straight-line-of-vision": "exhibition_page",
+   "https://tppg.jp/an-endless-attraction": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-1": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-2": "exhibition_page",
+   "https://tppg.jp/nebraska": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-3": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-4": "exhibition_page",
+   "https://tppg.jp/on-the-spot": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-5": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-6": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-11": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-7": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-8": "exhibition_page",
+   "https://tppg.jp/gaijin-like-me": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-10": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-13": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-12": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-14": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-15": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-17": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-16": "exhibition_page",
+   "https://tppg.jp/photo-spot": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-19": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-18": "exhibition_page",
+   "https://tppg.jp/a-straight-line-of-vision-2": "exhibition_page",
+   "https://tppg.jp/date-stamped": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-20": "exhibition_page",
+   "https://tppg.jp/zuisha-vol-9": "exhibition_page",
+   "https://tppg.jp/ariphoto2008-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2008-vol-2": "exhibition_page",
+   "https://tppg.jp/calcutta-kathmandu-1994": "exhibition_page",
+   "https://tppg.jp/ariphoto2008-vol-3": "exhibition_page",
+   "https://tppg.jp/ariphoto2008-vol-4": "exhibition_page",
+   "https://tppg.jp/ariphoto2009-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2009-vol-2": "exhibition_page",
+   "https://tppg.jp/why-now-tibet": "exhibition_page",
+   "https://tppg.jp/ariphoto2010-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto-selection-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2010-vol-2": "exhibition_page",
+   "https://tppg.jp/mahirunoga-2002": "exhibition_page",
+   "https://tppg.jp/ariphoto2011-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto-selection-vol-2": "exhibition_page",
+   "https://tppg.jp/ariphoto2011-vol-2": "exhibition_page",
+   "https://tppg.jp/ariphoto2012-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2012-vol-2": "exhibition_page",
+   "https://tppg.jp/ariphoto2012-vol-3": "exhibition_page",
+   "https://tppg.jp/ariphoto-selection-vol-3": "exhibition_page",
+   "https://tppg.jp/ariphoto2013-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2013-vol-2": "exhibition_page",
+   "https://tppg.jp/ariphoto2013-vol-3": "exhibition_page",
+   "https://tppg.jp/ariphoto-selection-vol-4": "exhibition_page",
+   "https://tppg.jp/ariphoto2014-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2014-vol-2": "exhibition_page",
+   "https://tppg.jp/ariphoto2015-vol-1": "exhibition_page",
+   "https://tppg.jp/ariphoto2015-vol-2": "exhibition_page",
+   "https://tppg.jp/tibetan-way": "exhibition_page",
+   "https://tppg.jp/ariphoto-vol-29": "exhibition_page",
+   "https://tppg.jp/ariphoto-vol-30": "exhibition_page",
+   "https://tppg.jp/ariphoto-vol-31": "exhibition_page",
+   "https://tppg.jp/ariphoto-vol-32": "exhibition_page",
+   "https://tppg.jp/croquis-of-heartbeat": "exhibition_page",
+   "https://tppg.jp/follow-the-contour": "exhibition_page",
+   "https://tppg.jp/a-pretty-sweet-fruit": "exhibition_page",
+   "https://tppg.jp/to-the-souvenir-of-time": "exhibition_page",
+   "https://tppg.jp/kumo-no-ito-3": "exhibition_page",
+   "https://tppg.jp/homewear": "exhibition_page",
+   "https://tppg.jp/venus": "exhibition_page",
+   "https://tppg.jp/user-consumer": "exhibition_page",
+   "https://tppg.jp/charanga": "exhibition_page",
+   "https://tppg.jp/kageeasobi": "exhibition_page",
+   "https://tppg.jp/womxn": "exhibition_page",
+   "https://tppg.jp/anthropocene": "exhibition_page",
+   "https://tppg.jp/kao-kao-kao": "exhibition_page",
+   "https://tppg.jp/all-or-part-of-what-i-have": "exhibition_page",
+   "https://tppg.jp/user-consumer-2": "exhibition_page",
+   "https://tppg.jp/idle-collage-critique": "exhibition_page",
+   "https://tppg.jp/on-the-water-under-the-sky": "exhibition_page",
+   "https://tppg.jp/wonder-wonder-satsuma-journey": "exhibition_page",
+   "https://tppg.jp/listen-to-my-heart": "exhibition_page",
+   "https://tppg.jp/homi": "exhibition_page",
+   "https://tppg.jp/maine-one": "exhibition_page",
+   "https://tppg.jp/this-game-we-play": "exhibition_page",
+   "https://tppg.jp/idiot-sequence": "exhibition_page",
+   "https://tppg.jp/complete-world-of-nothing": "exhibition_page",
+   "https://tppg.jp/animals": "exhibition_page",
+   "https://tppg.jp/life-in-transition-myanmar": "exhibition_page",
+   "https://tppg.jp/crossing-the-river": "exhibition_page",
+   "https://tppg.jp/soldier": "exhibition_page",
+   "https://tppg.jp/landscape-probe": "exhibition_page",
+   "https://tppg.jp/orenjitoiuao": "exhibition_page",
+   "https://tppg.jp/garagara": "exhibition_page",
+   "https://tppg.jp/space": "exhibition_page",
+   "https://tppg.jp/daily-noi-cat-17-18": "exhibition_page",
+   "https://tppg.jp/rakuchurakugaikansatsunikki-2": "exhibition_page",
+   "https://tppg.jp/user-consumer-3": "exhibition_page",
+   "https://tppg.jp/bouge-jizokunojikan": "exhibition_page",
+   "https://tppg.jp/everything-is-garbage": "exhibition_page",
+   "https://tppg.jp/zero-district": "exhibition_page",
+   "https://tppg.jp/east-north": "exhibition_page",
+   "https://tppg.jp/weave-the-soil": "exhibition_page",
+   "https://tppg.jp/uncertain-half": "exhibition_page",
+   "https://tppg.jp/facility-tour": "exhibition_page",
+   "https://tppg.jp/highlight": "exhibition_page",
+   "https://tppg.jp/opens-and-stands-up": "exhibition_page",
+   "https://tppg.jp/behind-glass-vol-2": "exhibition_page",
+   "https://tppg.jp/ittainanigaattanosa": "exhibition_page",
+   "https://tppg.jp/complete-world-of-nothing-2": "exhibition_page",
+   "https://tppg.jp/shisenwomiru": "exhibition_page",
+   "https://tppg.jp/resonance": "exhibition_page",
+   "https://tppg.jp/boso-wonder-island": "exhibition_page",
+   "https://tppg.jp/whereabouts": "exhibition_page",
+   "https://tppg.jp/weave-the-soil-2": "exhibition_page",
+   "https://tppg.jp/kyoumeisurushikyuu": "exhibition_page",
+   "https://tppg.jp/strange-hill": "exhibition_page",
+   "https://tppg.jp/a-handful-of-darkness-vol-3": "exhibition_page",
+   "https://tppg.jp/buenos-dias": "exhibition_page",
+   "https://tppg.jp/neuron": "exhibition_page",
+   "https://tppg.jp/down-to-the-bone-2": "exhibition_page",
+   "https://tppg.jp/love-ai": "exhibition_page",
+   "https://tppg.jp/an-overture": "exhibition_page",
+   "https://tppg.jp/the-fly-2": "exhibition_page",
+   "https://tppg.jp/yokushiroku-5": "exhibition_page",
+   "https://tppg.jp/behind-glass": "exhibition_page",
+   "https://tppg.jp/new-inside-new-things-created-for-you": "exhibition_page",
+   "https://tppg.jp/smoky-mirror": "exhibition_page",
+   "https://tppg.jp/a-handful-of-darkness-vol-4": "exhibition_page",
+   "https://tppg.jp/co-nekotation-era": "exhibition_page",
+   "https://tppg.jp/yokushiroku-6": "exhibition_page",
+   "https://tppg.jp/wounded-bears-3-2": "exhibition_page",
+   "https://tppg.jp/real-fur": "exhibition_page",
+   "https://tppg.jp/a-handful-of-darkness-vol-5": "exhibition_page",
+   "https://tppg.jp/dance-with-fog": "exhibition_page",
+   "https://tppg.jp/night-up": "exhibition_page",
+   "https://tppg.jp/yokushiroku-2": "exhibition_page",
+   "https://tppg.jp/good-day": "exhibition_page",
+   "https://tppg.jp/a-handful-of-darkness-2": "exhibition_page",
+   "https://tppg.jp/a-town-for-sleep": "exhibition_page",
+   "https://tppg.jp/vestige": "exhibition_page",
+   "https://tppg.jp/kawatare": "exhibition_page",
+   "https://tppg.jp/kage-1": "exhibition_page",
+   "https://tppg.jp/the-sea-of-empty": "exhibition_page",
+   "https://tppg.jp/wounded-bears-2": "exhibition_page",
+   "https://tppg.jp/yokushiroku-3": "exhibition_page",
+   "https://tppg.jp/flowers": "exhibition_page",
+   "https://tppg.jp/silence-belongs-to-nothing": "exhibition_page",
+   "https://tppg.jp/spitz": "exhibition_page",
+   "https://tppg.jp/found-photo-association": "exhibition_page",
+   "https://tppg.jp/a-handful-of-darkness-vol-2": "exhibition_page",
+   "https://tppg.jp/late-summer-miyazaki-2007-2011": "exhibition_page",
+   "https://tppg.jp/kitchen-garden-2": "exhibition_page",
+   "https://tppg.jp/down-to-the-bone": "exhibition_page",
+   "https://tppg.jp/yokushiroku-4": "exhibition_page",
+   "https://tppg.jp/trace-the-life-of-my-father": "exhibition_page",
+   "https://tppg.jp/kage-2": "exhibition_page",
+   "https://tppg.jp/graf-vol-07": "exhibition_page",
+   "https://tppg.jp/journey-to-the-end-of-the-night": "exhibition_page",
+   "https://tppg.jp/six-of-one-and-half-a-dozen-of-the-other": "exhibition_page",
+   "https://tppg.jp/motown": "exhibition_page",
+   "https://tppg.jp/the-elderly": "exhibition_page",
+   "https://tppg.jp/before-this-memory-is-gone": "exhibition_page",
+   "https://tppg.jp/temporary-file-1": "exhibition_page",
+   "https://tppg.jp/wounded-bears-1": "exhibition_page",
+   "https://tppg.jp/love-and-heresy-tranquilizer": "exhibition_page",
+   "https://tppg.jp/babies": "exhibition_page",
+   "https://tppg.jp/tppg-member-exhibition-vol-8-snap": "exhibition_page",
+   "https://tppg.jp/bakemono": "exhibition_page",
+   "https://tppg.jp/jellyfish-of-the-depth": "exhibition_page",
+   "https://tppg.jp/winter-ends-with-melancholy-2": "exhibition_page",
+   "https://tppg.jp/ashbourne-maracana": "exhibition_page",
+   "https://tppg.jp/make-it-death": "exhibition_page",
+   "https://tppg.jp/wonderwall": "exhibition_page",
+   "https://tppg.jp/paradise": "exhibition_page",
+   "https://tppg.jp/soul-food-me": "exhibition_page",
+   "https://tppg.jp/outskirts": "exhibition_page",
+   "https://tppg.jp/ori": "exhibition_page",
+   "https://tppg.jp/moment-nomad": "exhibition_page",
+   "https://tppg.jp/ma": "exhibition_page",
+   "https://tppg.jp/nebraska-aksarben": "exhibition_page",
+   "https://tppg.jp/another-place": "exhibition_page",
+   "https://tppg.jp/island-of-east": "exhibition_page",
+   "https://tppg.jp/reticence-town": "exhibition_page",
+   "https://tppg.jp/it-flows-through-the-outside": "exhibition_page",
+   "https://tppg.jp/observation-and-study": "exhibition_page",
+   "https://tppg.jp/let-me-out-2": "exhibition_page",
+   "https://tppg.jp/33-2": "exhibition_page",
+   "https://tppg.jp/kitakaze": "exhibition_page",
+   "https://tppg.jp/takahiko-igarashi-exhibition": "exhibition_page",
+   "https://tppg.jp/tppg-member-exhibition-vol-6-portraits": "exhibition_page",
+   "https://tppg.jp/the-air-after-shower": "exhibition_page",
+   "https://tppg.jp/winter-ends-with-melancholy": "exhibition_page",
+   "https://tppg.jp/noctiluca": "exhibition_page",
+   "https://tppg.jp/an-island": "exhibition_page",
+   "https://tppg.jp/yokushiroku": "exhibition_page",
+   "https://tppg.jp/water-balloon-an-enigmatic-part": "exhibition_page",
+   "https://tppg.jp/pretending-to-forget": "exhibition_page",
+   "https://tppg.jp/going-back-to-your-birthplace": "exhibition_page",
+   "https://tppg.jp/shrove-tuesday-2": "exhibition_page",
+   "https://tppg.jp/yoruwonuu": "exhibition_page",
+   "https://tppg.jp/tppg-member-exhibition-vol-7-landscape": "exhibition_page",
+   "https://tppg.jp/let-me-out-3": "exhibition_page",
+   "https://tppg.jp/plain-pictures": "exhibition_page",
+   "https://tppg.jp/photogenic-drawing": "exhibition_page",
+   "https://tppg.jp/floating-bridge": "exhibition_page",
+   "https://tppg.jp/kitchijitsu": "exhibition_page",
+   "https://tppg.jp/portrait-different-two-eyes": "exhibition_page",
+   "https://tppg.jp/2011-plateau": "exhibition_page",
+   "https://tppg.jp/let-me-out": "exhibition_page",
+   "https://tppg.jp/want-temperature-of-someone": "exhibition_page",
+   "https://tppg.jp/azul": "exhibition_page",
+   "https://tppg.jp/fish-preserve": "exhibition_page",
+   "https://tppg.jp/mr-liberty": "exhibition_page",
+   "https://tppg.jp/rinkainisarasu": "exhibition_page",
+   "https://tppg.jp/tokyo-stream": "exhibition_page",
+   "https://tppg.jp/tppg-member-exhibition-vol-5-this-izu-photo": "exhibition_page",
+   "https://tppg.jp/tppg-new-member-exhibition": "exhibition_page",
+   "https://tppg.jp/itsukanomukou": "exhibition_page",
+   "https://tppg.jp/dreamin-portrait": "exhibition_page",
+   "https://tppg.jp/kokomo-limited": "exhibition_page",
+   "https://tppg.jp/baku": "exhibition_page",
+   "https://tppg.jp/shinjuku-story": "exhibition_page",
+   "https://tppg.jp/lives-and-dialogues": "exhibition_page",
+   "http://tppg.jp/about": "about",
+   "http://tppg.jp/contact": "contact_hours",
+   "http://tppg.jp/artists": "roster_index",
+   "https://tppg.jp/tag/past-2025": "exhibitions_archive",
+   "https://tppg.jp/tag/past-2024": "exhibitions_archive"
+  },
+  "site_notes": "The site is essentially a chronological blog of individual exhibition posts (one per show, mostly untitled with dates), with only 'current' and 'upcoming' pages summarizing what's on now and a couple of tag pages ('exhibitions', 'past-2026') acting as thin archive indexes; there is no dedicated about, contact, or artist-roster page in the inventory, and per-artist or per-year archive listings likely exist as additional tag pages not captured here.",
+  "fetch_more": [
+   "http://tppg.jp/about",
+   "http://tppg.jp/contact",
+   "http://tppg.jp/artists",
+   "https://tppg.jp/tag/past-2025",
+   "https://tppg.jp/tag/past-2024"
+  ]
+ },
+ "errors": [],
+ "duration_s": 2393.2
+}

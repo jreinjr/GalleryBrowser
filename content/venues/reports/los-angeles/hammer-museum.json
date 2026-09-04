@@ -1,0 +1,441 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "hammer-museum",
+ "name": "Hammer Museum",
+ "website": "https://hammer.ucla.edu",
+ "generated_ts": 1788480260,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2865,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/hammer-museum.jsonl"
+ },
+ "about_text": "The Hammer Museum is a UCLA-affiliated contemporary art museum in Westwood, Los Angeles, founded by Armand Hammer and opened in November 1990. Since a 1994 partnership agreement, it has been operated by UCLA, absorbing the collections of the Wight Art Gallery and the Grunwald Center for the Graphic Arts as well as the Franklin D. Murphy Sculpture Garden. Directors have included Henry Hopkins, Ann Philbin (1999–2024), and current director Zoë Ryan (from 2025). The museum is known for its Made in L.A. biennial, the ongoing Hammer Projects series, and an active calendar of lectures, film, and public programs. Admission is free.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://hammer.ucla.edu/about-us"
+ ],
+ "founded_year": 1990,
+ "founders": [
+  "Dr. Armand Hammer"
+ ],
+ "directors": [
+  "Henry Hopkins",
+  "Ann Philbin",
+  "Zoë Ryan"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "10899 Wilshire Boulevard, Los Angeles, CA 90024",
+   "since": 1990,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary art",
+  "Made in L.A. biennial",
+  "public programs",
+  "film and lectures",
+  "Grunwald Center graphic arts collection"
+ ],
+ "hours_text": "Monday: Closed; Tuesday–Sunday: 11 AM–6 PM",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "A Fine Experiment: A Tribute to Robert Heinecken",
+   "artists": [
+    "Robert Heinecken"
+   ],
+   "start": "2006-10-12",
+   "end": "2006-12-31",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/robert-heinecken-object-matter"
+  },
+  {
+   "title": "Now Dig This!: Art and Black Los Angeles 1960–1980",
+   "artists": [],
+   "start": "2011-10-02",
+   "end": "2012-01-08",
+   "year": 2011,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/now-dig-this"
+  },
+  {
+   "title": "Hammer Projects: Nathaniel Mellors",
+   "artists": [
+    "Nathaniel Mellors"
+   ],
+   "start": "2014-01-16",
+   "end": "2014-06-01",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-nathaniel-mellors"
+  },
+  {
+   "title": "Tea and Morphine: Women in Paris, 1880 to 1914",
+   "artists": [],
+   "start": "2014-01-25",
+   "end": "2014-05-18",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/tea-and-morphine-women-in-paris-1880-to-1914"
+  },
+  {
+   "title": "Take It or Leave It: Institution, Image, Ideology",
+   "artists": [
+    "Judith Barry",
+    "Gretchen Bender",
+    "Dara Birnbaum",
+    "Nayland Blake",
+    "Tom Burr",
+    "Mark Dion",
+    "Jimmie Durham",
+    "Andrea Fraser",
+    "Robert Gober",
+    "Felix Gonzalez-Torres",
+    "Renée Green",
+    "Jenny Holzer",
+    "Mike Kelley",
+    "Mary Kelly",
+    "Silvia Kolbowski",
+    "Barbara Kruger",
+    "Louise Lawler",
+    "William Leavitt",
+    "Zoe Leonard",
+    "Sherrie Levine",
+    "Glenn Ligon",
+    "Paul McCarthy",
+    "Allan McCollum",
+    "John Miller",
+    "Matt Mullican",
+    "Cady Noland",
+    "Adrian Piper",
+    "Stephen Prina",
+    "Martha Rosler",
+    "Haim Steinbach",
+    "Rirkrit Tiravanija",
+    "Christopher Williams",
+    "Sue Williams",
+    "Fred Wilson",
+    "David Wojnarowicz"
+   ],
+   "start": "2014-02-09",
+   "end": "2014-05-18",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/take-it-or-leave-it"
+  },
+  {
+   "title": "Hammer Projects: Andra Ursuta",
+   "artists": [
+    "Andra Ursuta"
+   ],
+   "start": "2014-03-07",
+   "end": "2014-05-25",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-andra-ursuta"
+  },
+  {
+   "title": "Made in L.A. 2014",
+   "artists": [
+    "A.L. Steiner",
+    "Barry Johnston",
+    "Brian O'Connell",
+    "Caitlin Lonegan",
+    "Channing Hansen",
+    "Clarissa Tossin",
+    "Danielle Dean",
+    "Devin Kenny",
+    "Emily Mast",
+    "Gabriel Kuri",
+    "Gerard & Kelly",
+    "Harry Dodge",
+    "Harsh Patel",
+    "James Kidd Studio",
+    "Jennifer Moon",
+    "Jibade-Khalil Huffman",
+    "Juan Capistrán",
+    "Judy Fiskin",
+    "KCHUNG",
+    "Kim Fisher",
+    "Lecia Dole-Recio",
+    "Los Angeles Museum of Art",
+    "Magdalena Suarez Frimkess",
+    "Michael Frimkess",
+    "Marcia Hafif",
+    "Mariah Garnett",
+    "Marina Pinsky",
+    "Max Maslansky",
+    "Piero Golia",
+    "Public Fiction",
+    "Ricky Swallow",
+    "Samara Golden",
+    "Sarah Rara",
+    "Tala Madani",
+    "Tony Greene",
+    "Wu Tsang"
+   ],
+   "start": "2014-06-15",
+   "end": "2014-09-07",
+   "year": 2014,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/made-in-la-2014"
+  },
+  {
+   "title": "Hammer Projects: Yuri Ancarani",
+   "artists": [
+    "Yuri Ancarani"
+   ],
+   "start": "2014-09-27",
+   "end": "2015-01-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-yuri-ancarani"
+  },
+  {
+   "title": "Mandala of Compassion",
+   "artists": [
+    "Gelong Kalsang Rinpoche",
+    "Nawang Thogmed",
+    "Nawang Samten Lhundrup",
+    "Dorji Sherpa"
+   ],
+   "start": "2014-09-27",
+   "end": "2014-10-12",
+   "year": 2014,
+   "kind": "other",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/mandala-of-compassion"
+  },
+  {
+   "title": "Jim Hodges: Give More Than You Take",
+   "artists": [
+    "Jim Hodges"
+   ],
+   "start": "2014-10-03",
+   "end": "2015-01-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/jim-hodges-give-more-than-you-take"
+  },
+  {
+   "title": "Robert Heinecken: Object Matter",
+   "artists": [
+    "Robert Heinecken"
+   ],
+   "start": "2014-10-03",
+   "end": "2015-01-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/2014/robert-heinecken-object-matter"
+  },
+  {
+   "title": "ALL THE INSTRUMENTS AGREE: an exhibition or a concert",
+   "artists": [
+    "Genesis Breyer P-Orridge",
+    "Hassan Khan",
+    "Kim Gordon",
+    "Alex Knost"
+   ],
+   "start": "2015-09-26",
+   "end": "2015-09-27",
+   "year": 2015,
+   "kind": "other",
+   "source_url": "https://hammer.ucla.edu/instruments"
+  },
+  {
+   "title": "Eckhaus Latta (Smile)",
+   "artists": [
+    "Eckhaus Latta"
+   ],
+   "start": "2016-06-12",
+   "end": "2016-08-28",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/smile"
+  },
+  {
+   "title": "Made in L.A. 2016: a, the, though, only",
+   "artists": [
+    "Adam Linder",
+    "Aram Saroyan",
+    "Arthur Jafa",
+    "Daniel R. Small",
+    "Dena Yago",
+    "Eckhaus Latta",
+    "Gala Porras-Kim",
+    "Guthrie Lonergan",
+    "Huguette Caland",
+    "Joel Holmberg",
+    "Kelly Akashi",
+    "Kenneth Tam",
+    "Kenzi Shiokava",
+    "Labor Link TV",
+    "Laida Lertxundi",
+    "Lauren Davis Fisher",
+    "Margaret Honda",
+    "Mark Verabioff",
+    "Martine Syms",
+    "rafa esparza",
+    "Rebecca Morris",
+    "Shahryar Nashat",
+    "Silke Otto-Knapp",
+    "Sterling Ruby",
+    "Todd Gray",
+    "Wadada Leo Smith"
+   ],
+   "start": "2016-06-12",
+   "end": "2016-08-28",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/made-in-la-2016"
+  },
+  {
+   "title": "In Real Life: 100 Days of Film and Performance",
+   "artists": [],
+   "start": "2016-09-13",
+   "end": "2017-01-26",
+   "year": 2016,
+   "kind": "other",
+   "source_url": "https://hammer.ucla.edu/in-real-life"
+  },
+  {
+   "title": "Radical Women: Latin American Art, 1960–1985",
+   "artists": [],
+   "start": "2017-09-15",
+   "end": "2017-12-31",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/radical-women"
+  },
+  {
+   "title": "Andrea Bowers",
+   "artists": [
+    "Andrea Bowers"
+   ],
+   "start": "2022-06-19",
+   "end": "2022-09-04",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/andrea-bowers"
+  },
+  {
+   "title": "Drawing Down the Moon",
+   "artists": [],
+   "start": "2022-06-19",
+   "end": "2022-09-11",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/drawing-down-moon"
+  },
+  {
+   "title": "Hammer Projects: Mike Cloud",
+   "artists": [
+    "Mike Cloud"
+   ],
+   "start": "2026-03-28",
+   "end": "2027-01-10",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://hammer.ucla.edu/exhibitions/on-view"
+  },
+  {
+   "title": "SPACE IS THE PLACE: Selections from the Hammer Contemporary Collection",
+   "artists": [],
+   "start": "2026-04-05",
+   "end": "2026-09-06",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/exhibitions/on-view"
+  },
+  {
+   "title": "Five Centuries of Works on Paper: The Grunwald Center at 70, Part II",
+   "artists": [],
+   "start": "2026-06-07",
+   "end": "2026-10-25",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://hammer.ucla.edu/exhibitions/on-view"
+  },
+  {
+   "title": "Armand Hammer Collection",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "other",
+   "source_url": "https://hammer.ucla.edu/exhibitions/on-view"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "This is a university-affiliated museum, not a commercial gallery; it does not maintain a represented-artist roster, so the roster field is empty. Artists such as Mario Ayala, Danielle Dean, Channing Hansen, Brian O'Connell, Barry Johnston, and Clarissa Tossin appear only as participants in past Made in L.A. biennials, not as represented or estate artists.",
+ "triage": {
+  "labels": {
+   "https://hammer.ucla.edu/about-us": "about",
+   "https://hammer.ucla.edu/about-us/museum-boards": "about",
+   "https://hammer.ucla.edu/exhibitions/on-view": "exhibitions_current",
+   "https://hammer.ucla.edu/now-dig-this": "exhibition_page",
+   "https://hammer.ucla.edu/take-it-or-leave-it": "exhibition_page",
+   "https://hammer.ucla.edu/radical-women": "exhibition_page",
+   "https://hammer.ucla.edu/smile": "exhibition_page",
+   "https://hammer.ucla.edu/mohn-award-2016": "exhibition_page",
+   "https://hammer.ucla.edu/made-in-la-2014": "exhibition_page",
+   "https://hammer.ucla.edu/made-in-la-2016": "exhibition_page",
+   "https://hammer.ucla.edu/in-real-life": "exhibition_page",
+   "https://hammer.ucla.edu/andrea-bowers": "exhibition_page",
+   "https://hammer.ucla.edu/drawing-down-moon": "exhibition_page",
+   "https://hammer.ucla.edu/instruments": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-nathaniel-mellors": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/tea-and-morphine-women-in-paris-1880-to-1914": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-andra-ursuta": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/mandala-of-compassion": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/hammer-projects-yuri-ancarani": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/robert-heinecken-object-matter": "exhibition_page",
+   "https://hammer.ucla.edu/exhibitions/2014/jim-hodges-give-more-than-you-take": "exhibition_page",
+   "https://hammer.ucla.edu/made-la-2020-version/mario-ayala": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/al-steiner": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/barry-johnston": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/brian-oconnell": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/caitlin-lonegan": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/channing-hansen": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/clarissa-tossin": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/danielle-dean": "artist_page",
+   "https://hammer.ucla.edu/made-in-la-2014/devin-kenny": "artist_page",
+   "https://hammer.ucla.edu/press-room": "news",
+   "https://hammer.ucla.edu/press-mailing-list": "news",
+   "https://hammer.ucla.edu/press-release-archive": "news",
+   "https://hammer.ucla.edu/blog/2018/05/where-are-they-now-matt-lipps-and-christopher-russell-at-the-getty": "news",
+   "https://hammer.ucla.edu/blog/2018/05/staff-spotlight-cynthia-burlingham-deputy-director-curatorial-affairs": "news",
+   "https://hammer.ucla.edu/blog/2018/07/where-are-they-now-works-by-zarina-hashmi": "news",
+   "https://hammer.ucla.edu/blog/2018/07/reaching-for-the-statues-a-tour-for-blind-and-low-vision-veterans": "news",
+   "https://hammer.ucla.edu/blog/2018/08/love-poems-to-los-angeles-linking-art-and-poetry": "news",
+   "https://hammer.ucla.edu/blog/2018/08/lauren-halsey-receives-2018-mohn-award": "news",
+   "https://hammer.ucla.edu/blog/2018/08/interview-with-family-day-artist-beatriz-cortez": "news",
+   "https://hammer.ucla.edu/blog/2018/08/interview-with-family-day-artist-olga-koumoundouros": "news",
+   "https://hammer.ucla.edu/visit": "contact_hours",
+   "https://hammer.ucla.edu/about-us/contact-us": "contact_hours",
+   "https://hammer.ucla.edu/visit/accessibility": "contact_hours",
+   "https://hammer.ucla.edu/exhibitions/past": "exhibitions_archive",
+   "https://hammer.ucla.edu/artists": "roster_index",
+   "https://hammer.ucla.edu/press-release-archive?page=2": "news"
+  },
+  "site_notes": "Hammer's site is organized around a rotating set of exhibition micro-sites, a large event/program calendar (mostly RSVP pages), and a museum-info section (about, visit, support, edu); there is no single roster or past-exhibitions index, so exhibition and artist listings are inferred from individual exhibition and Made in L.A. artist pages, and a dedicated past-exhibitions archive page likely exists but was not captured.",
+  "fetch_more": [
+   "https://hammer.ucla.edu/exhibitions/past",
+   "https://hammer.ucla.edu/artists",
+   "https://hammer.ucla.edu/press-release-archive?page=2"
+  ]
+ },
+ "errors": [],
+ "duration_s": 1327.9
+}

@@ -4,9 +4,9 @@
  "venue_id": "nanzuka",
  "name": "Nanzuka",
  "website": "https://nug.jp",
- "generated_ts": 1788477525,
+ "generated_ts": 1788492141,
  "model": "claude-sonnet-5",
- "cost_usd": 0.005,
+ "cost_usd": 0.0096,
  "crawl": {
   "pages": 1,
   "sitemap": false,
@@ -30,12 +30,13 @@
  "press_self_reported": [],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": "Only the homepage title was available; no substantive content about the gallery, its history, roster, or program was provided in the supplied pages.",
+ "notes": "Only the homepage title/tagline was supplied; no substantive content about history, roster, hours, or locations was present in the provided text.",
+ "exhibitions_truncated": false,
  "triage": {
   "labels": {},
-  "site_notes": "Only the homepage was crawled and it contains almost no text (34 chars), giving no evidence of the site's structure for artists, exhibitions, or contact pages; no further URLs can be inferred without invention.",
+  "site_notes": "The inventory contains only the homepage with almost no extracted text (34 characters), giving no evidence of the site's internal structure or links to artists, exhibitions, or contact pages; no further URLs can be inferred without risking invention.",
   "fetch_more": []
  },
  "errors": [],
- "duration_s": 21.4
+ "duration_s": 26.3
 }

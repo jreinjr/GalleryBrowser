@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "korean-cultural-center-los-angeles-kccla",
+ "name": "Korean Cultural Center Los Angeles (KCCLA)",
+ "website": "https://la.korean-culture.org/en",
+ "generated_ts": 1788489669,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1315,
+ "crawl": {
+  "pages": 184,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/korean-cultural-center-los-angeles-kccla.jsonl"
+ },
+ "about_text": "The Korean Cultural Center Los Angeles (KCCLA) is a public cultural institution operated by the Republic of Korea's Ministry of Culture, Sports and Tourism, located in the Miracle Mile district at 5505 Wilshire Blvd. It functions as a hub for Korean heritage and contemporary culture in the United States, housing a library, a permanent heritage exhibition hall, a second-floor art gallery, an auditorium (Ari Hall), and a media arts wall. Programming spans traditional and contemporary Korean art exhibitions, film screenings, Korean-language classes, and community-oriented shows organized with Korean-American arts associations, alongside field trips and cultural workshops for schools and the public.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://la.korean-culture.org/en/6/contents/1483"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [
+  "Lee Haedon"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "5505 Wilshire Blvd. Los Angeles, CA 90036",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "Korean traditional and contemporary art",
+  "Korean-American community exhibitions",
+  "Korean cinema and film screenings",
+  "Korean language education",
+  "Korean heritage and museum displays",
+  "Media/digital art"
+ ],
+ "hours_text": "Monday - Friday: 10:00AM - 5:00PM, Saturday: 9:00AM - 1:00PM",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "The 35th Annual Exhibition of Korean-American Calligraphy Association",
+   "artists": [],
+   "start": "2026-08-20",
+   "end": "2026-09-03",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://la.korean-culture.org/en/1962/schedule/list"
+  },
+  {
+   "title": "2026 K-Comics Origin Los Angeles: Korean Webtoon Experience Exhibition",
+   "artists": [],
+   "start": "2026-09-11",
+   "end": "2026-10-17",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://la.korean-culture.org/en/1962/schedule/list"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "KCCLA is a government-run cultural center rather than a commercial gallery; it does not maintain a represented-artist roster. Exhibitions listed are group/association shows (e.g., Korean-American Calligraphy Association, Korean Artists Association of Southern California) rather than an ongoing gallery roster, so no roster entries were extracted.",
+ "triage": {
+  "labels": {
+   "https://la.korean-culture.org/en/6/contents/1483": "about",
+   "https://la.korean-culture.org/en/9/contents/1485": "about",
+   "https://la.korean-culture.org/en/10/contents/1487": "about",
+   "https://la.korean-culture.org/en/1901/contents/1488": "about",
+   "https://la.korean-culture.org/en/1945/contents/1484": "about",
+   "https://la.korean-culture.org/en/2102/korea/1723": "about",
+   "https://la.korean-culture.org/en/1957/contents/1510": "about",
+   "https://la.korean-culture.org/en/1954/contents/1511": "about",
+   "https://la.korean-culture.org/en/1956/contents/1512": "about",
+   "https://la.korean-culture.org/en/1955/contents/1513": "about",
+   "https://la.korean-culture.org/en/1935/contents/1486": "about",
+   "https://la.korean-culture.org/en/1961/contents/1521": "about",
+   "https://la.korean-culture.org/en/1959/contents/1520": "about",
+   "https://la.korean-culture.org/en/1960/contents/1519": "about",
+   "https://la.korean-culture.org/en/1962/schedule/list": "exhibitions_current",
+   "https://la.korean-culture.org/en/1897/board/1493/list": "exhibitions_archive",
+   "https://la.korean-culture.org/en/1907/board/1518/list": "exhibitions_archive",
+   "https://la.korean-culture.org/en/1896/board/1492/list": "news",
+   "https://la.korean-culture.org/en/1898/board/1494/list": "news",
+   "https://la.korean-culture.org/en/1965/board/1496/list": "news",
+   "https://la.korean-culture.org/en/2100/board/1721/list": "news",
+   "https://la.korean-culture.org/en/1904/board/1499/list": "news",
+   "https://la.korean-culture.org/en/1906/board/1516/list": "news",
+   "https://la.korean-culture.org/en/1941/board/1495/list": "news",
+   "https://la.korean-culture.org/en/1949/board/1505/list": "news",
+   "https://la.korean-culture.org/en/1950/board/1506/list": "news",
+   "https://la.korean-culture.org/en/1951/board/1508/list": "news",
+   "https://la.korean-culture.org/en/2075/board/1714/list": "news",
+   "https://la.korean-culture.org/en/1963/board/1524/list": "news",
+   "https://la.korean-culture.org/en/2072/board/1692/list": "news"
+  },
+  "site_notes": "This is a Korean government cultural-center CMS (Grinicms) with numbered /contents/ pages forming an About/History section and numbered /board/xxxx/list-read pairs forming News, Notice, Exhibition and Program bulletin boards, each mirrored in Korean (/ko/) and English (/en/); the site lacks a distinct artist roster or contact/hours page, and gallery/exhibition content is folded into generic board lists rather than a clear current/past exhibitions structure.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 590.1
+}

@@ -1,0 +1,122 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "john-doe",
+ "name": "John Doe Gallery",
+ "website": "https://www.johndoegallery.com/",
+ "generated_ts": 1788487770,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0237,
+ "crawl": {
+  "pages": 9,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/john-doe.jsonl"
+ },
+ "about_text": "John Doe Gallery is a Los Angeles space built around a DIY ethos, aiming to foster community and give a platform to emerging artists and new ideas. The gallery presents a small roster whose work spans varied media, from minimalist to mixed-medium practices, and positions itself as a venue for dialogue that pushes against conventional boundaries in contemporary art. It is located on 11th Street in downtown Los Angeles and represents a handful of artists whose profiles are featured on its site, emphasizing versatility and unconventional approaches over any single stylistic or historical focus.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.johndoegallery.com/blank-1"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "107 e. 11th st. Los Angeles, 90015",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "emerging artists",
+  "DIY ethos",
+  "mixed media",
+  "contemporary art"
+ ],
+ "hours_text": null,
+ "roster": [
+  {
+   "name": "MAX JOHNSON",
+   "status": "represented",
+   "source_url": "https://www.johndoegallery.com/blank-2"
+  },
+  {
+   "name": "JESSE NEIMUS",
+   "status": "represented",
+   "source_url": "https://www.johndoegallery.com/blank-2"
+  },
+  {
+   "name": "DREW CARLYLE",
+   "status": "represented",
+   "source_url": "https://www.johndoegallery.com/blank-2"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "To Star",
+   "artists": [
+    "Mia Scarpa"
+   ],
+   "start": "2025-02-16",
+   "end": "2025-03-22",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.johndoegallery.com/blank-4"
+  },
+  {
+   "title": "Enter And Exit Through The Same Gate",
+   "artists": [
+    "Matt McCormick",
+    "Brendan Lynch"
+   ],
+   "start": "2025-04-05",
+   "end": "2025-05-10",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.johndoegallery.com/blank-4"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Sonya Sombreuil"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "solo",
+   "source_url": "https://www.johndoegallery.com/blank-4"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Javi Ramirez"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "solo",
+   "source_url": "https://www.johndoegallery.com/blank-4"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://www.johndoegallery.com/blank-4": "exhibitions_archive",
+   "https://www.johndoegallery.com/blank-1": "about",
+   "https://www.johndoegallery.com/blank-2": "roster_index",
+   "https://www.johndoegallery.com/blank-3": "contact_hours"
+  },
+  "site_notes": "Small gallery site with a Wix-style structure using generic 'blank' slugs; roster and archive appear consolidated on single pages, and product pages relate to a shop rather than exhibitions.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 74.8
+}

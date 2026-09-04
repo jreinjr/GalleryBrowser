@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "japanime-art-gallery-harajuku",
+ "name": "Japanime Art Gallery Harajuku",
+ "website": "https://japanime-art.jp/en",
+ "generated_ts": 1788484732,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0927,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/japanime-art-gallery-harajuku.jsonl"
+ },
+ "about_text": "Japanime Art Gallery, operated by WAKON ARCS Inc., is dedicated to presenting original Japanese anime and manga production art—cels, genga, and production drawings—as fine art for an international audience. Rather than treating these works as mere by-products of animation, the gallery curates, preserves, and exhibits them as collectible artworks, aiming to build a recognized global market for anime art. The gallery is headquartered in Okinawa, Japan, with exhibition spaces in Harajuku and elsewhere in Tokyo, as well as Kyoto. Alongside exhibitions and sales, the company engages in curation, authentication, auction business, and cultural archive projects related to Japanese animation art.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://japanime-art.jp/about"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Harajuku TW Building 2F 1-14-24 Jingumae, Shibuya-ku, Tokyo 150-0001, Japan",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "2F Harajuku Jeunesse Building, 1-6-15 Jingumae, Shibuya-ku, Tokyo 150-0001, Japan",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Kyoto",
+   "address": "246 Shikibu-cho, Teramachi-dori, Rokkaku-sagaru, Nakagyo-ku, Kyoto City, Kyoto Prefecture, 604-8061, Japan",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "anime and manga production art",
+  "original animation cels",
+  "genga and production drawings",
+  "authentication and certification"
+ ],
+ "hours_text": "11:00 a.m.–8:00 p.m. (Open year-round)",
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "No founders, directors, or represented artists were named in the supplied pages. Company head office (Okinawa) is administrative, not a gallery space, so it was excluded from locations.",
+ "triage": {
+  "labels": {
+   "https://japanime-art.jp/about": "about",
+   "https://japanime-art.jp/contact": "contact_hours",
+   "https://japanime-art.jp/news": "news",
+   "https://japanime-art.jp/gallery": "contact_hours",
+   "https://japanime-art.jp/news/japanime-art-gallery%e5%85%ac%e5%bc%8f%e3%82%b5%e3%82%a4%e3%83%88%e3%82%92%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%81%97%e3%81%be%e3%81%97%e3%81%9f": "news",
+   "https://japanime-art.jp/gallery/kyoto-gallery": "contact_hours",
+   "https://japanime-art.jp/news/website-renewal-announcement": "news",
+   "https://japanime-art.jp/gallery/832": "contact_hours",
+   "https://japanime-art.jp/gallery/harajuku-gallery": "contact_hours",
+   "https://japanime-art.jp/news/page/2": "news",
+   "https://japanime-art.jp/gallery/page/2": "contact_hours",
+   "https://japanime-art.jp/gallery/page/3": "contact_hours"
+  },
+  "site_notes": "This is a commercial anime-cel sales gallery, not a traditional artist-represented gallery: it has no artist roster or exhibition program, instead offering an 'About', 'Contact', multiple physical gallery-location pages (Tokyo, Kyoto, Harajuku), a news archive, a large catalog of individually listed archived/registered artworks, and a separate Shopify storefront subdomain with hundreds of product/collection pages for sale.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 732.5
+}

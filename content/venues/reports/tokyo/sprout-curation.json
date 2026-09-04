@@ -1,0 +1,144 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "sprout-curation",
+ "name": "Sprout Curation",
+ "website": "https://sprout-curation.com",
+ "generated_ts": 1788485401,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0572,
+ "crawl": {
+  "pages": 8,
+  "sitemap": false,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/tokyo/sprout-curation.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "港区六本木6-12-4 六本木ヒルズ・レジデンスD棟1006号室",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary Japanese painting",
+  "encaustic (wax) painting",
+  "industrial laser-etched aluminum painting",
+  "serial themed group exhibitions",
+  "light and perception themes"
+ ],
+ "hours_text": "Tue, Thu, Sat: 13:00–19:00",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "角田俊也｜偽夏",
+   "artists": [
+    "角田俊也"
+   ],
+   "start": "2025-12-05",
+   "end": "2026-02-21",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://sprout-curation.com/exhibitions/4127"
+  },
+  {
+   "title": "石田浩美｜個展｜今日の身体2026",
+   "artists": [
+    "石田浩美"
+   ],
+   "start": "2026-03-06",
+   "end": "2026-03-28",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://sprout-curation.com/exhibitions/4135"
+  },
+  {
+   "title": "石田浩美｜今日の身体2026｜Part 2",
+   "artists": [
+    "石田浩美"
+   ],
+   "start": "2026-04-11",
+   "end": "2026-05-16",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://sprout-curation.com/exhibitions/4144"
+  },
+  {
+   "title": "光の後始末〈ep.2〉揚妻博之・尾関諒による二人展",
+   "artists": [
+    "揚妻博之",
+    "尾関諒"
+   ],
+   "start": "2026-06-20",
+   "end": "2026-08-01",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://sprout-curation.com/exhibitions/4151"
+  },
+  {
+   "title": "光の後始末〈ep.3〉秋山珠里・服部憲明による二人展",
+   "artists": [
+    "秋山珠里",
+    "服部憲明"
+   ],
+   "start": "2026-08-05",
+   "end": "2026-08-30",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://sprout-curation.com/exhibitions/4159"
+  },
+  {
+   "title": "光の後始末〈ep.4〉CADAN大手町での6人展",
+   "artists": [
+    "秋山珠里",
+    "揚妻博之",
+    "尾関諒",
+    "角田俊也",
+    "服部憲明",
+    "渡邉聖子"
+   ],
+   "start": "2026-09-01",
+   "end": "2026-09-19",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://sprout-curation.com/exhibitions/4164"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Site content supplied consists only of exhibition pages for the serial 'Hikari no Atokatsuke' (光の後始末) series; no dedicated About/Gallery or Artists roster page text was provided, so founding details, directors, and a represented-artist roster could not be determined from the given text.",
+ "triage": {
+  "labels": {
+   "https://sprout-curation.com/exhibitions/4164": "exhibition_page",
+   "https://sprout-curation.com/exhibitions/4159": "exhibition_page",
+   "https://sprout-curation.com/exhibitions/4151": "exhibition_page",
+   "https://sprout-curation.com/exhibitions/4144": "exhibition_page",
+   "https://sprout-curation.com/exhibitions/4135": "exhibition_page",
+   "https://sprout-curation.com/exhibitions/4127": "exhibition_page",
+   "https://sprout-curation.com/exhibitions": "exhibitions_current",
+   "https://sprout-curation.com/about": "about",
+   "https://sprout-curation.com/artists": "roster_index",
+   "https://sprout-curation.com/contact": "contact_hours"
+  },
+  "site_notes": "Site exposes individual exhibition pages under /exhibitions/{id} with no visible archive or roster index in the inventory; likely additional top-level nav pages (about, artists, contact) exist but were not crawled.",
+  "fetch_more": [
+   "https://sprout-curation.com/exhibitions",
+   "https://sprout-curation.com/about",
+   "https://sprout-curation.com/artists",
+   "https://sprout-curation.com/contact"
+  ]
+ },
+ "errors": [],
+ "duration_s": 87.1
+}

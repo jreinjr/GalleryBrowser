@@ -1,0 +1,740 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "marta",
+ "name": "Marta",
+ "website": "https://marta.la/",
+ "generated_ts": 1788487986,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1575,
+ "crawl": {
+  "pages": 73,
+  "sitemap": false,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/marta.jsonl"
+ },
+ "about_text": "Marta is a Los Angeles-based, globally-engaged gallery founded in 2019. Its program centers on the space between art and design, giving artists room to experiment with utility and designers room to explore the abandonment of function. Beyond exhibitions, Marta runs curatorial, publication, and podcast initiatives that emphasize the process behind a work's creation as well as the story of its maker. The gallery describes itself as interested in the intersection of disciplines and in advocating for diversity in design and broader public access to the arts. It operates from a space on West Sunset Boulevard in Los Angeles.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://marta.la/info"
+ ],
+ "founded_year": 2019,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "1545 West Sunset Boulevard, Los Angeles, California, 90026",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "intersection of art and design",
+  "functional/non-functional design objects",
+  "emerging and established designers",
+  "publications and podcast programming"
+ ],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "International Ceramics Friendship Park",
+   "artists": [
+    "Alex Reed"
+   ],
+   "start": "2019-09-12",
+   "end": "2019-10-27",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Anorak",
+   "artists": [
+    "Klas Ernflo"
+   ],
+   "start": "2019-11-09",
+   "end": "2019-12-22",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "New Waves",
+   "artists": [
+    "Elvire Bonduelle"
+   ],
+   "start": "2020-01-18",
+   "end": "2020-03-01",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Kodama",
+   "artists": [
+    "Lindsey Muscato",
+    "Joshua Friedman"
+   ],
+   "start": "2020-03-07",
+   "end": "2020-05-31",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Under / Over w/ Plant Paper",
+   "artists": [],
+   "start": "2020-09-10",
+   "end": "2020-11-01",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "For Modern Resting",
+   "artists": [
+    "Erik Benjamins"
+   ],
+   "start": "2021-01-16",
+   "end": "2021-02-21",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Pool Toys",
+   "artists": [
+    "Peter Harkawik"
+   ],
+   "start": "2021-03-13",
+   "end": "2021-05-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Chouinard Art Institute, Benches (1921–1972)",
+   "artists": [
+    "Millard Sheets",
+    "Phil Dike"
+   ],
+   "start": "2021-05-22",
+   "end": "2021-06-27",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "I Was Evening All Afternoon",
+   "artists": [
+    "Minjae Kim"
+   ],
+   "start": "2021-07-10",
+   "end": "2021-08-29",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "HOG TRAP",
+   "artists": [
+    "Kristen Wentrcek",
+    "Andrew Zebulon"
+   ],
+   "start": "2021-09-11",
+   "end": "2021-10-31",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Built In",
+   "artists": [],
+   "start": "2021-09-18",
+   "end": "2021-11-07",
+   "year": 2021,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Under / Over (East) w/ PlantPaper",
+   "artists": [],
+   "start": "2021-11-13",
+   "end": "2021-12-31",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Marta & Stanley's Holiday Fête",
+   "artists": [],
+   "start": "2021-12-10",
+   "end": "2021-12-17",
+   "year": 2021,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "FOX, BOBCAT, BEAR",
+   "artists": [
+    "George Sherman"
+   ],
+   "start": "2022-01-29",
+   "end": "2022-03-05",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Marta at Frieze Los Angeles",
+   "artists": [
+    "A History of Frogs",
+    "Minjae Kim"
+   ],
+   "start": "2022-02-17",
+   "end": "2022-02-20",
+   "year": 2022,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Two and Two Together",
+   "artists": [
+    "Roula Partheniou"
+   ],
+   "start": "2022-03-11",
+   "end": "2022-04-23",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "STOOLS from the JF Chen Collection",
+   "artists": [],
+   "start": "2022-05-05",
+   "end": "2022-06-18",
+   "year": 2022,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Tino's White Horses",
+   "artists": [
+    "Ross Hansen"
+   ],
+   "start": "2022-06-25",
+   "end": "2022-08-06",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Reading Room",
+   "artists": [],
+   "start": "2022-09-24",
+   "end": "2022-10-22",
+   "year": 2022,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Elf House",
+   "artists": [
+    "A History of Frogs"
+   ],
+   "start": "2022-11-12",
+   "end": "2022-12-23",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Oríkì (Act I): Friction Ridge",
+   "artists": [
+    "Nifemi Marcus-Bello"
+   ],
+   "start": "2023-01-26",
+   "end": "2023-03-04",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Open and Close",
+   "artists": [],
+   "start": "2023-02-04",
+   "end": "2023-03-04",
+   "year": 2023,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Brut Vessels",
+   "artists": [
+    "Jonah Takagi"
+   ],
+   "start": "2023-03-11",
+   "end": "2023-04-22",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Prairie's Edge",
+   "artists": [
+    "Sarah Burns"
+   ],
+   "start": "2023-05-06",
+   "end": "2023-06-10",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Make–Do",
+   "artists": [],
+   "start": "2023-05-19",
+   "end": "2023-05-27",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "New Caps",
+   "artists": [
+    "Ben Sanders"
+   ],
+   "start": "2023-06-15",
+   "end": "2023-07-30",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "The North American Pavilion",
+   "artists": [],
+   "start": "2023-06-21",
+   "end": "2023-06-24",
+   "year": 2023,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "No Life",
+   "artists": [
+    "Kristen Wentreck",
+    "Andrew Zebulon"
+   ],
+   "start": "2023-09-14",
+   "end": "2023-11-11",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Oríkì (Act II): Tales by Moonlight",
+   "artists": [
+    "Nifemi Marcus-Bello"
+   ],
+   "start": "2023-12-06",
+   "end": "2023-12-10",
+   "year": 2023,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "On Fire",
+   "artists": [
+    "George Sherman"
+   ],
+   "start": "2024-01-06",
+   "end": "2024-02-17",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "We Gotta Get Back to the Crib",
+   "artists": [
+    "Michael Bennett"
+   ],
+   "start": "2024-01-11",
+   "end": "2024-02-10",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "In Tune With Itself",
+   "artists": [
+    "Bennet Schlesinger"
+   ],
+   "start": "2024-02-24",
+   "end": "2024-04-13",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Rites of Spring",
+   "artists": [],
+   "start": "2024-04-27",
+   "end": "2024-06-08",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Myoung-Ae Lee",
+    "Isabel Rower"
+   ],
+   "start": "2024-05-02",
+   "end": "2024-05-05",
+   "year": 2024,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Design Miami Los Angeles",
+   "artists": [],
+   "start": "2024-05-16",
+   "end": "2024-05-20",
+   "year": 2024,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Box Works",
+   "artists": [
+    "Isabel Rower"
+   ],
+   "start": "2024-06-22",
+   "end": "2024-08-03",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Árboles",
+   "artists": [
+    "Klas Ernflo",
+    "Marc Morro"
+   ],
+   "start": "2024-06-22",
+   "end": "2024-08-03",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Objects for a Heavenly Cave",
+   "artists": [],
+   "start": "2024-09-07",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Doppelgänger",
+   "artists": [
+    "Bernhard Hausegger"
+   ],
+   "start": "2024-10-04",
+   "end": "2024-11-16",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Terra Firma",
+   "artists": [
+    "Henry Kim",
+    "Hyunuko"
+   ],
+   "start": "2024-11-02",
+   "end": "2025-01-25",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Treehugger",
+   "artists": [
+    "Lindsey Muscato",
+    "Joshua Friedman"
+   ],
+   "start": "2024-11-02",
+   "end": "2025-01-25",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Quaternion",
+   "artists": [
+    "Kristen Wentrcek",
+    "Andrew Zebulon"
+   ],
+   "start": "2024-12-17",
+   "end": null,
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Embers",
+   "artists": [
+    "George Sherman"
+   ],
+   "start": "2025-02-21",
+   "end": "2025-04-05",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Oríkì (Act III): Whispers of a Trail",
+   "artists": [
+    "Nifemi Marcus-Bello"
+   ],
+   "start": "2025-02-21",
+   "end": "2025-04-05",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Phantom–22",
+   "artists": [
+    "Minjae Kim"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-06-28",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "The Great Outdoors",
+   "artists": [
+    "Serban Ionescu"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-06-28",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "of A History of Frogs",
+   "artists": [
+    "Antonia Pinter",
+    "Chase Biado"
+   ],
+   "start": "2025-05-07",
+   "end": "2025-05-11",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Slip Condition",
+   "artists": [
+    "Lily Clark"
+   ],
+   "start": "2025-07-12",
+   "end": "2025-08-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "A Garden of...",
+   "artists": [
+    "MOS"
+   ],
+   "start": "2025-09-06",
+   "end": "2025-10-17",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "In the Style of...",
+   "artists": [
+    "Doug McCollough"
+   ],
+   "start": "2025-09-06",
+   "end": "2025-10-17",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Elf Houses",
+   "artists": [
+    "Chase Biado",
+    "Antonia Pinter"
+   ],
+   "start": "2025-11-15",
+   "end": "2025-12-20",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "From the Upper Valley in the Foothills",
+   "artists": [],
+   "start": "2026-01-10",
+   "end": "2026-01-31",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Double Act at FOG Design + Art",
+   "artists": [
+    "Minjae Kim",
+    "Dominik Tarabański"
+   ],
+   "start": "2026-01-21",
+   "end": "2026-01-25",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Imago",
+   "artists": [
+    "Isabel Rower"
+   ],
+   "start": "2026-02-14",
+   "end": "2026-04-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Do Snakes Go to Heaven When They Die?",
+   "artists": [
+    "George Sherman",
+    "Carsten in der Elst"
+   ],
+   "start": "2026-02-26",
+   "end": "2026-02-28",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Of Two Minds",
+   "artists": [
+    "Ryan Belli"
+   ],
+   "start": "2026-04-18",
+   "end": "2026-06-06",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Book Stools",
+   "artists": [
+    "Vince Skelly"
+   ],
+   "start": "2026-05-07",
+   "end": "2026-05-10",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Knife, Fork, Spoon 3.0",
+   "artists": [],
+   "start": "2026-06-10",
+   "end": "2026-06-12",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Pressure Crack Vessels",
+   "artists": [
+    "Rafi Ajl"
+   ],
+   "start": "2026-06-24",
+   "end": "2026-08-08",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Tale of the Gatherer",
+   "artists": [
+    "Bonnie Hvillum"
+   ],
+   "start": "2026-06-24",
+   "end": "2026-08-08",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "Sentinel",
+   "artists": [
+    "Vince Skelly"
+   ],
+   "start": "2026-07-18",
+   "end": "2026-08-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Minjae Kim",
+    "Myoung-Ae Lee"
+   ],
+   "start": "2026-09-02",
+   "end": "2026-09-05",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://marta.la/exhibitions"
+  },
+  {
+   "title": "On the Street Where You Live",
+   "artists": [
+    "George Sherman",
+    "Virva Hinnemo"
+   ],
+   "start": "2026-09-12",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://marta.la/exhibitions"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Only the 'Info' page (About/Credits/Terms/Privacy) was supplied; no roster, hours, fairs, memberships, or press information were present in the provided text.",
+ "triage": {
+  "labels": {
+   "https://marta.la/exhibitions": "exhibitions_archive",
+   "https://marta.la/info": "about"
+  },
+  "site_notes": "Marta's site is organized around a single /exhibitions index (many dated entries) with individual exhibition sub-pages for each show; there is no distinct artist roster or artist pages, and info/contact details appear consolidated on the /info page.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 261.0
+}

@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "misako-and-rosen",
+ "name": "MISAKO & ROSEN",
+ "website": "https://misakoandrosen.jp",
+ "generated_ts": 1788485489,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1676,
+ "crawl": {
+  "pages": 300,
+  "sitemap": false,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/misako-and-rosen.jsonl"
+ },
+ "about_text": "Misako & Rosen is a contemporary art gallery in Tokyo's Otsuka neighborhood, founded in 2006 by Misako Rosen and Jeffrey Rosen with a solo exhibition by Shimon Minamikawa. Since opening, the gallery has built a program centered on dialogue between Japanese and international artists, often through two-person and group exhibitions that pair local and overseas practices. Its roster spans painting, sculpture, photography and collaborative projects, and the gallery has developed long-running relationships with artists such as Shimon Minamikawa, Ken Kagami and Yui Yaegashi. Over nearly two decades it has expanded from local art fairs to a wide international fair circuit and collaborative projects with galleries abroad, while maintaining a small, artist-focused Tokyo space.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://misakoandrosen.jp/exhibitions/21/03"
+ ],
+ "founded_year": 2006,
+ "founders": [
+  "Misako Rosen",
+  "Jeffrey Rosen"
+ ],
+ "directors": [
+  "Misako Rosen",
+  "Jeffrey Rosen"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "〒170-0004 東京都豊島区北大塚3-27-6 1F",
+   "since": 2006,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary painting",
+  "cross-cultural artist dialogues",
+  "emerging Japanese artists",
+  "international gallery collaborations",
+  "sculpture and installation"
+ ],
+ "hours_text": "水曜～土曜：12:00 - 18:00 日曜：12:00 - 17:00　休廊 月曜、火曜、祝祭日",
+ "roster": [
+  {
+   "name": "八重樫ゆい (Yui Yaegashi)",
+   "status": "represented",
+   "source_url": "https://misakoandrosen.jp/exhibitions/13/02"
+  },
+  {
+   "name": "南川史門 (Shimon Minamikawa)",
+   "status": "represented",
+   "source_url": "https://misakoandrosen.jp/exhibitions/13/02"
+  },
+  {
+   "name": "加賀美健 (Ken Kagami)",
+   "status": "represented",
+   "source_url": "https://misakoandrosen.jp/exhibitions/13/02"
+  }
+ ],
+ "exhibitions": [],
+ "fairs_self_reported": [
+  "NADA Miami",
+  "Frieze London",
+  "Frieze New York",
+  "Art Basel Hong Kong",
+  "Art Basel Paris",
+  "ACK – Art Collaboration Kyoto",
+  "AWT FOCUS",
+  "Dallas Art Fair",
+  "Paramount Ranch",
+  "Paris Internationale",
+  "Düsseldorf Art Fair",
+  "arteBA",
+  "Material Art Fair",
+  "MECA International",
+  "June Art Fair Basel",
+  "Tokyo Art Book Fair",
+  "Riga Contemporary Art Fair",
+  "ART WARSAW VILLA RÓŻ",
+  "ART OnO",
+  "CURATION FAIR TOKYO",
+  "PAVILION TAIPEI",
+  "Post-Fair",
+  "Agnes Hotel Art Fair",
+  "Villa Tokyo",
+  "Texas Contemporary Art Fair",
+  "Dark Fair (Cologne)"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Roster list inferred from artist profile links (misakoandrosen.com/artists/...) referenced within exhibition text; no dedicated 'artists' roster page text was supplied, so the represented list here is partial and based only on artists explicitly linked as gallery artists in the scraped pages.",
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 886.2
+}

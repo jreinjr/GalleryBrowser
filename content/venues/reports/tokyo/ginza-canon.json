@@ -1,0 +1,141 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "ginza-canon",
+ "name": "Ginza Canon Gallery",
+ "website": "https://personal.canon.jp/showroom/gallery/shinagawa",
+ "generated_ts": 1788482047,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1004,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/ginza-canon.jsonl"
+ },
+ "about_text": "Canon Gallery Ginza is one of three Canon-run photography galleries in Japan, alongside spaces in Shinagawa and Osaka. It began in 1973 as the Canon Salon on Ginza 5-chome, offering a venue and support desk for professional photographers, and was renamed Canon Gallery Ginza in 2005 when it moved to its current Ginza 3-chome location. The space runs juried, open-submission exhibitions—open to professionals and amateurs alike—on roughly two-week rotations, with many shows later touring to Canon Gallery Osaka. It also hosts several company-curated exhibitions each year and sits adjacent to the Canon Photo House Ginza.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://personal.canon.jp/showroom/gallery/ginza"
+ ],
+ "founded_year": 1973,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo (Ginza)",
+   "address": "東京都中央区銀座3-9-7",
+   "since": 1973,
+   "current": true
+  },
+  {
+   "city": "Tokyo (Shinagawa)",
+   "address": null,
+   "since": 2003,
+   "current": true
+  },
+  {
+   "city": "Osaka",
+   "address": null,
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "open-submission photography exhibitions",
+  "professional and amateur photographers",
+  "touring shows Ginza-Osaka",
+  "company-curated photo exhibitions"
+ ],
+ "hours_text": "10時30分～18時30分（日曜日・月曜日・祝日と弊社休業日は休館日となります）",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "GRAPHGATE企画展 水島 貴大 写真展「環島回憶錄/Memoirs of Huandao / Taiwan 2020-2025 / Contact sheets」",
+   "artists": [
+    "水島貴大"
+   ],
+   "start": "2026-09-01",
+   "end": "2026-09-05",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  },
+  {
+   "title": "GRAPHGATE企画展 kokoro 写真展「here in the blue, you are known」",
+   "artists": [
+    "kokoro"
+   ],
+   "start": "2026-09-08",
+   "end": "2026-09-12",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  },
+  {
+   "title": "南 俊夫 写真展「homeward ウミガメたちの帰る島」",
+   "artists": [
+    "南俊夫"
+   ],
+   "start": "2026-09-15",
+   "end": "2026-10-03",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  },
+  {
+   "title": "山岸 伸・近井 沙妃 写真展「馬力」",
+   "artists": [
+    "山岸伸",
+    "近井沙妃"
+   ],
+   "start": "2026-10-06",
+   "end": "2026-10-17",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  },
+  {
+   "title": "原田 佳実 写真展「りすのめ」",
+   "artists": [
+    "原田佳実"
+   ],
+   "start": "2026-10-20",
+   "end": "2026-10-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  },
+  {
+   "title": "山田 達男 写真展「静寂を画く」",
+   "artists": [
+    "山田達男"
+   ],
+   "start": "2026-11-17",
+   "end": "2026-11-28",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://personal.canon.jp/event/photographyexhibition"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Site describes Canon Gallery as a corporate exhibition space run by Canon Marketing Japan for open-submission and curated photography exhibitions; it does not represent artists in a gallery-roster sense, so no roster entries apply. The 'about' page lists photographers whose works are held in the Canon Photo Collection (a corporate collection), not a represented-artist roster.",
+ "triage": {
+  "labels": {
+   "https://personal.canon.jp/showroom/gallery": "exhibitions_current",
+   "https://personal.canon.jp/showroom/gallery/about": "about",
+   "https://personal.canon.jp/event/photographyexhibition": "exhibitions_current",
+   "https://personal.canon.jp/showroom/gallery/ginza": "contact_hours",
+   "https://personal.canon.jp/showroom/gallery/movie": "news"
+  },
+  "site_notes": "This is Canon's huge consumer product site (personal.canon.jp); the Ginza Canon Gallery is only a small subsection under /showroom/gallery, with an overview/about page and per-location pages (Ginza, Osaka, Shinagawa) but no dedicated current/archive exhibition listing or artist roster was found in the crawl.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1044.4
+}

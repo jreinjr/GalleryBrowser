@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "overduin-and-co",
+ "name": "Overduin & Co.",
+ "website": "https://overduinandco.com",
+ "generated_ts": 1788481761,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0311,
+ "crawl": {
+  "pages": 132,
+  "sitemap": false,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/overduin-and-co.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "6693 Sunset Boulevard Los Angeles, CA 90028",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": "Tuesday-Saturday 10am-5pm and by appointment",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Meant for You",
+   "artists": [
+    "James Harrison"
+   ],
+   "start": "2026-05-01",
+   "end": "2026-06-13",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://www.overduinandco.com/archive"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Benjamin Echeverria"
+   ],
+   "start": null,
+   "end": null,
+   "year": null,
+   "kind": "solo",
+   "source_url": "http://www.overduinandco.com/upcoming"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "The supplied page is only the site header/navigation with address and hours; it does not include the actual artists list content or any about/program text.",
+ "triage": {
+  "labels": {
+   "http://www.overduinandco.com/upcoming": "exhibitions_current",
+   "http://www.overduinandco.com/archive": "exhibitions_archive",
+   "http://www.overduinandco.com/artists": "roster_index",
+   "https://www.overduinandco.com/archive/index.html": "exhibitions_archive",
+   "http://www.overduinandco.com/archive/index.html": "exhibitions_archive"
+  },
+  "site_notes": "The site is organized around a top-level nav (upcoming, archive, artists, publications) with a single flat archive index listing all past exhibitions; individual exhibition subpages (index/installation/performance htm files) are reachable from that archive but are redundant with it, so they are left unlabeled. No dedicated about or contact page appears in the crawl.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 278.2
+}

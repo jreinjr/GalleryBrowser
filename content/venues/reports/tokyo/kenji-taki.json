@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "kenji-taki",
+ "name": "KENJI TAKI GALLERY",
+ "website": "https://kenjitaki.com",
+ "generated_ts": 1788485179,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1932,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/kenji-taki.jsonl"
+ },
+ "about_text": "Kenji Taki Gallery is a contemporary art gallery with two spaces in Japan, one in Nagoya and one in the Roppongi district of Tokyo. The gallery's program centers on internationally recognized Japanese artists working across installation, sculpture, painting and photography, alongside select international names. Long associated with sculptor Isamu Wakabayashi (1936–2003), whose estate it continues to present, the gallery is also closely tied to Chiharu Shiota, known for large-scale thread and object installations exploring memory, life and death. Group presentations under a 'Gallery Artists' banner bring together a roster spanning several generations of Japanese contemporary practice, and the gallery participates in Japanese art fairs and maintains ongoing museum and biennale relationships for its artists.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://kenjitaki.com/"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Nagoya",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "Pyramide Building 3F, Roppongi",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "postwar and contemporary Japanese sculpture",
+  "large-scale installation art",
+  "contemporary Japanese painting",
+  "international contemporary art"
+ ],
+ "hours_text": "12:00 – 18:00 (Nagoya, from Feb 10)",
+ "roster": [
+  {
+   "name": "Chiharu Shiota",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/en/chiharu-shiota"
+  },
+  {
+   "name": "Hiroshi Sugito",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Leiko Ikemura",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Nobuyuki Tanaka",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Sakuji Yoshimoto",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Tetsu Imamura",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Kei Tajima",
+   "status": "represented",
+   "source_url": "https://kenjitaki.com/"
+  },
+  {
+   "name": "Isamu Wakabayashi",
+   "status": "estate",
+   "source_url": "https://kenjitaki.com/en/isamu-wakabayashi"
+  }
+ ],
+ "exhibitions": [],
+ "fairs_self_reported": [
+  "Art Fair Tokyo 2026"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Founding year, founders and directors are not stated on the supplied pages. Additional artists (e.g. Michel Verjux, Alfredo Jaar, Kim Duck-Yong, Muttoni, Eiji Watanabe, Ariska Someya, Fukumi Sukigara) appear in news/exhibition listings but are not presented in a dedicated artists roster, so they were excluded from the roster list.",
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 917.9
+}

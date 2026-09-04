@@ -1,0 +1,981 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "as-is-la",
+ "name": "as-is.la",
+ "website": "https://www.as-is.la/",
+ "generated_ts": 1788480636,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2249,
+ "crawl": {
+  "pages": 180,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/as-is-la.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [
+  "Tom Jimmerson",
+  "Mok Wai Wan"
+ ],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "1133 Venice Blvd, Los Angeles, CA 90015",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": "Wednesday through Saturday 12:00 pm to 6:00 pm",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Merwin Belin: Frontpages",
+   "artists": [
+    "Merwin Belin"
+   ],
+   "start": "2017-10-29",
+   "end": "2017-12-03",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2017"
+  },
+  {
+   "title": "Tow Truck Towing a Tow Truck",
+   "artists": [],
+   "start": "2017-12-10",
+   "end": "2018-01-13",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=12-2017"
+  },
+  {
+   "title": "Takako Yamaguchi: New Paintings",
+   "artists": [
+    "Takako Yamaguchi"
+   ],
+   "start": "2018-01-21",
+   "end": "2018-02-24",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2018"
+  },
+  {
+   "title": "Garry Neill Kennedy: Printed Matter: Selections from 1971 to Present",
+   "artists": [
+    "Garry Neill Kennedy"
+   ],
+   "start": "2018-03-04",
+   "end": "2018-04-08",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=02-2018"
+  },
+  {
+   "title": "Brian Zamora: New Lighting Devices",
+   "artists": [
+    "Brian Zamora"
+   ],
+   "start": "2018-04-14",
+   "end": "2018-05-19",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2018"
+  },
+  {
+   "title": "Jim Sterritt: Drawings, 1979 to 2010",
+   "artists": [
+    "Jim Sterritt"
+   ],
+   "start": "2018-05-27",
+   "end": "2018-06-30",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2018"
+  },
+  {
+   "title": "Richard Amend: Vintage Plexiglass Paintings",
+   "artists": [
+    "Richard Amend"
+   ],
+   "start": "2018-05-27",
+   "end": "2018-06-30",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2018"
+  },
+  {
+   "title": "Hildegarde Duane: Storied",
+   "artists": [
+    "Hildegarde Duane"
+   ],
+   "start": "2018-07-08",
+   "end": "2018-08-11",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2018"
+  },
+  {
+   "title": "Philip Rich: Drawings, 1965 - 1967",
+   "artists": [
+    "Philip Rich"
+   ],
+   "start": "2018-08-19",
+   "end": "2018-09-22",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=08-2018"
+  },
+  {
+   "title": "Dennis Reed: Police Culture, 2016-2018 and Light Dissipaters and Season Tracers, 1968-1970",
+   "artists": [
+    "Dennis Reed"
+   ],
+   "start": "2018-09-30",
+   "end": "2018-11-03",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2018"
+  },
+  {
+   "title": "Doug Edge: New & Vintage Artworks",
+   "artists": [
+    "Doug Edge"
+   ],
+   "start": "2018-11-11",
+   "end": "2018-12-22",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=11-2018"
+  },
+  {
+   "title": "Robert Wilhite: Art and Design",
+   "artists": [
+    "Robert Wilhite"
+   ],
+   "start": "2019-01-06",
+   "end": "2019-02-16",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=12-2018"
+  },
+  {
+   "title": "Tarrah Krajnak: 1979: Contact Negatives",
+   "artists": [
+    "Tarrah Krajnak"
+   ],
+   "start": "2019-03-10",
+   "end": "2019-04-20",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=03-2019"
+  },
+  {
+   "title": "Roy Dowell: New and Recent Paintings (and a Sculpture)",
+   "artists": [
+    "Roy Dowell"
+   ],
+   "start": "2019-04-28",
+   "end": "2019-06-08",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2019"
+  },
+  {
+   "title": "Drawings and Other Works on Paper",
+   "artists": [],
+   "start": "2019-06-16",
+   "end": "2019-07-27",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2019"
+  },
+  {
+   "title": "Eileen Cowin: Selections from Mad Love and Kafka's Diary",
+   "artists": [
+    "Eileen Cowin"
+   ],
+   "start": "2019-06-16",
+   "end": "2019-07-27",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2019"
+  },
+  {
+   "title": "Susan Mogul: Less is Never More",
+   "artists": [
+    "Susan Mogul"
+   ],
+   "start": "2019-08-04",
+   "end": "2019-09-07",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2019"
+  },
+  {
+   "title": "Doug Henry: Best New Ideas",
+   "artists": [
+    "Doug Henry"
+   ],
+   "start": "2019-11-03",
+   "end": "2019-12-21",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2019"
+  },
+  {
+   "title": "Takako Yamaguchi: New Paintings",
+   "artists": [
+    "Takako Yamaguchi"
+   ],
+   "start": "2019-11-03",
+   "end": "2019-12-21",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?offset=1572474858475"
+  },
+  {
+   "title": "NEW DRAWINGS ARAM SAROYAN",
+   "artists": [
+    "Aram Saroyan"
+   ],
+   "start": "2020-01-05",
+   "end": "2020-02-22",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2020"
+  },
+  {
+   "title": "Typed Series by Paul Tzanetopoulos",
+   "artists": [
+    "Paul Tzanetopoulos"
+   ],
+   "start": "2020-01-05",
+   "end": "2020-02-22",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2020"
+  },
+  {
+   "title": "Kristopher Raos: Tire, Tired Marks",
+   "artists": [
+    "Kristopher Raos"
+   ],
+   "start": "2020-03-01",
+   "end": "2020-04-18",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=02-2020"
+  },
+  {
+   "title": "Renee Petropoulos: Like a Street Full of Friends: Studies for Speculative Monuments",
+   "artists": [
+    "Renee Petropoulos"
+   ],
+   "start": "2020-11-01",
+   "end": "2021-01-30",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2020"
+  },
+  {
+   "title": "Flame from the Dark Tower",
+   "artists": [
+    "Leila Weefur",
+    "5/5 Collective"
+   ],
+   "start": "2021-05-15",
+   "end": "2021-06-12",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2021"
+  },
+  {
+   "title": "New and Recent Works by Ron Griffin",
+   "artists": [
+    "Ron Griffin"
+   ],
+   "start": "2021-07-17",
+   "end": "2021-08-28",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2021"
+  },
+  {
+   "title": "Open Late/\"7 Days a Week\" by Kristopher Raos",
+   "artists": [
+    "Kristopher Raos"
+   ],
+   "start": "2021-07-17",
+   "end": "2021-08-28",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2021"
+  },
+  {
+   "title": "Merwin Belin: Condensed",
+   "artists": [
+    "Merwin Belin"
+   ],
+   "start": "2021-09-11",
+   "end": "2021-10-23",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2021"
+  },
+  {
+   "title": "Bob Burchman: New and Recent Paintings",
+   "artists": [
+    "Bob Burchman"
+   ],
+   "start": "2021-10-30",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2021"
+  },
+  {
+   "title": "Eileen Cowin: see you tomorrow...",
+   "artists": [
+    "Eileen Cowin"
+   ],
+   "start": "2022-04-23",
+   "end": "2022-06-06",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=02-2022"
+  },
+  {
+   "title": "Susan Mogul: Sneak Peek",
+   "artists": [
+    "Susan Mogul"
+   ],
+   "start": "2022-06-11",
+   "end": "2022-07-23",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2022"
+  },
+  {
+   "title": "Katy Crowe: A Wrinkle in the Macula",
+   "artists": [
+    "Katy Crowe"
+   ],
+   "start": "2022-07-30",
+   "end": "2022-09-10",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2022"
+  },
+  {
+   "title": "Paul Tzanetopoulos: Silk Series",
+   "artists": [
+    "Paul Tzanetopoulos"
+   ],
+   "start": "2022-07-30",
+   "end": "2022-09-10",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2022"
+  },
+  {
+   "title": "Ron Griffin: Paintings",
+   "artists": [
+    "Ron Griffin"
+   ],
+   "start": "2022-09-17",
+   "end": "2022-10-29",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2022"
+  },
+  {
+   "title": "Robert Wilhite and Guy de Cointet",
+   "artists": [
+    "Robert Wilhite",
+    "Guy de Cointet"
+   ],
+   "start": "2022-11-05",
+   "end": "2022-12-23",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=11-2022"
+  },
+  {
+   "title": "Brian Sharp: The Wind Blew",
+   "artists": [
+    "Brian Sharp"
+   ],
+   "start": "2023-01-14",
+   "end": "2023-02-25",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2023"
+  },
+  {
+   "title": "Tom Eatherton: \"Memorial Exhibition\"",
+   "artists": [
+    "Tom Eatherton"
+   ],
+   "start": "2023-03-04",
+   "end": "2023-04-15",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=03-2023"
+  },
+  {
+   "title": "George Porcari: \"Things: A Story\"",
+   "artists": [
+    "George Porcari"
+   ],
+   "start": "2023-04-22",
+   "end": "2023-06-10",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2023"
+  },
+  {
+   "title": "Lenard Smith: Spatial Studies",
+   "artists": [
+    "Lenard Smith"
+   ],
+   "start": "2023-04-22",
+   "end": "2023-06-10",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2023"
+  },
+  {
+   "title": "Hildegard Duane: Wild Honey",
+   "artists": [
+    "Hildegarde Duane",
+    "Ilene Segalove"
+   ],
+   "start": "2023-06-17",
+   "end": "2023-07-29",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2023"
+  },
+  {
+   "title": "Jackie Castillo: \"Turning\"",
+   "artists": [
+    "Jackie Castillo"
+   ],
+   "start": "2023-06-17",
+   "end": "2023-08-05",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2023"
+  },
+  {
+   "title": "Jesse Benson: \"Organizer\"",
+   "artists": [
+    "Jesse Benson"
+   ],
+   "start": "2023-08-12",
+   "end": "2023-09-23",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=08-2023"
+  },
+  {
+   "title": "Joost van Oss",
+   "artists": [
+    "Joost van Oss"
+   ],
+   "start": "2023-09-30",
+   "end": "2023-11-11",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2023"
+  },
+  {
+   "title": "Gerard Brane: Recent Work",
+   "artists": [
+    "Gerard Brane"
+   ],
+   "start": "2023-11-18",
+   "end": "2023-12-23",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=11-2023"
+  },
+  {
+   "title": "Mary Jones: Significant Properties",
+   "artists": [
+    "Mary Jones"
+   ],
+   "start": "2024-01-06",
+   "end": "2024-02-17",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2024"
+  },
+  {
+   "title": "Nancy Youdelman: Dreamwork",
+   "artists": [
+    "Nancy Youdelman"
+   ],
+   "start": "2024-01-06",
+   "end": "2024-02-17",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2024"
+  },
+  {
+   "title": "Takako Yamaguchi: Eight Artworks 2009 / 2021",
+   "artists": [
+    "Takako Yamaguchi"
+   ],
+   "start": "2024-02-24",
+   "end": "2024-03-30",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=02-2024"
+  },
+  {
+   "title": "Brian Sharp",
+   "artists": [
+    "Brian Sharp"
+   ],
+   "start": "2024-04-06",
+   "end": "2024-05-11",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2024"
+  },
+  {
+   "title": "Hannah Karsen: Seven",
+   "artists": [
+    "Hannah Karsen"
+   ],
+   "start": "2024-04-06",
+   "end": "2024-05-11",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2024"
+  },
+  {
+   "title": "Needle in the Hay",
+   "artists": [],
+   "start": "2024-05-18",
+   "end": "2024-06-22",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2024"
+  },
+  {
+   "title": "Five Women Artists in 1970s Los Angeles",
+   "artists": [],
+   "start": "2024-06-29",
+   "end": "2024-08-24",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2024"
+  },
+  {
+   "title": "Carter Potter: Couch Triptych 1990-2024",
+   "artists": [
+    "Carter Potter"
+   ],
+   "start": "2024-09-07",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2024"
+  },
+  {
+   "title": "Katy Crowe: Lunar Shift",
+   "artists": [
+    "Katy Crowe"
+   ],
+   "start": "2024-09-07",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2024"
+  },
+  {
+   "title": "Three Artists: William Camargo, Jackie Castillo and Julie Shafer",
+   "artists": [
+    "William Camargo",
+    "Jackie Castillo",
+    "Julie Shafer"
+   ],
+   "start": "2024-11-09",
+   "end": "2024-12-21",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.as-is.la/exhibitions?month=11-2024"
+  },
+  {
+   "title": "Karen Carson: Eye Shadow",
+   "artists": [
+    "Karen Carson"
+   ],
+   "start": "2025-02-01",
+   "end": "2025-03-15",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2025"
+  },
+  {
+   "title": "Steven Steinman: New Work",
+   "artists": [
+    "Steven Steinman"
+   ],
+   "start": "2025-02-01",
+   "end": "2025-03-15",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=01-2025"
+  },
+  {
+   "title": "Erica Vincenzi: Now and Again and Yesterday Once More",
+   "artists": [
+    "Erica Vincenzi"
+   ],
+   "start": "2025-04-05",
+   "end": "2025-05-10",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2025"
+  },
+  {
+   "title": "Rochele Gomez: It's Just Not the Same Without You.",
+   "artists": [
+    "Rochele Gomez"
+   ],
+   "start": "2025-04-05",
+   "end": "2025-05-10",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2025"
+  },
+  {
+   "title": "Victor Estrada: Everything is possible...nothing is true",
+   "artists": [
+    "Victor Estrada"
+   ],
+   "start": "2025-05-17",
+   "end": "2025-06-28",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=05-2025"
+  },
+  {
+   "title": "Ulysses Jenkins: New and Recent Videos",
+   "artists": [
+    "Ulysses Jenkins"
+   ],
+   "start": "2025-07-19",
+   "end": "2025-08-30",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=07-2025"
+  },
+  {
+   "title": "Alex Heilbron: All Systems Fail",
+   "artists": [
+    "Alex Heilbron"
+   ],
+   "start": "2025-09-13",
+   "end": "2025-10-25",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2025"
+  },
+  {
+   "title": "New Work by Phyllis Green",
+   "artists": [
+    "Phyllis Green"
+   ],
+   "start": "2025-09-13",
+   "end": "2025-10-25",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=09-2025"
+  },
+  {
+   "title": "Julien Archer: Slip",
+   "artists": [
+    "Julien Archer"
+   ],
+   "start": "2025-11-01",
+   "end": "2025-12-13",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2025"
+  },
+  {
+   "title": "Paul Tzanetopoulos: New Work",
+   "artists": [
+    "Paul Tzanetopoulos"
+   ],
+   "start": "2025-11-01",
+   "end": "2025-12-13",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=10-2025"
+  },
+  {
+   "title": "Renée Petropoulos",
+   "artists": [
+    "Renée Petropoulos"
+   ],
+   "start": "2026-01-03",
+   "end": "2026-02-14",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=12-2025"
+  },
+  {
+   "title": "Ron Griffin",
+   "artists": [
+    "Ron Griffin"
+   ],
+   "start": "2026-01-03",
+   "end": "2026-02-14",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=12-2025"
+  },
+  {
+   "title": "Brian Sharp: Carry onnnn",
+   "artists": [
+    "Brian Sharp"
+   ],
+   "start": "2026-02-21",
+   "end": "2026-04-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=02-2026"
+  },
+  {
+   "title": "Lincoln Tobier: Sets of Seven Cylinders",
+   "artists": [
+    "Lincoln Tobier"
+   ],
+   "start": "2026-04-25",
+   "end": "2026-05-30",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=04-2026"
+  },
+  {
+   "title": "Vincent Ramos: Notice of Demolition or The Horror-Vacui Heavy Haunts House Band for The Haunted House",
+   "artists": [
+    "Vincent Ramos"
+   ],
+   "start": "2026-06-13",
+   "end": "2026-07-18",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions?month=06-2026"
+  },
+  {
+   "title": "Carter Potter: Picture Snatcher",
+   "artists": [
+    "Carter Potter"
+   ],
+   "start": "2026-07-25",
+   "end": "2026-08-29",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions"
+  },
+  {
+   "title": "Niko Chodor: State of impermanence",
+   "artists": [
+    "Niko Chodor"
+   ],
+   "start": "2026-07-25",
+   "end": "2026-08-29",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.as-is.la/exhibitions"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://www.as-is.la/exhibitions": "exhibitions_current",
+   "https://www.as-is.la/merwin-belin-frontpages-gallery": "exhibition_page",
+   "https://www.as-is.la/tow-truck-towing-a-tow-truck-gallery": "exhibition_page",
+   "https://www.as-is.la/takako-yamaguchi-new-paintings": "exhibition_page",
+   "https://www.as-is.la/brian-zamora-new-lighting-devices": "exhibition_page",
+   "https://www.as-is.la/contact": "contact_hours",
+   "https://www.as-is.la/flame-from-the-dark-tower-readable-catalog": "exhibition_page",
+   "https://www.as-is.la/flame-from-the-dark-tower-delusionarium-5-adaptation": "exhibition_page",
+   "https://www.as-is.la/erica-vincenzi-now-and-again-and-yesterday-once-more": "exhibition_page",
+   "https://www.as-is.la/rochele-gomez": "exhibition_page",
+   "https://www.as-is.la/kare-carson-eye-shadow": "exhibition_page",
+   "https://www.as-is.la/victor-estrada-everthing-is-possiblenothing-is-true": "exhibition_page",
+   "https://www.as-is.la/julien-archer-slip": "exhibition_page",
+   "https://www.as-is.la/ron-griffin": "exhibition_page",
+   "https://www.as-is.la/brian-sharp-carry-onnnn": "exhibition_page",
+   "https://www.as-is.la/lincoln-tobier-sets-of-seven-cylinders": "exhibition_page",
+   "https://www.as-is.la/vincent-ramos": "exhibition_page",
+   "https://www.as-is.la/exhibitions/nikochodor": "exhibition_page",
+   "https://www.as-is.la/exhibitions/carterpotter-1": "exhibition_page",
+   "https://www.as-is.la/exhibitions/vincentramos": "exhibition_page",
+   "https://www.as-is.la/exhibitions/gerardbrane2026": "exhibition_page",
+   "https://www.as-is.la/exhibitions/lincolntobier": "exhibition_page",
+   "https://www.as-is.la/exhibitions/briansharp-carryonnnn": "exhibition_page",
+   "https://www.as-is.la/exhibitions/annabelosberg": "exhibition_page",
+   "https://www.as-is.la/exhibitions/rene-petropoulos2026": "exhibition_page",
+   "https://www.as-is.la/exhibitions/rongriffin2026": "exhibition_page",
+   "https://www.as-is.la/exhibitions/julienarcher": "exhibition_page",
+   "https://www.as-is.la/exhibitions/paul-tzanetopoulos-new-work": "exhibition_page",
+   "https://www.as-is.la/exhibitions/phyllis-green": "exhibition_page",
+   "https://www.as-is.la/exhibitions/alexheilbron": "exhibition_page",
+   "https://www.as-is.la/exhibitions/ulyssesjenkins": "exhibition_page",
+   "https://www.as-is.la/exhibitions/victorestrada": "exhibition_page",
+   "https://www.as-is.la/exhibitions/ericavincenzi-2rwr4": "exhibition_page",
+   "https://www.as-is.la/exhibitions/rochelegomez": "exhibition_page",
+   "https://www.as-is.la/exhibitions/karencarson": "exhibition_page",
+   "https://www.as-is.la/exhibitions/stevensteinman": "exhibition_page",
+   "https://www.as-is.la/exhibitions/three-artists": "exhibition_page",
+   "https://www.as-is.la/exhibitions/katycrowe-lunarshift": "exhibition_page",
+   "https://www.as-is.la/exhibitions/carterpotter": "exhibition_page",
+   "https://www.as-is.la/exhibitions/fivewomenartistsin1970slosangeles": "exhibition_page",
+   "https://www.as-is.la/exhibitions/needleinthehay": "exhibition_page",
+   "https://www.as-is.la/exhibitions/hannahkarsen": "exhibition_page",
+   "https://www.as-is.la/exhibitions/briansharp2": "exhibition_page",
+   "https://www.as-is.la/exhibitions/takako-yamaguchi-eightartworks": "exhibition_page",
+   "https://www.as-is.la/exhibitions/paul-tzanetopouloslas-vegas-1972-1975": "exhibition_page",
+   "https://www.as-is.la/exhibitions/nancyyoudelman": "exhibition_page",
+   "https://www.as-is.la/exhibitions/maryjones": "exhibition_page",
+   "https://www.as-is.la/exhibitions/gerardbrane": "exhibition_page",
+   "https://www.as-is.la/exhibitions/susansinger": "exhibition_page",
+   "https://www.as-is.la/exhibitions/joostvanoss": "exhibition_page",
+   "https://www.as-is.la/exhibitions/lukerogers": "exhibition_page",
+   "https://www.as-is.la/exhibitions/jessebenson": "exhibition_page",
+   "https://www.as-is.la/exhibitions/hildegardeduane": "exhibition_page",
+   "https://www.as-is.la/exhibitions/jackiecastillo-turning": "exhibition_page",
+   "https://www.as-is.la/exhibitions/lenardsmith": "exhibition_page",
+   "https://www.as-is.la/exhibitions/georgeporcariastory": "exhibition_page",
+   "https://www.as-is.la/exhibitions/tomeatherton": "exhibition_page",
+   "https://www.as-is.la/exhibitions/briansharp": "exhibition_page",
+   "https://www.as-is.la/exhibitions/robert-wilhite-and-guy-de-cointet": "exhibition_page",
+   "https://www.as-is.la/exhibitions/rongriffinpaintings": "exhibition_page",
+   "https://www.as-is.la/exhibitions/katycrowe": "exhibition_page",
+   "https://www.as-is.la/exhibitions/paul-tzanetopoulos": "exhibition_page",
+   "https://www.as-is.la/exhibitions/susanmogullegend": "exhibition_page",
+   "https://www.as-is.la/exhibitions/eileencowinseeyoutomorrow": "exhibition_page",
+   "https://www.as-is.la/exhibitions/halglickman": "exhibition_page",
+   "https://www.as-is.la/exhibitions/jackiecastillogutting": "exhibition_page",
+   "https://www.as-is.la/exhibitions/bob-burchman": "exhibition_page",
+   "https://www.as-is.la/exhibitions/merwinbelincondensed": "exhibition_page",
+   "https://www.as-is.la/exhibitions/newanrecentworksbyrongriffin": "exhibition_page",
+   "https://www.as-is.la/exhibitions/flamefromthedark": "exhibition_page",
+   "https://www.as-is.la/exhibitions/reneepetropoulos": "exhibition_page",
+   "https://www.as-is.la/exhibitions/kris-raos-tire-tired-marks": "exhibition_page",
+   "https://www.as-is.la/exhibitions/julieshafer": "exhibition_page",
+   "https://www.as-is.la/exhibitions/paultzanetopoulos": "exhibition_page",
+   "https://www.as-is.la/exhibitions/aramsaroyan": "exhibition_page",
+   "https://www.as-is.la/exhibitions/doughenry": "exhibition_page",
+   "https://www.as-is.la/exhibitions/takako-acrk5": "exhibition_page",
+   "https://www.as-is.la/exhibitions/darrylcurran-k7ccs": "exhibition_page",
+   "https://www.as-is.la/exhibitions/susanmogul": "exhibition_page",
+   "https://www.as-is.la/exhibitions/eileencowin": "exhibition_page",
+   "https://www.as-is.la/exhibitions/drawings-and-other-works-on-paper": "exhibition_page",
+   "https://www.as-is.la/exhibitions/roydowell": "exhibition_page",
+   "https://www.as-is.la/exhibitions/tarrahkrajnak": "exhibition_page",
+   "https://www.as-is.la/exhibitions/robertwilhite": "exhibition_page",
+   "https://www.as-is.la/exhibitions/doug-edge": "exhibition_page",
+   "https://www.as-is.la/exhibitions/dennisreed": "exhibition_page",
+   "https://www.as-is.la/exhibitions/philiprich": "exhibition_page",
+   "https://www.as-is.la/exhibitions/krisraosopenlate/7daysaweek-xrj27": "exhibition_page",
+   "https://www.as-is.la/exhibitions/category/past+exhibition": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions/category/current+exhibition": "exhibitions_current",
+   "https://www.as-is.la/exhibitions/2018/07/hildegarde-duane": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2018/05/richard-amend": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2018/05/jim-starrett": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2018/04/brian-zamora": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2018/02/garry-kennedy": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2017/10/23/takako-yamaguchi-new-paintings": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2017/10/23/tow-truck-towing-a-tow-truck": "exhibition_page",
+   "https://www.as-is.la/exhibitions/2017/10/23/merwin-belin-frontpages": "exhibition_page",
+   "https://www.as-is.la/exhibitions?month=07-2026": "exhibitions_current",
+   "https://www.as-is.la/exhibitions?month=06-2026": "exhibitions_current",
+   "https://www.as-is.la/exhibitions?month=04-2026": "exhibitions_current",
+   "https://www.as-is.la/exhibitions?month=02-2026": "exhibitions_current",
+   "https://www.as-is.la/exhibitions?month=12-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=10-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=07-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=05-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=04-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=01-2025": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=11-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=06-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=05-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=04-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=02-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=01-2024": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=11-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=08-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=06-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=04-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=03-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=01-2023": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=11-2022": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2022": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=07-2022": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=06-2022": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=02-2022": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=10-2021": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2021": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=07-2021": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=05-2021": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=10-2020": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=02-2020": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=01-2020": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=10-2019": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=07-2019": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=06-2019": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=04-2019": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=03-2019": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=12-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=11-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=09-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=08-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=06-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=05-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=04-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=02-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=01-2018": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=12-2017": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?month=10-2017": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?author=59e378c45e0ed8c84f14dbf2": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1730761920777": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1725388379591&category=past+exhibition": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1730761920777&author=59e378c45e0ed8c84f14dbf2": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1677788160530": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1667352962203&category=past+exhibition": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1677788160530&author=59e378c45e0ed8c84f14dbf2": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1572474858475": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1571941971238&category=past+exhibition": "exhibitions_archive",
+   "https://www.as-is.la/exhibitions?offset=1572474858475&author=59e378c45e0ed8c84f14dbf2": "exhibitions_archive"
+  },
+  "site_notes": "This gallery's site has no dedicated roster/about/artist-index pages; instead it presents a long-running Squarespace exhibitions calendar (paginated by ?month=) plus over a hundred individual exhibition pages (some duplicated under legacy non-/exhibitions/ slugs) that together function as the de facto artist and exhibition history; only a contact page provides address info.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1124.4
+}

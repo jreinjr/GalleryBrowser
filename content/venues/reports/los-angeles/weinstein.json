@@ -1,0 +1,578 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "weinstein",
+ "name": "Weinstein Gallery",
+ "website": "https://www.weinstein.com/",
+ "generated_ts": 1788487845,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1517,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/weinstein.jsonl"
+ },
+ "about_text": "Weinstein Gallery was founded in San Francisco in 1992 by Rowland Weinstein, with a focus on non-objective and surrealist art spanning pre-war Europe through the New York School and Abstract Expressionism. The gallery represents the estates of Rudolf Bauer and Juanita Guccione, and is known for championing women of the surrealist movement, including Leonor Fini, Leonora Carrington, Kay Sage, Stella Snead, Remedios Varo and Dorothea Tanning. It has also worked to revive attention to understudied artists such as Enrico Donati, Jimmy Ernst, Gordon Onslow Ford, Gerome Kamrowski and Kurt Seligmann through exhibitions, publications and museum loans. In Spring 2026 the gallery plans to open a project space in Los Angeles devoted to contemporary art, performance and multidisciplinary programming, extending its historical program into a dialogue with the present day.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.weinstein.com/about"
+ ],
+ "founded_year": 1992,
+ "founders": [
+  "Rowland Weinstein"
+ ],
+ "directors": [],
+ "locations": [
+  {
+   "city": "San Francisco",
+   "address": "444 Clementina St, San Francisco, CA 94103",
+   "since": 1992,
+   "current": true
+  },
+  {
+   "city": "Los Angeles",
+   "address": "4859 Fountain Avenue, Los Angeles, CA 90029",
+   "since": null,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "non-objective art",
+  "surrealism",
+  "abstract expressionism",
+  "women of surrealism",
+  "pre-war European to New York School art",
+  "contemporary art (LA project space)"
+ ],
+ "hours_text": "San Francisco: Open by Appointment, please call to arrange your visit. Los Angeles: Opening soon!",
+ "roster": [
+  {
+   "name": "Rudolf Bauer",
+   "status": "estate",
+   "source_url": "https://www.weinstein.com/about"
+  },
+  {
+   "name": "Juanita M. Guccione",
+   "status": "estate",
+   "source_url": "https://www.weinstein.com/about"
+  },
+  {
+   "name": "William Baziotes",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Victor Brauner",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Alexander Calder",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Leonora Carrington",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Marc Chagall",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Salvador Dali",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Oscar Dominguez",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Enrico Donati",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Jimmy Ernst",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Max Ernst",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Leonor Fini",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Esteban Frances",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "David Hare",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Marcel Jean",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Gerome Kamrowski",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Wassily Kandinsky",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Lawrence Kupferman",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Wifredo Lam",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Jacqueline Lamba",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Tamara de Lempicka",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Stanislao Lepri",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Andre Masson",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Roberto Matta",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Alice L. Mattern",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Joan Miró",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Gordon Onslow Ford",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Wolfgang Paalen",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Pablo Picasso",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Hilla Rebay",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Kay Sage",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Rolph Scarlett",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Kurt Seligmann",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Charles Green Shaw",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Hassel Smith",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Stella Snead",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Yves Tanguy",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Dorothea Tanning",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Bridget Tichenor",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  },
+  {
+   "name": "Remedios Varo",
+   "status": "represented",
+   "source_url": "https://www.weinstein.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Surrealism: New Worlds",
+   "artists": [],
+   "start": "2011-12-10",
+   "end": "2012-01-28",
+   "year": 2011,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "David Hare",
+   "artists": [
+    "David Hare"
+   ],
+   "start": "2012-09-22",
+   "end": "2012-10-25",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Gordon Onslow Ford: Centennial Celebration",
+   "artists": [
+    "Gordon Onslow Ford"
+   ],
+   "start": "2013-01-26",
+   "end": "2013-02-23",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Action and Chance: A New Look at Drip",
+   "artists": [],
+   "start": "2013-08-24",
+   "end": "2013-09-21",
+   "year": 2013,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Kurt Seligmann: First Message from the Spirit World",
+   "artists": [
+    "Kurt Seligmann"
+   ],
+   "start": "2015-05-09",
+   "end": "2015-08-22",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Leonor Fini: Réalisme Irréel",
+   "artists": [
+    "Leonor Fini"
+   ],
+   "start": "2015-09-26",
+   "end": "2015-12-05",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Enrico Donati: Prima Materia",
+   "artists": [
+    "Enrico Donati"
+   ],
+   "start": "2016-02-20",
+   "end": "2016-04-09",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Chance Meeting on a Dissecting Table",
+   "artists": [],
+   "start": "2016-04-28",
+   "end": "2016-06-30",
+   "year": 2016,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Making the Museum of Non-Objective Painting: The Birth of the Guggenheim",
+   "artists": [],
+   "start": "2017-06-01",
+   "end": "2017-06-30",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Oskar Fischinger: Raumlichtkunst, c. 1926/2012",
+   "artists": [
+    "Oskar Fischinger"
+   ],
+   "start": "2017-12-16",
+   "end": "2018-02-10",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Charles Green Shaw: Timeless Forms",
+   "artists": [
+    "Charles Green Shaw"
+   ],
+   "start": "2018-07-19",
+   "end": "2018-08-25",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Juanita Guccione: Seeking the Divine",
+   "artists": [
+    "Juanita Guccione"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Jacqueline Lamba: Painter",
+   "artists": [
+    "Jacqueline Lamba"
+   ],
+   "start": "2023-03-11",
+   "end": "2023-05-03",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Visual Rhythms: Dialogues in Abstraction",
+   "artists": [],
+   "start": "2023-05-15",
+   "end": "2023-08-12",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Wolfgang Paalen: Scenes for a Sorcerer",
+   "artists": [
+    "Wolfgang Paalen"
+   ],
+   "start": "2023-09-23",
+   "end": "2023-12-15",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Leonor Fini: Portraits and Passagers",
+   "artists": [
+    "Leonor Fini"
+   ],
+   "start": "2024-04-27",
+   "end": "2024-06-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  },
+  {
+   "title": "Max & Jimmy Ernst: Father Son of Surrealism",
+   "artists": [
+    "Max Ernst",
+    "Jimmy Ernst"
+   ],
+   "start": "2024-08-30",
+   "end": "2024-10-19",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.weinstein.com/selected-exhibitions"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "The Art Newspaper",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Galerie",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Wall Street Journal",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Artsy",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Art & Object",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "The New York Times",
+   "year": 2025,
+   "url": null
+  },
+  {
+   "outlet": "Artsy",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Frieze Magazine",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Art Daily",
+   "year": 2024,
+   "url": null
+  },
+  {
+   "outlet": "Squarecylinder",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "Artnet",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "Squarecyclinder",
+   "year": 2023,
+   "url": null
+  },
+  {
+   "outlet": "Museum of Sex Press & Reviews",
+   "year": 2018,
+   "url": null
+  },
+  {
+   "outlet": "Glossary Magazine",
+   "year": 2018,
+   "url": null
+  },
+  {
+   "outlet": "Press Release",
+   "year": 2016,
+   "url": null
+  },
+  {
+   "outlet": "Square Cylinder",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "SF Weekly",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "Huffington Post",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "Bay Area Reporter",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "SFAQ (San Francisco Arts Quarterly)",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "Art Practical",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "Art & Antiques Magazine",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "ARTnews",
+   "year": 2015,
+   "url": null
+  },
+  {
+   "outlet": "SF Weekly",
+   "year": 2015,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Los Angeles space listed on the site as 'Opening soon' (Spring 2026 per About page); marked current=false as it was not yet operating per the supplied pages.",
+ "triage": {
+  "labels": {
+   "https://www.weinstein.com/about": "about",
+   "https://www.weinstein.com/artists": "roster_index",
+   "https://www.weinstein.com/contact": "contact_hours",
+   "https://www.weinstein.com/news": "news",
+   "https://www.weinstein.com/press": "news",
+   "https://www.weinstein.com/selected-exhibitions": "exhibitions_archive"
+  },
+  "site_notes": "The site is organized around a single /artists roster index, a combined /selected-exhibitions page that appears to serve as the exhibitions archive, and separate /news and /press sections that both function as news feeds; individual artist, exhibition, artwork, event, video and news/press article pages are numerous but redundant with their index pages.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1006.1
+}

@@ -1,0 +1,719 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "tolman-collection",
+ "name": "The Tolman Collection",
+ "website": "https://www.tolmantokyo.com/",
+ "generated_ts": 1788480313,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.2448,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/tolman-collection.jsonl"
+ },
+ "about_text": "The Tolman Collection is a Tokyo gallery specializing in contemporary Japanese prints, founded in 1972 by Norman and Mary Tolman. Often described as Japan's oldest foreign-owned gallery devoted to contemporary Japanese printmaking, it has built decades-long relationships with print artists, publishing exclusive editions and maintaining extensive archives. The gallery represents nearly fifty artists, working directly with them to ensure provenance and quality. Leadership passed to second-generation owner Allison Tolman, with Daisuke Maruoka serving as President. In addition to its Tokyo gallery, the collection operates a branch in New York. Over five decades it has organized exhibitions at institutions worldwide, including Zojoji Temple, the Singapore Art Museum, the Cairo Opera House, and Finland's Retretti Art Centre, helping introduce Japanese graphic art to international audiences.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://tolmantokyo.com/about"
+ ],
+ "founded_year": 1972,
+ "founders": [
+  "Norman Tolman",
+  "Mary Tolman"
+ ],
+ "directors": [
+  "Allison Tolman",
+  "Daisuke Maruoka"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "2-2-18 Shiba Daimon, Minato-ku Tokyo, 105-0012",
+   "since": 1972,
+   "current": true
+  },
+  {
+   "city": "New York",
+   "address": "445 Fifth Ave, New York, New York 10016",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary Japanese prints",
+  "woodblock prints and lithographs",
+  "original paintings",
+  "postwar and contemporary Japanese printmakers"
+ ],
+ "hours_text": "11:00 - 19:00, Open Tuesday to Sunday, Closed Monday",
+ "roster": [
+  {
+   "name": "Anjin ABE",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Mana AKI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shinko ARAKI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Marat BEKEYEV",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Sarah BRAYER",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Susumu ENDO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toshihisa FUDEZUKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Hidehiko GOTO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Hideo HAGIWARA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Fuki HAMADA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Katsunori HAMANISHI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Takeshi HARA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yuichi HASEGAWA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Okiie HASHIMOTO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Rie HIDAKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Keiko HIRAIKE",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yuji HIRATSUKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Tatsuo ICHIEN",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Masuo IKEDA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Junichi IKEDA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yoshio IMAMURA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yoshio IMAMURA - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Reika IWAMI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Clifton KARHU",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Joel KARHU",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Seiko KAWACHI - prints",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Seiko KAWACHI - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Sayaka KAWAMURA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Daniel KELLY - prints",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Daniel KELLY - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Taika KINOSHITA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toshimatsu KUREMOTO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shigeki KURODA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Akira KUROSAKI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Senpan MAEKAWA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Haku MAKI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Akihiro MISAKI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shoji MIYAMOTO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Tokio MIYASHITA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yoshitoshi MORI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Kazz MORISHITA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Kenji NAGAI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Tadashi NAKAYAMA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shinichi NAKAZAWA - prints",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shinichi NAKAZAWA - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Ryo NISHIMURA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Mayumi ODA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Marie OKADA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toshinobu ONOSATO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Noriko SAITO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Kiyoshi SAITO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yoshio SEKINE",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Junichiro SEKINO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Eiichi SHIBUYA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toko SHINODA - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toko SHINODA - prints",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Mitsuaki SORA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Joel STEWART",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Kazutoshi SUGIURA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Hiromitsu TAKAHASHI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Yoshikatsu TAMEKANE",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Ryohei TANAKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shigeru TANIGUCHI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Masahiko TSUBOTA - paintings",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Masahiko TSUBOTA - prints",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Masayuki TSUBOTA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Waichi TSUTAKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Emi UCHIDA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Shuji WAKO",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Brian WILLIAMS",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Gen YAMANAKA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Go YAYANAGI",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Toshi YOSHIDA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Hodaka YOSHIDA",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Junichiro YOSHIMATSU",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  },
+  {
+   "name": "Hao ZHOU",
+   "status": "represented",
+   "source_url": "https://tolmantokyo.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "SHINDOA – Toko Past Present Future at Zojoji",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2018-11-01",
+   "end": "2019-11-11",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/shindoa-toko-past-present-future-at-zojoji"
+  },
+  {
+   "title": "SHINODA Toko exhibition at Zojoji",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2018-11-01",
+   "end": "2018-11-11",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/shinoda-toko-exhibition-at-zojoji"
+  },
+  {
+   "title": "The DyEing Art of Kappazuri",
+   "artists": [],
+   "start": "2020-04-01",
+   "end": "2020-04-05",
+   "year": 2020,
+   "kind": "other",
+   "source_url": "https://tolmantokyo.com/exhibitions/the-dyeing-art-of-kappazuri"
+  },
+  {
+   "title": "Toko Shinoda calligraphy at its best",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2020-09-02",
+   "end": "2020-10-04",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/toko-shinoda-calligraphy-at-its-best"
+  },
+  {
+   "title": "MORI Yoshitoshi online exhibition",
+   "artists": [
+    "Mori Yoshitoshi"
+   ],
+   "start": "2021-01-20",
+   "end": "2021-01-31",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/mori-yoshitoshi-online-exhibition"
+  },
+  {
+   "title": "YAYANAGI Go online Exhibition",
+   "artists": [
+    "Yayanagi Go"
+   ],
+   "start": "2021-02-03",
+   "end": "2021-02-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/yayanagi-go-online-exhibition"
+  },
+  {
+   "title": "HAMANISHI Katsunori exhibition",
+   "artists": [
+    "Hamanishi Katsunori"
+   ],
+   "start": "2021-02-20",
+   "end": "2021-03-09",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/hamanishi-katsunori-exhibition"
+  },
+  {
+   "title": "Toko Shinoda : a retrospective",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2022-04-16",
+   "end": "2022-06-22",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/%e7%af%a0%e7%94%b0%e6%a1%83%e7%b4%85%e5%b1%95-toko-shinoda-a-retrospective"
+  },
+  {
+   "title": "Toko Shinoda Bridge Over Fleeting Dreams",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2022-06-18",
+   "end": "2022-08-28",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/yume"
+  },
+  {
+   "title": "Current Event: Furukawa Art Museum / Tamesaburo Memorial Museum \"Toko Shinoda 107 years of her life\" Exhibition",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2024-06-15",
+   "end": "2024-07-28",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/%e5%8f%a4%e5%b7%9d%e7%be%8e%e8%a1%93%e9%a4%a8-%e7%88%b2%e4%b8%89%e9%83%8e%e8%a8%98%e5%bf%b5%e9%a4%a8"
+  },
+  {
+   "title": "Toko Shinoda Exhibition, St. Luke's International Hospital, First Gallery",
+   "artists": [
+    "Toko Shinoda",
+    "Yoshikatsu Tamekane"
+   ],
+   "start": "2024-11-25",
+   "end": "2024-11-30",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://tolmantokyo.com/exhibitions/%e7%af%a0%e7%94%b0%e6%a1%83%e7%b4%85%e5%b1%95%e3%80%80%e8%81%96%e8%b7%af%e5%8a%a0%e5%9b%bd%e9%9a%9b%e7%97%85%e9%99%a2%e3%80%80%e7%ac%ac%e4%b8%80%e7%94%bb%e5%bb%8a"
+  },
+  {
+   "title": "Exhibiting at ART FAIR ASIA FUKUOKA 2025",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://tolmantokyo.com/exhibitions"
+  },
+  {
+   "title": "Toko Shinoda and Yoshijima House",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2025-04-12",
+   "end": "2025-06-01",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/toko-yoshijima-house"
+  },
+  {
+   "title": "Toko Shinoda exhibition in Nagoya",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2025-06-05",
+   "end": "2025-06-24",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/tokoshinodaexhibitioninnagoya"
+  },
+  {
+   "title": "Discovering Toko Shinoda – Inuyama",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2025-07-04",
+   "end": "2025-07-16",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/discoveringtokoshinoda-inuyama"
+  },
+  {
+   "title": "ART 365 Tokyo Daimaru",
+   "artists": [],
+   "start": "2025-08-27",
+   "end": "2025-09-02",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://tolmantokyo.com/exhibitions"
+  },
+  {
+   "title": "Positions Berlin Art Fair 2025",
+   "artists": [],
+   "start": "2025-09-11",
+   "end": "2025-09-14",
+   "year": 2025,
+   "kind": "fair",
+   "source_url": "https://tolmantokyo.com/exhibitions"
+  },
+  {
+   "title": "Works by Toko Shinoda: Returning to Singapore After 30 Years\" In collaboration with Art Forum",
+   "artists": [
+    "Toko Shinoda"
+   ],
+   "start": "2026-01-23",
+   "end": "2026-01-31",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://tolmantokyo.com/exhibitions/works-by-toko-shinoda-returning-to-singapore-after-30-years-in-collaboration-with-art-forum"
+  },
+  {
+   "title": "We are participating in the Affordable Art Fair Hong Kong",
+   "artists": [],
+   "start": "2026-05-13",
+   "end": "2026-05-17",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://tolmantokyo.com/exhibitions"
+  },
+  {
+   "title": "Affordable Art Fair New York Fall 2026",
+   "artists": [],
+   "start": "2026-09-16",
+   "end": "2026-09-20",
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "https://tolmantokyo.com/exhibitions"
+  }
+ ],
+ "fairs_self_reported": [
+  "Art Fair Tokyo",
+  "LA Art Show",
+  "Affordable Art Fair Singapore",
+  "Affordable Art Fair Hong Kong",
+  "Art Fair Asia Fukuoka",
+  "Positions Berlin Art Fair",
+  "Affordable Art Fair New York",
+  "Portland Fine Print Fair",
+  "INK Miami Art Fair",
+  "Art Formosa",
+  "IFPDA",
+  "Affordable Art Fair Battersea"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Founder Norman H. Tolman passed away in 2025 per the about page. Roster compiled from the site's Artists index; entries with '- prints'/'- paintings' suffixes are listed exactly as printed, representing separate catalog pages for the same artist's different media.",
+ "triage": {
+  "labels": {
+   "https://tolmantokyo.com/about": "about",
+   "https://tolmantokyo.com/about/message": "about",
+   "https://tolmantokyo.com/about/staff": "about",
+   "https://tolmantokyo.com/artists": "roster_index",
+   "https://tolmantokyo.com/exhibitions": "exhibitions_current",
+   "https://tolmantokyo.com/topics": "news",
+   "https://tolmantokyo.com/access": "contact_hours",
+   "https://tolmantokyo.com/exhibitions/219": "fairs",
+   "https://tolmantokyo.com/exhibitions/art-formosa-2019": "fairs",
+   "https://tolmantokyo.com/exhibitions/art-fair-tokyo": "fairs",
+   "https://tolmantokyo.com/exhibitions/la-art-fair": "fairs",
+   "https://tolmantokyo.com/exhibitions/ifpda": "fairs",
+   "https://tolmantokyo.com/exhibitions/portland-fine-print-fair-2020": "fairs",
+   "https://tolmantokyo.com/exhibitions/art-fair-tokyo-2021": "fairs",
+   "https://tolmantokyo.com/exhibitions/%e3%82%a2%e3%83%bc%e3%83%88%e3%83%95%e3%82%a7%e3%82%a2%e6%9d%b1%e4%ba%ac-2022": "fairs",
+   "https://tolmantokyo.com/exhibitions/%e3%82%a2%e3%83%bc%e3%83%88%e3%83%95%e3%82%a7%e3%82%a2%e3%82%a2%e3%82%b8%e3%82%a2%e7%a6%8f%e5%b2%a1%e3%81%ab%e5%87%ba%e5%b1%95%e3%81%84%e3%81%9f%e3%81%97%e3%81%be%e3%81%99": "fairs",
+   "https://tolmantokyo.com/exhibitions/affordable-art-fair-singapore%e3%81%ab%e5%87%ba%e5%b1%95%e3%81%84%e3%81%9f%e3%81%97%e3%81%be%e3%81%99": "fairs",
+   "https://tolmantokyo.com/exhibitions/art-fair-asia-fukuoka-2023": "fairs",
+   "https://tolmantokyo.com/exhibitions/ink-miami-art-fari": "fairs",
+   "https://tolmantokyo.com/exhibitions/positions-berlin-art-fair%e3%81%ab%e5%87%ba%e5%b1%95%e3%81%97%e3%81%be%e3%81%99": "fairs",
+   "https://tolmantokyo.com/exhibitions/art-fair-asia-fukuoka-2025%e3%81%ab%e5%87%ba%e5%b1%95%e3%81%84%e3%81%9f%e3%81%97%e3%81%be%e3%81%99": "fairs",
+   "https://tolmantokyo.com/exhibitions/10135": "fairs",
+   "https://tolmantokyo.com/exhibitions/affordable-art-fair-new-york-fall-2026": "fairs",
+   "https://tolmantokyo.com/exhibitions/shinoda-toko-exhibition-at-zojoji": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/shindoa-toko-past-present-future-at-zojoji": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/the-dyeing-art-of-kappazuri": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/toko-shinoda-calligraphy-at-its-best": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/mori-yoshitoshi-online-exhibition": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/yayanagi-go-online-exhibition": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/hamanishi-katsunori-exhibition": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/%e7%af%a0%e7%94%b0%e6%a1%83%e7%b4%85%e5%b1%95-toko-shinoda-a-retrospective": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/yume": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/%e5%8f%a4%e5%b7%9d%e7%be%8e%e8%a1%93%e9%a4%a8-%e7%88%b2%e4%b8%89%e9%83%8e%e8%a8%98%e5%bf%b5%e9%a4%a8": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/%e7%af%a0%e7%94%b0%e6%a1%83%e7%b4%85%e5%b1%95%e3%80%80%e8%81%96%e8%b7%af%e5%8a%a0%e5%9b%bd%e9%9a%9b%e7%97%85%e9%99%a2%e3%80%80%e7%ac%ac%e4%b8%80%e7%94%bb%e5%bb%8a": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/toko-yoshijima-house": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/tokoshinodaexhibitioninnagoya": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/discoveringtokoshinoda-inuyama": "exhibition_page",
+   "https://tolmantokyo.com/exhibitions/works-by-toko-shinoda-returning-to-singapore-after-30-years-in-collaboration-with-art-forum": "exhibition_page",
+   "https://tolmantokyo.com/topics/page/2": "news",
+   "https://tolmantokyo.com/exhibitions/page/2": "exhibitions_archive",
+   "https://tolmantokyo.com/artists/page/2": "roster_index",
+   "https://tolmantokyo.com/artworks?page=2": "other"
+  },
+  "site_notes": "The site is organized around CMS-style index pages (/artists, /exhibitions, /topics, /artworks) with individual detail pages for each artist, exhibition/fair, news item, and artwork; there is no dedicated exhibitions-archive list separate from the mixed current/past exhibitions and fairs feed, so representative exhibition and fair pages were labeled individually, and pagination for the large artists/exhibitions/topics/artworks feeds is likely but not captured in the inventory.",
+  "fetch_more": [
+   "https://tolmantokyo.com/topics/page/2",
+   "https://tolmantokyo.com/exhibitions/page/2",
+   "https://tolmantokyo.com/artists/page/2",
+   "https://tolmantokyo.com/artworks?page=2"
+  ]
+ },
+ "errors": [],
+ "duration_s": 970.2
+}

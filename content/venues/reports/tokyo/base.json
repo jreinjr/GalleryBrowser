@@ -1,0 +1,1665 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "base",
+ "name": "Base",
+ "website": "http://basegallery.com/",
+ "generated_ts": 1788485293,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.319,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/base.jsonl"
+ },
+ "about_text": "Base Gallery is a contemporary art gallery founded in 1986 in Tokyo, originally established as Matrix Japan S.A. It opened its first exhibition space in Ginza in 1988, moved to Kyobashi in 1995, and has been based in Kayabacho, in Tokyo's financial district, since 2004. The gallery mounts six to eight curated exhibitions a year and also runs an international art-dealing business spanning Japan, the Americas, Europe and Asia, handling modern and contemporary painting, sculpture and photography. It is particularly known for contemporary art from Southeast and East Asia. The gallery has also produced projects exploring the crossover of art and music, including the museum artegio in Yufuin, and operates a second space, Base Gallery Hakata, in Fukuoka.",
+ "source_kind": "official",
+ "source_urls": [
+  "http://basegallery.com/en/about"
+ ],
+ "founded_year": 1986,
+ "founders": [],
+ "directors": [
+  "Ryomei Onishi"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Koura Daiichi Bldg. 1F, 1-1-6 Nihonbashi Kayabacho, Chuo-ku, Tokyo",
+   "since": 2004,
+   "current": true
+  },
+  {
+   "city": "Fukuoka",
+   "address": "Glam Bldg. Gokusho-machi 1F, 5-27 Gokusho-machi, Hakata-ku, Fukuoka City, Fukuoka",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "Ginza",
+   "since": 1988,
+   "current": false
+  },
+  {
+   "city": "Tokyo",
+   "address": "Kyobashi",
+   "since": 1995,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "contemporary art",
+  "Southeast and East Asian contemporary art",
+  "modern and contemporary painting",
+  "sculpture",
+  "photography",
+  "art-music crossover projects"
+ ],
+ "hours_text": "BASE GALLERY: 12:00 PM – 6:00 PM, Closed Mondays and National Holidays; BASE GALLERY HAKATA: 12:00 PM – 6:00 PM, Closed Tuesdays and Wednesdays (during exhibitions closed Wednesdays only)",
+ "roster": [
+  {
+   "name": "Katsuhito Nishikawa",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Hitoshi Karasawa",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Nobuyuki Takahashi",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Hideaki Yamanobe",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Michiko Sakurai",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Hideyoshi Sakurai",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Rikuji Makabe",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Akio Igarashi",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Shigeno Ichimura",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Toru Hamada",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Toshimitsu Baba",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Minako Abe",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Takatoshi Kuronuma",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Yuki Mashimo",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Marco Tirelli",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Ryotaro Endo",
+   "status": "represented",
+   "source_url": "http://basegallery.com/en/artists"
+  },
+  {
+   "name": "Ralf Peters",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Georges Noel",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Russell Mills",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Alan Green",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Elisa Cantarelli",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Joseph Borde",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Zhang Dongliang",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Zhang Dali",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Tang Da Wu",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Qiu Xiaofei",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Li Songsong",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Bohnchang Koo",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Jiang Jie",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Ji Dachun",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Hong Hao",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "FX Harsono",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Heri Dono",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Masunobu Yoshimura",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Hiroki Yoshida",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Miyuki Yokomizo",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Sachigusa Yasuda",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Masako Yasuki",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Mitsuhiro Yamagiwa",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Megumi Ukisu",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Kannu Uchida",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Akiko Tsuda",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Mayumi Terada",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Asako Tanaka",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Keisuke Shirota",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Yuri Shiraki",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Kozo Shibataka",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Koichi Somaki",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Joji Sato",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Kenichi Sawaki",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Shinya Sakurai",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Atsuo Ogawa",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Nobuhiro Nakahara",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Kaori Miyayama",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Toshio Miyaoka",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Rika Miyai",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Yasuhide Kunimoto",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Yutaka Kimura",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Fukushi Ito",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Miwako Iga",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Nobuo Hashiba",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Yae Asano",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  },
+  {
+   "name": "Kei Arai",
+   "status": "represented",
+   "source_url": "http://basegallery.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "ジョゼフ・ボーデ 展",
+   "artists": [
+    "ジョゼフ・ボーデ"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1997,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "橋場 信夫 展",
+   "artists": [
+    "橋場信夫"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1997,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "櫻井 美智子 展",
+   "artists": [
+    "櫻井美智子"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1997,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "ラッセル・ミルズ 展",
+   "artists": [
+    "ラッセル・ミルズ"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1998,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "吉村 益信 展",
+   "artists": [
+    "吉村益信"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1998,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "姜 傑 展",
+   "artists": [
+    "姜傑"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1998,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "秋岡 美帆 展",
+   "artists": [
+    "秋岡美帆"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1998,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "菅原 清美 展",
+   "artists": [
+    "菅原清美"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1998,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "櫻井 美智子 展",
+   "artists": [
+    "櫻井美智子"
+   ],
+   "start": null,
+   "end": null,
+   "year": 1999,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "季 大純 展",
+   "artists": [
+    "季大純"
+   ],
+   "start": "1999-07-01",
+   "end": "1999-07-31",
+   "year": 1999,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "マルコ・ティレッリ 展",
+   "artists": [
+    "マルコ・ティレッリ"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2000,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "濱田 亨 展",
+   "artists": [
+    "濱田亨"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2000,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "白木 ゆり 展",
+   "artists": [
+    "白木ゆり"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2000,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "大竹 伸朗 展",
+   "artists": [
+    "大竹伸朗"
+   ],
+   "start": "2000-06-12",
+   "end": "2000-07-19",
+   "year": 2000,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "具 本昌 展",
+   "artists": [
+    "具本昌"
+   ],
+   "start": "2001-03-12",
+   "end": "2001-04-12",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "櫻井 美智子 展",
+   "artists": [
+    "櫻井美智子"
+   ],
+   "start": "2001-06-25",
+   "end": "2001-07-28",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "栗原 一成 展",
+   "artists": [
+    "栗原一成"
+   ],
+   "start": "2001-11-19",
+   "end": "2001-12-22",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "張 大力 展",
+   "artists": [
+    "張大力"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "大竹 伸朗 新作展 BLDG.",
+   "artists": [
+    "大竹伸朗"
+   ],
+   "start": "2002-05-07",
+   "end": "2002-06-08",
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "内田 かんぬ 展",
+   "artists": [
+    "内田かんぬ"
+   ],
+   "start": "2002-09-24",
+   "end": "2002-10-24",
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "林田 直子 展",
+   "artists": [
+    "林田直子"
+   ],
+   "start": "2002-10-28",
+   "end": "2002-11-22",
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "津田 亜紀子 展",
+   "artists": [
+    "津田亜紀子"
+   ],
+   "start": "2002-11-25",
+   "end": "2002-12-25",
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "横澤 典 展",
+   "artists": [
+    "横澤典"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "遠藤 良太郎 展「L'amour courtois」",
+   "artists": [
+    "遠藤良太郎"
+   ],
+   "start": "2003-01-14",
+   "end": "2003-02-08",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "佐藤 譲二 展",
+   "artists": [
+    "佐藤譲二"
+   ],
+   "start": "2003-04-07",
+   "end": "2003-05-02",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "田邉 晴子 展「My Garden～夢の果てまでも」",
+   "artists": [
+    "田邉晴子"
+   ],
+   "start": "2003-05-06",
+   "end": "2003-05-31",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "田中 朝子 展",
+   "artists": [
+    "田中朝子"
+   ],
+   "start": "2003-06-16",
+   "end": "2003-07-11",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "荒井 経 展",
+   "artists": [
+    "荒井経"
+   ],
+   "start": "2003-07-14",
+   "end": "2003-08-08",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "寺田 真由美 展",
+   "artists": [
+    "寺田真由美"
+   ],
+   "start": "2003-09-01",
+   "end": "2003-09-26",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "安喜 万佐子 展",
+   "artists": [
+    "安喜万佐子"
+   ],
+   "start": "2003-10-06",
+   "end": "2003-10-31",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "栗原 一成 展",
+   "artists": [
+    "栗原一成"
+   ],
+   "start": "2003-11-04",
+   "end": "2003-11-28",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "浅野 弥衛 小品展",
+   "artists": [
+    "浅野弥衛"
+   ],
+   "start": "2004-02-02",
+   "end": "2004-03-06",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "洪 浩 展",
+   "artists": [
+    "洪浩"
+   ],
+   "start": "2004-03-22",
+   "end": "2004-05-01",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "A SENSE OF DISTANCE – 城田 圭介 展",
+   "artists": [
+    "城田圭介"
+   ],
+   "start": "2004-05-11",
+   "end": "2004-06-18",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "大竹 伸朗 展「UK77」",
+   "artists": [
+    "大竹伸朗"
+   ],
+   "start": "2004-06-21",
+   "end": "2004-07-31",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "移転オープン記念展「財飾兼備 – ART & MONEY」",
+   "artists": [],
+   "start": "2004-11-01",
+   "end": "2004-12-22",
+   "year": 2004,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "「歓迎、歓迎」～北京の現代美術",
+   "artists": [],
+   "start": "2005-01-24",
+   "end": "2005-03-25",
+   "year": 2005,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "'On paper' 大竹 伸朗 展",
+   "artists": [
+    "大竹伸朗"
+   ],
+   "start": "2005-06-06",
+   "end": "2005-08-08",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "市村 しげの 展「光と時間」",
+   "artists": [
+    "市村しげの"
+   ],
+   "start": "2005-09-07",
+   "end": "2005-10-12",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "遠藤 良太郎 展「PAINTING FREE」",
+   "artists": [
+    "遠藤良太郎"
+   ],
+   "start": "2005-10-17",
+   "end": "2005-11-19",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "寺田 真由美 新作展",
+   "artists": [
+    "寺田真由美"
+   ],
+   "start": "2005-11-25",
+   "end": "2006-01-20",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "濱田 亨 展",
+   "artists": [
+    "濱田亨"
+   ],
+   "start": "2006-03-01",
+   "end": "2006-03-20",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "'Passing on Distance' インドネシアの現代美術 第四の世代",
+   "artists": [],
+   "start": "2006-03-23",
+   "end": "2006-04-08",
+   "year": 2006,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "阿部 未奈子 展",
+   "artists": [
+    "阿部未奈子"
+   ],
+   "start": "2006-05-26",
+   "end": "2006-06-24",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "城田 圭介 展",
+   "artists": [
+    "城田圭介"
+   ],
+   "start": "2006-07-03",
+   "end": "2006-08-05",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "大竹 伸朗 旅景 – TABI-KEI – 展",
+   "artists": [
+    "大竹伸朗"
+   ],
+   "start": "2006-09-25",
+   "end": "2006-12-25",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "伊賀 美和子 新作展 \"Madame Cucumber\"",
+   "artists": [
+    "伊賀美和子"
+   ],
+   "start": "2007-01-19",
+   "end": "2007-02-28",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "季 大純 展",
+   "artists": [
+    "季大純"
+   ],
+   "start": "2007-10-18",
+   "end": "2007-11-16",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "高橋 信行 展『2007』",
+   "artists": [
+    "高橋信行"
+   ],
+   "start": "2007-11-19",
+   "end": "2007-12-22",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "伊庭靖子展",
+   "artists": [
+    "伊庭靖子"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "市村しげの『Time Drops』",
+   "artists": [
+    "市村しげの"
+   ],
+   "start": "2008-01-18",
+   "end": "2008-02-29",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "遠藤良太郎展『Painting Field』",
+   "artists": [
+    "遠藤良太郎"
+   ],
+   "start": "2008-04-01",
+   "end": "2008-04-30",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "安田佐智種展",
+   "artists": [
+    "安田佐智種"
+   ],
+   "start": "2008-10-03",
+   "end": "2008-11-08",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "阿部未奈子展",
+   "artists": [
+    "阿部未奈子"
+   ],
+   "start": "2008-11-20",
+   "end": "2008-12-20",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "寺田真由美展",
+   "artists": [
+    "寺田真由美"
+   ],
+   "start": "2009-01-15",
+   "end": "2009-02-28",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "ラルフ・ペーターズ展「Sky Lightening」",
+   "artists": [
+    "ラルフ・ペーターズ"
+   ],
+   "start": "2009-05-25",
+   "end": "2009-06-30",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "馬場俊光展",
+   "artists": [
+    "馬場俊光"
+   ],
+   "start": "2009-07-03",
+   "end": "2009-08-07",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "城田圭介展",
+   "artists": [
+    "城田圭介"
+   ],
+   "start": "2009-09-28",
+   "end": "2009-10-31",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "国本泰英展",
+   "artists": [
+    "国本泰英"
+   ],
+   "start": "2009-11-11",
+   "end": "2009-12-26",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "山極満博展「PALE BLUE」",
+   "artists": [
+    "山極満博"
+   ],
+   "start": "2010-01-15",
+   "end": "2010-02-06",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "濱田亨近作展",
+   "artists": [
+    "濱田亨"
+   ],
+   "start": "2010-02-10",
+   "end": "2010-03-13",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "伊藤福紫展",
+   "artists": [
+    "伊藤福紫"
+   ],
+   "start": "2010-03-18",
+   "end": "2010-04-30",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "高橋信行「ふつうの絵」",
+   "artists": [
+    "高橋信行"
+   ],
+   "start": "2010-05-10",
+   "end": "2010-06-25",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "洪 浩 – Things –",
+   "artists": [
+    "洪浩"
+   ],
+   "start": "2010-07-09",
+   "end": "2010-08-10",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "伊賀美和子「悲しき玩具 ～ The Open Secret」",
+   "artists": [
+    "伊賀美和子"
+   ],
+   "start": "2010-10-01",
+   "end": "2010-11-10",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "阿部未奈子展",
+   "artists": [
+    "阿部未奈子"
+   ],
+   "start": "2010-12-16",
+   "end": "2011-02-10",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "佐脇健一展「Landscape 青空の記憶 Memory of Blue Sky」",
+   "artists": [
+    "佐脇健一"
+   ],
+   "start": "2011-03-04",
+   "end": "2011-04-09",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "市村しげの「Intimate Relativity -親密さの相対性-」",
+   "artists": [
+    "市村しげの"
+   ],
+   "start": "2011-05-13",
+   "end": "2011-06-30",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "オ・ソックン「The Text Book (Chulsoo & Younghee)」",
+   "artists": [
+    "オ・ソックン"
+   ],
+   "start": "2011-09-21",
+   "end": "2011-10-22",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "マルコ・ティレッリ",
+   "artists": [
+    "マルコ・ティレッリ"
+   ],
+   "start": "2011-11-01",
+   "end": "2011-12-10",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "安田佐智種「AERIAL」",
+   "artists": [
+    "安田佐智種"
+   ],
+   "start": "2012-01-13",
+   "end": "2012-02-29",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "眞壁陸二「何度も何度でも」",
+   "artists": [
+    "眞壁陸二"
+   ],
+   "start": "2012-04-06",
+   "end": "2012-05-31",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "馬場俊光",
+   "artists": [
+    "馬場俊光"
+   ],
+   "start": "2012-06-15",
+   "end": "2012-07-31",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "版画コレクション展",
+   "artists": [
+    "野中光正",
+    "長谷川友紀",
+    "林美紀子",
+    "秋山潔",
+    "山本温"
+   ],
+   "start": "2012-09-18",
+   "end": "2012-10-23",
+   "year": 2012,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "遠藤 良太郎「絵／画」",
+   "artists": [
+    "遠藤良太郎"
+   ],
+   "start": "2012-11-01",
+   "end": "2012-12-08",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "小川 敦生「animation」",
+   "artists": [
+    "小川敦生"
+   ],
+   "start": "2012-12-15",
+   "end": "2013-02-08",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "櫻井 伸也「UNITED COLORS」",
+   "artists": [
+    "櫻井伸也"
+   ],
+   "start": "2013-02-26",
+   "end": "2013-03-25",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "佐脇健一「LANDMARK」",
+   "artists": [
+    "佐脇健一"
+   ],
+   "start": "2013-04-03",
+   "end": "2013-06-08",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "櫻井英嘉展",
+   "artists": [
+    "櫻井英嘉"
+   ],
+   "start": "2013-07-01",
+   "end": "2013-08-03",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "城田圭介「Tracing / Background」",
+   "artists": [
+    "城田圭介"
+   ],
+   "start": "2013-09-06",
+   "end": "2013-10-12",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "宮山香里「空へ降りる方法」",
+   "artists": [
+    "宮山香里"
+   ],
+   "start": "2013-11-15",
+   "end": "2013-12-21",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "宮岡俊夫「誰も知らない場所」",
+   "artists": [
+    "宮岡俊夫"
+   ],
+   "start": "2014-02-21",
+   "end": "2014-03-29",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "国本泰英 展",
+   "artists": [
+    "国本泰英"
+   ],
+   "start": "2014-04-11",
+   "end": "2014-05-12",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "ジャック・シャルティエ「Testing」",
+   "artists": [
+    "ジャック・シャルティエ"
+   ],
+   "start": "2014-05-23",
+   "end": "2014-07-19",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "市村しげの「親密さの相対性 2」",
+   "artists": [
+    "市村しげの"
+   ],
+   "start": "2014-09-05",
+   "end": "2014-10-17",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "高橋信行「サンシャイン」",
+   "artists": [
+    "高橋信行"
+   ],
+   "start": "2014-11-14",
+   "end": "2014-12-19",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "浮須恵「静寂に立つ」",
+   "artists": [
+    "浮須恵"
+   ],
+   "start": "2015-01-16",
+   "end": "2015-02-27",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "馬場俊光",
+   "artists": [
+    "馬場俊光"
+   ],
+   "start": "2015-03-13",
+   "end": "2015-04-24",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "濱田亨「近作展」",
+   "artists": [
+    "濱田亨"
+   ],
+   "start": "2015-05-08",
+   "end": "2015-06-13",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "「内庭は鏡を降りていく／外庭に鍵を置く」",
+   "artists": [
+    "櫻井美智子",
+    "杣木浩一"
+   ],
+   "start": "2015-06-29",
+   "end": "2015-07-31",
+   "year": 2015,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "伊賀美和子「THAT'S NOT ENOUGH.」",
+   "artists": [
+    "伊賀美和子"
+   ],
+   "start": "2015-09-01",
+   "end": "2015-10-03",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "寺田真由美「温湿シリーズ 視る眼差し × 看る眼差し」",
+   "artists": [
+    "寺田真由美"
+   ],
+   "start": "2015-10-13",
+   "end": "2015-11-13",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "眞壁陸二「森／叙景」",
+   "artists": [
+    "眞壁陸二"
+   ],
+   "start": "2015-11-20",
+   "end": "2015-12-22",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit"
+  },
+  {
+   "title": "阿部未奈子「風光 / FUKO」",
+   "artists": [
+    "阿部未奈子"
+   ],
+   "start": "2016-03-01",
+   "end": "2016-04-02",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/abe16"
+  },
+  {
+   "title": "遠藤良太郎「絵の景色」",
+   "artists": [
+    "遠藤良太郎"
+   ],
+   "start": "2016-04-11",
+   "end": "2016-05-21",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/endo16"
+  },
+  {
+   "title": "安田佐智種「VOID」",
+   "artists": [
+    "安田佐智種"
+   ],
+   "start": "2016-07-04",
+   "end": "2016-07-30",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/yasuda16"
+  },
+  {
+   "title": "絵になる景色 ― 高橋信行 展 ―",
+   "artists": [
+    "高橋信行"
+   ],
+   "start": "2024-04-12",
+   "end": "2024-06-15",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2024-04_takahashi_eninarukeshiki"
+  },
+  {
+   "title": "西川勝人 展",
+   "artists": [
+    "西川勝人"
+   ],
+   "start": "2024-09-21",
+   "end": "2024-12-21",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2024-09_nishikawa"
+  },
+  {
+   "title": "BASE GALLERY HAKATA開廊記念展「清寂のかたち」",
+   "artists": [
+    "イサム・ノグチ",
+    "浅野弥衛",
+    "Giorgio Morandi",
+    "Harry Callahan",
+    "浮須恵",
+    "Robert Mapplethorpe",
+    "John Jonas Gruen",
+    "柄澤齊",
+    "Mario Giacomelli",
+    "Aleksandar Duravcevic",
+    "高島野十郎",
+    "Gianni Berengo Gardin"
+   ],
+   "start": "2024-11-08",
+   "end": "2025-02-11",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "http://basegallery.com/exhibit/2024-11_hakata-opening"
+  },
+  {
+   "title": "山野辺英明 展",
+   "artists": [
+    "山野辺英明"
+   ],
+   "start": "2025-03-21",
+   "end": "2025-04-26",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2025-03_yamanobe"
+  },
+  {
+   "title": "西川勝人 ノクターン（BASE GALLERY HAKATA）",
+   "artists": [
+    "西川勝人"
+   ],
+   "start": "2025-03-28",
+   "end": "2025-05-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2025-03_nishikawa_hakata"
+  },
+  {
+   "title": "五十嵐彰雄 展",
+   "artists": [
+    "五十嵐彰雄"
+   ],
+   "start": "2025-05-30",
+   "end": "2025-07-27",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2025-05_igarashi"
+  },
+  {
+   "title": "五十嵐彰雄 展（BASE GALLERY HAKATA）",
+   "artists": [
+    "五十嵐彰雄"
+   ],
+   "start": "2025-09-20",
+   "end": "2025-11-04",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2025-09_igarashi_hakata"
+  },
+  {
+   "title": "眞壁陸二 展",
+   "artists": [
+    "眞壁陸二"
+   ],
+   "start": "2025-10-10",
+   "end": "2025-12-07",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2025-10_makabe"
+  },
+  {
+   "title": "Art Fair Tokyo 20 (2026 Mar)",
+   "artists": [
+    "西川勝人",
+    "五十嵐彰雄",
+    "根岸芳郎",
+    "山野辺英明",
+    "高橋信行",
+    "眞壁陸二",
+    "馬場俊光",
+    "柄澤齊",
+    "濱田亨",
+    "マルコ・ティレッリ",
+    "クロヌマタカトシ",
+    "ましもゆき",
+    "橋本夏夫"
+   ],
+   "start": null,
+   "end": null,
+   "year": 2026,
+   "kind": "fair",
+   "source_url": "http://basegallery.com/exhibit/art-fair-tokyo-20-2026-mar"
+  },
+  {
+   "title": "柄澤齊 新作版画集『OPERA』展",
+   "artists": [
+    "柄澤齊"
+   ],
+   "start": "2026-03-06",
+   "end": "2026-04-26",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/karasawa-202603"
+  },
+  {
+   "title": "馬場 俊光展（東京、日本橋）",
+   "artists": [
+    "馬場俊光"
+   ],
+   "start": "2026-05-22",
+   "end": "2026-07-05",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/馬場俊光展"
+  },
+  {
+   "title": "眞壁陸二展『circulation/循環』",
+   "artists": [
+    "眞壁陸二"
+   ],
+   "start": "2026-07-02",
+   "end": "2026-07-28",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://basegallery.com/exhibit/2026_r-makabe_basehakata"
+  }
+ ],
+ "fairs_self_reported": [
+  "NICAF: Nippon International Contemporary Art Festival",
+  "CIGE: China International Gallery Exposition",
+  "FIAC",
+  "ARTE FIERA",
+  "ARCO",
+  "Art Forum Ankara",
+  "Art Fair Tokyo",
+  "Art Beijing",
+  "ACAF: Asian Contemporary Art Fair",
+  "ART CHICAGO",
+  "SHContemporary",
+  "PARIS PHOTO",
+  "ART COLOGNE",
+  "ART GWANGJU",
+  "ARCOmadrid",
+  "EXPO CHICAGO",
+  "ART FAIR TOKYO 2026"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Opening hours are stated inconsistently across pages (some list Mondays/holidays closed, others list Wednesdays or Sundays/Mondays/holidays closed); the hours_text field reflects the versions given on the About and Contact (EN) pages. Roster combines the 'Primary' and 'Other' artist lists shown on the gallery's Japanese and English artist pages; the site does not distinguish represented vs. estate status for any artist.",
+ "triage": {
+  "labels": {
+   "http://basegallery.com/artists": "roster_index",
+   "http://basegallery.com/exhibit": "exhibitions_current",
+   "https://basegallery.com/exhibit": "exhibitions_current",
+   "http://basegallery.com/about": "about",
+   "http://basegallery.com/en/about": "about",
+   "https://basegallery.com/about": "about",
+   "http://basegallery.com/access": "contact_hours",
+   "http://basegallery.com/contact": "contact_hours",
+   "http://basegallery.com/en/contact": "contact_hours",
+   "https://basegallery.com/access": "contact_hours",
+   "https://basegallery.com/contact": "contact_hours",
+   "http://basegallery.com/news": "news",
+   "https://basegallery.com/news": "news",
+   "http://basegallery.com/news/page/2": "news",
+   "http://basegallery.com/news/page/4": "news",
+   "https://basegallery.com/news/page/2": "news",
+   "https://basegallery.com/news/page/4": "news",
+   "http://basegallery.com/news/page/3": "news",
+   "https://basegallery.com/news/page/3": "news",
+   "http://basegallery.com/2026-03-art-fair-tokyo20": "fairs",
+   "http://basegallery.com/en/2026-03-art-fair-tokyo20": "fairs",
+   "https://basegallery.com/2026-03-art-fair-tokyo20": "fairs",
+   "http://basegallery.com/exhibit/2026_r-makabe_basehakata": "exhibition_page",
+   "http://basegallery.com/exhibit/art-fair-tokyo-20-2026-mar": "exhibition_page",
+   "http://basegallery.com/exhibit/karasawa-202603": "exhibition_page",
+   "http://basegallery.com/exhibit/2025-10_makabe": "exhibition_page",
+   "http://basegallery.com/exhibit/2025-09_igarashi_hakata": "exhibition_page",
+   "http://basegallery.com/exhibit/2025-05_igarashi": "exhibition_page",
+   "http://basegallery.com/exhibit/2025-03_yamanobe": "exhibition_page",
+   "http://basegallery.com/exhibit/2025-03_nishikawa_hakata": "exhibition_page",
+   "http://basegallery.com/exhibit/2024-11_hakata-opening": "exhibition_page",
+   "http://basegallery.com/exhibit/2024-09_nishikawa": "exhibition_page",
+   "http://basegallery.com/exhibit/2024-04_takahashi_eninarukeshiki": "exhibition_page",
+   "http://basegallery.com/exhibit/%e9%a6%ac%e5%a0%b4%e4%bf%8a%e5%85%89%e5%b1%95": "exhibition_page",
+   "http://basegallery.com/exhibit/endo16": "exhibition_page",
+   "http://basegallery.com/exhibit/abe16": "exhibition_page",
+   "http://basegallery.com/exhibit/yasuda16": "exhibition_page",
+   "http://basegallery.com/en/artists": "roster_index",
+   "http://basegallery.com/exhibit/page/2": "exhibitions_archive"
+  },
+  "site_notes": "The site is a bilingual (JP/EN) WordPress gallery site with a single roster index (/artists) linking to dozens of individual artist pages (mirrored under /en/artists/), a current-exhibitions page (/exhibit) linking to per-exhibition detail pages (/exhibit/slug), and a news blog (/news) with paginated archives; many announcement posts about specific shows, holidays, and fairs are duplicated across http/https and JP/EN URLs, and no distinct past-exhibitions archive list was found beyond the /exhibit subpages.",
+  "fetch_more": [
+   "http://basegallery.com/en/artists",
+   "http://basegallery.com/exhibit/page/2"
+  ]
+ },
+ "errors": [],
+ "duration_s": 1221.3
+}

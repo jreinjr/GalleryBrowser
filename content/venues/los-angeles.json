@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "city": "los-angeles",
- "updated": 1788479647,
+ "updated": 1788492275,
  "venues": [
   {
    "id": "1301-pe",
@@ -191,7 +191,7 @@
     "text": null,
     "source_kind": null,
     "source_url": null,
-    "evidence_path": null,
+    "evidence_path": ".cache/evidence/los-angeles/d546942a8d8da64e-1788481633.txt",
     "written_ts": null,
     "model": null,
     "hints": []
@@ -199,20 +199,28 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Sydney"
+    ],
+    "program_focus": [
+     "conceptual and post-conceptual art",
+     "digital and post-internet painting",
+     "site-specific and public sculpture",
+     "socially engaged/collective practice",
+     "photography and perception-based work"
+    ],
+    "roster_count": 27,
+    "exhibitions_total": 178,
+    "exhibitions_per_year": 5.09,
+    "first_exhibition_year": 1992,
+    "solo_share": 0.7
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788483896,
+    "crawl_pages": 300,
+    "triaged": 7,
+    "report_path": "content/venues/reports/los-angeles/1301-pe.json",
+    "cost_usd": 0.6151,
     "gapfill": false
    },
    "features": {
@@ -3288,33 +3296,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Aabee Bleue Project is a contemporary art space in Downtown Los Angeles that builds connections among cultures, communities, and contemporary artistic practices. Through exhibitions, conversations, and public programs, the gallery introduces contemporary artists from Iran, the Middle East, and beyond to new audiences and contexts. It was founded by Sabrina Younesi and Narges Hamzianpour, and developed alongside Niloufar Binafard, who serves as Artist Liaison and Art Advisor. The program is driven by curiosity, collaboration, and a desire to create dialogue between artists, ideas, and communities, using art as a means to build cross-cultural dialogue, challenge perspectives, and create spaces for discovery.",
+    "source_kind": "official",
+    "source_url": "https://www.aabeebleue-project.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/f783982d52e9a9cb-1788482484.txt",
+    "written_ts": 1788482638,
+    "model": "claude-sonnet-5",
     "hints": [
      "For a gallery devoted largely to Iranian and diasporic artists"
     ]
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
+    "founders": [
+     "Sabrina Younesi",
+     "Narges Hamzianpour"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary artists from Iran",
+     "Middle Eastern art",
+     "cross-cultural dialogue",
+     "emerging and established artists"
+    ],
+    "roster_count": 10,
+    "exhibitions_total": 9,
+    "exhibitions_per_year": 9.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 0.78
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788482638,
+    "crawl_pages": 42,
+    "triaged": 15,
+    "report_path": "content/venues/reports/los-angeles/aabee-bleue-project.json",
+    "cost_usd": 0.0572,
     "gapfill": false
    },
    "features": {
@@ -18004,18 +18020,18 @@
     "founders": [],
     "locations_elsewhere": [],
     "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 20,
+    "exhibitions_total": 20,
+    "exhibitions_per_year": 6.67,
+    "first_exhibition_year": 2021,
+    "solo_share": 0.45
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788482028,
+    "crawl_pages": 86,
+    "triaged": 11,
+    "report_path": "content/venues/reports/los-angeles/art-bug.json",
+    "cost_usd": 0.0873,
     "gapfill": false
    },
    "features": {
@@ -27125,18 +27141,18 @@
     "founders": [],
     "locations_elsewhere": [],
     "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 0,
+    "exhibitions_total": 70,
+    "exhibitions_per_year": 7.0,
+    "first_exhibition_year": 2017,
+    "solo_share": 0.9
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788481761,
+    "crawl_pages": 180,
+    "triaged": 161,
+    "report_path": "content/venues/reports/los-angeles/as-is-la.json",
+    "cost_usd": 0.2249,
     "gapfill": false
    },
    "features": {
@@ -29097,31 +29113,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "ATLA is a contemporary gallery in Los Angeles focused on craft-based work, particularly ceramics, that brings together East and West artistic traditions. Its program explores themes of intersectionality, history, heritage, politics, and identity through skilled making. The gallery's name references the Japanese word 'atara,' evoking the sorrow of losing something beautiful, and reflects ATLA's commitment to celebrating endurance and resisting disposability of work, experience, and attention. The gallery operates from a space on Kenmore Avenue and presents exhibitions featuring a wide roster of ceramic and multidisciplinary artists.",
+    "source_kind": "official",
+    "source_url": "https://www.atla.works/about",
+    "evidence_path": ".cache/evidence/los-angeles/918c45c7ef72a87b-1788487786.txt",
+    "written_ts": 1788487986,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "ceramics",
+     "craft",
+     "multicultural East-West dialogue",
+     "identity and heritage",
+     "contemporary art"
+    ],
+    "roster_count": 2,
+    "exhibitions_total": 25,
+    "exhibitions_per_year": 5.0,
+    "first_exhibition_year": 2022,
+    "solo_share": 0.24
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487986,
+    "crawl_pages": 49,
+    "triaged": 27,
+    "report_path": "content/venues/reports/los-angeles/atla.json",
+    "cost_usd": 0.191,
     "gapfill": false
    },
    "features": {
@@ -32967,31 +32989,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Band of Vices is a Los Angeles gallery founded in 2015 by Terrell Tilford, who began it as a downtown pop-up before opening a permanent space in West Adams and later relocating to the Arts District. The gallery describes itself as growing from an artistic collaborative into an internationally recognized platform, with a stated mission of inclusion and support for artists who have historically been overlooked, including Black, brown, queer, and differently abled voices. Its program centers on emerging and mid-career contemporary artists with strong individual visions, and the gallery has built an international following through exhibitions, art fairs, and press coverage over the past decade.",
+    "source_kind": "official",
+    "source_url": "https://www.bandofvices.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/c62958847e482991-1788487137.txt",
+    "written_ts": 1788487830,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2015,
+    "founders": [
+     "Terrell Tilford"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and mid-career artists",
+     "inclusion-focused programming",
+     "contemporary African diaspora art",
+     "international art fairs"
+    ],
+    "roster_count": 22,
+    "exhibitions_total": 70,
+    "exhibitions_per_year": 5.83,
+    "first_exhibition_year": 2015,
+    "solo_share": 0.53
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487830,
+    "crawl_pages": 178,
+    "triaged": 81,
+    "report_path": "content/venues/reports/los-angeles/band-of-vices.json",
+    "cost_usd": 0.3264,
     "gapfill": false
    },
    "features": {
@@ -41684,31 +41713,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "The Broad is a contemporary art museum on Grand Avenue in downtown Los Angeles, founded in 2015 by philanthropists Eli and Edythe Broad as a gift to the city. Designed by Diller Scofidio + Renfro with Gensler, its 120,000-square-foot 'veil-and-vault' building offers free general admission and houses over 2,000 postwar and contemporary works by nearly 200 artists, including Basquiat, Warhol, Koons, Kusama, Ruscha, and Kruger. The museum is also headquarters to the Broad Art Foundation's worldwide lending library, active since 1984. Under founding director Joanne Heyler, its program emphasizes rotating temporary exhibitions, monographic surveys, and public programming often centered on social justice themes, drawing over 900,000 visitors annually.",
+    "source_kind": "official",
+    "source_url": "https://www.thebroad.org/about",
+    "evidence_path": ".cache/evidence/los-angeles/5683d6a15b3a64f0-1788483098.txt",
+    "written_ts": 1788483996,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2015,
+    "founders": [
+     "Eli Broad",
+     "Edythe Broad"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "postwar and contemporary art",
+     "1950s to present",
+     "social justice themes",
+     "monographic exhibitions",
+     "collection lending program"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 17,
+    "exhibitions_per_year": 8.5,
+    "first_exhibition_year": 2025,
+    "solo_share": 0.47
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788483996,
+    "crawl_pages": 300,
+    "triaged": 79,
+    "report_path": "content/venues/reports/los-angeles/broad.json",
+    "cost_usd": 0.2568,
     "gapfill": false
    },
    "features": {
@@ -49939,31 +49977,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Cevera Yoon Gallery is a contemporary art space in Los Angeles, founded in 2024 by Kyle Slevira and Green Yoon. Located within the historic Granada building in Koreatown, the gallery occupies over 1,100 square feet across multiple showrooms. Its program is dedicated to presenting both established and emerging artists, offering a platform for innovative and experimental work. The gallery has also participated in art fairs, presenting group exhibitions that explore abstraction across painting and sculpture, engaging with themes of materiality, structure, and the tension between order and entropy in contemporary art practice.",
+    "source_kind": "official",
+    "source_url": "https://www.ceverayoon.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/7ca3464f8a6dd671-1788489410.txt",
+    "written_ts": 1788489497,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2024,
+    "founders": [
+     "Kyle Slevira",
+     "Green Yoon"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary art",
+     "emerging and established artists",
+     "abstraction",
+     "painting and sculpture"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 12,
+    "exhibitions_per_year": 4.0,
+    "first_exhibition_year": 2024,
+    "solo_share": 0.42
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788489497,
+    "crawl_pages": 18,
+    "triaged": 9,
+    "report_path": "content/venues/reports/los-angeles/cevera-yoon.json",
+    "cost_usd": 0.0556,
     "gapfill": false
    },
    "features": {
@@ -53027,31 +53073,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Chris Sharp Gallery is a contemporary art gallery in Los Angeles, founded in January 2021 by writer and curator Chris Sharp, co-founder of the Mexico City project space Lulu. The program mixes emerging, mid-career, and historically overlooked artists, with a core group based in Los Angeles alongside artists working on the East Coast, in the UK, and in Europe. The gallery favors fully integrated practices in which ideas, politics, and materials are inseparable, giving weight to personal, idiosyncratic sensibilities, humor, and craft, presented with careful spatial attention. Chris Sharp serves as owner and director, supported by a small staff handling operations and exhibitions. The gallery is located on Santa Monica Boulevard and participates regularly in international art fairs.",
+    "source_kind": "official",
+    "source_url": "https://www.chrissharpgallery.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/f8c9ffb75aea9ec7-1788486514.txt",
+    "written_ts": 1788487125,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2021,
+    "founders": [
+     "Chris Sharp"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and overlooked artists",
+     "mid-career artists",
+     "figurative and abstract painting",
+     "sculpture and textile",
+     "personal/idiosyncratic aesthetics with humor and craft"
+    ],
+    "roster_count": 22,
+    "exhibitions_total": 50,
+    "exhibitions_per_year": 8.33,
+    "first_exhibition_year": 2021,
+    "solo_share": 0.8
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487125,
+    "crawl_pages": 300,
+    "triaged": 8,
+    "report_path": "content/venues/reports/los-angeles/chris-sharp.json",
+    "cost_usd": 0.241,
     "gapfill": false
    },
    "features": {
@@ -56107,31 +56161,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Clockshop is a nonprofit arts organization based in the Elysian Valley/Frogtown neighborhood of Los Angeles, founded in 2004 by filmmaker Julia Meltzer. Rather than running a conventional exhibition space, it commissions artists to create site-specific, experimental projects on public land, especially along the LA River at the Bowtie Parcel and at Los Angeles State Historic Park, in long-term partnership with California State Parks. Its program combines artist commissions, publications, and public programming with environmental and community advocacy, focusing on equitable green space, local history, and the relationship between artists, communities, and public lands throughout the LA River watershed.",
+    "source_kind": "official",
+    "source_url": "https://clockshop.org/about",
+    "evidence_path": ".cache/evidence/los-angeles/3c319db877c26eed-1788485186.txt",
+    "written_ts": 1788486069,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2004,
+    "founders": [
+     "Julia Meltzer"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "site-specific public art commissions",
+     "LA River / public land advocacy",
+     "community-engaged programming",
+     "publications and audio projects",
+     "environmental justice"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 50,
+    "exhibitions_per_year": 2.17,
+    "first_exhibition_year": 2004,
+    "solo_share": 0.42
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788486069,
+    "crawl_pages": 300,
+    "triaged": 104,
+    "report_path": "content/venues/reports/los-angeles/clockshop.json",
+    "cost_usd": 0.5144,
     "gapfill": false
    },
    "features": {
@@ -57847,7 +57909,9 @@
    "exhibitions_url_candidates": [
     "https://commonwealthandcouncil.com/exhibitions/"
    ],
-   "hours": [],
+   "hours": [
+    "Thursday–Saturday, 10 am–5 pm"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -57964,31 +58028,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Commonwealth and Council is a Los Angeles gallery founded in 2010, originally operating from a one-bedroom apartment at the intersection of Commonwealth Avenue and Council Street before moving to its current space on West 7th Street. The gallery describes itself as a community, platform, and laboratory for ambitious, radical art, prioritizing minoritarian voices and pushing back against the art world's winner-take-all star system. Its program spans painting, sculpture, video, and performance, extending into public and educational initiatives such as the Commonwealth and Council Summer School and the Council Fund, which supports artists' health insurance and emergency needs. The gallery has built a reputation for championing experimental, socially engaged practices and regularly participates in major international fairs including Frieze, Art Basel, and Condo.",
+    "source_kind": "official",
+    "source_url": "https://commonwealthandcouncil.com/we",
+    "evidence_path": ".cache/evidence/los-angeles/2b2249592c96abd0-1788486487.txt",
+    "written_ts": 1788487677,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2010,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary art",
+     "minoritarian voices",
+     "performance and social practice",
+     "education & public programs",
+     "queer and diasporic artists",
+     "emerging and mid-career artists"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 298,
+    "exhibitions_per_year": 17.53,
+    "first_exhibition_year": 2010,
+    "solo_share": 0.66
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487677,
+    "crawl_pages": 300,
+    "triaged": 42,
+    "report_path": "content/venues/reports/los-angeles/commonwealth-and-council.json",
+    "cost_usd": 0.9414,
     "gapfill": false
    },
    "features": {
@@ -60545,31 +60616,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Craft Contemporary is a nonprofit museum in Los Angeles dedicated to contemporary art made from craft media and processes. It traces its roots to The Egg and the Eye, a restaurant-gallery opened in 1965 by painter Edith Robinson Wyle, which gained nonprofit museum status in 1973 as the Craft & Folk Art Museum. Renamed Craft Contemporary in 2018, the institution presents exhibitions by established and emerging artists and designers often underrepresented in larger art institutions, paired with hands-on workshops and public programs. Located on Wilshire Boulevard's Museum Row, it continues a decades-long tradition of using craft to engage Los Angeles communities through exhibitions, festivals, and educational initiatives.",
+    "source_kind": "official",
+    "source_url": "https://www.craftcontemporary.org/about",
+    "evidence_path": ".cache/evidence/los-angeles/1cd18686bef48dd0-1788488108.txt",
+    "written_ts": 1788488760,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 1973,
+    "founders": [
+     "Edith Robinson Wyle"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary craft",
+     "emerging and established artists",
+     "craft media and processes",
+     "education and workshops",
+     "underrepresented artists and designers"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 66,
+    "exhibitions_per_year": 3.88,
+    "first_exhibition_year": 2011,
+    "solo_share": 0.52
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488760,
+    "crawl_pages": 300,
+    "triaged": 94,
+    "report_path": "content/venues/reports/los-angeles/craft-contemporary.json",
+    "cost_usd": 0.2528,
     "gapfill": false
    },
    "features": {
@@ -66839,20 +66918,28 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Antwerp"
+    ],
+    "program_focus": [
+     "contemporary painting",
+     "emerging and mid-career artists",
+     "mixed media and fiber-based work",
+     "Los Angeles/Antwerp program",
+     "NADA and fair-focused presentations"
+    ],
+    "roster_count": 19,
+    "exhibitions_total": 87,
+    "exhibitions_per_year": 12.43,
+    "first_exhibition_year": 2020,
+    "solo_share": 0.8
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788485072,
+    "crawl_pages": 162,
+    "triaged": 34,
+    "report_path": "content/venues/reports/los-angeles/de-boer.json",
+    "cost_usd": 0.2604,
     "gapfill": false
    },
    "features": {
@@ -70519,31 +70606,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Diversions Fine Arts is a membership gallery in Manhattan Beach, California, founded by arts writer and curator Genie Davis. It exhibits a wide range of contemporary artists from the greater Los Angeles area and beyond, working across mixed media, oil, acrylic, sculpture, and photography. Each month three artists are curated into a solo-style rotation, while group shows bring together artists from all membership tiers. The gallery operates on a low, 10% commission structure and also publishes the online magazine DiversionsLA.com, covering Southern California exhibitions since 2016. Its roster spans emerging and established artists working in painting, collage, neon, sculpture, and photography, reflecting a broad, inclusive approach to contemporary Southern California art.",
+    "source_kind": "official",
+    "source_url": "https://www.diversionsfinearts.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/2067b2d83d7930fd-1788485668.txt",
+    "written_ts": 1788486375,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founders": [
+     "Genie Davis"
+    ],
+    "locations_elsewhere": [
+     "Manhattan Beach"
+    ],
+    "program_focus": [
+     "mixed media",
+     "oil and acrylic painting",
+     "sculpture",
+     "photography",
+     "membership gallery",
+     "Southern California artists"
+    ],
+    "roster_count": 45,
+    "exhibitions_total": 7,
+    "exhibitions_per_year": 7.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 0.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788486375,
+    "crawl_pages": 82,
+    "triaged": 7,
+    "report_path": "content/venues/reports/los-angeles/diversions.json",
+    "cost_usd": 0.0957,
     "gapfill": false
    },
    "features": {
@@ -71286,33 +71384,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Dominique Porter Gallery is a contemporary art gallery in Los Angeles presenting emerging and mid-career artists working across painting, sculpture, and installation. Established in 2026, the gallery supports practices marked by sustained material exploration, formal invention, and individual vision. Its program is built around exhibitions, projects, and collaborations intended to give artists room to develop ambitious work and to engage in dialogue with one another and with wider cultural conversations. The gallery describes its approach as artist-centered, bringing together a range of practices while keeping exhibition-making thoughtful and considered rather than driven by a single house style.",
+    "source_kind": "official",
+    "source_url": "https://www.dominiqueporter.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/8dad3cf4c5f6f4e7-1788487667.txt",
+    "written_ts": 1788487919,
+    "model": "claude-sonnet-5",
     "hints": [
      "a small project space in Glassell Park focused on emerging and mid-career painters"
     ]
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2026,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and mid-career artists",
+     "painting",
+     "sculpture",
+     "installation",
+     "material exploration"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 3,
+    "exhibitions_per_year": 3.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 0.33
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487919,
+    "crawl_pages": 56,
+    "triaged": 13,
+    "report_path": "content/venues/reports/los-angeles/dominique-porter.json",
+    "cost_usd": 0.0495,
     "gapfill": false
    },
    "features": {
@@ -86098,31 +86202,36 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "The Feminist Center for Creative Work is a non-profit arts and community organization in Los Angeles centered on feminist creative practices. It runs an ongoing program of exhibitions, artist residencies, workshops, and publications intended to foster an intersectional feminist future. Recent programming includes group exhibitions such as Radical Kinship, curated by Chloë Flores, and artist-in-residence projects such as K. Bradford's Wild Glitch. The organization connects visitors to events, groups, and creative work through its website and space, though specific founding details and staff leadership are not stated on the available pages.",
+    "source_kind": "official",
+    "source_url": "https://womenscenterforcreativework.com/",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788488874,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
+    "program_focus": [
+     "feminist creative practices",
+     "artist residencies",
+     "group exhibitions",
+     "workshops and publications"
+    ],
+    "roster_count": 0,
     "exhibitions_total": null,
     "exhibitions_per_year": null,
     "first_exhibition_year": null,
     "solo_share": null
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488874,
+    "crawl_pages": 1,
+    "triaged": 0,
+    "report_path": "content/venues/reports/los-angeles/feminist-center-for-creative-work.json",
+    "cost_usd": 0.0121,
     "gapfill": false
    },
    "features": {
@@ -89687,31 +89796,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Brodin is the shared studio of Los Angeles and UK–based sculptors Gavin and Kelley Brodin, a collaborative artist duo rather than a commercial gallery representing other artists. Working across bronze, stainless steel, stone, and mixed media, they produce monumental public sculpture, private commissions, and immersive installations that explore material transformation, memory, and the tension between the engineered and organic. Their practice spans public art, architectural collaborations, and gallery exhibitions across the United States and internationally, with commissions and installations in cities including Los Angeles, New York, Miami, Mexico City, Tokyo, and Dubai. The site presents no gallery roster, directors, or founding date beyond the artists' own biographical and exhibition history.",
+    "source_kind": "official",
+    "source_url": "https://www.brodin.co.uk/bio",
+    "evidence_path": ".cache/evidence/los-angeles/c5dbd4bffa87f434-1788484686.txt",
+    "written_ts": 1788484750,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
+    "locations_elsewhere": [
+     "Los Angeles, CA",
+     "London, UK"
+    ],
+    "program_focus": [
+     "monumental sculpture",
+     "bronze and stainless steel",
+     "installation art",
+     "public art commissions",
+     "architectural collaboration"
+    ],
+    "roster_count": 0,
     "exhibitions_total": null,
     "exhibitions_per_year": null,
     "first_exhibition_year": null,
     "solo_share": null
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788484750,
+    "crawl_pages": 12,
+    "triaged": 4,
+    "report_path": "content/venues/reports/los-angeles/formed-for-brodin.json",
+    "cost_usd": 0.0262,
     "gapfill": false
    },
    "features": {
@@ -91073,33 +91191,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "FOYER-LA is an artist-run exhibition space in Los Angeles, founded in 2019 by artist Connie Walsh. Set behind a courtyard in front of Walsh's own studio, it describes itself as an in-between space for experimentation, dialogue, and collaboration. Since opening, the gallery has presented more than thirty projects, ranging from solo debuts to conceptually driven installations across sculpture, drawing, and performance. Its program has included artists such as Ellie Krakow, Michael Ashkin, Ana Maria Devis, and James Rose, alongside Walsh's own work. The space favors small-scale, provocative shows that explore themes of intimacy, transition, and the body, positioning itself as a laboratory for experimentation rather than a conventional commercial gallery.",
+    "source_kind": "official",
+    "source_url": "https://www.foyer-la.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/4313da884d267d44-1788487152.txt",
+    "written_ts": 1788487652,
+    "model": "claude-sonnet-5",
     "hints": [
      "Founded by artist Connie Walsh in 2019, it operates out of an in-between space — behind a courtyard, in front of a working studio — built for short, dense, experimental projects rather than white-cube spectacle."
     ]
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2019,
+    "founders": [
+     "Connie Walsh"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "experimental installation",
+     "sculpture and drawing",
+     "artist-run space",
+     "emerging and mid-career artists"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 38,
+    "exhibitions_per_year": 4.75,
+    "first_exhibition_year": 2019,
+    "solo_share": 0.42
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487652,
+    "crawl_pages": 177,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/foyer-la.json",
+    "cost_usd": 0.096,
     "gapfill": false
    },
    "features": {
@@ -91809,22 +91934,29 @@
     ]
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2009,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "New York"
+    ],
+    "program_focus": [
+     "contemporary painting",
+     "sculpture",
+     "photography",
+     "international emerging and mid-career artists"
+    ],
+    "roster_count": 41,
+    "exhibitions_total": 89,
+    "exhibitions_per_year": 4.68,
+    "first_exhibition_year": 2008,
+    "solo_share": 0.8
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788489669,
+    "crawl_pages": 300,
+    "triaged": 133,
+    "report_path": "content/venues/reports/los-angeles/francois-ghebaly.json",
+    "cost_usd": 0.6153,
     "gapfill": false
    },
    "features": {
@@ -94932,31 +95064,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Gabba Gallery is a contemporary art gallery in Los Angeles that has been open since 2012, showing work by emerging and established artists from around the world with a strong emphasis on street art, graffiti-rooted practice, and mixed-media painting. Founded by Jason Ostro, who named the space after his late father's nickname for him, the gallery spent eleven years in Historic Filipinotown on Beverly Blvd before relocating to 235 S. Broadway in Downtown Los Angeles. Beyond its exhibition program, Gabba runs the Gabba Alley Project, bringing murals and public art into surrounding neighborhoods to foster community engagement.",
+    "source_kind": "official",
+    "source_url": "https://www.gabbagallery.com/about-us",
+    "evidence_path": ".cache/evidence/los-angeles/e3d4c43bccc783c7-1788484571.txt",
+    "written_ts": 1788486922,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2012,
+    "founders": [
+     "Jason Ostro"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "street art",
+     "graffiti-influenced work",
+     "mixed media",
+     "emerging and established artists",
+     "murals/public art"
+    ],
+    "roster_count": 24,
+    "exhibitions_total": 122,
+    "exhibitions_per_year": 10.17,
+    "first_exhibition_year": 2013,
+    "solo_share": 0.46
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788486922,
+    "crawl_pages": 300,
+    "triaged": 26,
+    "report_path": "content/venues/reports/los-angeles/gabba.json",
+    "cost_usd": 0.6343,
     "gapfill": false
    },
    "features": {
@@ -105565,31 +105705,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "The Getty Center is one of two Los Angeles-area sites operated by the J. Paul Getty Trust, a cultural organization founded on the legacy of businessman and art collector J. Paul Getty. Located in Brentwood, the Center presents European art from the Middle Ages to today amid modern architecture and gardens with views over Los Angeles. It is one of the Trust's four programs, alongside the Getty Research Institute, Getty Conservation Institute, and Getty Foundation. The Trust's second museum site, the Getty Villa, focuses on ancient Greek and Roman antiquities in Pacific Palisades. Admission to both locations is free with a timed-entry reservation.",
+    "source_kind": "official",
+    "source_url": "https://www.getty.edu/about",
+    "evidence_path": ".cache/evidence/los-angeles/5cf9f01e7dc8843a-1788489545.txt",
+    "written_ts": 1788491496,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founders": [
+     "J. Paul Getty"
+    ],
+    "locations_elsewhere": [
+     "Pacific Palisades"
+    ],
+    "program_focus": [
+     "European art",
+     "Medieval to contemporary art",
+     "ancient Greek and Roman antiquities",
+     "architecture and gardens"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 192,
+    "exhibitions_per_year": 17.45,
+    "first_exhibition_year": 2016,
+    "solo_share": 0.29
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788491496,
+    "crawl_pages": 1,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/getty-center.json",
+    "cost_usd": 0.8208,
     "gapfill": false
    },
    "features": {
@@ -112350,33 +112499,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "H Foundation for the Arts is a 501(c)(3) nonprofit arts platform based in San Marino, California, founded in 2025 by Tina He, growing out of the earlier Cultural Foundations of Zhendai He (USA). The organization continues a legacy of cultural research and international exchange inspired by scholar and educator Zhendai He. Through exhibitions, residencies, and public programs, it supports contemporary artists from Asia and its diaspora, fostering dialogue between tradition and contemporary expression across cultures and generations. Its programming is complemented by Be An Culture, a related media and storytelling platform connecting global Chinese-speaking communities through cultural dialogue and collaborative projects.",
+    "source_kind": "official",
+    "source_url": "https://www.h4arts.org/about-1-1",
+    "evidence_path": ".cache/evidence/los-angeles/4626e71b4f0f804b-1788482662.txt",
+    "written_ts": 1788484330,
+    "model": "claude-sonnet-5",
     "hints": [
      "The show is a good fit for H Foundation's stated mission of connecting contemporary practice to Asian and diasporic craft traditions without turning that history into ornament"
     ]
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 2025,
+    "founders": [
+     "Tina He"
+    ],
+    "locations_elsewhere": [
+     "San Marino"
+    ],
+    "program_focus": [
+     "contemporary Asian and diasporic art",
+     "cultural exchange",
+     "exhibitions and residencies",
+     "public programs"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 13,
+    "exhibitions_per_year": 4.33,
+    "first_exhibition_year": 2024,
+    "solo_share": 0.54
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788484330,
+    "crawl_pages": 204,
+    "triaged": 32,
+    "report_path": "content/venues/reports/los-angeles/h-foundation-for-the-arts.json",
+    "cost_usd": 0.1191,
     "gapfill": false
    },
    "features": {
@@ -113729,31 +113887,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "The Hammer Museum is a UCLA-affiliated contemporary art museum in Westwood, Los Angeles, founded by Armand Hammer and opened in November 1990. Since a 1994 partnership agreement, it has been operated by UCLA, absorbing the collections of the Wight Art Gallery and the Grunwald Center for the Graphic Arts as well as the Franklin D. Murphy Sculpture Garden. Directors have included Henry Hopkins, Ann Philbin (1999–2024), and current director Zoë Ryan (from 2025). The museum is known for its Made in L.A. biennial, the ongoing Hammer Projects series, and an active calendar of lectures, film, and public programs. Admission is free.",
+    "source_kind": "official",
+    "source_url": "https://hammer.ucla.edu/about-us",
+    "evidence_path": ".cache/evidence/los-angeles/bdaca5ef769c4294-1788480337.txt",
+    "written_ts": 1788481588,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 1990,
+    "founders": [
+     "Dr. Armand Hammer"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary art",
+     "Made in L.A. biennial",
+     "public programs",
+     "film and lectures",
+     "Grunwald Center graphic arts collection"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 22,
+    "exhibitions_per_year": 1.05,
+    "first_exhibition_year": 2006,
+    "solo_share": 0.41
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788481588,
+    "crawl_pages": 300,
+    "triaged": 47,
+    "report_path": "content/venues/reports/los-angeles/hammer-museum.json",
+    "cost_usd": 0.2865,
     "gapfill": false
    },
    "features": {
@@ -114366,7 +114532,9 @@
    "exhibitions_url_candidates": [
     "https://www.harkawik.com/exhibitions"
    ],
-   "hours": [],
+   "hours": [
+    "New York: Tues-Sat 11-6; Los Angeles: By Appointment"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -114545,31 +114713,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Harkawik is a contemporary art gallery founded by curator and artist Peter Harkawik. The gallery grew out of large survey exhibitions Harkawik organized at guest venues through the 2010s before opening a permanent space in Los Angeles in 2018. It expanded to New York's Lower East Side in 2020, later moving into a larger Tribeca location in 2024. The gallery represents fifteen artists with a strong international focus, presenting work across painting, sculpture, and other media, alongside a program of exhibited artists shown in group shows but not formally represented.",
+    "source_kind": "official",
+    "source_url": "https://www.harkawik.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/95a0a008c63d12ab-1788486089.txt",
+    "written_ts": 1788486949,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 2018,
+    "founders": [
+     "Peter Harkawik"
+    ],
+    "locations_elsewhere": [
+     "New York"
+    ],
+    "program_focus": [
+     "contemporary painting",
+     "sculpture",
+     "international artists",
+     "emerging and mid-career artists"
+    ],
+    "roster_count": 15,
+    "exhibitions_total": 112,
+    "exhibitions_per_year": 7.0,
+    "first_exhibition_year": 2011,
+    "solo_share": 0.78
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788486949,
+    "crawl_pages": 300,
+    "triaged": 6,
+    "report_path": "content/venues/reports/los-angeles/harkawik.json",
+    "cost_usd": 0.4213,
     "gapfill": false
    },
    "features": {
@@ -126646,31 +126823,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "induction gallery is a Los Angeles gallery founded and directed by artist and curator John Zinonos. Located at 672 S. La Fayette Park Place in the city's Westlake area, the space works by appointment and presents a roster of emerging and mid-career artists working across painting, sculpture, ceramics, photography, collage, and new media. The program reflects Zinonos's own multidisciplinary curatorial interests, bringing together Los Angeles-based and out-of-state artists whose practices engage material experimentation, personal narrative, and technology-driven or ecological themes.",
+    "source_kind": "official",
+    "source_url": "https://induction-gallery.com/john-zinonos",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788487113,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
+    "founders": [
+     "John Zinonos"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and mid-career artists",
+     "mixed media sculpture",
+     "ceramics",
+     "photography and collage",
+     "new media and technology-based art"
+    ],
+    "roster_count": 17,
+    "exhibitions_total": 10,
+    "exhibitions_per_year": 10.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 0.6
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487113,
+    "crawl_pages": 61,
+    "triaged": 40,
+    "report_path": "content/venues/reports/los-angeles/induction.json",
+    "cost_usd": 0.101,
     "gapfill": false
    },
    "features": {
@@ -131314,12 +131499,12 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "JAPAN HOUSE Los Angeles is a cultural institution rather than a commercial gallery, part of a worldwide project with hubs in London, Los Angeles, and São Paulo conceived by Japan's Ministry of Foreign Affairs. Located on two floors of Ovation Hollywood, it includes an exhibition gallery, a WAZA Shop, a library, a multi-purpose event hall (Salon), and a restaurant space. Its programming spans Japanese culture broadly, from traditional crafts and regional artisans to contemporary design, food, film, and music, featuring Japanese artists, chefs, and designers alongside professionals influenced by Japan. The organization began operations in Los Angeles starting in 2016, with the venue's grand opening in 2018.",
+    "source_kind": "official",
+    "source_url": "https://www.japanhousela.com/aboutus/vision",
+    "evidence_path": ".cache/evidence/los-angeles/54f3f0300a23443f-1788490721.txt",
+    "written_ts": 1788491311,
+    "model": "claude-sonnet-5",
     "hints": [
      "it leans on the kind of hybrid display JAPAN HOUSE does well",
      "which is exactly the kind of programming JAPAN HOUSE has made its niche inside the Hollywood tourist corridor",
@@ -131329,20 +131514,30 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "London",
+     "São Paulo"
+    ],
+    "program_focus": [
+     "Japanese culture",
+     "design",
+     "cuisine",
+     "traditional crafts",
+     "contemporary art and film",
+     "regional Japanese artisans"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 10,
+    "exhibitions_per_year": 2.5,
+    "first_exhibition_year": 2023,
+    "solo_share": 0.1
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788491311,
+    "crawl_pages": 300,
+    "triaged": 24,
+    "report_path": "content/venues/reports/los-angeles/japan-house-los-angeles.json",
+    "cost_usd": 0.1793,
     "gapfill": false
    },
    "features": {
@@ -134585,31 +134780,36 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "John Doe Gallery is a Los Angeles space built around a DIY ethos, aiming to foster community and give a platform to emerging artists and new ideas. The gallery presents a small roster whose work spans varied media, from minimalist to mixed-medium practices, and positions itself as a venue for dialogue that pushes against conventional boundaries in contemporary art. It is located on 11th Street in downtown Los Angeles and represents a handful of artists whose profiles are featured on its site, emphasizing versatility and unconventional approaches over any single stylistic or historical focus.",
+    "source_kind": "official",
+    "source_url": "https://www.johndoegallery.com/blank-1",
+    "evidence_path": ".cache/evidence/los-angeles/f914722611b4e2e8-1788487796.txt",
+    "written_ts": 1788487845,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging artists",
+     "DIY ethos",
+     "mixed media",
+     "contemporary art"
+    ],
+    "roster_count": 3,
+    "exhibitions_total": 4,
+    "exhibitions_per_year": 4.0,
+    "first_exhibition_year": 2025,
+    "solo_share": 0.75
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487845,
+    "crawl_pages": 9,
+    "triaged": 4,
+    "report_path": "content/venues/reports/los-angeles/john-doe.json",
+    "cost_usd": 0.0237,
     "gapfill": false
    },
    "features": {
@@ -137190,33 +137390,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Junior High is a multi-purpose art gallery, event space, and artist sanctuary in Glendale, California, founded by Faye Orlove. It describes itself as a community-driven venue dedicated to arts expression and arts education for people of all ages and backgrounds. Programming spans gallery shows, music events, workshops, panels, and editorial projects, with a particular focus on supporting marginalized and emerging artists, including beginners, women, queer and nonbinary artists, and artists of color. The space, which holds over 80 people, emphasizes radical empathy, accessibility, and safety as guiding values, positioning itself as an alternative to traditional, exclusionary art-world spaces.",
+    "source_kind": "official",
+    "source_url": "http://juniorhighlosangeles.com/aboutus",
+    "evidence_path": ".cache/evidence/los-angeles/2732fada22138c5d-1788486964.txt",
+    "written_ts": 1788487770,
+    "model": "claude-sonnet-5",
     "hints": [
      "Junior High has built its whole identity around exactly this kind of grassroots, peer-driven programming"
     ]
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founders": [
+     "Faye Orlove"
+    ],
+    "locations_elsewhere": [
+     "Glendale, CA"
+    ],
+    "program_focus": [
+     "marginalized and emerging artists",
+     "community and arts education",
+     "queer and feminist safe space",
+     "multi-disciplinary events (music, workshops, panels)"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 96,
+    "exhibitions_per_year": 8.73,
+    "first_exhibition_year": 2016,
+    "solo_share": 0.6
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788487770,
+    "crawl_pages": 300,
+    "triaged": 10,
+    "report_path": "content/venues/reports/los-angeles/junior-high.json",
+    "cost_usd": 0.3572,
     "gapfill": false
    },
    "features": {
@@ -140205,31 +140414,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Keystone Art Space is a large working-artist complex in the Lincoln Heights/Cypress Park area of Los Angeles, housing more than fifty individual studios for painters, illustrators, sculptors, photographers, jewelers and designers. Within the warehouse, Keystone Gallery mounts rotating group and solo exhibitions and the space regularly opens to the public for a biannual Open Studios event, giving visitors direct access to tenant studios alongside curated shows. Past programming has included group exhibitions built around music, writing, photography and international artist exchanges, often organized by the resident community or visiting curators. The facility is led by Director Melanie Mandl, with Mark Harvey serving as Keystone Gallery Co-Director. Keystone functions less as a commercial gallery than as a hybrid studio building and public exhibition venue supporting a broad, multidisciplinary Los Angeles art community.",
+    "source_kind": "official",
+    "source_url": "https://www.keystoneartspace.com/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788484663,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "artist studio complex",
+     "open studios events",
+     "group exhibitions",
+     "multidisciplinary contemporary art",
+     "emerging Los Angeles artists"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 179,
+    "exhibitions_per_year": 13.77,
+    "first_exhibition_year": 2014,
+    "solo_share": 0.53
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788484663,
+    "crawl_pages": 300,
+    "triaged": 251,
+    "report_path": "content/venues/reports/los-angeles/keystone-art-space.json",
+    "cost_usd": 1.2594,
     "gapfill": false
    },
    "features": {
@@ -141006,31 +141221,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "The Korean Cultural Center Los Angeles (KCCLA) is a public cultural institution operated by the Republic of Korea's Ministry of Culture, Sports and Tourism, located in the Miracle Mile district at 5505 Wilshire Blvd. It functions as a hub for Korean heritage and contemporary culture in the United States, housing a library, a permanent heritage exhibition hall, a second-floor art gallery, an auditorium (Ari Hall), and a media arts wall. Programming spans traditional and contemporary Korean art exhibitions, film screenings, Korean-language classes, and community-oriented shows organized with Korean-American arts associations, alongside field trips and cultural workshops for schools and the public.",
+    "source_kind": "official",
+    "source_url": "https://la.korean-culture.org/en/6/contents/1483",
+    "evidence_path": ".cache/evidence/los-angeles/35889bbdb56b5855-1788489818.txt",
+    "written_ts": 1788490259,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "Korean traditional and contemporary art",
+     "Korean-American community exhibitions",
+     "Korean cinema and film screenings",
+     "Korean language education",
+     "Korean heritage and museum displays",
+     "Media/digital art"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 2,
+    "exhibitions_per_year": 2.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 0.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788490259,
+    "crawl_pages": 184,
+    "triaged": 30,
+    "report_path": "content/venues/reports/los-angeles/korean-cultural-center-los-angeles-kccla.json",
+    "cost_usd": 0.1315,
     "gapfill": false
    },
    "features": {
@@ -142082,31 +142304,44 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "L.A. Louver is a contemporary art gallery in Venice, California, founded in 1975 by Peter and Elizabeth Goulds. It opened to the public on North Venice Boulevard in 1976 with a mission to place Southern California artists in an international context while bringing global artists to Los Angeles audiences. Over five decades the gallery has represented a roster of established postwar and contemporary painters and sculptors, mounting hundreds of exhibitions and building an extensive archive documenting its history and artists' records. Its program spans painting, sculpture, assemblage, ceramics, and works on paper, with a strong emphasis on figuration, abstraction, and cross-generational dialogue between Los Angeles and international artists.",
+    "source_kind": "official",
+    "source_url": "https://lalouver.com/info.cfm",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788488642,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
+    "founded_year": 1975,
+    "founders": [
+     "Peter Goulds",
+     "Elizabeth Goulds"
+    ],
+    "locations_elsewhere": [
+     "Venice, California"
+    ],
+    "program_focus": [
+     "postwar and contemporary art",
+     "painting",
+     "sculpture",
+     "assemblage",
+     "ceramics",
+     "works on paper",
+     "Los Angeles and international artists"
+    ],
+    "roster_count": 39,
     "exhibitions_total": null,
     "exhibitions_per_year": null,
     "first_exhibition_year": null,
     "solo_share": null
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488642,
+    "crawl_pages": 300,
+    "triaged": 65,
+    "report_path": "content/venues/reports/los-angeles/l-a-louver.json",
+    "cost_usd": 0.1847,
     "gapfill": false
    },
    "features": {
@@ -142746,7 +142981,9 @@
    "exhibitions_url_candidates": [
     "https://labeastgallery.com/exhibitions/"
    ],
-   "hours": [],
+   "hours": [
+    "Thursday-Saturday, noon-6p, or by appointment."
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -142892,31 +143129,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "la BEAST gallery is a contemporary art gallery in Los Angeles, founded in April 2022 by Roxana Eslamieh and Zack Christensen. Located at the corner of Cypress and Thorpe Avenues, the gallery's program centers on emerging and mid-career artists, with an emphasis on themes of mythology, naturalism, and the occult. Beyond its exhibition program, la BEAST participates annually in art fairs including NADA New York, NADA Miami, and Felix Art Fair, presenting group and solo showcases of its represented artists.",
+    "source_kind": "official",
+    "source_url": "https://labeastgallery.com/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788488907,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2022,
+    "founders": [
+     "Roxana Eslamieh",
+     "Zack Christensen"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and mid-career artists",
+     "mythology",
+     "naturalism",
+     "the occult"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 24,
+    "exhibitions_per_year": 4.8,
+    "first_exhibition_year": 2022,
+    "solo_share": 0.54
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488907,
+    "crawl_pages": 300,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/la-beast.json",
+    "cost_usd": 0.1149,
     "gapfill": false
    },
    "features": {
@@ -144134,34 +144379,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "La Luz de Jesus Gallery is a Los Angeles gallery founded in 1986 by entrepreneur and art collector Billy Shire. Housed inside the Soap Plant/Wacko complex on Hollywood Boulevard, the gallery is credited with helping foster what became known as the Lowbrow or Pop Surrealist movement in California art. Its program favors figurative, narrative painting and unconventional sculpture, with content spanning folk, outsider, religious, and sexually charged themes. The gallery states its mission is to bring underground art and counter-culture to a wider audience, and it also operates an Art Advisor Service connecting collectors, curators, and designers with contemporary artists worldwide.",
+    "source_kind": "official",
+    "source_url": "https://laluzdejesus.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/026a9b2caf18efab-1788489337.txt",
+    "written_ts": 1788489373,
+    "model": "claude-sonnet-5",
     "hints": [
      "this Hollywood gallery has been a home base for pop-surrealist and lowbrow art since 1986, and its first-Friday openings remain one of the more reliable draws on the LA gallery circuit",
      "Since opening in 1986 inside the Soap Plant/Wacko complex on Hollywood Boulevard, the gallery has been credited with helping name and define Pop Surrealism and lowbrow art, launching or championing artists who built careers outside the traditional fine-art gallery circuit."
     ]
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 1986,
+    "founders": [
+     "Billy Shire"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "figurative narrative painting",
+     "lowbrow/pop surrealism",
+     "outsider art",
+     "religious and sexually deviant themes",
+     "sculpture"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 18,
+    "exhibitions_per_year": 1.0,
+    "first_exhibition_year": 2009,
+    "solo_share": 0.33
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788489373,
+    "crawl_pages": 300,
+    "triaged": 29,
+    "report_path": "content/venues/reports/los-angeles/la-luz-de-jesus.json",
+    "cost_usd": 0.2248,
     "gapfill": false
    },
    "features": {
@@ -158034,31 +158287,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "LACMA is the largest art museum in the western United States, holding some 155,000 objects spanning 6,000 years of global art history. It traces its roots to the Los Angeles County Museum of History, Science, and Art (1910) and became an independent institution in 1961, opening on Wilshire Boulevard in 1965. The campus has grown through additions including the Anderson/Art of the Americas Building, the Pavilion for Japanese Art, BCAM, and the Resnick Pavilion, culminating in the 2026 opening of the Peter Zumthor-designed David Geffen Galleries. Located on Wilshire Boulevard in the Miracle Mile, LACMA presents rotating exhibitions across its global collection alongside public programs, education initiatives, and community partnerships, including a gallery at Charles White Elementary School.",
+    "source_kind": "official",
+    "source_url": "https://www.lacma.org/about",
+    "evidence_path": ".cache/evidence/los-angeles/6d20302a08bc30f2-1788489335.txt",
+    "written_ts": 1788489680,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 1961,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "encyclopedic collection",
+     "6,000 years of art history",
+     "global cultures",
+     "modern and contemporary art",
+     "photography",
+     "decorative arts and design"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 17,
+    "exhibitions_per_year": 1.89,
+    "first_exhibition_year": 2018,
+    "solo_share": 0.59
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788489680,
+    "crawl_pages": 300,
+    "triaged": 15,
+    "report_path": "content/venues/reports/los-angeles/los-angeles-county-museum-of-art-lacma.json",
+    "cost_usd": 0.0974,
     "gapfill": false
    },
    "features": {
@@ -159051,31 +159311,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Founded in 1954 within Barnsdall Art Park, the Los Angeles Municipal Art Gallery is the longest continuously running institution in Los Angeles devoted solely to exhibiting art. Operated by the city's Department of Cultural Affairs, it grew out of the city-led All City Outdoor Art Festivals and Kenneth Ross's vision for decentralized civic arts programming. The gallery focuses on artists connected to Los Angeles, with particular attention to underrepresented and emerging voices, alongside mid-career and established practitioners. Past exhibitors who later gained wider recognition include Carlos Almaraz, John Baldessari, Vija Celmins, David Hammons, Barbara Kruger, Kerry James Marshall, and Ed Ruscha. Admission and programs are free, and the gallery does not maintain a permanent collection.",
+    "source_kind": "official",
+    "source_url": "https://lamag.org/about-us",
+    "evidence_path": ".cache/evidence/los-angeles/f5222770edd77a44-1788479750.txt",
+    "written_ts": 1788480242,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 1954,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "Los Angeles artists",
+     "underrepresented artists",
+     "emerging and mid-career artists",
+     "civic/municipal art gallery",
+     "contemporary art",
+     "free public programs"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 43,
+    "exhibitions_per_year": 3.91,
+    "first_exhibition_year": 2016,
+    "solo_share": 0.4
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480242,
+    "crawl_pages": 151,
+    "triaged": 86,
+    "report_path": "content/venues/reports/los-angeles/los-angeles-municipal-art-gallery-lamag.json",
+    "cost_usd": 0.2569,
     "gapfill": false
    },
    "features": {
@@ -167910,31 +168177,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Marshall Gallery is a Santa Monica photography gallery founded in 2018 by Douglas Marshall and opened to the public in 2021 at Bergamot Station Arts Center. The program centers on contemporary and 20th-century lens-based art, with particular attention to experimental processes, printmaking craft and conceptual approaches to photography and video. In recent years the roster has increasingly explored the intersection of photographic practice with painting and sculpture. Alongside a regular schedule of exhibitions, the gallery hosts artist conversations and community events and participates in art fairs internationally, positioning itself within ongoing conversations about photography's evolving role in contemporary art and collective memory.",
+    "source_kind": "official",
+    "source_url": "https://marshallgallery.art/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788480260,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 2018,
+    "founders": [
+     "Douglas Marshall"
+    ],
+    "locations_elsewhere": [
+     "Santa Monica"
+    ],
+    "program_focus": [
+     "lens-based art",
+     "contemporary photography",
+     "20th-century photography",
+     "printmaking craftsmanship",
+     "photography-painting-sculpture intersections"
+    ],
+    "roster_count": 30,
+    "exhibitions_total": 56,
+    "exhibitions_per_year": 7.0,
+    "first_exhibition_year": 2019,
+    "solo_share": 0.59
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480260,
+    "crawl_pages": 300,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/marshall.json",
+    "cost_usd": 0.1739,
     "gapfill": false
    },
    "features": {
@@ -168243,31 +168520,36 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Marta is a Los Angeles-based, globally-engaged gallery founded in 2019. Its program centers on the space between art and design, giving artists room to experiment with utility and designers room to explore the abandonment of function. Beyond exhibitions, Marta runs curatorial, publication, and podcast initiatives that emphasize the process behind a work's creation as well as the story of its maker. The gallery describes itself as interested in the intersection of disciplines and in advocating for diversity in design and broader public access to the arts. It operates from a space on West Sunset Boulevard in Los Angeles.",
+    "source_kind": "official",
+    "source_url": "https://marta.la/info",
+    "evidence_path": ".cache/evidence/los-angeles/c7111172c49258e5-1788488006.txt",
+    "written_ts": 1788488247,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2019,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "intersection of art and design",
+     "functional/non-functional design objects",
+     "emerging and established designers",
+     "publications and podcast programming"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 63,
+    "exhibitions_per_year": 7.88,
+    "first_exhibition_year": 2019,
+    "solo_share": 0.48
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488247,
+    "crawl_pages": 73,
+    "triaged": 2,
+    "report_path": "content/venues/reports/los-angeles/marta.json",
+    "cost_usd": 0.1575,
     "gapfill": false
    },
    "features": {
@@ -170342,7 +170624,7 @@
     "text": null,
     "source_kind": null,
     "source_url": null,
-    "evidence_path": null,
+    "evidence_path": ".cache/evidence/los-angeles/1640abbcbcc3535a-1788482078.txt",
     "written_ts": null,
     "model": null,
     "hints": [
@@ -170352,20 +170634,22 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
+    "locations_elsewhere": [
+     "New York"
+    ],
     "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 24,
+    "exhibitions_total": 84,
+    "exhibitions_per_year": 10.5,
+    "first_exhibition_year": 2019,
+    "solo_share": 0.82
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788483079,
+    "crawl_pages": 300,
+    "triaged": 8,
+    "report_path": "content/venues/reports/los-angeles/matthew-brown.json",
+    "cost_usd": 0.6019,
     "gapfill": false
    },
    "features": {
@@ -172303,12 +172587,12 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Mek Contemporary is a Los Angeles–based gallery presenting contemporary artists working across disciplines and geographies. The program pays particular attention to work engaging memory, migration, displacement, place, identity, and cultural inheritance, favoring artists with distinctive approaches to form, material, and image. The gallery emphasizes close attention to each artist and body of work, developing focused exhibitions and publications alongside sustained relationships with artists, collectors, institutions, and audiences. Through this approach, Mek aims to extend conversations sparked by the work beyond the exhibition space itself, treating each show as part of an ongoing dialogue rather than an isolated event.",
+    "source_kind": "official",
+    "source_url": "https://www.mekcontemporary.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/b3bd7ec5600ec75a-1788484356.txt",
+    "written_ts": 1788484400,
+    "model": "claude-sonnet-5",
     "hints": [
      "Mek Contemporary is a small Glendale gallery with a program built around figuration and craft-forward painting"
     ]
@@ -172316,20 +172600,27 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Glendale, CA"
+    ],
+    "program_focus": [
+     "memory and migration",
+     "displacement and identity",
+     "cultural inheritance",
+     "cross-disciplinary contemporary art"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 1,
+    "exhibitions_per_year": 1.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 1.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788484400,
+    "crawl_pages": 8,
+    "triaged": 6,
+    "report_path": "content/venues/reports/los-angeles/mek-contemporary.json",
+    "cost_usd": 0.016,
     "gapfill": false
    },
    "features": {
@@ -195353,31 +195644,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Nüart Gallery was established in Santa Fe at the start of the 21st century and has grown into a 3,000-square-foot, ten-room space on Canyon Road showing contemporary abstract and figurative art. Over more than two decades it has mounted upwards of 250 solo and group exhibitions, introducing many artists to the U.S. market and shipping worldwide. In 2023 the gallery expanded with a second 3,000-square-foot location at Bergamot Station in Santa Monica, extending its reach into the Los Angeles market. The program represents around 40 artists working locally and internationally, with works held in major museum collections such as MoMA, LACMA, the Getty, and the Tate Modern. The gallery also carries limited inventory from blue-chip artists.",
+    "source_kind": "official",
+    "source_url": "https://www.nuartgallery.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/94432cda8de25c82-1788479290.txt",
+    "written_ts": 1788480449,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "Santa Fe",
+     "Santa Monica"
+    ],
+    "program_focus": [
+     "contemporary abstract art",
+     "contemporary figurative art",
+     "national and international artists",
+     "painting",
+     "sculpture"
+    ],
+    "roster_count": 35,
+    "exhibitions_total": 88,
+    "exhibitions_per_year": 14.67,
+    "first_exhibition_year": 2021,
+    "solo_share": 0.49
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480449,
+    "crawl_pages": 300,
+    "triaged": 6,
+    "report_path": "content/venues/reports/los-angeles/nuart.json",
+    "cost_usd": 0.261,
     "gapfill": false
    },
    "features": {
@@ -198073,18 +198373,18 @@
     "founders": [],
     "locations_elsewhere": [],
     "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 0,
+    "exhibitions_total": 56,
+    "exhibitions_per_year": 28.0,
+    "first_exhibition_year": 2022,
+    "solo_share": 0.73
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480636,
+    "crawl_pages": 58,
+    "triaged": 57,
+    "report_path": "content/venues/reports/los-angeles/one-trick-pony.json",
+    "cost_usd": 0.1162,
     "gapfill": false
    },
    "features": {
@@ -200482,18 +200782,18 @@
     "founders": [],
     "locations_elsewhere": [],
     "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "roster_count": 0,
+    "exhibitions_total": 2,
+    "exhibitions_per_year": 2.0,
+    "first_exhibition_year": 2026,
+    "solo_share": 1.0
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788482039,
+    "crawl_pages": 132,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/overduin-and-co.json",
+    "cost_usd": 0.0311,
     "gapfill": false
    },
    "features": {
@@ -200820,31 +201120,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "OXY ARTS is the public arts center of Occidental College, located on York Boulevard in the Highland Park area of Los Angeles. It presents free exhibitions, performances, artist residencies (including the Wanlass Artist-in-Residence program), and workshops spanning film, visual art, performance, writing, and music. The program emphasizes projects led by Black, Indigenous, and people-of-color artists and organizers, and work that engages social and political issues. It also serves as a gateway to Occidental College's arts departments, offering hands-on internship and teaching opportunities for students, especially BIPOC and first-generation students, while building relationships with the wider Los Angeles arts community.",
+    "source_kind": "official",
+    "source_url": "https://oxyarts.oxy.edu/about",
+    "evidence_path": ".cache/evidence/los-angeles/f4449d5d6810c03f-1788484792.txt",
+    "written_ts": 1788485562,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "multidisciplinary programming",
+     "socially engaged / activist art",
+     "BIPOC and Indigenous artists",
+     "film, performance, writing, and music",
+     "community and student engagement",
+     "Tongva land acknowledgment initiatives"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 45,
+    "exhibitions_per_year": 3.21,
+    "first_exhibition_year": 2013,
+    "solo_share": 0.42
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788485562,
+    "crawl_pages": 300,
+    "triaged": 66,
+    "report_path": "content/venues/reports/los-angeles/oxy-arts-occidental-college.json",
+    "cost_usd": 0.3812,
     "gapfill": false
    },
    "features": {
@@ -205097,31 +205404,39 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Pauhaus Gallery + Events is an artist-founded creative hub on Melrose Avenue in Los Angeles, established in 2021 by artist Pau (Pau Aguirre) after she found a vacant storefront space. What began as the twice-weekly Melrose Drawing Club figure-drawing sessions grew into a multidisciplinary venue hosting exhibitions, comedy shows, open mics, and other community-driven events. The gallery serves as a gathering place for artists, musicians, comedians, and creatives of all kinds, reflecting founder Pau's own background as a muralist and figure-drawing enthusiast. Pauhaus has also been the subject of press coverage for exhibitions of animation and stop-motion artists, and its founder is now exploring expansion of the concept to other cities.",
+    "source_kind": "official",
+    "source_url": "https://pauhausgallery.com/about-pauhaus-gallery",
+    "evidence_path": ".cache/evidence/los-angeles/893b217e574b9052-1788491688.txt",
+    "written_ts": 1788492184,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2021,
+    "founders": [
+     "Pau"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "figure drawing",
+     "comedy shows",
+     "exhibitions",
+     "open mics",
+     "community events"
+    ],
+    "roster_count": 0,
+    "exhibitions_total": 9,
+    "exhibitions_per_year": 2.25,
+    "first_exhibition_year": 2022,
+    "solo_share": 0.56
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788492184,
+    "crawl_pages": 154,
+    "triaged": 19,
+    "report_path": "content/venues/reports/los-angeles/pauhaus-art-gallery-events.json",
+    "cost_usd": 0.0741,
     "gapfill": false
    },
    "features": {
@@ -206984,31 +207299,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Peter Fetterman Gallery is a Santa Monica photography gallery founded by Peter Fetterman, a London-born collector and former filmmaker who opened his first gallery in 1988 and became one of the original tenants of Bergamot Station when it opened in 1994. The gallery holds one of the largest inventories of classic twentieth-century photography in the United States, with particular depth in humanist photography. Its holdings include work by figures such as Henri Cartier-Bresson, Sebastião Salgado, Steve McCurry, Ansel Adams, Paul Caponigro, Willy Ronis, Michael Kenna, André Kertész, Manuel Alvarez Bravo, Lillian Bassman, Pentti Sammallahti, Sarah Moon and Jeffrey Conley. The gallery presents this work in an intimate, salon-style setting intended to promote appreciation of the photographic medium.",
+    "source_kind": "official",
+    "source_url": "https://www.peterfetterman.com/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788481572,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 1988,
+    "founders": [
+     "Peter Fetterman"
+    ],
+    "locations_elsewhere": [
+     "Santa Monica"
+    ],
+    "program_focus": [
+     "classic 20th century photography",
+     "humanist photography",
+     "documentary and photojournalism",
+     "fashion photography",
+     "fine art black-and-white prints"
+    ],
+    "roster_count": 126,
+    "exhibitions_total": 34,
+    "exhibitions_per_year": 3.78,
+    "first_exhibition_year": 2018,
+    "solo_share": 0.53
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788481572,
+    "crawl_pages": 300,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/peter-fetterman.json",
+    "cost_usd": 0.1983,
     "gapfill": false
    },
    "features": {
@@ -221226,7 +221551,9 @@
   {
    "id": "roberts-projects",
    "name": "Roberts Projects",
-   "aliases": [],
+   "aliases": [
+    "Roberts Projects LA"
+   ],
    "kind": "gallery",
    "is_museum": false,
    "status": "active",
@@ -221449,6 +221776,11 @@
        "adaa-members",
        "frieze-la-exhibitors"
       ]
+     },
+     "gpla": {
+      "ts": 1788325981,
+      "slug": "roberts-projects",
+      "region": "Central"
      }
     },
     "touched_by": [
@@ -221652,7 +221984,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "active",
+   "status": "duplicate",
    "tier": 3,
    "notability": 0.161,
    "neighborhood": "Mid-Wilshire/Koreatown",
@@ -221675,7 +222007,7 @@
    "last_scraped": 1788361922,
    "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": 1788362098,
-   "next_check": "2026-09-16",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
    "last_skip": {
@@ -221797,7 +222129,7 @@
      "why": "validate_homepage"
     }
    },
-   "notes": "GPLA region: Central",
+   "notes": "GPLA region: Central | merged into roberts-projects | merged into roberts-projects",
    "verification": {
     "status": "verified",
     "ts": 1788458239,
@@ -223474,33 +223806,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "ROSEGALLERY is a Los Angeles-area gallery founded in 1991 by Rose Shoshana at the Bergamot Station Arts Center in Santa Monica. The program centers on modern and contemporary photography, spanning works that draw on the medium's history as well as contemporary photo-based art. Shoshana, who trained at Art Center College of Design and worked in editorial photography before opening the gallery, has built relationships with artists such as William Eggleston, Bruce Davidson, and Graciela Iturbide, and has collaborated with institutions including the Getty Museum and Tate Modern. The gallery represents a roster of established and emerging photographers and lens-based artists, and regularly presents work at international art fairs including Paris Photo and Photo London.",
+    "source_kind": "official",
+    "source_url": "https://rosegallery.net/about",
+    "evidence_path": ".cache/evidence/los-angeles/136610da84751676-1788489698.txt",
+    "written_ts": 1788490619,
+    "model": "claude-sonnet-5",
     "hints": [
      "ROSEGALLERY has been a longtime champion of her work within its deep program of 20th- and 21st-century photography"
     ]
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 1991,
+    "founders": [
+     "Rose Shoshana"
+    ],
+    "locations_elsewhere": [
+     "Santa Monica"
+    ],
+    "program_focus": [
+     "modern and contemporary photography",
+     "lens-based art",
+     "photo history and contemporary photo-based work",
+     "international photography artists"
+    ],
+    "roster_count": 38,
+    "exhibitions_total": 43,
+    "exhibitions_per_year": 1.54,
+    "first_exhibition_year": 1999,
+    "solo_share": 0.79
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788490619,
+    "crawl_pages": 300,
+    "triaged": 69,
+    "report_path": "content/venues/reports/los-angeles/rosegallery.json",
+    "cost_usd": 0.329,
     "gapfill": false
    },
    "features": {
@@ -223748,31 +224089,37 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Royale Projects is a Los Angeles gallery founded in 2008, dedicated to the history and ongoing development of abstraction in painting and sculpture, alongside artists whose work is rooted in Conceptualism. The gallery has presented debut exhibitions of artists such as Helen Pashgian, associated with the California Light & Space movement, and the last new works by Dennis Oppenheim. It has organized site-responsive desert projects in Joshua Tree, including collaborations with Andrea Zittel and Phillip K. Smith III. Its downtown Los Angeles Arts District space opened in 2015. The gallery participated in The Getty's Pacific Standard Time: LA/LA and represents the estate of Clinton Hill, contributing to renewed critical interest in his abstract paintings from the New York School.",
+    "source_kind": "official",
+    "source_url": "https://www.royaleprojects.com/about-1",
+    "evidence_path": ".cache/evidence/los-angeles/4594a91199d722d1-1788490988.txt",
+    "written_ts": 1788491623,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
+    "founded_year": 2008,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "abstraction in painting and sculpture",
+     "Conceptualism",
+     "California Light & Space movement",
+     "site-responsive art projects",
+     "estate representation"
+    ],
+    "roster_count": 15,
+    "exhibitions_total": 96,
+    "exhibitions_per_year": 1.63,
+    "first_exhibition_year": 1968,
+    "solo_share": 0.62
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788491623,
+    "crawl_pages": 119,
+    "triaged": 6,
+    "report_path": "content/venues/reports/los-angeles/royale-projects.json",
+    "cost_usd": 0.2114,
     "gapfill": false
    },
    "features": {
@@ -224865,31 +225212,40 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Sage Culture is an art gallery and multidisciplinary project space in the Arts District of Los Angeles, founded in 2017 by Nicolas Alonso and Marina Figueiredo. The gallery's concept grew out of a trip to Easter Island and centers on the relationship between people and nature, drawing on ancient and primitive forms of artistic expression. Its program represents artists whose work is deeply tied to natural materials, processes, and themes, spanning ceramics, textiles, photography, and mixed media. Works often blur boundaries between art, craft, and design, emphasizing process, material experimentation, and a meditative or ecological sensibility. The gallery operates by appointment only from its DTLA location.",
+    "source_kind": "official",
+    "source_url": "https://sageculture.com/gallery",
+    "evidence_path": ".cache/evidence/los-angeles/659622af91b5c186-1788490271.txt",
+    "written_ts": 1788490949,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2017,
+    "founders": [
+     "Nicolas Alonso",
+     "Marina Figueiredo"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "nature-focused contemporary art",
+     "ceramics and textiles",
+     "photography",
+     "multidisciplinary/craft-based practice",
+     "ecology and materiality"
+    ],
+    "roster_count": 6,
+    "exhibitions_total": 24,
+    "exhibitions_per_year": 2.67,
+    "first_exhibition_year": 2017,
+    "solo_share": 0.42
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788490949,
+    "crawl_pages": 300,
+    "triaged": 44,
+    "report_path": "content/venues/reports/los-angeles/sage-culture.json",
+    "cost_usd": 0.2472,
     "gapfill": false
    },
    "features": {
@@ -230100,20 +230456,28 @@
    "facts": {
     "founded_year": null,
     "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "locations_elsewhere": [
+     "New York"
+    ],
+    "program_focus": [
+     "contemporary painting",
+     "ceramic and glass sculpture",
+     "emerging Los Angeles-based artists",
+     "rediscovered postwar figures",
+     "cross-generational program"
+    ],
+    "roster_count": 16,
+    "exhibitions_total": 69,
+    "exhibitions_per_year": 9.86,
+    "first_exhibition_year": 2020,
+    "solo_share": 0.84
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788482465,
+    "crawl_pages": 300,
+    "triaged": 5,
+    "report_path": "content/venues/reports/los-angeles/sebastian-gladstone.json",
+    "cost_usd": 0.2554,
     "gapfill": false
    },
    "features": {
@@ -231030,31 +231394,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Serious Topics is a small artist-run gallery in Inglewood, California, founded by artists Kristin Calabrese and Joshua Aster. The space operates informally, showing and selling works on paper and other modestly scaled pieces through its flatfiles and inventory, viewable by appointment. Its program brings together a wide roster of contemporary artists working in graphite, ink, watercolor, and collage, emphasizing intimate, works-on-paper practices over large-scale production. The gallery periodically mounts solo exhibitions, including a planned show by Susanna Coffey. Visits are by appointment, reflecting its low-key, artist-driven approach to running a commercial exhibition space.",
+    "source_kind": "official",
+    "source_url": "https://www.serious-topics.com/contact",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788482286,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founders": [
+     "Kristin Calabrese",
+     "Joshua Aster"
+    ],
+    "locations_elsewhere": [
+     "Inglewood"
+    ],
+    "program_focus": [
+     "works on paper",
+     "drawing",
+     "watercolor",
+     "collage",
+     "emerging and mid-career artists"
+    ],
+    "roster_count": 14,
+    "exhibitions_total": 24,
+    "exhibitions_per_year": 3.0,
+    "first_exhibition_year": 2019,
+    "solo_share": 0.54
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788482286,
+    "crawl_pages": 40,
+    "triaged": 12,
+    "report_path": "content/venues/reports/los-angeles/serious-topics.json",
+    "cost_usd": 0.1761,
     "gapfill": false
    },
    "features": {
@@ -255668,34 +256043,44 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Thinkspace Projects is a Los Angeles gallery in the West Adams District, founded in 2005 by Andrew Hosner and L. Croskey. Since its start the gallery has built an international reputation as a leading voice for the New Contemporary Art Movement, a lowbrow-descended, figurative and pop-culture-inflected strain of art that emerged on the West Coast in the 1990s. Thinkspace represents artists ranging from emerging to established, and has expanded beyond its own space to curate exhibitions with museums and partner galleries in cities such as Berlin, Hong Kong, London, New York, Detroit, Chicago and Honolulu. It also produces murals worldwide and works with organizations like POW! WOW! and RAD Napa. The gallery describes itself as artist-focused, family-run, and committed to bridging street-level and institutional art contexts.",
+    "source_kind": "official",
+    "source_url": "https://thinkspaceprojects.com/about-thinkspace",
+    "evidence_path": ".cache/evidence/los-angeles/6735b45794295420-1788488808.txt",
+    "written_ts": 1788492275,
+    "model": "claude-sonnet-5",
     "hints": [
      "Thinkspace has spent two decades championing exactly this kind of pop-surrealist, illustration-adjacent painting, and Grabelsky's meticulous, faintly melancholic style is a good fit for a gallery that treats craft and narrative as virtues rather than liabilities.",
      "The Fresh Series is Thinkspace's rolling showcase for Los Angeles-based artists, giving early-career and locally rooted creatives a rotating slot in the gallery's exhibition calendar alongside its bigger solo shows."
     ]
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2005,
+    "founders": [
+     "Andrew Hosner",
+     "L. Croskey"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "New Contemporary Art Movement",
+     "pop surrealism",
+     "street art",
+     "murals",
+     "emerging to established artists",
+     "international program"
+    ],
+    "roster_count": 58,
+    "exhibitions_total": 928,
+    "exhibitions_per_year": 8.67,
+    "first_exhibition_year": 1920,
+    "solo_share": 0.66
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788492275,
+    "crawl_pages": 300,
+    "triaged": 9,
+    "report_path": "content/venues/reports/los-angeles/thinkspace-projects.json",
+    "cost_usd": 3.5642,
     "gapfill": false
    },
    "features": {
@@ -260558,31 +260943,38 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
+    "text": "Track 16 is a Los Angeles gallery with two exhibition spaces, one in East Hollywood and one downtown in the historic Bendix Building. Sean Meredith serves as director. The program centers on a small roster of California-based and international artists working across painting, ceramics, sculpture, and installation, often engaging social and political themes—from feminist critiques of domestic craft (Elyse Pignolet) to politically charged painting (Sandow Birk, Robbie Conal) and reworked found ceramics (Debra Broz). The gallery also represents the estates of Pedro Álvarez and Simone Gad, and has shown Latin American collectives such as Mondongo. Track 16 participates in art fairs, publishes artist books under its Pinspot imprint, and has placed artists' work in institutions including LACMA, SFMOMA, and the Getty.",
+    "source_kind": "official",
+    "source_url": "https://www.track16.com/past-news",
     "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "written_ts": 1788486464,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary California art",
+     "ceramics and sculpture",
+     "political/satirical art",
+     "feminist and craft-based work",
+     "Latin American art collectives",
+     "photography and paper cutting"
+    ],
+    "roster_count": 19,
+    "exhibitions_total": 339,
+    "exhibitions_per_year": 10.27,
+    "first_exhibition_year": 1994,
+    "solo_share": 0.58
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788486464,
+    "crawl_pages": 300,
+    "triaged": 123,
+    "report_path": "content/venues/reports/los-angeles/track-16.json",
+    "cost_usd": 2.2721,
     "gapfill": false
    },
    "features": {
@@ -270876,6 +271268,12 @@
      "ts": 1788458402,
      "url": "https://vpam.org/",
      "why": "validate_homepage"
+    },
+    "candidate": {
+     "session": "deep-los-angeles-pasadena-san-gabriel-1788362074",
+     "first_url": "https://vpam.org/current-exhibitions/",
+     "ts": 1788362125,
+     "zone_source": "session"
     }
    },
    "notes": "Carla distribution: East",
@@ -272627,7 +273025,7 @@
      "candidate"
     ]
    },
-   "notes": "auto-candidate from deep-los-angeles-pasadena-san-gabriel-1788362074",
+   "notes": "auto-candidate from deep-los-angeles-pasadena-san-gabriel-1788362074 | merged into vincent-price-art-museum",
    "verification": {
     "status": null,
     "ts": null,
@@ -274911,7 +275309,9 @@
    "exhibitions_url_candidates": [
     "https://www.weinstein.com/contact"
    ],
-   "hours": [],
+   "hours": [
+    "San Francisco: Open by Appointment, please call to arrange your visit. Los Angeles: Opening soon!"
+   ],
    "phone": "415-362-8151",
    "google": {
     "status": "OPERATIONAL",
@@ -275049,31 +275449,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Weinstein Gallery was founded in San Francisco in 1992 by Rowland Weinstein, with a focus on non-objective and surrealist art spanning pre-war Europe through the New York School and Abstract Expressionism. The gallery represents the estates of Rudolf Bauer and Juanita Guccione, and is known for championing women of the surrealist movement, including Leonor Fini, Leonora Carrington, Kay Sage, Stella Snead, Remedios Varo and Dorothea Tanning. It has also worked to revive attention to understudied artists such as Enrico Donati, Jimmy Ernst, Gordon Onslow Ford, Gerome Kamrowski and Kurt Seligmann through exhibitions, publications and museum loans. In Spring 2026 the gallery plans to open a project space in Los Angeles devoted to contemporary art, performance and multidisciplinary programming, extending its historical program into a dialogue with the present day.",
+    "source_kind": "official",
+    "source_url": "https://www.weinstein.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/189d7c4bd23aaff2-1788487858.txt",
+    "written_ts": 1788488852,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
-    "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "founded_year": 1992,
+    "founders": [
+     "Rowland Weinstein"
+    ],
+    "locations_elsewhere": [
+     "San Francisco"
+    ],
+    "program_focus": [
+     "non-objective art",
+     "surrealism",
+     "abstract expressionism",
+     "women of surrealism",
+     "pre-war European to New York School art",
+     "contemporary art (LA project space)"
+    ],
+    "roster_count": 41,
+    "exhibitions_total": 17,
+    "exhibitions_per_year": 1.21,
+    "first_exhibition_year": 2011,
+    "solo_share": 0.65
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788488852,
+    "crawl_pages": 300,
+    "triaged": 6,
+    "report_path": "content/venues/reports/los-angeles/weinstein.json",
+    "cost_usd": 0.1517,
     "gapfill": false
    },
    "features": {
@@ -278483,33 +278894,42 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "Wönzimer is an independent gallery in Lincoln Heights, Los Angeles, founded by Swiss artist Alaïa Parhizi and American entrepreneur Aidan Nelson. Its German name, meaning \"living room,\" reflects the founders' aim to create an intimate, home-like exhibition space rather than a conventional white-box gallery. The gallery represents thirteen artists working across painting, sculpture, and mixed media, and presents both solo shows and thematic group exhibitions that bring together established and emerging voices, including international projects. Beyond exhibitions, Wönzimer runs W.A.R.P., an artist residency program with on-site studios, and hosts artist talks, poetry readings, music, film screenings, and other cross-disciplinary programming. The space includes a hidden bookshelf leading to a lounge, continuing the gallery's living-room concept. Wönzimer has operated from earlier locations in Koreatown and downtown Los Angeles before settling in its current Lincoln Heights space.",
+    "source_kind": "official",
+    "source_url": "https://www.wonzimer.com/about",
+    "evidence_path": ".cache/evidence/los-angeles/2a8a9b0b8d5e7bb6-1788478761.txt",
+    "written_ts": 1788480167,
+    "model": "claude-sonnet-5",
     "hints": [
      "It's a gallery known for community-minded, artist-heavy group shows in a converted industrial space in Lincoln Heights, and this one continues that pattern"
     ]
    },
    "facts": {
     "founded_year": null,
-    "founders": [],
+    "founders": [
+     "Alaïa Parhizi",
+     "Aidan Nelson"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": null,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "emerging and established contemporary artists",
+     "solo and thematic group exhibitions",
+     "cross-disciplinary programming (music, poetry, film)",
+     "sculpture and painting",
+     "artist residency program (W.A.R.P.)"
+    ],
+    "roster_count": 13,
+    "exhibitions_total": 85,
+    "exhibitions_per_year": 12.14,
+    "first_exhibition_year": 2020,
+    "solo_share": 0.29
    },
    "research": {
-    "ts": null,
-    "crawl_pages": null,
-    "triaged": null,
-    "report_path": null,
-    "cost_usd": null,
+    "ts": 1788480167,
+    "crawl_pages": 300,
+    "triaged": 161,
+    "report_path": "content/venues/reports/los-angeles/wonzimer.json",
+    "cost_usd": 0.5637,
     "gapfill": false
    },
    "features": {

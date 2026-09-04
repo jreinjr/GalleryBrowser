@@ -1,0 +1,130 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "dominique-porter",
+ "name": "Dominique Porter Gallery",
+ "website": "https://www.dominiqueporter.com",
+ "generated_ts": 1788487652,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0495,
+ "crawl": {
+  "pages": 56,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/dominique-porter.jsonl"
+ },
+ "about_text": "Dominique Porter Gallery is a contemporary art gallery in Los Angeles presenting emerging and mid-career artists working across painting, sculpture, and installation. Established in 2026, the gallery supports practices marked by sustained material exploration, formal invention, and individual vision. Its program is built around exhibitions, projects, and collaborations intended to give artists room to develop ambitious work and to engage in dialogue with one another and with wider cultural conversations. The gallery describes its approach as artist-centered, bringing together a range of practices while keeping exhibition-making thoughtful and considered rather than driven by a single house style.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.dominiqueporter.com/about"
+ ],
+ "founded_year": 2026,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Los Angeles",
+   "address": "3025 Fierro Street, Los Angeles, CA 90065",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "emerging and mid-career artists",
+  "painting",
+  "sculpture",
+  "installation",
+  "material exploration"
+ ],
+ "hours_text": "Thursday-Saturday 12pm-4pm and By appointment",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Soon You Will Be Home",
+   "artists": [
+    "Vanessa Chow",
+    "Josh Cloud",
+    "Rose Dickson",
+    "Nancy Friedland",
+    "Hopie Hill",
+    "Michael Hilsman",
+    "Raina Lee",
+    "Jeremy Shockley",
+    "Sarah Smiley"
+   ],
+   "start": "2026-04-18",
+   "end": "2026-05-30",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.dominiqueporter.com/exhibitions/9-soon-you-will-be-home-vanessa-chow-josh-cloud-rose-dickson-nancy-friedland"
+  },
+  {
+   "title": "Accent Builders",
+   "artists": [
+    "Will Bruno",
+    "Preston Daniels",
+    "Greg Eberhardt",
+    "Rod Fahmian",
+    "Caleb Lyons",
+    "Kathryn Scanlan",
+    "Jeremy Shockley",
+    "Pat Strand"
+   ],
+   "start": "2026-07-11",
+   "end": "2026-08-15",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.dominiqueporter.com/exhibitions/10-accent-builders-will-bruno-preston-daniels-greg-eberhardt-rod-fahmian"
+  },
+  {
+   "title": "Stalking the Wild Pendulum",
+   "artists": [
+    "Ramiro Hernandez"
+   ],
+   "start": "2026-09-12",
+   "end": "2026-10-24",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.dominiqueporter.com/exhibitions/11-ramiro-hernandez-stalking-the-wild-pendulum"
+  }
+ ],
+ "fairs_self_reported": [
+  "Armory Show Preview, New York"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Artforum",
+   "year": 2026,
+   "url": "https://www.dominiqueporter.com/news/5-artforum-new-summer-show"
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Viewing room and news pages list artists/works from specific exhibitions but do not present a formal artists roster, so no roster entries were extracted. Placeholder/lorem ipsum text appears in one news item.",
+ "triage": {
+  "labels": {
+   "https://www.dominiqueporter.com/about": "about",
+   "https://www.dominiqueporter.com/contact": "contact_hours",
+   "https://www.dominiqueporter.com/exhibitions": "exhibitions_current",
+   "https://www.dominiqueporter.com/news": "news",
+   "https://www.dominiqueporter.com/viewing-room": "fairs",
+   "https://www.dominiqueporter.com/exhibitions/10-accent-builders-will-bruno-preston-daniels-greg-eberhardt-rod-fahmian": "exhibition_page",
+   "https://www.dominiqueporter.com/news/4-news-title-subtitle": "news",
+   "https://www.dominiqueporter.com/exhibitions/11-ramiro-hernandez-stalking-the-wild-pendulum": "exhibition_page",
+   "https://www.dominiqueporter.com/news/5-artforum-new-summer-show": "news",
+   "https://www.dominiqueporter.com/viewing-room/2-armory-show-preview-new-york": "fairs",
+   "https://www.dominiqueporter.com/exhibitions/9-soon-you-will-be-home-vanessa-chow-josh-cloud-rose-dickson-nancy-friedland": "exhibition_page",
+   "https://www.dominiqueporter.com/artists": "roster_index",
+   "https://www.dominiqueporter.com/exhibitions/past": "exhibitions_archive"
+  },
+  "site_notes": "Site is organised around Exhibitions, Artworks, Viewing Room and News sections rather than a dedicated artist roster; individual exhibition pages appear undated/sparse, and no clear past-exhibitions archive or artist roster index was found in the inventory.",
+  "fetch_more": [
+   "https://www.dominiqueporter.com/artists",
+   "https://www.dominiqueporter.com/exhibitions/past"
+  ]
+ },
+ "errors": [],
+ "duration_s": 267.2
+}

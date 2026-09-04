@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+from unittest import mock
 from datetime import date
 from pathlib import Path
 
@@ -244,3 +245,39 @@ class Params(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DuplicateRecords(unittest.TestCase):
+    """venues.duplicate_pairs: same name merges, a branch never does."""
+
+    def _reg(self, rows):
+        return {"schema": 2, "city": "tokyo", "venues": rows}
+
+    def _v(self, vid, name, site, rank=None):
+        v = venues.empty_venue(vid, name)
+        v["website"], v["rank"] = site, rank
+        return v
+
+    def test_same_name_spaced_differently_merges(self):
+        rows = [self._v("shugoarts", "ShugoArts", "http://shugoarts.com/", 1),
+                self._v("shugo-arts", "Shugo Arts", "http://shugoarts.com/", 50)]
+        with mock.patch.object(venues, "load_registry", return_value=self._reg(rows)):
+            merge, review = venues.duplicate_pairs("tokyo")
+        self.assertEqual([(k["id"], d["id"]) for k, d in merge], [("shugoarts", "shugo-arts")])
+        self.assertFalse(review)
+
+    def test_branch_is_reported_not_merged(self):
+        rows = [self._v("kotaro-nukaga", "KOTARO NUKAGA", "https://kotaronukaga.com", 1),
+                self._v("kotaro-nukaga-tennoz", "KOTARO NUKAGA Tennoz", "https://kotaronukaga.com", 40)]
+        with mock.patch.object(venues, "load_registry", return_value=self._reg(rows)):
+            merge, review = venues.duplicate_pairs("tokyo")
+        self.assertFalse(merge)
+        self.assertEqual([(k["id"], d["id"]) for k, d in review],
+                         [("kotaro-nukaga", "kotaro-nukaga-tennoz")])
+
+    def test_acronym_merges(self):
+        rows = [self._v("vincent-price-art-museum", "Vincent Price Art Museum", "https://vpam.org", 1),
+                self._v("vpam", "VPAM", "https://vpam.org", 90)]
+        with mock.patch.object(venues, "load_registry", return_value=self._reg(rows)):
+            merge, _ = venues.duplicate_pairs("tokyo")
+        self.assertEqual([d["id"] for _, d in merge], ["vpam"])

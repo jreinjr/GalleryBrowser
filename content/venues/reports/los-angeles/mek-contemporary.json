@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "mek-contemporary",
+ "name": "Mek Contemporary",
+ "website": "https://www.mekcontemporary.com/",
+ "generated_ts": 1788484331,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.016,
+ "crawl": {
+  "pages": 8,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": false,
+  "index_path": ".cache/crawl/los-angeles/mek-contemporary.jsonl"
+ },
+ "about_text": "Mek Contemporary is a Los Angeles–based gallery presenting contemporary artists working across disciplines and geographies. The program pays particular attention to work engaging memory, migration, displacement, place, identity, and cultural inheritance, favoring artists with distinctive approaches to form, material, and image. The gallery emphasizes close attention to each artist and body of work, developing focused exhibitions and publications alongside sustained relationships with artists, collectors, institutions, and audiences. Through this approach, Mek aims to extend conversations sparked by the work beyond the exhibition space itself, treating each show as part of an ongoing dialogue rather than an isolated event.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.mekcontemporary.com/about"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Glendale, CA",
+   "address": "416 E. Colorado St., Glendale, CA 91205",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "memory and migration",
+  "displacement and identity",
+  "cultural inheritance",
+  "cross-disciplinary contemporary art"
+ ],
+ "hours_text": "Wednesday — Saturday: 11 am - 5 pm",
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Idols In Bloom",
+   "artists": [
+    "Rafael Megall"
+   ],
+   "start": "2026-09-24",
+   "end": "2026-11-06",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.mekcontemporary.com/rafael-megall-idols-in-bloom"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [
+  "Gallery Association Los Angeles"
+ ],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://www.mekcontemporary.com/about": "about",
+   "https://www.mekcontemporary.com/contact": "contact_hours",
+   "https://www.mekcontemporary.com/exhibitions": "exhibitions_archive",
+   "https://www.mekcontemporary.com/upcoming": "exhibitions_current",
+   "https://www.mekcontemporary.com/rafael-megall-idols-in-bloom": "exhibition_page",
+   "https://www.mekcontemporary.com/artists": "roster_index"
+  },
+  "site_notes": "Small gallery site with separate current (upcoming) and past (exhibitions) listings, plus individual exhibition pages; no dedicated artist roster page was found in the inventory though one may exist in navigation.",
+  "fetch_more": [
+   "https://www.mekcontemporary.com/artists"
+  ]
+ },
+ "errors": [],
+ "duration_s": 69.3
+}

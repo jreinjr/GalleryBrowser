@@ -1,0 +1,350 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "galerie-a",
+ "name": "galerie-a",
+ "website": "https://galerie-a.jp/",
+ "generated_ts": 1788483092,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1229,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/galerie-a.jsonl"
+ },
+ "about_text": "galerie a is a Tokyo project founded in 2020 by Nobuhiko Akiyoshi, a former buyer and wholesale agent who had worked for over a decade with domestic and international fashion designers before launching this gallery. Conceived during the COVID-19 pandemic, it operates as an online gallery that also stages physical, short-run exhibitions in Akiyoshi's own space, allowing visitors to experience works in person during limited open-gallery days. The program focuses on introducing Japan-based makers working by hand, spanning leather craft, textile sculpture, woodwork, and photography-informed leather goods, with an emphasis on artisans who pursue original, material-driven expression.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://galerie-a.jp/about"
+ ],
+ "founded_year": 2020,
+ "founders": [
+  "Nobuhiko Akiyoshi"
+ ],
+ "directors": [
+  "Nobuhiko Akiyoshi"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": null,
+   "since": 2020,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "handmade Japanese crafts",
+  "leather goods",
+  "textile sculpture",
+  "woodwork",
+  "emerging Japanese makers"
+ ],
+ "hours_text": null,
+ "roster": [
+  {
+   "name": "Daisuke Motoike",
+   "status": "represented",
+   "source_url": "https://galerie-a.jp/artist"
+  },
+  {
+   "name": "Laurent Stephan (ACCALMIE)",
+   "status": "represented",
+   "source_url": "https://galerie-a.jp/artist"
+  },
+  {
+   "name": "Masayuki Kinuta",
+   "status": "represented",
+   "source_url": "https://galerie-a.jp/artist"
+  },
+  {
+   "name": "Yosuke Urakami",
+   "status": "represented",
+   "source_url": "https://galerie-a.jp/artist"
+  },
+  {
+   "name": "Madoki Yamasaki",
+   "status": "represented",
+   "source_url": "https://galerie-a.jp/artist"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "Diary/Dialogue",
+   "artists": [
+    "Daisuke Motoike"
+   ],
+   "start": "2020-09-10",
+   "end": "2020-09-27",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Timeless",
+   "artists": [
+    "Laurent Stephan"
+   ],
+   "start": "2020-12-01",
+   "end": "2020-12-20",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Pause or Pose ?",
+   "artists": [
+    "Masayuki Kinuta"
+   ],
+   "start": "2021-03-15",
+   "end": "2021-04-04",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "use-less",
+   "artists": [
+    "Yosuke Urakami"
+   ],
+   "start": "2021-06-19",
+   "end": "2021-07-04",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Overlaid",
+   "artists": [
+    "Daisuke Motoike"
+   ],
+   "start": "2021-09-03",
+   "end": "2021-09-19",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Obsession",
+   "artists": [
+    "Masayuki Kinuta"
+   ],
+   "start": "2021-10-29",
+   "end": "2021-11-14",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "ecran total",
+   "artists": [
+    "Laurent Stephan"
+   ],
+   "start": "2022-01-15",
+   "end": "2022-01-30",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "a bard",
+   "artists": [
+    "Madoki Yamasaki"
+   ],
+   "start": "2022-07-28",
+   "end": "2022-08-14",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "face to face",
+   "artists": [
+    "Yosuke Urakami"
+   ],
+   "start": "2022-11-03",
+   "end": "2022-11-13",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Primalmemories",
+   "artists": [
+    "Daisuke Motoike"
+   ],
+   "start": "2022-12-09",
+   "end": "2022-12-18",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "LIFE",
+   "artists": [
+    "Masayuki Kinuta"
+   ],
+   "start": "2023-01-07",
+   "end": "2023-01-15",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "migration",
+   "artists": [
+    "Laurent Stephan"
+   ],
+   "start": "2023-02-10",
+   "end": "2023-02-19",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "hyphenated",
+   "artists": [
+    "Madoki Yamasaki"
+   ],
+   "start": "2023-08-03",
+   "end": "2023-08-13",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Tones on Tones",
+   "artists": [
+    "Daisuke Motoike"
+   ],
+   "start": "2023-10-13",
+   "end": "2023-10-22",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Draw the Edge",
+   "artists": [
+    "Kana Ueda"
+   ],
+   "start": "2023-11-10",
+   "end": "2023-11-19",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "side by side",
+   "artists": [
+    "Yosuke Urakami"
+   ],
+   "start": "2023-12-08",
+   "end": "2023-12-17",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "DISTANCE",
+   "artists": [
+    "Laurent Stephan"
+   ],
+   "start": "2024-05-10",
+   "end": "2024-05-19",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Unvoiced",
+   "artists": [
+    "Madoki Yamasaki"
+   ],
+   "start": "2024-08-23",
+   "end": "2024-09-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "something different",
+   "artists": [
+    "Yosuke Urakami"
+   ],
+   "start": "2024-11-22",
+   "end": "2024-12-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "Overlaid Edition2",
+   "artists": [
+    "Daisuke Motoike"
+   ],
+   "start": "2025-05-16",
+   "end": "2025-05-25",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "VERTIGE",
+   "artists": [
+    "Laurent Stephan"
+   ],
+   "start": "2025-08-08",
+   "end": "2025-08-17",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  },
+  {
+   "title": "new era",
+   "artists": [
+    "Madoki Yamasaki"
+   ],
+   "start": "2025-11-14",
+   "end": "2025-11-30",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "http://galerie-a.jp/exhibition"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": null,
+ "triage": {
+  "labels": {
+   "https://galerie-a.jp/exhibition": "exhibitions_archive",
+   "http://galerie-a.jp/exhibition": "exhibitions_archive",
+   "http://galerie-a.jp/exhibition?lang=ko": "exhibitions_archive",
+   "http://galerie-a.jp/exhibition?lang=zh-hans": "exhibitions_archive",
+   "http://galerie-a.jp/exhibition?lang=en": "exhibitions_archive",
+   "https://galerie-a.jp/artist": "roster_index",
+   "http://galerie-a.jp/artist": "roster_index",
+   "http://galerie-a.jp/artist?lang=en": "roster_index",
+   "http://galerie-a.jp/artist?lang=ko": "roster_index",
+   "http://galerie-a.jp/artist?lang=zh-hans": "roster_index",
+   "https://galerie-a.jp/about": "about",
+   "http://galerie-a.jp/about": "about",
+   "http://galerie-a.jp/about?lang=zh-hans": "about",
+   "http://galerie-a.jp/about?lang=ko": "about",
+   "http://galerie-a.jp/about?lang=en": "about",
+   "https://galerie-a.jp/contact": "contact_hours",
+   "http://galerie-a.jp/contact": "contact_hours",
+   "http://galerie-a.jp/contact?lang=ko": "contact_hours",
+   "http://galerie-a.jp/contact?lang=zh-hans": "contact_hours",
+   "http://galerie-a.jp/contact?lang=en": "contact_hours"
+  },
+  "site_notes": "The site is a WordPress/ecommerce hybrid with a single 'exhibition' page (25 dates) serving as the full exhibitions archive and a single 'artist' page serving as the roster index; the vast majority of the 300 crawled URLs are per-exhibition micro-pages (order/works/interview/sadler/story sub-pages) duplicated across four language query parameters (en/ko/zh-hans/default), which are redundant with the archive listing and thus left as 'other'.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1171.3
+}

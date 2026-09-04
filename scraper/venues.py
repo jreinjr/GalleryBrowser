@@ -1375,16 +1375,160 @@ def apply_requeue(city: str, cohorts: dict[str, list[str]], today: date | None =
     return n
 
 
+# --- duplicate venue records ----------------------------------------------------
+# Two records for one gallery split its evidence (ShugoArts held fairs on one id
+# and the website on another) and would buy two scrape sessions. A shared
+# registrable domain is the signal; the danger is real BRANCHES, which share a
+# domain too and genuinely run their own shows (Mizuma Ichigaya, Whitestone
+# Ginza, Kotaro Nukaga Tennoz). So a merge needs the names to agree once
+# corporate noise is stripped, and neither name may carry a token the other
+# lacks — that leftover token is what makes a branch a branch.
+
+CORP_WORDS = {"gallery", "galleries", "galerie", "gallerie", "fine", "art", "arts", "the",
+              "inc", "ltd", "co", "llc", "and", "projects", "project", "contemporary",
+              "studio", "tokyo", "la", "losangeles"}
+
+
+def _name_tokens(name: str) -> set[str]:
+    return {t for t in re.split(r"[\W_]+", (name or "").lower()) if t} - CORP_WORDS
+
+
+def _district_tokens(city: str) -> set[str]:
+    """Every district/zone word the city config knows — the vocabulary that
+    distinguishes a branch ('Kotaro Nukaga Tennoz') from a spelling variant."""
+    from cities import CITIES
+    cfg = CITIES.get(city) or {}
+    words: set[str] = set()
+    for zone in cfg.get("neighborhoods") or []:
+        words |= {t for t in re.split(r"[\W_]+", zone.lower()) if t}
+    for zone in (cfg.get("zones") or {}).values():
+        for area in (zone.get("areas") or []):
+            words |= {t for t in re.split(r"[\W_]+", str(area).lower()) if t}
+    words |= {t for t in (cfg.get("zone_aliases") or {})}
+    words |= {"annex", "branch", "east", "west", "north", "south", "main", "new", "old"}
+    words |= {w for w in words if w}
+    return {w for w in words - CORP_WORDS if len(w) > 2}
+
+
+def _full_tokens(name: str) -> list[str]:
+    """Every word of the name in order, articles aside — corporate words stay,
+    because 'Arts' is what makes 'Shugo Arts' the same name as 'ShugoArts' and
+    the 'A' of 'Vincent Price Art Museum' is what makes the acronym VPAM."""
+    return [t for t in re.split(r"[\W_]+", (name or "").lower()) if t and t not in ("the", "and")]
+
+
+def _letters(name: str) -> str:
+    return "".join(_full_tokens(name))
+
+
+def _acronym_of(name: str) -> str:
+    return "".join(t[0] for t in _full_tokens(name))
+
+
+def duplicate_pairs(city: str) -> tuple[list[tuple[dict, dict]], list[tuple[dict, dict]]]:
+    """(mergeable, review) same-domain record pairs.
+
+    Mergeable when the two names say the same thing: identical token sets after
+    stripping corporate noise, one a subset of the other with no DISTRICT word
+    among the extras, or one an acronym of the other ('VPAM' / 'Vincent Price
+    Art Museum'). A leftover district word means a real branch with its own
+    shows, and those are only reported."""
+    districts = _district_tokens(city)
+    reg = load_registry(city)
+    by_dom: dict[str, list[dict]] = {}
+    for v in reg["venues"]:
+        d = registrable_domain(v.get("website"))
+        if d:
+            by_dom.setdefault(d, []).append(v)
+    merge, review = [], []
+    for group in by_dom.values():
+        if len(group) < 2:
+            continue
+        group = sorted(group, key=lambda v: (v.get("rank") if v.get("rank") is not None else 10**6,
+                                             -(len(v.get("last_known_shows") or [])), v["id"]))
+        keep = group[0]
+        kt = _name_tokens(keep["name"])
+        for other in group[1:]:
+            ot = _name_tokens(other["name"])
+            # Merge only where the two names are the SAME NAME: equal token sets,
+            # the same letters spaced differently ("Shugo Arts" / "ShugoArts"),
+            # or an acronym of the other ("VPAM" / "Vincent Price Art Museum").
+            # Anything with a distinguishing word is reported, never merged —
+            # a branch (Kotaro Nukaga Tennoz, Whitestone Ginza) runs its own
+            # shows and a wrong merge silently deletes a venue from the guide.
+            same = (kt == ot or not ot or not kt
+                    or _letters(keep["name"]) == _letters(other["name"])
+                    or _acronym_of(keep["name"]) == _letters(other["name"])
+                    or _acronym_of(other["name"]) == _letters(keep["name"]))
+            (merge if same else review).append((keep, other))
+    return merge, review
+
+
+def merge_duplicate(city: str, keep_id: str, drop_id: str) -> None:
+    """Fold `drop` into `keep`: aliases, seed sources, evidence of prestige, and
+    any field `keep` lacks; `drop` becomes status 'duplicate' (due_venues and the
+    ranker already skip that status) with a pointer."""
+    with locked_registry(city) as reg:
+        by = index_by_id(reg)
+        keep, drop = by.get(keep_id), by.get(drop_id)
+        if not keep or not drop:
+            return
+        aliases = set(keep.get("aliases") or []) | {drop["name"]} | set(drop.get("aliases") or [])
+        keep["aliases"] = sorted(a for a in aliases if a and a != keep["name"])
+        for field in ("website", "address", "address_detail", "neighborhood", "phone",
+                      "exhibitions_url", "latitude", "longitude", "google", "hours"):
+            if not keep.get(field) and drop.get(field):
+                keep[field] = drop[field]
+        ks, ds = keep.setdefault("sources", {}), drop.get("sources") or {}
+        for k, v in ds.items():
+            if k == "seed" and isinstance(v, dict):
+                ks.setdefault("seed", {}).update({kk: vv for kk, vv in v.items()
+                                                  if kk not in ks.get("seed", {})})
+            elif k not in ks or not ks[k]:
+                ks[k] = v
+        if drop.get("last_known_shows"):
+            merge_patch(keep, {"last_known_shows": drop["last_known_shows"]})
+        drop["status"] = "duplicate"
+        drop["notes"] = ((drop.get("notes") or "") + f" | merged into {keep_id}").strip(" |")
+        drop["next_check"] = None
+
+
+def cmd_dedupe(city: str, apply: bool = False) -> dict:
+    """Report same-domain duplicate records; --apply merges only the safe ones
+    and writes the rest to content/venues/review-duplicates-<city>.json."""
+    merge, review = duplicate_pairs(city)
+    for keep, drop in merge:
+        print(f"  merge {drop['id']:34} -> {keep['id']}")
+    for keep, drop in review:
+        print(f"  review {drop['id']:33} vs {keep['id']}  (branch or rebrand: decide by hand)")
+    out = {"city": city, "ts": int(time.time()),
+           "review": [{"keep": k["id"], "keep_name": k["name"], "drop": d["id"],
+                       "drop_name": d["name"], "website": k.get("website")} for k, d in review]}
+    if apply:
+        for keep, drop in merge:
+            merge_duplicate(city, keep["id"], drop["id"])
+        p = VENUES_DIR / f"review-duplicates-{city}.json"
+        p.write_text(json.dumps(out, indent=1, ensure_ascii=False))
+        print(f"merged {len(merge)}; {len(review)} left for review -> {p}")
+    return {"merged": len(merge) if apply else 0, "review": len(review)}
+
+
 def main() -> None:
     import argparse
     from cities import CITIES
     ap = argparse.ArgumentParser(description="venue registry maintenance")
     sub = ap.add_subparsers(dest="cmd", required=True)
+    dd = sub.add_parser("dedupe", help="merge same-domain duplicate records (dry-run by default)")
+    dd.add_argument("--city", required=True, choices=sorted(CITIES))
+    dd.add_argument("--apply", action="store_true")
     rq = sub.add_parser("requeue", help="mark registry-derived cohorts due today (dry-run by default)")
     rq.add_argument("--city", required=True, choices=sorted(CITIES))
     rq.add_argument("--apply", action="store_true", help="write next_check/requeue_reasons")
     rq.add_argument("--cohorts", default=None, help="comma subset of the cohort names")
     args = ap.parse_args()
+    if args.cmd == "dedupe":
+        cmd_dedupe(args.city, args.apply)
+        return
     if args.cmd == "requeue":
         cohorts = requeue_cohorts(args.city)
         if args.cohorts:

@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "yod",
+ "name": "YOD Gallery",
+ "website": "https://www.yodgallery.com/en/",
+ "generated_ts": 1788479542,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1457,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/yod.jsonl"
+ },
+ "about_text": "YOD Gallery is a contemporary art gallery based in Osaka, with an additional space in Tokyo. Its original space in Osaka's Shinmei Building opened in 2008 and closed in 2023 after fifteen years of exhibitions. The gallery's program has featured Japanese and international artists working in sculpture, ceramics, printmaking and installation, including an annual series called \"Contiguous Zone\" that introduces foreign artists' work in dialogue with Japanese sensibility. Exhibiting artists have included iron sculptor Takehito Fujii and printmaker/sculptor Masashi Hattori, alongside French artists such as Agathe de Bailliencourt, Catherine Gianola and Armel Barraud. The gallery has presented both solo and group shows exploring cross-cultural exchange and material-based practice.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://www.yodgallery.com/en/japan-exhibitions-15"
+ ],
+ "founded_year": 2008,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Osaka",
+   "address": "Shinmei Building",
+   "since": 2008,
+   "current": false
+  },
+  {
+   "city": "Tokyo",
+   "address": null,
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "sculpture",
+  "printmaking",
+  "ceramics",
+  "installation",
+  "French-Japanese cultural exchange"
+ ],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "Site content available is mostly individual exhibition pages rather than a dedicated 'About' or 'Artists roster' page, so roster, founders, hours, and press/fair/membership info could not be confirmed.",
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 770.4
+}

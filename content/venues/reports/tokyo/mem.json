@@ -1,0 +1,128 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "mem",
+ "name": "MEM",
+ "website": "https://mem-inc.jp",
+ "generated_ts": 1788479305,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1855,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/tokyo/mem.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "MEM (NADiff A/P/A/R/T 3F)",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Osaka",
+   "address": null,
+   "since": null,
+   "current": false
+  }
+ ],
+ "program_focus": [
+  "postwar Japanese photography",
+  "konpora/straight photography movement",
+  "artist estates",
+  "photography club histories",
+  "contemporary Japanese art"
+ ],
+ "hours_text": "13:00 – 19:00, closed on Mondays (except when Monday falls on a holiday, in which case closed the following day)",
+ "roster": [
+  {
+   "name": "Ken Kitano",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Yasue Kodama",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Chiyuki Sakagami",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Natsuko Tanihara",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Chie Matsui",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Yasumasa Morimura",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Shigeru Onishi",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Gen Otsuka",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Naniwa Photography Club",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  },
+  {
+   "name": "Tampei Photography Club",
+   "status": "exhibited",
+   "source_url": "https://mem-inc.jp/books_e"
+  }
+ ],
+ "exhibitions": [],
+ "fairs_self_reported": [
+  "ART OSAKA 2026",
+  "ART FAIR TOKYO 2026",
+  "Art Basel Hong Kong 2018",
+  "Paris Photo 2016",
+  "Paris Photo 2017",
+  "Paris Photo 2018",
+  "Paris Photo 2019",
+  "The Photography Show presented by AIPAD 2018"
+ ],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "Art Asia Pacific magazine",
+   "year": 2005,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "No explicit 'About' page text was found in the supplied pages, so about_text, founded_year, founders, and directors could not be determined. Roster entries were drawn from the 'Artists' list on the Publications (books_e) page; no artists were explicitly labeled 'represented' or 'estate' on that page, so all are marked 'exhibited'. Osaka location inferred from a 2005 exhibition reference ('MEM, Osaka'); no address or dates given, and it is presumed no longer current since only the Tokyo (NADiff A/P/A/R/T) space is referenced in later material.",
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 3903.2
+}

@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "city": "tokyo",
+ "venue_id": "gallery-x-by-parco",
+ "name": "GALLERY X BY PARCO",
+ "website": "http://www.parco-art.com/",
+ "generated_ts": 1788484456,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.016,
+ "crawl": {
+  "pages": 1,
+  "sitemap": false,
+  "rendered": false,
+  "truncated": false,
+  "index_path": ".cache/crawl/tokyo/gallery-x-by-parco.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [
+  {
+   "city": "Tokyo (Shibuya)",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo (Ikebukuro)",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Sapporo",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Sendai",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Shizuoka",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Hiroshima",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Fukuoka",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Nagoya",
+   "address": null,
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Shinsaibashi",
+   "address": null,
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "The supplied page is an event listing/calendar for PARCO ART's various spaces (including GALLERY X BY PARCO in Shibuya) with no descriptive 'about' text, founding information, directors, roster, hours, fairs, memberships, or press mentions. Only the venue names and cities could be extracted as locations.",
+ "triage": {
+  "labels": {},
+  "site_notes": "Only the homepage was crawled; no roster, exhibition, or contact subpages are present in the inventory, so structure cannot be determined without further crawling.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 20.8
+}

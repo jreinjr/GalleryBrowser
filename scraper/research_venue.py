@@ -451,6 +451,7 @@ def select_venues(city: str, ids: list[str] | None, limit: int | None, force: bo
 
 TRIAGE_BATCH = 120     # inventory rows per triage call
 MIN_USABLE_PAGES = 2   # fewer readable pages than this = transport failure, retry later
+EXHIBITIONS_CAP = 300  # stop chunking an archive past this many shows
 
 
 def triage(client, idx: crawl.CrawlIndex, venue: dict, meter: Meter, max_rows: int = 400) -> tuple[dict[int, str], list[FetchMore], str, float, str | None]:
@@ -698,7 +699,8 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
                  "locations": [], "program_focus": [], "hours_text": None, "roster": [],
                  "exhibitions": [], "fairs_self_reported": [], "memberships_self_reported": [],
                  "press_self_reported": [], "claims_supported": True, "unsupported_claims": [],
-                 "notes": None, "triage": {"labels": {}, "site_notes": "", "fetch_more": []},
+                 "notes": None, "exhibitions_truncated": False,
+                 "triage": {"labels": {}, "site_notes": "", "fetch_more": []},
                  "errors": []}
     cost = 0.0
     # 1. crawl
@@ -774,6 +776,13 @@ def research_one(client, city: str, venue: dict, meter: Meter, args, session: st
             return c
 
         for ch in chunks:
+            if sum(len(x) for x in lists) >= EXHIBITIONS_CAP:
+                # Rental galleries (貸画廊) list hundreds of week-long shows:
+                # Gallery Le Deco alone yielded 1660 exhibitions for $8.15, and
+                # ten such venues took a third of a whole run's budget. Cadence
+                # and first-year saturate long before this, so stop and say so.
+                rep["exhibitions_truncated"] = True
+                break
             cost += extract(ch)
         rep["exhibitions"] = merge_exhibitions(lists)
         log(f"  [{vid}] compile: roster {len(rep['roster'])}, exhibitions {len(rep['exhibitions'])} "
