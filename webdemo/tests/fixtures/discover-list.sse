@@ -1,0 +1,17 @@
+event: status
+data: {"phase":"think","label":"Thinking"}
+
+event: status
+data: {"phase":"tool","name":"find_shows","label":"Searching: ceramics · Chinatown/East LA"}
+
+event: text
+data: {"delta":"Three shows in Chinatown lean on clay right now, "}
+
+event: text
+data: {"delta":"led by the Wonzimer group show."}
+
+event: list
+data: {"title":"Ceramics in Chinatown","kind":"list","entries":[{"id":"los-angeles/bel-ami-cars-of-los-angeles","note":"Fired-clay pieces sit among the car works."},{"id":"los-angeles/deitch-urs-fischer","note":"Fischer's clay-scape history, if you widen out."}],"suggestions":["Only galleries","Open on Sunday","Add West Hollywood"],"dropped":[]}
+
+event: done
+data: {"iterations":2,"web_uses":0,"nudged":false,"model":"mock","effort":"medium","usage":{"input_tokens":1200,"output_tokens":180,"cache_read_input_tokens":6000,"cache_creation_input_tokens":0},"cost_usd":0.012}

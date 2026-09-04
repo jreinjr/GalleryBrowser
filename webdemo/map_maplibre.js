@@ -19,15 +19,22 @@
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
     'HanWangHeiLight Regular', 'NanumBarunGothic Regular'];
-  const CLICK_LAYERS = ['gal-dot', 'gal-label'];
+  const CLICK_LAYERS = ['gal-dot', 'gal-label', 'ctx-dot', 'ctx-label'];
+  // A list as context: its venues in blue over a dimmed backdrop; a route
+  // list also draws a dashed line through the stops in order.
+  const CTX = 'ctx';
+  const CTX_LAYERS = ['ctx-line', 'ctx-dim', 'ctx-dot', 'ctx-num', 'ctx-label'];
+  const GAL_LAYERS = ['gal-dot', 'gal-label'];
 
   // venueKey(venue) -> string groups shows that share a venue (one dot per venue).
   // venueTier(venue) -> 'top' | 'notable' | 'listed'.
   // onVenueTap(venue, shows) opens the venue page.
-  window.DemoMap = function ({ getCity, getShows, venueKey, venueTier, onVenueTap }) {
+  // getContext() -> null | { list: {kind}, shows: [ordered list shows], backdrop: [other shows] }
+  window.DemoMap = function ({ getCity, getShows, venueKey, venueTier, onVenueTap, getContext }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
+    let ctxKey = null;          // which list the context source currently shows
 
     function cityBounds(c) {
       const half = c.span / 2;
@@ -60,8 +67,35 @@
     }
     const tierOrder = ['match', ['get', 'tier'], 'top', 0, 'notable', 1, 2];
 
+    // Context features: the list's venues as numbered stops (a route) or
+    // plain highlighted dots, other venues of the filter as dim grey, and for
+    // a route a LineString through the stops. Stops within ~60 m merge into
+    // one pin labelled "1·2" so two galleries in one building read as one.
+    function buildContextGeoJSON(ctx) {
+      const stops = []; const keys = new Set();
+      ctx.shows.forEach(s => {
+        const v = s.venue, key = venueKey(v);
+        const g = groups.get(key); if (g) { /* also in the filtered set */ }
+        if (keys.has(key)) return;
+        keys.add(key);
+        const near = stops.find(f => Math.abs(f.geometry.coordinates[0] - v.lng) < 0.0006 && Math.abs(f.geometry.coordinates[1] - v.lat) < 0.0006);
+        if (near) { near.properties.stop += '·' + (stops.length + near.properties.merged + 1); near.properties.merged += 1; near.properties.name += ' / ' + v.name; return; }
+        stops.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
+          properties: { key, name: v.name, stop: String(stops.length + 1 + stops.reduce((a, f) => a + f.properties.merged, 0)), merged: 0, on: 1 } });
+      });
+      const dimKeys = new Map();
+      (ctx.backdrop || []).forEach(s => { const key = venueKey(s.venue); if (!keys.has(key) && !dimKeys.has(key)) dimKeys.set(key, s.venue); });
+      const dim = [...dimKeys.entries()].map(([key, v]) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [v.lng, v.lat] }, properties: { key, name: v.name, dim: 1 } }));
+      const features = [...dim, ...stops];
+      if (ctx.list && ctx.list.kind === 'route' && stops.length > 1) {
+        features.unshift({ type: 'Feature', geometry: { type: 'LineString', coordinates: stops.map(f => f.geometry.coordinates) }, properties: { line: 1 } });
+      }
+      return { type: 'FeatureCollection', features, stops };
+    }
+
     function addLayers() {
       map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
+      map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
       // One dot per venue, by tier; top dots paint above listed ones.
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC,
@@ -88,6 +122,41 @@
           'text-halo-color': 'rgba(0, 0, 0, 0.9)', 'text-halo-width': 1.2, 'text-halo-blur': 0.6,
         },
       });
+      // Context layers (hidden until a list is the context)
+      map.addLayer({ id: 'ctx-line', type: 'line', source: CTX, filter: ['==', ['get', 'line'], 1], layout: { visibility: 'none' },
+        paint: { 'line-color': '#61ADF2', 'line-width': 3, 'line-dasharray': [1.5, 1.2], 'line-opacity': 0.9 } });
+      map.addLayer({ id: 'ctx-dim', type: 'circle', source: CTX, filter: ['==', ['get', 'dim'], 1], layout: { visibility: 'none' },
+        paint: { 'circle-color': 'rgba(150, 150, 158, 0.32)', 'circle-radius': 4 } });
+      map.addLayer({ id: 'ctx-dot', type: 'circle', source: CTX, filter: ['==', ['get', 'on'], 1], layout: { visibility: 'none' },
+        paint: { 'circle-color': '#61ADF2', 'circle-radius': ['case', ['>', ['get', 'merged'], 0], 16, 12], 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } });
+      map.addLayer({ id: 'ctx-num', type: 'symbol', source: CTX, filter: ['==', ['get', 'on'], 1],
+        layout: { visibility: 'none', 'text-field': ['get', 'stop'], 'text-font': FONT_BOLD, 'text-size': 12, 'text-allow-overlap': true, 'text-ignore-placement': true },
+        paint: { 'text-color': '#000' } });
+      map.addLayer({ id: 'ctx-label', type: 'symbol', source: CTX, filter: ['==', ['get', 'on'], 1],
+        layout: { visibility: 'none', 'text-field': ['get', 'name'], 'text-font': FONT_BOLD, 'text-size': 11, 'text-anchor': 'top', 'text-offset': [0, 1.5], 'text-max-width': 12, 'text-padding': 4 },
+        paint: { 'text-color': '#fff', 'text-halo-color': 'rgba(0, 0, 0, 0.9)', 'text-halo-width': 1.2, 'text-halo-blur': 0.6 } });
+    }
+
+    function setVisible(ids, on) {
+      ids.forEach(id => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); });
+    }
+    function renderContext() {
+      const ctx = getContext ? getContext() : null;
+      if (!ctx || !ctx.shows.length) {
+        if (ctxKey !== null) { ctxKey = null; setVisible(CTX_LAYERS, false); setVisible(GAL_LAYERS, true); map.getSource(CTX).setData({ type: 'FeatureCollection', features: [] }); }
+        return;
+      }
+      const geo = buildContextGeoJSON(ctx);
+      map.getSource(CTX).setData({ type: 'FeatureCollection', features: geo.features });
+      setVisible(GAL_LAYERS, false);
+      setVisible(CTX_LAYERS, true);
+      setVisible(['ctx-num'], ctx.list && ctx.list.kind === 'route');
+      const key = ctx.list ? ctx.list.id : 'ctx';
+      if (key !== ctxKey && geo.stops.length) {
+        ctxKey = key;
+        const lngs = geo.stops.map(f => f.geometry.coordinates[0]), lats = geo.stops.map(f => f.geometry.coordinates[1]);
+        map.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], { padding: { top: 100, bottom: 210, left: 70, right: 70 }, maxZoom: 15, duration: 600 });
+      }
     }
 
     // One map-level click: a bbox query returns the top-most feature under the
@@ -95,10 +164,14 @@
     function onClick(e) {
       const pad = 6;
       const box = [[e.point.x - pad, e.point.y - pad], [e.point.x + pad, e.point.y + pad]];
-      const f = map.queryRenderedFeatures(box, { layers: CLICK_LAYERS })[0];
+      const f = map.queryRenderedFeatures(box, { layers: CLICK_LAYERS.filter(id => map.getLayer(id)) })[0];
       if (!f) return;
       const g = groups.get(f.properties.key);
-      if (g) onVenueTap(g.venue, g.shows);
+      if (g) { onVenueTap(g.venue, g.shows); return; }
+      // a context stop whose shows are not in the filtered set
+      const ctx = getContext ? getContext() : null;
+      const shows = ctx ? ctx.shows.filter(s => venueKey(s.venue) === f.properties.key) : [];
+      if (shows.length) onVenueTap(shows[0].venue, shows);
     }
 
     function ensureInit() {
@@ -114,6 +187,7 @@
       map.on('load', () => {
         addLayers();
         ready = true;
+        renderContext();
         map.on('click', onClick);
         if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
           const canvas = map.getCanvas();
@@ -129,10 +203,12 @@
     function renderPins() {
       if (!ready) return;                 // the 'load' handler seeds the source itself
       map.getSource(SRC).setData(buildGeoJSON());
+      renderContext();
     }
 
     function cityChanged() {
       if (!map) return;
+      ctxKey = null;
       map.fitBounds(cityBounds(getCity()), { padding: 30, duration: 700 });
       renderPins();
     }

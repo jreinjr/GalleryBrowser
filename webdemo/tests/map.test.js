@@ -91,7 +91,7 @@ function overlaps(labels) {
   // Widen the shared filter so every venue is on the map (default = featured, running gallery shows).
   await ctx.addInitScript(city => { try {
     localStorage.setItem('selectedCityKey', city);
-    localStorage.setItem('filter', JSON.stringify({ v: 5, kind: 'all', showRank: 'all', active: false }));
+    localStorage.setItem('filter', JSON.stringify({ v: 6, kind: 'all', showRank: 'all', active: false }));
     localStorage.setItem('savedShowIDs', '[]');
   } catch (e) { /* */ } }, CITY);
   const page = await ctx.newPage();
@@ -235,22 +235,25 @@ function overlaps(labels) {
   // ---- M6: the shared filter sheet drives the map; Saved only empties the source (nothing saved) ----
   const openFilters = async () => { await page.click('#map-filter-btn'); await page.waitForSelector('.sheet.open .filter-sheet'); };
   const closeFilters = async () => { await page.click('.sheet.open .sheet-foot .capsule-btn'); await page.waitForSelector('.sheet.open', { state: 'detached' }); };
+  const beforeM6 = await features();
   await openFilters();
   check('M6 the map filter sheet drops Sort (List order only)',
     (await page.$('.sheet.open [data-sort]')) === null && (await page.$('.sheet.open .seg-row[data-seg="galleryRank"]')) !== null);
-  await page.click('.sheet.open [data-switch="saved"]');
+  check('M6a the List group replaced the Saved-only switch',
+    (await page.$('.sheet.open [data-switch="saved"]')) === null && (await page.$('.sheet.open [data-list-group] .row[data-list-option="all"]')) !== null);
+  await page.click('.sheet.open [data-switch="receptions"]');
   await closeFilters();
   await idle(page);
   {
     const n = await features();
-    check('M6b Saved only empties the source', n === 0, 'features=' + n);
+    check('M6b Upcoming receptions narrows the source', n < beforeM6, `features=${n} / ${beforeM6}`);
     check('M6c filter pill shows the badge', (await page.$eval('#map-filter-btn .badge', e => e.textContent)) === '4');
     await openFilters();
-    await page.click('.sheet.open [data-switch="saved"]');
+    await page.click('.sheet.open [data-switch="receptions"]');
     await closeFilters();
     await idle(page);
     const back = await features();
-    check('M6d switching Saved off restores the source', back > 0, 'features=' + back);
+    check('M6d switching it off restores the source', back === beforeM6, 'features=' + back);
     await openFilters();
     await page.click('.sheet.open .seg-row[data-seg="galleryRank"] button[data-value="top"]');
     await closeFilters();

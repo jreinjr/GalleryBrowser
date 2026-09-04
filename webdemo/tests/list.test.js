@@ -51,7 +51,10 @@ function check(name, ok, detail) {
   }, [CITY]);
   await page.goto(`http://localhost:${PORT}/`);
   await page.click('.tab-btn[data-tab="list"]');
-  await page.waitForSelector('#pages-list .icon-btn');
+  // The tab is a library now; the flat filtered list is its pinned "All shows" row.
+  await page.waitForSelector('#pages-list .lib-row.all');
+  await page.click('#pages-list .lib-row.all');
+  await page.waitForSelector('#pages-list .list-results');
 
   // Every count is over the *active* shows: "Active shows" is on by default, so
   // the closed and not-yet-open ones only appear once the switch is off (allTotal).
@@ -89,7 +92,7 @@ function check(name, ok, detail) {
     venueGlyphs: e.querySelectorAll('.sr-venue .tier-star, .sr-venue .sr-tier').length,
   })));
   const badge = async sel => { const b = await page.$(`${sel} .icon-btn .badge`); return b ? await b.textContent() : ''; };
-  const openSheet = async (tab = 'list') => { await page.click(`#pages-${tab} .icon-btn`); await page.waitForSelector('.sheet.open .filter-sheet'); };
+  const openSheet = async (tab = 'list') => { await page.click(`#pages-${tab} .page:last-child .icon-btn`); await page.waitForSelector('.sheet.open .filter-sheet'); };
   const closeSheet = async () => { await page.click('.sheet.open .sheet-foot .capsule-btn'); await page.waitForSelector('.sheet.open', { state: 'detached' }); };
   const seg = async (key, value) => { await page.click(`.sheet.open .seg-row[data-seg="${key}"] button[data-value="${value}"]`); };
   const segOn = (key, value) => page.$eval(`.sheet.open .seg-row[data-seg="${key}"] button[data-value="${value}"]`, e => e.classList.contains('on'));
@@ -228,14 +231,15 @@ function check(name, ok, detail) {
   check('card bookmark is white when unsaved', await page.$eval('#pages-featured .card:nth-child(2) .bookmark-btn', e => getComputedStyle(e).color === 'rgb(255, 255, 255)'));
   await page.click('.tab-btn[data-tab="list"]');
   check('list row bookmark mirrors it', await page.$eval('#pages-list .show-row .bookmark-btn', e => e.classList.contains('saved')));
+  // "Saved only" became the List group's My Shows option
   await openSheet();
-  await sw('saved');
-  check('Saved only', (await rows()).length === 1);
+  await page.click('.sheet.open [data-list-group] .row[data-list-option="saved"]');
+  check('My Shows as the list context', (await rows()).length === 1);
   await closeSheet();
   await page.click('#pages-list .show-row .bookmark-btn');
-  check('unsaving under Saved only empties the list', (await rows()).length === 0 && !(await page.$eval('#pages-list .empty-plain', e => e.hidden)));
+  check('unsaving under My Shows empties the list', (await rows()).length === 0 && !(await page.$eval('#pages-list .page:last-child .empty-plain', e => e.hidden)));
   await openSheet();
-  await sw('saved');
+  await page.click('.sheet.open [data-list-group] .row[data-list-option="all"]');
   await closeSheet();
 
   // 7. filter persists across reload; detail from a filtered list steps within it
@@ -244,16 +248,18 @@ function check(name, ok, detail) {
   await closeSheet();
   await page.reload();
   await page.click('.tab-btn[data-tab="list"]');
-  await page.waitForSelector('#pages-list .icon-btn');
+  await page.waitForSelector('#pages-list .lib-row.all');
+  await page.click('#pages-list .lib-row.all');
+  await page.waitForSelector('#pages-list .list-results');
   check('filters persist', (await rows()).length === data.receptions && (await badge('#pages-list')) === '3', `${(await rows()).length} / ${data.receptions}`);
   await page.click('#pages-list .show-row .sr-text');
-  await page.waitForSelector('#pages-list .page-push .detail-body');
-  const stepper = await page.$$('#pages-list .page-push .stepper button');
+  await page.waitForSelector('#pages-list .page:last-child .detail-body');
+  const stepper = await page.$$('#pages-list .page:last-child .stepper button');
   check('detail opened from filtered list with stepper', stepper.length === 2);
   const detail = await page.evaluate(() => ({
-    pick: !!document.querySelector('#pages-list .page-push .detail-body').dataset,
-    meta: [...document.querySelectorAll('#pages-list .page-push .detail-meta-row .sr-tier')].map(e => e.dataset.tier),
-    venueGlyphs: document.querySelectorAll('#pages-list .page-push .vb-name .tier-star').length,
+    pick: !!document.querySelector('#pages-list .page:last-child .detail-body').dataset,
+    meta: [...document.querySelectorAll('#pages-list .page:last-child .detail-meta-row .sr-tier')].map(e => e.dataset.tier),
+    venueGlyphs: document.querySelectorAll('#pages-list .page:last-child .vb-name .tier-star').length,
   }));
   check('detail header marks the show only, never a second tier', detail.meta.every(t => t === 'picks'), JSON.stringify(detail.meta));
   check('gallery rank stays off the show detail', detail.venueGlyphs === 0);

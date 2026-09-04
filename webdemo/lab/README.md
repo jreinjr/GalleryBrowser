@@ -32,6 +32,16 @@ bookmark; a list as context on Featured and Map; share; a curated guides page;
 capsule, filter search, floating button); four conversations over real data;
 answers as unsaved lists with per-entry grounding; the answer on Map and Featured.
 
+Shipped (2026-09-03, branch design/lists-ask): L1a with the header kept as the
+city, Editor's Picks moved into Curated (no "Museums this month", no Recent
+asks) and a See-all button to L7; L2; L3a with a caret per row instead of a
+save button, Map · Edit (owned) or Map · Save (curated, answers), no Featured
+button; L3d; L4; L5a/b/c (the List group replaced Saved only); L7. Ask became
+**Discover** (A1a without the icon and heading, four prompts; A2 answers as
+lists with Save as list / Show on Map, chips when the model offers them; A2d
+routes drawn on the Map as in A3b). Not shipped: L1b, L6 (share), A1b–d, the
+per-entry + of A3a. The real RAG layer is `webdemo/api/` (see `webdemo/README.md`).
+
 Four frames are live (L1a, L3d, L4, A2e) and share one lab-only store in
 `localStorage['lab.lists.v1']` (never the app's `savedShowIDs`); "Reset lab
 data" in the page header clears it. `lab-ask.js` is a keyword retriever over the

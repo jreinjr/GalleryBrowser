@@ -133,12 +133,32 @@
   const icon = name => { const s = el('span'); s.innerHTML = ICONS[name]; return s.firstChild; };
 
   // ---------------- bookmarks ----------------
-  function toggleSaved(id) {
-    if (state.saved.has(id)) state.saved.delete(id); else state.saved.add(id);
+  // The bookmark is the one-tap save (My Shows); a toast offers the second tap
+  // into a list (L4). quiet: no toast (the add-to-list sheet toggles it itself).
+  function toggleSaved(id, quiet) {
+    const nowSaved = !state.saved.has(id);
+    if (nowSaved) state.saved.add(id); else state.saved.delete(id);
     persistSaved();
     refreshBookmarkUI();
-    if (state.filter.saved) refreshAll();   // "Saved only": the row set itself changes
-    else MapTab.applyFilter();
+    if (state.filter.list === 'saved') refreshAll();   // the row set itself changes
+    else { MapTab.applyFilter(); refreshLibrary(); }
+    const s = showById(id);
+    if (nowSaved && !quiet && s) toast('Saved to My Shows', 'Add to list…', () => addToListSheet(s));
+  }
+  // Re-render the Lists tab's pages (library, list detail) in place.
+  function refreshLibrary() {
+    [...pagesRoot.list.children].forEach(p => { if (p.refresh) p.refresh(); });
+  }
+  let toastEl = null, toastTimer = null;
+  function toast(text, actionLabel, onAction) {
+    if (toastEl) { toastEl.remove(); clearTimeout(toastTimer); }
+    const t = el('div', { class: 'toast' }, icon('bookmarkFill'), el('span', null, text),
+      actionLabel ? el('button', { onclick: () => { hide(); onAction && onAction(); } }, actionLabel) : null);
+    document.getElementById('app').appendChild(t);
+    requestAnimationFrame(() => t.classList.add('show'));
+    const hide = () => { t.classList.remove('show'); setTimeout(() => t.remove(), 220); if (toastEl === t) toastEl = null; };
+    toastEl = t;
+    toastTimer = setTimeout(hide, 3800);
   }
   function refreshBookmarkUI() {
     document.querySelectorAll('[data-bm]').forEach(btn => {
@@ -159,13 +179,115 @@
     onclick: e => { e.stopPropagation(); toggleSaved(showId(s)); },
   });
 
+  // ---------------- lists ----------------
+  // User lists live in localStorage['lists'] (versioned like `filter`); My
+  // Shows stays savedShowIDs and is presented as a list, not stored twice.
+  // Drafts are answers from Discover that are not saved yet; they live in
+  // sessionStorage so a draft can still be the filter/map context.
+  const LISTS_VERSION = 1;
+  const lists = (() => {
+    let data = { v: LISTS_VERSION, lists: [] };
+    try { const o = JSON.parse(store.get('lists', '{}')); if (o && o.v === LISTS_VERSION && Array.isArray(o.lists)) data = o; } catch (e) { /* defaults */ }
+    let drafts = [];
+    try { drafts = JSON.parse(sessionStorage.getItem('discover.drafts') || '[]') || []; } catch (e) { drafts = []; }
+    const subs = new Set();
+    const notify = () => subs.forEach(fn => { try { fn(); } catch (e) { /* a listener failed */ } });
+    const write = () => { store.set('lists', JSON.stringify(data)); notify(); };
+    const writeDrafts = () => { try { sessionStorage.setItem('discover.drafts', JSON.stringify(drafts.slice(-12))); } catch (e) { /* private mode */ } };
+    const uid = () => 'l-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    const own = id => data.lists.find(l => l.id === id) || null;
+    const api = {
+      get: id => own(id) || drafts.find(l => l.id === id) || null,
+      all: () => data.lists.filter(l => l.city === state.cityKey),
+      subscribe: fn => { subs.add(fn); return () => subs.delete(fn); },
+      create(name, entries, extra) {
+        const x = extra || {}; const now = Date.now();
+        const l = { id: uid(), name: (name || 'New list').trim().slice(0, 80) || 'New list', desc: (x.desc || '').slice(0, 200), kind: x.kind || 'user', city: state.cityKey,
+          createdAt: now, updatedAt: now, cover: x.cover || null, entries: (entries || []).map(e => ({ id: e.id, note: e.note || null })), source: x.source || null };
+        data.lists.unshift(l); write(); return l;
+      },
+      update(id, patch) { const l = own(id); if (!l) return null; Object.assign(l, patch, { updatedAt: Date.now() }); write(); return l; },
+      remove(id) { data.lists = data.lists.filter(l => l.id !== id); write(); },
+      has: (id, sid) => { const l = api.get(id); return !!l && l.entries.some(e => e.id === sid); },
+      addEntry(id, entry) { const l = own(id); if (!l || l.entries.some(e => e.id === entry.id)) return; l.entries.push({ id: entry.id, note: entry.note || null }); l.updatedAt = Date.now(); write(); },
+      removeEntry(id, sid) { const l = own(id); if (!l) return; l.entries = l.entries.filter(e => e.id !== sid); l.updatedAt = Date.now(); write(); },
+      toggleEntry(id, sid) { if (api.has(id, sid)) api.removeEntry(id, sid); else api.addEntry(id, { id: sid }); },
+      // A copy of a curated list or a Discover draft into the user's lists.
+      copyFrom(l, extra) {
+        const x = extra || {};
+        return api.create(l.name, l.entries, { desc: l.desc, kind: l.kind === 'route' ? 'route' : (x.kind || 'user'), source: x.source || null, cover: l.cover || null });
+      },
+      draft(l) { const d = { ...l, id: 'draft-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), city: state.cityKey, draft: true }; drafts.push(d); writeDrafts(); return d; },
+      markDraftSaved(id, savedAs) { const d = drafts.find(l => l.id === id); if (d) { d.savedAs = savedAs; writeDrafts(); } },
+      isDraft: id => /^draft-/.test(id || ''),
+    };
+    return api;
+  })();
+  const showById = id => cityShows().find(s => showId(s) === id) || DATA.shows.find(s => showId(s) === id) || null;
+  // Entries -> { show, note } in list order; ids the payload no longer has drop out.
+  const listShows = l => l.entries.map(e => { const s = showById(e.id); return s ? { show: s, note: e.note || null } : null; }).filter(Boolean);
+  const listRunning = l => listShows(l).filter(x => isActiveShow(x.show));
+  // A list hides once none of its shows is still running; an empty list of
+  // the user's own stays visible so it can be filled from Edit.
+  const listVisible = l => l.entries.length ? listRunning(l).length > 0 : l.kind === 'user';
+  const savedAsList = () => ({ id: 'saved', name: 'My Shows', kind: 'saved', desc: '', city: state.cityKey, cover: null,
+    entries: [...state.saved].filter(id => id.startsWith(state.cityKey + '/')).map(id => ({ id, note: null })) });
+  const venueCount = xs => new Set(xs.map(x => venueKey(x.show.venue))).size;
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + 's')}`;
+  const listMeta = xs => `${plural(xs.length, 'show')} · ${plural(venueCount(xs), 'venue')}`;
+  const listBy = l => l.curated ? 'Gallery Browser' : (l.draft || l.kind === 'answer' || (l.source && l.source.query)) ? 'Discover' : 'You';
+  const firstSentence = t => { const m = /^(.+?[.!?])(\s|$)/.exec((t || '').trim()); return m ? m[1] : (t || '').slice(0, 140); };
+  const NOT_OPENING = /\b(talk|conversation|closing|panel|screening|walkthrough|walk-through|tour|brunch)\b/i;
+
+  // Curated lists: Editor's Picks and Openings this weekend are rules over the
+  // data; the rest are authored in content/lists/<city>.json (DATA.lists).
+  function weekendWindow() {
+    const today = startOfToday(); const dow = today.getDay();
+    const plus = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+    if (dow === 6) return [today, plus(today, 1)];
+    if (dow === 0) return [today, today];
+    const fri = plus(today, ((5 - dow) + 7) % 7);
+    return [fri, plus(fri, 2)];
+  }
+  function curatedLists() {
+    const ck = state.cityKey;
+    const byRank = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9);
+    const picks = cityShows().filter(s => s.editorsPick && isActiveShow(s)).sort(byRank);
+    const [from, to] = weekendWindow();
+    const openings = cityShows().filter(s => {
+      const d = receptionDate(s);
+      return d && d >= from && d <= to && !(NOT_OPENING.test(s.reception) && !/\bopening\b/i.test(s.reception));
+    }).sort((a, b) => receptionDate(a) - receptionDate(b) || byRank(a, b));
+    const authored = (DATA.lists && DATA.lists[ck]) || [];
+    const mk = (id, name, desc, kind, entries) => ({ id, name, desc, kind, city: ck, curated: true, cover: null, entries });
+    const fromAuthored = l => mk(l.id, l.name, l.desc, l.kind, l.entries.map(e => ({ id: ck + '/' + e.slug, note: e.note || null })));
+    const walks = authored.filter(l => l.kind === 'route'), rest = authored.filter(l => l.kind !== 'route');
+    const out = [
+      mk('c-picks', "Editor's Picks", 'The shows we would send a visitor to first.', 'list', picks.map(s => ({ id: showId(s), note: null }))),
+      ...walks.map(fromAuthored),
+      mk('c-openings-weekend', 'Openings this weekend', "Receptions Friday to Sunday, from each venue's own listing.", 'list', openings.map(s => ({ id: showId(s), note: s.reception }))),
+      ...rest.map(fromAuthored),
+    ];
+    return out.filter(listVisible);
+  }
+  const curatedById = id => curatedLists().find(l => l.id === id) || null;
+  const savedCopyOf = curatedId => lists.all().find(l => l.source && l.source.curated === curatedId) || null;
+  // Any list id -> the list: 'saved', a user list, a draft, or a curated id.
+  const listById = id => !id ? null : id === 'saved' ? savedAsList() : (lists.get(id) || curatedById(id));
+
   // ---------------- navigation ----------------
   const pagesRoot = {
     featured: document.getElementById('pages-featured'),
     list: document.getElementById('pages-list'),
+    discover: document.getElementById('pages-discover'),
   };
   function push(tab, page) {
-    if (pagesRoot[tab].children.length) page.classList.add('page-push');
+    if (pagesRoot[tab].children.length) {
+      page.classList.add('page-push');
+      // The slide-in is a CSS animation, and animations restart whenever a
+      // display:none tab is shown again; drop the class once it has played.
+      page.addEventListener('animationend', () => page.classList.remove('page-push'), { once: true });
+    }
     pagesRoot[tab].appendChild(page);
   }
   function pop(tab, animate) {
@@ -833,17 +955,21 @@
   function featuredRoot() {
     const feed = el('div', { class: 'feed' });
     const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
+    const ctxSlot = el('div');
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
         filterButton()),
       el('div', { class: 'large-title' }, city().displayName),
-      feed, empty);
+      ctxSlot, feed, empty);
     const inline = el('div', { class: 'inline-title' }, city().displayName);
     largeTitleScroll(scroll, inline);
     const page = el('div', { class: 'page' }, inline, scroll);
     page.refresh = () => {
       const shows = filteredShows();
+      const l = currentList();
+      ctxSlot.innerHTML = '';
+      if (l) ctxSlot.appendChild(ctxBar(l));
       feed.innerHTML = '';
       shows.forEach((_, i) => feed.appendChild(showCard(shows, i)));
       feed.hidden = !shows.length;
@@ -894,6 +1020,7 @@
         class: 'capsule-btn detail-save', 'data-save-capsule': showId(s),
         onclick: () => toggleSaved(showId(s)),
       }, el('span', null, state.saved.has(showId(s)) ? 'Added to My Shows' : 'Add to My Shows'));
+      const addListBtn = el('button', { class: 'detail-addlist', onclick: () => addToListSheet(s) }, 'Add to list…');
 
       const venueBlock = el('button', {
         class: 'venue-block',
@@ -912,6 +1039,7 @@
         el('div', { class: 'detail-dates' }, dateLine(s)),
         s.reception ? el('div', { class: 'detail-reception' }, 'Reception: ' + s.reception) : null,
         saveBtn,
+        addListBtn,
         venueBlock,
         el('div', { class: 'divider' }),
         el('div', { class: 'detail-desc' },
@@ -1063,10 +1191,11 @@
   // tail, unranked galleries and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; showRank: 'all' |
   // 'featured' | 'picks'; galleryRank: 'all' | 'notable' | 'top'; active /
-  // saved / receptions are toggles; sort: SORTS key (List order only).
-  const FILTER_VERSION = 5;
+  // receptions are toggles; list: null | 'saved' | a list id (the chosen list
+  // is the context every tab shows, L5); sort: SORTS key (List order only).
+  const FILTER_VERSION = 6;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', showRank: 'featured', galleryRank: 'all',
-    active: true, saved: false, receptions: false, sort: 'rank' };
+    active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   const SHOW_RANKS = [['all', 'All Shows'], ['featured', 'Featured'], ['picks', "Editor's Picks"]];
   const GALLERY_RANKS = [['all', 'All Galleries'], ['notable', 'Notable'], ['top', 'Top Ranked']];
@@ -1095,16 +1224,30 @@
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
     if (!SHOW_RANKS.some(([k]) => k === f.showRank)) f.showRank = FILTER_DEFAULT.showRank;
     if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
+    if (typeof f.list !== 'string') f.list = null;
     return f;
   }
   state.filter = loadFilter();
   const persistFilter = () => store.set('filter', JSON.stringify(state.filter));
   const resetFilter = () => { Object.assign(state.filter, { ...FILTER_DEFAULT, hoods: [], sort: state.filter.sort }); };
+  // A list that no longer exists (a draft from an earlier session) is no context.
+  const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
   const filterActiveCount = f => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
     f.showRank !== FILTER_DEFAULT.showRank, f.galleryRank !== FILTER_DEFAULT.galleryRank,
-    f.active !== FILTER_DEFAULT.active, f.saved, f.receptions]
+    f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
+  // One line for the Discover context message.
+  function filterSummary() {
+    const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
+    const bits = [label(KINDS, f.kind), label(SHOW_RANKS, f.showRank)];
+    if (f.galleryRank !== 'all') bits.push(label(GALLERY_RANKS, f.galleryRank));
+    bits.push(f.active ? 'Active' : 'All dates');
+    if (f.receptions) bits.push('Upcoming receptions');
+    if (f.hoods.length) bits.push(f.hoods.join(', '));
+    if (f.q.trim()) bits.push(`search "${f.q.trim()}"`);
+    return bits.join(' · ');
+  }
 
   const matchesQuery = (s, t) => !t ||
     s.title.toLowerCase().includes(t) ||
@@ -1122,7 +1265,10 @@
   function filterShows(shows, f) {
     const t = f.q.trim().toLowerCase();
     const hoods = new Set(f.hoods);
+    const ctxList = f.list ? listById(f.list) : null;
+    const inList = ctxList ? new Set(ctxList.entries.map(e => e.id)) : null;
     return shows.filter(s => {
+      if (inList && !inList.has(showId(s))) return false;
       if (!matchesQuery(s, t)) return false;
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && !showIsMuseum(s)) return false;
@@ -1134,11 +1280,12 @@
         if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
       }
       if (f.active && !isActiveShow(s)) return false;
-      if (f.saved && !state.saved.has(showId(s))) return false;
       if (f.receptions && !hasUpcomingReception(s)) return false;
       return true;
     });
   }
+  // The shows the Map dims behind a list context: everything else the filter admits.
+  const backdropShows = () => filterShows(cityShows(), { ...state.filter, list: null });
   // Pure: stable sort by the chosen key; ties fall back to curation rank.
   function sortShows(shows, sort, origin) {
     const byRank = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9);
@@ -1174,6 +1321,7 @@
   let geo = null, geoAsked = false;
   function filteredShows() {
     const f = state.filter;
+    currentList();
     if (f.sort === 'nearby' && !geo && !geoAsked && navigator.geolocation) {
       geoAsked = true;
       navigator.geolocation.getCurrentPosition(pos => {
@@ -1185,13 +1333,40 @@
   }
   // Re-render every surface that shows the filtered set.
   function refreshAll() {
+    currentList();
     persistFilter();
-    [pagesRoot.featured, pagesRoot.list].forEach(root => {
-      const page = root.firstElementChild;
-      if (page && page.refresh) page.refresh();
+    Object.values(pagesRoot).forEach(root => {
+      [...root.children].forEach(page => { if (page.refresh) page.refresh(); });
     });
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
+    renderMapContext();
     MapTab.applyFilter();
+  }
+
+  // ---- a list as context (L5b/L5c): bar under the Featured title, pill on the Map ----
+  const ctxIcon = l => (l.draft || l.kind === 'answer' || l.kind === 'route' || (l.source && l.source.query)) ? 'sparkle' : 'listBullet';
+  function ctxBar(l, opts) {
+    const running = listRunning(l);
+    const saveAct = l.draft && !(l.savedAs && lists.get(l.savedAs))
+      ? el('button', { class: 'ctx-act', onclick: () => { const c = lists.copyFrom(l, { kind: 'answer', source: l.source || null }); lists.markDraftSaved(l.id, c.id); refreshAll(); } }, 'Save')
+      : null;
+    return el('div', { class: 'ctx-bar' + (opts && opts.pill ? ' ctx-pill' : ''), 'data-ctx': l.id },
+      el('span', { class: 'ctx-ico' }, icon(ctxIcon(l))),
+      el('button', { class: 'ctx-text', onclick: () => { setTab('list'); push('list', listPage(l)); } }, l.name),
+      el('span', { class: 'ctx-n' }, opts && opts.pill ? plural(venueCount(running), 'venue') : String(running.length)),
+      saveAct,
+      el('button', { class: 'ctx-x', 'aria-label': 'Clear list', onclick: () => { state.filter.list = null; refreshAll(); } }, icon('xmark')));
+  }
+  function renderMapContext() {
+    const host = document.getElementById('map-ctx');
+    if (!host) return;
+    const l = currentList();
+    host.innerHTML = '';
+    host.hidden = !l;
+    if (!l) return;
+    const bar = ctxBar(l, { pill: true });
+    host.className = 'ctx-pill';
+    [...bar.children].forEach(ch => host.appendChild(ch));
   }
 
   // ---------------- rank glyphs ----------------
@@ -1259,12 +1434,13 @@
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
+    const listGroup = el('div', { class: 'group', 'data-list-group': '' });
 
     const body = el('div', { class: 'page-scroll' },
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
+      header('List'), listGroup,
       header('Show'),
-      el('div', { class: 'group' }, switchRow('Active shows', 'active'),
-        switchRow('Saved only', 'saved'), switchRow('Upcoming receptions', 'receptions')),
+      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
       header('Show Rank'), seg('showRank', SHOW_RANKS),
       header('Gallery Rank'), seg('galleryRank', GALLERY_RANKS),
       header('Venue Type'), seg('kind', KINDS),
@@ -1282,6 +1458,20 @@
 
     function update(apply) {
       if (apply !== false) refreshAll();
+      // List group (L5a): All shows, My Shows when something is saved, the
+      // user's lists (saved copies of curated lists included), and the
+      // current draft from Discover when it is the context.
+      listGroup.innerHTML = '';
+      const options = [{ id: null, name: 'All shows', n: null }];
+      const savedRunning = listRunning(savedAsList());
+      if (savedRunning.length) options.push({ id: 'saved', name: 'My Shows', n: savedRunning.length });
+      lists.all().filter(listVisible).forEach(l => options.push({ id: l.id, name: l.name, n: listRunning(l).length }));
+      const cur = currentList();
+      if (cur && !options.some(o => o.id === cur.id)) options.push({ id: cur.id, name: cur.name, n: listRunning(cur).length });
+      options.forEach(o => listGroup.appendChild(el('button', {
+        class: 'row city-row', 'data-list-option': o.id || 'all', onclick: () => { f.list = o.id; update(); },
+      }, el('span', { style: 'flex:1;min-width:0' }, el('div', { class: 'cr-name' }, o.name), o.n != null ? el('div', { class: 'cr-note' }, plural(o.n, 'show')) : null),
+        (f.list || null) === o.id ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
       sheetPage.querySelectorAll('[data-switch]').forEach(r => {
         const on = !!f[r.dataset.switch];
         r.querySelector('.switch').classList.toggle('on', on);
@@ -1312,17 +1502,97 @@
     openSheet(sheetPage);
   }
 
-  // ---------------- list tab ----------------
+  // ---------------- lists tab ----------------
+  // The tab is a library of lists (L1a): today's filtered list is the pinned
+  // "All shows in <City>", My Shows appears once something is saved, the
+  // user's lists when they have one, and a curated shelf with a See-all page.
+  const showImg = s => s.images && s.images[0] ? s.images[0].src : null;
+  function collage(shows, cls) {
+    const srcs = shows.map(showImg).filter(Boolean).slice(0, 4);
+    return el('div', { class: 'collage' + (srcs.length && srcs.length < 4 ? ' n' + srcs.length : '') + (cls ? ' ' + cls : '') },
+      ...(srcs.length ? srcs.map(src => el('img', { src, alt: '', loading: 'lazy' })) : [el('div', { class: 'collage-empty' }, icon('listBullet'))]));
+  }
+  // The four cover images: the chosen cover first, then the list's running shows.
+  function coverShows(l, xs) {
+    const shows = xs.map(x => x.show);
+    if (!l.cover) return shows;
+    const c = shows.find(s => showId(s) === l.cover);
+    return c ? [c, ...shows.filter(s => s !== c)] : shows;
+  }
+  const libRow = (o, opts) => el('button', { class: 'lib-row' + (opts && opts.cls ? ' ' + opts.cls : ''), onclick: opts && opts.onclick },
+    collage(o.shows, 'sm'),
+    el('span', { class: 'lib-text' }, el('span', { class: 'lib-name' }, o.name), el('span', { class: 'lib-sub' }, o.sub)),
+    icon('chevronRight'));
+  function savePill(l) {
+    const copy = savedCopyOf(l.id);
+    return el('button', { class: 'tile-save' + (copy ? ' on' : ''), 'data-save-list': l.id, onclick: e => {
+      e.stopPropagation();
+      if (savedCopyOf(l.id)) return;
+      lists.copyFrom(l, { source: { curated: l.id } });
+    } }, icon(copy ? 'check' : 'plus'), copy ? 'Saved' : 'Save');
+  }
+  function libTile(l, opts) {
+    const o = opts || {};
+    const xs = listRunning(l);
+    const tile = el('div', { class: 'lib-tile' + (o.cls ? ' ' + o.cls : '') },
+      el('button', { class: 'lib-tile-hit', onclick: o.onclick },
+        collage(coverShows(l, xs)), el('span', { class: 'lib-name' }, l.name),
+        el('span', { class: 'lib-sub' }, l.curated ? `Gallery Browser · ${xs.length}` : listMeta(xs))),
+      o.save ? savePill(l) : null);
+    return tile;
+  }
+  const libHeader = (t, trail) => el('div', { class: 'lib-header' }, el('span', null, t), trail || null);
+
   function listRoot() {
-    const group = el('div', { class: 'group list-results' });
-    const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
+    const pinned = el('div', { class: 'lib-pinned' });
+    const yourHead = libHeader('Your lists', el('button', { class: 'lib-new', onclick: () => newListSheet() }, icon('plus'), 'New'));
+    const grid = el('div', { class: 'lib-grid' });
+    const curHead = libHeader('Curated', el('button', { class: 'lib-new', 'data-see-all': '', onclick: () => push('list', curatedPage()) }, 'See all', icon('chevronRight')));
+    const shelf = el('div', { class: 'lib-shelf' });
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
         filterButton()),
       el('div', { class: 'large-title' }, city().displayName),
-      el('div', { style: 'padding-bottom:96px' }, group, empty));
+      pinned, yourHead, grid, curHead, shelf, el('div', { class: 'lib-tail' }));
     const inline = el('div', { class: 'inline-title' }, city().displayName);
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page' }, inline, scroll);
+    page.refresh = () => {
+      const all = filteredShows();
+      pinned.innerHTML = '';
+      pinned.appendChild(libRow({
+        name: `All shows in ${city().displayName}`, shows: all.slice(0, 4),
+        sub: `${plural(all.length, 'show')} · ${plural(new Set(all.map(s => venueKey(s.venue))).size, 'venue')} · filters apply`,
+      }, { cls: 'all', onclick: () => push('list', allShowsPage()) }));
+      const saved = savedAsList(), savedRunning = listRunning(saved);
+      if (savedRunning.length) {
+        pinned.appendChild(libRow({ name: 'My Shows', shows: savedRunning.map(x => x.show), sub: `${plural(savedRunning.length, 'show')} · saved by you` },
+          { cls: 'mine', onclick: () => push('list', listPage(saved)) }));
+      }
+      const mine = lists.all().filter(listVisible);
+      grid.innerHTML = '';
+      mine.forEach(l => grid.appendChild(libTile(l, { onclick: () => push('list', listPage(l)) })));
+      yourHead.hidden = !mine.length; grid.hidden = !mine.length;
+      shelf.innerHTML = '';
+      const cur = curatedLists();
+      cur.forEach(l => shelf.appendChild(libTile(l, { cls: 'small', save: true, onclick: () => push('list', listPage(l)) })));
+      curHead.hidden = !cur.length; shelf.hidden = !cur.length;
+    };
+    page.refresh();
+    const unsub = lists.subscribe(() => { if (page.isConnected) page.refresh(); else unsub(); });
+    return page;
+  }
+
+  // The flat filtered list, now one list among many (L2).
+  function allShowsPage() {
+    const group = el('div', { class: 'group list-results' });
+    const empty = el('div', { class: 'empty-plain', hidden: '' }, 'No shows match these filters.');
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn('list'), filterButton()),
+      el('div', { class: 'large-title' }, 'All shows'),
+      el('div', { style: 'padding-bottom:96px' }, group, empty));
+    const inline = el('div', { class: 'inline-title' }, 'All shows');
     largeTitleScroll(scroll, inline);
     const page = el('div', { class: 'page' }, inline, scroll);
     page.refresh = () => {
@@ -1333,6 +1603,253 @@
       empty.hidden = !!shows.length;
     };
     page.refresh();
+    return page;
+  }
+
+  // ---- list detail (L3a; non-owned lists get Save instead of Edit) ----
+  const rowSub = s => `${dateLine(s, fmtShort)}${s.venue.neighborhood ? ' · ' + s.venue.neighborhood : ''}`;
+  const heroAct = (ic, label, onclick, on) => el('button', { class: 'act' + (on ? ' on' : ''), 'data-act': label, onclick }, el('span', { class: 'act-ico' }, icon(ic)), el('span', null, label));
+  function listRow(x, i, l, shows, expanded, tab) {
+    const s = x.show, id = showId(s), gone = !isActiveShow(s);
+    const row = el('div', { class: 'list-row' + (gone ? ' gone' : '') + (expanded.has(id) ? ' expanded' : ''), 'data-id': id });
+    const main = el('button', { class: 'lr-main', onclick: () => push(tab, showDetailPage(shows, i)) },
+      el('div', { class: 'sr-name' }, tierStar(showTier(s)), el('span', { class: 'sr-txt' }, displayName(s))),
+      el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+      el('div', { class: 'sr-sub' }, rowSub(s)),
+      el('div', { class: 'lr-byline' }, x.note || firstSentence(s.description)));
+    const caret = el('button', { class: 'lr-caret', 'aria-label': 'Why this show', 'aria-expanded': expanded.has(id) ? 'true' : 'false', onclick: () => {
+      const on = row.classList.toggle('expanded');
+      caret.setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (on) expanded.add(id); else expanded.delete(id);
+    } }, icon('chevronDown'));
+    // Element.append() would render a null child as the text "null"
+    [l.kind === 'route' ? el('span', { class: 'stop-n' }, String(i + 1)) : null, main, gone ? el('span', { class: 'gone-tag' }, 'closed') : null, caret]
+      .filter(Boolean).forEach(n => row.appendChild(n));
+    return row;
+  }
+  // Remove a user list (from its detail page or its edit page); `depth` pages
+  // are popped so the person lands back on the library.
+  function removeList(l, tab, depth) {
+    if (!confirm(`Remove "${l.name}"?`)) return false;
+    if (state.filter.list === l.id) state.filter.list = null;
+    lists.remove(l.id);
+    for (let i = 0; i < (depth || 1); i += 1) pop(tab, i < (depth || 1) - 1 ? false : undefined);
+    refreshAll();
+    return true;
+  }
+  // A page re-renders whenever lists change, possibly while another tab is
+  // showing, so it keeps the tab it was pushed on rather than reading state.tab.
+  function listPage(list) {
+    const tab = state.tab;
+    const page = el('div', { class: 'page list-page' });
+    const scroll = el('div', { class: 'page-scroll' });
+    page.appendChild(scroll);
+    const expanded = new Set();
+    const current = () => list.id === 'saved' ? savedAsList() : (lists.get(list.id) || curatedById(list.id) || list);
+    function render() {
+      const l = current();
+      const xs = listShows(l), running = xs.filter(x => isActiveShow(x.show)), shows = xs.map(x => x.show);
+      const owned = l.kind === 'saved' || (!l.curated && !l.draft && !!lists.get(l.id));
+      const savedAs = l.draft ? (l.savedAs && lists.get(l.savedAs)) : l.curated ? savedCopyOf(l.id) : null;
+      scroll.innerHTML = '';
+      const acts = [heroAct('map', 'Map', () => { state.filter.list = l.id; refreshAll(); setTab('map'); })];
+      if (owned && l.kind !== 'saved') {
+        acts.push(heroAct('pencil', 'Edit', () => push(tab, listEditPage(l, tab))));
+        acts.push(heroAct('trash', 'Remove', () => removeList(l, tab, 1)));
+      } else if (!owned) {
+        if (savedAs) acts.push(heroAct('check', 'Saved', () => push(tab, listPage(savedAs)), true));
+        else acts.push(heroAct('plus', 'Save', () => {
+          const c = lists.copyFrom(l, { source: l.curated ? { curated: l.id } : (l.source || null), kind: l.draft ? 'answer' : 'user' });
+          if (l.draft) lists.markDraftSaved(l.id, c.id);
+          render();
+        }));
+      }
+      const hero = el('div', { class: 'list-hero' }, collage(coverShows(l, running.length ? running : xs), 'hero'),
+        el('div', { class: 'lh-name' }, l.name),
+        el('div', { class: 'lh-meta' }, `${listBy(l) === 'You' ? 'by You' : listBy(l)} · ${listMeta(running)}`),
+        l.desc ? el('div', { class: 'lh-desc' }, l.desc) : null,
+        el('div', { class: 'lh-actions' }, ...acts));
+      const rows = el('div', { class: 'list-rows' });
+      xs.forEach((x, i) => rows.appendChild(listRow(x, i, l, shows, expanded, tab)));
+      [el('div', { class: 'navrow' }, backBtn(tab), el('span')), hero,
+        !running.length ? el('div', { class: 'list-empty' }, xs.length ? 'Nothing on this list is still on view.' : 'This list is empty.') : null,
+        xs.length ? rows : null].filter(Boolean).forEach(n => scroll.appendChild(n));
+    }
+    page.refresh = render;
+    render();
+    const unsub = lists.subscribe(() => { if (page.isConnected) render(); else unsub(); });
+    return page;
+  }
+
+  // ---- edit (L3d): name, description, cover, order, membership ----
+  function wireDrag(row, container, onReorder) {
+    const grip = row.querySelector('.grip');
+    let active = false, target = null, before = false;
+    const clear = () => container.querySelectorAll('.drop-before, .drop-after').forEach(r => r.classList.remove('drop-before', 'drop-after'));
+    grip.addEventListener('pointerdown', e => {
+      e.preventDefault(); active = true; grip.setPointerCapture(e.pointerId); row.classList.add('dragging');
+    });
+    grip.addEventListener('pointermove', e => {
+      if (!active) return;
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const r = under && under.closest ? under.closest('.list-row') : null;
+      clear();
+      if (!r || r === row || r.parentElement !== container) { target = null; return; }
+      const box = r.getBoundingClientRect();
+      before = e.clientY < box.top + box.height / 2;
+      target = r; r.classList.add(before ? 'drop-before' : 'drop-after');
+    });
+    const finish = () => {
+      if (!active) return;
+      active = false; row.classList.remove('dragging'); clear();
+      if (target) { container.insertBefore(row, before ? target : target.nextSibling); onReorder([...container.querySelectorAll('.list-row')].map(r => r.dataset.id)); }
+      target = null;
+    };
+    grip.addEventListener('pointerup', finish);
+    grip.addEventListener('pointercancel', finish);
+  }
+  function listEditPage(list, tabArg) {
+    const tab = tabArg || state.tab;
+    const l0 = lists.get(list.id);
+    if (!l0) return listPage(list);
+    const snapshot = JSON.parse(JSON.stringify(l0));
+    const page = el('div', { class: 'page' });
+    const scroll = el('div', { class: 'page-scroll' });
+    page.appendChild(scroll);
+    const nameIn = el('input', { class: 'edit-name', type: 'text', value: l0.name, maxlength: '80', 'aria-label': 'List name' });
+    const descIn = el('input', { class: 'edit-desc', type: 'text', value: l0.desc || '', placeholder: 'Add a description', maxlength: '200', 'aria-label': 'Description' });
+    const coverWrap = el('div');
+    const rows = el('div', { class: 'list-rows' });
+    const renderCover = () => { const l = lists.get(list.id); coverWrap.innerHTML = ''; coverWrap.appendChild(collage(coverShows(l, listShows(l)), 'hero')); };
+    function renderRows() {
+      const l = lists.get(list.id);
+      rows.innerHTML = '';
+      listShows(l).forEach(x => {
+        const s = x.show;
+        const row = el('div', { class: 'list-row', 'data-id': showId(s) },
+          el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')),
+          el('div', { class: 'lr-main' },
+            el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+            el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+            el('div', { class: 'sr-sub' }, rowSub(s))),
+          el('button', { class: 'minus', 'aria-label': 'Remove from list', onclick: () => { lists.removeEntry(list.id, showId(s)); renderRows(); renderCover(); } }, icon('minus')));
+        wireDrag(row, rows, order => {
+          const cur = lists.get(list.id);
+          lists.update(list.id, { entries: order.map(id => cur.entries.find(e => e.id === id)).filter(Boolean) });
+          renderCover();
+        });
+        rows.appendChild(row);
+      });
+      rows.appendChild(el('button', { class: 'row add-row', onclick: () => addShowsSheet(list.id, () => { renderRows(); renderCover(); }) },
+        el('span', { class: 'row-icon', html: ICONS.plus }), el('span', { class: 'row-label' }, 'Add shows')));
+    }
+    const cancel = () => { lists.update(list.id, { name: snapshot.name, desc: snapshot.desc, cover: snapshot.cover, entries: snapshot.entries }); pop(tab); };
+    const done = () => { lists.update(list.id, { name: nameIn.value.trim() || snapshot.name, desc: descIn.value.trim() }); pop(tab); };
+    scroll.append(
+      el('div', { class: 'navrow' }, el('button', { class: 'nav-textbtn', onclick: cancel }, 'Cancel'), el('button', { class: 'nav-textbtn bold', onclick: done }, 'Done')),
+      el('div', { class: 'list-hero edit' }, coverWrap,
+        el('button', { class: 'change-cover', onclick: () => coverSheet(list.id, renderCover) }, 'Change cover'), nameIn, descIn),
+      rows,
+      el('button', { class: 'delete-list', onclick: () => removeList(lists.get(list.id), tab, 2) }, 'Remove list'));
+    renderCover(); renderRows();
+    return page;
+  }
+  function coverSheet(listId, onDone) {
+    const l = lists.get(listId);
+    const grid = el('div', { class: 'cover-grid' });
+    let close;
+    listShows(l).forEach(x => {
+      const s = x.show, src = showImg(s);
+      if (!src) return;
+      grid.appendChild(el('button', { class: showId(s) === l.cover ? 'on' : '', 'aria-label': displayName(s), onclick: () => { lists.update(listId, { cover: showId(s) }); onDone(); close(); } }, el('img', { src, alt: '' })));
+    });
+    close = openSheet(el('div', { class: 'page' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Cover'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, grid)));
+  }
+  // Pick shows for a list from everything running in the city (search narrows).
+  function addShowsSheet(listId, onDone) {
+    const input = el('input', { type: 'search', placeholder: 'Artist, gallery, or show', autocomplete: 'off' });
+    const group = el('div', { class: 'group picker-list' });
+    const pool = sortShows(cityShows().filter(isActiveShow), 'rank');
+    const render = () => {
+      const t = input.value.trim().toLowerCase();
+      group.innerHTML = '';
+      pool.filter(s => matchesQuery(s, t)).slice(0, 60).forEach(s => {
+        const on = lists.has(listId, showId(s));
+        const ring = el('span', { class: 'check-ring' + (on ? ' on' : '') }, icon('check'));
+        group.appendChild(el('button', { class: 'row', 'data-pick': showId(s), onclick: () => { lists.toggleEntry(listId, showId(s)); ring.classList.toggle('on'); } },
+          el('span', { class: 'row-text' }, el('span', { class: 'row-label' }, displayName(s)), el('span', { class: 'row-sub' }, listLine(s.venue))), ring));
+      });
+    };
+    input.addEventListener('input', render);
+    render();
+    const close = openSheet(el('div', { class: 'page' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Add shows'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input)), group),
+      el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', onclick: () => { close(); onDone(); } }, 'Done'))));
+  }
+  function newListSheet() {
+    const input = el('input', { class: 'new-name', type: 'text', placeholder: 'List name', autocomplete: 'off', maxlength: '80' });
+    let close;
+    const create = () => { const name = input.value.trim(); if (!name) { input.focus(); return; } const l = lists.create(name, []); close(); push('list', listPage(l)); push('list', listEditPage(l)); };
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') create(); });
+    close = openSheet(el('div', { class: 'page' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'New list'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, el('div', { class: 'group', style: 'margin-top:12px' }, el('div', { class: 'row new-list' }, el('span', { class: 'row-icon', html: ICONS.plus }), input, el('button', { class: 'create', onclick: create }, 'Create'))))));
+    setTimeout(() => input.focus(), 320);
+  }
+
+  // ---- add-to-list from the bookmark (L4) ----
+  function addToListSheet(s) {
+    const id = showId(s);
+    const group = el('div', { class: 'group' });
+    let close;
+    const render = () => {
+      group.innerHTML = '';
+      const savedRing = el('span', { class: 'check-ring' + (state.saved.has(id) ? ' on' : '') }, icon('check'));
+      group.appendChild(el('button', { class: 'row', 'data-list': 'saved', onclick: () => { toggleSaved(id, true); savedRing.classList.toggle('on', state.saved.has(id)); } },
+        el('span', { class: 'lib-ico blue' }, icon('bookmarkFill')),
+        el('span', { class: 'row-text' }, el('span', { class: 'row-label' }, 'My Shows'), el('span', { class: 'row-sub' }, 'always')), savedRing));
+      lists.all().forEach(l => {
+        const ring = el('span', { class: 'check-ring' + (lists.has(l.id, id) ? ' on' : '') }, icon('check'));
+        group.appendChild(el('button', { class: 'row', 'data-list': l.id, onclick: () => { lists.toggleEntry(l.id, id); ring.classList.toggle('on', lists.has(l.id, id)); } },
+          collage(listShows(l).map(x => x.show), 'xs'),
+          el('span', { class: 'row-text' }, el('span', { class: 'row-label' }, l.name), el('span', { class: 'row-sub' }, plural(l.entries.length, 'show'))), ring));
+      });
+      const input = el('input', { class: 'new-name', type: 'text', placeholder: 'New list…', autocomplete: 'off', maxlength: '80' });
+      const create = () => { const name = input.value.trim(); if (!name) { input.focus(); return; } lists.create(name, [{ id }]); render(); };
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') create(); });
+      group.appendChild(el('div', { class: 'row new-list' }, el('span', { class: 'row-icon', html: ICONS.plus }), input, el('button', { class: 'create', onclick: create }, 'Create')));
+    };
+    render();
+    close = openSheet(el('div', { class: 'page add-sheet' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Add to list'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' },
+        el('div', { class: 'add-subject' }, showImg(s) ? el('img', { src: showImg(s), alt: '' }) : null, el('span', null, el('b', null, displayName(s)), el('br'), listLine(s.venue))),
+        group),
+      el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', onclick: () => close() }, 'Done'))));
+  }
+
+  // ---- curated page (L7): the See-all behind the shelf ----
+  function curatedPage() {
+    const cur = curatedLists();
+    const picks = cur.find(l => l.id === 'c-picks');
+    const walks = cur.filter(l => l.kind === 'route'), weekend = cur.filter(l => l.id === 'c-openings-weekend');
+    const medium = cur.filter(l => l.id !== 'c-picks' && l.kind !== 'route' && l.id !== 'c-openings-weekend');
+    const shelfOf = ls => el('div', { class: 'lib-shelf' }, ...ls.map(l => libTile(l, { cls: 'small', save: true, onclick: () => push('list', listPage(l)) })));
+    const section = (t, ls) => ls.length ? [libHeader(t), shelfOf(ls)] : [];
+    const hero = picks ? el('button', { class: 'guide-hero', onclick: () => push('list', listPage(picks)) },
+      collage(listRunning(picks).map(x => x.show), 'wide'),
+      el('div', { class: 'gh-text' }, el('div', { class: 'gh-kicker' }, 'This week'), el('div', { class: 'gh-name' }, picks.name), el('div', { class: 'gh-sub' }, picks.desc))) : null;
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn('list'), el('span')),
+      el('div', { class: 'large-title' }, `Curated for ${city().displayName}`),
+      hero, ...section('Walks', walks), ...section('This weekend', weekend), ...section('By medium', medium), el('div', { class: 'lib-tail' }));
+    const inline = el('div', { class: 'inline-title' }, 'Curated');
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page' }, inline, scroll);
+    const unsub = lists.subscribe(() => { if (!page.isConnected) { unsub(); return; } page.querySelectorAll('[data-save-list]').forEach(b => { const l = curatedById(b.dataset.saveList); if (l) b.replaceWith(savePill(l)); }); });
     return page;
   }
 
@@ -1362,6 +1879,13 @@
     onVenueTap: v => {
       openSheet(venuePage(v, { asSheet: true }));
     },
+    // The chosen list as context: its venues highlighted (a route also drawn
+    // as a line through them in order), the rest of the filter dimmed.
+    getContext: () => {
+      const l = currentList();
+      if (!l) return null;
+      return { list: l, shows: listRunning(l).map(x => x.show), backdrop: backdropShows() };
+    },
   });
 
   const mapFilterBtn = document.getElementById('map-filter-btn');
@@ -1371,11 +1895,182 @@
   mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false }));   // Sort orders the List only
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
 
+  // ---------------- discover tab ----------------
+  // A chat over the city's data, answered by /api/discover (webdemo/api). Every
+  // answer that is a set of shows arrives as a list: an unsaved draft the
+  // person can open, save, or put on the Map. The transcript lives per city
+  // in sessionStorage; the server is stateless and gets a compact history.
+  const PROMPTS = ['Opening receptions this weekend', 'What is closing this week?', 'Plan a Saturday in the Arts District', 'Video art on view now'];
+  const chatKey = () => 'discover.' + state.cityKey;
+  const loadChat = () => { try { const c = JSON.parse(sessionStorage.getItem(chatKey()) || 'null'); return c && Array.isArray(c.turns) ? c : { turns: [] }; } catch (e) { return { turns: [] }; } };
+  const saveChat = chat => { try { sessionStorage.setItem(chatKey(), JSON.stringify({ turns: chat.turns.slice(-24) })); } catch (e) { /* private mode */ } };
+
+  // Reads a fetch body as server-sent events; onEvent(name, data) per event.
+  async function readSSE(body, onEvent) {
+    const reader = body.getReader(), dec = new TextDecoder();
+    let buf = '';
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let i;
+      while ((i = buf.indexOf('\n\n')) >= 0) {
+        const block = buf.slice(0, i); buf = buf.slice(i + 2);
+        let event = 'message', data = '';
+        block.split('\n').forEach(line => {
+          if (line.startsWith('event:')) event = line.slice(6).trim();
+          else if (line.startsWith('data:')) data += line.slice(5).trim();
+        });
+        if (!data) continue;
+        let parsed; try { parsed = JSON.parse(data); } catch (e) { continue; }
+        onEvent(event, parsed);
+      }
+    }
+  }
+
+  function discoverRoot() {
+    let chat = loadChat();
+    let busy = false;
+    const body = el('div', { class: 'chat-body' });
+    const newBtn = el('button', { class: 'nav-textbtn', 'data-new-chat': '', onclick: () => { if (busy) return; chat = { turns: [] }; saveChat(chat); render(); } }, 'New');
+    const input = el('input', { type: 'text', placeholder: 'Ask about shows, galleries, artists…', autocomplete: 'off', enterkeyhint: 'send', 'aria-label': 'Ask Discover' });
+    const sendBtn = el('button', { class: 'ask-send', 'aria-label': 'Send', onclick: () => ask(input.value) }, icon('send'));
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') ask(input.value); });
+    const bar = el('div', { class: 'ask-bar' }, el('div', { class: 'ask-field' }, input, sendBtn));
+    const scroll = el('div', { class: 'page-scroll chat' },
+      el('div', { class: 'navrow' }, el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'), newBtn),
+      el('div', { class: 'large-title' }, city().displayName),
+      body);
+    const inline = el('div', { class: 'inline-title' }, city().displayName);
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page discover-page' }, inline, scroll, bar);
+
+    const idle = () => el('div', { class: 'ask-idle' },
+      el('div', { class: 'group-header' }, 'Try'),
+      el('div', { class: 'group prompts' }, ...PROMPTS.map(p => el('button', { class: 'row prompt-row', onclick: () => ask(p) }, el('span', { class: 'row-label' }, p), icon('chevronRight')))));
+    const userMsg = t => el('div', { class: 'msg user' }, t);
+
+    // The answer card: a draft list rendered as entries with a why-line, plus
+    // the route stops with times when the answer was an itinerary.
+    function answerCard(turn) {
+      const draft = turn.draftId && lists.get(turn.draftId);
+      if (!draft) return null;
+      const xs = listShows(draft), shows = xs.map(x => x.show);
+      const savedAs = draft.savedAs && lists.get(draft.savedAs);
+      const openList = () => push('discover', listPage(draft));
+      const saveBtn = savedAs
+        ? el('button', { class: 'ans-act done', onclick: () => push('discover', listPage(savedAs)) }, icon('check'), 'Saved')
+        : el('button', { class: 'ans-act primary', 'data-save-draft': draft.id, onclick: () => { const c = lists.copyFrom(draft, { kind: 'answer', source: draft.source || null }); lists.markDraftSaved(draft.id, c.id); render(); } }, icon('bookmark'), 'Save as list');
+      const mapBtn = el('button', { class: 'ans-act', 'data-map-draft': draft.id, onclick: () => { state.filter.list = draft.id; refreshAll(); setTab('map'); } }, icon('map'), draft.kind === 'route' ? 'Show route on Map' : 'Show on Map');
+      const kids = [];
+      if (draft.kind === 'route' && turn.route && turn.route.stops) {
+        kids.push(el('div', { class: 'ans-head' }, el('span', { class: 'ans-title' }, draft.name), el('span', { class: 'ans-count' }, `${plural(turn.route.stops.length, 'stop')} · ${turn.route.total_km} km`)));
+        kids.push(el('div', { class: 'route' }, ...turn.route.stops.map((st, i) => {
+          const x = xs.find(y => showId(y.show).endsWith('/' + st.id));
+          return el('button', { class: 'route-stop', onclick: () => x && push('discover', showDetailPage(shows, shows.indexOf(x.show))) },
+            el('span', { class: 'stop-n' }, String(i + 1)),
+            el('div', { class: 'stop-text' }, el('div', { class: 'stop-name' }, st.venue), el('div', { class: 'stop-show' }, st.name),
+              el('div', { class: 'stop-meta' }, [st.arrive_label, st.hours, i ? `${st.walk_min} min walk` : null].filter(Boolean).join(' · '))));
+        })));
+        if (turn.route.skipped && turn.route.skipped.length) kids.push(el('p', { class: 'ai-note', style: 'padding:0 14px' }, `Skipped ${turn.route.skipped.map(s => `${s.venue} (${s.reason})`).join(', ')}.`));
+      } else {
+        kids.push(el('div', { class: 'ans-head' }, el('span', { class: 'ans-title' }, draft.name), el('span', { class: 'ans-count' }, plural(xs.length, 'show'))));
+        xs.slice(0, 5).forEach((x, i) => kids.push(el('button', { class: 'ans-entry', onclick: () => push('discover', showDetailPage(shows, i)) },
+          showImg(x.show) ? el('img', { class: 'ans-thumb', src: showImg(x.show), alt: '' }) : el('span', { class: 'ans-thumb' }),
+          el('div', { class: 'ans-text' }, el('div', { class: 'ans-name' }, displayName(x.show)),
+            el('div', { class: 'ans-venue' }, `${listLine(x.show.venue)}${x.show.venue.neighborhood ? ' · ' + x.show.venue.neighborhood : ''}`),
+            x.note ? el('div', { class: 'why' }, x.note) : null))));
+        if (xs.length > 5) kids.push(el('button', { class: 'ans-more', onclick: openList }, `Show all ${xs.length}`));
+      }
+      kids.push(el('div', { class: 'ans-actions' }, saveBtn, mapBtn, draft.kind === 'route' || xs.length <= 5 ? el('button', { class: 'ans-act', onclick: openList }, icon('listBullet'), 'Open') : null));
+      return el('div', { class: 'answer-card', 'data-draft': draft.id }, ...kids);
+    }
+    function aiMsg(turn, live) {
+      const parts = [];
+      if (live && turn.status) parts.push(el('div', { class: 'ai-status' }, turn.status));
+      parts.push(el('p', null, turn.text || ''));
+      const card = answerCard(turn);
+      if (card) parts.push(card);
+      if (turn.note) parts.push(el('p', { class: 'ai-note' }, turn.note));
+      if (turn.error) parts.push(el('div', { class: 'ai-error' }, turn.error, ' ', el('button', { class: 'chip', style: 'display:inline-flex;margin-left:6px', onclick: () => retry(turn) }, 'Retry')));
+      if (turn.suggestions && turn.suggestions.length && !live) parts.push(el('div', { class: 'followups' }, ...turn.suggestions.map(t => el('button', { class: 'chip', onclick: () => ask(t) }, t))));
+      return el('div', { class: 'msg ai' }, el('span', { class: 'ai-ico' }, icon('sparkle')), el('div', { class: 'ai-body' }, ...parts));
+    }
+    let liveNode = null, liveTurn = null;
+    function render() {
+      body.innerHTML = '';
+      newBtn.hidden = !chat.turns.length;
+      if (!chat.turns.length) { body.appendChild(idle()); return; }
+      chat.turns.forEach(t => {
+        if (t.role === 'user') body.appendChild(userMsg(t.text));
+        else { const n = aiMsg(t, t === liveTurn); body.appendChild(n); if (t === liveTurn) liveNode = n; }
+      });
+      scroll.scrollTop = scroll.scrollHeight;
+    }
+    const updateLive = () => { if (!liveNode || !liveTurn) return; const n = aiMsg(liveTurn, true); liveNode.replaceWith(n); liveNode = n; scroll.scrollTop = scroll.scrollHeight; };
+
+    function retry(turn) {
+      const i = chat.turns.indexOf(turn);
+      const q = i > 0 ? chat.turns[i - 1].text : '';
+      chat.turns.splice(Math.max(0, i - 1), 2);
+      saveChat(chat);
+      if (q) ask(q); else render();
+    }
+    async function ask(q) {
+      q = (q || '').trim();
+      if (!q || busy) return;
+      busy = true; sendBtn.disabled = true; input.value = '';
+      const history = chat.turns.slice(-12).map(t => t.role === 'user' ? { role: 'user', text: t.text } : { role: 'assistant', text: t.text, presented: t.presented || undefined });
+      const turn = { role: 'assistant', text: '', status: 'Thinking', presented: null, draftId: null, route: null, suggestions: [] };
+      chat.turns.push({ role: 'user', text: q }, turn);
+      liveTurn = turn;
+      render();
+      const ctxList = currentList();
+      try {
+        const res = await fetch('api/discover', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            city: state.cityKey, question: q, history,
+            filterSummary: filterSummary(), activeList: ctxList ? ctxList.name : null,
+            savedLists: lists.all().map(l => l.name),
+            savedShows: [...state.saved].filter(id => id.startsWith(state.cityKey + '/')).map(id => id.split('/')[1]),
+          }),
+        });
+        if (!res.ok) { const err = await res.json().catch(() => ({})); throw new Error(err.error || `HTTP ${res.status}`); }
+        let sawDone = false;
+        await readSSE(res.body, (event, data) => {
+          if (event === 'text') turn.text += data.delta;
+          else if (event === 'status') turn.status = data.label;
+          else if (event === 'list') {
+            const draft = lists.draft({ name: data.title, kind: data.kind, desc: '', entries: data.entries, source: { query: q } });
+            turn.draftId = draft.id;
+            turn.presented = { title: data.title, kind: data.kind, ids: data.entries.map(e => e.id), dropped: data.dropped || [] };
+            turn.suggestions = data.suggestions || [];
+          } else if (event === 'route') turn.route = data;
+          else if (event === 'note') turn.note = data.message;
+          else if (event === 'error') turn.error = data.message || "Couldn't answer that just now.";
+          else if (event === 'done') { sawDone = true; if (window.console) console.debug('discover', data); }
+          updateLive();
+        });
+        if (!sawDone && !turn.error) turn.note = (turn.note ? turn.note + ' ' : '') + 'Cut short.';
+      } catch (e) {
+        turn.error = /HTTP 429|too many/i.test(e.message) ? 'Too many questions at once. Give it a minute.' : /not configured/i.test(e.message) ? 'Discover is not set up on this deployment.' : "Couldn't answer that just now.";
+      } finally {
+        turn.status = null; liveTurn = null; liveNode = null; busy = false; sendBtn.disabled = false;
+        saveChat(chat); render();
+      }
+    }
+    page.refresh = () => { if (!busy) { chat = loadChat(); render(); } };
+    render();
+    return page;
+  }
+
   // ---------------- tabs & city switching ----------------
   const screens = {
     featured: document.getElementById('screen-featured'),
     list: document.getElementById('screen-list'),
     map: document.getElementById('screen-map'),
+    discover: document.getElementById('screen-discover'),
   };
   const tabBtns = document.querySelectorAll('.tab-btn');
   function setTab(tab) {
@@ -1399,11 +2094,16 @@
   function rebuildTabs() {
     const hoods = city().neighborhoods;
     state.filter.hoods = state.filter.hoods.filter(h => hoods.includes(h));   // city switch
+    const l = currentList();
+    if (l && l.city && l.city !== state.cityKey) state.filter.list = null;   // a list belongs to its city
     pagesRoot.featured.innerHTML = '';
     pagesRoot.list.innerHTML = '';
+    pagesRoot.discover.innerHTML = '';
     push('featured', featuredRoot());
     push('list', listRoot());
+    push('discover', discoverRoot());
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
+    renderMapContext();
   }
 
   // ---------------- boot ----------------
@@ -1414,5 +2114,5 @@
   rebuildTabs();
   setTab('featured');
   // test hook
-  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, GALLERY_TIER_CUTOFF };
+  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
 })();
