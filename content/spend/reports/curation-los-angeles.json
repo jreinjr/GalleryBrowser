@@ -1,6 +1,6 @@
 {
  "city": "los-angeles",
- "generated_at": "2026-09-04T03:43:54+00:00",
+ "generated_at": "2026-09-04T04:37:30+00:00",
  "today": "2026-09-03",
  "params_default": {
   "version": 1,
@@ -13,7 +13,7 @@
   "published_only": true,
   "require_open": true,
   "editors_pick_top": 5,
-  "exclude_museums": false,
+  "exclude_museums": true,
   "max_per_neighborhood": null,
   "max_museum_share": null,
   "weights": {
@@ -69,7 +69,7 @@
    "pin": [],
    "exclude": []
   },
-  "_note": "Fitted 2026-09-02 for COMPLETION + graded PRECISION against See Saw, using the 09-01 and 09-02 LA captures. Two goals at once: every show See Saw lists must survive the gates, and See Saw's shows must rank high with Featured above Editor's Picks above merely-listed. Target grades: Featured (union of both captures, 6 in pool) = 3, Editor's Picks not Featured (4) = 2, on All Current Shows only (15) = 1, everything else 0; scored by nDCG over those grades plus precision@k. RESULT: completion 25/25 (every in-pool See Saw show is in the feed), all 6 Featured and all 9 in-pool Editor's Picks in, nDCG@5 0.581, nDCG@10 0.717, nDCG@25 0.751, P@5 1.00, P@10 1.00 - the first ten feed slots are ten See Saw shows. Feed length 76. THE MUSEUM TRICK: exclude_museums is FALSE but the museum weight is -0.20. Completion requires museums, because See Saw lists The Broad's Yoko Ono; the negative weight keeps them in the feed while pushing them down (Yoko Ono lands at feed #30 despite a judge 9). This is what beat every galleries-only variant - a hard museum filter caps completion at 24/25. Note this DIFFERS from publish-la.json, where the user chose a hard galleries-only Featured tab on 2026-09-02; use that preset for the app unless you want museums back in. THE COST OF COMPLETION is the cutoff: threshold 0.22 is set by the single weakest See Saw show (Monte Vista Projects 'Moth To A Flame', judge 2/10, score 0.227), and carrying it means a 76-show feed. Tradeoff curve, same weights, measured through curate.rank with published_only and require_open on: thr 0.22 -> 76 shows, 25/25, Featured 6/6; 0.26 -> 59, 24/25, 6/6; 0.30 -> 40, 21/25, 6/6; 0.34 -> 28, 16/25, 6/6; 0.38 -> 21, 13/25, 5/6; 0.42 -> 10, 10/25, 4/6. All six Featured survive up to thr 0.34, so raise the threshold if you want a shorter feed and will accept losing the tail. Weights: judge 0.44 does the ranking (it is the only feature that separates See Saw's picks from the shows it passed over - see seesaw-taste.json's note for the per-feature AUCs); venue 0.14, quality 0.08, closing_soon 0.04, press 0.04 are small tie-breakers; artist_heat, wiki_heat, keyword and opening_recency are at or below chance on this target and stay zeroed. Requires full Sonnet judge coverage - judge new shows before scoring or they score near zero. HELD OUT: leave-one-venue-out (refit without a venue's shows, then score only that venue) gives mean 1/log2(1+position) 0.253 against 0.303 fitted, a +0.050 optimism gap. CAVEAT on the fit: the 09-01 and 09-02 captures resolve to the SAME 10-show taste set and the same 26-show list, so this is one sample of 25 positives, not two. It is not an out-of-sample validation. See Saw's Featured feed also carried a closed show (1301PE 'Lull Between Storms', ended June 13 per the gallery's own rendered site) at position 1 on both days, so the benchmark itself is not error-free."
+  "_note": "seesaw-complete with museums excluded from the feed (user default, 2026-09-03). Museums still appear in List/Map under the Museums and All venues filters; only the Featured set is galleries-only. The -0.20 museum weight is kept so that if the gate is turned off again, museums sink rather than lead."
  },
  "sources": [
   {
@@ -6533,196 +6533,6 @@
    ]
   },
   {
-   "slug": "silton-diving-into-the-wreck",
-   "title": "Diving Into the Wreck",
-   "artist": "Susan Silton",
-   "pool": "published",
-   "in_window": true,
-   "dates": {
-    "start": "2026-09-03",
-    "end": "2026-11-22"
-   },
-   "n_images": 3,
-   "desc_words": 245,
-   "venue": {
-    "name": "Los Angeles Municipal Art Gallery (LAMAG)",
-    "id": "los-angeles-municipal-art-gallery-lamag",
-    "tier": 3,
-    "n_fair": 0,
-    "is_museum": false,
-    "neighborhood": "Los Feliz/NELA",
-    "norm": "los angeles municipal art gallery lamag"
-   },
-   "signals": [
-    {
-     "id": "d26844b8261d",
-     "dedupe_key": "6982da8003aa",
-     "source": {
-      "id": "la-weekly",
-      "kind": "listing",
-      "name": "LA Weekly — Arts",
-      "url": "https://www.laweekly.com/art-news-the-japanese-american-national-museum-to-re-open-and-susan-silton-dives-into-the-wreck/"
-     },
-     "kind": "news",
-     "strength": "featured",
-     "date": "2026-08-24",
-     "published_at": "2026-08-24",
-     "snippet": "The Los Angeles Municipal Art Gallery will present Susan Silton: Diving into the Wreck, the first major survey of the work of the LA-based artist, from Thursday, Sept. 3 through Sunday, Nov. 22.",
-     "url": "https://www.laweekly.com/art-news-the-japanese-american-national-museum-to-re-open-and-susan-silton-dives-into-the-wreck/",
-     "run": "curate-los-angeles-pubsweep_v1-g3-1788314389",
-     "variant": "pubsweep_v1",
-     "model": "claude-sonnet-5",
-     "match_confidence": 0.95,
-     "match_method": "venue+artist",
-     "n_rows": 1,
-     "show_ref": {
-      "venue": "Los Angeles Municipal Art Gallery",
-      "artist": "Susan Silton",
-      "title": "Susan Silton: Diving into the Wreck"
-     }
-    },
-    {
-     "id": "4753a32b653b",
-     "dedupe_key": "dfda24d1f830",
-     "source": {
-      "id": "gallery-platform-la-directory",
-      "kind": "curated_list",
-      "name": "Gallery Platform LA",
-      "url": "https://galleryplatform.la"
-     },
-     "kind": "list_member",
-     "strength": "featured",
-     "date": "2026-09-03",
-     "published_at": null,
-     "snippet": "Member of Gallery Platform LA (Participating Galleries directory), Los Angeles",
-     "url": "https://galleryplatform.la",
-     "run": "curate-los-angeles-lists_v1-g1-1788458052",
-     "variant": "lists_v1",
-     "model": "claude-sonnet-5",
-     "match_confidence": 0.7,
-     "match_method": "venue_only",
-     "n_rows": 1,
-     "show_ref": {
-      "venue": "Los Angeles Municipal Art Gallery (LAMAG)",
-      "artist": null,
-      "title": null
-     }
-    }
-   ],
-   "judge": {
-    "judge_v1": {
-     "claude-sonnet-5": {
-      "ts": 1788378822,
-      "city": "los-angeles",
-      "slug": "silton-diving-into-the-wreck",
-      "variant": "judge_v1",
-      "prompt_hash": "b38bfeecb063fa301c571e92dfd81fbffc4b6776",
-      "model": "claude-sonnet-5",
-      "effort": "high",
-      "evidence_hash": "1dfca21de9f99a65abbaf100c3b3ae6ad8c15b2578b8845a8474223ea9fd77ce",
-      "cache_key": "85c6ef18a3d314a59c2ab1dc256b44ef22c28954a016353eb643d454d11b8ee7",
-      "run_id": "judge-los-angeles-judge_v1-claude-sonnet-5-1788378664",
-      "scores": {
-       "artist_significance": 5,
-       "venue_significance": 4,
-       "critical_reception": 4,
-       "ambition_novelty": 8,
-       "timeliness": 9
-      },
-      "overall": 6,
-      "confidence": 0.55,
-      "rationale": "First full career survey (four decades, 150 works) of LA conceptual/feminist artist Susan Silton, organized by Blaffer Art Museum and opening at LAMAG, confirmed by [S1] LA Weekly news mention as 'first major survey.' Strong ambition (site-specific commission, participatory typewriter piece) and perfect timeliness (opens tomorrow). Silton is respected but not nationally canonical; LAMAG is a municipal gallery, not top-tier venue. Only one signal (news announcement, not a review) limits critical-reception confidence.",
-      "evidence_used": [
-       "S1",
-       "description",
-       "venue tier",
-       "prior knowledge: artist"
-      ],
-      "red_flags": [
-       "Only one signal so far, a news announcement rather than a critical review",
-       "Modest municipal venue may limit reach despite ambitious survey format"
-      ],
-      "usage": {
-       "input": 981,
-       "output": 874,
-       "cache_read": 19183,
-       "cache_write": 0
-      },
-      "cost_usd": 0.01454,
-      "batch": false
-     }
-    }
-   },
-   "keyword_hits": [
-    {
-     "class": "retrospective_survey",
-     "label": "retrospective / survey",
-     "weight": 1.0,
-     "term": "four decades",
-     "where": "description"
-    },
-    {
-     "class": "commissioned",
-     "label": "commissioned / site-specific",
-     "weight": 0.5,
-     "term": "commissioned",
-     "where": "description"
-    },
-    {
-     "class": "first_solo",
-     "label": "first US / LA / museum solo",
-     "weight": 0.8,
-     "term": "first major survey",
-     "where": "snippet"
-    }
-   ],
-   "wiki": {
-    "title": null,
-    "pageviews_90d": null,
-    "url": null
-   },
-   "features": {
-    "press": 0.08735927774512649,
-    "judge": 0.6,
-    "venue": 0.6,
-    "artist_heat": 0.0,
-    "museum": 0.0,
-    "keyword": 1.0,
-    "wiki_heat": 0.0,
-    "opening_recency": 1.0,
-    "closing_soon": 0.0,
-    "quality": 0.79
-   },
-   "contrib": {
-    "press": 0.0034943711098050596,
-    "judge": 0.264,
-    "venue": 0.084,
-    "artist_heat": 0.0,
-    "museum": -0.0,
-    "keyword": 0.0,
-    "wiki_heat": 0.0,
-    "opening_recency": 0.0,
-    "closing_soon": 0.0,
-    "quality": 0.0632
-   },
-   "score": 0.41469437110980506,
-   "days_since_open": 0,
-   "days_to_close": 80,
-   "rank": 36,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
-   "editors_pick": false,
-   "featured_rank": 17,
-   "pinned": false,
-   "reasons": [
-    "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
-    "venue 0.60 (tier 3)",
-    "quality 0.79 (3 images, 245 words)",
-    "press 0.09 from 1 signal(s): la-weekly"
-   ]
-  },
-  {
    "slug": "broken-sleeps",
    "title": "Broken Sleeps",
    "artist": "Fiona Connor",
@@ -6857,7 +6667,7 @@
    "score": 0.41200000000000003,
    "days_since_open": -6,
    "days_to_close": 51,
-   "rank": 37,
+   "rank": 36,
    "gate": "not_open",
    "gate_detail": "opens in 6 d",
    "featured": false,
@@ -7098,12 +6908,12 @@
    "score": 0.41200000000000003,
    "days_since_open": 194,
    "days_to_close": 119,
-   "rank": 38,
+   "rank": 37,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 18,
+   "featured_rank": 17,
    "pinned": false,
    "reasons": [
     "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
@@ -7210,12 +7020,12 @@
    "score": 0.41200000000000003,
    "days_since_open": 125,
    "days_to_close": 119,
-   "rank": 39,
+   "rank": 38,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 19,
+   "featured_rank": 18,
    "pinned": false,
    "reasons": [
     "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
@@ -7324,12 +7134,12 @@
    "score": 0.4096,
    "days_since_open": 54,
    "days_to_close": 2,
-   "rank": 40,
+   "rank": 39,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 20,
+   "featured_rank": 19,
    "pinned": false,
    "reasons": [
     "judge 0.50 (sonnet: {'claude-sonnet-5': 5})",
@@ -7439,12 +7249,12 @@
    "score": 0.40848,
    "days_since_open": 49,
    "days_to_close": 9,
-   "rank": 41,
+   "rank": 40,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 21,
+   "featured_rank": 20,
    "pinned": false,
    "reasons": [
     "judge 0.50 (sonnet: {'claude-sonnet-5': 5})",
@@ -7560,7 +7370,7 @@
    "score": 0.40784000000000004,
    "days_since_open": -9,
    "days_to_close": 51,
-   "rank": 42,
+   "rank": 41,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -7799,12 +7609,12 @@
    "score": 0.40608,
    "days_since_open": 47,
    "days_to_close": 16,
-   "rank": 43,
+   "rank": 42,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 22,
+   "featured_rank": 21,
    "pinned": false,
    "reasons": [
     "judge 0.50 (sonnet: {'claude-sonnet-5': 5})",
@@ -7912,7 +7722,7 @@
    "score": 0.40608,
    "days_since_open": -45,
    "days_to_close": 135,
-   "rank": 44,
+   "rank": 43,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -8123,12 +7933,12 @@
    "score": 0.40448,
    "days_since_open": 40,
    "days_to_close": 1,
-   "rank": 45,
+   "rank": 44,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 23,
+   "featured_rank": 22,
    "pinned": false,
    "reasons": [
     "judge 0.40 (sonnet: {'claude-sonnet-5': 4})",
@@ -8245,12 +8055,12 @@
    "score": 0.40236,
    "days_since_open": 180,
    "days_to_close": 4,
-   "rank": 46,
+   "rank": 45,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 24,
+   "featured_rank": 23,
    "pinned": false,
    "reasons": [
     "judge 0.50 (sonnet: {'claude-sonnet-5': 5})",
@@ -8366,7 +8176,7 @@
    "score": 0.40144,
    "days_since_open": -9,
    "days_to_close": 93,
-   "rank": 47,
+   "rank": 46,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -8598,7 +8408,7 @@
    "score": 0.40112000000000003,
    "days_since_open": -16,
    "days_to_close": 65,
-   "rank": 48,
+   "rank": 47,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -8807,12 +8617,12 @@
    "score": 0.39824000000000004,
    "days_since_open": 84,
    "days_to_close": 9,
-   "rank": 49,
+   "rank": 48,
    "gate": null,
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 25,
+   "featured_rank": 24,
    "pinned": false,
    "reasons": [
     "judge 0.40 (sonnet: {'claude-sonnet-5': 4})",
@@ -8942,7 +8752,7 @@
    "score": 0.3976,
    "days_since_open": -9,
    "days_to_close": 51,
-   "rank": 50,
+   "rank": 49,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -9055,7 +8865,7 @@
    "score": 0.39744,
    "days_since_open": -9,
    "days_to_close": 51,
-   "rank": 51,
+   "rank": 50,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -9166,7 +8976,7 @@
    "score": 0.39680000000000004,
    "days_since_open": -16,
    "days_to_close": 51,
-   "rank": 52,
+   "rank": 51,
    "gate": "out_of_window",
    "gate_detail": "not in the publication window",
    "featured": false,
@@ -9179,6 +8989,196 @@
     "quality 0.46 (1 images, 180 words)",
     "no signals",
     "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "silton-diving-into-the-wreck",
+   "title": "Diving Into the Wreck",
+   "artist": "Susan Silton",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-11-22"
+   },
+   "n_images": 3,
+   "desc_words": 245,
+   "venue": {
+    "name": "Los Angeles Municipal Art Gallery (LAMAG)",
+    "id": "los-angeles-municipal-art-gallery-lamag",
+    "tier": null,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Los Feliz/NELA",
+    "norm": "los angeles municipal art gallery lamag"
+   },
+   "signals": [
+    {
+     "id": "d26844b8261d",
+     "dedupe_key": "6982da8003aa",
+     "source": {
+      "id": "la-weekly",
+      "kind": "listing",
+      "name": "LA Weekly — Arts",
+      "url": "https://www.laweekly.com/art-news-the-japanese-american-national-museum-to-re-open-and-susan-silton-dives-into-the-wreck/"
+     },
+     "kind": "news",
+     "strength": "featured",
+     "date": "2026-08-24",
+     "published_at": "2026-08-24",
+     "snippet": "The Los Angeles Municipal Art Gallery will present Susan Silton: Diving into the Wreck, the first major survey of the work of the LA-based artist, from Thursday, Sept. 3 through Sunday, Nov. 22.",
+     "url": "https://www.laweekly.com/art-news-the-japanese-american-national-museum-to-re-open-and-susan-silton-dives-into-the-wreck/",
+     "run": "curate-los-angeles-pubsweep_v1-g3-1788314389",
+     "variant": "pubsweep_v1",
+     "model": "claude-sonnet-5",
+     "match_confidence": 0.95,
+     "match_method": "venue+artist",
+     "n_rows": 1,
+     "show_ref": {
+      "venue": "Los Angeles Municipal Art Gallery",
+      "artist": "Susan Silton",
+      "title": "Susan Silton: Diving into the Wreck"
+     }
+    },
+    {
+     "id": "4753a32b653b",
+     "dedupe_key": "dfda24d1f830",
+     "source": {
+      "id": "gallery-platform-la-directory",
+      "kind": "curated_list",
+      "name": "Gallery Platform LA",
+      "url": "https://galleryplatform.la"
+     },
+     "kind": "list_member",
+     "strength": "featured",
+     "date": "2026-09-03",
+     "published_at": null,
+     "snippet": "Member of Gallery Platform LA (Participating Galleries directory), Los Angeles",
+     "url": "https://galleryplatform.la",
+     "run": "curate-los-angeles-lists_v1-g1-1788458052",
+     "variant": "lists_v1",
+     "model": "claude-sonnet-5",
+     "match_confidence": 0.7,
+     "match_method": "venue_only",
+     "n_rows": 1,
+     "show_ref": {
+      "venue": "Los Angeles Municipal Art Gallery (LAMAG)",
+      "artist": null,
+      "title": null
+     }
+    }
+   ],
+   "judge": {
+    "judge_v1": {
+     "claude-sonnet-5": {
+      "ts": 1788378822,
+      "city": "los-angeles",
+      "slug": "silton-diving-into-the-wreck",
+      "variant": "judge_v1",
+      "prompt_hash": "b38bfeecb063fa301c571e92dfd81fbffc4b6776",
+      "model": "claude-sonnet-5",
+      "effort": "high",
+      "evidence_hash": "1dfca21de9f99a65abbaf100c3b3ae6ad8c15b2578b8845a8474223ea9fd77ce",
+      "cache_key": "85c6ef18a3d314a59c2ab1dc256b44ef22c28954a016353eb643d454d11b8ee7",
+      "run_id": "judge-los-angeles-judge_v1-claude-sonnet-5-1788378664",
+      "scores": {
+       "artist_significance": 5,
+       "venue_significance": 4,
+       "critical_reception": 4,
+       "ambition_novelty": 8,
+       "timeliness": 9
+      },
+      "overall": 6,
+      "confidence": 0.55,
+      "rationale": "First full career survey (four decades, 150 works) of LA conceptual/feminist artist Susan Silton, organized by Blaffer Art Museum and opening at LAMAG, confirmed by [S1] LA Weekly news mention as 'first major survey.' Strong ambition (site-specific commission, participatory typewriter piece) and perfect timeliness (opens tomorrow). Silton is respected but not nationally canonical; LAMAG is a municipal gallery, not top-tier venue. Only one signal (news announcement, not a review) limits critical-reception confidence.",
+      "evidence_used": [
+       "S1",
+       "description",
+       "venue tier",
+       "prior knowledge: artist"
+      ],
+      "red_flags": [
+       "Only one signal so far, a news announcement rather than a critical review",
+       "Modest municipal venue may limit reach despite ambitious survey format"
+      ],
+      "usage": {
+       "input": 981,
+       "output": 874,
+       "cache_read": 19183,
+       "cache_write": 0
+      },
+      "cost_usd": 0.01454,
+      "batch": false
+     }
+    }
+   },
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first major survey",
+     "where": "snippet"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.08735927774512649,
+    "judge": 0.6,
+    "venue": 0.45,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.79
+   },
+   "contrib": {
+    "press": 0.0034943711098050596,
+    "judge": 0.264,
+    "venue": 0.06300000000000001,
+    "artist_heat": 0.0,
+    "museum": -0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0632
+   },
+   "score": 0.3936943711098051,
+   "days_since_open": 0,
+   "days_to_close": 80,
+   "rank": 52,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 25,
+   "pinned": false,
+   "reasons": [
+    "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
+    "quality 0.79 (3 images, 245 words)",
+    "venue 0.45 (no tier)",
+    "press 0.09 from 1 signal(s): la-weekly"
    ]
   },
   {
@@ -12150,17 +12150,18 @@
    "days_since_open": 103,
    "days_to_close": 38,
    "rank": 72,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 32,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.90 (sonnet: {'claude-sonnet-5': 9})",
     "venue 0.60 (tier 3)",
     "quality 0.94 (5 images, 220 words)",
-    "press 0.03 from 2 signal(s): alta, artnews"
+    "press 0.03 from 2 signal(s): alta, artnews",
+    "gated: museums excluded"
    ]
   },
   {
@@ -12692,7 +12693,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 33,
+   "featured_rank": 32,
    "pinned": false,
    "reasons": [
     "judge 0.50 (sonnet: {'claude-sonnet-5': 5})",
@@ -13051,7 +13052,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 34,
+   "featured_rank": 33,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -13400,7 +13401,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 35,
+   "featured_rank": 34,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -13583,7 +13584,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 36,
+   "featured_rank": 35,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -13807,7 +13808,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 37,
+   "featured_rank": 36,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -14907,7 +14908,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 38,
+   "featured_rank": 37,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -15019,7 +15020,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 39,
+   "featured_rank": 38,
    "pinned": false,
    "reasons": [
     "judge 0.40 (sonnet: {'claude-sonnet-5': 4})",
@@ -15247,7 +15248,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 40,
+   "featured_rank": 39,
    "pinned": false,
    "reasons": [
     "judge 0.40 (sonnet: {'claude-sonnet-5': 4})",
@@ -15359,7 +15360,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 41,
+   "featured_rank": 40,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -15826,7 +15827,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 42,
+   "featured_rank": 41,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -16008,7 +16009,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 43,
+   "featured_rank": 42,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -16359,7 +16360,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 44,
+   "featured_rank": 43,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -16473,7 +16474,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 45,
+   "featured_rank": 44,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -16832,7 +16833,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 46,
+   "featured_rank": 45,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -16989,7 +16990,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 47,
+   "featured_rank": 46,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -17302,7 +17303,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 48,
+   "featured_rank": 47,
    "pinned": false,
    "reasons": [
     "judge 0.40 (sonnet: {'claude-sonnet-5': 4})",
@@ -17452,7 +17453,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 49,
+   "featured_rank": 48,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -17643,7 +17644,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 50,
+   "featured_rank": 49,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -18219,7 +18220,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 51,
+   "featured_rank": 50,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -18857,7 +18858,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 52,
+   "featured_rank": 51,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -19226,7 +19227,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 53,
+   "featured_rank": 52,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -19341,7 +19342,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 54,
+   "featured_rank": 53,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -19453,7 +19454,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 55,
+   "featured_rank": 54,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -19752,17 +19753,18 @@
    "days_since_open": 149,
    "days_to_close": 10,
    "rank": 128,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 56,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.70 (sonnet: {'claude-sonnet-5': 7})",
     "venue 0.60 (tier 3)",
     "quality 0.67 (3 images, 185 words)",
-    "closes in 10 d"
+    "closes in 10 d",
+    "gated: museums excluded"
    ]
   },
   {
@@ -19906,7 +19908,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 57,
+   "featured_rank": 55,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -20088,7 +20090,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 58,
+   "featured_rank": 56,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -20925,7 +20927,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 59,
+   "featured_rank": 57,
    "pinned": false,
    "reasons": [
     "venue 0.80 (tier 2)",
@@ -21038,7 +21040,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 60,
+   "featured_rank": 58,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -21276,7 +21278,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 61,
+   "featured_rank": 59,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -21511,7 +21513,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 62,
+   "featured_rank": 60,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -21716,16 +21718,17 @@
    "days_since_open": 299,
    "days_to_close": 38,
    "rank": 142,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 63,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.70 (sonnet: {'claude-sonnet-5': 7})",
     "venue 0.60 (tier 3)",
-    "quality 1.00 (6 images, 279 words)"
+    "quality 1.00 (6 images, 279 words)",
+    "gated: museums excluded"
    ]
   },
   {
@@ -21832,7 +21835,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 64,
+   "featured_rank": 61,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -21945,7 +21948,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 65,
+   "featured_rank": 62,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -22286,7 +22289,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 66,
+   "featured_rank": 63,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -22837,18 +22840,19 @@
    "days_since_open": 151,
    "days_to_close": 3,
    "rank": 151,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 67,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
     "venue 0.60 (tier 3)",
     "quality 0.99 (10 images, 244 words)",
     "closes in 3 d",
-    "no signals"
+    "no signals",
+    "gated: museums excluded"
    ]
   },
   {
@@ -23321,7 +23325,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 68,
+   "featured_rank": 64,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -23547,7 +23551,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 69,
+   "featured_rank": 65,
    "pinned": false,
    "reasons": [
     "judge 0.30 (sonnet: {'claude-sonnet-5': 3})",
@@ -24502,17 +24506,18 @@
    "days_since_open": 320,
    "days_to_close": 53,
    "rank": 164,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 70,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.70 (sonnet: {'claude-sonnet-5': 7})",
     "venue 0.60 (tier 3)",
     "quality 0.79 (4 images, 194 words)",
-    "no signals"
+    "no signals",
+    "gated: museums excluded"
    ]
   },
   {
@@ -25694,7 +25699,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 71,
+   "featured_rank": 66,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -26169,7 +26174,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 72,
+   "featured_rank": 67,
    "pinned": false,
    "reasons": [
     "venue 0.60 (tier 3)",
@@ -26292,7 +26297,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 73,
+   "featured_rank": 68,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -26405,7 +26410,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 74,
+   "featured_rank": 69,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -26631,7 +26636,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 75,
+   "featured_rank": 70,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -27225,17 +27230,18 @@
    "days_since_open": 75,
    "days_to_close": 150,
    "rank": 186,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 76,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.60 (sonnet: {'claude-sonnet-5': 6})",
     "venue 0.60 (tier 3)",
     "quality 1.00 (5 images, 276 words)",
-    "press 0.22 from 1 signal(s): frieze-magazine"
+    "press 0.22 from 1 signal(s): frieze-magazine",
+    "gated: museums excluded"
    ]
   },
   {
@@ -27457,7 +27463,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 77,
+   "featured_rank": 71,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -27692,7 +27698,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 78,
+   "featured_rank": 72,
    "pinned": false,
    "reasons": [
     "venue 0.80 (tier 2)",
@@ -28032,7 +28038,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 79,
+   "featured_rank": 73,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -28852,7 +28858,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 80,
+   "featured_rank": 74,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -29100,17 +29106,18 @@
    "days_since_open": 83,
    "days_to_close": 94,
    "rank": 202,
-   "gate": null,
-   "gate_detail": null,
-   "featured": true,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
    "editors_pick": false,
-   "featured_rank": 81,
+   "featured_rank": null,
    "pinned": false,
    "reasons": [
     "judge 0.70 (sonnet: {'claude-sonnet-5': 7})",
     "venue 0.60 (tier 3)",
     "quality 0.38 (1 images, 138 words)",
-    "no signals"
+    "no signals",
+    "gated: museums excluded"
    ]
   },
   {
@@ -29380,7 +29387,7 @@
    "gate_detail": null,
    "featured": true,
    "editors_pick": false,
-   "featured_rank": 82,
+   "featured_rank": 75,
    "pinned": false,
    "reasons": [
     "judge 0.20 (sonnet: {'claude-sonnet-5': 2})",
@@ -49852,7 +49859,7 @@
      "confidence": 0.9,
      "venue_in_pool": true,
      "candidate_key": null,
-     "rank": 45,
+     "rank": 44,
      "score": 0.40448,
      "featured": true,
      "gate": null
@@ -49915,14 +49922,14 @@
   ],
   "metrics": {
    "n_snapshot": 5,
-   "n_top": 82,
+   "n_top": 75,
    "tp": 4,
-   "precision": 0.04878048780487805,
+   "precision": 0.05333333333333334,
    "recall": 0.8,
-   "jaccard": 0.04819277108433735,
+   "jaccard": 0.05263157894736842,
    "pool_coverage": 0.8,
    "ranking_recall": 1.0,
-   "ndcg": 0.39228016498746565
+   "ndcg": 0.3938971247959636
   },
   "misses": {
    "not_in_pool": [
@@ -49960,7 +49967,6 @@
     "vielmetter-ongoingness",
     "peter-fetterman-moriyama",
     "mak-superflex-rainbows-sponges",
-    "silton-diving-into-the-wreck",
     "moran-moran-tuazon",
     "sparc-1980s-taste-bitter-fruit",
     "william-turner-moses100",
@@ -49968,13 +49974,13 @@
     "cordillera-mexicana-louis-stern",
     "ira-gershwin-great-wall",
     "kohn-object-poetry",
+    "silton-diving-into-the-wreck",
     "marilyn-monroe-silent-life",
     "roger-herman-california-poppies",
     "bel-ami-the-woods",
     "rusha-we-breathe-same-air",
     "brad-eberhard-building-an-audience",
     "kinship-community",
-    "broad-yoko-ono",
     "to-share-a-stomach",
     "noon-projects-chaves",
     "nucleus-lorena-alvarez-gomez",
@@ -49998,32 +50004,26 @@
     "tsa-la-to-witness-is-never-entirely-passive",
     "eastern-projects-faces-explained-away",
     "japan-house-washoku",
-    "caam-gordon-parks",
     "h4arts-shen-yongji-what-materials-know",
     "philip-martin-a-certain-slant-of-light",
     "art-share-la-alumni-4",
     "matter-hibiscus-tv",
     "copro-helena-reis-duskborn",
     "kp-projects-silveira-itibere",
-    "wende-sextant",
     "advocartsy-gaze-through-time",
     "copro-america-dreaming",
     "vhm-vanished-venice-ship-cafe",
-    "hammer-space-is-the-place",
     "chg-ornelie-devlin",
     "smc-city-gallery-case-study-adapt",
-    "huntington-de-waal",
     "kccla-calligraphy-2026",
     "bg-gallery-autumn-enchantment",
     "shatto-ji-oh-unlimited",
     "montevista-moth-to-a-flame",
     "not-there-abstract-group",
-    "dataland-machine-dreams-rainforest",
     "fab-la-not-so-fine-art-show",
     "tag-hass-cohen-cohen",
     "lakaye-beautiful-nature",
     "denenberg-picturing-the-arts",
-    "lacma-picasso-portraits-disguise",
     "7811-pretty-on-the-inside"
    ]
   },
@@ -51259,6 +51259,73 @@
    "notes": "n_shows=321 featured=82 snapshot=los-angeles-2026-09-02 params=384668420079",
    "params_hash": "384668420079",
    "params_path": "../content/curation/params/seesaw-complete.json"
+  },
+  {
+   "ts": 1788493507,
+   "run_id": "apply-los-angeles-1788493507",
+   "city": "los-angeles",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=16 reorder=True params=384668420079",
+   "params_hash": "384668420079"
+  },
+  {
+   "ts": 1788493610,
+   "run_id": "apply-los-angeles-1788493610",
+   "city": "los-angeles",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=7 reorder=True params=9b9c73b812bf",
+   "params_hash": "9b9c73b812bf"
+  },
+  {
+   "ts": 1788496650,
+   "run_id": "score-los-angeles-1788496649",
+   "city": "los-angeles",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.51,
+   "notes": "n_shows=321 featured=75 snapshot=los-angeles-2026-09-02 params=9b9c73b812bf",
+   "params_hash": "9b9c73b812bf",
+   "params_path": "content/curation/params/publish-galleries.json"
   }
  ],
  "judge_compare": {
@@ -54962,14 +55029,14 @@
     "name": "tier 3 share",
     "kind": "share",
     "seesaw": 0.25,
-    "rest": 0.6613756613756614,
-    "lift": 0.378
+    "rest": 0.656084656084656,
+    "lift": 0.3810483870967742
    },
    {
     "name": "tier unknown share",
     "kind": "share",
     "seesaw": 0.0,
-    "rest": 0.21693121693121692,
+    "rest": 0.2222222222222222,
     "lift": 0.0
    },
    {
@@ -55067,8 +55134,8 @@
     "name": "score",
     "kind": "mean",
     "seesaw": 0.45276000000000005,
-    "rest": 0.24094017233638157,
-    "lift": 1.879138690777943
+    "rest": 0.24082906122527048,
+    "lift": 1.8800056674908112
    },
    {
     "name": "neighborhood spread (distinct / shows)",

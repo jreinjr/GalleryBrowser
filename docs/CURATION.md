@@ -260,26 +260,48 @@ ranking; run `apply` before `build.py` or the list falls back to file order.
 ## The client site
 
 https://gallery-browser-curation.vercel.app is the client-facing twin of the
-dev dashboard, built by `scraper/curation_site.py` from the same score report
-(`content/spend/reports/curation-<city>.json`) and the live params in
-`content/curation/<city>/curated.json` — so its default settings are, by
-construction, exactly what shipped. The builder refuses to run when the report
-is older than `curated.json` or was scored under different params: re-run
-`curate.py score` with the live preset first. It exposes only the feed gates
-(cutoff, max per venue, exclude museums) and the six feature weights, each with a one-line explanation; everything else is pinned to the
-live values. Every show in the pool is listed — pending and not-yet-open ones
-with a plain-language status — with the same evidence drawer as the dashboard.
+dev dashboards, built by `scraper/curation_site.py`. It has two modes, switched
+in the header:
 
-There is no preset save/load. The settings live in the URL hash (`#p=` is the
-diff against the live params), so **Copy link / Email link / Text link** share
-a reproducible state. To turn a received link into a params file:
+- **Galleries** (the default) ranks every listed venue with the gallery core
+  (`dashboard/venue_core.js`, the mirror of `rank_venues.py`) from
+  `content/curation/<city>/venues_ranked.json`; its default settings are the
+  report's `params_default`, i.e. what `rank_venues.py apply` wrote to the
+  registry. The client knobs are three gates (verified only, exclude museums —
+  expressed as a `gates.kinds` allowlist of every non-museum kind — and the three
+  tier cutoffs, kept ordered) plus the 14 feature weights, each with a one-line
+  explanation. Weights whose feature is zero for every venue in the city
+  (`venue_judge` and `wiki` until `venue_judge.jsonl` / `venue_wiki.jsonl` exist)
+  are not shown and stay at the live value. Every venue that is not gated by
+  status (duplicate / out of scope / closed) is listed — museums and unverified
+  spaces with a plain-language chip — with a "Why this score" drawer that shows
+  each feature's value, weight, points and evidence string.
+- **Shows** is the original featured-feed ranking from the same score report as
+  the dev dashboard (`content/spend/reports/curation-<city>.json`) and the live
+  params in `content/curation/<city>/curated.json`. It exposes the feed gates
+  (cutoff, max per venue, exclude museums) and the six feature weights.
+
+The builder refuses to run when the show report is older than `curated.json`
+or was scored under different params (re-run `curate.py score` with the live
+preset first), and when `venues_ranked.json` was scored under a different
+params hash than the registry has applied (re-run `rank_venues.py apply`).
+`--force` downgrades both to warnings.
+
+There is no preset save/load. One link carries both modes:
+`#p=<shows diff>&g=<galleries diff>&v=<mode>` — each diff is base64url JSON
+against the live params, parts are omitted when empty, and `v` records which
+mode the sender was looking at (a link with only `#p=` from before Galleries
+mode existed opens in Shows). **Copy link / Email link / Text link** share the
+whole state. To turn a received link into params files:
 
 ```
-scraper/.venv/bin/python scraper/curation_site.py decode '<link>' --out params.json
+scraper/.venv/bin/python scraper/curation_site.py decode '<link>' --out params.json --out-galleries venues.json
 scraper/.venv/bin/python scraper/curate.py apply --city los-angeles --params params.json --reorder
+scraper/.venv/bin/python scraper/rank_venues.py apply --city los-angeles --params venues.json
 ```
 
-then rebuild and deploy both sites as above. The email button's recipient is
+then rebuild and deploy (both sites for a show change; the curation site and
+the gallery dashboard for a gallery change). The email button's recipient is
 `--contact-email` (defaults to the project owner's address); `--site-url`
 overrides the base URL baked into share links.
 

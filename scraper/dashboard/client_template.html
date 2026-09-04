@@ -12,6 +12,7 @@
   --accent: #2d6cdf; --accent-ink: #fff; --ok: #1f8f4e; --warn: #b7791f; --bad: #c0392b; --chip: #eeeeea;
   --s-judge: #2d6cdf; --s-quality: #16a085; --s-venue: #8e44ad; --s-press: #e67e22; --s-closing: #c0392b;
   --s-museum: #7f8c8d; --s-other: #bdc3c7;
+  --g1: #2d6cdf; --g2: #e67e22; --g3: #8e44ad; --g4: #16a085; --g5: #7f8c8d; --g6: #c0392b; --g7: #d4a017; --g8: #3b8f3b;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -38,7 +39,10 @@ aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid
 .ctl.check { grid-template-columns: auto 1fr; }
 .ctl.check .lbl { grid-column: auto; }
 .ctl.check input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
-.ctl .sw { width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto; }
+.ctl.off { opacity: 0.5; }
+.ctl .note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin-top: -2px; }
+.sw { width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto; display: inline-block; background: var(--c); }
+.sw.hatch { background: repeating-linear-gradient(45deg, var(--c) 0 3px, #fff 3px 5px); border: 1px solid var(--c); }
 .info { position: relative; display: inline-flex; width: 17px; height: 17px; border-radius: 50%; border: 1px solid var(--faint); color: var(--muted); background: none; padding: 0; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; line-height: 1; flex: 0 0 auto; }
 .info:hover, .info.open { background: var(--ink); color: #fff; border-color: var(--ink); }
 .info .tip { display: none; position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); width: 240px; padding: 8px 10px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 400; line-height: 1.4; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); z-index: 30; text-align: left; white-space: normal; }
@@ -61,11 +65,12 @@ aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid
 .tabs { display: inline-flex; background: #e9e9e4; border-radius: 10px; padding: 3px; }
 .tabs button { border: 0; background: none; padding: 7px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
 .tabs button.on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+#mode button.on { color: var(--accent); }
 .search { flex: 1; min-width: 160px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 14px; background: #fff; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin: 0 0 10px; }
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
-.legend .sw { width: 10px; height: 10px; border-radius: 3px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; display: grid; grid-template-columns: 40px 64px minmax(0, 1fr); gap: 4px 12px; align-items: start; }
+.card.g { grid-template-columns: 40px minmax(0, 1fr); }
 .card.gated { opacity: 0.78; }
 .card .rk { font-weight: 700; font-size: 15px; color: var(--muted); padding-top: 2px; }
 .card.feat .rk { color: var(--accent); }
@@ -78,6 +83,7 @@ aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid
 .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 2px; }
 .chip { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--chip); color: var(--muted); white-space: nowrap; }
 .chip.f { background: var(--accent); color: #fff; } .chip.ep { background: #1d3c7a; color: #fff; }
+.chip.t1 { background: var(--accent); color: #fff; } .chip.t2 { background: #5b8be6; color: #fff; } .chip.t3 { background: #b9cdf3; color: #1d3c7a; }
 .chip.in { background: #e3f0e8; color: var(--ok); } .chip.out { background: #f8e3e0; color: var(--bad); }
 .chip.warn { background: #fbeedc; color: var(--warn); } .chip.gate { background: #ededea; color: #555; }
 .scorerow { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
@@ -85,7 +91,9 @@ aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid
 .track { position: relative; flex: 1; height: 10px; background: #ededea; border-radius: 5px; overflow: hidden; }
 .stack { display: flex; height: 100%; }
 .seg { height: 100%; background: var(--c); }
+.seg.hatch { background: repeating-linear-gradient(45deg, var(--c) 0 3px, #fff 3px 5px); }
 .thr { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink); opacity: 0.6; }
+.thr.t2 { opacity: 0.4; } .thr.t3 { opacity: 0.25; }
 .why { font-size: 12px; color: var(--muted); margin-top: 5px; }
 .foot { margin-top: 6px; }
 .link { border: 0; background: none; color: var(--accent); font-size: 13px; font-weight: 600; padding: 0; }
@@ -94,6 +102,8 @@ aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid
 table.t { border-collapse: collapse; width: 100%; font-size: 13px; }
 table.t td, table.t th { padding: 3px 6px; border-bottom: 1px solid var(--line); text-align: left; }
 table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+table.t tr.dim { color: var(--faint); }
+table.t td.b { color: var(--muted); font-size: 12px; }
 .mini { display: grid; grid-template-columns: 120px 1fr 28px; gap: 8px; align-items: center; font-size: 12px; margin: 2px 0; }
 .mini .bar { height: 7px; background: #ededea; border-radius: 4px; overflow: hidden; } .mini .bar span { display: block; height: 100%; background: var(--s-judge); }
 .rationale { background: #f7f7f4; border-radius: 8px; padding: 8px 10px; margin-top: 6px; line-height: 1.45; }
@@ -109,20 +119,25 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
   #panel-toggle { display: block; width: 100%; margin-bottom: 8px; }
   aside.collapsed .panel-body { display: none; }
   .card { grid-template-columns: 30px 52px minmax(0, 1fr); padding: 10px; }
+  .card.g { grid-template-columns: 30px minmax(0, 1fr); }
   .card .th { width: 52px; height: 52px; }
   .info .tip { left: auto; right: -20px; transform: none; }
+  .tabs .long { display: none; }
+}
+@media (max-width: 600px) {
+  .hmeta { display: none; }
 }
 </style>
 </head>
 <body>
-<header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
+<header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="tabs" id="mode" hidden><button data-mode="galleries">Galleries</button><button data-mode="shows">Shows</button></div><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
 <div id="layout">
   <aside id="panel">
     <button class="btn wide" id="panel-toggle">Tune the ranking</button>
     <div class="panel-body">
-      <h2>Feed gates</h2>
+      <h2 id="gates-h">Feed gates</h2>
       <div id="gates"></div>
-      <h2>What counts, and how much</h2>
+      <h2 id="weights-h">What counts, and how much</h2>
       <div id="weights"></div>
       <div class="legend" id="legend"></div>
       <div class="summary" id="summary"></div>
@@ -134,12 +149,12 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
         <button class="btn" data-act="download">Download params JSON</button>
         <button class="btn" data-act="reset">Reset to live</button>
       </div>
-      <div class="hint">Every change re-ranks the list instantly. The link encodes only what you changed, so it can be texted or emailed and opened on any device.</div>
+      <div class="hint" id="panel-hint">Every change re-ranks the list instantly. One link carries your gallery and show settings; it encodes only what you changed, so it can be texted or emailed and opened on any device.</div>
     </div>
   </aside>
   <main id="main">
     <div class="toolbar">
-      <div class="tabs"><button data-view="feed" class="on">Featured feed</button><button data-view="all">All discovered shows</button></div>
+      <div class="tabs" id="views"></div>
       <input class="search" id="q" type="search" placeholder="Search artist, show or venue" autocomplete="off">
     </div>
     <div id="list"></div>
@@ -150,9 +165,11 @@ table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nu
 <script>
 'use strict';
 <!-- CURATION_CORE -->
+<!-- GALLERY_CORE -->
 
 /* =====================================================================
- * CLIENT PAGE — ranks with the shared core; exposes only the client knobs
+ * CLIENT PAGE — ranks with the shared cores; exposes only the client knobs.
+ * Two modes: 'galleries' (G = venue_core.js, default) and 'shows' (curation_core.js).
  * ===================================================================*/
 const CLIENT_PATHS = R.client_paths || ['threshold', 'max_per_venue', 'exclude_museums',
   'weights.judge', 'weights.quality', 'weights.venue', 'weights.press', 'weights.closing_soon', 'weights.museum'];
@@ -161,6 +178,18 @@ const LIVE_SET = new Set(LIVE.featured || []);
 const DEFAULT = normalizeParams(clone(R.params_default || {}));
 const SITE_URL = R.site_url || (location.origin + location.pathname);
 const CONTACT = R.contact_email || '';
+
+// galleries block (window.CURATION.galleries, read by the gallery core as window.VENUES)
+const GR = G.R || {};
+const GVENUES = G.VENUES || [];
+const HAS_G = GVENUES.length > 0;
+const GDEFAULT = G.normalizeParams(clone(GR.params_default || {}));
+const G_CLIENT_PATHS = GR.client_paths || [];
+const GCOV = GR.coverage || {};
+const GCOUNTS = GR.counts || {};
+const GLIVE = new Map(GVENUES.map(v => [v.id, { rank: v.rank_live, tier: v.tier_live, gate: v.gate_live }]));
+const NON_MUSEUM_KINDS = Object.keys(G.KIND_GROUP || {}).filter(k => k !== 'museum');
+const DEFAULT_MODE = (R.default_mode === 'galleries' && HAS_G) ? 'galleries' : 'shows';
 
 const WEIGHT_INFO = {
   judge: ['Critic verdict', 'An AI critic reads the show’s description, press and venue and scores it 1–10 on artist significance, venue, reception, ambition and timeliness. The strongest single signal.'],
@@ -179,78 +208,178 @@ const SWATCH = { judge: 'var(--s-judge)', quality: 'var(--s-quality)', venue: 'v
 const BAR_ORDER = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum', 'artist_heat', 'wiki_heat', 'keyword', 'opening_recency'];
 const NICE = { judge: 'Critic verdict', quality: 'Record quality', venue: 'Venue standing', press: 'Press coverage', closing_soon: 'Closing soon', museum: 'Museum adjustment', artist_heat: 'Artist heat', wiki_heat: 'Wikipedia', keyword: 'Keywords', opening_recency: 'Just opened' };
 
-let params = clone(DEFAULT);
-const ui = { view: 'feed', q: '', expanded: new Set() };
-const state = { rows: [], feed: [] };
+// gallery copy — label + one-line explanation per feature (order = venue_core STACK_ORDER)
+const G_WEIGHT_INFO = {
+  fairs: ['Art-fair presence', 'Booths at the art fairs we track (Frieze, Art Basel, Felix, Tokyo Gendai…). The strongest prestige signal a gallery gives off.'],
+  curated_lists: ['Curated lists', 'Membership in vetted lists such as ADAA or CADAN, or a place on a critic’s gallery guide.'],
+  press: ['Press coverage', 'How many outlets have reviewed, picked or reported on shows at this gallery.'],
+  directory: ['Local directories', 'Listed in the city’s gallery directories (Gallery Platform LA, Carla…) or found by our own neighborhood sweeps.'],
+  venue_judge: ['Critic verdict', 'An AI critic’s 0–10 notability score for the gallery itself, from what it knows about the program.'],
+  wiki: ['Wikipedia', 'Has a Wikipedia article, weighted by how many languages cover it.'],
+  hours_breadth: ['Opening hours', 'Days and hours open per week. Bigger galleries keep longer public hours; by-appointment spaces score near zero.'],
+  longevity: ['Years open', 'Years since the gallery was founded (or since its first recorded exhibition).'],
+  roster_size: ['Roster size', 'Number of artists the gallery represents, from its own website.'],
+  show_cadence: ['Shows per year', 'How many exhibitions a year the gallery mounts, from its exhibition archive.'],
+  multi_location: ['Other locations', 'Spaces in other cities — a sign of a gallery operating at scale.'],
+  places_popularity: ['Google reviews', 'How many Google reviews the space has: foot traffic, not quality.'],
+  web_presence: ['Website signals', 'Whether the site has an exhibitions page with real dates and an about page — how seriously the gallery runs its web presence.'],
+  kind_museum: ['Museum adjustment', 'Bonus or penalty for museums. Below zero ranks them below galleries of similar standing; the “Exclude museums” gate removes them entirely.'],
+};
+const G_GATE_INFO = {
+  'gates.require_verified': ['Verified only', 'Only galleries whose website, address and Google listing we have checked. Unverified spaces are still ranked but marked.'],
+  'gates.kinds': ['Exclude museums', 'Galleries, nonprofits and project spaces only. Museums still appear in the app’s List and Map tabs.'],
+  'tiers.1': ['Tier 1 cutoff', 'Score needed for tier 1 — the galleries the app treats as must-see.'],
+  'tiers.2': ['Tier 2 cutoff', 'Score needed for tier 2.'],
+  'tiers.3': ['Tier 3 cutoff', 'Score needed for tier 3 — the bar a gallery must clear for us to scrape its shows at all.'],
+};
+const G_NICE = Object.fromEntries(Object.entries(G_WEIGHT_INFO).map(([f, v]) => [f, v[0]]));
+for (const f of (G.FEATURES || [])) if (!G_NICE[f]) G_NICE[f] = ((G.FEATURE_LABEL || {})[f] || f).replace(/^\w/, c => c.toUpperCase());
+const G_BAR_ORDER = G.STACK_ORDER || [];
+const G_VISIBLE = G_CLIENT_PATHS.filter(p => p.startsWith('weights.')).map(p => p.slice(8));
+const G_KIND_NICE = { gallery: 'Gallery', museum: 'Museum', nonprofit: 'Nonprofit', project_space: 'Project space', university: 'University', other: 'Other' };
+function gSlot(f) { const [n, hatch] = (G.FEATURE_SLOT || {})[f] || [5, false]; return [`var(--g${n})`, hatch]; }
+function gSwatchHTML(f) { const [c, h] = gSlot(f); return `<span class="sw${h ? ' hatch' : ''}" style="--c:${c}"></span>`; }
 
-// ---- share links: #p=<base64url(JSON diff vs live)> ----
+let params = clone(DEFAULT);
+let gparams = clone(GDEFAULT);
+const ui = { mode: DEFAULT_MODE, view: 'feed', gview: 'ranked', q: '', gq: '', expanded: new Set(), gexpanded: new Set() };
+const state = { rows: [], feed: [] };
+const gstate = { rows: [], ranked: [] };
+const paramsOf = scope => (scope === 'g' ? gparams : params);
+
+// ---- share links: #p=<shows diff>&g=<galleries diff>&v=<mode> (base64url JSON diffs vs live) ----
 const b64url = s => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 const unb64url = s => decodeURIComponent(escape(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4))));
-function diffParams() {
+function diffPaths(base, cur, paths) {
   const out = {};
-  for (const path of CLIENT_PATHS) {
-    const a = getPath(DEFAULT, path), b = getPath(params, path);
-    if (a !== b && !(a == null && b == null)) setPath(out, path, b);
+  for (const path of paths) {
+    const a = getPath(base, path), b = getPath(cur, path);
+    if (JSON.stringify(a ?? null) !== JSON.stringify(b ?? null)) setPath(out, path, b === undefined ? null : b);
   }
   return out;
 }
-function shareLink() {
-  const d = diffParams();
-  return Object.keys(d).length ? `${SITE_URL}#p=${b64url(JSON.stringify(d))}` : SITE_URL;
-}
+function diffParams() { return diffPaths(DEFAULT, params, CLIENT_PATHS); }
+function gDiffParams() { return HAS_G ? diffPaths(GDEFAULT, gparams, G_CLIENT_PATHS) : {}; }
+function parseToken(tok) { try { const o = JSON.parse(unb64url(tok)); return (o && typeof o === 'object') ? o : null; } catch (e) { return null; } }
 function readHash() {
-  const m = /[#&]p=([A-Za-z0-9_-]+)/.exec(location.hash || '');
-  if (!m) return null;
-  try { const o = JSON.parse(unb64url(m[1])); return (o && typeof o === 'object') ? o : null; } catch (e) { return null; }
+  const h = location.hash || '';
+  const p = /[#&]p=([A-Za-z0-9_-]+)/.exec(h), g = /[#&]g=([A-Za-z0-9_-]+)/.exec(h), v = /[#&]v=(galleries|shows)\b/.exec(h);
+  return { p: p ? parseToken(p[1]) : null, g: g ? parseToken(g[1]) : null, v: v ? v[1] : null };
 }
+function resolveMode(h) {
+  if (!HAS_G) return 'shows';
+  if (h.v) return h.v;
+  if (h.p && !h.g) return 'shows';        // links shared before Galleries mode existed
+  return DEFAULT_MODE;
+}
+function hashString() {
+  const d = diffParams(), gd = gDiffParams();
+  const parts = [];
+  if (Object.keys(d).length) parts.push('p=' + b64url(JSON.stringify(d)));
+  if (Object.keys(gd).length) parts.push('g=' + b64url(JSON.stringify(gd)));
+  if (HAS_G && (ui.mode !== DEFAULT_MODE || parts.length)) parts.push('v=' + ui.mode);
+  return parts.length ? '#' + parts.join('&') : '';
+}
+function shareLink() { return SITE_URL + hashString(); }
 function syncHash() {
-  const d = diffParams();
-  const h = Object.keys(d).length ? '#p=' + b64url(JSON.stringify(d)) : '';
+  const h = hashString();
   if ((location.hash || '') !== h) history.replaceState(null, '', location.pathname + location.search + h);
 }
-function isLive() { return Object.keys(diffParams()).length === 0; }
+function isLive() { return Object.keys(diffParams()).length === 0 && Object.keys(gDiffParams()).length === 0; }
 
 // ---- ranking ----
 function recompute() {
   state.rows = rank(SHOWS, params);
   state.feed = state.rows.filter(r => r.featured).sort((a, b) => a.featured_rank - b.featured_rank);
+  if (HAS_G) {
+    gstate.rows = G.rank(GVENUES, gparams);
+    gstate.ranked = gstate.rows.filter(r => !r.gate && r.tier != null);
+  }
+}
+
+// ---- gallery gate helpers ----
+function gMuseumsExcluded(p) { const k = ((p || gparams).gates || {}).kinds || []; return k.length > 0 && !k.includes('museum'); }
+const G_DEFAULT_EXCLUDES = gMuseumsExcluded(GDEFAULT);
+function gKindsOn() { return G_DEFAULT_EXCLUDES ? clone(GDEFAULT.gates.kinds) : NON_MUSEUM_KINDS.slice(); }
+function gKindsOff() { return G_DEFAULT_EXCLUDES ? [] : clone(GDEFAULT.gates.kinds); }
+function gClampTiers(changed) {
+  const t = gparams.tiers;
+  const n = k => (t[k] == null ? 0 : +t[k]);
+  if (changed === 'tiers.1') { t['2'] = Math.min(n('2'), n('1')); t['3'] = Math.min(n('3'), n('2')); }
+  else if (changed === 'tiers.2') { t['1'] = Math.max(n('1'), n('2')); t['3'] = Math.min(n('3'), n('2')); }
+  else if (changed === 'tiers.3') { t['2'] = Math.max(n('2'), n('3')); t['1'] = Math.max(n('1'), n('2')); }
+  for (const k of ['1', '2', '3']) t[k] = Math.round(n(k) * 100) / 100;
 }
 
 // ---- rendering: controls ----
 function infoBtn(text) { return `<button class="info" type="button" aria-label="What is this?" data-act="tip">i<span class="tip">${esc(text)}</span></button>`; }
-function rangeCtl(path, label, info, o, swatch) {
-  const v = getPath(params, path) ?? 0;
-  return `<div class="ctl"><div class="lbl">${swatch ? `<span class="sw" style="background:${swatch}"></span>` : ''}<b>${esc(label)}</b>${infoBtn(info)}</div>
-    <input type="range" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}">
-    <input type="number" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}"></div>`;
+function rangeCtl(path, label, info, o, sw) {
+  const scope = o.scope || 's';
+  const v = getPath(paramsOf(scope), path) ?? 0;
+  const dis = o.disabled ? ' disabled' : '';
+  return `<div class="ctl${o.disabled ? ' off' : ''}"><div class="lbl">${sw || ''}<b>${esc(label)}</b>${infoBtn(info)}</div>
+    <input type="range" data-scope="${scope}" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}"${dis}>
+    <input type="number" data-scope="${scope}" data-path="${path}" data-kind="num" min="${o.min}" max="${o.max}" step="${o.step}" value="${v}"${dis}>${o.note ? `<div class="note">${esc(o.note)}</div>` : ''}</div>`;
 }
 function numCtl(path, label, info, o) {
-  const v = getPath(params, path);
+  const scope = o.scope || 's';
+  const v = getPath(paramsOf(scope), path);
   return `<div class="ctl"><div class="lbl"><b>${esc(label)}</b>${infoBtn(info)}</div><span class="muted" style="font-size:12px">${o.nullable ? 'blank = no limit' : ''}</span>
-    <input type="number" data-path="${path}" data-kind="${o.nullable ? 'nullnum' : 'int'}" min="${o.min}" step="1" value="${v == null ? '' : v}"${o.nullable ? ' placeholder="∞"' : ''}></div>`;
+    <input type="number" data-scope="${scope}" data-path="${path}" data-kind="${o.nullable ? 'nullnum' : 'int'}" min="${o.min}" step="1" value="${v == null ? '' : v}"${o.nullable ? ' placeholder="∞"' : ''}></div>`;
 }
-function boolCtl(path, label, info) {
-  return `<div class="ctl check"><input type="checkbox" id="cb-${path}" data-path="${path}" data-kind="bool"${getPath(params, path) ? ' checked' : ''}><label class="lbl" for="cb-${path}"><b>${esc(label)}</b>${infoBtn(info)}</label></div>`;
+function boolCtl(path, label, info, o) {
+  o = o || {};
+  const scope = o.scope || 's', kind = o.kind || 'bool';
+  const checked = kind === 'museumgate' ? gMuseumsExcluded(gparams) : !!getPath(paramsOf(scope), path);
+  const id = `cb-${scope}-${path.replace(/\./g, '-')}`;
+  return `<div class="ctl check"><input type="checkbox" id="${id}" data-scope="${scope}" data-path="${path}" data-kind="${kind}"${checked ? ' checked' : ''}><label class="lbl" for="${id}"><b>${esc(label)}</b>${infoBtn(info)}</label></div>`;
 }
-function renderControls() {
+function sRenderControls() {
+  $('#gates-h').textContent = 'Feed gates';
+  $('#weights-h').textContent = 'What counts, and how much';
   $('#gates').innerHTML =
     rangeCtl('threshold', GATE_INFO.threshold[0], GATE_INFO.threshold[1], { min: 0, max: 1, step: 0.01 }) +
     numCtl('max_per_venue', GATE_INFO.max_per_venue[0], GATE_INFO.max_per_venue[1], { min: 0, nullable: true }) +
     boolCtl('exclude_museums', GATE_INFO.exclude_museums[0], GATE_INFO.exclude_museums[1]);
   $('#weights').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f =>
-    rangeCtl(`weights.${f}`, WEIGHT_INFO[f][0], WEIGHT_INFO[f][1], f === 'museum' ? { min: -0.5, max: 0.5, step: 0.01 } : { min: 0, max: 1, step: 0.01 }, SWATCH[f])).join('');
+    rangeCtl(`weights.${f}`, WEIGHT_INFO[f][0], WEIGHT_INFO[f][1], f === 'museum' ? { min: -0.5, max: 0.5, step: 0.01 } : { min: 0, max: 1, step: 0.01 }, `<span class="sw" style="--c:${SWATCH[f]}"></span>`)).join('');
+}
+function gRenderControls() {
+  $('#gates-h').textContent = 'Gallery gates';
+  $('#weights-h').textContent = 'What makes a gallery rank';
+  const gi = G_GATE_INFO;
+  $('#gates').innerHTML =
+    boolCtl('gates.require_verified', gi['gates.require_verified'][0], gi['gates.require_verified'][1], { scope: 'g' }) +
+    boolCtl('gates.kinds', gi['gates.kinds'][0], gi['gates.kinds'][1], { scope: 'g', kind: 'museumgate' }) +
+    ['1', '2', '3'].map(k => rangeCtl(`tiers.${k}`, gi[`tiers.${k}`][0], gi[`tiers.${k}`][1], { scope: 'g', min: 0, max: 1, step: 0.01 })).join('');
+  const hidden = [];
+  let h = '';
+  const order = G_BAR_ORDER.filter(f => G_VISIBLE.includes(f)).concat(G_VISIBLE.filter(f => !G_BAR_ORDER.includes(f)));
+  for (const f of order) {
+    if (!(GCOV[f] > 0) && f !== 'kind_museum') { hidden.push(G_NICE[f]); continue; }
+    const o = { scope: 'g', min: 0, max: 1, step: 0.01 };
+    if (f === 'kind_museum') { o.min = -0.5; o.max = 0.5; if (gMuseumsExcluded(gparams)) { o.disabled = true; o.note = 'museums are excluded by the gate above'; } }
+    h += rangeCtl(`weights.${f}`, G_WEIGHT_INFO[f][0], G_WEIGHT_INFO[f][1], o, gSwatchHTML(f));
+  }
+  if (hidden.length) h += `<div class="hint">Not shown: ${esc(hidden.join(', '))} — no data for ${esc(R.city_name || CITY)} yet (kept at the live weight).</div>`;
+  $('#weights').innerHTML = h;
+}
+function renderControls() {
+  if (ui.mode === 'galleries') gRenderControls(); else sRenderControls();
   $('#share-btn').hidden = !navigator.share;
 }
-function syncInputs(path, except) {
-  const v = getPath(params, path);
-  document.querySelectorAll(`[data-path="${path}"]`).forEach(el => {
+function syncInputs(scope, path, except) {
+  const v = getPath(paramsOf(scope), path);
+  document.querySelectorAll(`[data-scope="${scope}"][data-path="${path}"]`).forEach(el => {
     if (el === except) return;
-    if (el.type === 'checkbox') el.checked = !!v; else el.value = v == null ? '' : v;
+    if (el.type === 'checkbox') el.checked = el.dataset.kind === 'museumgate' ? gMuseumsExcluded(gparams) : !!v;
+    else el.value = v == null ? '' : v;
   });
 }
 function readInput(el) {
   const kind = el.dataset.kind;
   if (kind === 'bool') return !!el.checked;
+  if (kind === 'museumgate') return el.checked ? gKindsOn() : gKindsOff();
   if (el.value === '' || el.value == null) return kind === 'nullnum' ? null : 0;
   const n = kind === 'int' ? parseInt(el.value, 10) : parseFloat(el.value);
   return Number.isNaN(n) ? (kind === 'nullnum' ? null : 0) : n;
@@ -259,22 +388,51 @@ function readInput(el) {
 // ---- rendering: header / summary ----
 function renderHeader() {
   $('#hdr-title').textContent = `Gallery Browser · ${R.city_name || CITY}`;
-  const nPub = SHOWS.filter(s => s.pool === 'published').length;
-  $('#hdr-meta').textContent = `Ranking as of ${R.today || '?'} · ${SHOWS.length} shows discovered (${nPub} published, ${SHOWS.length - nPub} pending verification) · live feed applied ${LIVE.applied_ts ? new Date(LIVE.applied_ts * 1000).toLocaleDateString() : '?'}`;
+  if (ui.mode === 'galleries') {
+    const applied = GR.generated_at ? new Date((+GR.generated_at) * 1000).toLocaleDateString() : '?';
+    $('#hdr-meta').textContent = `Gallery ranking as of ${GR.today || R.today || '?'} · ${GCOUNTS.listed ?? GVENUES.length} galleries in the registry (${GCOUNTS.verified ?? '?'} verified, ${GCOUNTS.researched ?? '?'} researched) · ranking applied ${applied}`;
+  } else {
+    const nPub = SHOWS.filter(s => s.pool === 'published').length;
+    $('#hdr-meta').textContent = `Ranking as of ${R.today || '?'} · ${SHOWS.length} shows discovered (${nPub} published, ${SHOWS.length - nPub} pending verification) · live feed applied ${LIVE.applied_ts ? new Date(LIVE.applied_ts * 1000).toLocaleDateString() : '?'}`;
+  }
+  const m = $('#mode');
+  m.hidden = !HAS_G;
+  m.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.mode === ui.mode));
   const b = $('#mode-badge'), live = isLive();
   b.classList.toggle('shared', !live);
   b.lastElementChild.textContent = live ? 'Live settings' : 'Shared settings — differs from live';
 }
-function renderSummary() {
+function sRenderSummary() {
   const feed = state.feed, mus = feed.filter(r => r.venue.is_museum).length;
   const now = new Set(feed.map(r => r.slug));
   const added = [...now].filter(s => !LIVE_SET.has(s)).length, dropped = [...LIVE_SET].filter(s => !now.has(s)).length;
   const delta = (added || dropped) ? `vs live: <span class="in">+${added} in</span>, <span class="out">−${dropped} out</span>` : 'same feed as live';
   $('#summary').innerHTML = `<b>${feed.length}</b> featured · ${mus} museum${mus === 1 ? '' : 's'}<div class="delta">${delta}</div>`;
-  $('#legend').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f => `<span><span class="sw" style="background:${SWATCH[f]}"></span>${NICE[f]} ×${fmt(params.weights[f], 2)}</span>`).join('');
+  $('#legend').innerHTML = ['judge', 'quality', 'venue', 'press', 'closing_soon', 'museum'].map(f => `<span><span class="sw" style="--c:${SWATCH[f]}"></span>${NICE[f]} ×${fmt(params.weights[f], 2)}</span>`).join('');
 }
+function gRenderSummary() {
+  const rows = gstate.rows, ranked = gstate.ranked;
+  const tiers = { 1: 0, 2: 0, 3: 0 };
+  for (const r of ranked) tiers[r.tier] = (tiers[r.tier] || 0) + 1;
+  let newly = 0, dropped = 0, up = 0, down = 0;
+  for (const r of rows) {
+    const lv = GLIVE.get(r.id) || {};
+    const was = lv.tier ?? null, now = r.gate ? null : (r.tier ?? null);
+    if (was === now) continue;
+    if (was == null) newly += 1; else if (now == null) dropped += 1; else if (now < was) up += 1; else down += 1;
+  }
+  const bits = [];
+  if (newly) bits.push(`<span class="in">+${newly} newly ranked</span>`);
+  if (dropped) bits.push(`<span class="out">−${dropped} dropped</span>`);
+  if (up) bits.push(`<span class="in">${up} up a tier</span>`);
+  if (down) bits.push(`<span class="out">${down} down a tier</span>`);
+  const delta = bits.length ? 'vs live: ' + bits.join(', ') : 'same tiers as live';
+  $('#summary').innerHTML = `<b>${ranked.length}</b> ranked · tier 1: ${tiers[1]} · tier 2: ${tiers[2]} · tier 3: ${tiers[3]}<div class="delta">${delta}</div>`;
+  $('#legend').innerHTML = G_BAR_ORDER.filter(f => G_VISIBLE.includes(f) && GCOV[f] > 0 && gparams.weights[f]).map(f => `<span>${gSwatchHTML(f)}${esc(G_NICE[f])} ×${fmt(gparams.weights[f], 2)}</span>`).join('');
+}
+function renderSummary() { if (ui.mode === 'galleries') gRenderSummary(); else sRenderSummary(); }
 
-// ---- rendering: list ----
+// ---- rendering: shows list ----
 function statusChips(r) {
   const c = [];
   if (r.featured) c.push(`<span class="chip f">Featured #${r.featured_rank}</span>`);
@@ -332,7 +490,7 @@ function drawerHTML(r) {
   for (const f of BAR_ORDER) {
     const w = +(params.weights[f] ?? 0);
     if (w === 0 && !(Math.abs(r.contrib[f]) > 1e-9)) continue;
-    h += `<tr><td><span class="sw" style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${SWATCH[f] || 'var(--s-other)'}"></span> ${NICE[f]}</td><td class="n">${fmt(r.features[f], 2)}</td><td class="n">${fmt(w, 2)}</td><td class="n">${fmt(r.contrib[f], 3)}</td></tr>`;
+    h += `<tr><td><span class="sw" style="--c:${SWATCH[f] || 'var(--s-other)'};width:9px;height:9px;border-radius:2px"></span> ${NICE[f]}</td><td class="n">${fmt(r.features[f], 2)}</td><td class="n">${fmt(w, 2)}</td><td class="n">${fmt(r.contrib[f], 3)}</td></tr>`;
   }
   h += `<tr><td><b>Score</b></td><td></td><td></td><td class="n"><b>${fmt(r.score, 3)}</b></td></tr></table>`;
   const dates = r.dates || {};
@@ -379,14 +537,11 @@ function matches(r, q) {
   if (!q) return true;
   return [r.title, r.artist, r.venue.name, r.venue.neighborhood].some(x => (x || '').toLowerCase().includes(q));
 }
-function renderList() {
+function sRenderList() {
   const q = ui.q.trim().toLowerCase();
   const rows = (ui.view === 'feed' ? state.feed : state.rows).filter(r => matches(r, q));
   const scale = Math.max(...state.rows.map(r => r.score), +(params.threshold || 0), 0.05) * 1.05;
-  document.querySelectorAll('.tabs button').forEach(b => {
-    b.classList.toggle('on', b.dataset.view === ui.view);
-    b.textContent = b.dataset.view === 'feed' ? `Featured feed (${state.feed.length})` : `All discovered shows (${state.rows.length})`;
-  });
+  $('#views').innerHTML = `<button data-view="feed"${ui.view === 'feed' ? ' class="on"' : ''}>Featured feed (${state.feed.length})</button><button data-view="all"${ui.view === 'all' ? ' class="on"' : ''}>All <span class="long">discovered </span>shows (${state.rows.length})</button>`;
   let h = '';
   const lastFeat = ui.view === 'all' ? rows.reduce((m, r, i) => (r.featured ? i : m), -1) : -1;
   rows.forEach((r, i) => {
@@ -396,15 +551,133 @@ function renderList() {
   if (!rows.length) h = `<div class="empty">${q ? 'No shows match your search.' : 'No show passes the current settings — lower the cutoff score.'}</div>`;
   $('#list').innerHTML = h;
 }
+
+// ---- rendering: galleries list ----
+function gTierChip(t) { return t ? `<span class="chip t${t}">Tier ${t}</span>` : ''; }
+function gStatusChips(r) {
+  const c = [];
+  const lv = GLIVE.get(r.id) || {};
+  const now = r.gate ? null : (r.tier ?? null), was = lv.tier ?? null;
+  c.push(gTierChip(now));
+  if (now != null && was == null) c.push('<span class="chip in">New in ranking</span>');
+  else if (now == null && was != null) c.push(`<span class="chip out">Dropped (was tier ${was})</span>`);
+  else if (now != null && was != null && now !== was) c.push(`<span class="chip ${now < was ? 'in' : 'out'}">Tier ${now < was ? '↑' : '↓'} (was ${was})</span>`);
+  c.push(`<span class="chip">${esc(G_KIND_NICE[r.kind] || r.kind || '?')}</span>`);
+  if (r.verification === 'verified') c.push('<span class="chip">Verified</span>');
+  else if (r.verification === 'flagged') c.push('<span class="chip warn">Flagged</span>');
+  else c.push('<span class="chip warn">Unverified</span>');
+  if (r.gate === 'unverified') c.push('<span class="chip gate">Not verified — excluded</span>');
+  else if (r.gate === 'kind:museum') c.push('<span class="chip gate">Museums excluded</span>');
+  else if (r.gate && r.gate.startsWith('kind:')) c.push('<span class="chip gate">Kind excluded</span>');
+  else if (r.gate === 'below_min_score') c.push('<span class="chip gate">Below cutoff</span>');
+  else if (r.gate) c.push(`<span class="chip gate">${esc(r.gate)}</span>`);
+  else if (r.tier == null) c.push('<span class="chip gate">Below tier 3</span>');
+  return c.join('');
+}
+function gBarHTML(r, scale) {
+  let segs = '';
+  for (const f of G_BAR_ORDER) {
+    const v = r.contrib[f];
+    if (!(v > 0)) continue;
+    const [c, hatch] = gSlot(f);
+    segs += `<div class="seg${hatch ? ' hatch' : ''}" style="--c:${c};flex:${v} 0 0" title="${esc(G_NICE[f])}: ${v.toFixed(3)}"></div>`;
+  }
+  const w = scale > 0 ? Math.min(100, 100 * Math.max(0, r.score) / scale) : 0;
+  const t = gparams.tiers || {};
+  const thr = ['1', '2', '3'].filter(k => t[k] != null && scale > 0 && +t[k] <= scale).map(k => `<div class="thr t${k}" style="left:${(100 * +t[k] / scale).toFixed(2)}%" title="tier ${k} cutoff ${(+t[k]).toFixed(2)}"></div>`).join('');
+  return `<div class="track"><div class="stack" style="width:${w.toFixed(2)}%">${segs}</div>${thr}</div>`;
+}
+function gWhyLine(r) {
+  const top = G_BAR_ORDER.filter(f => Math.abs(r.contrib[f] || 0) > 1e-9 && (r.contrib[f] > 0)).sort((a, b) => r.contrib[b] - r.contrib[a]).slice(0, 3);
+  const parts = top.map(f => `${G_NICE[f]}: ${r.basis[f] || ''}`.replace(/\s+$/, ''));
+  const neg = G.FEATURES.filter(f => (r.contrib[f] || 0) < -1e-9);
+  for (const f of neg) parts.push(`${G_NICE[f].toLowerCase()} ${fmt(r.contrib[f], 2)}`);
+  if (!parts.length) parts.push('no positive signals yet');
+  return parts.join(' · ');
+}
+function gDrawerHTML(r) {
+  const raw = r.raw || {};
+  let h = '<div class="drawer">';
+  h += '<div><h4>Score breakdown</h4><table class="t"><tr><th>signal</th><th class="n">value</th><th class="n">weight</th><th class="n">points</th><th>evidence</th></tr>';
+  for (const f of G_BAR_ORDER) {
+    const w = +(gparams.weights[f] ?? 0), c = r.contrib[f] || 0;
+    if (w === 0 && !(Math.abs(c) > 1e-9)) continue;
+    const dim = !(Math.abs(c) > 1e-9);
+    h += `<tr${dim ? ' class="dim"' : ''}><td>${gSwatchHTML(f)} ${esc(G_NICE[f])}</td><td class="n">${fmt(r.features[f], 2)}</td><td class="n">${fmt(w, 2)}</td><td class="n">${fmt(c, 3)}</td><td class="b">${esc(r.basis[f] || '')}</td></tr>`;
+  }
+  h += `<tr><td><b>Score</b></td><td></td><td></td><td class="n"><b>${fmt(r.score, 3)}</b></td><td></td></tr></table>`;
+  const bits = [G_KIND_NICE[r.kind] || r.kind, r.neighborhood, r.verification ? `${r.verification}` : null, r.status && r.status !== 'active' ? `status: ${r.status}` : null].filter(Boolean);
+  h += `<div class="hint">${esc(bits.join(' · '))}${r.basis.hours_breadth ? ` · hours: ${esc(r.basis.hours_breadth)}` : ''}</div>`;
+  if (r.website) h += `<div class="hint">Links: <a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(r.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''))}</a></div>`;
+  h += '</div>';
+  h += '<div><h4>About</h4>';
+  h += r.about ? `<div class="rationale">${esc(r.about)}</div>` : '<div class="muted">No researched description yet.</div>';
+  const ev = [];
+  if ((raw.fairs || []).length) ev.push(`<div class="sig"><b>Fairs</b> <span class="meta">${esc(raw.fairs.join(', '))}</span></div>`);
+  if ((raw.lists || []).length) ev.push(`<div class="sig"><b>Curated lists</b> <span class="meta">${esc(raw.lists.join(', '))}</span></div>`);
+  if ((raw.press || []).length) ev.push(`<div class="sig"><b>Press outlets</b> <span class="meta">${esc(raw.press.join(', '))}</span></div>`);
+  if ((raw.directories || []).length) ev.push(`<div class="sig"><b>Directories</b> <span class="meta">${esc(raw.directories.join(', '))}</span></div>`);
+  if (raw.judge) for (const [variant, models] of Object.entries(raw.judge)) for (const [m, x] of Object.entries(models || {})) ev.push(`<div class="sig"><b>Critic verdict</b> <span class="meta">${esc(m)} · ${esc(x.overall ?? '–')}/10</span>${x.rationale ? `<div class="rationale">${esc(x.rationale)}</div>` : ''}</div>`);
+  if (ev.length) h += `<h4 style="margin-top:10px">Evidence</h4>${ev.join('')}`;
+  h += '</div></div>';
+  return h;
+}
+function gCardHTML(r, scale) {
+  const open = ui.gexpanded.has(r.id);
+  const ranked = !r.gate && r.tier != null;
+  return `<div class="card g${ranked ? ' feat' : ' gated'}" id="grow-${esc(r.id)}">
+    <div class="rk">${r.rank != null ? '#' + r.rank : '–'}</div>
+    <div class="body"><div class="ttl">${esc(r.name || r.id)}</div>
+      <div class="ven">${esc(r.neighborhood || 'no neighborhood on record')}</div>
+      <div class="chips">${gStatusChips(r)}</div>
+      <div class="scorerow"><span class="num">${fmt(r.score, 2)}</span>${gBarHTML(r, scale)}</div>
+      <div class="why">${esc(gWhyLine(r))}</div>
+      <div class="foot"><button class="link" data-act="gtoggle" data-gid="${esc(r.id)}">${open ? 'Hide details' : 'Why this score'}</button></div></div>
+    ${open ? gDrawerHTML(r) : ''}</div>`;
+}
+function gMatches(r, q) {
+  if (!q) return true;
+  return [r.name, r.neighborhood, G_KIND_NICE[r.kind] || r.kind, r.id].some(x => (x || '').toLowerCase().includes(q));
+}
+function gRenderList() {
+  const q = ui.gq.trim().toLowerCase();
+  const rows = (ui.gview === 'ranked' ? gstate.ranked : gstate.rows).filter(r => gMatches(r, q));
+  const scale = Math.max(...gstate.rows.map(r => r.score), +((gparams.tiers || {})['1'] || 0), 0.05) * 1.05;
+  $('#views').innerHTML = `<button data-view="ranked"${ui.gview === 'ranked' ? ' class="on"' : ''}>Ranked<span class="long"> galleries (tiers 1–3)</span> (${gstate.ranked.length})</button><button data-view="all"${ui.gview === 'all' ? ' class="on"' : ''}>All galleries (${gstate.rows.length})</button>`;
+  let h = '';
+  const last = ui.gview === 'all' ? rows.reduce((m, r, i) => (!r.gate && r.tier != null ? i : m), -1) : -1;
+  rows.forEach((r, i) => {
+    h += gCardHTML(r, scale);
+    if (i === last && i < rows.length - 1) h += `<div class="cutoff">everything below is unranked — tier 3 cutoff ${(+((gparams.tiers || {})['3'] || 0)).toFixed(2)}</div>`;
+  });
+  if (!rows.length) h = `<div class="empty">${q ? 'No galleries match your search.' : 'No gallery reaches tier 3 under these settings — lower the tier 3 cutoff.'}</div>`;
+  $('#list').innerHTML = h;
+}
+function renderList() {
+  const q = $('#q');
+  if (ui.mode === 'galleries') { q.placeholder = 'Search gallery, neighborhood or kind'; if (q.value !== ui.gq) q.value = ui.gq; gRenderList(); }
+  else { q.placeholder = 'Search artist, show or venue'; if (q.value !== ui.q) q.value = ui.q; sRenderList(); }
+}
 function renderAll() { recompute(); renderHeader(); renderSummary(); renderList(); syncHash(); }
+function setMode(m) {
+  if (m !== 'galleries' && m !== 'shows') return;
+  if (m === 'galleries' && !HAS_G) return;
+  ui.mode = m;
+  renderControls();
+  renderAll();
+}
 
 // ---- actions ----
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('on'), 2200); }
-function exportParams() { const p = orderedParams(clone(params)); p._note = `Exported from the curation site on ${new Date().toISOString().slice(0, 10)}; changes vs live: ${JSON.stringify(diffParams())}`; return p; }
+function exportParams() {
+  const stamp = new Date().toISOString().slice(0, 10);
+  if (ui.mode === 'galleries') { const p = G.orderedParams(clone(gparams)); p._note = `Gallery ranking params exported from the curation site on ${stamp}; changes vs live: ${JSON.stringify(gDiffParams())}. Apply with rank_venues.py apply --params <this file>`; return p; }
+  const p = orderedParams(clone(params)); p._note = `Exported from the curation site on ${stamp}; changes vs live: ${JSON.stringify(diffParams())}`; return p;
+}
 function downloadParams() {
   const blob = new Blob([JSON.stringify(exportParams(), null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = `params-${CITY}-${(R.today || 'today')}.json`;
+  const a = document.createElement('a'); a.href = url; a.download = `${ui.mode === 'galleries' ? 'venue-params' : 'params'}-${CITY}-${(R.today || 'today')}.json`;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
@@ -413,27 +686,53 @@ async function copyLink() {
   try { await navigator.clipboard.writeText(link); toast('Link copied'); }
   catch (e) { window.prompt('Copy this link:', link); }
 }
-function mailBody() { const d = diffParams(); return `Gallery Browser ranking settings (${R.city_name || CITY}):\n${shareLink()}\n\nChanges vs live: ${Object.keys(d).length ? JSON.stringify(d) : 'none'}`; }
-function resetParams() { params = clone(DEFAULT); renderControls(); renderAll(); toast('Back to the live settings'); }
-function applyShared(obj) {
+function mailBody() {
+  const d = diffParams(), gd = gDiffParams();
+  const lines = [`Gallery Browser ranking settings (${R.city_name || CITY}):`, shareLink(), ''];
+  if (HAS_G) lines.push(`Galleries — changes vs live: ${Object.keys(gd).length ? JSON.stringify(gd) : 'none'}`);
+  lines.push(`Shows — changes vs live: ${Object.keys(d).length ? JSON.stringify(d) : 'none'}`);
+  return lines.join('\n');
+}
+function resetParams() { params = clone(DEFAULT); gparams = clone(GDEFAULT); renderControls(); renderAll(); toast('Back to the live settings'); }
+function applySharedShows(obj) {
   const p = clone(DEFAULT);
   for (const path of CLIENT_PATHS) { const v = getPath(obj, path); if (v !== undefined) setPath(p, path, v); }
   params = normalizeParams(p);
 }
+function applySharedGalleries(obj) {
+  if (!HAS_G) return;
+  const p = clone(GDEFAULT);
+  for (const path of G_CLIENT_PATHS) { const v = getPath(obj, path); if (v !== undefined) setPath(p, path, v); }
+  gparams = G.normalizeParams(p);
+}
+function applyShared(h) {
+  if (h.p) applySharedShows(h.p);
+  if (h.g) applySharedGalleries(h.g);
+  ui.mode = resolveMode(h);
+}
 
 document.addEventListener('input', e => {
   const el = e.target;
-  if (el.id === 'q') { ui.q = el.value; renderList(); return; }
-  if (el.dataset && el.dataset.path) { setPath(params, el.dataset.path, readInput(el)); syncInputs(el.dataset.path, el); renderAll(); }
+  if (el.id === 'q') { if (ui.mode === 'galleries') ui.gq = el.value; else ui.q = el.value; renderList(); return; }
+  if (!(el.dataset && el.dataset.path)) return;
+  const scope = el.dataset.scope || 's', path = el.dataset.path;
+  setPath(paramsOf(scope), path, readInput(el));
+  if (scope === 'g' && path.startsWith('tiers.')) { gClampTiers(path); for (const k of ['1', '2', '3']) syncInputs('g', `tiers.${k}`, `tiers.${k}` === path ? el : null); }
+  else if (scope === 'g' && path === 'gates.kinds') renderControls();
+  else syncInputs(scope, path, el);
+  renderAll();
 });
 document.addEventListener('click', e => {
-  const tab = e.target.closest('.tabs button');
-  if (tab) { ui.view = tab.dataset.view; renderList(); return; }
+  const mode = e.target.closest('#mode button');
+  if (mode) { setMode(mode.dataset.mode); return; }
+  const tab = e.target.closest('#views button');
+  if (tab) { if (ui.mode === 'galleries') ui.gview = tab.dataset.view; else ui.view = tab.dataset.view; renderList(); return; }
   const b = e.target.closest('[data-act]');
   if (!b) { document.querySelectorAll('.info.open').forEach(x => x.classList.remove('open')); return; }
   const act = b.dataset.act;
   if (act === 'tip') { e.preventDefault(); const was = b.classList.contains('open'); document.querySelectorAll('.info.open').forEach(x => x.classList.remove('open')); if (!was) b.classList.add('open'); }
   else if (act === 'toggle') { const s = b.dataset.slug; if (ui.expanded.has(s)) ui.expanded.delete(s); else ui.expanded.add(s); renderList(); }
+  else if (act === 'gtoggle') { const s = b.dataset.gid; if (ui.gexpanded.has(s)) ui.gexpanded.delete(s); else ui.gexpanded.add(s); renderList(); }
   else if (act === 'copy') copyLink();
   else if (act === 'email') location.href = `mailto:${encodeURIComponent(CONTACT)}?subject=${encodeURIComponent('Gallery ranking settings')}&body=${encodeURIComponent(mailBody())}`;
   else if (act === 'sms') location.href = `sms:?&body=${encodeURIComponent(mailBody())}`;
@@ -442,18 +741,26 @@ document.addEventListener('click', e => {
   else if (act === 'reset') resetParams();
 });
 $('#panel-toggle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
-window.addEventListener('hashchange', () => { const o = readHash(); if (o) { applyShared(o); renderControls(); renderAll(); } });
+window.addEventListener('hashchange', () => { const h = readHash(); if (h.p || h.g || h.v) { applyShared(h); renderControls(); renderAll(); } });
 
 // public surface for tests / console
 window.site = {
-  get params() { return params; }, rows: () => state.rows, feed: () => state.feed.map(r => r.slug),
-  shareLink, diff: diffParams, isLive, set(path, v) { setPath(params, path, v); syncInputs(path); renderAll(); }, reset: resetParams, applyShared,
+  get params() { return params; }, get mode() { return ui.mode; }, setMode,
+  rows: () => state.rows, feed: () => state.feed.map(r => r.slug),
+  shareLink, diff: diffParams, isLive, set(path, v) { setPath(params, path, v); syncInputs('s', path); renderAll(); }, reset: resetParams,
+  applyShared: applySharedShows,
   fn: { rank, computeFeatures, scoreShow, applyGates },
+  g: {
+    get params() { return gparams; }, rows: () => gstate.rows, ranked: () => gstate.ranked.map(r => r.id), diff: gDiffParams,
+    set(path, v) { setPath(gparams, path, v); if (path.startsWith('tiers.')) gClampTiers(path); renderControls(); renderAll(); },
+    museumsExcluded: () => gMuseumsExcluded(gparams), applyShared: applySharedGalleries, has: HAS_G,
+    fn: { rank: G.rank, computeFeatures: G.computeFeatures, scoreVenue: G.scoreVenue, gateFor: G.gateFor, tierFor: G.tierFor },
+  },
 };
 
 // boot
 const shared = readHash();
-if (shared) applyShared(shared);
+applyShared(shared);
 if (window.matchMedia('(max-width: 900px)').matches) $('#panel').classList.add('collapsed');
 renderControls();
 renderAll();

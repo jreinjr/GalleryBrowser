@@ -159,5 +159,195 @@ class PayloadTests(unittest.TestCase):
         self.assertEqual(dev.count("function applyGates"), 1)
 
 
+# --- galleries mode ------------------------------------------------------------------
+
+import re
+import shutil
+import subprocess
+
+import venue_dashboard  # noqa: E402
+
+VDEFAULT = json.loads((HERE.parent.parent / "content" / "curation" / "params" / "venues-default.json").read_text())
+VPARAMS = {k: v for k, v in VDEFAULT.items() if not k.startswith("_")}
+
+
+def _venue(vid, kind, score, rank, tier, gate=None, **extra):
+    raw = {"hours": {"days_open": 5, "hours_per_week": 40.0, "by_appointment": False, "parsed": True}, "hours_status": "active",
+           "fairs": ["frieze-la"] if kind == "gallery" else [], "lists": [], "press": [], "directories": ["gpla"],
+           "years": 10, "founded_basis": "founded_year", "roster_count": 12, "exhibitions_per_year": 6.0, "n_locations": 0,
+           "ratings": 40, "rating": 4.5, "web": {"exhibitions_url": True, "dates": True, "about": False, "fetch_mode": "static"},
+           "judge": {}, "wiki": None, "kind": kind, "seesaw": None}
+    feats = {f: 0.0 for f in site.G_FEATURES}
+    feats.update({"hours_breadth": 0.89, "directory": 0.63, "longevity": 0.79, "roster_size": 0.84, "show_cadence": 1.0,
+                  "places_popularity": 0.7, "web_presence": 0.7, "fairs": 0.5 if kind == "gallery" else 0.0,
+                  "kind_gallery": 1.0 if kind == "gallery" else 0.0, "kind_museum": 1.0 if kind == "museum" else 0.0})
+    v = {"id": vid, "name": vid.title(), "kind": kind, "is_museum": kind == "museum", "neighborhood": "Hollywood",
+         "status": "active", "verification": "verified", "website": f"https://{vid}.example", "report_path": f"content/venues/reports/x/{vid}.json",
+         "about": "A gallery. " * 100, "features": feats, "basis": {f: "b" for f in site.G_FEATURES}, "raw": raw,
+         "score": score, "contrib": {}, "gate": gate, "rank": rank, "tier": tier}
+    v.update(extra)
+    return v
+
+
+VREPORT = {"city": "los-angeles", "generated_at": 1788495195, "today": "2026-09-03", "params_default": dict(VPARAMS, city="los-angeles", today="2026-09-03"),
+           "params_hash": "abc123def456", "feature_names": site.G_FEATURES,
+           "venues": [_venue("alpha", "gallery", 0.62, 1, 1), _venue("beta", "museum", 0.21, 2, 3),
+                      _venue("gone", "gallery", 0.4, None, None, gate="status:closed", status="closed")],
+           "benchmark": {"seesaw_venue_ids": ["alpha"], "n_seesaw": 1, "auc": 1.0}, "presets": {}, "counts": {}}
+
+
+class GalleryTrimTests(unittest.TestCase):
+    def test_trim_venue_keeps_evidence_adds_live_and_drops_internals(self):
+        out = site.trim_venue(VREPORT["venues"][0])
+        for k in site.G_VENUE_KEYS:
+            self.assertIn(k, out)
+        for k in ("features", "basis", "contrib", "report_path", "score", "rank", "tier", "gate"):
+            self.assertNotIn(k, out)                       # recomputed in the page from raw
+        self.assertEqual((out["rank_live"], out["score_live"], out["tier_live"], out["gate_live"]), (1, 0.62, 1, None))
+        self.assertLessEqual(len(out["about"]), site.ABOUT_MAX + 1)
+        self.assertTrue(out["about"].endswith("…"))
+        for k in site.G_EMPTY_RAW_KEYS:
+            self.assertNotIn(k, out["raw"])                # {} / None dropped
+        self.assertEqual(out["raw"]["fairs"], ["frieze-la"])
+        self.assertIsNone(site.trim_venue(dict(VREPORT["venues"][0], about=None))["about"])
+
+    def test_build_galleries_drops_status_gated_and_counts_coverage(self):
+        g = site.build_galleries("los-angeles", VREPORT)
+        self.assertEqual([v["id"] for v in g["venues"]], ["alpha", "beta"])
+        self.assertEqual(g["counts"]["status_gated"], 1)
+        self.assertEqual(g["counts"]["listed"], 2)
+        self.assertEqual(g["counts"]["tiers"], {"1": 1, "3": 1})
+        self.assertEqual(g["coverage"]["fairs"], 1)
+        self.assertEqual(g["coverage"]["venue_judge"], 0)
+        self.assertEqual(g["client_paths"], site.G_CLIENT_PATHS)
+        self.assertEqual(g["params_default"]["city"], "los-angeles")
+        self.assertEqual(g["params_hash"], "abc123def456")
+        self.assertNotIn("benchmark", g)
+        self.assertNotIn("presets", g)
+
+    def test_g_constants_match_venue_core(self):
+        core = venue_dashboard.CORE.read_text()
+        m = re.search(r"const FEATURES = \[(.*?)\];", core, re.S)
+        self.assertEqual(re.findall(r"'([a-z_]+)'", m.group(1)), site.G_FEATURES)
+        m = re.search(r"const PARAM_KEY_ORDER = \[(.*?)\];", core)
+        self.assertEqual(re.findall(r"'([a-z_]+)'", m.group(1)), site.G_PARAM_KEY_ORDER)
+        m = re.search(r"const DEEP_KEYS = new Set\(\[(.*?)\]\)", core)
+        self.assertEqual(tuple(re.findall(r"'([a-z_]+)'", m.group(1))), site.G_DEEP_MERGE_KEYS)
+        for name in site.G_EXPORTS:
+            self.assertRegex(core, rf"(const|function) {name}\b", name)
+        self.assertEqual(len(site.G_CLIENT_PATHS), 5 + 18 - len(site.G_HIDDEN_WEIGHTS))
+
+    def test_payload_carries_galleries_and_default_mode(self):
+        report = {"today": "2026-09-03", "generated_at": "g", "sources": [], "shows": [REPORT_ROW], "params_default": LIVE}
+        curated = {"params_hash": "abc", "ts": 1, "params": LIVE, "featured": []}
+        g = site.build_galleries("los-angeles", VREPORT)
+        payload = site.build_payload("los-angeles", report, curated, {}, {}, "https://s", "me@x", galleries=g)
+        self.assertEqual(payload["default_mode"], "galleries")
+        self.assertEqual(len(payload["galleries"]["venues"]), 2)
+        payload = site.build_payload("los-angeles", report, curated, {}, {}, "https://s", "me@x")
+        self.assertEqual(payload["default_mode"], "shows")
+        self.assertEqual(payload["galleries"], {})
+
+
+class GalleryLinkTests(unittest.TestCase):
+    def test_parse_fragment(self):
+        self.assertEqual(site.parse_fragment("https://x.test/#p=AAA&g=BBB&v=shows"), {"p": "AAA", "g": "BBB", "v": "shows"})
+        self.assertEqual(site.parse_fragment("#g=BBB"), {"g": "BBB"})
+        self.assertEqual(site.parse_fragment("#v=shows"), {"v": "shows"})
+        self.assertEqual(site.parse_fragment("https://x.test/?q=1#g=BBB&other=2"), {"g": "BBB"})
+        self.assertEqual(site.parse_fragment("AAA"), {"p": "AAA"})          # legacy bare token
+        self.assertEqual(site.parse_fragment("p=AAA"), {"p": "AAA"})
+        self.assertEqual(site.parse_fragment("https://x.test/"), {})
+        self.assertEqual(site.token_from_link("#p=AAA&g=BBB"), "AAA")
+        with self.assertRaises(ValueError):
+            site.token_from_link("#g=BBB")
+
+    def test_gallery_diff_merge_round_trip(self):
+        kinds = ["gallery", "nonprofit", "project_space", "university", "other"]
+        diff = {"gates": {"kinds": kinds}, "tiers": {"1": 0.6}, "weights": {"kind_museum": -0.3}}
+        tok = site.encode_diff(diff)
+        full = site.decode_gallery_link(tok, VREPORT["params_default"])
+        self.assertEqual(full["gates"]["kinds"], kinds)
+        self.assertEqual(full["gates"]["exclude_status"], VPARAMS["gates"]["exclude_status"])   # untouched gate keys survive
+        self.assertEqual(full["gates"]["require_verified"], False)
+        self.assertEqual(full["tiers"], {"1": 0.6, "2": 0.30, "3": 0.10})
+        self.assertEqual(full["weights"]["kind_museum"], -0.3)
+        self.assertEqual(full["weights"]["fairs"], 0.18)
+        self.assertEqual(full["refs"], VPARAMS["refs"])
+        self.assertEqual(list(full)[:4], ["version", "city", "today", "weights"])
+        self.assertEqual(site.diff_params(VREPORT["params_default"], full, site.G_CLIENT_PATHS), diff)
+        empty = site.decode_gallery_link(site.encode_diff({"gates": {"kinds": []}}), dict(VREPORT["params_default"], gates=dict(VPARAMS["gates"], kinds=kinds)))
+        self.assertEqual(empty["gates"]["kinds"], [])
+
+    def test_gallery_freshness(self):
+        reg = {"venues": [{"id": "a", "notability_breakdown": {"params_hash": "abc123def456"}}, {"id": "b", "notability_breakdown": {"params_hash": "abc123def456"}}]}
+        self.assertEqual(site.check_gallery_freshness(VREPORT, reg, False), [])
+        stale = {"venues": [{"id": "a", "notability_breakdown": {"params_hash": "other"}}]}
+        with self.assertRaises(SystemExit):
+            site.check_gallery_freshness(VREPORT, stale, False)
+        self.assertEqual(len(site.check_gallery_freshness(VREPORT, stale, True)), 1)
+        with self.assertRaises(SystemExit):
+            site.check_gallery_freshness(VREPORT, {"venues": [{"id": "a"}]}, False)
+
+    def test_render_inlines_both_cores(self):
+        g = site.build_galleries("los-angeles", VREPORT)
+        page = site.render({"city": "x", "shows": [], "sources": [], "params_default": LIVE, "live": {}, "galleries": g})
+        for marker in (curation_dashboard.CORE_MARKER, site.GALLERY_CORE_MARKER, curation_dashboard.MARKER):
+            self.assertNotIn(marker, page)
+        self.assertIn("const G = (function () {", page)
+        self.assertIn("window.VENUES = (window.CURATION || {}).galleries", page)
+        self.assertEqual(page.count("function computeFeatures("), 2)
+        self.assertEqual(page.count("function applyGates("), 1)
+        self.assertEqual(page.count("function gateFor("), 1)
+        self.assertIn('"galleries":{', page)
+        # the dev gallery dashboard still splices the bare core
+        dev = venue_dashboard.inline_core(venue_dashboard.TEMPLATE.read_text())
+        self.assertNotIn(venue_dashboard.CORE_MARKER, dev)
+        self.assertNotIn("const G = (function", dev)
+
+
+@unittest.skipUnless(shutil.which("node"), "node not installed")
+class JsParityTests(unittest.TestCase):
+    """The gallery core exactly as shipped (IIFE-wrapped, fed the trimmed payload) must
+    reproduce rank_venues.py's scores/ranks/tiers for every listed venue."""
+
+    REPORT = HERE.parent.parent / "content" / "curation" / "los-angeles" / "venues_ranked.json"
+
+    def _run(self, vreport):
+        g = site.build_galleries(vreport["city"], vreport)
+        js = ("globalThis.window = {CURATION: {galleries: " + json.dumps(g) + "}};\n" + site.gallery_core_js() +
+              "\nconsole.log(JSON.stringify(G.rank(G.VENUES, G.R.params_default).map(r => [r.id, r.score, r.rank, r.tier, r.gate])));\n")
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "parity.js"
+            p.write_text(js)
+            out = subprocess.run(["node", str(p)], capture_output=True, text=True, timeout=120)
+        self.assertEqual(out.returncode, 0, out.stderr[-2000:])
+        return json.loads(out.stdout)
+
+    def test_fixture_parity(self):
+        rows = self._run(VREPORT)
+        self.assertEqual([r[0] for r in rows], ["alpha", "beta"])
+        # alpha: hours .8909*.10 + fairs sat(1,3)*.18 + directory sat(1,2)*.05 + longevity sat(10,20)*.08
+        #        + roster sat(12,20)*.06 + cadence 1*.06 + places .7002*.05 + web .7*.04 = 0.4472 -> tier 2
+        self.assertAlmostEqual(rows[0][1], 0.4472, places=3)
+        self.assertEqual(rows[0][2:], [1, 2, None])
+        # beta: same minus fairs, plus kind_museum -0.15 = 0.2072 -> tier 3
+        self.assertAlmostEqual(rows[1][1], 0.2072, places=3)
+        self.assertEqual(rows[1][2:], [2, 3, None])
+
+    @unittest.skipUnless(REPORT.exists(), "no LA venues_ranked.json")
+    def test_gallery_core_matches_python_report(self):
+        vreport = json.loads(self.REPORT.read_text())
+        rows = self._run(vreport)
+        py = {v["id"]: v for v in vreport["venues"]}
+        self.assertEqual(len(rows), sum(1 for v in vreport["venues"] if not str(v.get("gate") or "").startswith("status:")))
+        worst = 0.0
+        for vid, score, rank, tier, gate in rows:
+            v = py[vid]
+            worst = max(worst, abs(score - v["score"]))
+            self.assertEqual((rank, tier, gate), (v["rank"], v["tier"], v["gate"]), vid)
+        self.assertLess(worst, 1e-9)
+
+
 if __name__ == "__main__":
     unittest.main()
