@@ -4,40 +4,2765 @@
  "venue_id": "shugoarts",
  "name": "ShugoArts",
  "website": "http://shugoarts.com/",
- "generated_ts": 1788470473,
+ "generated_ts": 1788492141,
  "model": "claude-sonnet-5",
- "cost_usd": 0.0,
+ "cost_usd": 2.854,
  "crawl": {
-  "pages": 0,
-  "sitemap": false,
-  "rendered": false,
-  "truncated": false,
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
   "index_path": ".cache/crawl/tokyo/shugoarts.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
- "founders": [],
- "directors": [],
- "locations": [],
- "program_focus": [],
- "hours_text": null,
- "roster": [],
- "exhibitions": [],
- "fairs_self_reported": [],
+ "about_text": "ShugoArts is a contemporary art gallery in Tokyo's Roppongi district, founded in 2000 by Shugo Satani, who drew on experience gained at his father Kazuhiko's Satani Gallery. Working with a deliberately small roster, the gallery builds long-term relationships with each artist, staging exhibitions that let their practices develop over time. Its program spans generations, from painters and sculptors who rose to prominence in the 1980s to photographers and artists who emerged from the 2000s onward, encompassing painting, sculpture, photography and glass work. In recent years ShugoArts has also dealt in secondary-market twentieth-century masterpieces, contributing to museum and private collection-building in Japan and abroad.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://shugoarts.com/about"
+ ],
+ "founded_year": 2000,
+ "founders": [
+  "佐谷周吾 (Shugo Satani)"
+ ],
+ "directors": [
+  "石井美奈子 (Minako Ishii)"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "6-5-24 Roppongi, complex665 2F, Minato-ku, Tokyo 106-0032",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "1-32-8 Higashishinagawa, Terrada Art Complex II 4F, Shinagawa-ku, Tokyo 140-0002",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "postwar & contemporary Japanese painting",
+  "sculpture",
+  "photography",
+  "glass art",
+  "multi-generational roster (1980s–2000s)",
+  "20th-century secondary market masterpieces"
+ ],
+ "hours_text": "Open 11:00 — 18:00, Closed Sun, Mon and Holidays",
+ "roster": [
+  {
+   "name": "千葉正也 Masaya CHIBA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "藤本由紀夫 Yukio FUJIMOTO",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "カールステン・ヘラー Carsten HÖLLER",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "小林正人 Masato KOBAYASHI",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "リー・キット LEE Kit",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "丸山直文 Naofumi MARUYAMA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "松平莉奈 Rina MATSUDAIRA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "アンジュ・ミケーレ Anju MICHELE",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "三嶋りつ惠 Ritsue MISHIMA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "森村泰昌 MORIMURA Yasumasa",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "小野祐次 Yuji ONO",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "クララ・スピリアールト Clara SPILLIAERT",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "髙畠依子 Yoriko TAKABATAKE",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "戸谷成雄 Shigeo TOYA",
+   "status": "estate",
+   "source_url": "https://shugoarts.com/artists/shigeo-toya"
+  },
+  {
+   "name": "山本篤 Atsushi YAMAMOTO",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "安田侃 Kan YASUDA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  },
+  {
+   "name": "米田知子 Tomoko YONEDA",
+   "status": "represented",
+   "source_url": "https://shugoarts.com/artists"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "小林正人展",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2000-10-10",
+   "end": "2010-11-04",
+   "year": 2000,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "GALLERY'S DEBUT",
+   "artists": [
+    "Sophie CALLE",
+    "Marlene DUMAS",
+    "Jan FABRE",
+    "Leiko IKEMURA",
+    "Ilya KABAKOV",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Boris MIKHAILOV",
+    "Mariko MORI",
+    "MORIMURA Yasumasa",
+    "Rei NAITO",
+    "Tetsuya NAKAMURA",
+    "Rika NOGUCHI",
+    "Tony OUSLER",
+    "Navin RAWANCHAIKUL",
+    "Yoshiko SEINO",
+    "SHIMABUKU",
+    "Yoshihiro SUDA",
+    "Hiroshi SUGIMOTO",
+    "Toeko TATSUNO",
+    "Shigeo TOYA",
+    "Hellen van MEENE"
+   ],
+   "start": "2001-01-26",
+   "end": "2001-02-17",
+   "year": 2001,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ARTISTS' DEBUT",
+   "artists": [
+    "Are You Meaning Company",
+    "Keitaro HAMAKADO",
+    "Gabrielle Le COCQ",
+    "Hideki OKAMOTO",
+    "Yuji WATABE",
+    "Go WATANABE",
+    "Kanade YAGI",
+    "Takayuki YAGI",
+    "Tomoko YONEDA"
+   ],
+   "start": "2001-03-09",
+   "end": "2001-04-07",
+   "year": 2001,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "イケムラレイコ展",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2001-04-20",
+   "end": "2025-05-26",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "森村泰昌「百のポラロイド」",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2001-07-06",
+   "end": "2001-08-04",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Are You Meaning Company",
+    "Tetsuya NAKAMURA",
+    "Navin RAWANCHAIKUL",
+    "Tabaimo"
+   ],
+   "start": "2001-09-02",
+   "end": "2001-09-29",
+   "year": 2001,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "戸谷成雄 新作彫刻展",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2001-11-16",
+   "end": "2001-12-15",
+   "year": 2001,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "Paintings in Situ",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2002-01-11",
+   "end": "2002-02-16",
+   "year": 2002,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "エモーショナル・サイト",
+   "artists": [
+    "Are You Meaning Company",
+    "Dan ASHER",
+    "Candice BREITZ",
+    "Jeanne DUNNINA",
+    "Jan FABRE",
+    "Satoshi HIROSE",
+    "Nobuya HOKI",
+    "Masato KOBAYASHI",
+    "Masahiko KUWAHARA",
+    "Mitsue MAKITANI",
+    "Taiji MATSUE",
+    "Paul McCARTHY",
+    "Hellen van MEENE",
+    "Shintaro MIYAKE",
+    "Ryuji MIYAMOTO",
+    "Mariko MORI",
+    "MORIMURA Yasumasa",
+    "Takashi MURAKAMI",
+    "Tetsuya NAKAMURA",
+    "Yoshitomo NARA",
+    "Rika NOGUCHI",
+    "Tam OCHIAI",
+    "Takeharu OGAI",
+    "Ai OAGAWA",
+    "Yuki OKUMURA",
+    "Navin RAWANCHAIKUL",
+    "Thomas RUFF",
+    "Isao SATO",
+    "Hiroshi SUGIMOTO",
+    "Hiroshi SUGITO",
+    "Shigeo TOYA",
+    "Yuji WATABE",
+    "Gillian WEARING",
+    "Sislej XHAFA",
+    "Chie YASUDA",
+    "Hee Chang YOON"
+   ],
+   "start": "2002-11-16",
+   "end": "2002-11-24",
+   "year": 2002,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ギャラリーオープン記念展",
+   "artists": [
+    "Are You Meaning Company",
+    "Candice BREITZ",
+    "Jan FABRE",
+    "Carsten HÖLLER",
+    "Leiko IKEMURA",
+    "Ilya KABAKOV",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Boris MIKHAILOV",
+    "MORIMURA Yasumasa",
+    "Akinori OISHI",
+    "Navin RAWANCHAIKUL",
+    "SHIMABUKU",
+    "Toeko TATSUNO",
+    "Shigeo TOYA",
+    "Sislej XHAFA"
+   ],
+   "start": "2003-01-31",
+   "end": "2003-03-01",
+   "year": 2003,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "川の流れを見ながら：明日のために、美術家と画廊が一緒にできること",
+   "artists": [
+    "SHIMABUKU"
+   ],
+   "start": "2003-03-15",
+   "end": "2003-04-12",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "アーティストの宝物",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2003-04-22",
+   "end": "2003-05-24",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "PAPER WORKS",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Toeko TATSUNO"
+   ],
+   "start": "2003-06-06",
+   "end": "2003-07-05",
+   "year": 2003,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "PAINTINGS",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Toeko TATSUNO"
+   ],
+   "start": "2003-07-11",
+   "end": "2003-08-02",
+   "year": 2003,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ソルト・レイク",
+   "artists": [
+    "Boris MIKHAILOV"
+   ],
+   "start": "2003-09-02",
+   "end": "2003-10-04",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "時の温度―大きな水―",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2003-10-11",
+   "end": "2003-11-08",
+   "year": 2003,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ギャラリーからの提案",
+   "artists": [
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Toeko TATSUNO",
+    "Masaaki YAMADA",
+    "Atsuko TANAKA",
+    "Patrick TOSANI",
+    "Bernard FRIZE",
+    "Carsten HÖLLER",
+    "Sislej XHAFA",
+    "Ritsue MISHIMA",
+    "Akira KANAYAMA",
+    "SHIMABUKU"
+   ],
+   "start": "2003-11-21",
+   "end": "2003-12-20",
+   "year": 2003,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "比率 (1/16 inch = 1 foot)",
+   "artists": [
+    "Runa ISLAM"
+   ],
+   "start": "2004-01-24",
+   "end": "2004-02-28",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "射影体",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2004-03-06",
+   "end": "2004-04-03",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "マドレ・マーレ",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2004-04-17",
+   "end": "2004-05-22",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "イリヤ・カバコフのアルバム劇場: 「クローゼットのプリマコフ」",
+   "artists": [
+    "Ilya KABAKOV"
+   ],
+   "start": "2004-05-28",
+   "end": "2004-06-26",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "哲学的玩具Ⅱ",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2004-07-10",
+   "end": "2004-08-07",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "星の絵の具",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2004-09-04",
+   "end": "2004-10-16",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "光の縁側",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2004-10-22",
+   "end": "2004-11-20",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "なぜ、他ならぬ人間＝動物図鑑か？？",
+   "artists": [
+    "Takuma NAKAHIRA"
+   ],
+   "start": "2004-11-26",
+   "end": "2004-12-25",
+   "year": 2004,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "新作展",
+   "artists": [
+    "Toeko TATSUNO"
+   ],
+   "start": "2005-01-15",
+   "end": "2005-02-12",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "グループショー “earlier works”",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Boris Mikhailov",
+    "Tomoko YONEDA"
+   ],
+   "start": "2005-03-01",
+   "end": "2005-03-26",
+   "year": 2005,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "私が言うのはいつもあなたと同じこと",
+   "artists": [
+    "Carsten HÖLLER"
+   ],
+   "start": "2005-04-09",
+   "end": "2005-05-07",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "諷刺家伝—ゴヤに捧ぐ",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2005-05-21",
+   "end": "2005-07-02",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "サマー・ショー",
+   "artists": [
+    "Naofumi MARUYAMA",
+    "Yukio FUJIMOTO",
+    "SHIMABUKU",
+    "Sislej XHAFA"
+   ],
+   "start": "2005-07-09",
+   "end": "2005-08-06",
+   "year": 2005,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "雪解けのあとに",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2005-09-10",
+   "end": "2005-10-01",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "朝と夜の間",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2005-11-11",
+   "end": "2005-12-17",
+   "year": 2005,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "グループショウ「西から東から」: シュウゴアーツ所属作家によるグループショウ",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Toeko TATSUNO",
+    "Shigeo TOYA",
+    "SHIMABUKU",
+    "Yukio FUJIMOTO",
+    "Ritsue MISHIMA",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA",
+    "YANAGI, Miwa",
+    "Seiichi FURUYA",
+    "Are You Meaning Company"
+   ],
+   "start": "2005-12-21",
+   "end": "2006-02-04",
+   "year": 2005,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ヌード",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2006-02-10",
+   "end": "2006-03-11",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "ミニマルバロック",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2006-03-18",
+   "end": "2006-04-28",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "モノクロームの仕事 1996-2003",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2006-05-09",
+   "end": "2006-05-27",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "千葉正也 / 池田光弘 / イルバ・オーグランド / 徐美姫",
+   "artists": [
+    "Masaya CHIBA",
+    "Mitsuhiro IKEDA",
+    "Ylva OGLAND",
+    "JO Miki"
+   ],
+   "start": "2006-06-03",
+   "end": "2006-07-15",
+   "year": 2006,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "小林正人 初期作品 1982-1992",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2006-09-02",
+   "end": "2006-09-16",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "パシフィック",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2006-09-26",
+   "end": "2006-11-04",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "烈火の季節—なにものかへのレクイエム・その壱",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2006-11-11",
+   "end": "2006-12-16",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "昨日のサンドウィッチ",
+   "artists": [
+    "Boris MIKHAILOV"
+   ],
+   "start": "2006-12-22",
+   "end": "2007-02-03",
+   "year": 2006,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "私の体で最高にセクシーな部分(脳ドローイングと模型)",
+   "artists": [
+    "Jan FABRE"
+   ],
+   "start": "2007-02-10",
+   "end": "2007-03-10",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions/past"
+  },
+  {
+   "title": "なぜ、他ならぬ横浜図鑑か!!",
+   "artists": [
+    "Takuma NAKAHIRA"
+   ],
+   "start": "2007-04-07",
+   "end": "2007-05-12",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "これまでの話２",
+   "artists": [
+    "SHIMABUKU"
+   ],
+   "start": "2007-07-12",
+   "end": "2007-08-11",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ライトペインティング",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2007-09-01",
+   "end": "2007-09-29",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "静／聴",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2007-10-06",
+   "end": "2007-11-02",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "宙を繋ぐ",
+   "artists": [
+    "Mitsuhiro IKEDA"
+   ],
+   "start": "2007-11-10",
+   "end": "2007-12-08",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "荒ぶる神々の黄昏—なにものかへのレクイエム・其の弐",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2007-12-22",
+   "end": "2008-02-16",
+   "year": 2007,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ギャラリー・ショー",
+   "artists": [
+    "Kodai NAKAHARA",
+    "Carsten HÖLLER"
+   ],
+   "start": "2008-03-01",
+   "end": "2008-03-29",
+   "year": 2008,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "The Restless Subject",
+   "artists": [
+    "Runa ISLAM"
+   ],
+   "start": "2008-04-05",
+   "end": "2008-05-10",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ミニマルバロック Ⅲ",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2008-05-24",
+   "end": "2008-06-21",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "道しるべの女—眠りにつく",
+   "artists": [
+    "Ylva OGLAND"
+   ],
+   "start": "2008-06-28",
+   "end": "2008-07-26",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツ ショー",
+   "artists": [
+    "Mitsuhiro IKEDA",
+    "Masato KOBAYASHI",
+    "Takuma NAKAHIRA"
+   ],
+   "start": "2008-09-06",
+   "end": "2008-10-04",
+   "year": 2008,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "百年後—未完の考古学",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2008-10-18",
+   "end": "2008-11-15",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "三ツ境",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2008-11-29",
+   "end": "2008-12-20",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "遠／近",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2009-01-17",
+   "end": "2009-02-14",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ギャラリー・ショー",
+   "artists": [
+    "Naofumi MARUYAMA",
+    "Shigeo TOYA",
+    "Masaya CHIBA",
+    "Kazuna TAGUCHI"
+   ],
+   "start": "2009-02-27",
+   "end": "2009-04-04",
+   "year": 2009,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "そのものがそれそのものとして",
+   "artists": [
+    "Kazuna TAGUCHI"
+   ],
+   "start": "2009-04-11",
+   "end": "2009-05-23",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "漂う濃度",
+   "artists": [
+    "Mitsuhiro IKEDA"
+   ],
+   "start": "2009-06-27",
+   "end": "2009-07-25",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Rivers become oceans",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2009-09-05",
+   "end": "2009-10-03",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ME ZA ME",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2009-10-10",
+   "end": "2009-11-21",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Recent Works “Post-Something”",
+   "artists": [
+    "Teppei KANEUJI"
+   ],
+   "start": "2010-01-16",
+   "end": "2010-02-27",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "なにものかへのレクイエム：外伝",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2010-03-11",
+   "end": "2010-04-28",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ミニマルバロックVI",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2010-05-08",
+   "end": "2010-06-12",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "忘却と記憶についての短い物語",
+   "artists": [
+    "Jun YANG"
+   ],
+   "start": "2010-07-24",
+   "end": "2010-09-11",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "LOVE もっとひどい絵を 美しい絵 愛を口にする以上",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2010-09-18",
+   "end": "2010-10-23",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Well, that's just a chill.",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2010-10-30",
+   "end": "2010-11-20",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "透明な足",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2010-11-27",
+   "end": "2010-12-25",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Documentary",
+   "artists": [
+    "Takuma NAKAHIRA"
+   ],
+   "start": "2011-01-08",
+   "end": "2011-02-05",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "生きていたから見れた素晴らしい世界",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2011-02-12",
+   "end": "2011-03-12",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "n/t –phonography/photography–",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2011-03-19",
+   "end": "2011-04-30",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ふたつの太陽",
+   "artists": [
+    "Leiko IKEMURA",
+    "Naofumi MARUYAMA",
+    "Shigeo TOYA",
+    "Boris MIKHAILOV",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA"
+   ],
+   "start": "2011-08-23",
+   "end": "2011-09-24",
+   "year": 2011,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "Japanese House",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2011-10-29",
+   "end": "2011-12-03",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "4人展—絵画—",
+   "artists": [
+    "Aki KONDO",
+    "Shinichiro KANO",
+    "Tomohito ISHII",
+    "Takuya IKEZAKI"
+   ],
+   "start": "2011-12-10",
+   "end": "2012-01-28",
+   "year": 2011,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "記録する視線",
+   "artists": [
+    "Shigeo TOYA",
+    "Yukio FUJIMOTO",
+    "Kazuna TAGUCHI",
+    "CHEN Chieh-Jen"
+   ],
+   "start": "2012-02-14",
+   "end": "2012-03-10",
+   "year": 2012,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "LOVE もっとひどい絵を！ 美しい絵 愛を口にする以上 2012、spring",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2012-03-17",
+   "end": "2012-04-21",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "SOMETHING ON PLANET",
+   "artists": [
+    "Teppei KANEUJI"
+   ],
+   "start": "2012-05-12",
+   "end": "2012-06-23",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "たべる地球",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2012-07-07",
+   "end": "2012-08-04",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "location/dislocation",
+   "artists": [
+    "Mitsuhiro IKEDA"
+   ],
+   "start": "2012-09-01",
+   "end": "2012-10-06",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "銀のほのお",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2012-11-02",
+   "end": "2012-11-30",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "THE CRIMSON SUN",
+   "artists": [
+    "Kazuna TAGUCHI",
+    "Tadasuke IWANAGA"
+   ],
+   "start": "2013-01-26",
+   "end": "2013-03-02",
+   "year": 2013,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "THE CRIMSON SUN follow",
+   "artists": [
+    "Kazuna TAGUCHI",
+    "Tadasuke IWANAGA"
+   ],
+   "start": "2013-03-19",
+   "end": "2013-04-13",
+   "year": 2013,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "The ShugoArts Show recent works / early works",
+   "artists": [
+    "Leiko IKEMURA",
+    "MORIMURA Yasumasa",
+    "Shigeo TOYA",
+    "Boris MIKHAILOV",
+    "Carsten HÖLLER",
+    "Yukio FUJIMOTO",
+    "Ritsue MISHIMA",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA",
+    "Masaya CHIBA",
+    "Mitsuhiro IKEDA",
+    "Ylva OGLAND",
+    "Kazuna TAGUCHI",
+    "LEE Kit",
+    "Takuya IKEZAKI",
+    "Teppei KANEUJI",
+    "Shinichiro KANO",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2013-05-28",
+   "end": "2013-06-29",
+   "year": 2013,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "Rooms",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2013-07-20",
+   "end": "2013-08-24",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ギャラリー・ショー",
+   "artists": [
+    "Shigeo TOYA",
+    "Yukio FUJIMOTO",
+    "Ritsue MISHIMA",
+    "Tomoko YONEDA",
+    "Masaya CHIBA",
+    "Teppei KANEUJI",
+    "Aki KONDO",
+    "Shinichiro KANO"
+   ],
+   "start": "2013-07-20",
+   "end": "2013-08-24",
+   "year": 2013,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "清澄",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2013-10-24",
+   "end": "2013-11-16",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "夜みる夢を構築できるか",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2013-11-22",
+   "end": "2013-12-21",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "By the way",
+   "artists": [],
+   "start": "2014-01-11",
+   "end": "2014-02-08",
+   "year": 2014,
+   "kind": "other",
+   "source_url": ""
+  },
+  {
+   "title": "By the way,",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2014-01-11",
+   "end": "2014-02-08",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "ギャラリー・ショー",
+   "artists": [
+    "Yukio FUJIMOTO",
+    "Carsten HÖLLER",
+    "Mitsuhiro IKEDA",
+    "Leiko IKEMURA",
+    "Teppei KANEUJI",
+    "Masato KOBAYASHI",
+    "Takuma NAKAHIRA"
+   ],
+   "start": "2014-03-01",
+   "end": "2014-03-15",
+   "year": 2014,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "フライド幽霊とボイルド空想",
+   "artists": [
+    "Teppei KANEUJI"
+   ],
+   "start": "2014-03-20",
+   "end": "2014-04-26",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "名もなき馬",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2014-05-10",
+   "end": "2014-06-28",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Works on paper 2011-2014",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2014-07-05",
+   "end": "2014-08-02",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "絵画の輪郭",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Kodai NAKAHARA",
+    "Yukio FUJIMOTO",
+    "Masaya CHIBA",
+    "Mitsuhiro IKEDA",
+    "Teppei KANEUJI",
+    "Chiro MORI",
+    "LEE Kit",
+    "Aki KONDO",
+    "Shinichiro KANO",
+    "Takuya IKEZAKI",
+    "Tadasuke IWANAGA",
+    "Makiko MASUTANI",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2014-09-02",
+   "end": "2014-09-27",
+   "year": 2014,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "retard",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2014-10-04",
+   "end": "2014-11-01",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "MATERIAL ANALYSIS–",
+   "artists": [
+    "Teppei KANEUJI",
+    "LEE Kit",
+    "Kesang LAMDARK"
+   ],
+   "start": "2014-11-15",
+   "end": "2014-12-20",
+   "year": 2014,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "HIKARI",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2015-02-17",
+   "end": "2015-03-07",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": null,
+   "artists": [],
+   "start": "2015-03-20",
+   "end": "2015-04-11",
+   "year": 2015,
+   "kind": "other",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [],
+   "start": "2015-03-20",
+   "end": "2015-04-11",
+   "year": 2015,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Shigeo TOYA",
+    "Yukio FUJIMOTO",
+    "Ritsue MISHIMA",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA",
+    "Masaya CHIBA",
+    "Kazuna TAGUCHI",
+    "LEE Kit",
+    "Aki KONDO",
+    "Yoriko TAKABATAKE",
+    "Kesang LAMDARK",
+    "Shinichiro KANO",
+    "Boris MIKHAILOV",
+    "Takuya IKEZAKI",
+    "Mitsuhiro IKEDA",
+    "Carsten HÖLLER",
+    "Ylva OGLAND",
+    "Tadasuke IWANAGA",
+    "Makiko MASUTANI",
+    "Runa ISLAM"
+   ],
+   "start": "2015-09-13",
+   "end": "2015-10-25",
+   "year": 2015,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツ：毎週末の画廊、三宿SUNDAYの隣",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Shigeo TOYA",
+    "Ritsue MISHIMA",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA",
+    "Masaya CHIBA",
+    "Kazuna TAGUCHI",
+    "LEE Kit",
+    "Aki KONDO",
+    "Yoshihiro SUDA",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2015-09-13",
+   "end": "2015-10-25",
+   "year": 2015,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツ： 毎週末の画廊、三宿ＳＵＮＤＡＹの隣",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "MORIMURA Yasumasa",
+    "Shigeo TOYA",
+    "Ritsue MISHIMA",
+    "Takuma NAKAHIRA",
+    "Tomoko YONEDA",
+    "Masaya CHIBA",
+    "Kazuna TAGUCHI",
+    "LEE Kit",
+    "Aki KONDO",
+    "Yoshihiro SUDA",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2015-10-31",
+   "end": "2015-12-13",
+   "year": 2015,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "光のあいだ",
+   "artists": [
+    "Ritsue MISHIMA",
+    "Jun AOKI"
+   ],
+   "start": "2015-10-31",
+   "end": "2015-12-13",
+   "year": 2015,
+   "kind": "other",
+   "source_url": ""
+  },
+  {
+   "title": "おとになる",
+   "artists": [
+    "Rie NAKAJIMA"
+   ],
+   "start": "2015-12-20",
+   "end": "2016-01-31",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Broom (Coal)/ Tokyo",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2016-02-06",
+   "end": "2016-03-06",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Artist",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2016-04-16",
+   "end": "2016-06-19",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "TABLE OF THREE",
+   "artists": [
+    "Masato KOBAYASHI",
+    "Hiroshi SUGITO",
+    "Takeshi MAKISHIMA"
+   ],
+   "start": "2016-06-26",
+   "end": "2016-08-07",
+   "year": 2016,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "水浴",
+   "artists": [
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2016-08-27",
+   "end": "2016-09-04",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Pork Park",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2016-09-10",
+   "end": "2016-09-25",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Thrice Upon A Time",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2016-10-21",
+   "end": "2016-12-04",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "森 X",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2016-12-16",
+   "end": "2017-02-05",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "パフォーマンス 「ここ」",
+   "artists": [
+    "Rie NAKAJIMA"
+   ],
+   "start": "2016-12-25",
+   "end": "2016-12-25",
+   "year": 2016,
+   "kind": "other",
+   "source_url": ""
+  },
+  {
+   "title": "星々",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2017-02-18",
+   "end": "2017-04-01",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "Not untitled",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2017-04-15",
+   "end": "2017-05-20",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "シュウゴアーツショー 1980年代から2010年代まで",
+   "artists": [
+    "Naofumi MARUYAMA",
+    "Masaya CHIBA",
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "LEE Kit",
+    "Ritsue MISHIMA",
+    "MORIMURA Yasumasa",
+    "Yoriko TAKABATAKE",
+    "Shigeo TOYA",
+    "Tomoko YONEDA",
+    "Takeshi MAKISHIMA",
+    "Kana TAGUCHI"
+   ],
+   "start": "2017-06-03",
+   "end": "2017-07-08",
+   "year": 2017,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "飛べ、こぶた",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2017-07-21",
+   "end": "2017-08-26",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "あの世のはてに",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2017-09-09",
+   "end": "2017-10-07",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "思い出をどうするかについて、ライトボックス⾵間接照明、⼋つ裂き光輪、キスしたい気持ち、 家族の物語、相模川ストーンバーガー、わすれてメデューサ、50m先の要素など",
+   "artists": [],
+   "start": "2017-10-20",
+   "end": "2017-11-18",
+   "year": 2017,
+   "kind": "other",
+   "source_url": ""
+  },
+  {
+   "title": "思い出をどうするかについて、ライトボックス風間接照明、八つ裂き光輪、キスしたい気持ち、家族の物語、相模川ストーンバーガー、わすれてメデューサ、50m先の要素などを用いて",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2017-10-20",
+   "end": "2017-11-18",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": ""
+  },
+  {
+   "title": "STARS",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2017-12-02",
+   "end": "2018-02-03",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Masaya CHIBA",
+    "Yukio FUJIMOTO",
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "LEE Kit",
+    "Naofumi MARUYAMA",
+    "Ritsue MISHIMA",
+    "MORIMURA Yasumasa",
+    "Yuji ONO",
+    "Kana TAGUCHI",
+    "Shigeo TOYA",
+    "Tomoko YONEDA"
+   ],
+   "start": "2018-02-10",
+   "end": "2018-04-07",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "泉",
+   "artists": [
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2018-04-14",
+   "end": "2018-05-19",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "どう生きるか #2 六本木にて",
+   "artists": [
+    "Masaya CHIBA",
+    "Masato KOBAYASHI",
+    "LEE Kit",
+    "Atsushi YAMAMOTO"
+   ],
+   "start": "2018-05-25",
+   "end": "2018-06-23",
+   "year": 2018,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "ラスコーと天気",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2018-07-07",
+   "end": "2018-08-10",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "あの日を待つ 明日を待つ 今日",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2018-09-08",
+   "end": "2018-09-29",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "「私」の年代記 1985〜2018",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2018-10-20",
+   "end": "2018-11-24",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "Vice Versa – Les Tableaux 逆も真なり—絵画頌",
+   "artists": [
+    "Yuji ONO"
+   ],
+   "start": "2018-12-12",
+   "end": "2019-02-02",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "LEE Kit",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "Yoriko TAKABATAKE",
+    "Shigeo TOYA"
+   ],
+   "start": "2019-02-16",
+   "end": "2019-04-06",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [],
+   "start": "2019-02-16",
+   "end": "2019-04-06",
+   "year": 2019,
+   "kind": "group",
+   "source_url": ""
+  },
+  {
+   "title": "アルベール・カミュとの対話",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2019-04-13",
+   "end": "2019-05-25",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "画家とモデル",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2019-06-01",
+   "end": "2019-07-06",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "視線体",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2019-09-21",
+   "end": "2019-10-19",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "光の場 HALL OF LIGHT",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2019-12-07",
+   "end": "2020-01-25",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Masaya CHIBA",
+    "Yukio FUJIMOTO",
+    "LEE Kit",
+    "Anju MICHELE"
+   ],
+   "start": "2020-02-08",
+   "end": "2020-04-04",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "山本篤 特別フィルム上映展「The Atsushi Yamamoto Show」",
+   "artists": [
+    "Atsushi YAMAMOTO"
+   ],
+   "start": "2020-04-11",
+   "end": "2020-05-10",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "近藤亜樹 オンラインショー「心に花を」",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2020-04-25",
+   "end": "2020-05-30",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "近藤亜樹 オンライン特別全編上映「HIKARI」",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2020-05-02",
+   "end": "2020-05-06",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "イマジナリウム",
+   "artists": [
+    "Anju MICHELE"
+   ],
+   "start": "2020-06-20",
+   "end": "2020-07-18",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "オンラインショー: Yukio Fujimoto Sound Album",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2020-08-01",
+   "end": "2020-08-31",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "Naofumi MARUYAMA",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2020-09-12",
+   "end": "2020-10-10",
+   "year": 2020,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "MARS",
+   "artists": [
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2020-10-24",
+   "end": "2020-11-28",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "(Screenshot)",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2020-12-12",
+   "end": "2021-01-30",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "MORIMURA Yasumasa",
+    "Yuji ONO",
+    "Tomoko YONEDA"
+   ],
+   "start": "2021-02-06",
+   "end": "2021-02-27",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツ オンラインショー この星の絵の具",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2021-02-20",
+   "end": "2026-09-03",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "作品集刊行記念展「ここにあるしあわせ」",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2021-03-13",
+   "end": "2021-04-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "Luminescence",
+   "artists": [
+    "Yuji ONO"
+   ],
+   "start": "2021-04-24",
+   "end": "2021-06-19",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Yukio FUJIMOTO",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "Naofumi MARUYAMA",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2021-06-26",
+   "end": "2021-07-31",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "この星の家族",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2021-09-10",
+   "end": "2021-10-16",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "わたしはどこに立っている",
+   "artists": [
+    "MORIMURA Yasumasa",
+    "Ritsue MISHIMA"
+   ],
+   "start": "2021-10-30",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "ShugoArts Studio ステュディオ開き",
+   "artists": [
+    "Masaya CHIBA",
+    "Yukio FUJIMOTO",
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "LEE Kit",
+    "Naofumi MARUYAMA",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "MORIMURA Yasumasa",
+    "Yoriko TAKABATAKE",
+    "Shigeo TOYA",
+    "Tomoko YONEDA",
+    "Aki KONDO",
+    "Carsten HÖLLER",
+    "Yuji ONO"
+   ],
+   "start": "2021-11-04",
+   "end": "2021-11-07",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "視線体：散から連 連から積",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2022-01-08",
+   "end": "2022-02-12",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Masaya CHIBA",
+    "Masato KOBAYASHI",
+    "Aki KONDO",
+    "LEE Kit",
+    "Anju MICHELE",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2022-02-19",
+   "end": "2022-04-02",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "限りなく透明な",
+   "artists": [
+    "Leiko IKEMURA"
+   ],
+   "start": "2022-04-14",
+   "end": "2022-05-28",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "残響—打ち寄せる波",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2022-06-04",
+   "end": "2022-05-28",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "MY HOME IS NOT YOUR HOME",
+   "artists": [
+    "Atsushi YAMAMOTO"
+   ],
+   "start": "2022-07-23",
+   "end": "2022-09-03",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "水を蹴る",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2022-09-24",
+   "end": "2022-11-05",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "CAVE",
+   "artists": [
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2022-11-19",
+   "end": "2022-12-24",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー リー・キットとアンジュ・ミケーレ",
+   "artists": [
+    "LEE Kit",
+    "Anju MICHELE"
+   ],
+   "start": "2023-01-14",
+   "end": "2023-03-11",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "横の展覧会",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2023-03-18",
+   "end": "2023-04-08",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "祈りのかたち",
+   "artists": [
+    "Ritsue MISHIMA"
+   ],
+   "start": "2023-04-22",
+   "end": "2023-05-27",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "わたしはあなたに会いたかった",
+   "artists": [
+    "Aki KONDO"
+   ],
+   "start": "2023-06-10",
+   "end": "2023-07-22",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "山本篤・映像小屋／ShugoArts Show",
+   "artists": [
+    "Atsushi YAMAMOTO",
+    "Masaya CHIBA",
+    "Masato KOBAYASHI"
+   ],
+   "start": "2023-07-29",
+   "end": "2023-09-09",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "自由について",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2023-09-22",
+   "end": "2023-11-05",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "息をのむような虚ろな視線",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2023-11-18",
+   "end": "2023-12-23",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "氷晶",
+   "artists": [
+    "Tomoko YONEDA"
+   ],
+   "start": "2024-01-13",
+   "end": "2024-02-24",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "空円",
+   "artists": [
+    "Anju MICHELE"
+   ],
+   "start": "2024-03-09",
+   "end": "2024-04-06",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "楽しい五重人格",
+   "artists": [
+    "MORIMURA Yasumasa"
+   ],
+   "start": "2024-04-19",
+   "end": "2024-06-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "LINE(N)",
+   "artists": [
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2024-06-15",
+   "end": "2024-07-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "山本篤・和田昌宏 映像小屋2／接続の光",
+   "artists": [
+    "Atsushi YAMAMOTO",
+    "Masahiro WADA"
+   ],
+   "start": "2024-08-03",
+   "end": "2024-09-14",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "ShugoArts Show",
+   "artists": [
+    "Masaya CHIBA",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "Shigeo TOYA"
+   ],
+   "start": "2024-09-21",
+   "end": "2024-10-12",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "BLOOM'S BROOM",
+   "artists": [
+    "Yukio FUJIMOTO"
+   ],
+   "start": "2024-10-26",
+   "end": "2024-11-22",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "画家の肖像——『MK』出版記念展",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2024-12-07",
+   "end": "2025-02-01",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "ShugoArts Show—手法は語る",
+   "artists": [
+    "Leiko IKEMURA",
+    "Masato KOBAYASHI",
+    "Yoriko TAKABATAKE",
+    "Shigeo TOYA",
+    "Masaomi YASUNAGA"
+   ],
+   "start": "2025-02-22",
+   "end": "2025-04-05",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-06-14",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "NO DATE",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2025-04-19",
+   "end": "2025-06-14",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions?page=2"
+  },
+  {
+   "title": "絵画とiPS心筋細胞シート",
+   "artists": [
+    "Masaya CHIBA"
+   ],
+   "start": "2025-06-28",
+   "end": "2025-08-02",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツ オンラインショー 映像小屋3－残光",
+   "artists": [
+    "Atsushi YAMAMOTO"
+   ],
+   "start": "2025-07-26",
+   "end": "2025-08-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "映像小屋3－残光",
+   "artists": [
+    "Atsushi YAMAMOTO"
+   ],
+   "start": "2025-07-26",
+   "end": "2025-08-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibitions?page=2"
+  },
+  {
+   "title": "ShugoArts Showースプラウト",
+   "artists": [
+    "Clara SPILLIAERT",
+    "Masato KOBAYASHI",
+    "Naofumi MARUYAMA",
+    "Anju MICHELE",
+    "Ritsue MISHIMA",
+    "Yoriko TAKABATAKE"
+   ],
+   "start": "2025-08-30",
+   "end": "2025-10-04",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "視線体：半彫刻",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2025-10-18",
+   "end": "2025-11-29",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "いくつかの壊れた日々とゆび",
+   "artists": [
+    "LEE Kit"
+   ],
+   "start": "2025-12-13",
+   "end": "2026-01-31",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー: 丸山直文 はじまり",
+   "artists": [
+    "Naofumi MARUYAMA"
+   ],
+   "start": "2026-02-14",
+   "end": "2026-04-04",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "荒野の星『この星の絵の具』下巻刊行記念",
+   "artists": [
+    "Masato KOBAYASHI"
+   ],
+   "start": "2026-04-18",
+   "end": "2026-05-30",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "戸谷成雄追悼展「彫刻家・戸谷成雄」",
+   "artists": [
+    "Shigeo TOYA"
+   ],
+   "start": "2026-06-06",
+   "end": "2026-06-27",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "to sweat 流汗",
+   "artists": [
+    "LEE Kit",
+    "Masaya CHIBA"
+   ],
+   "start": "2026-07-11",
+   "end": "2026-08-22",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  },
+  {
+   "title": "シュウゴアーツショー",
+   "artists": [
+    "Naofumi MARUYAMA",
+    "Ritsue MISHIMA",
+    "Kan YASUDA"
+   ],
+   "start": "2026-08-29",
+   "end": "2026-10-03",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://shugoarts.com/exhibition"
+  }
+ ],
+ "fairs_self_reported": [
+  "Art Basel Hong Kong",
+  "アートフェア東京 (Art Fair Tokyo)",
+  "Art Collaboration Kyoto",
+  "Tokyo Gendai",
+  "T3 PHOTO ASIA"
+ ],
  "memberships_self_reported": [],
  "press_self_reported": [],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": null,
+ "notes": "Shigeo Toya passed away in 2026 per a news announcement on his artist page ('彫刻家・戸谷成雄 逝去のお知らせ'); a posthumous memorial exhibition was announced, so his roster status has been marked as 'estate'. Multiple past gallery locations (清澄, 新川, 三宿 weekend gallery) appear in exhibition history but are not listed as current addresses on the About page, so they are omitted from the locations list.",
+ "exhibitions_truncated": false,
  "triage": {
-  "labels": {},
-  "site_notes": "",
-  "fetch_more": []
+  "labels": {
+   "https://shugoarts.com/artists": "roster_index",
+   "https://shugoarts.com/exhibitions": "exhibitions_current",
+   "https://shugoarts.com/exhibition": "exhibitions_archive",
+   "https://shugoarts.com/news": "news",
+   "https://shugoarts.com/news/recruit_gallery_staff": "news",
+   "https://shugoarts.com/about": "about",
+   "https://shugoarts.com/contact": "contact_hours",
+   "https://shugoarts.com/exhibition/e01317": "exhibition_page",
+   "https://shugoarts.com/artists/masaya-chiba": "artist_page",
+   "https://shugoarts.com/artists/tomoko-yoneda": "artist_page",
+   "https://shugoarts.com/artists/atsushi-yamamoto": "artist_page",
+   "https://shugoarts.com/artists/shigeo-toya": "artist_page",
+   "https://shugoarts.com/artists/yoriko-takabatake": "artist_page",
+   "https://shugoarts.com/artists/yuji-ono": "artist_page",
+   "https://shugoarts.com/artists/morimura-yasumasa": "artist_page",
+   "https://shugoarts.com/artists/ritsue-mishima": "artist_page",
+   "https://shugoarts.com/artists/anju-michele": "artist_page",
+   "https://shugoarts.com/artists/naofumi-maruyama": "artist_page",
+   "https://shugoarts.com/artists/lee-kit": "artist_page",
+   "https://shugoarts.com/artists/masato-kobayashi": "artist_page",
+   "https://shugoarts.com/artists/carsten-holler": "artist_page",
+   "https://shugoarts.com/artists/yukio-fujimoto": "artist_page",
+   "https://shugoarts.com/artists/clara-spilliaert": "artist_page",
+   "https://shugoarts.com/artists/rina-matsudaira": "artist_page",
+   "https://shugoarts.com/artists/kan-yasuda": "artist_page",
+   "https://shugoarts.com/exhibitions/e01181": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01175": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01148": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01139": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01153": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01212": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00001": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01213": "exhibitions_current",
+   "https://shugoarts.com/exhibitions/e00007": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00006": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01214": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00009": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00011": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00154": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00156": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00159": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00163": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00166": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00167": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00169": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00170": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00171": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00174": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00188": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00191": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00192": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00197": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00198": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00206": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00208": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00214": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00216": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00223": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00225": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00235": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00246": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00252": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00254": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00259": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00260": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00265": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00275": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00280": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00287": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00294": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00296": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00302": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01217": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00332": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00340": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00344": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00324": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00346": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00354": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01201": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01192": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00365": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00366": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00369": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01130": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00377": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00374": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00381": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00350": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00385": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01138": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01129": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01106": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01087": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01086": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01040": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01027": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00977": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00941": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00389": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00895": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00912": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00911": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00877": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00876": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00660": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00722": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00659": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00653": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00641": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00636": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00607": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00610": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00606": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00590": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00579": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00576": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00559": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00503": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00529": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00527": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00528-2": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00466": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00451": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00457": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00445": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00438": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00437": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00436": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00428": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00423": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00418": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00414": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00408": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00406": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00404": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00399": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00396": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00356": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00975": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01158": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00359": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00620": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01189": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01136": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00645": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00976": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00898": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00598": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00914": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00891": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01141": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00639": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00808": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00637": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00597": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00461": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00655": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00605": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00452": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00455": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00501": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00554": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00469": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00483": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00463": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00479": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00444": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00441": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01080": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00537": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01016": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00434": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01054": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00425": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01006": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00509": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00628": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00416": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00415": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00510": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00410": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01062": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01052": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00403": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00405": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00511": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00960": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00397": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00961": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00393": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00943": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00388": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00940": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00387": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01004": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00382": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00960-2": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00380": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00379": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01161": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00578": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01048": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00367": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01049": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00351": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01147": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01105": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01223": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e01113": "exhibition_page",
+   "https://shugoarts.com/exhibitions/%e5%a4%96%e9%83%a8-e00065": "exhibition_page",
+   "https://shugoarts.com/exhibitions/%e5%a4%96%e9%83%a8-e00093": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e1024": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00897": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00465": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00981": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00516": "exhibition_page",
+   "https://shugoarts.com/exhibitions/e00512": "exhibition_page",
+   "https://shugoarts.com/exhibitions?page=2": "exhibitions_archive",
+   "https://shugoarts.com/library": "news",
+   "https://shugoarts.com/exhibitions/past": "exhibitions_archive"
+  },
+  "site_notes": "The site organises content via a single long /exhibitions archive page (no clear separation of current vs past) and a roster index at /artists linking to individual artist pages; exhibitions have individual pages but the archive listing lacks dates, so representative exhibition pages were labelled instead; many numeric-slug stub pages (e.g. /17412-2) appear empty/other and were excluded. The crawled inventory sample consists almost entirely of individual exhibition detail pages (e00xxx/e01xxx IDs) with no visible archive list, roster index, about, or contact pages; these top-level pages likely exist in the site nav but are missing from this batch of the inventory. The inventory sample consists almost entirely of individual exhibition pages under /exhibitions/e#####, each with a unique catalogue number but no visible date metadata, suggesting these are archive entries; no roster, about, or contact pages appear in this batch though the site clearly has such sections given its long-running gallery program.",
+  "fetch_more": [
+   "https://shugoarts.com/exhibitions?page=2",
+   "https://shugoarts.com/exhibitions/e01213",
+   "https://shugoarts.com/library",
+   "https://shugoarts.com/exhibitions",
+   "https://shugoarts.com/exhibitions/past",
+   "https://shugoarts.com/artists",
+   "https://shugoarts.com/about",
+   "https://shugoarts.com/contact",
+   "https://shugoarts.com/exhibitions",
+   "https://shugoarts.com/artists",
+   "https://shugoarts.com/about",
+   "https://shugoarts.com/contact",
+   "https://shugoarts.com/news"
+  ]
  },
- "errors": [
-  "crawl: no readable pages"
- ],
- "duration_s": 125.8
+ "errors": [],
+ "duration_s": 3035.3
 }

@@ -4,21 +4,27 @@
  "venue_id": "take-ninagawa",
  "name": "Take Ninagawa",
  "website": "http://www.takeninagawa.com/",
- "generated_ts": 1788492141,
+ "generated_ts": 1788495204,
  "model": "claude-sonnet-5",
- "cost_usd": 0.3463,
+ "cost_usd": 1.0676,
  "crawl": {
-  "pages": 300,
+  "pages": 322,
   "sitemap": false,
   "rendered": true,
   "truncated": true,
   "index_path": ".cache/crawl/tokyo/take-ninagawa.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
- "founders": [],
+ "about_text": "Take Ninagawa is a contemporary art gallery in Tokyo's Minato City, founded in 2008 by Atsuko Ninagawa. Since opening, it has operated from its Higashi Azabu address. The gallery represents a diverse group of Japanese and international artists working across painting, sculpture, video, and installation, spanning generations from postwar figures to emerging practitioners. It has participated in international art fairs including Art Basel Hong Kong, NADA, and FIAC Paris, and was a founding member of the New Tokyo Contemporaries association, reflecting its role in Tokyo's contemporary gallery scene.",
+ "source_kind": "secondary",
+ "source_urls": [
+  "https://www.tokyoartbeat.com/en/venues/-/FA8AE572",
+  "https://www.artsy.net/partner/take-ninagawa",
+  "https://www.frieze.com/gallery/take-ninagawa"
+ ],
+ "founded_year": 2008,
+ "founders": [
+  "Atsuko Ninagawa"
+ ],
  "directors": [],
  "locations": [
   {
@@ -29,11 +35,10 @@
   }
  ],
  "program_focus": [
-  "postwar Japanese art (Gutai)",
-  "contemporary Japanese and international artists",
-  "film and moving image",
-  "sculpture and installation",
-  "mixed-media and collage practices"
+  "postwar Japanese art (Gutai lineage)",
+  "contemporary international artists",
+  "performance and installation",
+  "photography and film"
  ],
  "hours_text": "Business Hour: 11:00 – 19:00, Closed on Monday, Sunday and Holidays",
  "roster": [
@@ -114,8 +119,8 @@
   },
   {
    "name": "Tsuruko Yamazaki",
-   "status": "represented",
-   "source_url": "https://www.takeninagawa.com/en/artists"
+   "status": "estate",
+   "source_url": "https://www.takeninagawa.com/en/artists/3252"
   },
   {
    "name": "Gozo Yoshimasu",
@@ -124,6 +129,17 @@
   }
  ],
  "exhibitions": [
+  {
+   "title": "Homeland 2020 Fudan",
+   "artists": [
+    "Misaki Kawai"
+   ],
+   "start": "2008-01-26",
+   "end": "2008-03-08",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/6"
+  },
   {
    "title": "きまぐれフロート",
    "artists": [
@@ -147,6 +163,28 @@
    "source_url": "https://www.takeninagawa.com/date/2008?exhibitions_cat=past"
   },
   {
+   "title": "The Way Home",
+   "artists": [
+    "Junko Kita"
+   ],
+   "start": "2008-03-22",
+   "end": "2008-04-26",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/6"
+  },
+  {
+   "title": "Shell & Occupy",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2008-05-17",
+   "end": "2008-06-28",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "貼(Shell & Occupy)",
    "artists": [
     "大竹伸朗"
@@ -156,6 +194,17 @@
    "year": 2008,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2008?exhibitions_cat=past"
+  },
+  {
+   "title": "Shell & Occupy2",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2008-07-19",
+   "end": "2008-08-30",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
   },
   {
    "title": "貼貼(Shell & Occupy2)",
@@ -169,6 +218,17 @@
    "source_url": "https://www.takeninagawa.com/date/2008?exhibitions_cat=past"
   },
   {
+   "title": "Shell & Occupy3",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2008-09-13",
+   "end": "2008-10-25",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "貼貼貼(Shell & Occupy3)",
    "artists": [
     "大竹伸朗"
@@ -180,6 +240,17 @@
    "source_url": "https://www.takeninagawa.com/date/2008?exhibitions_cat=past"
   },
   {
+   "title": "Hachiue-ten",
+   "artists": [
+    "Yukiko Suto"
+   ],
+   "start": "2008-11-01",
+   "end": "2008-12-20",
+   "year": 2008,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "鉢植展",
    "artists": [
     "須藤由希子"
@@ -189,6 +260,17 @@
    "year": 2008,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2008?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Dale Berning"
+   ],
+   "start": "2009-01-17",
+   "end": "2009-02-21",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
   },
   {
    "title": "たくさんの葉とそのほかのビー玉のための入り混じったアクセントによる練習曲(サナエとウフェミ)",
@@ -213,6 +295,28 @@
    "source_url": "https://www.takeninagawa.com/date/2009?exhibitions_cat=past"
   },
   {
+   "title": "You Are The Universe",
+   "artists": [
+    "Teru Goto"
+   ],
+   "start": "2009-02-28",
+   "end": "2009-03-28",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
+   "title": "Gold in the Mud",
+   "artists": [
+    "Yuki Matsumura"
+   ],
+   "start": "2009-04-04",
+   "end": "2009-05-02",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "泥の中の金",
    "artists": [
     "松村有輝"
@@ -235,6 +339,17 @@
    "source_url": "https://www.takeninagawa.com/date/2009?exhibitions_cat=past"
   },
   {
+   "title": "About That Thing",
+   "artists": [
+    "Shun Sasa"
+   ],
+   "start": "2009-05-16",
+   "end": "2009-06-13",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "Gallery Collection",
    "artists": [],
    "start": "2009-06-20",
@@ -255,6 +370,28 @@
    "source_url": "https://www.takeninagawa.com/date/2009?exhibitions_cat=past"
   },
   {
+   "title": "Homeland 2020",
+   "artists": [
+    "Misaki Kawai"
+   ],
+   "start": "2009-08-29",
+   "end": "2009-10-03",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
+   "title": "Shell & Occupy4",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2009-10-17",
+   "end": "2009-11-28",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "貼貼貼貼(Shell & Occupy4)",
    "artists": [
     "大竹伸朗"
@@ -264,6 +401,17 @@
    "year": 2009,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2009?exhibitions_cat=past"
+  },
+  {
+   "title": "Almost Holiday",
+   "artists": [
+    "Junko Kita"
+   ],
+   "start": "2009-12-19",
+   "end": "2010-02-06",
+   "year": 2009,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
   },
   {
    "title": "Almost Holiday – ほとんど帰郷",
@@ -288,6 +436,28 @@
    "source_url": "https://www.takeninagawa.com/date/2010?exhibitions_cat=past"
   },
   {
+   "title": "Love You More Than Painting",
+   "artists": [
+    "Teru Goto"
+   ],
+   "start": "2010-02-20",
+   "end": "2010-03-27",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
+   "title": "Owari wo Terasumono 1",
+   "artists": [
+    "Chikara Matsumoto"
+   ],
+   "start": "2010-04-03",
+   "end": "2010-05-08",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "終わりを照らすもの1",
    "artists": [
     "松本力"
@@ -308,6 +478,28 @@
    "year": 2010,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2010?exhibitions_cat=past"
+  },
+  {
+   "title": "Bonnie The Dog",
+   "artists": [
+    "Soki Tao"
+   ],
+   "start": "2010-05-15",
+   "end": "2010-06-19",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
+   "title": "Hinshi no Chokoku",
+   "artists": [
+    "Yuki Matsumura"
+   ],
+   "start": "2010-06-26",
+   "end": "2010-07-31",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
   },
   {
    "title": "瀕死の彫刻",
@@ -332,6 +524,17 @@
    "source_url": "https://www.takeninagawa.com/date/2010?exhibitions_cat=past"
   },
   {
+   "title": "#65",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2010-08-07",
+   "end": "2010-09-03",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
    "title": "#65 2005-2010",
    "artists": [
     "大竹伸朗"
@@ -341,6 +544,28 @@
    "year": 2010,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2010?exhibitions_cat=past"
+  },
+  {
+   "title": "#65 2005-2010",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2010-09-07",
+   "end": "2010-10-09",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/5"
+  },
+  {
+   "title": "Hatake-ten",
+   "artists": [
+    "Yukiko Suto"
+   ],
+   "start": "2010-10-15",
+   "end": "2010-11-27",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
   },
   {
    "title": "畑展",
@@ -365,6 +590,28 @@
    "source_url": "https://www.takeninagawa.com/date/2010?exhibitions_cat=past"
   },
   {
+   "title": "Strange Attractors",
+   "artists": [
+    "Aki Sasamoto"
+   ],
+   "start": "2010-12-18",
+   "end": "2011-01-29",
+   "year": 2010,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
+   "title": "Enpitsu Taiso",
+   "artists": [
+    "Misaki Kawai"
+   ],
+   "start": "2011-02-05",
+   "end": "2011-03-12",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "えんぴつ体操",
    "artists": [
     "河井美咲"
@@ -376,6 +623,17 @@
    "source_url": "https://www.takeninagawa.com/date/2011?exhibitions_cat=past"
   },
   {
+   "title": "Sagamihara",
+   "artists": [
+    "Shimpei Kageshima"
+   ],
+   "start": "2011-03-19",
+   "end": "2011-04-23",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "相模原",
    "artists": [
     "影島晋平"
@@ -385,6 +643,17 @@
    "year": 2011,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2011?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Mika Rottenberg"
+   ],
+   "start": "2011-05-14",
+   "end": "2011-06-25",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
   },
   {
    "title": "Mika Rottenberg",
@@ -409,6 +678,17 @@
    "source_url": "https://www.takeninagawa.com/date/2011?exhibitions_cat=past"
   },
   {
+   "title": "CAT",
+   "artists": [
+    "Soki Tao"
+   ],
+   "start": "2011-07-02",
+   "end": "2011-08-13",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "Fruit",
    "artists": [
     "田尾創樹"
@@ -420,6 +700,17 @@
    "source_url": "https://www.takeninagawa.com/date/2011?exhibitions_cat=past"
   },
   {
+   "title": "Fruit",
+   "artists": [
+    "Soki Tao"
+   ],
+   "start": "2011-09-03",
+   "end": "2011-10-08",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "Optional Art Activity",
    "artists": [],
    "start": "2011-10-29",
@@ -427,6 +718,17 @@
    "year": 2011,
    "kind": "group",
    "source_url": "https://www.takeninagawa.com/date/2011?exhibitions_cat=past"
+  },
+  {
+   "title": "Midori-iro no Pocket",
+   "artists": [
+    "Ryoko Aoki"
+   ],
+   "start": "2011-12-10",
+   "end": "2012-02-04",
+   "year": 2011,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
   },
   {
    "title": "みどり色のポケット",
@@ -451,6 +753,28 @@
    "source_url": "https://www.takeninagawa.com/date/2012?exhibitions_cat=past"
   },
   {
+   "title": "(Goodbye to)",
+   "artists": [
+    "Ken Okiishi"
+   ],
+   "start": "2012-02-18",
+   "end": "2012-03-31",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
+   "title": "Akatsuki to Sono Atari",
+   "artists": [
+    "Junko Kita"
+   ],
+   "start": "2012-04-24",
+   "end": "2012-06-02",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "暁とその辺り",
    "artists": [
     "喜多順子"
@@ -460,6 +784,17 @@
    "year": 2012,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2012?exhibitions_cat=past"
+  },
+  {
+   "title": "Hanabana to Chiisana Yama-ten",
+   "artists": [
+    "Yukiko Suto"
+   ],
+   "start": "2012-07-29",
+   "end": "2012-08-25",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
   },
   {
    "title": "花々と小さな山展",
@@ -484,6 +819,28 @@
    "source_url": "https://www.takeninagawa.com/date/2012?exhibitions_cat=past"
   },
   {
+   "title": "E_O",
+   "artists": [
+    "Aki Sasamoto"
+   ],
+   "start": "2012-09-09",
+   "end": "2012-10-06",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
+   "title": "Kawaranu Chihei",
+   "artists": [
+    "Kensuke Karasawa"
+   ],
+   "start": "2012-11-03",
+   "end": "2012-12-15",
+   "year": 2012,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "変わらぬ地平",
    "artists": [
     "柄澤健介"
@@ -493,6 +850,17 @@
    "year": 2012,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2012?exhibitions_cat=past"
+  },
+  {
+   "title": "Jimen to Kikakeitai",
+   "artists": [
+    "Shimpei Kageshima"
+   ],
+   "start": "2013-01-13",
+   "end": "2013-02-23",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
   },
   {
    "title": "地面と幾何形体",
@@ -506,6 +874,17 @@
    "source_url": "https://www.takeninagawa.com/date/2013?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Yozo Ukita"
+   ],
+   "start": "2013-03-03",
+   "end": "2013-04-13",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "浮田要三",
    "artists": [
     "浮田要三"
@@ -517,6 +896,17 @@
    "source_url": "https://www.takeninagawa.com/date/2013?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Tsuruko Yamazaki"
+   ],
+   "start": "2013-04-20",
+   "end": "2013-06-01",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/4"
+  },
+  {
    "title": "山崎つる子",
    "artists": [
     "山崎つる子"
@@ -526,6 +916,17 @@
    "year": 2013,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2013?exhibitions_cat=past"
+  },
+  {
+   "title": "Shinro Ohtake '00-'12",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2013-09-08",
+   "end": "2013-10-26",
+   "year": 2013,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
   },
   {
    "title": "大竹伸朗 '00-'12",
@@ -550,6 +951,17 @@
    "source_url": "https://www.takeninagawa.com/date/2014?exhibitions_cat=past"
   },
   {
+   "title": "Wishbone",
+   "artists": [
+    "Danh Vo"
+   ],
+   "start": "2014-03-01",
+   "end": "2014-04-26",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "Publications",
    "artists": [
     "大竹伸朗"
@@ -559,6 +971,17 @@
    "year": 2014,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2014?exhibitions_cat=past"
+  },
+  {
+   "title": "Publications",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2014-06-28",
+   "end": "2014-08-02",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
   },
   {
    "title": "Blue",
@@ -572,6 +995,28 @@
    "source_url": "https://www.takeninagawa.com/date/2014?exhibitions_cat=past"
   },
   {
+   "title": "Blue",
+   "artists": [
+    "Soki Tao"
+   ],
+   "start": "2014-09-13",
+   "end": "2014-10-18",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
+   "title": "Godo Pi, Kaiho Po",
+   "artists": [
+    "Taro Izumi"
+   ],
+   "start": "2014-11-08",
+   "end": "2015-01-30",
+   "year": 2014,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "合同ピ、解放ポ",
    "artists": [
     "泉太郎"
@@ -583,6 +1028,17 @@
    "source_url": "https://www.takeninagawa.com/date/2014?exhibitions_cat=past"
   },
   {
+   "title": "Hi-Mudai",
+   "artists": [
+    "Tsuruko Yamazaki"
+   ],
+   "start": "2015-02-21",
+   "end": "2015-04-11",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "非・無題",
    "artists": [
     "山崎つる子"
@@ -592,6 +1048,17 @@
    "year": 2015,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2015?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Akira Sato"
+   ],
+   "start": "2015-04-25",
+   "end": "2015-06-06",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
   },
   {
    "title": "佐藤明",
@@ -625,6 +1092,17 @@
    "source_url": "https://www.takeninagawa.com/date/2015?exhibitions_cat=past"
   },
   {
+   "title": "gestures, data, feedback",
+   "artists": [
+    "Ken Okiishi"
+   ],
+   "start": "2015-09-05",
+   "end": "2015-10-24",
+   "year": 2015,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "An open door to an empty room.",
    "artists": [
     "イライアス・ハンセン"
@@ -634,6 +1112,28 @@
    "year": 2016,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2016?exhibitions_cat=past"
+  },
+  {
+   "title": "An open door to an empty room.",
+   "artists": [
+    "Elias Hansen"
+   ],
+   "start": "2016-03-19",
+   "end": "2016-04-30",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
+   "title": "Jioku",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2016-05-14",
+   "end": "2016-06-30",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
   },
   {
    "title": "時憶",
@@ -656,6 +1156,17 @@
    "source_url": "https://www.takeninagawa.com/date/2016?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Charlotte Posenenske"
+   ],
+   "start": "2016-10-01",
+   "end": "2016-11-19",
+   "year": 2016,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "シャルロッテ・ポゼネンスケ",
    "artists": [
     "シャルロッテ・ポゼネンスケ"
@@ -667,6 +1178,17 @@
    "source_url": "https://www.takeninagawa.com/date/2016?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Izumi Kato"
+   ],
+   "start": "2017-03-11",
+   "end": "2017-04-22",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "加藤泉",
    "artists": [
     "加藤泉"
@@ -676,6 +1198,17 @@
    "year": 2017,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2017?exhibitions_cat=past"
+  },
+  {
+   "title": "Ikkodate-ten",
+   "artists": [
+    "Yukiko Suto"
+   ],
+   "start": "2017-05-20",
+   "end": "2017-07-01",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
   },
   {
    "title": "一戸建て展",
@@ -710,6 +1243,29 @@
    "source_url": "https://www.takeninagawa.com/date/2017?exhibitions_cat=past"
   },
   {
+   "title": "Tokyo Pop-Up with Tabaimo & Teppei Kaneuji",
+   "artists": [
+    "Tabaimo",
+    "Teppei Kaneuji"
+   ],
+   "start": "2017-08-26",
+   "end": "2017-09-01",
+   "year": 2017,
+   "kind": "group",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
+   "title": "Renraku",
+   "artists": [
+    "Taro Izumi"
+   ],
+   "start": "2017-09-09",
+   "end": "2017-10-21",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/3"
+  },
+  {
    "title": "←連絡",
    "artists": [
     "泉太郎"
@@ -730,6 +1286,28 @@
    "year": 2017,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2017?exhibitions_cat=past"
+  },
+  {
+   "title": "Menu",
+   "artists": [
+    "Aki Sasamoto"
+   ],
+   "start": "2017-11-18",
+   "end": "2017-12-22",
+   "year": 2017,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
+   "title": "Notebook forgotten at three party meeting",
+   "artists": [
+    "Ryoko Aoki"
+   ],
+   "start": "2018-03-17",
+   "end": "2018-04-28",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
   },
   {
    "title": "三者面談で忘れてるNOTEBOOK",
@@ -772,6 +1350,28 @@
    "source_url": "https://www.takeninagawa.com/date/2018?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Kazuko Miyamoto"
+   ],
+   "start": "2018-09-22",
+   "end": "2018-11-10",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
+   "title": "Late Autumn Weeds Exhibition",
+   "artists": [
+    "Yukiko Suto"
+   ],
+   "start": "2019-01-12",
+   "end": "2019-02-09",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
    "title": "晩秋の雑草展",
    "artists": [
     "須藤由希子"
@@ -794,6 +1394,28 @@
    "source_url": "https://www.takeninagawa.com/date/2019?exhibitions_cat=past"
   },
   {
+   "title": "To each his due",
+   "artists": [
+    "Danh Vo"
+   ],
+   "start": "2019-04-05",
+   "end": "2019-05-18",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
+   "title": "Shinro Ohtake 1975−1989",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2019-05-25",
+   "end": "2019-06-29",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
    "title": "大竹伸朗 1975−1989",
    "artists": [
     "大竹伸朗"
@@ -803,6 +1425,17 @@
    "year": 2019,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2019?exhibitions_cat=past"
+  },
+  {
+   "title": "Word Dream Memory",
+   "artists": [
+    "Shiro Kuramata"
+   ],
+   "start": "2019-07-06",
+   "end": "2019-07-27",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
   },
   {
    "title": "言葉 夢 記憶",
@@ -818,13 +1451,24 @@
   {
    "title": null,
    "artists": [
-    "ワン・ビン[王兵]"
+    "ワン・ビン"
    ],
    "start": "2019-09-07",
    "end": "2019-10-19",
    "year": 2019,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2019?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Wang Bing"
+   ],
+   "start": "2019-09-07",
+   "end": "2019-10-19",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
   },
   {
    "title": "All",
@@ -836,6 +1480,28 @@
    "year": 2019,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2019?exhibitions_cat=past"
+  },
+  {
+   "title": "All",
+   "artists": [
+    "Thea Djordjadze"
+   ],
+   "start": "2019-11-09",
+   "end": "2020-01-18",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/exhibitions_cat/past/page/2"
+  },
+  {
+   "title": "The Dawn of Compact Structure",
+   "artists": [
+    "Taro Izumi"
+   ],
+   "start": "2020-02-29",
+   "end": "2020-04-25",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2020?exhibitions_cat=past"
   },
   {
    "title": "コンパクトストラクチャーの夜明け",
@@ -860,12 +1526,41 @@
    "source_url": "https://www.takeninagawa.com/date/2020?exhibitions_cat=past"
   },
   {
+   "title": null,
+   "artists": [
+    "Kazuko Miyamoto"
+   ],
+   "start": "2020-06-20",
+   "end": "2021-01-16",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2020?exhibitions_cat=past"
+  },
+  {
+   "title": "SOUTH SOUTH TOKYO",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2021,
+   "kind": "fair",
+   "source_url": "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past"
+  },
+  {
+   "title": "SOUTH SOUTH 東京",
+   "artists": [],
+   "start": null,
+   "end": null,
+   "year": 2021,
+   "kind": "fair",
+   "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
+  },
+  {
    "title": "Galleries Curate: RHE",
    "artists": [],
    "start": "2021-03-09",
    "end": "2021-04-03",
    "year": 2021,
-   "kind": "fair",
+   "kind": "group",
    "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
   },
   {
@@ -880,6 +1575,28 @@
    "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
   },
   {
+   "title": "Drift Angle",
+   "artists": [
+    "Andro Wekua"
+   ],
+   "start": "2021-04-24",
+   "end": "2021-06-12",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past"
+  },
+  {
+   "title": "Dear Monster",
+   "artists": [
+    "Gozo Yoshimasu"
+   ],
+   "start": "2021-07-17",
+   "end": "2021-08-28",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past"
+  },
+  {
    "title": "怪物君",
    "artists": [
     "吉増剛造"
@@ -889,6 +1606,17 @@
    "year": 2021,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
+  },
+  {
+   "title": "Mnemoscape",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2021-10-30",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past"
   },
   {
    "title": "残景",
@@ -902,6 +1630,17 @@
    "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
   },
   {
+   "title": "Kodoku Experiment",
+   "artists": [
+    "Taro Izumi"
+   ],
+   "start": "2022-03-12",
+   "end": "2022-04-09",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past"
+  },
+  {
    "title": "コドクエクスペリメント",
    "artists": [
     "泉太郎"
@@ -911,6 +1650,17 @@
    "year": 2022,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2021?exhibitions_cat=past"
+  },
+  {
+   "title": "Please eat, don't eat",
+   "artists": [
+    "Yoko Daihara"
+   ],
+   "start": "2022-05-07",
+   "end": "2022-07-02",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past"
   },
   {
    "title": "食べてください食べないでください",
@@ -924,6 +1674,17 @@
    "source_url": "https://www.takeninagawa.com/date/2022?exhibitions_cat=past"
   },
   {
+   "title": "Float Sink Float",
+   "artists": [
+    "Aki Sasamoto"
+   ],
+   "start": "2022-07-16",
+   "end": "2022-09-03",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past"
+  },
+  {
    "title": "浮き沈み浮き",
    "artists": [
     "笹本晃"
@@ -933,6 +1694,17 @@
    "year": 2022,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2022?exhibitions_cat=past"
+  },
+  {
+   "title": "Onsen Confidential",
+   "artists": [
+    "Pati Hill"
+   ],
+   "start": "2022-09-10",
+   "end": "2022-09-24",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past"
   },
   {
    "title": "温泉大作戦",
@@ -957,6 +1729,17 @@
    "source_url": "https://www.takeninagawa.com/date/2022?exhibitions_cat=past"
   },
   {
+   "title": "Voix",
+   "artists": [
+    "Gozo Yoshimasu"
+   ],
+   "start": "2022-10-29",
+   "end": "2022-12-17",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past"
+  },
+  {
    "title": "15",
    "artists": [],
    "start": "2023-05-20",
@@ -979,6 +1762,17 @@
   {
    "title": null,
    "artists": [
+    "Derek Jarman"
+   ],
+   "start": "2023-10-28",
+   "end": "2023-12-09",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2023?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
     "ヤン・ヴォー"
    ],
    "start": "2024-02-17",
@@ -986,6 +1780,17 @@
    "year": 2024,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2024?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Danh Vo"
+   ],
+   "start": "2024-02-17",
+   "end": "2024-04-27",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2024?exhibitions_cat=past"
   },
   {
    "title": "温泉大作戦 The Final!!",
@@ -1000,6 +1805,18 @@
    "source_url": "https://www.takeninagawa.com/date/2024?exhibitions_cat=past"
   },
   {
+   "title": "温泉大作戦 The Final!!",
+   "artists": [
+    "Matthias Noggler",
+    "Lili Reynaud-Dewar"
+   ],
+   "start": "2024-04-06",
+   "end": "2024-04-20",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://www.takeninagawa.com/en/date/2024?exhibitions_cat=past"
+  },
+  {
    "title": null,
    "artists": [
     "宮本和子"
@@ -1009,6 +1826,28 @@
    "year": 2024,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2024?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Kazuko Miyamoto"
+   ],
+   "start": "2024-06-01",
+   "end": "2024-08-10",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2024?exhibitions_cat=past"
+  },
+  {
+   "title": "Stories About Boundaries",
+   "artists": [
+    "Ryoko Aoki"
+   ],
+   "start": "2024-10-05",
+   "end": "2025-02-08",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2024?exhibitions_cat=past"
   },
   {
    "title": "境界線のはなし",
@@ -1023,12 +1862,34 @@
   },
   {
    "title": "BLUMEN",
-   "artists": [],
+   "artists": [
+    "アンドロ・ウェクア"
+   ],
    "start": "2025-03-01",
    "end": "2025-04-26",
    "year": 2025,
    "kind": "group",
    "source_url": "https://www.takeninagawa.com/date/2025?exhibitions_cat=past"
+  },
+  {
+   "title": "BLUMEN | Curated by Andro Wekua",
+   "artists": [],
+   "start": "2025-03-01",
+   "end": "2025-04-26",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://www.takeninagawa.com/en/date/2025?exhibitions_cat=past"
+  },
+  {
+   "title": "A Little Sweet",
+   "artists": [
+    "Yoko Daihara"
+   ],
+   "start": "2025-05-24",
+   "end": "2025-06-28",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2025?exhibitions_cat=past"
   },
   {
    "title": "少し甘い",
@@ -1051,6 +1912,28 @@
    "year": 2025,
    "kind": "solo",
    "source_url": "https://www.takeninagawa.com/date/2025?exhibitions_cat=past"
+  },
+  {
+   "title": "Badly Built",
+   "artists": [
+    "Thea Djordjadze"
+   ],
+   "start": "2025-07-26",
+   "end": "2025-09-20",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2025?exhibitions_cat=past"
+  },
+  {
+   "title": "Retina",
+   "artists": [
+    "Shinro Ohtake"
+   ],
+   "start": "2025-10-11",
+   "end": "2026-01-17",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2025?exhibitions_cat=past"
   },
   {
    "title": "網膜",
@@ -1077,6 +1960,17 @@
   {
    "title": null,
    "artists": [
+    "Kazuko Miyamoto"
+   ],
+   "start": "2026-02-14",
+   "end": "2026-04-11",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://www.takeninagawa.com/en/date/2026?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
     "ジョナス・メカス",
     "吉増剛造"
    ],
@@ -1085,6 +1979,18 @@
    "year": 2026,
    "kind": "group",
    "source_url": "https://www.takeninagawa.com/date/2026?exhibitions_cat=past"
+  },
+  {
+   "title": null,
+   "artists": [
+    "Jonas Mekas",
+    "Gozo Yoshimasu"
+   ],
+   "start": "2026-05-16",
+   "end": "2026-07-11",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://www.takeninagawa.com/en/date/2026?exhibitions_cat=past"
   },
   {
    "title": null,
@@ -1100,13 +2006,13 @@
   {
    "title": null,
    "artists": [
-    "On Kawara"
+    "Kyuyou Ishikawa"
    ],
-   "start": "2026-08-01",
-   "end": "2026-10-03",
+   "start": "2026-05-23",
+   "end": "2026-07-11",
    "year": 2026,
    "kind": "solo",
-   "source_url": "https://www.takeninagawa.com/exhibitions"
+   "source_url": "https://www.takeninagawa.com/en/date/2026?exhibitions_cat=past"
   },
   {
    "title": null,
@@ -1117,35 +2023,60 @@
    "end": "2026-10-03",
    "year": 2026,
    "kind": "solo",
-   "source_url": "https://www.takeninagawa.com/exhibitions"
+   "source_url": "http://www.takeninagawa.com/en/exhibitions"
+  },
+  {
+   "title": null,
+   "artists": [
+    "On Kawara"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-10-03",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "http://www.takeninagawa.com/en/exhibitions"
   }
  ],
  "fairs_self_reported": [
+  "Frieze Seoul",
   "Art Basel – Galleries",
   "Art Basel Hong Kong – Galleries",
-  "Frieze Seoul",
+  "Condo London",
   "Art Basel Paris – Galeries",
+  "Aki Sasamoto: Art Basel Hong Kong – Encounters",
   "Paris+ par Art Basel – Galeries",
-  "Frieze London",
-  "Frieze New York",
-  "NADA Miami Beach",
-  "Art Fair Tokyo",
-  "TOKYO PHOTO",
+  "Art Basel Miami Beach – Nova",
+  "ART021 Shanghai Contemporary Art Fair",
+  "Frieze New York – Focus",
+  "Frieze London – Main",
+  "Art Basel – Feature",
+  "Art Basel Hong Kong – Discoveries",
+  "SOUTH SOUTH VEZA",
+  "SOUTH SOUTH VEZA 02",
   "Independent New York",
   "The Armory Show",
-  "ART021 Shanghai Contemporary Art Fair",
-  "Condo London",
-  "SOUTH SOUTH VEZA",
+  "アートフェア東京 (Art Fair Tokyo)",
   "Fiac",
-  "ART HK",
-  "Art Basel Miami Beach – Nova",
-  "Art@Agnes"
+  "Fiac – Lafayette",
+  "Frieze Art Fair – Frame",
+  "Frieze London – Frame",
+  "ART HK 12 – Futures",
+  "Art HK 11 – Futures",
+  "ART HK 10 – Futures",
+  "NADA Miami Beach",
+  "NADA Miami Beach 2010",
+  "NADA Miami Beach 2009",
+  "Art@Agnes",
+  "TOKYO PHOTO 2010"
  ],
- "memberships_self_reported": [],
+ "memberships_self_reported": [
+  "Founding member of New Tokyo Contemporaries (est. 2008)",
+  "Exhibiting member of NADA"
+ ],
  "press_self_reported": [],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": "No explicit 'about' statement, founding year, founders, or director names were found on the crawled pages; program_focus tags were inferred from the artist roster and exhibition history rather than an explicit mission statement.",
+ "notes": "No dedicated 'about' page text was found among the crawled pages; founding year, founders and directors are not stated anywhere in the supplied material. Roster derived from the English 'Artists' index page; Tsuruko Yamazaki is deceased (per her artist page) and is treated as estate. Fair list compiled from the gallery's self-reported 'Fairs' news category, spanning 2007–2026.",
  "exhibitions_truncated": false,
  "triage": {
   "labels": {
@@ -1153,63 +2084,51 @@
    "https://www.takeninagawa.com/en/artists": "roster_index",
    "https://www.takeninagawa.com/exhibitions": "exhibitions_current",
    "https://www.takeninagawa.com/en/exhibitions": "exhibitions_current",
+   "https://www.takeninagawa.com/news": "news",
+   "https://www.takeninagawa.com/news_cat/exhibitions": "news",
+   "https://www.takeninagawa.com/news_cat/fairs": "fairs",
+   "https://www.takeninagawa.com/news_cat/events": "news",
+   "https://www.takeninagawa.com/en/news": "news",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/2": "exhibitions_archive",
+   "https://www.takeninagawa.com/news_cat/fairs/page/2": "fairs",
+   "https://www.takeninagawa.com/news/page/2": "news",
+   "https://www.takeninagawa.com/news_cat/events/page/2": "news",
+   "https://www.takeninagawa.com/news/page/3": "news",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/3": "news",
+   "https://www.takeninagawa.com/news_cat/fairs/page/3": "fairs",
+   "https://www.takeninagawa.com/news/page/4": "news",
+   "https://www.takeninagawa.com/news_cat/events/page/3": "news",
+   "https://www.takeninagawa.com/en/news_cat/exhibitions": "news",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/4": "news",
+   "https://www.takeninagawa.com/en/news_cat/fairs": "fairs",
+   "https://www.takeninagawa.com/news/page/5": "news",
+   "https://www.takeninagawa.com/news_cat/fairs/page/4": "fairs",
+   "https://www.takeninagawa.com/contact/gallery": "contact_hours",
+   "https://www.takeninagawa.com/contact/jobs": "contact_hours",
+   "https://www.takeninagawa.com/en/contact/gallery": "contact_hours",
    "https://www.takeninagawa.com/exhibitions_cat/past": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/past/page/2": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/past/page/3": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/past/page/4": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/past/page/5": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/past/page/6": "exhibitions_archive",
-   "https://www.takeninagawa.com/en/exhibitions_cat/past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2026?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2025?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/exhibitions_cat/past/page/2": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2024?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/exhibitions_cat/past/page/3": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2023?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/exhibitions_cat/past/page/4": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2022?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/exhibitions_cat/past/page/5": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2021?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/exhibitions_cat/past/page/6": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2020?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2019?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2018?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/en/exhibitions_cat/past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2017?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2016?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/date/2015?exhibitions_cat=past": "exhibitions_archive",
-   "https://www.takeninagawa.com/news": "news",
-   "https://www.takeninagawa.com/en/news": "news",
-   "https://www.takeninagawa.com/news/page/2": "news",
-   "https://www.takeninagawa.com/news/page/3": "news",
-   "https://www.takeninagawa.com/news/page/4": "news",
-   "https://www.takeninagawa.com/news/page/5": "news",
-   "https://www.takeninagawa.com/news_cat/exhibitions": "news",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/2": "news",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/3": "news",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/4": "news",
-   "https://www.takeninagawa.com/en/news_cat/exhibitions": "news",
-   "https://www.takeninagawa.com/news_cat/events": "news",
-   "https://www.takeninagawa.com/news_cat/events/page/2": "news",
-   "https://www.takeninagawa.com/news_cat/events/page/3": "news",
-   "https://www.takeninagawa.com/news_cat/fairs": "fairs",
-   "https://www.takeninagawa.com/news_cat/fairs/page/2": "fairs",
-   "https://www.takeninagawa.com/news_cat/fairs/page/3": "fairs",
-   "https://www.takeninagawa.com/news_cat/fairs/page/4": "fairs",
-   "https://www.takeninagawa.com/en/news_cat/fairs": "fairs",
-   "https://www.takeninagawa.com/contact/gallery": "contact_hours",
-   "https://www.takeninagawa.com/en/contact/gallery": "contact_hours",
-   "https://www.takeninagawa.com/contact/jobs": "contact_hours",
-   "https://www.takeninagawa.com/artists/205": "artist_page",
-   "https://www.takeninagawa.com/artists/237": "artist_page",
-   "https://www.takeninagawa.com/artists/271": "artist_page",
-   "https://www.takeninagawa.com/artists/11176": "artist_page",
-   "https://www.takeninagawa.com/artists/9644": "artist_page",
-   "https://www.takeninagawa.com/artists/245": "artist_page",
-   "https://www.takeninagawa.com/artists/14866": "artist_page",
-   "https://www.takeninagawa.com/artists/253": "artist_page",
-   "https://www.takeninagawa.com/artists/8988": "artist_page",
-   "https://www.takeninagawa.com/artists/10929": "artist_page",
-   "https://www.takeninagawa.com/artists/7115": "artist_page",
    "https://www.takeninagawa.com/exhibitions/11929": "exhibition_page",
    "https://www.takeninagawa.com/shinro_ohtake/7947": "exhibition_page",
    "https://www.takeninagawa.com/aki_sasamoto/6046": "exhibition_page",
    "https://www.takeninagawa.com/news/2257": "news",
-   "https://www.takeninagawa.com/en/contact/jobs": "contact_hours",
    "https://www.takeninagawa.com/news_cat/events/page/4": "news",
    "https://www.takeninagawa.com/artists/285": "artist_page",
    "https://www.takeninagawa.com/date/2014?exhibitions_cat=past": "exhibitions_archive",
@@ -1325,11 +2244,23 @@
    "https://www.takeninagawa.com/en/artists/7151": "artist_page",
    "https://www.takeninagawa.com/news_cat/exhibitions/page/21": "news",
    "https://www.takeninagawa.com/exhibitions/4730": "exhibition_page",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/22": "exhibitions_archive",
+   "https://www.takeninagawa.com/contact": "contact_hours",
+   "http://www.takeninagawa.com/en/contact": "contact_hours",
+   "https://www.takeninagawa.com/en/contact": "contact_hours",
+   "http://www.takeninagawa.com/artists": "roster_index",
+   "http://www.takeninagawa.com/en/artists": "roster_index",
+   "https://www.takeninagawa.com/exhibitions_cat/current": "exhibitions_current",
+   "https://www.takeninagawa.com/en/exhibitions_cat/current": "exhibitions_current",
+   "http://www.takeninagawa.com/en/exhibitions": "exhibitions_current",
    "https://www.takeninagawa.com/en/date/2025?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/en/date/2024?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/en/date/2023?exhibitions_cat=past": "exhibitions_archive",
    "https://www.takeninagawa.com/en/date/2022?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/en/date/2020?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/en/exhibitions_cat/past/page/2": "exhibitions_archive",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/22": "exhibitions_archive",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/1": "exhibitions_archive",
    "https://www.takeninagawa.com/news/page/14": "news",
    "https://www.takeninagawa.com/news/page/15": "news",
    "https://www.takeninagawa.com/news/page/16": "news",
@@ -1350,59 +2281,48 @@
    "https://www.takeninagawa.com/en/news_cat/events": "news",
    "https://www.takeninagawa.com/en/news/14461": "fairs",
    "https://www.takeninagawa.com/en/news/12186": "fairs",
-   "https://www.takeninagawa.com/en/exhibitions/14864": "exhibition_page",
-   "https://www.takeninagawa.com/en/exhibitions/14717": "exhibition_page",
-   "https://www.takeninagawa.com/en/exhibitions/14348": "exhibition_page",
-   "https://www.takeninagawa.com/en/exhibitions/14097": "exhibition_page",
-   "https://www.takeninagawa.com/en/exhibitions/13833": "exhibition_page",
-   "https://www.takeninagawa.com/en/exhibitions/12770": "exhibition_page",
-   "https://www.takeninagawa.com/en/shinro_ohtake/9327": "artist_page",
-   "https://www.takeninagawa.com/en/shinro_ohtake/9640": "artist_page",
-   "https://www.takeninagawa.com/en/shinro_ohtake/12483": "artist_page",
-   "https://www.takeninagawa.com/en/shinro_ohtake/9643": "artist_page",
-   "https://www.takeninagawa.com/en/shinro_ohtake/9639": "artist_page",
+   "https://www.takeninagawa.com/artists/3245": "artist_page",
+   "https://www.takeninagawa.com/artists/7119": "artist_page",
+   "https://www.takeninagawa.com/artists/11647": "artist_page",
+   "https://www.takeninagawa.com/artists/3249": "artist_page",
+   "https://www.takeninagawa.com/artists/14949": "artist_page",
+   "https://www.takeninagawa.com/artists/3283": "artist_page",
+   "https://www.takeninagawa.com/artists/3254": "artist_page",
+   "https://www.takeninagawa.com/artists/3275": "artist_page",
+   "https://www.takeninagawa.com/artists/7791": "artist_page",
    "https://www.takeninagawa.com/exhibitions_cat/past/page/7": "exhibitions_archive",
-   "https://www.takeninagawa.com/en/exhibitions_cat/past/page/2": "exhibitions_archive",
-   "http://www.takeninagawa.com/en/artists": "roster_index",
-   "http://www.takeninagawa.com/artists": "roster_index",
-   "http://www.takeninagawa.com/en/contact": "contact_hours",
-   "http://www.takeninagawa.com/en/exhibitions": "exhibitions_current",
-   "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past": "exhibitions_archive",
-   "https://www.takeninagawa.com/en/date/2020?exhibitions_cat=past": "exhibitions_archive",
-   "https://www.takeninagawa.com/exhibitions_cat/current": "exhibitions_current",
-   "https://www.takeninagawa.com/en/exhibitions_cat/current": "exhibitions_current",
-   "https://www.takeninagawa.com/about": "about",
    "https://www.takeninagawa.com/en/about": "about",
-   "https://www.takeninagawa.com/contact": "contact_hours",
-   "https://www.takeninagawa.com/en/contact": "contact_hours",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/1": "exhibitions_archive"
+   "https://www.takeninagawa.com/en/date/2019?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/en/date/2018?exhibitions_cat=past": "exhibitions_archive",
+   "https://www.takeninagawa.com/about": "about"
   },
-  "site_notes": "Site is organized around /artists (roster), /exhibitions with a paginated /exhibitions_cat/past archive split further by /date/YEAR, and /news split into news_cat subcategories (exhibitions, fairs, events) each paginated; individual exhibition and artist subpages use artist-name slugs (e.g. /aki_sasamoto/, /shinro_ohtake/, /thea_djordjaze/) rather than /exhibitions/ for some solo shows. The site is a WordPress-style CMS with per-exhibition subpages grouped by artist slug (e.g. /shinro_ohtake/, /wang_bing/), yearly Japanese and English archive pages (/date/YYYY?exhibitions_cat=past), and paginated news feeds split into sub-categories (events, exhibitions, fairs); no single roster or contact index page appears in this batch though the site clearly has one given the /en/artists/ID pattern and /contact/jobs subpage. Bilingual WordPress-style site organized around /exhibitions (individual show pages, no consolidated archive list beyond paginated /en/date/YEAR?exhibitions_cat=past views) and /news (chronological press/events posts paginated by /news/page/N, mixing news and fairs); no roster_index or about/contact pages appear in this sample, though a handful of Shinro Ohtake artist subpa",
+  "site_notes": "Site is organised with a bilingual (JP/EN) WordPress-style structure: a top-level Artists roster, an Exhibitions section split into current and a deeply paginated 'past' archive by year, and News further subdivided into Exhibitions/Fairs/Events sub-feeds, each paginated; individual exhibition and artist sub-pages exist but are redundant given the roster and archive listings. The site is organized around a WordPress-like CMS with per-artist exhibition subpaths (e.g. /shinro_ohtake/, /wang_bing/, /aki_sasamoto/) rather than a single archive, plus a separate date-based past-exhibitions index (/date/YYYY?exhibitions_cat=past) that mostly lacks explicit date text, and a paginated news feed split into categorized sub-feeds (news_cat/exhibitions, /events, /fairs); no single roster index or about/contact page appeared in this inventory slice, so these are proposed as fetch_more. Bilingual WordPress-style site organized around /exhibitions (current & yearly-dated past archives), /news (paginated press/events feed), /artists roster with individual artist pages, plus separate legacy artist microsites (e.g. shinro_ohtake); an explicit 'about' page was not found in the inventory though the nav ",
   "fetch_more": [
-   "https://www.takeninagawa.com/date/2014?exhibitions_cat=past",
    "https://www.takeninagawa.com/exhibitions_cat/past/page/7",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/5",
-   "https://www.takeninagawa.com/news_cat/fairs/page/5",
+   "https://www.takeninagawa.com/news/page/6",
    "https://www.takeninagawa.com/news_cat/events/page/4",
-   "https://www.takeninagawa.com/en/contact/jobs",
-   "https://www.takeninagawa.com/en/exhibitions_cat/past/page/2",
-   "http://www.takeninagawa.com/en/artists",
-   "http://www.takeninagawa.com/artists",
-   "http://www.takeninagawa.com/en/contact",
-   "http://www.takeninagawa.com/en/exhibitions",
-   "https://www.takeninagawa.com/artists",
+   "https://www.takeninagawa.com/news_cat/fairs/page/5",
+   "https://www.takeninagawa.com/date/2014?exhibitions_cat=past",
    "https://www.takeninagawa.com/en/artists",
-   "https://www.takeninagawa.com/en/date/2021?exhibitions_cat=past",
-   "https://www.takeninagawa.com/en/date/2020?exhibitions_cat=past",
-   "https://www.takeninagawa.com/exhibitions_cat/current",
-   "https://www.takeninagawa.com/en/exhibitions_cat/current",
-   "https://www.takeninagawa.com/about",
+   "https://www.takeninagawa.com/artists",
    "https://www.takeninagawa.com/en/about",
-   "https://www.takeninagawa.com/contact",
    "https://www.takeninagawa.com/en/contact",
-   "https://www.takeninagawa.com/news_cat/exhibitions/page/1"
+   "https://www.takeninagawa.com/en/exhibitions",
+   "https://www.takeninagawa.com/news_cat/exhibitions/page/2",
+   "https://www.takeninagawa.com/en/date/2019?exhibitions_cat=past",
+   "https://www.takeninagawa.com/en/date/2018?exhibitions_cat=past",
+   "https://www.takeninagawa.com/about",
+   "https://www.takeninagawa.com/en/about"
   ]
  },
  "errors": [],
- "duration_s": 1170.1
+ "gapfill": {
+  "urls": [
+   "https://www.tokyoartbeat.com/en/venues/-/FA8AE572",
+   "https://www.artsy.net/partner/take-ninagawa",
+   "https://www.frieze.com/gallery/take-ninagawa"
+  ],
+  "notes": "FOUNDED: 2008\nFOUNDERS: Atsuko Ninagawa\nLOCATIONS: Tokyo - 2-14-8 Higashi Azabu, Minato City, Tokyo 106-0044 (since 2008)\nROSTER: Ryoko Aoki, Thea Djordjadze, Elias Hansen, Misaki Kawai, Kazuko Miyamoto, Ken Okiishi, Aki Sasamoto, Wang Bing, Tsuruko Yamazaki, Yoko Daihara, Gozo Yoshimasu, Taro Izumi, Chikara Matsumoto, Shinro Ohtake, Charlotte Posenenske, Danh Vo, Andro Wekua\nFAIRS: Art Basel Hong Kong, Hong Kong International Art Fair (HK Art Fair, 2010), Lafayette Sector at FIAC Paris (2010), NADA (New Art Dealers Alliance), Art Week Tokyo\nMEMBERSHIPS: Founding member of New Tokyo Contemporaries (young galleries association, est. 2008); exhibiting member of NADA\nSOURCES: https://www.tokyoartbeat.com/en/venues/-/FA8AE572 ; https://www.artsy.net/partner/take-ninagawa ; https://www.frieze.com/gallery/take-ninagawa ; https://ocula.com/magazine/art-news/magnus-renfrew-art-assembly-new-fair-tokyo-gendai/ ; https://www.artbasel.com/stories/hong-kong-show-in-hybrid-format-over-100-galleries ; https://www.artsy.net/article/artsy-editorial-10-best-booths-art-basel-hong-kong-2024"
+ },
+ "duration_s": 501.7
 }
