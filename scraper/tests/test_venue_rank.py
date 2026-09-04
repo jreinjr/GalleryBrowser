@@ -222,6 +222,63 @@ class Ranking(unittest.TestCase):
         self.assertEqual(rv.manual_positions(self.params), {})
         self.assertEqual(rv.manual_positions({"manual_order": ["x"]}), {})
 
+    def test_market_order_file_resolves_names_skips_gated_and_merges(self):
+        order = {"city": "test", "tiers": {"1": 1, "2": 2},
+                 "entries": [{"rank": 1, "name": "Small Space", "id": None},           # resolved by name
+                             {"rank": 2, "name": "The Museum", "id": "the-museum"},
+                             {"rank": 3, "name": "Gone", "id": "gone"},                 # status closed -> excluded
+                             {"rank": 4, "name": "Nobody Here", "id": None},            # unresolved
+                             {"rank": 5, "name": "Big Gallery", "id": "big-gallery"},
+                             {"rank": 6, "name": "Big Gallery again", "id": "big-gallery"}]}   # merged into #5
+        mo, res = rv.resolve_order(order, self.reg)
+        self.assertEqual(mo, {"1": ["small-space"], "2": ["the-museum"], "3": ["big-gallery"]})
+        self.assertEqual(res["ranked"], 3)
+        self.assertEqual(res["unresolved"], [{"rank": 4, "name": "Nobody Here"}])
+        self.assertEqual(res["excluded"], [{"rank": 3, "name": "Gone", "id": "gone", "status": "closed"}])
+        self.assertEqual(res["merged"], [{"rank": 6, "name": "Big Gallery again", "id": "big-gallery", "same_as": 5}])
+        # exclude_status from the params gates decides what is skipped
+        mo2, res2 = rv.resolve_order(order, self.reg, exclude_status=[])
+        self.assertIn("gone", mo2["3"])
+        self.assertEqual(res2["excluded"], [])
+
+    def test_market_order_applies_unless_params_set_manual_order(self):
+        order = {"city": "test", "entries": [{"rank": 1, "name": "Small Space", "id": "small-space"}]}
+        with mock.patch.object(rv, "load_order_file", return_value=order), \
+             mock.patch.object(rv, "order_file", return_value=Path("/nonexistent/venue_order.json")):
+            p = rv.load_params(None, "test")
+            block = rv.apply_market_order(p, "test", self.reg)
+            self.assertTrue(block["applied"])
+            self.assertEqual(p["manual_order"], {"1": ["small-space"], "2": [], "3": []})
+            self.assertEqual(p["manual_order_source"], "market")
+            self.assertEqual((block["ranked"], block["n_entries"], block["tiers"]), (1, 1, {"1": 20, "2": 50}))
+            rows = rv.rank(self.ctx, p, TODAY)
+            self.assertEqual((rows[0]["id"], rows[0]["rank"], rows[0]["tier"]), ("small-space", 1, 1))
+            self.assertEqual((rows[1]["id"], rows[1]["tier"]), ("big-gallery", None))
+            # a params file that sets manual_order (even to null) wins over the market file
+            p2 = rv.load_params(None, "test")
+            rv._merge_params(p2, {"manual_order": None})
+            self.assertEqual(p2["manual_order_source"], "params")
+            self.assertIsNone(rv.apply_market_order(p2, "test", self.reg))
+            self.assertIsNone(p2["manual_order"])
+            # --no-order
+            p3 = rv.load_params(None, "test")
+            self.assertIsNone(rv.apply_market_order(p3, "test", self.reg, use_order=False))
+            self.assertIsNone(p3["manual_order"])
+        # no file at all
+        with mock.patch.object(rv, "load_order_file", return_value=None):
+            p4 = rv.load_params(None, "test")
+            self.assertIsNone(rv.apply_market_order(p4, "test", self.reg))
+
+    def test_parse_names_file(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "names.txt"
+            f.write_text("# comment\nGagosian\n2|Meliksetian | Briggs|West Hollywood|design\n\n3|Pace|Mid-Wilshire|\n")
+            rows = rv.parse_names_file(f)
+        self.assertEqual(rows, [{"rank": 1, "name": "Gagosian", "neighborhood": None, "note": None},
+                                {"rank": 2, "name": "Meliksetian | Briggs", "neighborhood": "West Hollywood", "note": "design"},
+                                {"rank": 3, "name": "Pace", "neighborhood": "Mid-Wilshire", "note": None}])
+
     def test_museum_weight_negative_sinks_museum(self):
         rows = {r["id"]: r for r in rv.rank(self.ctx, self.params, TODAY)}
         self.assertLess(rows["the-museum"]["contrib"]["kind_museum"], 0)

@@ -45,6 +45,24 @@ scores no longer decide membership or order); every other venue is scored and ga
 as usual but gets tier null (below the hand-set list) and ranks after it. ``null``
 (the default) = automatic ranking.
 
+MARKET ORDER FILE: ``content/curation/<city>/venue_order.json`` is a per-market
+hand ranking (typically a client's list) that overrides the automatic ranking::
+
+    {"city": "los-angeles", "source": "who/what/when", "tiers": {"1": 20, "2": 50},
+     "entries": [{"rank": 1, "name": "Hauser & Wirth", "id": "hauser-and-wirth",
+                  "neighborhood": "...", "note": null}, ...]}
+
+``apply_market_order`` turns it into ``params.manual_order`` (entry rank <= tiers["1"]
+-> tier 1, <= tiers["2"] -> tier 2, else tier 3) when — and only when — no params
+file set ``manual_order`` itself (a curation-site link that hand-edits the list, or
+switches back to automatic with ``"manual_order": null``, therefore wins), and
+``--no-order`` was not passed. Entries whose ``id`` is null or unknown are resolved
+by name against the registry at load time; entries whose venue status is in
+``gates.exclude_status`` are skipped; a venue named twice keeps its first rank.
+The report's ``order`` block lists what was ranked, skipped and unresolved.
+``python rank_venues.py order --city C --names names.txt`` builds the file from a
+name list (one per line, or ``rank|name|neighborhood|note``).
+
 Report JSON: content/curation/<city>/venues_ranked.json (docs/GALLERIES.md).
 """
 
@@ -102,6 +120,7 @@ DEFAULT_PARAMS: dict = {
     "judge": {"variant": "venue_judge_v1", "model": "sonnet"},
     "leak_seesaw": False,
     "manual_order": None,          # {"1": [ids], "2": [ids], "3": [ids]} from the curation site, or None
+    "manual_order_source": None,   # None | "params" (a params file set it) | "market" (venue_order.json)
 }
 _DEEP_MERGE_KEYS = ("weights", "refs", "list_weights", "gates", "tiers", "judge")
 JUDGE_MODELS = {"sonnet": "claude-sonnet-5", "opus": "claude-opus-5"}
@@ -121,6 +140,8 @@ def _merge_params(base: dict, override: dict) -> None:
             base[k].update(v)
         else:
             base[k] = v
+    if "manual_order" in override:
+        base["manual_order_source"] = "params"     # explicit (even null): the market order file must not override it
 
 
 def load_params(path: str | Path | None = None, city: str | None = None) -> dict:
@@ -448,6 +469,123 @@ def manual_positions(params: dict) -> dict[str, tuple[int, int]]:
     return out
 
 
+# --- market order file (content/curation/<city>/venue_order.json) ---------------
+
+ORDER_FILE = "venue_order.json"
+DEFAULT_ORDER_TIERS = {"1": 20, "2": 50}
+
+
+def order_file(city: str) -> Path:
+    return store.city_dir(city) / ORDER_FILE
+
+
+def load_order_file(city: str) -> dict | None:
+    p = order_file(city)
+    if not p.exists():
+        return None
+    d = json.loads(p.read_text())
+    if not isinstance(d, dict) or not isinstance(d.get("entries"), list):
+        raise SystemExit(f"{p}: expected {{\"entries\": [{{rank, name, id}}, ...]}}")
+    return d
+
+
+def _name_index(registry: dict) -> dict[str, set[str]]:
+    idx: dict[str, set[str]] = {}
+    for v in registry.get("venues", []):
+        for k in venue_norms(v):
+            idx.setdefault(k, set()).add(v["id"])
+    return idx
+
+
+def resolve_order(order: dict, registry: dict, exclude_status=None) -> tuple[dict, dict]:
+    """(manual_order, resolution) for an order file against a registry.
+
+    manual_order = {"1": [ids], "2": [ids], "3": [ids]} in entry order (rank <= tiers["1"]
+    -> "1", <= tiers["2"] -> "2", else "3"). resolution = {"ranked": n, "unresolved":
+    [{rank, name}], "excluded": [{rank, name, id, status}], "merged": [{rank, name, id,
+    same_as}]} — unresolved: no id and no registry venue answers to the name; excluded:
+    status in exclude_status (default: the gates default); merged: a venue already ranked
+    higher in the same list keeps its first rank."""
+    by_id = venues.index_by_id(registry)
+    idx = _name_index(registry)
+    excl = set(exclude_status if exclude_status is not None else DEFAULT_PARAMS["gates"]["exclude_status"])
+    tiers = {**DEFAULT_ORDER_TIERS, **(order.get("tiers") or {})}
+    mo: dict[str, list[str]] = {"1": [], "2": [], "3": []}
+    seen: dict[str, int] = {}
+    res: dict = {"ranked": 0, "unresolved": [], "excluded": [], "merged": []}
+    entries = sorted((e for e in order["entries"] if isinstance(e, dict)), key=lambda e: int(e.get("rank") or 0))
+    for i, e in enumerate(entries, 1):
+        rank = int(e.get("rank") or i)
+        name = e.get("name") or ""
+        vid = e.get("id")
+        if vid not in by_id:
+            cands: set[str] = set()
+            for k in store.venue_keys(name):
+                cands |= idx.get(k, set())
+            live = [c for c in sorted(cands) if by_id[c].get("status") not in excl] or sorted(cands)
+            vid = live[0] if len(live) == 1 else None
+        if vid is None:
+            res["unresolved"].append({"rank": rank, "name": name})
+            continue
+        if vid in seen:
+            res["merged"].append({"rank": rank, "name": name, "id": vid, "same_as": seen[vid]})
+            continue
+        st = by_id[vid].get("status")
+        if st in excl:
+            res["excluded"].append({"rank": rank, "name": name, "id": vid, "status": st})
+            continue
+        seen[vid] = rank
+        t = "1" if rank <= int(tiers["1"]) else "2" if rank <= int(tiers["2"]) else "3"
+        mo[t].append(vid)
+        res["ranked"] += 1
+    return mo, res
+
+
+def apply_market_order(params: dict, city: str, registry: dict, use_order: bool = True) -> dict | None:
+    """Layer the market order file (if any) onto params.manual_order. Returns the
+    report ``order`` block, or None when nothing applied (no file, ``--no-order``, or a
+    params file already set manual_order)."""
+    if not use_order:
+        return None
+    if params.get("manual_order_source") == "params":
+        return {"file": None, "applied": False, "reason": "manual_order set by params"} if order_file(city).exists() else None
+    order = load_order_file(city)
+    if not order:
+        return None
+    mo, res = resolve_order(order, registry, (params.get("gates") or {}).get("exclude_status"))
+    params["manual_order"] = mo
+    params["manual_order_source"] = "market"
+    f = order_file(city)
+    try:
+        shown = str(f.relative_to(CONTENT_DIR.parent))
+    except ValueError:
+        shown = str(f)
+    return {"file": shown, "applied": True,
+            "source": order.get("source"), "tiers": {**DEFAULT_ORDER_TIERS, **(order.get("tiers") or {})},
+            "n_entries": len(order["entries"]), **res}
+
+
+def parse_names_file(path: Path) -> list[dict]:
+    """One entry per non-empty line: ``name`` or ``rank|name|neighborhood|note``
+    (a ``|`` inside the name survives when the line has more than four fields)."""
+    out = []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [x.strip() for x in line.split("|")]
+        if len(parts) == 1:
+            out.append({"rank": len(out) + 1, "name": parts[0], "neighborhood": None, "note": None})
+            continue
+        if len(parts) > 4:
+            parts = [parts[0], " | ".join(parts[1:-2]), parts[-2], parts[-1]]
+        while len(parts) < 4:
+            parts.append("")
+        out.append({"rank": int(parts[0]) if parts[0].isdigit() else len(out) + 1, "name": parts[1],
+                    "neighborhood": parts[2] or None, "note": parts[3] or None})
+    return out
+
+
 def tier_for(score: float, params: dict) -> int | None:
     t = params.get("tiers") or {}
     for k in ("1", "2", "3"):
@@ -528,8 +666,9 @@ def report_path(city: str) -> Path:
     return store.city_dir(city) / "venues_ranked.json"
 
 
-def build_report(city: str, params: dict, today: date) -> dict:
+def build_report(city: str, params: dict, today: date, use_order: bool = True) -> dict:
     ctx = Context(city)
+    order = apply_market_order(params, city, ctx.registry, use_order)
     rows = rank(ctx, params, today)
     try:
         import curation_dashboard
@@ -541,6 +680,7 @@ def build_report(city: str, params: dict, today: date) -> dict:
         "params_default": params, "params_hash": params_hash(params),
         "feature_names": FEATURES,
         "venues": rows,
+        "order": order,
         "benchmark": benchmark(rows, ctx),
         "presets": presets,
         "counts": {"venues": len(rows), "gated": sum(1 for r in rows if r["gate"]),
@@ -558,8 +698,8 @@ def _tier_counts(rows: list[dict]) -> dict:
     return out
 
 
-def write_report(city: str, params: dict, today: date) -> tuple[Path, dict]:
-    rep = build_report(city, params, today)
+def write_report(city: str, params: dict, today: date, use_order: bool = True) -> tuple[Path, dict]:
+    rep = build_report(city, params, today, use_order)
     p = report_path(city)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(rep, indent=1, ensure_ascii=False))
@@ -569,6 +709,13 @@ def write_report(city: str, params: dict, today: date) -> tuple[Path, dict]:
 def _print_summary(rep: dict, top: int) -> None:
     rows = rep["venues"]
     print(f"{rep['city']}: {len(rows)} venues, {rep['counts']['gated']} gated, tiers {rep['counts']['tiers']}")
+    od = rep.get("order")
+    if od and od.get("applied"):
+        print(f"market order {od['file']}: {od['ranked']} of {od['n_entries']} entries ranked by hand "
+              f"({len(od['unresolved'])} unresolved, {len(od['excluded'])} excluded by status, {len(od['merged'])} merged)"
+              + (f" — {od['source']}" if od.get("source") else ""))
+    elif od:
+        print(f"market order file present but not applied: {od.get('reason')}")
     bm = rep["benchmark"]
     if bm.get("n_seesaw"):
         print(f"See Saw venues in registry: {bm['n_seesaw']}, AUC {bm['auc']:.3f} "
@@ -583,7 +730,7 @@ def _print_summary(rep: dict, top: int) -> None:
 def cmd_score(args: argparse.Namespace) -> int:
     params = load_params(args.params, args.city)
     today = resolve_today(params, args.today)
-    p, rep = write_report(args.city, params, today)
+    p, rep = write_report(args.city, params, today, not args.no_order)
     _print_summary(rep, args.top)
     print(f"wrote {p}")
     return 0
@@ -592,7 +739,7 @@ def cmd_score(args: argparse.Namespace) -> int:
 def cmd_apply(args: argparse.Namespace) -> int:
     params = load_params(args.params, args.city)
     today = resolve_today(params, args.today)
-    p, rep = write_report(args.city, params, today)
+    p, rep = write_report(args.city, params, today, not args.no_order)
     _print_summary(rep, args.top)
     if args.dry_run:
         print("dry run — registry untouched")
@@ -617,6 +764,45 @@ def cmd_apply(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_order(args: argparse.Namespace) -> int:
+    """Build (or check) content/curation/<city>/venue_order.json from a name list."""
+    registry = venues.load_registry(args.city)
+    if args.names:
+        entries = parse_names_file(Path(args.names))
+        existing = load_order_file(args.city) if order_file(args.city).exists() else None
+        order = {"city": args.city, "source": args.source or (existing or {}).get("source"),
+                 "tiers": {"1": int(args.tiers.split(",")[0]), "2": int(args.tiers.split(",")[1])},
+                 "entries": entries}
+        by_id = venues.index_by_id(registry)
+        idx = _name_index(registry)
+        for e in entries:              # pin resolvable ids so a later rename does not move the entry
+            cands: set[str] = set()
+            for k in store.venue_keys(e["name"]):
+                cands |= idx.get(k, set())
+            live = [c for c in sorted(cands) if by_id[c].get("status") not in set(DEFAULT_PARAMS["gates"]["exclude_status"])] or sorted(cands)
+            e["id"] = live[0] if len(live) == 1 else None
+            if len(cands) > 1 and e["id"] is None:
+                e["candidates"] = sorted(cands)
+    else:
+        order = load_order_file(args.city)
+        if not order:
+            print(f"no {order_file(args.city)} — pass --names FILE to create one")
+            return 1
+    mo, res = resolve_order(order, registry)
+    print(f"{args.city}: {len(order['entries'])} entries -> {res['ranked']} ranked "
+          f"(tier 1: {len(mo['1'])}, 2: {len(mo['2'])}, 3: {len(mo['3'])})")
+    for k, label in (("unresolved", "not in the registry"), ("excluded", "excluded by status"), ("merged", "same venue as a higher entry")):
+        for e in res[k]:
+            extra = f" [{e.get('id')}: {e.get('status')}]" if k == "excluded" else f" [= #{e['same_as']}]" if k == "merged" else ""
+            print(f"  {label:<30} #{e['rank']:<4} {e['name']}{extra}")
+    if args.names and not args.dry_run:
+        p = order_file(args.city)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(order, indent=1, ensure_ascii=False) + "\n")
+        print(f"wrote {p}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     from cities import CITIES
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
@@ -627,9 +813,18 @@ def main(argv: list[str] | None = None) -> int:
         sp.add_argument("--params", help="params JSON layered over venues-default.json")
         sp.add_argument("--today", help="YYYY-MM-DD (default: params.today or real today)")
         sp.add_argument("--top", type=int, default=25)
+        sp.add_argument("--no-order", action="store_true",
+                        help=f"ignore content/curation/<city>/{ORDER_FILE} (automatic ranking)")
         if name == "apply":
             sp.add_argument("--dry-run", action="store_true")
         sp.set_defaults(fn=fn)
+    so = sub.add_parser("order", help=f"build / check the market order file content/curation/<city>/{ORDER_FILE}")
+    so.add_argument("--city", required=True, choices=sorted(CITIES))
+    so.add_argument("--names", help="name list: one per line, or rank|name|neighborhood|note")
+    so.add_argument("--source", help="provenance note stored in the file (who ranked it, when)")
+    so.add_argument("--tiers", default="20,50", help="entry ranks that close tier 1 and tier 2 (rest = tier 3)")
+    so.add_argument("--dry-run", action="store_true")
+    so.set_defaults(fn=cmd_order)
     args = ap.parse_args(argv)
     return args.fn(args)
 

@@ -214,6 +214,9 @@ const G_CLIENT_PATHS = GR.client_paths || [];
 const GCOV = GR.coverage || {};
 const GCOUNTS = GR.counts || {};
 const GLIVE = new Map(GVENUES.map(v => [v.id, { rank: v.rank_live, tier: v.tier_live, gate: v.gate_live }]));
+// market order file (content/curation/<city>/venue_order.json) behind the live hand-ordered list, when there is one
+const GORDER = (GR.order && GR.order.applied) ? GR.order : null;
+function gOrderIsLive() { return !!(GORDER && gManual() && JSON.stringify(gparams.manual_order) === JSON.stringify(GDEFAULT.manual_order)); }
 // The kind gate is strict (2026-09-03): "Galleries only" ranks the gallery kind alone.
 // Museums, nonprofits, university galleries, project spaces and other venues are gated
 // out; any other non-empty allowlist is a custom gate and shows the toggle unchecked.
@@ -429,7 +432,10 @@ function gRenderControls() {
   $('#weights').innerHTML = h;
   if (gManual()) {
     const n = gFlat().length;
-    $('#gates').insertAdjacentHTML('afterbegin', `<div class="manual"><b>Hand-ordered list</b> — ${n} galler${n === 1 ? 'y' : 'ies'} in the order you set. Weights and gates are paused; drag cards or use ▲▼ to change the order, ✕ to drop one, “Add to list” (under All galleries) to bring one in. <button class="link" data-act="gauto">Back to automatic ranking</button></div>`);
+    const lead = gOrderIsLive()
+      ? `<b>Hand-ordered list (live)</b> — ${n} galler${n === 1 ? 'y' : 'ies'} in the order set for ${esc(R.city_name || CITY)}${GORDER.source ? ` (${esc(GORDER.source)})` : ''}. This is the ranking currently in use.`
+      : `<b>Hand-ordered list</b> — ${n} galler${n === 1 ? 'y' : 'ies'} in the order you set.`;
+    $('#gates').insertAdjacentHTML('afterbegin', `<div class="manual">${lead} Weights and gates are paused; drag cards or use ▲▼ to change the order, ✕ to drop one, “Add to list” (under All galleries) to bring one in. <button class="link" data-act="gauto">Back to automatic ranking</button></div>`);
     document.querySelectorAll('#gates input, #weights input').forEach(i => { i.disabled = true; const c = i.closest('.ctl'); if (c) c.classList.add('off'); });
   }
 }

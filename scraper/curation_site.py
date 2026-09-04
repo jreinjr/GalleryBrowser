@@ -290,6 +290,7 @@ def build_galleries(city: str, vreport: dict) -> dict:
         "generated_at": vreport.get("generated_at"),
         "params_default": params,
         "params_hash": vreport.get("params_hash"),
+        "order": vreport.get("order"),          # market order file block (rank_venues.apply_market_order) or None
         "client_paths": G_CLIENT_PATHS,
         "hidden_weights": list(G_HIDDEN_WEIGHTS),
         "coverage": feature_coverage(rows),

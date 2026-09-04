@@ -88,6 +88,29 @@ ranks after the list. Share links (`#g=`), the email/text bodies (numbered list)
 params JSON (`manual_order` + a readable `_order`) all carry it, so `curation_site.py decode` →
 `rank_venues.py apply --params` reproduces the exact order.
 
+**Market order file** — `content/curation/<city>/venue_order.json` is a per-market hand ranking
+(typically the client's list) that overrides the automatic ranking for that city:
+
+```json
+{"city": "los-angeles", "source": "who ranked it, when", "tiers": {"1": 20, "2": 50},
+ "entries": [{"rank": 1, "name": "Hauser & Wirth", "id": "hauser-and-wirth",
+              "neighborhood": "Arts District", "note": null}, ...]}
+```
+
+`rank_venues.py score|apply` turns it into `params.manual_order` (entry rank ≤ tiers.1 → tier 1,
+≤ tiers.2 → tier 2, else tier 3) unless a params file set `manual_order` itself — a decoded
+curation-site link always carries `manual_order` (the client's edited list, or `null` for
+"Back to automatic ranking"), so the client's explicit choice wins — or `--no-order` is passed.
+Entries with a null/unknown `id` are resolved by name against the registry at load time; entries
+whose venue status is in `gates.exclude_status` (closed, duplicate, out_of_scope) are skipped; a
+venue named twice keeps its first rank. The report's `order` block (`file`, `source`, `ranked`,
+`unresolved`, `excluded`, `merged`) says exactly what happened, `rank_venues.py order --city C`
+prints it, and `rank_venues.py order --city C --names names.txt [--source S] [--tiers 20,50]`
+builds the file from a name list (one name per line, or `rank|name|neighborhood|note`). The
+curation site shows the live list under a "Hand-ordered list (live)" banner that names the source.
+Los Angeles: the client's 200-entry "Los Angeles galleries" list (2026-09-03) is the applied
+ranking; `venues-la-ranked200.json` is the automatic preset behind it.
+
 Feature names (all 0..1): hours_breadth, fairs, curated_lists, press, directory, longevity,
 roster_size, roster_strength, show_cadence, multi_location, places_popularity, web_presence,
 venue_judge, wiki, kind_gallery, kind_nonprofit, kind_museum, seesaw_presence (off).
