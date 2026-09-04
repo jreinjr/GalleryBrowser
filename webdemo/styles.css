@@ -120,7 +120,31 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .bookmark-btn { background: rgba(0, 0, 0, 0.32); color: #fff; width: 36px; height: 36px; }
 .card-footer .bookmark-btn.saved { color: var(--blue); }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-footer .venue, .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-footer .cf-count { font-size: 13px; font-weight: 600; color: rgba(0, 0, 0, 0.55); flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+
+/* A venue's concurrent shows deal through one card (showDeck in app.js): sheets
+   peek out below to say how deep the deck is, and the footer swipes through it.
+   Sheet corners follow the card's — square in the full-bleed feed, rounded on
+   the gallery page. Deeper decks clear proportionally more room beneath them. */
+.show-stack { position: relative; }
+.show-stack:has(.d1) { margin-bottom: 12px; }
+.show-stack:has(.d2) { margin-bottom: 22px; }
+.show-stack .stack-sheet {
+  position: absolute; z-index: 0;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.18);
+}
+.show-stack .d1 { left: 10px; right: 10px; top: 9px; bottom: -9px; background: #4A4A4C; }
+.show-stack .d2 { left: 21px; right: 21px; top: 18px; bottom: -18px; background: #303032; }
+.show-stack .card { z-index: 1; }
+.venue-show-list .stack-sheet { border-radius: 0 0 14px 14px; }
+/* the footer swipes; a vertical drag on it must still scroll the page */
+.show-stack .card-footer { touch-action: pan-y; }
+/* dealing the next show: its photo and footer slide in from the swipe direction */
+@keyframes deal-next { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: none; } }
+@keyframes deal-prev { from { opacity: 0; transform: translateX(-22px); } to { opacity: 1; transform: none; } }
+.card.deal-next > * { animation: deal-next 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
+.card.deal-prev > * { animation: deal-prev 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
 
 /* ---- Carousel ---- */
 .carousel { position: relative; overflow: hidden; background: #101010; }
@@ -199,33 +223,16 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .map-card .maplibregl-ctrl-attrib-button { filter: invert(1); }
 .venue-actions { display: flex; flex-direction: column; gap: 12px; }
 
-/* Shows at a venue: one Featured card in miniature (venueShowStack in app.js).
-   Several shows deal into the same card, so the sheets peeking out below say
-   how deep the deck is and the footer swipes through it. */
+/* The gallery detail page lists a venue's shows, one card each */
 .venue-shows { margin-top: 18px; margin-bottom: 18px; }
 .venue-shows .group-header { padding: 0 2px 8px; }
-/* the deck peeks below the card, so deeper decks clear more room under themselves */
-.venue-show-stack { position: relative; }
-.venue-show-stack:has(.d1) { margin-bottom: 12px; }
-.venue-show-stack:has(.d2) { margin-bottom: 22px; }
-.venue-show-stack .stack-sheet {
-  position: absolute; z-index: 0; border-radius: 14px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.18);
-}
-.venue-show-stack .d1 { left: 10px; right: 10px; top: 9px; bottom: -9px; background: #4A4A4C; }
-.venue-show-stack .d2 { left: 21px; right: 21px; top: 18px; bottom: -18px; background: #303032; }
-.venue-show-card { border-radius: 14px; content-visibility: visible; z-index: 1; }
-.venue-show-card .card-footer { padding: 6px 8px 6px 12px; touch-action: pan-y; }
+.venue-show-list { display: flex; flex-direction: column; gap: 12px; }
+.venue-show-card { border-radius: 14px; content-visibility: visible; }
+.venue-show-card .card-footer { padding: 6px 8px 6px 12px; }
 .venue-show-card .card-footer .name { font-size: 15px; }
 .venue-show-card .card-footer .sub { font-size: 12px; }
-.venue-show-card .cf-count { font-size: 12px; font-weight: 600; color: rgba(0, 0, 0, 0.55); flex: 0 0 auto; font-variant-numeric: tabular-nums; }
 .venue-show-card .bookmark-btn { width: 32px; height: 32px; }
 .venue-show-card .bookmark-btn svg { width: 14px; height: 14px; }
-/* dealing the next show: its photo and footer slide in from the swipe direction */
-@keyframes deal-next { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: none; } }
-@keyframes deal-prev { from { opacity: 0; transform: translateX(-22px); } to { opacity: 1; transform: none; } }
-.venue-show-card.deal-next > * { animation: deal-next 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
-.venue-show-card.deal-prev > * { animation: deal-prev 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
 
 /* ---- Lists ---- */
 .group { background: var(--row); border-radius: 12px; margin: 0 16px 22px; overflow: hidden; }

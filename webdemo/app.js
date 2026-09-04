@@ -33,9 +33,15 @@
   const cityShows = () => showsByCity[state.cityKey] || [];
   const showId = s => s.city + '/' + s.slug;
   // Shows embed their own venue copy; this key identifies "the same venue"
-  // across shows (normalized name + coordinate to ~1 m) so several concurrent
-  // shows collapse into one map pin / one venue page.
+  // across shows, so several concurrent shows collapse into one map pin and one
+  // venue page. The registry's venueId is that identity whenever a show carries
+  // one: shows at a single gallery are geocoded per show and drift by a couple
+  // of metres, which a coordinate key splits into two venues (Thinkspace
+  // Projects dealt 3 shows and 1). Normalized name + coordinate to ~1 m stays
+  // the fallback for a show with no registry id.
   const venueKey = v => {
+    const id = v && (v.venueId || v.id);
+    if (id) return 'id:' + id;
     const name = (v.name || '').trim().toLowerCase().replace(/\s+/g, ' ');
     const pos = Number(v.lat).toFixed(5) + ',' + Number(v.lng).toFixed(5);
     return name ? name + '@' + pos : pos;
@@ -814,18 +820,29 @@
   }
 
   // ---------------- screens ----------------
-  function showCard(shows, i) {
-    const s = shows[i];
-    const car = makeCarousel(s.images, {
-      aspect: '1 / 1', dots: 'top-left',
-      onTap: () => push(state.tab, showDetailPage(shows, i)),
+  // A Featured row is one venue, not one show: concurrent shows at the same
+  // gallery deal through a single card rather than repeating the venue down the
+  // feed. `all` is the whole filtered set, so opening a show still hands the
+  // detail page a stepper over every card in the feed.
+  function showCard(deck, all) {
+    return showDeck(deck, {
+      cls: 'feed-card',
+      carousel: { aspect: '1 / 1', dots: 'top-left' },
+      sub: s => `${listLine(s.venue)} • ${s.venue.address}`,
+      onOpen: s => push(state.tab, showDetailPage(all, all.findIndex(x => showId(x) === showId(s)))),
     });
-    const text = el('div', { class: 'cf-text' },
-      el('div', { class: 'name' }, displayName(s)),
-      el('div', { class: 'venue' }, `${listLine(s.venue)} • ${s.venue.address}`));
-    text.addEventListener('click', () => push(state.tab, showDetailPage(shows, i)));
-    const footer = el('div', { class: 'card-footer' }, text, bookmarkBtn(s));
-    return el('div', { class: 'card' }, car, footer);
+  }
+
+  // Group the filtered set by venue, keeping feed order: a venue takes the slot
+  // of its best-placed show.
+  function byVenue(shows) {
+    const decks = new Map();
+    shows.forEach(s => {
+      const k = venueKey(s.venue);
+      const d = decks.get(k);
+      if (d) d.push(s); else decks.set(k, [s]);
+    });
+    return [...decks.values()];
   }
 
   // Featured and List are two renderings of the same filtered set (state.filter);
@@ -845,7 +862,7 @@
     page.refresh = () => {
       const shows = filteredShows();
       feed.innerHTML = '';
-      shows.forEach((_, i) => feed.appendChild(showCard(shows, i)));
+      byVenue(shows).forEach(deck => feed.appendChild(showCard(deck, shows)));
       feed.hidden = !shows.length;
       empty.hidden = !!shows.length;
     };
@@ -961,7 +978,8 @@
     const showsSection = shows.length
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, 'Shows'),
-          venueShowStack(shows, openShow))
+          el('div', { class: 'venue-show-list' },
+            ...shows.map(s => venueShowCard(s, openShow))))
       : null;
 
     const leading = asSheet
@@ -985,22 +1003,38 @@
     return page;
   }
 
-  // Every show a venue is running collapses into ONE card — the Featured card
-  // in miniature (photo, frosted footer), with sheets peeking out behind it when
-  // there is more than one. Swiping the footer deals the next show; the photo
-  // strip above it keeps its own image carousel, and a tap opens whichever show
-  // is face up. The venue is the subject of the page, so the footer's second
-  // line carries the run dates rather than repeating the name and address.
+  // The gallery detail page lists its shows one card each — the Featured card in
+  // miniature at 248px, with the run dates on the second line because the venue
+  // is already the subject of the page.
   const SHOW_CARD_H = 248;
+  function venueShowCard(s, onOpen) {
+    return showDeck([s], {
+      cls: 'venue-show-card',
+      carousel: { height: SHOW_CARD_H },
+      sub: x => dateLine(x, fmtShort),
+      onOpen,
+    });
+  }
+
+  // One card: photo carousel under a frosted footer. When `shows` holds more
+  // than one they are the same venue's concurrent shows, so sheets peek out
+  // behind the card, swiping the footer deals the next one, and a tap opens
+  // whichever show is face up. A single show returns the bare card — no sheets,
+  // no counter, nothing to swipe.
   const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
-  function venueShowStack(shows, onOpen) {
+  function showDeck(shows, opts) {
+    const { cls, carousel, sub, onOpen } = opts;
     let idx = 0;
     let swipedAt = 0;             // a swipe ends over the card: don't let it open a show too
-    const card = el('div', { class: 'card venue-show-card' });
-    const stack = el('div', { class: 'venue-show-stack', 'data-shows': shows.length });
-    for (let d = Math.min(shows.length - 1, STACK_MAX); d >= 1; d--)
-      stack.appendChild(el('i', { class: 'stack-sheet d' + d }));
-    stack.appendChild(card);
+    const card = el('div', { class: 'card ' + cls });
+    const deep = shows.length > 1;
+    let root = card;
+    if (deep) {
+      root = el('div', { class: 'show-stack', 'data-shows': shows.length });
+      for (let d = Math.min(shows.length - 1, STACK_MAX); d >= 1; d--)
+        root.appendChild(el('i', { class: 'stack-sheet d' + d }));
+      root.appendChild(card);
+    }
 
     function deal(step) {
       idx = (idx + step + shows.length) % shows.length;
@@ -1028,21 +1062,21 @@
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       const text = el('div', { class: 'cf-text' },
         el('div', { class: 'name' }, displayName(s)),
-        el('div', { class: 'sub' }, dateLine(s, fmtShort)));
+        el('div', { class: 'sub' }, sub(s)));
       text.addEventListener('click', open);
       const footer = el('div', { class: 'card-footer' }, text,
-        shows.length > 1 ? el('div', { class: 'cf-count' }, `${idx + 1} / ${shows.length}`) : null,
+        deep ? el('div', { class: 'cf-count' }, `${idx + 1} / ${shows.length}`) : null,
         bookmarkBtn(s));
-      if (shows.length > 1) wireSwipe(footer);
+      if (deep) wireSwipe(footer);
       card.innerHTML = '';
-      card.append(makeCarousel(s.images, { height: SHOW_CARD_H, onTap: open }), footer);
+      card.append(makeCarousel(s.images, { ...carousel, onTap: open }), footer);
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;
       void card.offsetWidth;                  // restart the animation on a re-deal
       card.classList.add(step > 0 ? 'deal-next' : 'deal-prev');
     }
     paint(0);
-    return stack;
+    return root;
   }
 
   // The venue card runs the same MapLibre vector style as the Map tab. It used
@@ -1398,6 +1432,7 @@
   }
 
   // ---------------- map tab ----------------
+  window.__venueKey = venueKey;          // test hook, alongside map_maplibre's window.__demoMap
   const MapTab = window.DemoMap({
     getCity: city,
     getShows: filteredShows,
@@ -1458,5 +1493,5 @@
   rebuildTabs();
   setTab('featured');
   // test hook
-  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, GALLERY_TIER_CUTOFF };
+  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, filteredShows, GALLERY_TIER_CUTOFF };
 })();
