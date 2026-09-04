@@ -223,7 +223,7 @@ const G_WEIGHT_INFO = {
   multi_location: ['Other locations', 'Spaces in other cities — a sign of a gallery operating at scale.'],
   places_popularity: ['Google reviews', 'How many Google reviews the space has: foot traffic, not quality.'],
   web_presence: ['Website signals', 'Whether the site has an exhibitions page with real dates and an about page — how seriously the gallery runs its web presence.'],
-  kind_museum: ['Museum adjustment', 'Bonus or penalty for museums. Below zero ranks them below galleries of similar standing; the “Exclude museums” gate removes them entirely.'],
+  kind_museum: ['Museum adjustment', 'Bonus or penalty for museums. Below zero ranks them below galleries of similar standing; the kinds gate above removes them entirely.'],
 };
 const G_GATE_INFO = {
   'gates.require_verified': ['Verified only', 'Only galleries whose website, address and Google listing we have checked. Unverified spaces are still ranked but marked.'],
@@ -303,7 +303,7 @@ const G_DEFAULT_EXCLUDES = gMuseumsExcluded(GDEFAULT);
 // Label for the kinds gate: the live default may allow only commercial galleries, not every non-museum kind.
 function gKindsGateInfo() {
   const on = gKindsOn();
-  if (on.length === 1 && on[0] === 'gallery') return ['Commercial galleries only', 'Nonprofits, project spaces, university galleries and museums are left out of the ranking. They still appear in the app’s List and Map tabs.'];
+  if (on.length === 1 && on[0] === 'gallery') return ['Galleries only', 'Include only venues we know to be commercial galleries. Nonprofits, project spaces, university galleries and museums are left out of the ranking (they still appear in the app’s List and Map tabs). Off = every kind is ranked.'];
   return G_GATE_INFO['gates.kinds'];
 }
 function gKindsOn() { return G_DEFAULT_EXCLUDES ? clone(GDEFAULT.gates.kinds) : NON_MUSEUM_KINDS.slice(); }
@@ -573,8 +573,7 @@ function gStatusChips(r) {
   else if (r.verification === 'flagged') c.push('<span class="chip warn">Flagged</span>');
   else c.push('<span class="chip warn">Unverified</span>');
   if (r.gate === 'unverified') c.push('<span class="chip gate">Not verified — excluded</span>');
-  else if (r.gate === 'kind:museum') c.push('<span class="chip gate">Museums excluded</span>');
-  else if (r.gate && r.gate.startsWith('kind:')) c.push('<span class="chip gate">Kind excluded</span>');
+  else if (r.gate && r.gate.startsWith('kind:')) c.push(`<span class="chip gate">Not a gallery: ${esc((G_KIND_NICE[r.gate.slice(5)] || r.gate.slice(5)).toLowerCase())}</span>`);
   else if (r.gate === 'below_min_score') c.push('<span class="chip gate">Below cutoff</span>');
   else if (r.gate) c.push(`<span class="chip gate">${esc(r.gate)}</span>`);
   else if (r.tier == null) c.push('<span class="chip gate">Below tier 3</span>');
