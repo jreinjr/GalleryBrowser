@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "grand-central-art-center",
+ "name": "Grand Central Art Center",
+ "website": "http://www.grandcentralartcenter.com/",
+ "generated_ts": 1788493925,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.1876,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/grand-central-art-center.jsonl"
+ },
+ "about_text": "Grand Central Art Center is a contemporary art space in Santa Ana, California, operated as an outgrowth of California State University, Fullerton. Directed by Chief Curator John Spiak, the center is dedicated to the engaged exploration of contemporary art and visual culture. Its program centers on an active artist-in-residence initiative that supports socially and community-engaged practices, pairing visiting artists with local collaborators, students, and neighborhood residents on long-term projects. Past residencies have ranged from community garden initiatives in nearby housing complexes to a serial broadcast opera staged with regional partners. The center presents resulting exhibitions, public programs, and multimedia projects, and its residency work has drawn coverage from national and regional press outlets.",
+ "source_kind": "official",
+ "source_urls": [
+  "http://www.grandcentralartcenter.com/"
+ ],
+ "founded_year": null,
+ "founders": [],
+ "directors": [
+  "John Spiak"
+ ],
+ "locations": [
+  {
+   "city": "Santa Ana",
+   "address": "California State University, Fullerton",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary art and visual culture",
+  "artist residencies",
+  "community-engaged art practice",
+  "social practice",
+  "multimedia and opera collaborations"
+ ],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [
+  {
+   "outlet": "The New York Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Los Angeles Times",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "KCRW",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "OC Register",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "KCET",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Artillery Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Daily Titan",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "Orange Coast Magazine",
+   "year": null,
+   "url": null
+  },
+  {
+   "outlet": "OC Weekly",
+   "year": null,
+   "url": null
+  }
+ ],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "No founding year, founders, artist roster, hours, fairs, or memberships were stated on the supplied pages. Press outlets listed were self-reported as having covered the center's artist-in-residence program generally, not tied to specific articles or years.",
+ "triage": {
+  "labels": {},
+  "site_notes": "",
+  "fetch_more": []
+ },
+ "errors": [
+  "triage: max_tokens"
+ ],
+ "duration_s": 729.7
+}

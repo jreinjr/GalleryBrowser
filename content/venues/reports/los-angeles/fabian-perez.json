@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "city": "los-angeles",
+ "venue_id": "fabian-perez",
+ "name": "Fabian Perez Gallery",
+ "website": "https://fabianperez.com",
+ "generated_ts": 1788491311,
+ "model": "claude-sonnet-5",
+ "cost_usd": 0.0701,
+ "crawl": {
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
+  "index_path": ".cache/crawl/los-angeles/fabian-perez.jsonl"
+ },
+ "about_text": null,
+ "source_kind": null,
+ "source_urls": [],
+ "founded_year": null,
+ "founders": [],
+ "directors": [],
+ "locations": [],
+ "program_focus": [],
+ "hours_text": null,
+ "roster": [],
+ "exhibitions": [
+  {
+   "title": "Noche De Tango Art Show",
+   "artists": [
+    "Fabian Perez"
+   ],
+   "start": "2025-11-08",
+   "end": "2025-11-08",
+   "year": 2025,
+   "kind": "solo",
+   "source_url": "https://fabianperez.com/etn/noche-de-tango-art-show"
+  }
+ ],
+ "fairs_self_reported": [],
+ "memberships_self_reported": [],
+ "press_self_reported": [],
+ "claims_supported": true,
+ "unsupported_claims": [],
+ "notes": "The supplied pages contain no content related to the venue; they are unrelated spam/gambling site content (TVTOTO, LINETOGEL, DANATOTO) with no factual information about the gallery.",
+ "triage": {
+  "labels": {
+   "https://fabianperez.com/contact": "contact_hours",
+   "https://fabianperez.com/biography": "about",
+   "https://fabianperez.com/gallery/visit-us": "contact_hours",
+   "https://fabianperez.com/gallery": "contact_hours",
+   "https://fabianperez.com/gallery/events": "exhibitions_current",
+   "https://fabianperez.com/upcoming-show-noche-de-tango": "exhibitions_current",
+   "https://fabianperez.com/virtual-exhibitions": "exhibitions_current",
+   "https://fabianperez.com/etn/noche-de-tango-art-show": "exhibition_page",
+   "https://fabianperez.com/100-years-of-the-phantom": "exhibition_page"
+  },
+  "site_notes": "This is a single-artist (Fabian Perez) official site organised around an art catalogue (/art/*) and thematic collections (/collections/*), not a multi-artist gallery, so no roster_index applies; many pages (biography, contact, gallery/visit-us, living-legends/*) appear to have been compromised and show unrelated gambling-site titles though their URLs/content still map to about/contact/portrait-series pages; no dedicated news, fairs, or exhibition-archive listing was found.",
+  "fetch_more": []
+ },
+ "errors": [],
+ "duration_s": 1860.6
+}

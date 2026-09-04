@@ -1,0 +1,497 @@
+{
+ "ts": 1788494579,
+ "city": "tokyo",
+ "today": "2026-09-03",
+ "params_hash": "41f5b6091623",
+ "params": {
+  "version": 1,
+  "city": "tokyo",
+  "today": "2026-09-03",
+  "max_n": null,
+  "threshold": 0.22,
+  "max_per_venue": 2,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.04,
+   "judge": 0.44,
+   "venue": 0.14,
+   "artist_heat": 0.0,
+   "museum": -0.2,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.04,
+   "quality": 0.08
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.45
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "_note": "seesaw-complete with museums excluded from the feed (user default, 2026-09-03). Museums still appear in List/Map under the Museums and All venues filters; only the Featured set is galleries-only. The -0.20 museum weight is kept so that if the gate is turned off again, museums sink rather than lead."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "sugimoto-seascapes-koyanagi",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.50816,
+   "editors_pick": true
+  },
+  {
+   "slug": "nukaga-original-copy",
+   "rank": 2,
+   "featured_rank": 2,
+   "score": 0.48800000000000004,
+   "editors_pick": true
+  },
+  {
+   "slug": "rina-banerjee-espace-lv",
+   "rank": 3,
+   "featured_rank": 3,
+   "score": 0.46272,
+   "editors_pick": true
+  },
+  {
+   "slug": "eukaryote-spilling-body",
+   "rank": 5,
+   "featured_rank": 4,
+   "score": 0.452,
+   "editors_pick": true
+  },
+  {
+   "slug": "nukaga-oriol-vilanova-original-copy",
+   "rank": 6,
+   "featured_rank": 5,
+   "score": 0.45152000000000003,
+   "editors_pick": true
+  },
+  {
+   "slug": "momo-konoike-summer-school",
+   "rank": 8,
+   "featured_rank": 6,
+   "score": 0.44672,
+   "editors_pick": false
+  },
+  {
+   "slug": "sekine-gate-boxcar",
+   "rank": 11,
+   "featured_rank": 7,
+   "score": 0.4376,
+   "editors_pick": false
+  },
+  {
+   "slug": "tsca-as-one-draws",
+   "rank": 13,
+   "featured_rank": 8,
+   "score": 0.43024,
+   "editors_pick": false
+  },
+  {
+   "slug": "pace-nigel-cooke-night-ruins",
+   "rank": 14,
+   "featured_rank": 9,
+   "score": 0.42896,
+   "editors_pick": false
+  },
+  {
+   "slug": "tsca-yamanaka-lambri-hosokura",
+   "rank": 15,
+   "featured_rank": 10,
+   "score": 0.42768000000000006,
+   "editors_pick": false
+  },
+  {
+   "slug": "takeninagawa-man-ray",
+   "rank": 16,
+   "featured_rank": 11,
+   "score": 0.4232,
+   "editors_pick": false
+  },
+  {
+   "slug": "takeninagawa-on-kawara",
+   "rank": 17,
+   "featured_rank": 12,
+   "score": 0.4192,
+   "editors_pick": false
+  },
+  {
+   "slug": "kaikaikiki-social-media",
+   "rank": 19,
+   "featured_rank": 13,
+   "score": 0.4144,
+   "editors_pick": false
+  },
+  {
+   "slug": "shugoarts-maruyama-mishima-yasuda",
+   "rank": 20,
+   "featured_rank": 14,
+   "score": 0.40912000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "ykg-spirituality-in-sculpture",
+   "rank": 21,
+   "featured_rank": 15,
+   "score": 0.40496,
+   "editors_pick": false
+  },
+  {
+   "slug": "majima-chimimoryo-here",
+   "rank": 22,
+   "featured_rank": 16,
+   "score": 0.40288,
+   "editors_pick": false
+  },
+  {
+   "slug": "hogalee-liminal-kana-kawanishi",
+   "rank": 23,
+   "featured_rank": 17,
+   "score": 0.39072,
+   "editors_pick": false
+  },
+  {
+   "slug": "shirota-lacuna-or-extension",
+   "rank": 24,
+   "featured_rank": 18,
+   "score": 0.38752000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "tkg-sakamoto-painting-unknown",
+   "rank": 25,
+   "featured_rank": 19,
+   "score": 0.37504000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "teru-noji-before-the-pointing",
+   "rank": 26,
+   "featured_rank": 20,
+   "score": 0.35984000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "smah-onepiece-scroll2",
+   "rank": 31,
+   "featured_rank": 21,
+   "score": 0.34,
+   "editors_pick": false
+  },
+  {
+   "slug": "canon-ui-ankoraci",
+   "rank": 32,
+   "featured_rank": 22,
+   "score": 0.33648000000000006,
+   "editors_pick": false
+  },
+  {
+   "slug": "kanamori-hito-no-ibasho",
+   "rank": 33,
+   "featured_rank": 23,
+   "score": 0.33472,
+   "editors_pick": false
+  },
+  {
+   "slug": "group-show-4-artists-kosaku",
+   "rank": 35,
+   "featured_rank": 24,
+   "score": 0.33216,
+   "editors_pick": false
+  },
+  {
+   "slug": "fujimoto-even-if-i-were-to-climb",
+   "rank": 36,
+   "featured_rank": 25,
+   "score": 0.30496,
+   "editors_pick": false
+  },
+  {
+   "slug": "aisho-kitajima-axial-tilt",
+   "rank": 38,
+   "featured_rank": 26,
+   "score": 0.28784000000000004,
+   "editors_pick": false
+  },
+  {
+   "slug": "naoco-kato-horses",
+   "rank": 44,
+   "featured_rank": 27,
+   "score": 0.27952000000000005,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "sugimoto-seascapes-koyanagi",
+   "rank": 1,
+   "score": 0.50816,
+   "gate": null
+  },
+  {
+   "slug": "nukaga-original-copy",
+   "rank": 2,
+   "score": 0.48800000000000004,
+   "gate": null
+  },
+  {
+   "slug": "rina-banerjee-espace-lv",
+   "rank": 3,
+   "score": 0.46272,
+   "gate": null
+  },
+  {
+   "slug": "eukaryote-spilling-body",
+   "rank": 5,
+   "score": 0.452,
+   "gate": null
+  },
+  {
+   "slug": "nukaga-oriol-vilanova-original-copy",
+   "rank": 6,
+   "score": 0.45152000000000003,
+   "gate": null
+  },
+  {
+   "slug": "momo-konoike-summer-school",
+   "rank": 8,
+   "score": 0.44672,
+   "gate": null
+  },
+  {
+   "slug": "perrotin-hernan-bas-2026",
+   "rank": 10,
+   "score": 0.43952,
+   "gate": "not_open"
+  },
+  {
+   "slug": "sekine-gate-boxcar",
+   "rank": 11,
+   "score": 0.4376,
+   "gate": null
+  },
+  {
+   "slug": "kei-takemura-taka-ishii",
+   "rank": 12,
+   "score": 0.43392000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tsca-as-one-draws",
+   "rank": 13,
+   "score": 0.43024,
+   "gate": null
+  },
+  {
+   "slug": "pace-nigel-cooke-night-ruins",
+   "rank": 14,
+   "score": 0.42896,
+   "gate": null
+  },
+  {
+   "slug": "tsca-yamanaka-lambri-hosokura",
+   "rank": 15,
+   "score": 0.42768000000000006,
+   "gate": null
+  },
+  {
+   "slug": "takeninagawa-man-ray",
+   "rank": 16,
+   "score": 0.4232,
+   "gate": null
+  },
+  {
+   "slug": "takeninagawa-on-kawara",
+   "rank": 17,
+   "score": 0.4192,
+   "gate": null
+  },
+  {
+   "slug": "tomio-koyama-tennoz-contemporary",
+   "rank": 18,
+   "score": 0.41696000000000005,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kaikaikiki-social-media",
+   "rank": 19,
+   "score": 0.4144,
+   "gate": null
+  },
+  {
+   "slug": "shugoarts-maruyama-mishima-yasuda",
+   "rank": 20,
+   "score": 0.40912000000000004,
+   "gate": null
+  },
+  {
+   "slug": "ykg-spirituality-in-sculpture",
+   "rank": 21,
+   "score": 0.40496,
+   "gate": null
+  },
+  {
+   "slug": "majima-chimimoryo-here",
+   "rank": 22,
+   "score": 0.40288,
+   "gate": null
+  },
+  {
+   "slug": "hogalee-liminal-kana-kawanishi",
+   "rank": 23,
+   "score": 0.39072,
+   "gate": null
+  },
+  {
+   "slug": "shirota-lacuna-or-extension",
+   "rank": 24,
+   "score": 0.38752000000000003,
+   "gate": null
+  },
+  {
+   "slug": "tkg-sakamoto-painting-unknown",
+   "rank": 25,
+   "score": 0.37504000000000004,
+   "gate": null
+  },
+  {
+   "slug": "teru-noji-before-the-pointing",
+   "rank": 26,
+   "score": 0.35984000000000005,
+   "gate": null
+  },
+  {
+   "slug": "tanaka-archive-achieve",
+   "rank": 27,
+   "score": 0.35488000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "smah-onepiece-scroll2",
+   "rank": 31,
+   "score": 0.34,
+   "gate": null
+  },
+  {
+   "slug": "canon-ui-ankoraci",
+   "rank": 32,
+   "score": 0.33648000000000006,
+   "gate": null
+  },
+  {
+   "slug": "kanamori-hito-no-ibasho",
+   "rank": 33,
+   "score": 0.33472,
+   "gate": null
+  },
+  {
+   "slug": "galerie-a-mujigokujo",
+   "rank": 34,
+   "score": 0.33296000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "group-show-4-artists-kosaku",
+   "rank": 35,
+   "score": 0.33216,
+   "gate": null
+  },
+  {
+   "slug": "fujimoto-even-if-i-were-to-climb",
+   "rank": 36,
+   "score": 0.30496,
+   "gate": null
+  },
+  {
+   "slug": "ron-mueck-mori",
+   "rank": 37,
+   "score": 0.29164,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "aisho-kitajima-axial-tilt",
+   "rank": 38,
+   "score": 0.28784000000000004,
+   "gate": null
+  },
+  {
+   "slug": "sottsass-artizon",
+   "rank": 39,
+   "score": 0.28748000000000007,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "picasso-paul-smith-nact",
+   "rank": 40,
+   "score": 0.28524000000000005,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "yukikomizutani-tale-of-blessings",
+   "rank": 42,
+   "score": 0.28336,
+   "gate": "not_open"
+  },
+  {
+   "slug": "yod-gallery-unconditional",
+   "rank": 43,
+   "score": 0.28016,
+   "gate": "not_open"
+  },
+  {
+   "slug": "naoco-kato-horses",
+   "rank": 44,
+   "score": 0.27952000000000005,
+   "gate": null
+  },
+  {
+   "slug": "nam-june-paik-watarium",
+   "rank": 46,
+   "score": 0.24284,
+   "gate": "exclude_museums"
+  }
+ ]
+}

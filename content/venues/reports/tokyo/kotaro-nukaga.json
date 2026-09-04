@@ -4,40 +4,1190 @@
  "venue_id": "kotaro-nukaga",
  "name": "Kotaro Nukaga",
  "website": "https://kotaronukaga.com/about/",
- "generated_ts": 1788470599,
+ "generated_ts": 1788492141,
  "model": "claude-sonnet-5",
- "cost_usd": 0.0,
+ "cost_usd": 0.5977,
  "crawl": {
-  "pages": 0,
-  "sitemap": false,
-  "rendered": false,
-  "truncated": false,
+  "pages": 300,
+  "sitemap": true,
+  "rendered": true,
+  "truncated": true,
   "index_path": ".cache/crawl/tokyo/kotaro-nukaga.jsonl"
  },
- "about_text": null,
- "source_kind": null,
- "source_urls": [],
- "founded_year": null,
- "founders": [],
- "directors": [],
- "locations": [],
- "program_focus": [],
- "hours_text": null,
- "roster": [],
- "exhibitions": [],
- "fairs_self_reported": [],
+ "about_text": "KOTARO NUKAGA is a contemporary art gallery founded in Tokyo in 2018 by director Kotaro Nukaga, who also runs the historic NUKAGA GALLERY. The gallery operates three spaces in Tokyo—two in the Tennoz district (Tennoz and Three) and one in Roppongi—positioning itself at the intersection of Japanese and international contemporary practice. Its program favors avant-garde and cross-disciplinary work, drawing on history, science and technology to question established art-world discourse. The gallery represents a mix of emerging and established Japanese and overseas artists, supporting their development through exhibitions, artist liaison services and participation in international art fairs, while aiming to expand the boundaries of conventional gallery programming.",
+ "source_kind": "official",
+ "source_urls": [
+  "https://kotaronukaga.com/en/about"
+ ],
+ "founded_year": 2018,
+ "founders": [
+  "Kotaro Nukaga"
+ ],
+ "directors": [
+  "Kotaro Nukaga"
+ ],
+ "locations": [
+  {
+   "city": "Tokyo",
+   "address": "Piramide Bldg. 2F, 6-6-9 Roppongi, Minato-Ku, Tokyo 106-0032 Japan",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "TERRADA Art Complex II 1F, 1-32-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo, 140-0002 Japan",
+   "since": null,
+   "current": true
+  },
+  {
+   "city": "Tokyo",
+   "address": "TERRADA Art Complex I 3F, 1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo, 140-0002 Japan",
+   "since": null,
+   "current": true
+  }
+ ],
+ "program_focus": [
+  "contemporary art",
+  "Japanese and international artists",
+  "cross-disciplinary practice",
+  "science and technology integration",
+  "emerging and established artists"
+ ],
+ "hours_text": "11:30 – 18:00 (Tue – Sat); closed Sun, Mon and national holidays",
+ "roster": [
+  {
+   "name": "Alexa Kumiko Hatanaka",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Gentaro Ishizuka",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Nanami Inoue",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Inka Essenhigh",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Kazuhito Kawai",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Candida Höfer",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Kour Pour",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Takehito Koganezawa",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Mariko Kobayashi",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Sputniko!",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Kyoji Takubo",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Nir Hod",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Stefan Brüggemann",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Michael Rikio Ming Hee Ho",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Tomona Matsukawa",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Tomokazu Matsuyama",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Keita Morimoto",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Rhizomatiks",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Carlos Rolón",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Oriol Vilanova",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "José Parlá",
+   "status": "represented",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Amadour",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Takehiro Iikawa",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Soimadou Ibrahim",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Akiko Ueda",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Stephanie Temma Hier",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Yohei Chimura",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Heidi Lau",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Tony Matelli",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Takeshi Yasura",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Yuichiro E. Tamura",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Rember Yahuarcani",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Amani Lewis",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Esmaa Mohamoud",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  },
+  {
+   "name": "Leela Schauble",
+   "status": "exhibited",
+   "source_url": "https://kotaronukaga.com/en/artist"
+  }
+ ],
+ "exhibitions": [
+  {
+   "title": "\"HA HA WHAT DOES THIS REPRESENT? WHAT DO YOU REPRESENT?\"",
+   "artists": [
+    "Stefan Brüggemann"
+   ],
+   "start": "2018-10-20",
+   "end": "2018-12-20",
+   "year": 2018,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/ha-ha-what-does-this-represent-what-do-you-represent"
+  },
+  {
+   "title": "Art Fair Tokyo 2019",
+   "artists": [
+    "Stefan Brüggemann"
+   ],
+   "start": "2019-03-07",
+   "end": "2019-03-10",
+   "year": 2019,
+   "kind": "fair",
+   "source_url": "https://kotaronukaga.com/exhibition/art-fair-tokyo-2019"
+  },
+  {
+   "title": "FIXED CONTAINED",
+   "artists": [
+    "Brian Alfred",
+    "Firelei Báez",
+    "Carlos Rolón",
+    "Inka Essenhigh",
+    "Nir Hod",
+    "Tony Matelli",
+    "Tomokazu Matsuyama"
+   ],
+   "start": "2019-04-20",
+   "end": "2019-06-29",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/fixed-contained"
+  },
+  {
+   "title": "感覚細胞 2019",
+   "artists": [
+    "田窪恭治"
+   ],
+   "start": "2019-08-24",
+   "end": "2019-10-05",
+   "year": 2019,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/sensory-cells_2019"
+  },
+  {
+   "title": "眼差し そしてもう一つの",
+   "artists": [
+    "Paul Cézanne",
+    "Pablo Picasso",
+    "Tsuguharu Foujita",
+    "Egon Schiele",
+    "Tom Wesselmann",
+    "Makoto Saito",
+    "Marlene Dumas",
+    "Keith Haring",
+    "Yukimasa Ida"
+   ],
+   "start": "2019-10-19",
+   "end": "2019-12-07",
+   "year": 2019,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/gaze-and-distance"
+  },
+  {
+   "title": "West Bund Art & Design",
+   "artists": [
+    "松山智一"
+   ],
+   "start": "2019-11-07",
+   "end": "2019-11-10",
+   "year": 2019,
+   "kind": "fair",
+   "source_url": "https://kotaronukaga.com/exhibition/west-bund-art-design"
+  },
+  {
+   "title": "Subsequence Landscape",
+   "artists": [
+    "リーラ・ショーブル"
+   ],
+   "start": "2020-06-02",
+   "end": "2020-07-04",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/subsequence-landscape"
+  },
+  {
+   "title": "Gold Rush California/NZ",
+   "artists": [
+    "Gentaro Ishizuka"
+   ],
+   "start": "2020-07-11",
+   "end": "2020-08-29",
+   "year": 2020,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/gold-rush-california-nz"
+  },
+  {
+   "title": "GIFT",
+   "artists": [
+    "Yuichi Hirako"
+   ],
+   "start": "2021-01-23",
+   "end": "2021-04-03",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/gift"
+  },
+  {
+   "title": "Stories that went Over",
+   "artists": [
+    "Mariko Kobayashi"
+   ],
+   "start": "2021-04-17",
+   "end": "2021-06-05",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/stories-that-went-over"
+  },
+  {
+   "title": "オーバーストーリー",
+   "artists": [
+    "小林 万里子"
+   ],
+   "start": "2021-04-17",
+   "end": "2021-06-05",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/stories-that-went-over"
+  },
+  {
+   "title": "Boom Bye Bye Pain",
+   "artists": [
+    "Tomokazu Matsuyama"
+   ],
+   "start": "2021-05-22",
+   "end": "2021-07-10",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/boom-bye-bye-pain"
+  },
+  {
+   "title": "Future Reminisce",
+   "artists": [
+    "Carlos Rolón"
+   ],
+   "start": "2021-07-30",
+   "end": "2021-09-04",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/future-reminisce"
+  },
+  {
+   "title": "Group Exhibition 'The Past in Motion'",
+   "artists": [
+    "Jean-Eugéne Atget",
+    "Darren Almond",
+    "Gentaro Ishizuka",
+    "Hirofumi Isoya",
+    "Kyoji Takubo",
+    "Kouichi Tabata",
+    "Ritsue Mishima",
+    "Tomoko Yoneda",
+    "Man Ray"
+   ],
+   "start": "2021-08-07",
+   "end": "2021-10-16",
+   "year": 2021,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibitions/past"
+  },
+  {
+   "title": "ALLOW ACTION (GOLD PAINTINGS)",
+   "artists": [
+    "Stefan Brüggemann"
+   ],
+   "start": "2021-09-18",
+   "end": "2021-10-23",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/en/exhibition/allow-action-gold-paintings"
+  },
+  {
+   "title": "Farewell Savane",
+   "artists": [
+    "Soimadou Ibrahim"
+   ],
+   "start": "2021-11-04",
+   "end": "2021-12-18",
+   "year": 2021,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/farewell-savane"
+  },
+  {
+   "title": "Ondulatoire",
+   "artists": [
+    "Gentaro Ishizuka"
+   ],
+   "start": "2022-02-05",
+   "end": "2022-03-31",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/ondulatoire"
+  },
+  {
+   "title": "In search of others",
+   "artists": [
+    "Yuichi Hirako",
+    "Yugo Isaji",
+    "Guanzhen Wang",
+    "Kai Kumano",
+    "Naohiro Takahashi",
+    "Yun Chen",
+    "Akishi Teramoto"
+   ],
+   "start": "2022-05-14",
+   "end": "2022-06-25",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/in-search-of-others"
+  },
+  {
+   "title": "FOOTPRINTS",
+   "artists": [
+    "Yuichi Hirako"
+   ],
+   "start": "2022-05-21",
+   "end": "2022-06-25",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/footprints"
+  },
+  {
+   "title": "Echo of Memories",
+   "artists": [
+    "Nir Hod"
+   ],
+   "start": "2022-07-09",
+   "end": "2022-08-27",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/echo-of-memories"
+  },
+  {
+   "title": "KOTARO NUKAGA Ensemble #1",
+   "artists": [],
+   "start": "2022-08-06",
+   "end": "2022-10-29",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/page/2"
+  },
+  {
+   "title": "N",
+   "artists": [
+    "Yuichiro Tamura"
+   ],
+   "start": "2022-09-10",
+   "end": "2022-11-06",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/n"
+  },
+  {
+   "title": "Crossing",
+   "artists": [
+    "Dominique Fung",
+    "Alexa Hatanaka",
+    "Stephanie Hier",
+    "Lily Kimmel",
+    "Heidi Lau",
+    "Larry Madrigal",
+    "Esmaa Mohamoud",
+    "Devan Shimoyama",
+    "Keita Morimoto"
+   ],
+   "start": "2022-11-26",
+   "end": "2023-01-28",
+   "year": 2022,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/crossing"
+  },
+  {
+   "title": "粒の数だけ 抱きしめて",
+   "artists": [
+    "Yuto Kawai"
+   ],
+   "start": "2022-12-17",
+   "end": "2023-02-04",
+   "year": 2022,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/%e7%b2%92%e3%81%ae%e6%95%b0%e3%81%a0%e3%81%91-%e6%8a%b1%e3%81%8d%e3%81%97%e3%82%81%e3%81%a6"
+  },
+  {
+   "title": "アキレスと亀",
+   "artists": [
+    "Nanami Inoue"
+   ],
+   "start": "2023-03-09",
+   "end": "2023-03-31",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/%e3%82%a2%e3%82%ad%e3%83%ac%e3%82%b9%e3%81%a8%e4%ba%80"
+  },
+  {
+   "title": "ながくとも四十に足らぬほどにて死なんこそめやすかるべけれ（Die Young, Stay Pretty）",
+   "artists": [
+    "Candida Höfer",
+    "Sayre Gomez",
+    "Huma Bhabha",
+    "Erwin Wurm",
+    "Marilyn Minter",
+    "Joel Mesler",
+    "Takuro Kuwata",
+    "Carlos Rolón",
+    "Tomokazu Matsuyama"
+   ],
+   "start": "2023-03-10",
+   "end": "2023-04-28",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/die-young-stay-pretty"
+  },
+  {
+   "title": "SOMETHING SO BEAUTIFUL IS SO EASILY FORGIVEN",
+   "artists": [
+    "マイケル・リキオ・ミング・ヒー・ホー"
+   ],
+   "start": "2023-04-08",
+   "end": "2023-06-03",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/something-so-beautiful-is-so-easily-forgiven"
+  },
+  {
+   "title": "Economy and Love",
+   "artists": [
+    "Stefan Brüggemann",
+    "Oriol Vilanova"
+   ],
+   "start": "2023-05-20",
+   "end": "2023-07-08",
+   "year": 2023,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/en/exhibition/economy-and-love"
+  },
+  {
+   "title": "Dual Doodle Double Square",
+   "artists": [
+    "Takehiko Koganezawa"
+   ],
+   "start": "2023-07-07",
+   "end": "2023-08-31",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/dual-doodle-double-square"
+  },
+  {
+   "title": "A Little Closer",
+   "artists": [
+    "Keita Morimoto"
+   ],
+   "start": "2023-07-29",
+   "end": "2023-09-16",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/a-little-closer"
+  },
+  {
+   "title": "Reflections of Spaces - Spaces of Reflection",
+   "artists": [
+    "Candida Höfer"
+   ],
+   "start": "2023-10-14",
+   "end": "2023-12-23",
+   "year": 2023,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/reflections-of-spaces-spaces-of-reflection"
+  },
+  {
+   "title": "Gold Rush Alaska",
+   "artists": [
+    "Gentaro Ishizuka"
+   ],
+   "start": "2024-03-23",
+   "end": "2024-05-18",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/gold-rush-alaska"
+  },
+  {
+   "title": "When I Kiss You, I Can Taste Your Soul",
+   "artists": [
+    "Stephanie Hier",
+    "Yujin Kawai",
+    "Heidi Lau",
+    "Rebecca Manson",
+    "Yuki Tawada",
+    "Sogu Fukumoto"
+   ],
+   "start": "2024-04-13",
+   "end": "2024-05-25",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/%e3%80%8cwhen-i-kiss-you-i-can-taste-your-soul%e3%80%8d"
+  },
+  {
+   "title": "Materiality and Language: Explorations in Form and Meaning Curated by Esthella Provas",
+   "artists": [
+    "Amadour",
+    "Stefan Brüggemann",
+    "Michael Riki Ming Hee Ho",
+    "José Dávila",
+    "Rirkrit Tiravanija"
+   ],
+   "start": "2024-06-08",
+   "end": "2024-07-31",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/materiality-and-language-explorations-in-form-and-meaning-curated-by-esthella-provas"
+  },
+  {
+   "title": "Rhizomatiks Beyond Perception",
+   "artists": [
+    "Rhizomatiks"
+   ],
+   "start": "2024-06-29",
+   "end": "2024-10-14",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/rhizomatiks-beyond-perception"
+  },
+  {
+   "title": "Fish don't know they're in water",
+   "artists": [
+    "Nanami Inoue"
+   ],
+   "start": "2024-07-20",
+   "end": "2024-09-07",
+   "year": 2024,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/en/exhibition/fish-dont-know-theyre-in-water"
+  },
+  {
+   "title": "Myth In Motion",
+   "artists": [
+    "Kour Pour",
+    "Rember Yahuarcani"
+   ],
+   "start": "2024-09-21",
+   "end": "2024-11-10",
+   "year": 2024,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/myth-in-motion"
+  },
+  {
+   "title": "Can I Believe in a Fortunate Tomorrow?",
+   "artists": [],
+   "start": "2024-11-02",
+   "end": "2025-01-25",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/exhibition"
+  },
+  {
+   "title": "Quality of Life",
+   "artists": [],
+   "start": "2024-11-16",
+   "end": "2025-02-14",
+   "year": 2024,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/exhibition"
+  },
+  {
+   "title": "To be honest, my writing is terrible—perhaps I should blame it on the brush.",
+   "artists": [],
+   "start": "2025-02-15",
+   "end": "2025-04-12",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Solitude",
+   "artists": [],
+   "start": "2025-03-19",
+   "end": "2025-04-19",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Sending Love to an Aching World",
+   "artists": [],
+   "start": "2025-05-10",
+   "end": "2025-05-31",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "In the beginning, Womankind was the sun - Weren't we?",
+   "artists": [],
+   "start": "2025-05-17",
+   "end": "2025-06-14",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Precious Time",
+   "artists": [],
+   "start": "2025-05-17",
+   "end": "2025-06-28",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Home Away from Home",
+   "artists": [],
+   "start": "2025-06-20",
+   "end": "2025-08-09",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Fishing as a Mole Does – Until Stone Becomes Water –",
+   "artists": [],
+   "start": "2025-07-26",
+   "end": "2025-09-14",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Ensemble #2",
+   "artists": [],
+   "start": "2025-08-26",
+   "end": "2025-10-16",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Annie Morris and Idris Khan A Petal Silently Falls",
+   "artists": [
+    "Annie Morris",
+    "Idris Khan"
+   ],
+   "start": "2025-10-29",
+   "end": "2025-12-26",
+   "year": 2025,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Being There",
+   "artists": [],
+   "start": "2025-12-06",
+   "end": "2026-01-24",
+   "year": 2025,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "what we told ourselves",
+   "artists": [],
+   "start": "2026-01-17",
+   "end": "2026-03-07",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Ensemble #3 - Winter Show 2026",
+   "artists": [],
+   "start": "2026-01-31",
+   "end": "2026-02-21",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "ついたよ : Becoming by Making",
+   "artists": [
+    "川井 雄仁",
+    "アレクサ・クミコ・ハタナカ"
+   ],
+   "start": "2026-03-14",
+   "end": "2026-04-10",
+   "year": 2026,
+   "kind": "group",
+   "source_url": "https://kotaronukaga.com/exhibition/tsuitayo-becoming-by-making"
+  },
+  {
+   "title": "ついたよ（Tsuitayo）: Becoming by Making",
+   "artists": [],
+   "start": "2026-03-14",
+   "end": "2026-04-10",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Decorator Crab: The Heavy Bag",
+   "artists": [],
+   "start": "2026-04-04",
+   "end": "2026-05-30",
+   "year": 2026,
+   "kind": "other",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Extreme Words (Works on Paper)",
+   "artists": [
+    "Stefan Brüggemann"
+   ],
+   "start": "2026-04-18",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/en/exhibition"
+  },
+  {
+   "title": "Extreme Words (Works on Paper)",
+   "artists": [
+    "ステファン・ブルッゲマン"
+   ],
+   "start": "2026-04-18",
+   "end": "2026-05-23",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/stefan_bruggemann_solo_exhibition"
+  },
+  {
+   "title": "それはまた、次の名前の前にいる",
+   "artists": [
+    "Yohei Chimura"
+   ],
+   "start": "2026-06-06",
+   "end": "2026-07-18",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/chimura_yohei_solo_exhibition"
+  },
+  {
+   "title": "Flowers of Memory",
+   "artists": [
+    "Nir Hod"
+   ],
+   "start": "2026-07-04",
+   "end": "2026-08-08",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/flowers-of-memory"
+  },
+  {
+   "title": "Original Copy",
+   "artists": [
+    "Oriol Vilanova"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-12",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/oriol_vilanova_original_copy"
+  },
+  {
+   "title": "After Understanding",
+   "artists": [
+    "Rhizomatiks"
+   ],
+   "start": "2026-09-12",
+   "end": "2026-10-17",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/en/exhibition/rhizomatiks_after_understanding"
+  },
+  {
+   "title": "Points of Entry",
+   "artists": [
+    "Kour Pour"
+   ],
+   "start": "2026-09-26",
+   "end": "2026-11-07",
+   "year": 2026,
+   "kind": "solo",
+   "source_url": "https://kotaronukaga.com/exhibition/points-of-entry"
+  }
+ ],
+ "fairs_self_reported": [
+  "Taipei Dangdai 2023",
+  "Art Basel Hong Kong 2023",
+  "Art Collaboration Kyoto (ACK) 2022",
+  "Art Fair Tokyo 2022",
+  "Tokyo Gendai",
+  "Tokyo Gendai 2024",
+  "Tokyo Gendai 2025",
+  "Tokyo Gendai 2026",
+  "ART SG 2023",
+  "Frieze Seoul 2026",
+  "Tennoz Contemporary 2026",
+  "THE ARMORY SHOW 2024",
+  "ART FAIR TOKYO 20",
+  "Art Busan 2025",
+  "Taipei Dangdai 2025"
+ ],
  "memberships_self_reported": [],
  "press_self_reported": [],
  "claims_supported": true,
  "unsupported_claims": [],
- "notes": null,
+ "notes": "Site is bilingual (Japanese/English); content largely mirrored across both versions. Staff list on About page includes many roles but only Kotaro Nukaga is explicitly titled 'Director, Founder'.",
+ "exhibitions_truncated": false,
  "triage": {
-  "labels": {},
-  "site_notes": "",
-  "fetch_more": []
+  "labels": {
+   "https://kotaronukaga.com/artist": "roster_index",
+   "https://kotaronukaga.com/exhibition": "exhibitions_current",
+   "https://kotaronukaga.com/news": "news",
+   "https://kotaronukaga.com/contact": "contact_hours",
+   "https://kotaronukaga.com/about": "about",
+   "https://kotaronukaga.com/en/contact": "contact_hours",
+   "https://kotaronukaga.com/en/about": "about",
+   "https://kotaronukaga.com/exhibition/oriol_vilanova_original_copy": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/rhizomatiks_after_understanding": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/boom-bye-bye-pain": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/stories-that-went-over": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/gift": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/gift": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/gold-rush-california-nz": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/subsequence-landscape": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/west-bund-art-design": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/gaze-and-distance": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/fixed-contained": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/future-reminisce": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/ha-ha-what-does-this-represent-what-do-you-represent": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/group-exhibition-the-past-in-motion": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/art-fair-tokyo-2019": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/allow-action-gold-paintings": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/sensory-cells_2019": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/future-reminisce": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/pastinmotion_jp": "exhibition_page",
+   "https://kotaronukaga.com/exhibition/allow-action-gold-paintings": "exhibition_page",
+   "https://kotaronukaga.com/artist/tomona_matsukawa": "artist_page",
+   "https://kotaronukaga.com/en/exhibition/economy-and-love": "exhibition_page",
+   "https://kotaronukaga.com/news/618": "news",
+   "https://kotaronukaga.com/exhibition/farewell-savane": "exhibition_page",
+   "https://kotaronukaga.com/artist/candida_hofer": "artist_page",
+   "https://kotaronukaga.com/en/news/5107": "news",
+   "https://kotaronukaga.com/news/623": "news",
+   "https://kotaronukaga.com/exhibition/ondulatoire": "exhibition_page",
+   "https://kotaronukaga.com/artist/sayre-gomez": "artist_page",
+   "https://kotaronukaga.com/en/artist/michael_rikio_ming_hee_ho": "artist_page",
+   "https://kotaronukaga.com/news/626": "news",
+   "https://kotaronukaga.com/exhibition/in-search-of-others": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%95%e3%83%bc%e3%83%9e%e3%83%bb%e3%83%90%e3%83%90": "artist_page",
+   "https://kotaronukaga.com/en/news/5950": "news",
+   "https://kotaronukaga.com/news/629": "news",
+   "https://kotaronukaga.com/exhibition/footprints": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%9e%e3%83%aa%e3%83%aa%e3%83%b3%e3%83%bb%e3%83%9f%e3%83%b3%e3%82%bf%e3%83%bc": "artist_page",
+   "https://kotaronukaga.com/en/artist/rhizomatiks": "artist_page",
+   "https://kotaronukaga.com/news/632": "news",
+   "https://kotaronukaga.com/exhibition/echo-of-memories": "exhibition_page",
+   "https://kotaronukaga.com/artist/joel_mesler": "artist_page",
+   "https://kotaronukaga.com/en/exhibition/fish-dont-know-theyre-in-water": "exhibition_page",
+   "https://kotaronukaga.com/news/635": "news",
+   "https://kotaronukaga.com/exhibition/n": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e6%a1%91%e7%94%b0%e5%8d%93%e9%83%8e": "artist_page",
+   "https://kotaronukaga.com/en/artist/jose_parla": "artist_page",
+   "https://kotaronukaga.com/news/645": "news",
+   "https://kotaronukaga.com/exhibition/crossing": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%82%a8%e3%83%ab%e3%83%b4%e3%82%a3%e3%83%b3%e3%83%bb%e3%83%b4%e3%83%ab%e3%83%a0": "artist_page",
+   "https://kotaronukaga.com/en/artist/esmaa-mohamoud": "artist_page",
+   "https://kotaronukaga.com/news/648": "news",
+   "https://kotaronukaga.com/exhibition/%e7%b2%92%e3%81%ae%e6%95%b0%e3%81%a0%e3%81%91-%e6%8a%b1%e3%81%8d%e3%81%97%e3%82%81%e3%81%a6": "exhibition_page",
+   "https://kotaronukaga.com/artist/michael_rikio_ming_hee_ho": "artist_page",
+   "https://kotaronukaga.com/news/652": "news",
+   "https://kotaronukaga.com/exhibition/die-young-stay-pretty": "exhibition_page",
+   "https://kotaronukaga.com/artist/takehito_koganezawa": "artist_page",
+   "https://kotaronukaga.com/news/655": "news",
+   "https://kotaronukaga.com/exhibition/%e3%82%a2%e3%82%ad%e3%83%ac%e3%82%b9%e3%81%a8%e4%ba%80": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%aa%e3%83%bc%e3%83%a9-%e3%83%bb%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%96%e3%83%ab": "artist_page",
+   "https://kotaronukaga.com/news/660": "news",
+   "https://kotaronukaga.com/exhibition/something-so-beautiful-is-so-easily-forgiven": "exhibition_page",
+   "https://kotaronukaga.com/artist/amani-lewis": "artist_page",
+   "https://kotaronukaga.com/news/663": "news",
+   "https://kotaronukaga.com/exhibition/economy-and-love": "exhibition_page",
+   "https://kotaronukaga.com/artist/esmaa-mohamoud": "artist_page",
+   "https://kotaronukaga.com/news/862": "news",
+   "https://kotaronukaga.com/exhibition/dual-doodle-double-square": "exhibition_page",
+   "https://kotaronukaga.com/artist/amadour": "artist_page",
+   "https://kotaronukaga.com/news/996": "news",
+   "https://kotaronukaga.com/exhibition/a-little-closer": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%9b%e3%82%bb%e3%83%bb%e3%83%80%e3%83%b4%e3%82%a3%e3%83%a9": "artist_page",
+   "https://kotaronukaga.com/news/1173": "news",
+   "https://kotaronukaga.com/exhibition/reflections-of-spaces-spaces-of-reflection": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%aa%e3%82%af%e3%83%aa%e3%83%83%e3%83%88%e3%83%bb%e3%83%86%e3%82%a3%e3%83%a9%e3%83%b4%e3%82%a1%e3%83%bc%e3%83%8b%e3%83%a3": "artist_page",
+   "https://kotaronukaga.com/news/1268": "news",
+   "https://kotaronukaga.com/exhibition/gold-rush-alaska": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%a6%e3%83%bc%e3%82%a4%e3%83%81%e3%83%ad%e3%83%bc%e3%83%bbe%e3%83%bb%e3%82%bf%e3%83%a0%e3%83%a9": "artist_page",
+   "https://kotaronukaga.com/news/1473": "news",
+   "https://kotaronukaga.com/exhibition/%e3%80%8cwhen-i-kiss-you-i-can-taste-your-soul%e3%80%8d": "exhibition_page",
+   "https://kotaronukaga.com/artist/kazuhito_kawai": "artist_page",
+   "https://kotaronukaga.com/news/1579": "news",
+   "https://kotaronukaga.com/exhibition/materiality-and-language-explorations-in-form-and-meaning-curated-by-esthella-provas": "exhibition_page",
+   "https://kotaronukaga.com/artist/rhizomatiks": "artist_page",
+   "https://kotaronukaga.com/news/1786": "news",
+   "https://kotaronukaga.com/exhibition/fish-dont-know-theyre-in-water": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e3%83%ac%e3%83%99%e3%83%83%e3%82%ab%e3%83%bb%e3%83%9e%e3%83%b3%e3%82%bd%e3%83%b3": "artist_page",
+   "https://kotaronukaga.com/news/1871": "news",
+   "https://kotaronukaga.com/exhibition/rhizomatiks-beyond-perception": "exhibition_page",
+   "https://kotaronukaga.com/artist/%e5%a4%9a%e5%92%8c%e7%94%b0%e6%9c%89%e5%b8%8c%ef%bc%8b%e7%a6%8f%e6%9c%ac%e5%8f%8c%e7%b4%85": "artist_page",
+   "https://kotaronukaga.com/news/1994": "news",
+   "https://kotaronukaga.com/artist/%e3%82%b9%e3%83%86%e3%83%95%e3%82%a1%e3%83%8b%e3%83%bc%e3%83%bb%e3%83%8f%e3%82%a4%e3%82%a8": "artist_page",
+   "https://kotaronukaga.com/exhibition/myth-in-motion": "exhibition_page",
+   "https://kotaronukaga.com/news/2264": "fairs",
+   "https://kotaronukaga.com/artist/kour_pour": "artist_page",
+   "https://kotaronukaga.com/news/2726": "news",
+   "https://kotaronukaga.com/news/2718": "news",
+   "https://kotaronukaga.com/news/2796": "news",
+   "https://kotaronukaga.com/news/2811": "news",
+   "https://kotaronukaga.com/news/2955": "news",
+   "https://kotaronukaga.com/news/3021": "news",
+   "https://kotaronukaga.com/news/3010": "news",
+   "https://kotaronukaga.com/news/3068": "news",
+   "https://kotaronukaga.com/news/3119": "news",
+   "https://kotaronukaga.com/news/3126": "news",
+   "https://kotaronukaga.com/news/3163": "news",
+   "https://kotaronukaga.com/news/3171": "news",
+   "https://kotaronukaga.com/news/3196": "news",
+   "https://kotaronukaga.com/news/3203": "news",
+   "https://kotaronukaga.com/news/3221": "news",
+   "https://kotaronukaga.com/news/3245": "news",
+   "https://kotaronukaga.com/news/3269": "news",
+   "https://kotaronukaga.com/news/3283": "news",
+   "https://kotaronukaga.com/news/3303": "news",
+   "https://kotaronukaga.com/news/3317": "news",
+   "https://kotaronukaga.com/news/3385": "fairs",
+   "https://kotaronukaga.com/news/3406": "news",
+   "https://kotaronukaga.com/news/3466": "news",
+   "https://kotaronukaga.com/news/3475": "news",
+   "https://kotaronukaga.com/news/3537": "news",
+   "https://kotaronukaga.com/news/3563": "news",
+   "https://kotaronukaga.com/news/3615": "news",
+   "https://kotaronukaga.com/news/3715": "fairs",
+   "https://kotaronukaga.com/news/3805": "news",
+   "https://kotaronukaga.com/news/3906": "news",
+   "https://kotaronukaga.com/news/3976": "contact_hours",
+   "https://kotaronukaga.com/news/4011": "fairs",
+   "https://kotaronukaga.com/news/4073": "news",
+   "https://kotaronukaga.com/news/4133": "news",
+   "https://kotaronukaga.com/news/4194": "fairs",
+   "https://kotaronukaga.com/news/4262": "news",
+   "https://kotaronukaga.com/news/4371": "news",
+   "https://kotaronukaga.com/news/4433": "news",
+   "https://kotaronukaga.com/news/4492": "news",
+   "https://kotaronukaga.com/news/4498": "fairs",
+   "https://kotaronukaga.com/news/4512": "news",
+   "https://kotaronukaga.com/news/4580": "news",
+   "https://kotaronukaga.com/news/4687": "news",
+   "https://kotaronukaga.com/news/4698": "news",
+   "https://kotaronukaga.com/news/4732": "news",
+   "https://kotaronukaga.com/news/4847": "news",
+   "https://kotaronukaga.com/news/4959": "news",
+   "https://kotaronukaga.com/news/4967": "news",
+   "https://kotaronukaga.com/news/5000": "news",
+   "https://kotaronukaga.com/news/5010": "news",
+   "https://kotaronukaga.com/news/5244": "news",
+   "https://kotaronukaga.com/news/5290": "news",
+   "https://kotaronukaga.com/news/5502": "news",
+   "https://kotaronukaga.com/news/5584": "news",
+   "https://kotaronukaga.com/news/5666": "news",
+   "https://kotaronukaga.com/news/5673": "news",
+   "https://kotaronukaga.com/news/5746": "news",
+   "https://kotaronukaga.com/news/5947": "news",
+   "https://kotaronukaga.com/news/6001": "news",
+   "https://kotaronukaga.com/news/6064": "news",
+   "https://kotaronukaga.com/news/6126": "news",
+   "https://kotaronukaga.com/news/6320": "news",
+   "https://kotaronukaga.com/news/6557": "news",
+   "https://kotaronukaga.com/news/6566": "news",
+   "https://kotaronukaga.com/news/6928": "news",
+   "https://kotaronukaga.com/news/7071": "news",
+   "https://kotaronukaga.com/news/7393": "news",
+   "https://kotaronukaga.com/news/7475": "news",
+   "https://kotaronukaga.com/news/7563": "news",
+   "https://kotaronukaga.com/news/7586": "news",
+   "https://kotaronukaga.com/news/7742": "news",
+   "https://kotaronukaga.com/news/7916": "news",
+   "https://kotaronukaga.com/news/8006": "news",
+   "https://kotaronukaga.com/news/7893": "news",
+   "https://kotaronukaga.com/news/8123": "news",
+   "https://kotaronukaga.com/press/matsuyama-shinjuku": "news",
+   "https://kotaronukaga.com/en/artist": "roster_index",
+   "https://kotaronukaga.com/en/exhibition": "exhibitions_current",
+   "https://kotaronukaga.com/en/news": "news",
+   "https://kotaronukaga.com/en/exhibition/oriol_vilanova_original_copy": "exhibition_page",
+   "https://kotaronukaga.com/en/news/14698": "news",
+   "https://kotaronukaga.com/en/exhibition/rhizomatiks_after_understanding": "exhibition_page",
+   "https://kotaronukaga.com/en/news/14665": "news",
+   "https://kotaronukaga.com/en/news/14657": "news",
+   "https://kotaronukaga.com/en/news/14601": "news",
+   "https://kotaronukaga.com/en/news/14595": "news",
+   "https://kotaronukaga.com/en/news/14583": "news",
+   "https://kotaronukaga.com/en/news/14576": "news",
+   "https://kotaronukaga.com/en/news/14486": "news",
+   "https://kotaronukaga.com/en/news/14466": "news",
+   "https://kotaronukaga.com/exhibition/points-of-entry": "exhibition_page",
+   "https://kotaronukaga.com/en/news/14450": "news",
+   "https://kotaronukaga.com/artist/alexa_kumiko_hatanaka": "artist_page",
+   "https://kotaronukaga.com/exhibition/flowers-of-memory": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/boom-bye-bye-pain": "exhibition_page",
+   "https://kotaronukaga.com/artist/sputniko": "artist_page",
+   "https://kotaronukaga.com/exhibition/chimura_yohei_solo_exhibition": "exhibition_page",
+   "https://kotaronukaga.com/en/exhibition/stories-that-went-over": "exhibition_page",
+   "https://kotaronukaga.com/artist/jose_parla": "artist_page",
+   "https://kotaronukaga.com/exhibition/stefan_bruggemann_solo_exhibition": "exhibition_page",
+   "https://kotaronukaga.com/en/news/805": "news",
+   "https://kotaronukaga.com/artist/takehiro_iikawa": "artist_page",
+   "https://kotaronukaga.com/exhibition/tsuitayo-becoming-by-making": "exhibition_page",
+   "https://kotaronukaga.com/en/news/810": "news",
+   "https://kotaronukaga.com/artist/akiko_ueda": "artist_page",
+   "https://kotaronukaga.com/exhibition/page/2": "exhibitions_archive",
+   "https://kotaronukaga.com/news/page/2": "news",
+   "https://kotaronukaga.com/artists": "roster_index",
+   "https://kotaronukaga.com/en/artists": "roster_index",
+   "https://kotaronukaga.com/exhibitions": "exhibitions_current",
+   "https://kotaronukaga.com/exhibitions/past": "exhibitions_archive"
+  },
+  "site_notes": "The gallery site is bilingual (JP default, /en for English) with a single unified artist roster at /artist and a single exhibition list at /exhibition that mixes current and past shows without clear date filtering, plus a scattered news feed of individual press releases; many exhibition and news entries likely continue on further paginated or archived pages not present in this partial inventory. Site organised via WordPress-style slugs (/exhibition/, /artist/, /news/NNN) with English mirror under /en/; inventory sample shows exhibitions, artist pages and abundant press-release-style news but lacks a dedicated roster index, current/past exhibitions landing pages, about, and contact pages, which are likely present in navigation but missing from this sample. The site is bilingual (JP default, /en/ prefix) with parallel structures for artists, exhibitions, and news; the inventory sample is dominated by individual JP and EN news articles, with only a handful of artist and exhibition detail pages and no dedicated about/contact pages captured.",
+  "fetch_more": [
+   "https://kotaronukaga.com/exhibition/page/2",
+   "https://kotaronukaga.com/news/page/2",
+   "https://kotaronukaga.com/en/exhibition",
+   "https://kotaronukaga.com/en/news",
+   "https://kotaronukaga.com/artists",
+   "https://kotaronukaga.com/en/artists",
+   "https://kotaronukaga.com/exhibitions",
+   "https://kotaronukaga.com/exhibitions/past",
+   "https://kotaronukaga.com/about",
+   "https://kotaronukaga.com/contact",
+   "https://kotaronukaga.com/news",
+   "https://kotaronukaga.com/news/page/2",
+   "https://kotaronukaga.com/artist",
+   "https://kotaronukaga.com/exhibition",
+   "https://kotaronukaga.com/news",
+   "https://kotaronukaga.com/about",
+   "https://kotaronukaga.com/contact"
+  ]
  },
- "errors": [
-  "crawl: no readable pages"
- ],
- "duration_s": 196.2
+ "errors": [],
+ "duration_s": 1181.2
 }

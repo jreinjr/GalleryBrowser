@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "city": "tokyo",
- "updated": 1788492168,
+ "updated": 1788494430,
  "venues": [
   {
    "id": "019",
@@ -8292,36 +8292,71 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.437,
    "neighborhood": "Ebisu/Meguro",
-   "address": "Daikanyama Hoshino Bldg., 26-9 Sarugakuchō, Shibuya",
-   "address_detail": null,
-   "latitude": 35.6484537,
-   "longitude": 139.7009297,
-   "coords_source": "places",
+   "address": "26-9 Sarugaku-cho, Shibuya-ku",
+   "address_detail": "1F Daikanyama Hoshino Bldg.",
+   "latitude": 35.6484576,
+   "longitude": 139.7009186,
+   "coords_source": "show:aisho-kitajima-axial-tilt",
    "website": "https://www.aisho.art",
    "exhibitions_url": "https://www.aisho.art/exhibition",
-   "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.aisho.art/exhibition",
+    "https://www.aisho.art/marikokitajima-axialtilt",
+    "https://www.aisho.art/about"
+   ],
    "hours": [
-    "Tue - Sat 12-6pm, Closed on Sun, Mon and Public Holiday"
+    "Tue - Sat 12pm to 6pm",
+    "Closed Sun, Mon and public holidays"
    ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
-    "address": "Daikanyama Hoshino Bldg., 26-9 Sarugakuchō, Shibuya",
+    "address": "Daikanyama Hoshino Bldg., 26-9 Sarugakuchō, Shibuya, Tokyo 150-0033, Japan",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 12:00 – 6:00 PM",
+     "Wednesday: 12:00 – 6:00 PM",
+     "Thursday: 12:00 – 6:00 PM",
+     "Friday: 12:00 – 6:00 PM",
+     "Saturday: 12:00 – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "phone": null,
+    "website": "http://www.aisho.art/",
     "lat": 35.6484537,
     "lng": 139.7009297,
-    "ts": 1788460153
+    "ts": 1788494047
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493564,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "aisho-kitajima-axial-tilt",
+     "title": "Axial Tilt",
+     "artist": "Mariko Kitajima",
+     "start": "2026-08-20",
+     "end": "2026-09-19",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/aisho-kitajima-axial-tilt/01.jpg": {
+       "url": "https://images.squarespace-cdn.com/content/v1/6700a65ed824953000ccfb14/4bcc1213-2039-4208-b41a-e9f5e3141590/KV+20260703p801.jpg?format=2500w",
+       "px": [
+        2500,
+        3780
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -8336,12 +8371,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493564,
+     "session": "deep-tokyo-ebisu-meguro-1788493483",
+     "outcome": "saved",
+     "slug": "aisho-kitajima-axial-tilt",
+     "cost_usd": 0.2804,
+     "searches": 2,
+     "fetches": 6
+    }
+   ],
    "sources": {
     "directory_ts": 1788463115,
     "directory_session": "enum-tokyo-ebisu-meguro-1788462836",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "aisho-kitajima-axial-tilt"
+    ],
+    "crosscheck_ts": 1788494047,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -12117,37 +12164,100 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.507,
    "neighborhood": "Tennozu",
-   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo (TERRADA ART COMPLEX I, 4F)",
-   "address_detail": null,
-   "latitude": 35.6191183,
-   "longitude": 139.7466018,
-   "coords_source": "places",
+   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+   "address_detail": "Terrada Art Complex I, 4F",
+   "latitude": 35.6191531,
+   "longitude": 139.7466125,
+   "coords_source": "show:anomaly-makino-constellation",
    "website": "http://anomalytokyo.com/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Tue./Wed./Thu./Fri./Sat. 12:00 – 18:00, Closed on Sunday, Monday and National Holiday"
+   "exhibitions_url": "https://anomalytokyo.com/en/current-exhibition/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://anomalytokyo.com/en/current-exhibition/",
+    "https://anomalytokyo.com/en/upcoming-exhibition/",
+    "https://anomalytokyo.com/en/past-exhibitions/",
+    "https://anomalytokyo.com/top/"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 12:00pm to 6:00pm",
+    "Closed Sun, Mon and National Holidays"
+   ],
+   "phone": "+81-3-6433-2988",
    "google": {
     "status": "OPERATIONAL",
-    "address": "TERRADA Art Complex1 4F, 1-chōme-33−１０ Higashishinagawa, Shinagawa City",
+    "address": "Japan, 〒140-0002 Tokyo, Shinagawa City, Higashishinagawa, 1-chōme−33−１０ TERRADA Art Complex1 4F",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 12:00 – 6:00 PM",
+     "Wednesday: 12:00 – 6:00 PM",
+     "Thursday: 12:00 – 6:00 PM",
+     "Friday: 12:00 – 6:00 PM",
+     "Saturday: 12:00 – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "phone": "03-6433-2988",
+    "website": "http://anomalytokyo.com/",
     "lat": 35.6191183,
     "lng": 139.7466018,
-    "ts": 1788460153
+    "ts": 1788494041
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493511,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "anomaly-makino-constellation",
+     "title": "Constellation",
+     "artist": "Takashi Makino",
+     "start": "2026-09-19",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/anomaly-makino-constellation/01.jpg": {
+       "url": "https://anomalytokyo.com/log/wp-content/uploads/2026/08/2026_Takashi-Makino_Constellation_003.jpg",
+       "px": [
+        3982,
+        2100
+       ]
+      },
+      "images/tokyo/anomaly-makino-constellation/02.jpg": {
+       "url": "https://anomalytokyo.com/log/wp-content/uploads/2020/01/th_231021_anomaly_18_8-2000x1500.jpg",
+       "px": [
+        2000,
+        1500
+       ]
+      },
+      "images/tokyo/anomaly-makino-constellation/03.jpg": {
+       "url": "https://anomalytokyo.com/log/wp-content/uploads/2020/01/th_231021_anomaly_19_6-2000x1500.jpg",
+       "px": [
+        2000,
+        1500
+       ]
+      },
+      "images/tokyo/anomaly-makino-constellation/04.jpg": {
+       "url": "https://anomalytokyo.com/log/wp-content/uploads/2020/01/231021_anomaly_16-2000x1500.jpg",
+       "px": [
+        2000,
+        1500
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493511,
+    "reason": "closed_or_between_shows",
+    "detail": "Venue's own site shows no current exhibition (last show closed 8/23); next confirmed events are the Tennoz Contemporary fair (Sept 10-13) and Takashi Makino solo \"Constellation\" opening Sept 19, 2026 — the latter saved as an upcoming show.",
+    "url": "https://anomalytokyo.com/top/",
+    "session": "deep-tokyo-tennozu-1788493260"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -12161,12 +12271,42 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493494,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "anomaly-makino-constellation",
+     "cost_usd": 0.3812,
+     "searches": 4,
+     "fetches": 3
+    },
+    {
+     "ts": 1788493507,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "anomaly-makino-constellation",
+     "cost_usd": 0.0385,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493511,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0292,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463771,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "anomaly-makino-constellation"
+    ],
+    "crosscheck_ts": 1788494041,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -22112,7 +22252,24 @@
     "Closed Mondays"
    ],
    "phone": "+81-50-5541-8600",
-   "google": null,
+   "google": {
+    "status": "OPERATIONAL",
+    "address": "1-chōme-7-2 Kyōbashi, Chuo City, Tokyo 104-0031, Japan",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 10:00 AM – 6:00 PM",
+     "Wednesday: 10:00 AM – 6:00 PM",
+     "Thursday: 10:00 AM – 6:00 PM",
+     "Friday: 10:00 AM – 8:00 PM",
+     "Saturday: 10:00 AM – 6:00 PM",
+     "Sunday: 10:00 AM – 6:00 PM"
+    ],
+    "phone": "050-5541-8600",
+    "website": "https://www.artizon.museum/",
+    "lat": 35.6787634,
+    "lng": 139.7718919,
+    "ts": 1788494008
+   },
    "last_scraped": 1788227228,
    "last_outcome": "saved",
    "last_checked": null,
@@ -22149,7 +22306,7 @@
     "shows": [
      "sottsass-artizon"
     ],
-    "crosscheck_ts": null,
+    "crosscheck_ts": 1788494008,
     "site": {
      "ts": 1788457538,
      "url": "https://www.artizon.museum/en/",
@@ -26868,7 +27025,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.423,
    "neighborhood": "Nihonbashi/Bakurocho",
@@ -26880,19 +27037,27 @@
    "website": "http://basegallery.com/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "http://basegallery.com/en/exhibit/"
+   ],
    "hours": [
     "BASE GALLERY: 12:00 PM – 6:00 PM, Closed Mondays and National Holidays; BASE GALLERY HAKATA: 12:00 PM – 6:00 PM, Closed Tuesdays and Wednesdays (during exhibitions closed Wednesdays only)"
    ],
    "phone": null,
    "google": null,
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493477,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-24",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493477,
+    "reason": "closed_or_between_shows",
+    "detail": "BASE GALLERY's Tokyo space (Koura Daiichi Bldg 1F, 1-1-6 Nihonbashi Kayabacho, Chuo-ku) last held the Toshimitsu Baba exhibition, which closed July 5, 2026 per its own exhibition history page. All subsequent/upcoming listed exhibitions (Rikuji Makabe, Hitoshi Karasawa OPERA prints) are at BASE GALLERY HAKATA in Fukuoka, out of scope for Tokyo. No show is confirmed on view now or opening within 60 days at the Kayabacho location.",
+    "url": "http://basegallery.com/en/exhibit/",
+    "session": "deep-tokyo-nihonbashi-bakurocho-1788493320"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -26906,7 +27071,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493477,
+     "session": "deep-tokyo-nihonbashi-bakurocho-1788493320",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788462018,
     "directory_session": "enum-tokyo-nihonbashi-bakurocho-1788460170",
@@ -32213,6 +32388,105 @@
     "params_hash": "b0acd47ff821",
     "gate": null
    }
+  },
+  {
+   "id": "bvlgari-hotel-tokyo",
+   "name": "Bvlgari Hotel Tokyo",
+   "aliases": [],
+   "kind": "other",
+   "is_museum": false,
+   "status": "candidate",
+   "tier": null,
+   "notability": null,
+   "neighborhood": "Roppongi",
+   "address": null,
+   "address_detail": null,
+   "latitude": null,
+   "longitude": null,
+   "coords_source": null,
+   "website": "https://bulgarihotels.com/",
+   "exhibitions_url": null,
+   "exhibitions_url_source": null,
+   "exhibitions_url_candidates": [
+    "https://www.bulgarihotels.com/en_US/tokyo/whats-on/article/tokyo/in-the-city/man-ray--reinventing-the-image"
+   ],
+   "hours": [],
+   "phone": null,
+   "google": null,
+   "last_scraped": null,
+   "last_outcome": null,
+   "last_checked": null,
+   "next_check": "2026-09-03",
+   "check_cadence_days": null,
+   "last_known_shows": [],
+   "last_skip": null,
+   "page": {
+    "fetched_ts": null,
+    "http_status": null,
+    "etag": null,
+    "last_modified": null,
+    "text_hash": null,
+    "date_sig": null,
+    "date_strings": [],
+    "text_chars": 0,
+    "fetch_mode": "static",
+    "changed_ts": null,
+    "evidence_path": null
+   },
+   "scrape_history": [],
+   "sources": {
+    "directory_ts": null,
+    "directory_session": null,
+    "shows": [],
+    "crosscheck_ts": null,
+    "candidate": {
+     "session": "deep-tokyo-roppongi-1788493619",
+     "first_url": "https://www.bulgarihotels.com/en_US/tokyo/whats-on/article/tokyo/in-the-city/man-ray--reinventing-the-image",
+     "ts": 1788493746,
+     "zone_source": "session"
+    },
+    "touched_by": [
+     "candidate"
+    ]
+   },
+   "notes": "auto-candidate from deep-tokyo-roppongi-1788493619",
+   "verification": {
+    "status": null,
+    "ts": null,
+    "checks": {}
+   },
+   "about": {
+    "text": null,
+    "source_kind": null,
+    "source_url": null,
+    "evidence_path": null,
+    "written_ts": null,
+    "model": null,
+    "hints": []
+   },
+   "facts": {
+    "founded_year": null,
+    "founders": [],
+    "locations_elsewhere": [],
+    "program_focus": [],
+    "roster_count": null,
+    "exhibitions_total": null,
+    "exhibitions_per_year": null,
+    "first_exhibition_year": null,
+    "solo_share": null
+   },
+   "research": {
+    "ts": null,
+    "crawl_pages": null,
+    "triaged": null,
+    "report_path": null,
+    "cost_usd": null,
+    "gapfill": false
+   },
+   "features": {},
+   "rank": null,
+   "score": null,
+   "score_breakdown": null
   },
   {
    "id": "cadan-yurakucho",
@@ -39720,56 +39994,108 @@
   },
   {
    "id": "complex665-tomio-koyama",
-   "name": "Complex665 (Tomio Koyama Gallery)",
+   "name": "Tomio Koyama Gallery Tennoz",
    "aliases": [
     "Tomio Koyama Gallery Kiyosumi (former space)",
     "Tomio Koyama Gallery Roppongi",
-    "Tomio Koyama Gallery Tennoz"
+    "Tomio Koyama Gallery Tennoz",
+    "Complex665 (Tomio Koyama Gallery Tennoz)"
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 1,
    "notability": 0.551,
    "neighborhood": "Tennozu",
-   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo (TERRADA ART COMPLEX I, 4F)",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
-   "website": "http://tomiokoyamagallery.com/en",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Roppongi & Kyobashi: 11:00–19:00; Tennoz: 11:00–18:00; Closed Sun, Mon and National Holidays"
+   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+   "address_detail": "Terrada Art Complex I, 4F",
+   "latitude": 35.6191531,
+   "longitude": 139.7466125,
+   "coords_source": "show:tomio-koyama-tennoz-contemporary",
+   "website": "https://www.tomiokoyamagallery.com/en/",
+   "exhibitions_url": "https://www.tomiokoyamagallery.com/en/exhibitions/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.tomiokoyamagallery.com/en/exhibitions/",
+    "https://tomiokoyamagallery.com/en/exhibitions/",
+    "http://tomiokoyamagallery.com/en"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 11:00am to 6:00pm",
+    "Closed Sun, Mon and National Holidays"
+   ],
+   "phone": "+81-3-6459-4030",
    "google": {
     "status": "OPERATIONAL",
-    "address": "1-chōme-33-10 Higashishinagawa, Shinagawa City, Tokyo 140-0002, Japan",
+    "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−5−２４ complex665 2F",
     "hours": [
      "Monday: Closed",
-     "Tuesday: 11:00 AM – 6:00 PM",
-     "Wednesday: 11:00 AM – 6:00 PM",
-     "Thursday: 11:00 AM – 6:00 PM",
-     "Friday: 11:00 AM – 8:00 PM",
-     "Saturday: 11:00 AM – 6:00 PM",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
      "Sunday: Closed"
     ],
-    "phone": null,
-    "website": "http://terrada-art-complex.com/",
-    "lat": 35.6191746,
-    "lng": 139.7466033,
-    "ts": 1788465533
+    "phone": "03-6434-7225",
+    "website": "http://www.tomiokoyamagallery.com/",
+    "lat": 35.661568,
+    "lng": 139.731078,
+    "ts": 1788494023
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493395,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "tomio-koyama-tennoz-contemporary",
+     "title": "Tennoz Contemporary",
+     "artist": "Masahiko Kuwahara",
+     "start": "2026-09-10",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/tomio-koyama-tennoz-contemporary/01.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2020/07/MK_at-665_200710_002-1536x1024.jpg",
+       "px": [
+        1536,
+        1024
+       ]
+      },
+      "images/tokyo/tomio-koyama-tennoz-contemporary/02.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2020/07/MK_at-665_200710_013-1536x1024.jpg",
+       "px": [
+        1536,
+        1024
+       ]
+      },
+      "images/tokyo/tomio-koyama-tennoz-contemporary/03.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2015/07/MaK-Pa-17-34-scaled-e1674888585984.jpg",
+       "px": [
+        996,
+        1000
+       ]
+      },
+      "images/tokyo/tomio-koyama-tennoz-contemporary/04.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2017/06/mk_170624_001-1536x1024.jpg",
+       "px": [
+        1536,
+        1024
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493394,
+    "reason": "closed_or_between_shows",
+    "detail": "Tennoz location's gallery exhibitions page shows no current show on view now; next confirmed show is \"Tennoz Contemporary\" (Masahiko Kuwahara, part of Tennoz Art Week fair) opening Sept 10, 2026 — saved separately as an upcoming show.",
+    "url": "https://www.tomiokoyamagallery.com/en/exhibitions/",
+    "session": "deep-tokyo-tennozu-1788493260"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -39783,12 +40109,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493394,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "tomio-koyama-tennoz-contemporary",
+     "cost_usd": 0.4871,
+     "searches": 3,
+     "fetches": 13
+    },
+    {
+     "ts": 1788493395,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463771,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": 1788465533,
+    "shows": [
+     "tomio-koyama-tennoz-contemporary"
+    ],
+    "crosscheck_ts": 1788494023,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -39983,7 +40330,7 @@
    "aliases": [],
    "kind": "project_space",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.526,
    "neighborhood": "Nihonbashi/Bakurocho",
@@ -39995,7 +40342,9 @@
    "website": "https://contokyo.com",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.contokyo.com/exhibition/"
+   ],
    "hours": [
     "Open: Thu-Sun 14:00-19:00 / Closed: Mon, Tue, Wed, public holidays, otherwise announced"
    ],
@@ -40007,13 +40356,19 @@
     "lng": 139.7834804,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493477,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-24",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493477,
+    "reason": "closed_or_between_shows",
+    "detail": "Confirmed as a real project space in Nihonbashi-Bakurocho (Maruka bldg 4F, 2-2-14 Nihonbashi-Bakurocho, Chuo-ku). Its own exhibition page lists AUTOFICTION as the most recent show, running 2026.8.1–8.30; nothing newer is listed and the homepage shows no current Tokyo exhibition banner (only an off-site Frieze Seoul 2026 fair listing). No confirmed show is on view now or announced to open within 60 days.",
+    "url": "https://www.contokyo.com/exhibition/",
+    "session": "deep-tokyo-nihonbashi-bakurocho-1788493320"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -40027,7 +40382,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493477,
+     "session": "deep-tokyo-nihonbashi-bakurocho-1788493320",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0302,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788461996,
     "directory_session": "enum-tokyo-nihonbashi-bakurocho-1788460170",
@@ -45347,7 +45712,9 @@
    "website": "https://designfestagallery.com/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://designfestagallery.com/gallery/"
+   ],
    "hours": [
     "Monday: 11:00 AM – 8:00 PM",
     "Tuesday: 11:00 AM – 8:00 PM",
@@ -45376,13 +45743,19 @@
     "lng": 139.7081424,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493497,
+   "last_outcome": "skipped:other",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493497,
+    "reason": "other",
+    "detail": "Confirmed operating public venue, but it functions as a rental exhibition-space complex: 70+ small booths (GALLERY EAST/WEST, artpiece slots, Monthly Art, Art Theater) are rented independently by individual artists/hobbyists for days-to-weeks at a time, with no single curated venue-level exhibition, no dedicated press/exhibition pages, and no professional installation photography — none of the current listings (e.g. 'CATS' Sep1-Oct26, 'Monthly Art' slots Sep1-30) have any downloadable imagery or curatorial description suitable for a show record.",
+    "url": "https://designfestagallery.com/gallery/",
+    "session": "deep-tokyo-shibuya-omotesando-1788493340"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -45396,7 +45769,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493497,
+     "session": "deep-tokyo-shibuya-omotesando-1788493340",
+     "outcome": "skipped:other",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
@@ -50930,7 +51313,7 @@
    "phone": "0120-00-1854",
    "google": {
     "status": "OPERATIONAL",
-    "address": "ルイ･ヴィトン表参道ビル 7F, 5-chōme-7−５ Jingūmae, Shibuya",
+    "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 5-chōme−7−５ ルイ･ヴィトン表参道ビル 7F",
     "hours": [
      "Monday: 12:00 – 8:00 PM",
      "Tuesday: 12:00 – 8:00 PM",
@@ -50944,7 +51327,7 @@
     "website": "http://www.espacelouisvuittontokyo.com/",
     "lat": 35.6664981,
     "lng": 139.7090965,
-    "ts": 1788460153
+    "ts": 1788494020
    },
    "last_scraped": 1788227258,
    "last_outcome": "saved",
@@ -50982,7 +51365,7 @@
     "shows": [
      "rina-banerjee-espace-lv"
     ],
-    "crosscheck_ts": 1788457518,
+    "crosscheck_ts": 1788494020,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -51376,36 +51759,98 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.36,
    "neighborhood": "Shibuya/Omotesando",
-   "address": "3-chōme-41-3 Jingūmae, Shibuya",
+   "address": "3-41-3 Jingumae, Shibuya",
    "address_detail": null,
-   "latitude": 35.67091600000001,
-   "longitude": 139.7136642,
-   "coords_source": "places",
+   "latitude": 35.6708812,
+   "longitude": 139.7136437,
+   "coords_source": "show:eukaryote-spilling-body",
    "website": "https://eukaryote.jp",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Opening Hours 12:00-19:00, Closing Day: Monday"
+   "exhibitions_url": "https://eukaryote.jp/exhibition/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://eukaryote.jp/exhibition/",
+    "https://eukaryote.jp",
+    "https://eukaryote.jp/exhibition/seiran_tsuno_solo_ex/"
    ],
-   "phone": null,
+   "hours": [
+    "Wed - Sun 12:00pm to 7:00pm"
+   ],
+   "phone": "03-6432-9131",
    "google": {
     "status": "OPERATIONAL",
-    "address": "3-chōme-41-3 Jingūmae, Shibuya",
-    "lat": 35.67091600000001,
-    "lng": 139.7136642,
-    "ts": 1788460153
+    "address": "3-chōme-41-3 Jingūmae, Shibuya, Tokyo 150-0001, Japan",
+    "hours": [
+     "Monday: 12:00 – 8:00 PM",
+     "Tuesday: 12:00 – 8:00 PM",
+     "Wednesday: Closed",
+     "Thursday: 12:00 – 8:00 PM",
+     "Friday: 12:00 – 8:00 PM",
+     "Saturday: 12:00 – 8:00 PM",
+     "Sunday: 12:00 – 8:00 PM"
+    ],
+    "phone": "03-6434-9009",
+    "website": "http://batoner.com/",
+    "lat": 35.6708972,
+    "lng": 139.7136411,
+    "ts": 1788494036
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493487,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-11",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "eukaryote-spilling-body",
+     "title": "Spilling Body",
+     "artist": "Seiran Tsuno",
+     "start": "2026-08-21",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/eukaryote-spilling-body/01.jpg": {
+       "url": "https://eukaryote.jp/wordpress/wp-content/uploads/2026/08/web-2000x1000.png",
+       "px": [
+        2000,
+        1000
+       ]
+      },
+      "images/tokyo/eukaryote-spilling-body/02.jpg": {
+       "url": "https://www.adfwebmagazine.jp/wp-content/uploads/2026/07/adf-web-magazine-tsuno-eukaryote-1.jpg",
+       "px": [
+        1400,
+        700
+       ]
+      },
+      "images/tokyo/eukaryote-spilling-body/03.jpg": {
+       "url": "https://www.adfwebmagazine.jp/wp-content/uploads/2026/07/adf-web-magazine-tsuno-eukaryote-4.jpg",
+       "px": [
+        1200,
+        849
+       ]
+      },
+      "images/tokyo/eukaryote-spilling-body/04.jpg": {
+       "url": "https://www.adfwebmagazine.jp/wp-content/uploads/2026/07/adf-web-magazine-tsuno-eukaryote-2.jpg",
+       "px": [
+        800,
+        1200
+       ]
+      },
+      "images/tokyo/eukaryote-spilling-body/05.jpg": {
+       "url": "https://www.adfwebmagazine.jp/wp-content/uploads/2026/07/adf-web-magazine-tsuno-eukaryote-3.jpg",
+       "px": [
+        801,
+        1200
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -51420,12 +51865,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493487,
+     "session": "deep-tokyo-shibuya-omotesando-1788493340",
+     "outcome": "saved",
+     "slug": "eukaryote-spilling-body",
+     "cost_usd": 0.407,
+     "searches": 1,
+     "fetches": 8
+    }
+   ],
    "sources": {
     "directory_ts": 1788462497,
     "directory_session": "enum-tokyo-shibuya-omotesando-1788462197",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "eukaryote-spilling-body"
+    ],
+    "crosscheck_ts": 1788494036,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -56095,27 +56552,25 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.382,
    "neighborhood": "Ginza/Kyobashi",
-   "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 1-chōme−2−４ Success Ginza First, ４F",
-   "address_detail": null,
-   "latitude": 35.67497469999999,
+   "address": "1-2-4 Ginza, Chuo-ku, Tokyo",
+   "address_detail": "Success Ginza First Bldg, 4F",
+   "latitude": 35.6749747,
    "longitude": 139.7684627,
-   "coords_source": "places",
+   "coords_source": "show:naoco-kato-horses",
    "website": "https://www.prolab-create.jp/gallery/ginza/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.prolab-create.jp/gallery/ginza/"
+   ],
    "hours": [
-    "Monday: 10:30 AM – 7:00 PM",
-    "Tuesday: 10:30 AM – 7:00 PM",
-    "Wednesday: 10:30 AM – 7:00 PM",
-    "Thursday: 10:30 AM – 7:00 PM",
-    "Friday: 10:30 AM – 7:00 PM",
-    "Saturday: 11:00 AM – 5:00 PM",
-    "Sunday: 11:00 AM – 5:00 PM"
+    "Mon - Fri 10:30am to 7:00pm",
+    "Sat, Sun & holidays 11:00am to 5:00pm",
+    "Last day of each show closes at 2:00pm"
    ],
    "phone": "03-3538-9822",
    "google": {
@@ -56132,16 +56587,35 @@
     ],
     "phone": "03-3538-9822",
     "website": "https://www.prolab-create.jp/gallery/ginza/",
-    "lat": 35.67497469999999,
+    "lat": 35.6749747,
     "lng": 139.7684627,
-    "ts": 1788460153
+    "ts": 1788494068
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493626,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-04",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "naoco-kato-horses",
+     "title": "Journeys and Life: Scenes of Horses (旅と人生、馬のいる情景)",
+     "artist": "Naoco Kato",
+     "start": "2026-08-28",
+     "end": "2026-09-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/naoco-kato-horses/01.jpg": {
+       "url": "https://www.prolab-create.jp/gallery/ginza/pack/images/index_exhibition_696.jpg",
+       "px": [
+        1080,
+        736
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -56156,12 +56630,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493626,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "naoco-kato-horses",
+     "cost_usd": 0.0374,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "naoco-kato-horses"
+    ],
+    "crosscheck_ts": 1788494068,
     "seed": {
      "places": {
       "ts": 1788460153,
@@ -59342,33 +59828,29 @@
   },
   {
    "id": "galerie-a",
-   "name": "galerie-a",
+   "name": "galerie a",
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 3,
    "notability": 0.298,
    "neighborhood": "Shibuya/Omotesando",
-   "address": "Japan, 〒107-0062 Tokyo, Minato City, Minamiaoyama, 6-chōme−9−２ 日興児玉パレス 104",
-   "address_detail": null,
+   "address": "6-9-2 Minami Aoyama, Minato City",
+   "address_detail": "Nikko Kodama Palace 104",
    "latitude": 35.6592922,
    "longitude": 139.7161599,
-   "coords_source": "places",
-   "website": "https://galerie-a.jp/",
+   "coords_source": "show:galerie-a-mujigokujo",
+   "website": "https://galerie-a.jp",
    "exhibitions_url": "https://galerie-a.jp/exhibition/",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Monday: 12:00 – 6:00 PM",
-    "Tuesday: 12:00 – 6:00 PM",
-    "Wednesday: 12:00 – 6:00 PM",
-    "Thursday: 12:00 – 6:00 PM",
-    "Friday: 12:00 – 6:00 PM",
-    "Saturday: 12:00 – 6:00 PM",
-    "Sunday: 12:00 – 6:00 PM"
+   "exhibitions_url_candidates": [
+    "https://galerie-a.jp/"
    ],
-   "phone": null,
+   "hours": [
+    "Fri - Sun 12:00pm to 6:00pm (during exhibitions)"
+   ],
+   "phone": "03-6450-6725",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒107-0062 Tokyo, Minato City, Minamiaoyama, 6-chōme−9−２ 日興児玉パレス 104",
@@ -59381,18 +59863,72 @@
      "Saturday: 12:00 – 6:00 PM",
      "Sunday: 12:00 – 6:00 PM"
     ],
+    "phone": null,
     "website": "https://galerie-a.jp/",
     "lat": 35.6592922,
     "lng": 139.7161599,
-    "ts": 1788460153
+    "ts": 1788494038
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493497,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-11",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "galerie-a-mujigokujo",
+     "title": "Mujigokujo (無地極上)",
+     "artist": "Yosuke Urakami",
+     "start": "2026-09-04",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/galerie-a-mujigokujo/01.jpg": {
+       "url": "https://galerie-a.jp/wp/wp-content/themes/storefront/assets_ga/img/mu/list_img01.jpg",
+       "px": [
+        800,
+        800
+       ]
+      },
+      "images/tokyo/galerie-a-mujigokujo/02.jpg": {
+       "url": "https://galerie-a.jp/wp/wp-content/themes/storefront/assets_ga/img/mu/list_img02.jpg",
+       "px": [
+        800,
+        800
+       ]
+      },
+      "images/tokyo/galerie-a-mujigokujo/03.jpg": {
+       "url": "https://galerie-a.jp/wp/wp-content/themes/storefront/assets_ga/img/mu/list_img03.jpg",
+       "px": [
+        800,
+        800
+       ]
+      },
+      "images/tokyo/galerie-a-mujigokujo/04.jpg": {
+       "url": "https://galerie-a.jp/wp/wp-content/themes/storefront/assets_ga/img/mu/list_img04.jpg",
+       "px": [
+        800,
+        800
+       ]
+      },
+      "images/tokyo/galerie-a-mujigokujo/05.jpg": {
+       "url": "https://galerie-a.jp/wp/wp-content/themes/storefront/assets_ga/img/mu/ex00.jpg",
+       "px": [
+        800,
+        533
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493497,
+    "reason": "closed_or_between_shows",
+    "detail": "Gallery's own site shows no exhibition on view today (Sep 3, 2026); its next show, Yosuke Urakami's \"Mujigokujo,\" opens Sep 4, 2026 and has been saved as an upcoming show. Prior show archive shows nothing running through Sep 3.",
+    "url": "https://galerie-a.jp/",
+    "session": "deep-tokyo-shibuya-omotesando-1788493340"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -59406,12 +59942,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493488,
+     "session": "deep-tokyo-shibuya-omotesando-1788493340",
+     "outcome": "saved",
+     "slug": "galerie-a-mujigokujo",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493497,
+     "session": "deep-tokyo-shibuya-omotesando-1788493340",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0313,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788462499,
     "directory_session": "enum-tokyo-shibuya-omotesando-1788462197",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "galerie-a-mujigokujo"
+    ],
+    "crosscheck_ts": 1788494038,
     "seed": {
      "places": {
       "ts": 1788460153,
@@ -61095,21 +61652,29 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.374,
    "neighborhood": "Ginza/Kyobashi",
-   "address": "Ginza",
+   "address": "5-3-16 Ginza, Chuo-ku, Tokyo",
    "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
+   "latitude": 35.6719148,
+   "longitude": 139.7629318,
+   "coords_source": "show:kanamori-hito-no-ibasho",
    "website": "http://www.nichido-garo.co.jp/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
-   "phone": null,
+   "exhibitions_url": "https://www.nichido-garo.co.jp/exhibition/2026/09/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.nichido-garo.co.jp/exhibition/2026/09/",
+    "https://www.nichido-garo.co.jp/exhibition/2026/09/post-578.html",
+    "https://www.nichido-garo.co.jp/artist/saiji_kanamori.html"
+   ],
+   "hours": [
+    "Mon - Fri 10:30am to 6:30pm",
+    "Sat 11:00am to 6:00pm",
+    "Closed Sun & holidays"
+   ],
+   "phone": "03-3571-2553",
    "google": {
     "status": "OPERATIONAL",
     "address": "5-chōme-3-16 Ginza, Chuo City, Tokyo 104-0061, Japan",
@@ -61126,14 +61691,40 @@
     "website": "http://www.nichido-garo.co.jp/",
     "lat": 35.6718973,
     "lng": 139.7629202,
-    "ts": 1788467281
+    "ts": 1788494042
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493498,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-15",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "kanamori-hito-no-ibasho",
+     "title": "A Place for People — Landscapes We Live Together In (人の居場所－共に生きる風景)",
+     "artist": "Saiji Kanamori",
+     "start": "2026-09-03",
+     "end": "2026-09-17",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/kanamori-hito-no-ibasho/01.jpg": {
+       "url": "https://www.nichido-garo.co.jp/exhibition/260827_004og.jpg",
+       "px": [
+        1200,
+        988
+       ]
+      },
+      "images/tokyo/kanamori-hito-no-ibasho/02.jpg": {
+       "url": "https://www.nichido-garo.co.jp/artist/images/saiji_kanamori010.jpg",
+       "px": [
+        500,
+        390
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -61148,12 +61739,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493498,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kanamori-hito-no-ibasho",
+     "cost_usd": 0.1636,
+     "searches": 1,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453596,
     "directory_session": "enum-tokyo-ginza-kyobashi-1788453180",
-    "shows": [],
-    "crosscheck_ts": 1788457516,
+    "shows": [
+     "kanamori-hito-no-ibasho"
+    ],
+    "crosscheck_ts": 1788494042,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -84400,10 +85003,21 @@
    "phone": "+81-3-3561-1896",
    "google": {
     "status": "OPERATIONAL",
-    "address": "銀座小柳ビル 9F, 1-chōme-１−７−５ Ginza, Chuo City",
+    "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 1-chōme−１−７−５ 銀座小柳ビル 9F",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 12:00 – 7:00 PM",
+     "Wednesday: 12:00 – 7:00 PM",
+     "Thursday: 12:00 – 7:00 PM",
+     "Friday: 12:00 – 7:00 PM",
+     "Saturday: 12:00 – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "phone": "03-3561-1896",
+    "website": "http://www.gallerykoyanagi.com/",
     "lat": 35.6747569,
     "lng": 139.7681076,
-    "ts": 1788460153
+    "ts": 1788494013
    },
    "last_scraped": 1788227238,
    "last_outcome": "saved",
@@ -84441,7 +85055,7 @@
     "shows": [
      "sugimoto-seascapes-koyanagi"
     ],
-    "crosscheck_ts": null,
+    "crosscheck_ts": 1788494013,
     "site": {
      "ts": 1788457520,
      "url": "https://gallerykoyanagi.com/en/",
@@ -86078,7 +86692,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "out_of_scope",
    "tier": 2,
    "notability": 0.302,
    "neighborhood": "Ebisu/Meguro",
@@ -86090,7 +86704,9 @@
    "website": "http://ledeco.net/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "http://ledeco.net/"
+   ],
    "hours": [
     "Monday: Closed",
     "Tuesday: 11:00 AM – 7:00 PM",
@@ -86119,13 +86735,19 @@
     "lng": 139.7051582,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493571,
+   "last_outcome": "skipped:out_of_scope",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493571,
+    "reason": "out_of_scope",
+    "detail": "Address is 3-16-3 Shibuya, immediately by Shibuya Station's new south exit (per site's own directions) — this is central Shibuya proper, not within the Ebisu/Daikanyama/Nakameguro/Meguro/Hiroo/Shirokane zone. It's also a pure rental-exhibition-space (no curated program; weekly rotating rentals like university photo clubs), further outside the gallery-guide scope for this zone.",
+    "url": "http://ledeco.net/",
+    "session": "deep-tokyo-ebisu-meguro-1788493483"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -86139,7 +86761,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493571,
+     "session": "deep-tokyo-ebisu-meguro-1788493483",
+     "outcome": "skipped:out_of_scope",
+     "slug": null,
+     "cost_usd": 0.0234,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
@@ -87967,35 +88599,33 @@
   },
   {
    "id": "gallery-momo-projects",
-   "name": "GALLERY MoMo Projects",
+   "name": "GALLERY MoMo Ryogoku",
    "aliases": [
-    "GALLERY MoMo Ryogoku"
+    "GALLERY MoMo Ryogoku",
+    "GALLERY MoMo"
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.379,
    "neighborhood": "Kiyosumi-Shirakawa",
-   "address": "1-chōme-7-15 Kamezawa, Sumida City, Tokyo 130-0014, Japan",
+   "address": "1-7-15 Kamezawa, Sumida-ku, Tokyo 130-0014",
    "address_detail": null,
-   "latitude": 35.6960936,
-   "longitude": 139.7978727,
-   "coords_source": "places",
+   "latitude": 35.6960874,
+   "longitude": 139.7978784,
+   "coords_source": "show:momo-yoshida-fresh-fossils",
    "website": "https://en.gallery-momo.com/",
    "exhibitions_url": "https://en.gallery-momo.com/exhibition",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 7:00 PM",
-    "Wednesday: 11:00 AM – 7:00 PM",
-    "Thursday: 11:00 AM – 7:00 PM",
-    "Friday: 11:00 AM – 7:00 PM",
-    "Saturday: 11:00 AM – 7:00 PM",
-    "Sunday: Closed"
+   "exhibitions_url_candidates": [
+    "https://en.gallery-momo.com/exhibition"
    ],
-   "phone": "03-3621-6813",
+   "hours": [
+    "Tue - Sun 11am to 7pm",
+    "Closed Mon and Aug 14-17"
+   ],
+   "phone": "+81-3-3621-6813",
    "google": {
     "status": "OPERATIONAL",
     "address": "1-chōme-7-15 Kamezawa, Sumida City, Tokyo 130-0014, Japan",
@@ -88012,14 +88642,79 @@
     "website": "http://www.gallery-momo.com/",
     "lat": 35.6960936,
     "lng": 139.7978727,
-    "ts": 1788460153
+    "ts": 1788494054
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493573,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-04",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "momo-konoike-summer-school",
+     "title": "Medicine Infrastructure via Map — Tomoko Konoike's Summer School",
+     "artist": "Tomoko Konoike",
+     "start": "2026-08-02",
+     "end": "2026-09-06",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/momo-konoike-summer-school/01.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_8a7980160c924739b46f8bbb10582dfb~mv2.jpg",
+       "px": [
+        2777,
+        1424
+       ]
+      },
+      "images/tokyo/momo-konoike-summer-school/02.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_6b235c97121646ff890e90197d3ab68f~mv2.jpg",
+       "px": [
+        1800,
+        1350
+       ]
+      },
+      "images/tokyo/momo-konoike-summer-school/03.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_bfb369ca506b4220a774b8750ea6c1ca~mv2.jpg",
+       "px": [
+        1800,
+        1191
+       ]
+      },
+      "images/tokyo/momo-konoike-summer-school/04.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_51915f5379594e2896e8731112ab78b8~mv2.jpeg",
+       "px": [
+        1800,
+        1350
+       ]
+      },
+      "images/tokyo/momo-konoike-summer-school/05.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_259ede819b114a249ec80ad60d89d76a~mv2.jpeg",
+       "px": [
+        1800,
+        1350
+       ]
+      }
+     }
+    },
+    {
+     "slug": "momo-yoshida-fresh-fossils",
+     "title": "Fresh Fossils",
+     "artist": "Waka Yoshida",
+     "start": "2026-09-12",
+     "end": "2026-10-17",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/momo-yoshida-fresh-fossils/01.jpg": {
+       "url": "https://static.wixstatic.com/media/aa2500_67958471b6f94b5b90d8f855f27e2058~mv2.jpeg",
+       "px": [
+        1900,
+        1156
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -88034,12 +88729,34 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493572,
+     "session": "deep-tokyo-kiyosumi-shirakawa-1788493504",
+     "outcome": "saved",
+     "slug": "momo-konoike-summer-school",
+     "cost_usd": 0.031,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493573,
+     "session": "deep-tokyo-kiyosumi-shirakawa-1788493504",
+     "outcome": "saved",
+     "slug": "momo-yoshida-fresh-fossils",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463623,
     "directory_session": "enum-tokyo-kiyosumi-shirakawa-1788463295",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "momo-konoike-summer-school",
+     "momo-yoshida-fresh-fossils"
+    ],
+    "crosscheck_ts": 1788494054,
     "seed": {
      "places": {
       "ts": 1788460153,
@@ -109070,35 +109787,34 @@
   },
   {
    "id": "ginza-canon",
-   "name": "Ginza Canon Gallery",
+   "name": "Canon Gallery S",
    "aliases": [
     "Canon Gallery S"
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.374,
    "neighborhood": "Tennozu",
-   "address": "1F Canon S Tower, 2-16-6 Konan, Minato-ku, Tokyo 108-8011",
-   "address_detail": null,
-   "latitude": 35.6256052,
-   "longitude": 139.7407324,
-   "coords_source": "places",
+   "address": "2-16-6 Konan, Minato-ku, Tokyo",
+   "address_detail": "Canon S Tower, 1F",
+   "latitude": 35.625598,
+   "longitude": 139.7403848,
+   "coords_source": "show:canon-ui-ankoraci",
    "website": "https://personal.canon.jp/showroom/gallery/shinagawa",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Monday: 10:00 AM – 5:30 PM",
-    "Tuesday: 10:00 AM – 5:30 PM",
-    "Wednesday: 10:00 AM – 5:30 PM",
-    "Thursday: 10:00 AM – 5:30 PM",
-    "Friday: 10:00 AM – 5:30 PM",
-    "Saturday: 10:00 AM – 5:30 PM",
-    "Sunday: Closed"
+   "exhibitions_url": "https://personal.canon.jp/showroom/gallery/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://personal.canon.jp/showroom/gallery/",
+    "https://personal.canon.jp/event/photographyexhibition/gallery/",
+    "https://personal.canon.jp/showroom/gallery/shinagawa"
    ],
-   "phone": "03-6719-9021",
+   "hours": [
+    "Mon - Sat 10:00am to 5:30pm",
+    "Closed Sundays, holidays, and Sep 21-23, 2026"
+   ],
+   "phone": "0570-07-9264",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒108-0075 Tokyo, Minato City, Kōnan, 2-chōme−16−６ キヤノンＳタワー 1F",
@@ -109115,14 +109831,40 @@
     "website": "https://personal.canon.jp/showroom/gallery/shinagawa",
     "lat": 35.6256052,
     "lng": 139.7407324,
-    "ts": 1788460153
+    "ts": 1788494084
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493925,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "canon-ui-ankoraci",
+     "title": "ankoraci — そのまま、そのまま (Ankoraci: As It Is, As It Is)",
+     "artist": "Makiko Ui",
+     "start": "2026-08-17",
+     "end": "2026-09-29",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/canon-ui-ankoraci/01.jpg": {
+       "url": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/event/photographyexhibition/gallery/ui-ankoraci/image/work-02.jpg?sc_lang=ja-JP",
+       "px": [
+        600,
+        400
+       ]
+      },
+      "images/tokyo/canon-ui-ankoraci/02.jpg": {
+       "url": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/event/photographyexhibition/gallery/ui-ankoraci/image/work-06.jpg?sc_lang=ja-JP",
+       "px": [
+        533,
+        400
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -109137,12 +109879,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493925,
+     "session": "deep-tokyo-tennozu-1788493817",
+     "outcome": "saved",
+     "slug": "canon-ui-ankoraci",
+     "cost_usd": 0.2508,
+     "searches": 2,
+     "fetches": 1
+    }
+   ],
    "sources": {
     "directory_ts": 1788463918,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "canon-ui-ankoraci"
+    ],
+    "crosscheck_ts": 1788494084,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -110054,7 +110808,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "closed",
    "tier": 2,
    "notability": 0.301,
    "neighborhood": "Ginza/Kyobashi",
@@ -110066,7 +110820,9 @@
    "website": "https://www.dnpfcp.jp/gallery/ggg/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.dnpfcp.jp/gallery/ggg/"
+   ],
    "hours": [
     "Monday: 11:00 AM – 7:00 PM",
     "Tuesday: 11:00 AM – 7:00 PM",
@@ -110095,13 +110851,19 @@
     "lng": 139.7624842,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493734,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-12-02",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493734,
+    "reason": "closed_or_between_shows",
+    "detail": "Between exhibitions today — the previous show (Duffy Coolen posters) has closed and the gallery's next exhibition, Yoshihisa Tanaka's \"ARCHIVE / ACHIEVE,\" opens Sept 4, 2026 (saved separately as upcoming).",
+    "url": "https://www.dnpfcp.jp/gallery/ggg/",
+    "session": "deep-tokyo-ginza-kyobashi-1788493280"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -110115,7 +110877,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493734,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0311,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
@@ -110318,45 +111090,92 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 3,
    "notability": 0.182,
    "neighborhood": "Ginza/Kyobashi",
-   "address": "Kojunsha Street, near Ginza Six",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
-   "website": null,
+   "address": "7-7-2 Ginza, Chuo-ku, Tokyo",
+   "address_detail": "DNP Ginza Bldg, 1F/B1F",
+   "latitude": 35.669705,
+   "longitude": 139.7625685,
+   "coords_source": "show:tanaka-archive-achieve",
+   "website": "https://www.dnpfcp.jp/gallery/ggg/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
-   "phone": null,
+   "exhibitions_url_candidates": [
+    "https://www.dnpfcp.jp/gallery/ggg/jp/00000861",
+    "https://www.dnpfcp.jp/gallery/ggg/access/map.html",
+    "https://www.dnpfcp.jp/gallery/ggg/"
+   ],
+   "hours": [
+    "Mon - Sat 11:00am to 7:00pm",
+    "Closed Sun & holidays"
+   ],
+   "phone": "03-3571-5206",
    "google": {
     "status": "OPERATIONAL",
-    "address": "6-chōme-10-1 Ginza, Chuo City, Tokyo 104-0061, Japan",
+    "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 7-chōme−7−２ DNP 銀座ビル 1F",
     "hours": [
-     "Monday: 10:30 AM – 8:30 PM",
-     "Tuesday: 10:30 AM – 8:30 PM",
-     "Wednesday: 10:30 AM – 8:30 PM",
-     "Thursday: 10:30 AM – 8:30 PM",
-     "Friday: 10:30 AM – 8:30 PM",
-     "Saturday: 10:30 AM – 8:30 PM",
-     "Sunday: 10:30 AM – 8:30 PM"
+     "Monday: 11:00 AM – 7:00 PM",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
     ],
-    "phone": "03-6891-3390",
-    "website": "https://ginza6.tokyo/",
-    "lat": 35.6697688,
-    "lng": 139.7641762,
-    "ts": 1788457517
+    "phone": "03-3571-5206",
+    "website": "https://www.dnpfcp.jp/gallery/ggg/",
+    "lat": 35.6697019,
+    "lng": 139.7624842,
+    "ts": 1788494071
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493729,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-05",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "tanaka-archive-achieve",
+     "title": "ARCHIVE / ACHIEVE",
+     "artist": "Yoshihisa Tanaka",
+     "start": "2026-09-04",
+     "end": "2026-10-21",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/tanaka-archive-achieve/01.jpg": {
+       "url": "https://www.dnpfcp.jp/gallery/exhibition/exhibition_images/IMG_1_00000861.jpg",
+       "px": [
+        600,
+        833
+       ]
+      },
+      "images/tokyo/tanaka-archive-achieve/03.jpg": {
+       "url": "https://www.dnpfcp.jp/gallery/exhibition/exhibition_images/IMG_2_00000861.jpg",
+       "px": [
+        600,
+        816
+       ]
+      },
+      "images/tokyo/tanaka-archive-achieve/04.jpg": {
+       "url": "https://www.dnpfcp.jp/gallery/exhibition/exhibition_images/IMG_4_00000861.jpg",
+       "px": [
+        600,
+        739
+       ]
+      },
+      "images/tokyo/tanaka-archive-achieve/05.jpg": {
+       "url": "https://www.dnpfcp.jp/gallery/exhibition/exhibition_images/IMG_7_00000861.jpg",
+       "px": [
+        600,
+        834
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -110371,12 +111190,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493706,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "tanaka-archive-achieve",
+     "cost_usd": 0.1621,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493729,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "tanaka-archive-achieve",
+     "cost_usd": 0.0402,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453596,
     "directory_session": "enum-tokyo-ginza-kyobashi-1788453180",
-    "shows": [],
-    "crosscheck_ts": 1788457517,
+    "shows": [
+     "tanaka-archive-achieve"
+    ],
+    "crosscheck_ts": 1788494071,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -115545,10 +116385,12 @@
   {
    "id": "hagiwara-projects",
    "name": "HAGIWARA PROJECTS",
-   "aliases": [],
+   "aliases": [
+    "HagiwaraProjects"
+   ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "out_of_scope",
    "tier": 2,
    "notability": 0.36,
    "neighborhood": "Kiyosumi-Shirakawa",
@@ -115560,7 +116402,9 @@
    "website": "https://hagiwaraprojects.com",
    "exhibitions_url": "https://www.hagiwaraprojects.com/exhibitions",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://hagiwaraprojects.com"
+   ],
    "hours": [
     "Open 12:00-18:00 / Closed on Sunday, Monday and National holidays"
    ],
@@ -115572,13 +116416,19 @@
     "lng": 139.731407,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493550,
+   "last_outcome": "skipped:out_of_scope",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493550,
+    "reason": "out_of_scope",
+    "detail": "Confirmed via venue's own site: address is Piramide 2F, 6-6-9 Roppongi, Minato-ku, Tokyo — this is in Roppongi/Minato, not within the Kiyosumi-Shirakawa zone (Kiyosumi-Shirakawa, Kiba, Monzen-Nakacho, Ryogoku, Toyosu east of the Sumida). Out of geographic scope for this zone.",
+    "url": "https://hagiwaraprojects.com",
+    "session": "deep-tokyo-kiyosumi-shirakawa-1788493504"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -115592,7 +116442,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493550,
+     "session": "deep-tokyo-kiyosumi-shirakawa-1788493504",
+     "outcome": "skipped:out_of_scope",
+     "slug": null,
+     "cost_usd": 0.1424,
+     "searches": 0,
+     "fetches": 4
+    }
+   ],
    "sources": {
     "directory_ts": 1788463624,
     "directory_session": "enum-tokyo-kiyosumi-shirakawa-1788463295",
@@ -128817,7 +129677,7 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "out_of_scope",
    "tier": 3,
    "notability": 0.3,
    "neighborhood": "Tennozu",
@@ -128829,7 +129689,9 @@
    "website": "https://ginza.ippodogallery.com/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://ginza.ippodogallery.com/"
+   ],
    "hours": [
     "Monday: Closed",
     "Tuesday: 11:00 AM – 7:00 PM",
@@ -128858,13 +129720,19 @@
     ],
     "ts": 1788467284
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493807,
+   "last_outcome": "skipped:out_of_scope",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493807,
+    "reason": "out_of_scope",
+    "detail": "Venue's own site confirms its address is 3F Isei Building, 1-8-17 Ginza, Chuo-ku — located in Ginza, not in the Tennozu/Tennozu Isle zone this session covers.",
+    "url": "https://ginza.ippodogallery.com/",
+    "session": "deep-tokyo-tennozu-1788493260"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -128878,7 +129746,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493807,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "skipped:out_of_scope",
+     "slug": null,
+     "cost_usd": 0.0893,
+     "searches": 0,
+     "fetches": 1
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
@@ -136934,36 +137812,67 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.477,
    "neighborhood": "Ebisu/Meguro",
-   "address": "Crest Bldg B1F, 2-3-30 Motoazabu, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.65391039999999,
+   "address": "2-3-30 Motoazabu, Minato-ku",
+   "address_detail": "Motoazabu Crest Building B1F",
+   "latitude": 35.6539104,
    "longitude": 139.7271634,
-   "coords_source": "places",
+   "coords_source": "show:kaikaikiki-social-media",
    "website": "https://en.gallery-kaikaikiki.com/",
    "exhibitions_url": "https://en.gallery-kaikaikiki.com/2012/11/exhibition-event/",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
    "hours": [
-    "Closed except during exhibitions or events."
+    "Fri, Sat, Tue - Thu 11am to 7pm",
+    "Closed Sun, Mon and public holidays"
    ],
-   "phone": null,
+   "phone": "+81-3-6823-6038",
    "google": {
     "status": "OPERATIONAL",
-    "address": "MOTOAZABU CREST BUILDING B1F, 2-chōme-3−３０ Motoazabu, Minato City",
-    "lat": 35.65391039999999,
+    "address": "Japan, 〒106-0046 Tokyo, Minato City, Motoazabu, 2-chōme−3−３０ MOTOAZABU CREST BUILDING B1F",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "phone": "03-6823-6038",
+    "website": "http://gallery-kaikaikiki.com/",
+    "lat": 35.6539104,
     "lng": 139.7271634,
-    "ts": 1788460153
+    "ts": 1788494050
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493565,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-11",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "kaikaikiki-social-media",
+     "title": "Artists Discovered Through Social Media — Then, Now, and the Future",
+     "artist": "Emi Kuraya, Utanhole, MADSAKI, Momoka Ota, Hideyasu Moto, Kuru Yumeno, Naoki Saito, Mai Kurotaki, Hideki Maekawa, YEYE, Isoo Togawa, Alison Friend",
+     "start": "2026-08-14",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/kaikaikiki-social-media/01.jpg": {
+       "url": "https://en.gallery-kaikaikiki.com/wp-content/uploads/2026/08/S__688717844-scaled.jpg",
+       "px": [
+        2560,
+        1588
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -136978,12 +137887,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493565,
+     "session": "deep-tokyo-ebisu-meguro-1788493483",
+     "outcome": "saved",
+     "slug": "kaikaikiki-social-media",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463114,
     "directory_session": "enum-tokyo-ebisu-meguro-1788462836",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "kaikaikiki-social-media"
+    ],
+    "crosscheck_ts": 1788494050,
     "site": {
      "ts": 1788457541,
      "url": "https://en.gallery-kaikaikiki.com/",
@@ -137702,7 +138623,7 @@
    "phone": "+81-3-5843-9128",
    "google": {
     "status": "OPERATIONAL",
-    "address": "4-chōme-7-6 Shirakawa, Koto City",
+    "address": "4-chōme-7-6 Shirakawa, Koto City, Tokyo 135-0021, Japan",
     "hours": [
      "Monday: Closed",
      "Tuesday: Closed",
@@ -137716,7 +138637,7 @@
     "website": "http://www.kanakawanishi.com/",
     "lat": 35.6835883,
     "lng": 139.8090022,
-    "ts": 1788460153
+    "ts": 1788494018
    },
    "last_scraped": 1788227252,
    "last_outcome": "saved",
@@ -137754,7 +138675,7 @@
     "shows": [
      "hogalee-liminal-kana-kawanishi"
     ],
-    "crosscheck_ts": 1788457523,
+    "crosscheck_ts": 1788494018,
     "site": {
      "ts": 1788457523,
      "url": "https://www.kanakawanishi.com/",
@@ -139115,7 +140036,7 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "out_of_scope",
    "tier": 3,
    "notability": 0.296,
    "neighborhood": "Shinjuku/Kagurazaka",
@@ -139127,7 +140048,9 @@
    "website": "https://kenjitaki.com",
    "exhibitions_url": "https://kenjitaki.com/en/exhibitions",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://kenjitaki.com/en/"
+   ],
    "hours": [
     "12:00 – 18:00 (Nagoya, from Feb 10)"
    ],
@@ -139139,13 +140062,19 @@
     "lng": 139.6876727,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493507,
+   "last_outcome": "skipped:out_of_scope",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493507,
+    "reason": "out_of_scope",
+    "detail": "Gallery's own site (kenjitaki.com) shows its Tokyo space has relocated to Piramide Bldg. 3F, 6-6-9 Roppongi, Minato-ku — no longer at the Nishi-Shinjuku address on the TODO list. Current/upcoming shows (Gallery Artists Show; Fukumi Sukigara; Arika Someya) are all at this Roppongi (Minato-ku) location, outside the Shinjuku/Kagurazaka zone.",
+    "url": "https://kenjitaki.com/en/",
+    "session": "deep-tokyo-shinjuku-kagurazaka-1788493300"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -139159,7 +140088,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493507,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "skipped:out_of_scope",
+     "slug": null,
+     "cost_usd": 0.0261,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788462828,
     "directory_session": "enum-tokyo-shinjuku-kagurazaka-1788462503",
@@ -144319,7 +145258,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.474,
    "neighborhood": "Nihonbashi/Bakurocho",
@@ -144331,7 +145270,9 @@
    "website": "https://kokiarts.com",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.kokiarts.com/new-page"
+   ],
    "hours": [
     "12:00–19:00, and by appointment. Closed: Sunday, Monday, Tuesday, national holidays"
    ],
@@ -144343,13 +145284,19 @@
     "lng": 139.7820628,
     "ts": 1788460153
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493477,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-24",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493477,
+    "reason": "closed_or_between_shows",
+    "detail": "Confirmed as a real gallery at Rose Bldg 1F, 1-15-2 Higashi-Kanda, Chiyoda-ku. Its homepage and exhibitions page still display Russell Tyler's \"From the Shore,\" but that show's own dates were 2026.7.8–8.8, which already ended; no new exhibition has been posted since. The gallery is participating in an off-site fair (TERRADA ART COMPLEX, Tennoz) Sept 10-13, but that is not a show at its own space. Nothing confirmed on view now or opening within 60 days at the home gallery.",
+    "url": "https://www.kokiarts.com/new-page",
+    "session": "deep-tokyo-nihonbashi-bakurocho-1788493320"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -144363,7 +145310,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493477,
+     "session": "deep-tokyo-nihonbashi-bakurocho-1788493320",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788462017,
     "directory_session": "enum-tokyo-nihonbashi-bakurocho-1788460170",
@@ -145350,31 +146307,33 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.401,
    "neighborhood": "Nihonbashi/Bakurocho",
-   "address": "第2龍名館ビル 1F D, 3-chōme-20−４ Kanda Ogawamachi, Chiyoda City",
-   "address_detail": null,
+   "address": "3-20-4 Kanda Ogawamachi, Chiyoda-ku, Tokyo",
+   "address_detail": "Dai 2-Ryumeikan Bldg, 1F D",
    "latitude": 35.6967717,
    "longitude": 139.7614254,
-   "coords_source": "places",
-   "website": "http://komiyamatokyo-g.com/",
+   "coords_source": "show:teru-noji-before-the-pointing",
+   "website": "https://www.komiyamatokyo-g.com/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "12:00-18:30 (Mon, Thu, Fri, Sat); 12:00-17:30 (Sun/National holidays); closed Tuesday and Wednesday"
+   "exhibitions_url_candidates": [
+    "http://komiyamatokyo-g.com/",
+    "https://www.komiyamatokyo-g.com/?page_id=20",
+    "https://www.komiyamatokyo-g.com/?exhibit=teru-nojis-before-the-pointing-%e3%83%86%e3%83%ab%e3%83%bb%e3%83%8e%e3%83%82%e3%80%80%e4%b9%8b%e3%80%80%e6%8c%87%e3%81%95%e3%81%95%e3%82%8c%e3%82%8b%e5%89%8d",
+    "https://www.komiyamatokyo-g.com/?page_id=16"
    ],
-   "phone": null,
+   "hours": [
+    "Thu - Mon 12:00pm to 6:30pm",
+    "Sun 12:00pm to 5:30pm",
+    "Closed Tue, Wed"
+   ],
+   "phone": "+81-3-6811-7355",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒101-0052 Tokyo, Chiyoda City, Kanda Ogawamachi, 3-chōme−20−４ 第2龍名館ビル 1F D",
-    "lat": 35.6967717,
-    "lng": 139.7614254,
-    "ts": 1788467286,
-    "phone": "03-6811-7355",
-    "website": "http://komiyamatokyo-g.com/",
     "hours": [
      "Monday: 12:00 – 6:30 PM",
      "Tuesday: Closed",
@@ -145383,14 +146342,73 @@
      "Friday: 12:00 – 6:30 PM",
      "Saturday: 12:00 – 6:30 PM",
      "Sunday: 12:00 – 5:30 PM"
-    ]
+    ],
+    "phone": "03-6811-7355",
+    "website": "http://komiyamatokyo-g.com/",
+    "lat": 35.6967717,
+    "lng": 139.7614254,
+    "ts": 1788494027
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493465,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-11",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "teru-noji-before-the-pointing",
+     "title": "BEFORE THE POINTING",
+     "artist": "Teru Noji",
+     "start": "2026-08-28",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/teru-noji-before-the-pointing/01.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/4c34b756c65bbb01b43caf12a239715c-1092x1536-1.jpg",
+       "px": [
+        1092,
+        1536
+       ]
+      },
+      "images/tokyo/teru-noji-before-the-pointing/02.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/DSC_0800-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      },
+      "images/tokyo/teru-noji-before-the-pointing/03.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/DSC_0867-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      },
+      "images/tokyo/teru-noji-before-the-pointing/04.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/DSC_0853-scaled.jpg",
+       "px": [
+        2560,
+        1712
+       ]
+      },
+      "images/tokyo/teru-noji-before-the-pointing/05.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/DSC_0833-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      },
+      "images/tokyo/teru-noji-before-the-pointing/06.jpg": {
+       "url": "https://www.komiyamatokyo-g.com/wp-content/uploads/2026/08/DSC_0820-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -145405,12 +146423,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493465,
+     "session": "deep-tokyo-nihonbashi-bakurocho-1788493320",
+     "outcome": "saved",
+     "slug": "teru-noji-before-the-pointing",
+     "cost_usd": 0.3464,
+     "searches": 2,
+     "fetches": 10
+    }
+   ],
    "sources": {
     "directory_ts": 1788462187,
     "directory_session": "enum-tokyo-nihonbashi-bakurocho-1788460170",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "teru-noji-before-the-pointing"
+    ],
+    "crosscheck_ts": 1788494027,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -146373,21 +147403,21 @@
    "phone": "+81-3-6712-3346",
    "google": {
     "status": "OPERATIONAL",
-    "address": "Japan, 〒104-0031 Tokyo, Chuo City, Kyōbashi, 1-chōme−7−１ TODA BUILDING 3F",
+    "address": "Japan, 〒140-0002 Tokyo, Shinagawa City, Higashishinagawa, 1-chōme−33−１０ 5F",
     "hours": [
      "Monday: Closed",
-     "Tuesday: 11:00 AM – 7:00 PM",
-     "Wednesday: 11:00 AM – 7:00 PM",
-     "Thursday: 11:00 AM – 7:00 PM",
-     "Friday: 11:00 AM – 7:00 PM",
-     "Saturday: 11:00 AM – 7:00 PM",
+     "Tuesday: 11:00 AM – 6:00 PM",
+     "Wednesday: 11:00 AM – 6:00 PM",
+     "Thursday: 11:00 AM – 6:00 PM",
+     "Friday: 11:00 AM – 6:00 PM",
+     "Saturday: 11:00 AM – 6:00 PM",
      "Sunday: Closed"
     ],
-    "phone": "03-3528-6720",
-    "website": "https://kosakukanechika.com/",
-    "lat": 35.6783071,
-    "lng": 139.771662,
-    "ts": 1788460153
+    "phone": "03-6712-3346",
+    "website": "http://kosakukanechika.com/",
+    "lat": 35.619168,
+    "lng": 139.7465994,
+    "ts": 1788494015
    },
    "last_scraped": 1788227245,
    "last_outcome": "saved",
@@ -146425,7 +147455,7 @@
     "shows": [
      "group-show-4-artists-kosaku"
     ],
-    "crosscheck_ts": 1788457520,
+    "crosscheck_ts": 1788494015,
     "site": {
      "ts": 1788457520,
      "url": "https://kosakukanechika.com/en/",
@@ -146831,21 +147861,27 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.368,
    "neighborhood": "Roppongi",
-   "address": "Piramide Bldg 2F, 6-6-9 Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
-   "website": "https://kotaronukaga.com/about/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
-   "phone": null,
+   "address": "6-6-9 Roppongi, Minato-ku",
+   "address_detail": "Piramide Bldg 2F",
+   "latitude": 35.6618412,
+   "longitude": 139.7315535,
+   "coords_source": "show:nukaga-points-of-entry",
+   "website": "https://kotaronukaga.com/",
+   "exhibitions_url": "https://kotaronukaga.com/exhibition/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://kotaronukaga.com/exhibition/",
+    "https://kotaronukaga.com/exhibition",
+    "https://kotaronukaga.com/en/exhibition"
+   ],
+   "hours": [
+    "Tue - Sat 11:30am to 6:00pm"
+   ],
+   "phone": "03-6721-1180",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−6−９ ピラミデビル 2F",
@@ -146862,14 +147898,86 @@
     "website": "https://kotaronukaga.com/about/",
     "lat": 35.6618412,
     "lng": 139.7315535,
-    "ts": 1788467287
+    "ts": 1788494088
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493972,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "nukaga-original-copy",
+     "title": "Original Copy",
+     "artist": "Oriol Vilanova",
+     "start": "2026-08-01",
+     "end": "2026-09-12",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/nukaga-original-copy/01.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2026/06/sunday-morning-postcard-1.jpg?fit=1200%2C800&ssl=1",
+       "px": [
+        1200,
+        800
+       ]
+      },
+      "images/tokyo/nukaga-original-copy/02.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/OV-001-image-1.jpg?fit=620%2C489&ssl=1",
+       "px": [
+        620,
+        489
+       ]
+      },
+      "images/tokyo/nukaga-original-copy/03.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/OV-013-image-1.jpg?fit=620%2C930&ssl=1",
+       "px": [
+        620,
+        930
+       ]
+      },
+      "images/tokyo/nukaga-original-copy/04.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/OV-007-image.jpg?fit=564%2C1024&ssl=1",
+       "px": [
+        564,
+        1024
+       ]
+      }
+     }
+    },
+    {
+     "slug": "nukaga-points-of-entry",
+     "title": "Points of Entry",
+     "artist": "Kour Pour",
+     "start": "2026-09-26",
+     "end": "2026-11-07",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/nukaga-points-of-entry/01.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2026/07/To-Be-Titled-2025-56-Acrylic-on-canvas-over-panel-60-x-48-inches-1.jpg?fit=1007%2C1200&ssl=1",
+       "px": [
+        1007,
+        1200
+       ]
+      },
+      "images/tokyo/nukaga-points-of-entry/02.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2024/09/Summer-2024-Acrylic-and-block-printing-ink-on-canvas.jpg_compressed.jpeg?fit=620%2C690&ssl=1",
+       "px": [
+        620,
+        690
+       ]
+      },
+      "images/tokyo/nukaga-points-of-entry/03.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2024/09/Autumn-2024-43-x-28-inches-Acrylic-and-block-printing-ink-on-canvas.jpg_compressed.jpeg?fit=620%2C892&ssl=1",
+       "px": [
+        620,
+        892
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -146884,12 +147992,34 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493972,
+     "session": "deep-tokyo-roppongi-1788493908",
+     "outcome": "saved",
+     "slug": "nukaga-original-copy",
+     "cost_usd": 0.2322,
+     "searches": 0,
+     "fetches": 7
+    },
+    {
+     "ts": 1788493972,
+     "session": "deep-tokyo-roppongi-1788493908",
+     "outcome": "saved",
+     "slug": "nukaga-points-of-entry",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": 1788457518,
+    "shows": [
+     "nukaga-original-copy",
+     "nukaga-points-of-entry"
+    ],
+    "crosscheck_ts": 1788494088,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -146927,32 +148057,41 @@
     ]
    },
    "about": {
-    "text": null,
-    "source_kind": null,
-    "source_url": null,
-    "evidence_path": null,
-    "written_ts": null,
-    "model": null,
+    "text": "KOTARO NUKAGA is a contemporary art gallery founded in Tokyo in 2018 by director Kotaro Nukaga, who also runs the historic NUKAGA GALLERY. The gallery operates three spaces in Tokyo—two in the Tennoz district (Tennoz and Three) and one in Roppongi—positioning itself at the intersection of Japanese and international contemporary practice. Its program favors avant-garde and cross-disciplinary work, drawing on history, science and technology to question established art-world discourse. The gallery represents a mix of emerging and established Japanese and overseas artists, supporting their development through exhibitions, artist liaison services and participation in international art fairs, while aiming to expand the boundaries of conventional gallery programming.",
+    "source_kind": "official",
+    "source_url": "https://kotaronukaga.com/en/about",
+    "evidence_path": ".cache/evidence/tokyo/8d8449702544bf42-1788492203.txt",
+    "written_ts": 1788493323,
+    "model": "claude-sonnet-5",
     "hints": []
    },
    "facts": {
-    "founded_year": null,
-    "founders": [],
+    "founded_year": 2018,
+    "founders": [
+     "Kotaro Nukaga"
+    ],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": 0,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "contemporary art",
+     "Japanese and international artists",
+     "cross-disciplinary practice",
+     "science and technology integration",
+     "emerging and established artists"
+    ],
+    "roster_count": 21,
+    "exhibitions_total": 61,
+    "exhibitions_per_year": 6.78,
+    "first_exhibition_year": 2018,
+    "solo_share": 0.51
    },
    "research": {
-    "ts": null,
-    "crawl_pages": 0,
-    "triaged": 0,
+    "ts": 1788493323,
+    "crawl_pages": 300,
+    "triaged": 212,
     "report_path": "content/venues/reports/tokyo/kotaro-nukaga.json",
-    "cost_usd": 0.0,
-    "gapfill": false
+    "cost_usd": 0.5977,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -154563,34 +155702,104 @@
   },
   {
    "id": "maki",
-   "name": "Maki Gallery",
+   "name": "Maki Fine Arts",
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 1,
    "notability": 0.607,
    "neighborhood": "Shinjuku/Kagurazaka",
-   "address": null,
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
+   "address": "77-5 Tenjincho, Shinjuku-ku, Tokyo",
+   "address_detail": "Rustic Bldg B101",
+   "latitude": 35.7059209,
+   "longitude": 139.7308059,
+   "coords_source": "show:shirota-lacuna-or-extension",
    "website": "https://makifinearts.com",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Wednesday – Saturday 12:00-19:00 / Sunday 12:00 -17:00, Closed on Monday, Tuesday"
+   "exhibitions_url": "https://makifinearts.com/exhibitions/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://makifinearts.com/exhibitions/",
+    "https://makifinearts.com",
+    "https://makifinearts.com/exhibitions/shirota_2026/"
    ],
-   "phone": null,
-   "google": null,
-   "last_scraped": null,
-   "last_outcome": null,
+   "hours": [
+    "Wed - Sat 12:00pm to 7:00pm",
+    "Sun 12:00pm to 5:00pm",
+    "Closed Mon, Tue"
+   ],
+   "phone": "03-5579-2086",
+   "google": {
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒162-0808 Tokyo, Shinjuku City, Tenjinchō, ７７−５ B101",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: 12:00 – 7:00 PM",
+     "Thursday: 12:00 – 7:00 PM",
+     "Friday: 12:00 – 7:00 PM",
+     "Saturday: 12:00 – 7:00 PM",
+     "Sunday: 12:00 – 5:00 PM"
+    ],
+    "phone": "03-5579-2086",
+    "website": "https://makifinearts.com/",
+    "lat": 35.7058893,
+    "lng": 139.7308511,
+    "ts": 1788494030
+   },
+   "last_scraped": 1788493472,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "shirota-lacuna-or-extension",
+     "title": "Lacuna or Extension",
+     "artist": "Keisuke Shirota",
+     "start": "2026-08-15",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/shirota-lacuna-or-extension/01.jpg": {
+       "url": "https://makifinearts.com/wp/wp-content/uploads/2026/07/2026-07-14_makifinearts5705.jpg",
+       "px": [
+        2362,
+        2000
+       ]
+      },
+      "images/tokyo/shirota-lacuna-or-extension/02.jpg": {
+       "url": "https://makifinearts.com/wp/wp-content/uploads/2026/07/2026-07-14_makifinearts5695-scaled.jpg",
+       "px": [
+        2560,
+        1987
+       ]
+      },
+      "images/tokyo/shirota-lacuna-or-extension/03.jpg": {
+       "url": "https://makifinearts.com/wp/wp-content/uploads/2026/07/2026-07-14_makifinearts5697.jpg",
+       "px": [
+        2436,
+        2000
+       ]
+      },
+      "images/tokyo/shirota-lacuna-or-extension/04.jpg": {
+       "url": "https://makifinearts.com/wp/wp-content/uploads/2026/08/2026-08-18_makifinearts6221-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      },
+      "images/tokyo/shirota-lacuna-or-extension/05.jpg": {
+       "url": "https://makifinearts.com/wp/wp-content/uploads/2026/08/2026-08-18_makifinearts6237-scaled.jpg",
+       "px": [
+        2560,
+        1707
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -154605,12 +155814,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493472,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "shirota-lacuna-or-extension",
+     "cost_usd": 0.269,
+     "searches": 0,
+     "fetches": 9
+    }
+   ],
    "sources": {
     "directory_ts": 1788462830,
     "directory_session": "enum-tokyo-shinjuku-kagurazaka-1788462503",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "shirota-lacuna-or-extension"
+    ],
+    "crosscheck_ts": 1788494030,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -167399,31 +168620,32 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.544,
-   "neighborhood": null,
-   "address": "神楽ビル 2F, 3-chōme-１３ Ichigayatamachi, Shinjuku City",
-   "address_detail": null,
-   "latitude": 35.696696,
-   "longitude": 139.739224,
-   "coords_source": "places",
-   "website": "http://mizuma-art.co.jp/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Tokyo: Tue-Sat 12:00-19:00, closed Sun/Mon/holidays; Singapore: Tue-Sat 11:00-19:00, Sun 11:00-18:00, closed Mon/holidays"
+   "neighborhood": "Shinjuku/Kagurazaka",
+   "address": "3-13 Ichigayatamachi, Shinjuku-ku, Tokyo",
+   "address_detail": "Kagura Bldg 2F",
+   "latitude": 35.6967078,
+   "longitude": 139.7392474,
+   "coords_source": "show:tanada-to-see-love",
+   "website": "https://mizuma-art.co.jp/en/",
+   "exhibitions_url": "https://mizuma-art.co.jp/en/exhibitions/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://mizuma-art.co.jp/en/exhibitions/",
+    "https://mizuma-art.co.jp/en/exhibitions/2608_majima_naoko/",
+    "https://mizuma-art.co.jp/en/about/",
+    "https://mizuma-art.co.jp/en/exhibitions"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 12:00pm to 7:00pm",
+    "Closed Sun, Mon, national holidays"
+   ],
+   "phone": "03-3268-2500",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒162-0843 Tokyo, Shinjuku City, Ichigayatamachi, 3-chōme−１３ 神楽ビル 2F",
-    "lat": 35.696696,
-    "lng": 139.739224,
-    "ts": 1788467292,
-    "phone": "03-3268-2500",
-    "website": "http://mizuma-art.co.jp/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 12:00 – 7:00 PM",
@@ -167432,15 +168654,105 @@
      "Friday: 12:00 – 7:00 PM",
      "Saturday: 12:00 – 7:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-3268-2500",
+    "website": "http://mizuma-art.co.jp/",
+    "lat": 35.696696,
+    "lng": 139.739224,
+    "ts": 1788494033
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493641,
+   "last_outcome": "skipped:unchanged",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "majima-chimimoryo-here",
+     "title": "Chimimōryō – Here",
+     "artist": "Naoko Majima",
+     "start": "2026-08-26",
+     "end": "2026-09-26",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/majima-chimimoryo-here/01.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/07/01.webp",
+       "px": [
+        4320,
+        6480
+       ]
+      },
+      "images/tokyo/majima-chimimoryo-here/02.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/07/02.webp",
+       "px": [
+        4320,
+        6480
+       ]
+      },
+      "images/tokyo/majima-chimimoryo-here/03.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/07/03.webp",
+       "px": [
+        4320,
+        6480
+       ]
+      },
+      "images/tokyo/majima-chimimoryo-here/04.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/07/04.webp",
+       "px": [
+        4320,
+        6480
+       ]
+      }
+     }
+    },
+    {
+     "slug": "tanada-to-see-love",
+     "title": "to see love",
+     "artist": "Koji Tanada",
+     "start": "2026-10-07",
+     "end": "2026-11-08",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/tanada-to-see-love/01.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/09/3bb8337da033b601a06e841086472871.webp",
+       "px": [
+        1837,
+        2756
+       ]
+      },
+      "images/tokyo/tanada-to-see-love/02.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/09/b1288f226beab1d8bf796b262c44e897.webp",
+       "px": [
+        2756,
+        1837
+       ]
+      },
+      "images/tokyo/tanada-to-see-love/03.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/09/5738e28389cb3b26d36b0fc60a5307cf.webp",
+       "px": [
+        1837,
+        2756
+       ]
+      },
+      "images/tokyo/tanada-to-see-love/04.jpg": {
+       "url": "https://mizuma-art.co.jp/wp/wp-content/uploads/2026/09/5797fdfd07df4e966f029482c3965882.webp",
+       "px": [
+        2756,
+        1837
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493641,
+    "reason": "unchanged",
+    "detail": "Both current show (MAJIMA Naoko 'Chimimōryō – Here', Aug 26–Sep 26 2026) and upcoming show (TANADA Koji 'to see love', Oct 7–Nov 8 2026) are already saved under slugs 'majima-chimimoryo-here' and 'tanada-to-see-love' with matching dates; no new shows to add.",
+    "url": "https://mizuma-art.co.jp/en/exhibitions",
+    "session": "deep-tokyo-shinjuku-kagurazaka-1788493583"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -167454,12 +168766,70 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493473,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "majima-chimimoryo-here",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493474,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "tanada-to-see-love",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493498,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "majima-chimimoryo-here",
+     "cost_usd": 0.065,
+     "searches": 0,
+     "fetches": 1
+    },
+    {
+     "ts": 1788493499,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "tanada-to-see-love",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493575,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493518",
+     "outcome": "skipped:unchanged",
+     "slug": null,
+     "cost_usd": 0.1335,
+     "searches": 0,
+     "fetches": 4
+    },
+    {
+     "ts": 1788493641,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493583",
+     "outcome": "skipped:unchanged",
+     "slug": null,
+     "cost_usd": 0.1055,
+     "searches": 0,
+     "fetches": 4
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "majima-chimimoryo-here",
+     "tanada-to-see-love"
+    ],
+    "crosscheck_ts": 1788494033,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -167670,7 +169040,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.586,
    "neighborhood": "Shinjuku/Kagurazaka",
@@ -167682,19 +169052,29 @@
    "website": "https://mizuma-art.co.jp/en/",
    "exhibitions_url": "https://mizuma-art.co.jp/en/exhibitions",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://mizuma-art.co.jp/en/exhibitions",
+    "https://mizuma-art.co.jp/en/exhibitions/",
+    "https://mizuma-art.co.jp/en/exhibitions/2608_majima_naoko/"
+   ],
    "hours": [
     "Tokyo: Tue-Sat 12:00-19:00 (closed Sun, Mon, holidays); Singapore: Tue-Sat 11:00-19:00, Sun 11:00-18:00 (closed Mon, holidays)"
    ],
    "phone": null,
    "google": null,
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493791,
+   "last_outcome": "skipped:unchanged",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493791,
+    "reason": "unchanged",
+    "detail": "Current show MAJIMA Naoko 'Chimimōryō – Here' (Aug 26-Sep 26 2026) and upcoming TANADA Koji 'to see love' (Oct 7-Nov 8 2026) are already saved under slugs majima-chimimoryo-here and tanada-to-see-love with matching dates confirmed on mizuma-art.co.jp; no other concurrent Tokyo exhibitions listed.",
+    "url": "https://mizuma-art.co.jp/en/exhibitions",
+    "session": "deep-tokyo-shinjuku-kagurazaka-1788493719"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -167708,7 +169088,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493791,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493719",
+     "outcome": "skipped:unchanged",
+     "slug": null,
+     "cost_usd": 0.1187,
+     "searches": 0,
+     "fetches": 4
+    }
+   ],
    "sources": {
     "directory_ts": 1788462829,
     "directory_session": "enum-tokyo-shinjuku-kagurazaka-1788462503",
@@ -169995,11 +171385,21 @@
    "phone": "+81-3-5777-8600",
    "google": {
     "status": "OPERATIONAL",
-    "address": "Roppongi Hills Mori Tower, 6-chōme-10-1 Roppongi, Minato City",
-    "lat": 35.660318,
-    "lng": 139.7289872,
-    "ts": 1788460153,
-    "website": "https://www.mori.art.museum/en/"
+    "address": "Japan, 〒106-6150 Tokyo, Minato City, Roppongi, 6-chōme−10−１ Roppongi Hills Mori Tower, 53階",
+    "hours": [
+     "Monday: 10:00 AM – 10:00 PM",
+     "Tuesday: 10:00 AM – 5:00 PM",
+     "Wednesday: 10:00 AM – 10:00 PM",
+     "Thursday: 10:00 AM – 10:00 PM",
+     "Friday: 10:00 AM – 10:00 PM",
+     "Saturday: 10:00 AM – 10:00 PM",
+     "Sunday: 10:00 AM – 10:00 PM"
+    ],
+    "phone": "050-5541-8600",
+    "website": "https://www.mori.art.museum/jp/",
+    "lat": 35.6604621,
+    "lng": 139.7292785,
+    "ts": 1788494001
    },
    "last_scraped": 1788227215,
    "last_outcome": "saved",
@@ -170037,7 +171437,7 @@
     "shows": [
      "ron-mueck-mori"
     ],
-    "crosscheck_ts": null,
+    "crosscheck_ts": 1788494001,
     "site": {
      "ts": 1788457521,
      "url": "https://www.mori.art.museum/en/",
@@ -178628,10 +180028,21 @@
    "phone": "+81-47-316-2772",
    "google": {
     "status": "OPERATIONAL",
-    "address": "7-chōme-22-2 Roppongi, Minato City",
-    "lat": 35.6644781,
-    "lng": 139.7266845,
-    "ts": 1788460153
+    "address": "7-chōme-22-2 Roppongi, Minato City, Tokyo 106-8558, Japan",
+    "hours": [
+     "Monday: 10:00 AM – 6:00 PM",
+     "Tuesday: Closed",
+     "Wednesday: 10:00 AM – 6:00 PM",
+     "Thursday: 10:00 AM – 6:00 PM",
+     "Friday: 10:00 AM – 8:00 PM",
+     "Saturday: 10:00 AM – 8:00 PM",
+     "Sunday: 10:00 AM – 6:00 PM"
+    ],
+    "phone": "050-5541-8600",
+    "website": "https://www.nact.jp/",
+    "lat": 35.665289,
+    "lng": 139.726374,
+    "ts": 1788494003
    },
    "last_scraped": 1788227221,
    "last_outcome": "saved",
@@ -178669,7 +180080,7 @@
     "shows": [
      "picasso-paul-smith-nact"
     ],
-    "crosscheck_ts": null,
+    "crosscheck_ts": 1788494003,
     "site": {
      "ts": 1788457521,
      "url": "https://www.nact.jp/english/",
@@ -190756,31 +192167,28 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.595,
    "neighborhood": "Roppongi",
-   "address": "Piramide Bldg 3F, 6-6-9 Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.6618246,
-   "longitude": 139.73157,
-   "coords_source": "places",
-   "website": "http://www.otafinearts.com/",
+   "address": "6-6-9 Roppongi, Minato-ku, Tokyo",
+   "address_detail": "Piramide Building 3F",
+   "latitude": 35.6618412,
+   "longitude": 139.7315535,
+   "coords_source": "show:ota-umeda-sign",
+   "website": "https://www.otafinearts.com/",
    "exhibitions_url": "https://www.otafinearts.com/exhibitions",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.otafinearts.com/exhibitions"
+   ],
    "hours": [
-    "Tuesday - Saturday 11:00 - 19:00, Closed on Mondays, Sundays & Public Holidays"
+    "Tue - Sat 11:00am to 7:00pm"
    ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−6−９ ピラミデビル 3F",
-    "lat": 35.6618246,
-    "lng": 139.73157,
-    "ts": 1788467294,
-    "phone": "03-6447-1123",
-    "website": "http://www.otafinearts.com/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 11:00 AM – 7:00 PM",
@@ -190789,15 +192197,52 @@
      "Friday: 11:00 AM – 7:00 PM",
      "Saturday: 11:00 AM – 7:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-6447-1123",
+    "website": "http://www.otafinearts.com/",
+    "lat": 35.6618246,
+    "lng": 139.73157,
+    "ts": 1788494065
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493579,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "ota-umeda-sign",
+     "title": "Sign",
+     "artist": "Tetsuya Umeda",
+     "start": "2026-09-12",
+     "end": "2026-10-24",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/ota-umeda-sign/01.jpg": {
+       "url": "https://static-assets.artlogic.net/w_800,h_800,c_limit,f_auto,fl_lossy,q_auto/ws-otafinearts/usr/images/exhibitions/group_images_override/363/_ofa_2012.jpg",
+       "px": [
+        800,
+        600
+       ]
+      },
+      "images/tokyo/ota-umeda-sign/02.jpg": {
+       "url": "https://static-assets.artlogic.net/w_1200,h_630,c_fill,f_auto,fl_lossy,q_auto/ws-otafinearts/usr/images/exhibitions/main_image_override/363/umeda_sign_s.jpg",
+       "px": [
+        1200,
+        630
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493578,
+    "reason": "closed_or_between_shows",
+    "detail": "Ota Fine Arts Tokyo's own exhibitions page lists no current Tokyo show as of Sept 3, 2026 (last show 'Black & White' closed Aug 29); next Tokyo show 'Sign' by Tetsuya Umeda opens Sept 12, 2026, saved as upcoming.",
+    "url": "https://www.otafinearts.com/exhibitions",
+    "session": "deep-tokyo-roppongi-1788493240"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -190811,12 +192256,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493578,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493579,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "ota-umeda-sign",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "ota-umeda-sign"
+    ],
+    "crosscheck_ts": 1788494065,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -192397,27 +193863,23 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.549,
    "neighborhood": "Roppongi",
-   "address": "Azabudai Hills, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.6624921,
-   "longitude": 139.7429109,
-   "coords_source": "places",
+   "address": "5-8-1 Toranomon, Minato-ku, Tokyo",
+   "address_detail": "Azabudai Hills Garden Plaza A, 1F-2F",
+   "latitude": 35.6625902,
+   "longitude": 139.7434104,
+   "coords_source": "show:pace-nigel-cooke-night-ruins",
    "website": "https://www.pacegallery.com/pace-tokyo/",
    "exhibitions_url": "https://www.pacegallery.com/exhibitions/",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.pacegallery.com/pace-tokyo/"
+   ],
    "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 7:00 PM",
-    "Wednesday: 11:00 AM – 7:00 PM",
-    "Thursday: 11:00 AM – 7:00 PM",
-    "Friday: 11:00 AM – 7:00 PM",
-    "Saturday: 11:00 AM – 7:00 PM",
-    "Sunday: 11:00 AM – 6:00 PM"
+    "Tue - Sat 11:00am to 7:00pm"
    ],
    "phone": null,
    "google": {
@@ -192436,14 +193898,47 @@
     "website": "http://pacegallery.com/",
     "lat": 35.6624921,
     "lng": 139.7429109,
-    "ts": 1788460153
+    "ts": 1788494065
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493608,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "pace-nigel-cooke-night-ruins",
+     "title": "Night Ruins",
+     "artist": "Nigel Cooke",
+     "start": "2026-08-28",
+     "end": "2026-10-10",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/pace-nigel-cooke/01.jpg": {
+       "url": "https://www.pacegallery.com/media/images/98960_The_Island_2026_1.width-2000.webp",
+       "px": [
+        2000,
+        1500
+       ]
+      },
+      "images/tokyo/pace-nigel-cooke/02.jpg": {
+       "url": "https://www.pacegallery.com/media/images/981096key8AVWBy8I0aTOHBBiXdo7vw.width-2000.webp",
+       "px": [
+        2000,
+        1333
+       ]
+      },
+      "images/tokyo/pace-nigel-cooke/03.jpg": {
+       "url": "https://www.pacegallery.com/media/images/NC_Portrait_Biennale_26_Ph_Lorenzo_Palmieri_.width-2000_VQ2tEh1.webp",
+       "px": [
+        2000,
+        1333
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -192458,12 +193953,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493580,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "pace-nigel-cooke-night-ruins",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493608,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "pace-nigel-cooke-night-ruins",
+     "cost_usd": 0.2589,
+     "searches": 2,
+     "fetches": 1
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": 1788457543,
+    "shows": [
+     "pace-nigel-cooke-night-ruins"
+    ],
+    "crosscheck_ts": 1788494065,
     "site": {
      "ts": 1788457543,
      "url": "https://www.pacegallery.com/pace-tokyo/",
@@ -195886,27 +197402,25 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.595,
    "neighborhood": "Roppongi",
-   "address": "Piramide Bldg 1F, 6-6-9 Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.6619792,
-   "longitude": 139.7314636,
-   "coords_source": "places",
+   "address": "6-6-9 Roppongi, Minato-ku, Tokyo",
+   "address_detail": "Piramide Building 1F",
+   "latitude": 35.6618412,
+   "longitude": 139.7315535,
+   "coords_source": "show:perrotin-hernan-bas-2026",
    "website": "https://www.perrotin.com",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://www.perrotin.com/en/agenda/tokyo/current",
+    "https://www.perrotin.com/en/agenda/tokyo/anytime",
+    "https://www.perrotin.com/en/artists/hernan-bas"
+   ],
    "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 7:00 PM",
-    "Wednesday: 11:00 AM – 7:00 PM",
-    "Thursday: 11:00 AM – 7:00 PM",
-    "Friday: 11:00 AM – 7:00 PM",
-    "Saturday: 11:00 AM – 7:00 PM",
-    "Sunday: Closed"
+    "Tue - Sat 11:00am to 7:00pm"
    ],
    "phone": "03-6721-0687",
    "google": {
@@ -195925,15 +197439,40 @@
     "website": "https://www.perrotin.com/",
     "lat": 35.6619792,
     "lng": 139.7314636,
-    "ts": 1788460153
+    "ts": 1788494062
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493578,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "perrotin-hernan-bas-2026",
+     "title": "Hernan Bas",
+     "artist": "Hernan Bas",
+     "start": "2026-09-09",
+     "end": "2026-11-11",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/perrotin-hernan-bas/01.jpg": {
+       "url": "https://s3.perrotin.com/d:1200xauto/artiste/56_1100.jpg",
+       "px": [
+        1200,
+        1200
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493577,
+    "reason": "closed_or_between_shows",
+    "detail": "Perrotin Tokyo's own agenda page confirms 'No exhibitions currently align with your selection' for Tokyo/current as of Sept 3, 2026 (previous show Chen Fei: Sometimes closed Aug 29); next show is a Hernan Bas solo opening Sept 9, 2026, saved as upcoming.",
+    "url": "https://www.perrotin.com/en/agenda/tokyo/current",
+    "session": "deep-tokyo-roppongi-1788493240"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -195947,12 +197486,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493577,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493578,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "perrotin-hernan-bas-2026",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": 1788457551,
+    "shows": [
+     "perrotin-hernan-bas-2026"
+    ],
+    "crosscheck_ts": 1788494062,
     "site": {
      "ts": 1788457551,
      "url": "https://www.perrotin.com/en",
@@ -222540,37 +224100,34 @@
   },
   {
    "id": "shueisha-manga-art-heritage",
-   "name": "SHUEISHA MANGA-ART HERITAGE 集英社マンガアートヘリテージ",
+   "name": "Shueisha Manga-Art Heritage Tokyo Gallery",
    "aliases": [
     "Shueisha Manga Art Heritage Tokyo Gallery"
    ],
    "kind": "other",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 3,
    "notability": 0.283,
    "neighborhood": "Roppongi",
-   "address": "Japan, 〒105-0001 Tokyo, Minato City, Toranomon, 5-chōme−8 ガーデンプラザA B1 港区虎ノ門５丁目８−１ 麻布台ヒルズ",
-   "address_detail": null,
-   "latitude": 35.6624866,
-   "longitude": 139.7436565,
-   "coords_source": "places",
+   "address": "5-8-1 Toranomon, Minato City, Tokyo 105-0001",
+   "address_detail": "Azabudai Hills Garden Plaza A, B1F",
+   "latitude": 35.6625902,
+   "longitude": 139.7434104,
+   "coords_source": "show:smah-onepiece-scroll2",
    "website": "https://mangaart.jp/",
-   "exhibitions_url": "https://mangaart.jp/venues/smah-tokyo-gallery",
-   "exhibitions_url_source": "discovered",
+   "exhibitions_url": "https://mangaart.jp/exhibitions/",
+   "exhibitions_url_source": "harness",
    "exhibitions_url_candidates": [
-    "https://mangaart.jp/venues/smah-tokyo-gallery"
+    "https://mangaart.jp/venues/smah-tokyo-gallery",
+    "https://mangaart.jp/exhibitions/",
+    "https://mangaart.jp/exhibitions/onepiece-tokyo-2026"
    ],
    "hours": [
-    "Monday: Closed",
-    "Tuesday: 11:00 AM – 6:00 PM",
-    "Wednesday: 11:00 AM – 6:00 PM",
-    "Thursday: 11:00 AM – 6:00 PM",
-    "Friday: 11:00 AM – 7:00 PM",
-    "Saturday: 11:00 AM – 7:00 PM",
-    "Sunday: 11:00 AM – 7:00 PM"
+    "Tue - Thu 11:00am to 6:00pm",
+    "Fri - Sun & Japanese holidays 11:00am to 7:00pm"
    ],
-   "phone": null,
+   "phone": "03-6625-4473",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒105-0001 Tokyo, Minato City, Toranomon, 5-chōme−8 ガーデンプラザA B1 港区虎ノ門５丁目８−１ 麻布台ヒルズ",
@@ -222583,17 +224140,65 @@
      "Saturday: 11:00 AM – 7:00 PM",
      "Sunday: 11:00 AM – 7:00 PM"
     ],
+    "phone": null,
     "website": "https://mangaart.jp/",
     "lat": 35.6624866,
     "lng": 139.7436565,
-    "ts": 1788460153
+    "ts": 1788494074
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493890,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-24",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "smah-onepiece-scroll2",
+     "title": "Eiichiro Oda's ONE PIECE / The Scroll II",
+     "artist": "Eiichiro Oda",
+     "start": "2026-07-08",
+     "end": "2026-11-29",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/smah-onepiece-scroll2/01.jpg": {
+       "url": "https://mangaart.jp/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fk789xrk0yzk2%2F7McMX0fXefDnT4PvxR0pcZ%2F8a64037c4798a615bc98651bde5f8883%2FOP_The_Scroll_2_main_%C3%A3__%C3%A3__%C3%A3__%C3%A3__%C3%A3__%C3%A7__%C3%A5__C%C3%A3__%C3%A3__.jpg%3Fw%3D1500%26fm%3Davif%26q%3D50&w=3840&q=75",
+       "px": [
+        1281,
+        876
+       ]
+      },
+      "images/tokyo/smah-onepiece-scroll2/02.jpg": {
+       "url": "https://images.ctfassets.net/k789xrk0yzk2/6BSrtxVstlcq5GnXkSFdAJ/72d7acdc4c596fabf63e3ed4cc4bccd2/OP_CV_01.jpg?w=1500&fm=avif&q=50",
+       "px": [
+        1200,
+        1200
+       ]
+      },
+      "images/tokyo/smah-onepiece-scroll2/03.jpg": {
+       "url": "https://images.ctfassets.net/k789xrk0yzk2/1vF7ASyuWyiYZPbiI53cRa/1a73ceb174fcce1bbe1c3075e402a103/OP_CV_70.jpg?w=1500&fm=avif&q=50",
+       "px": [
+        1200,
+        1200
+       ]
+      },
+      "images/tokyo/smah-onepiece-scroll2/04.jpg": {
+       "url": "https://images.ctfassets.net/k789xrk0yzk2/1y9rlOmjrTV65VJ8OCpDRq/891a420321c51ed7524db9f8e93e3b35/OP_covers_52.jpg?w=1500&fm=avif&q=50",
+       "px": [
+        1200,
+        1200
+       ]
+      },
+      "images/tokyo/smah-onepiece-scroll2/05.jpg": {
+       "url": "https://images.ctfassets.net/k789xrk0yzk2/7qgPjzKkfJwGw3t8WfNg8B/b1f522e50a8812a9e1f71d0f4b5fb8d1/OP_covers_98.jpg?w=1500&fm=avif&q=50",
+       "px": [
+        1200,
+        1200
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -222608,12 +224213,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493890,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "smah-onepiece-scroll2",
+     "cost_usd": 0.7657,
+     "searches": 2,
+     "fetches": 13
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "smah-onepiece-scroll2"
+    ],
+    "crosscheck_ts": 1788494074,
     "candidate": {
      "session": "enum-tokyo-roppongi-1788453160",
      "first_url": "https://mangaart.jp/venues/smah-tokyo-gallery",
@@ -223067,29 +224684,30 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.368,
    "neighborhood": "Roppongi",
-   "address": "complex665, Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.66153919999999,
-   "longitude": 139.7310427,
-   "coords_source": "places",
-   "website": "http://shugoarts.com/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
-   "phone": null,
+   "address": "6-5-24 Roppongi, Minato City, Tokyo 106-0032",
+   "address_detail": "complex665, 2F",
+   "latitude": 35.6615876,
+   "longitude": 139.7310296,
+   "coords_source": "show:shugoarts-maruyama-mishima-yasuda",
+   "website": "https://shugoarts.com/",
+   "exhibitions_url": "https://shugoarts.com/exhibitions/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://shugoarts.com/exhibitions/",
+    "https://shugoarts.com/exhibitions/e01317/",
+    "https://shugoarts.com/about/"
+   ],
+   "hours": [
+    "Tue - Sat 11:00am to 6:00pm"
+   ],
+   "phone": "03-6447-2234",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−5−２４ complex665 2階",
-    "lat": 35.6615392,
-    "lng": 139.7310427,
-    "ts": 1788467296,
-    "phone": "03-6447-2234",
-    "website": "http://shugoarts.com/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 11:00 AM – 6:00 PM",
@@ -223098,14 +224716,73 @@
      "Friday: 11:00 AM – 6:00 PM",
      "Saturday: 11:00 AM – 6:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-6447-2234",
+    "website": "http://shugoarts.com/",
+    "lat": 35.6615392,
+    "lng": 139.7310427,
+    "ts": 1788494076
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493891,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "shugoarts-maruyama-mishima-yasuda",
+     "title": "ShugoArts Show",
+     "artist": "Naofumi Maruyama, Ritsue Mishima, Kan Yasuda",
+     "start": "2026-08-29",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/01.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2025/12/YA14-6-19173-web_photo_Muto.jpg",
+       "px": [
+        2000,
+        1333
+       ]
+      },
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/02.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2026/04/YA14-6-19352-web_photo_Muto.jpg",
+       "px": [
+        2000,
+        1500
+       ]
+      },
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/03.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2026/07/MA08-1-19448-web_photo_Muto.jpg",
+       "px": [
+        2000,
+        1400
+       ]
+      },
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/04.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2026/02/MA08-1-19278-web_photo_Muto.jpg",
+       "px": [
+        2000,
+        1400
+       ]
+      },
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/05.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2025/02/MI11-6-18491_ELICA_web.jpg",
+       "px": [
+        2000,
+        1335
+       ]
+      },
+      "images/tokyo/shugoarts-maruyama-mishima-yasuda/06.jpg": {
+       "url": "https://shugoarts.com/wp/wp-content/uploads/2026/08/DSC09662_small.jpg",
+       "px": [
+        1000,
+        667
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -223120,12 +224797,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493891,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "shugoarts-maruyama-mishima-yasuda",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "shugoarts-maruyama-mishima-yasuda"
+    ],
+    "crosscheck_ts": 1788494076,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -223553,27 +225242,25 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.382,
    "neighborhood": "Ginza/Kyobashi",
-   "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 6-chōme−4−８ 7F",
-   "address_detail": null,
-   "latitude": 35.671017,
-   "longitude": 139.761351,
-   "coords_source": "places",
-   "website": "https://www.syukado.jp/",
-   "exhibitions_url": "https://www.syukado.jp/",
-   "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "address": "6-4-8 Ginza, Chuo-ku, Tokyo",
+   "address_detail": "Sone Bldg, 7F",
+   "latitude": 35.6710343,
+   "longitude": 139.761369,
+   "coords_source": "show:kakinuma-chicken-sapiens-2",
+   "website": "https://www.syukado.jp",
+   "exhibitions_url": "https://www.syukado.jp/exhibition/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.syukado.jp/exhibition/",
+    "https://www.syukado.jp/exhibition/kakinuma_hiroki2026/"
+   ],
    "hours": [
-    "Monday: 10:00 AM – 6:00 PM",
-    "Tuesday: 10:00 AM – 6:00 PM",
-    "Wednesday: 10:00 AM – 6:00 PM",
-    "Thursday: 10:00 AM – 6:00 PM",
-    "Friday: 10:00 AM – 6:00 PM",
-    "Saturday: 10:00 AM – 6:00 PM",
-    "Sunday: Closed"
+    "Weekdays 10:00am to 6:00pm",
+    "Sun & holidays 11:00am to 6:00pm"
    ],
    "phone": "03-3569-3620",
    "google": {
@@ -223592,15 +225279,61 @@
     "website": "https://www.syukado.jp/",
     "lat": 35.671017,
     "lng": 139.761351,
-    "ts": 1788460153
+    "ts": 1788494044
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493609,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "kakinuma-chicken-sapiens-2",
+     "title": "CHICKEN SAPIENS 2",
+     "artist": "Hiroki Kakinuma",
+     "start": "2026-09-18",
+     "end": "2026-09-29",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/kakinuma-chicken-sapiens-2/01.jpg": {
+       "url": "https://www.syukado.jp/wp-content/uploads/2026/07/6806730701c16abfcc7914c2ed89cd2d.jpg",
+       "px": [
+        1000,
+        360
+       ]
+      },
+      "images/tokyo/kakinuma-chicken-sapiens-2/02.jpg": {
+       "url": "https://www.syukado.jp/wp-content/uploads/2026/07/7d6b80a87724cc0c9d3b0c76b3738cd5-1000x620.jpg?v=1787976518",
+       "px": [
+        1000,
+        620
+       ]
+      },
+      "images/tokyo/kakinuma-chicken-sapiens-2/03.jpg": {
+       "url": "https://www.syukado.jp/wp-content/uploads/2026/07/c0de2fd0e34350a6cd6c5ec7d489920f-728x1000.jpg?v=1787976518",
+       "px": [
+        728,
+        1000
+       ]
+      },
+      "images/tokyo/kakinuma-chicken-sapiens-2/04.jpg": {
+       "url": "https://www.syukado.jp/wp-content/uploads/2026/07/IMG_1498-2-773x1000.png",
+       "px": [
+        773,
+        1000
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493609,
+    "reason": "closed_or_between_shows",
+    "detail": "No exhibition on view now — last show (Toko Okamoto solo) closed June 6, 2026. Next confirmed show, Hiroki Kakinuma's \"CHICKEN SAPIENS 2,\" opens Sept 18, 2026 (saved separately as upcoming).",
+    "url": "https://www.syukado.jp/exhibition/",
+    "session": "deep-tokyo-ginza-kyobashi-1788493280"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -223614,12 +225347,87 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493532,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.1337,
+     "searches": 1,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493544,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0362,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493555,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0358,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493566,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0362,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493578,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0364,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493593,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0427,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493604,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "kakinuma-chicken-sapiens-2",
+     "cost_usd": 0.0384,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493609,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0286,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "kakinuma-chicken-sapiens-2"
+    ],
+    "crosscheck_ts": 1788494044,
     "seed": {
      "places": {
       "ts": 1788460153,
@@ -230168,7 +231976,7 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "out_of_scope",
    "tier": 3,
    "notability": 0.233,
    "neighborhood": "Shinjuku/Kagurazaka",
@@ -230180,19 +231988,27 @@
    "website": "https://sprout-curation.com",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://sprout-curation.com/gallery"
+   ],
    "hours": [
     "Tue, Thu, Sat: 13:00–19:00"
    ],
    "phone": null,
    "google": null,
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493507,
+   "last_outcome": "skipped:out_of_scope",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": null,
    "check_cadence_days": null,
    "last_known_shows": [],
-   "last_skip": null,
+   "last_skip": {
+    "ts": 1788493507,
+    "reason": "out_of_scope",
+    "detail": "Sprout Curation's own site lists its office/viewing and presentation room address as Roppongi Hills Residence D1006, 6-12-4 Roppongi, Minato-ku, Tokyo — in Minato-ku, not Shinjuku/Kagurazaka. Its current show is also hosted off-site at CADAN Otemachi (Chiyoda-ku), not in this zone.",
+    "url": "https://sprout-curation.com/gallery",
+    "session": "deep-tokyo-shinjuku-kagurazaka-1788493300"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -230206,7 +232022,17 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493507,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "skipped:out_of_scope",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788462830,
     "directory_session": "enum-tokyo-shinjuku-kagurazaka-1788462503",
@@ -236259,7 +238085,7 @@
   },
   {
    "id": "taka-ishii-gallery-roppongi",
-   "name": "Taka Ishii Gallery Roppongi",
+   "name": "Kotaro Nukaga (Roppongi)",
    "aliases": [
     "Taka Ishii Gallery Tokyo",
     "Taka Ishii Gallery Photography / Film",
@@ -236272,13 +238098,13 @@
    "status": "active",
    "tier": 1,
    "notability": 0.596,
-   "neighborhood": "Tennozu",
-   "address": "1-32-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo (TERRADA ART COMPLEX II, 3F/4F)",
-   "address_detail": "3F",
-   "latitude": 35.6615289,
-   "longitude": 139.7310734,
-   "coords_source": "show:kei-takemura-taka-ishii",
-   "website": "https://www.takaishiigallery.com/en/",
+   "neighborhood": "Roppongi",
+   "address": "6-6-9 Roppongi, Minato City, Tokyo 106-0032",
+   "address_detail": "Piramide Building, 2F",
+   "latitude": 35.6618412,
+   "longitude": 139.7315535,
+   "coords_source": "show:nukaga-kour-pour-points-of-entry",
+   "website": "https://kotaronukaga.com/",
    "exhibitions_url": "https://www.takaishiigallery.com/en/exhibitions/",
    "exhibitions_url_source": "migration",
    "exhibitions_url_candidates": [
@@ -236287,34 +238113,79 @@
     "https://www.takaishiigallery.com/en/exhibitions/tokyo/"
    ],
    "hours": [
-    "Tue - Sat 12:00pm to 7:00pm",
-    "Closed Sun, Mon and national holidays"
+    "Tue - Sat 11:30am to 6:00pm"
    ],
-   "phone": "+81-3-6434-7010",
+   "phone": "03-6721-1180",
    "google": {
     "status": "OPERATIONAL",
-    "address": "ピラミデビル 2F, 6-chōme-6−９ Roppongi, Minato City",
+    "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−6−９ ピラミデビル 2F",
     "hours": [
      "Monday: Closed",
-     "Tuesday: 12:00 – 7:00 PM",
-     "Wednesday: 12:00 – 7:00 PM",
-     "Thursday: 12:00 – 7:00 PM",
-     "Friday: 12:00 – 7:00 PM",
-     "Saturday: 12:00 – 7:00 PM",
+     "Tuesday: 11:30 AM – 6:00 PM",
+     "Wednesday: 11:30 AM – 6:00 PM",
+     "Thursday: 11:30 AM – 6:00 PM",
+     "Friday: 11:30 AM – 6:00 PM",
+     "Saturday: 11:30 AM – 6:00 PM",
      "Sunday: Closed"
     ],
-    "phone": "03-6434-7010",
-    "website": "https://www.takaishiigallery.com/jp/info/",
+    "phone": "03-6721-1180",
+    "website": "https://kotaronukaga.com/about/",
     "lat": 35.6618412,
     "lng": 139.7315535,
-    "ts": 1788460153
+    "ts": 1788494081
    },
-   "last_scraped": 1788227233,
+   "last_scraped": 1788493893,
    "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-04",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
    "last_known_shows": [
+    {
+     "slug": "nukaga-oriol-vilanova-original-copy",
+     "title": "Original Copy",
+     "artist": "Oriol Vilanova",
+     "start": "2026-08-01",
+     "end": "2026-09-12",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/nukaga-oriol-vilanova-original-copy/01.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2026/06/sunday-morning-postcard-1.jpg?w=1772&ssl=1",
+       "px": [
+        1772,
+        1181
+       ]
+      },
+      "images/tokyo/nukaga-oriol-vilanova-original-copy/02.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-21-at-17.06.37.jpeg?w=1200&ssl=1",
+       "px": [
+        1200,
+        851
+       ]
+      },
+      "images/tokyo/nukaga-oriol-vilanova-original-copy/03.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/OV-001-image-1.jpg?fit=620%2C489&ssl=1",
+       "px": [
+        620,
+        489
+       ]
+      },
+      "images/tokyo/nukaga-oriol-vilanova-original-copy/04.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/OV-007-image.jpg?fit=564%2C1024&ssl=1",
+       "px": [
+        564,
+        1024
+       ]
+      },
+      "images/tokyo/nukaga-oriol-vilanova-original-copy/05.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2021/06/230516_KNR_installation_0024.jpg_compressed-1.jpeg?fit=620%2C930&ssl=1",
+       "px": [
+        620,
+        930
+       ]
+      }
+     }
+    },
     {
      "slug": "kei-takemura-taka-ishii",
      "title": "Garden Next Door",
@@ -236322,6 +238193,38 @@
      "start": "2026-09-05",
      "end": "2026-09-26",
      "placement": "published"
+    },
+    {
+     "slug": "nukaga-kour-pour-points-of-entry",
+     "title": "Points of Entry",
+     "artist": "Kour Pour",
+     "start": "2026-09-26",
+     "end": "2026-11-07",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/nukaga-kour-pour-points-of-entry/01.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2026/07/To-Be-Titled-2025-56-Acrylic-on-canvas-over-panel-60-x-48-inches-1.jpg?w=4531&ssl=1",
+       "px": [
+        4531,
+        5400
+       ]
+      },
+      "images/tokyo/nukaga-kour-pour-points-of-entry/02.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2024/09/Autumn-2024-43-x-28-inches-Acrylic-and-block-printing-ink-on-canvas.jpg_compressed.jpeg?fit=620%2C892&ssl=1",
+       "px": [
+        620,
+        892
+       ]
+      },
+      "images/tokyo/nukaga-kour-pour-points-of-entry/03.jpg": {
+       "url": "https://i0.wp.com/kotaronukaga.com/wp-content/uploads/2024/09/Winter-2024-43-x-38-inches-Acrylic-and-block-printing-ink-on-canvas.jpg_compressed.jpeg?fit=620%2C691&ssl=1",
+       "px": [
+        620,
+        691
+       ]
+      }
+     }
     }
    ],
    "last_skip": null,
@@ -236338,14 +238241,35 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493892,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "nukaga-oriol-vilanova-original-copy",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493893,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "nukaga-kour-pour-points-of-entry",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463772,
     "directory_session": "enum-tokyo-tennozu-1788463630",
     "shows": [
-     "kei-takemura-taka-ishii"
+     "kei-takemura-taka-ishii",
+     "nukaga-oriol-vilanova-original-copy",
+     "nukaga-kour-pour-points-of-entry"
     ],
-    "crosscheck_ts": 1788457543,
+    "crosscheck_ts": 1788494081,
     "site": {
      "ts": 1788457543,
      "url": "https://www.takaishiigallery.com/en/",
@@ -237005,29 +238929,28 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.365,
    "neighborhood": "Roppongi",
-   "address": "2-14-8 Higashi Azabu, Minato-ku",
+   "address": "2-14-8 Higashi Azabu, Minato City, Tokyo 106-0044",
    "address_detail": null,
-   "latitude": 35.6571565,
-   "longitude": 139.7405583,
-   "coords_source": "places",
+   "latitude": 35.65703269999999,
+   "longitude": 139.7405246,
+   "coords_source": "show:takeninagawa-on-kawara",
    "website": "http://www.takeninagawa.com/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
-   "phone": null,
+   "exhibitions_url": "https://www.takeninagawa.com/en/exhibitions/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.takeninagawa.com/en/exhibitions/"
+   ],
+   "hours": [
+    "Tue - Sat 11:00am to 7:00pm"
+   ],
+   "phone": "03-5571-5844",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0044 Tokyo, Minato City, Higashiazabu, 2-chōme−14−８ フィル・パーク東麻布 2階",
-    "lat": 35.6571565,
-    "lng": 139.7405583,
-    "ts": 1788467298,
-    "phone": "03-5571-5844",
-    "website": "http://www.takeninagawa.com/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 11:00 AM – 7:00 PM",
@@ -237036,14 +238959,63 @@
      "Friday: 11:00 AM – 7:00 PM",
      "Saturday: 11:00 AM – 7:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-5571-5844",
+    "website": "http://www.takeninagawa.com/",
+    "lat": 35.6571565,
+    "lng": 139.7405583,
+    "ts": 1788494083
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493895,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "takeninagawa-man-ray",
+     "title": "Man Ray",
+     "artist": "Man Ray",
+     "start": "2026-08-01",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/takeninagawa-man-ray/01.jpg": {
+       "url": "https://www.takeninagawa.com/wp/wp-content/uploads/2026/06/LE1466_2-1772x2400.jpg",
+       "px": [
+        1772,
+        2400
+       ]
+      },
+      "images/tokyo/takeninagawa-man-ray/02.jpg": {
+       "url": "https://www.bulgarihotels.com/.imaging/bhr-wide-big-jpg/dam/arteit/104199---man-ray--reinventing-the-image/format-2560x1600-104199/jcr%3Acontent",
+       "px": [
+        1920,
+        1080
+       ]
+      }
+     }
+    },
+    {
+     "slug": "takeninagawa-on-kawara",
+     "title": "On Kawara: I Got Up",
+     "artist": "On Kawara",
+     "start": "2026-08-01",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/takeninagawa-on-kawara/01.jpg": {
+       "url": "https://www.takeninagawa.com/wp/wp-content/uploads/2026/07/LE0153_2-2400x1512.png",
+       "px": [
+        2400,
+        1512
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -237058,12 +239030,34 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493894,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "takeninagawa-man-ray",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493895,
+     "session": "deep-tokyo-roppongi-1788493619",
+     "outcome": "saved",
+     "slug": "takeninagawa-on-kawara",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "takeninagawa-man-ray",
+     "takeninagawa-on-kawara"
+    ],
+    "crosscheck_ts": 1788494083,
     "seed": {
      "llm": {
       "ts": 1788460345,
@@ -237122,20 +239116,27 @@
     "founded_year": null,
     "founders": [],
     "locations_elsewhere": [],
-    "program_focus": [],
-    "roster_count": 0,
-    "exhibitions_total": null,
-    "exhibitions_per_year": null,
-    "first_exhibition_year": null,
-    "solo_share": null
+    "program_focus": [
+     "postwar Japanese art (Gutai)",
+     "contemporary Japanese and international artists",
+     "film and moving image",
+     "sculpture and installation",
+     "mixed-media and collage practices"
+    ],
+    "roster_count": 17,
+    "exhibitions_total": 92,
+    "exhibitions_per_year": 4.84,
+    "first_exhibition_year": 2008,
+    "solo_share": 0.86
    },
    "research": {
-    "ts": null,
-    "crawl_pages": 0,
-    "triaged": 0,
+    "ts": 1788493312,
+    "crawl_pages": 300,
+    "triaged": 227,
     "report_path": "content/venues/reports/tokyo/take-ninagawa.json",
-    "cost_usd": 0.0,
-    "gapfill": false
+    "cost_usd": 0.3463,
+    "gapfill": false,
+    "incomplete": false
    },
    "features": {
     "hours_breadth": {
@@ -237708,36 +239709,144 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 1,
    "notability": 0.633,
    "neighborhood": "Tennozu",
-   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo (TERRADA ART COMPLEX I, 3F)",
-   "address_detail": null,
-   "latitude": 35.6191071,
-   "longitude": 139.7466485,
-   "coords_source": "places",
+   "address": "1-33-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+   "address_detail": "TERRADA Art Complex I, 3F",
+   "latitude": 35.6191531,
+   "longitude": 139.7466125,
+   "coords_source": "show:tsca-as-one-draws",
    "website": "https://tsca.jp/",
    "exhibitions_url": "https://tsca.jp/exhibition/",
-   "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Tue - Sat 11:00AM - 6:00PM (Closed on Sun, Mon and National Holidays)"
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://tsca.jp/exhibition/",
+    "https://tsca.jp/exhibition/as-one-draws%EF%BD%9Ctsca-20th-anniversary-group-exhibition/"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 11:00am to 6:00pm",
+    "Closed Sun, Mon and National Holidays"
+   ],
+   "phone": "03-6712-9887",
    "google": {
     "status": "OPERATIONAL",
-    "address": "Terrada Art Complex 3F & 5F, 1-chōme-33−１０ Higashishinagawa, Shinagawa City",
+    "address": "Japan, 〒140-0002 Tokyo, Shinagawa City, Higashishinagawa, 1-chōme−33−１０ Terrada Art Complex 3F & 5F",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 6:00 PM",
+     "Wednesday: 11:00 AM – 6:00 PM",
+     "Thursday: 11:00 AM – 6:00 PM",
+     "Friday: 11:00 AM – 6:00 PM",
+     "Saturday: 11:00 AM – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "phone": null,
+    "website": "https://tsca.jp/",
     "lat": 35.6191071,
     "lng": 139.7466485,
-    "ts": 1788460153
+    "ts": 1788494073
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493798,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "tsca-yamanaka-lambri-hosokura",
+     "title": "Special Feature Exhibition: Nobuo Yamanaka, Luisa Lambri, Mayumi Hosokura",
+     "artist": "Nobuo Yamanaka, Luisa Lambri, Mayumi Hosokura",
+     "start": "2026-08-15",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/tsca-yamanaka-lambri-hosokura/01.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/8a2325fb879f2fd7ea2b036ddc96ee88.png",
+       "px": [
+        1478,
+        1244
+       ]
+      },
+      "images/tokyo/tsca-yamanaka-lambri-hosokura/02.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/Luisa-Lambri_ApartmentBlockIg-1600x1066.jpg",
+       "px": [
+        1600,
+        1066
+       ]
+      },
+      "images/tokyo/tsca-yamanaka-lambri-hosokura/03.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9769-1600x1200.jpg",
+       "px": [
+        1600,
+        1200
+       ]
+      },
+      "images/tokyo/tsca-yamanaka-lambri-hosokura/04.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9788-1600x1142.jpg",
+       "px": [
+        1600,
+        1142
+       ]
+      },
+      "images/tokyo/tsca-yamanaka-lambri-hosokura/05.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF0174-1600x1200.jpg",
+       "px": [
+        1600,
+        1200
+       ]
+      }
+     }
+    },
+    {
+     "slug": "tsca-as-one-draws",
+     "title": "As One Draws: TSCA 20th Anniversary Group Exhibition",
+     "artist": null,
+     "start": "2026-08-15",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/tsca-as-one-draws/01.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9747-1600x1143.jpg",
+       "px": [
+        1600,
+        1143
+       ]
+      },
+      "images/tokyo/tsca-as-one-draws/02.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9690-1600x1143.jpg",
+       "px": [
+        1600,
+        1143
+       ]
+      },
+      "images/tokyo/tsca-as-one-draws/03.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9849-1600x2133.jpg",
+       "px": [
+        1600,
+        2133
+       ]
+      },
+      "images/tokyo/tsca-as-one-draws/04.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9832-1600x1200.jpg",
+       "px": [
+        1600,
+        1200
+       ]
+      },
+      "images/tokyo/tsca-as-one-draws/05.jpg": {
+       "url": "https://tsca.jp/wp/wp-content/uploads/2026/07/DSF9721-1600x1143.jpg",
+       "px": [
+        1600,
+        1143
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -237752,12 +239861,52 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493736,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "tsca-yamanaka-lambri-hosokura",
+     "cost_usd": 0.0788,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493763,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "tsca-as-one-draws",
+     "cost_usd": 0.1117,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493776,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "tsca-as-one-draws",
+     "cost_usd": 0.0446,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493798,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "tsca-as-one-draws",
+     "cost_usd": 0.0903,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463771,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "tsca-yamanaka-lambri-hosokura",
+     "tsca-as-one-draws"
+    ],
+    "crosscheck_ts": 1788494073,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -239074,37 +241223,37 @@
   },
   {
    "id": "taro-nasu",
-   "name": "Taro Nasu",
+   "name": "TARO NASU",
    "aliases": [
     "TARO NASU"
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.619,
    "neighborhood": "Roppongi",
-   "address": "Piramide Bldg 4F, 6-6-9 Roppongi, Minato-ku",
-   "address_detail": null,
+   "address": "Piramide Building 4F, 6-6-9 Roppongi, Minato-ku, Tokyo",
+   "address_detail": "Piramide Building 4F",
    "latitude": 35.6619179,
    "longitude": 139.7314889,
-   "coords_source": "places",
+   "coords_source": "show:here-there-now",
    "website": "https://www.taronasugallery.com/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
+   "exhibitions_url": "https://www.taronasugallery.com/exhibition/current/",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.taronasugallery.com/exhibition/current/",
+    "https://www.taronasugallery.com/en/exhibition/current/",
+    "https://www.taronasugallery.com/"
+   ],
    "hours": [
-    "Opening hours: 11:00-19:00, Closed: Sun, Mon, Public Holiday"
+    "Tue - Sat 11:00am to 7:00pm",
+    "Closed Sun, Mon and national holidays"
    ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−6−９ ピラミデビル4F",
-    "lat": 35.6619179,
-    "lng": 139.7314889,
-    "ts": 1788467299,
-    "phone": "03-5786-6900",
-    "website": "https://www.taronasugallery.com/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 11:00 AM – 7:00 PM",
@@ -239113,15 +241262,59 @@
      "Friday: 11:00 AM – 7:00 PM",
      "Saturday: 11:00 AM – 7:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-5786-6900",
+    "website": "https://www.taronasugallery.com/",
+    "lat": 35.6619179,
+    "lng": 139.7314889,
+    "ts": 1788494057
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493576,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "here-there-now",
+     "title": "here there now",
+     "artist": null,
+     "start": "2026-09-12",
+     "end": "2026-10-17",
+     "end_estimated": false,
+     "placement": "pending",
+     "image_sources": {
+      "images/tokyo/taronasu-here-there-now/01.jpg": {
+       "url": "https://www.taronasugallery.com/wp/wp-content/uploads/LG-1024x683.jpg",
+       "px": [
+        1024,
+        683
+       ]
+      },
+      "images/tokyo/taronasu-here-there-now/02.jpg": {
+       "url": "https://www.taronasugallery.com/wp/wp-content/uploads/MG_0930-1-1024x683.jpg",
+       "px": [
+        1024,
+        683
+       ]
+      },
+      "images/tokyo/taronasu-here-there-now/03.jpg": {
+       "url": "https://www.taronasugallery.com/wp/wp-content/uploads/B0008679M-1024x767.jpg",
+       "px": [
+        1024,
+        767
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493575,
+    "reason": "closed_or_between_shows",
+    "detail": "Gallery is between shows as of Sept 3, 2026 (previously announced 'Real Real Real' postponed); its next exhibition, group show 'here there now', opens Sept 12, 2026 and has been saved as an upcoming show.",
+    "url": "https://www.taronasugallery.com/exhibition/current/",
+    "session": "deep-tokyo-roppongi-1788493240"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -239135,12 +241328,33 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493575,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "here-there-now",
+     "cost_usd": 1.2786,
+     "searches": 11,
+     "fetches": 12
+    },
+    {
+     "ts": 1788493576,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "here-there-now"
+    ],
+    "crosscheck_ts": 1788494057,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -246779,23 +248993,27 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.596,
    "neighborhood": "Ginza/Kyobashi",
-   "address": "Yamatane Bldg 8F, Ginza",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
+   "address": "8-10-5 Ginza, Chuo-ku, Tokyo",
+   "address_detail": "Yamatane Bldg / Dai-4 Showa Bldg, 7F",
+   "latitude": 35.6677742,
+   "longitude": 139.7623744,
+   "coords_source": "show:sekine-gate-boxcar",
    "website": "http://www.tokyo-gallery.com/",
-   "exhibitions_url": null,
-   "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Tokyo: Tue–Sat 12:00–18:00 (closed Sun, Mon, holidays); Beijing BTAP: Tue–Sat, summer (Apr–Oct) 10:00–18:00 / winter (Nov–Mar) 11:00–17:00 (closed Sun, Mon, holidays)"
+   "exhibitions_url": "https://www.tokyo-gallery.com/en/exhibitions",
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://www.tokyo-gallery.com/en/exhibitions",
+    "https://www.tokyo-gallery.com/en/exhibitions/",
+    "http://www.tokyo-gallery.com/"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 12:00pm to 6:00pm"
+   ],
+   "phone": "+81 3 3571 1808",
    "google": {
     "status": "OPERATIONAL",
     "address": "8-chōme-10-5 Ginza, Chuo City, Tokyo 104-0061, Japan",
@@ -246812,14 +249030,61 @@
     "website": "http://www.tokyo-gallery.com/",
     "lat": 35.6677845,
     "lng": 139.76236,
-    "ts": 1788467299
+    "ts": 1788494025
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493455,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "sekine-gate-boxcar",
+     "title": "Yoshio Sekine: From the \"Gate\" and \"Boxcar\" Series",
+     "artist": "Yoshio Sekine",
+     "start": "2026-08-29",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/sekine-gate-boxcar/01.jpg": {
+       "url": "https://www.tokyo-gallery.com/manage/wp-content/uploads/2022/01/SY_1-2400x1600.jpg",
+       "px": [
+        2400,
+        1600
+       ]
+      },
+      "images/tokyo/sekine-gate-boxcar/02.jpg": {
+       "url": "https://www.tokyo-gallery.com/manage/wp-content/uploads/2022/01/SY_5-2400x1600.jpg",
+       "px": [
+        2400,
+        1600
+       ]
+      },
+      "images/tokyo/sekine-gate-boxcar/03.jpg": {
+       "url": "https://www.tokyo-gallery.com/manage/wp-content/uploads/2022/01/SY_9-2400x1600.jpg",
+       "px": [
+        2400,
+        1600
+       ]
+      },
+      "images/tokyo/sekine-gate-boxcar/04.jpg": {
+       "url": "https://www.tokyo-gallery.com/manage/wp-content/uploads/2022/01/SY_2-2400x1600.jpg",
+       "px": [
+        2400,
+        1600
+       ]
+      },
+      "images/tokyo/sekine-gate-boxcar/05.jpg": {
+       "url": "https://www.tokyo-gallery.com/manage/wp-content/uploads/2022/01/SY_4-2400x1600.jpg",
+       "px": [
+        2400,
+        1600
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -246834,12 +249099,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493455,
+     "session": "deep-tokyo-ginza-kyobashi-1788493280",
+     "outcome": "saved",
+     "slug": "sekine-gate-boxcar",
+     "cost_usd": 0.424,
+     "searches": 5,
+     "fetches": 5
+    }
+   ],
    "sources": {
     "directory_ts": 1788453596,
     "directory_session": "enum-tokyo-ginza-kyobashi-1788453180",
-    "shows": [],
-    "crosscheck_ts": 1788457542,
+    "shows": [
+     "sekine-gate-boxcar"
+    ],
+    "crosscheck_ts": 1788494025,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -250974,23 +253251,26 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 1,
    "notability": 0.608,
    "neighborhood": "Roppongi",
-   "address": "complex665, Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": 35.6783071,
-   "longitude": 139.771662,
-   "coords_source": "places",
-   "website": "http://www.tomiokoyamagallery.com/",
+   "address": "6-5-24 Roppongi, Minato-ku, Tokyo",
+   "address_detail": "complex665 2F",
+   "latitude": 35.6615876,
+   "longitude": 139.7310296,
+   "coords_source": "show:tkg-sakamoto-painting-unknown",
+   "website": "https://www.tomiokoyamagallery.com/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [
-    "Roppongi & Kyobashi 11:00–19:00; Tennoz 11:00–18:00; CLOSED Sun, Mon, National Holidays"
+   "exhibitions_url_candidates": [
+    "https://www.tomiokoyamagallery.com/en/"
    ],
-   "phone": null,
+   "hours": [
+    "Tue - Sat 11:00am to 7:00pm",
+    "Closed Sun, Mon and national holidays"
+   ],
+   "phone": "+81-3-6434-7225",
    "google": {
     "status": "OPERATIONAL",
     "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−5−２４ complex665 2F",
@@ -251007,14 +253287,54 @@
     "website": "http://www.tomiokoyamagallery.com/",
     "lat": 35.661568,
     "lng": 139.731078,
-    "ts": 1788467301
+    "ts": 1788494060
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493577,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-10",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "tkg-sakamoto-painting-unknown",
+     "title": "Painting to Communicate with Someone Unknown",
+     "artist": "Natsuko Sakamoto",
+     "start": "2026-08-22",
+     "end": "2026-09-19",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/tkg-sakamoto/01.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2026/07/NS-Pa-26-02_b_slide.jpg",
+       "px": [
+        1000,
+        562
+       ]
+      },
+      "images/tokyo/tkg-sakamoto/02.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2026/08/DSF2316-2048x1536.jpeg",
+       "px": [
+        2048,
+        1536
+       ]
+      },
+      "images/tokyo/tkg-sakamoto/03.jpg": {
+       "url": "https://www.tomiokoyamagallery.com/wp/wp-content/uploads/2026/08/DSF2085.jpeg",
+       "px": [
+        1920,
+        2560
+       ]
+      },
+      "images/tokyo/tkg-sakamoto/04.jpg": {
+       "url": "https://likeyou.com/wp-content/uploads/2026/08/Natsuko_Sakamoto_i-ll_painting_2_2026_tomiokoyamagallery_Roppongi_26_likeyou.jpg",
+       "px": [
+        641,
+        769
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -251029,12 +253349,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493577,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "tkg-sakamoto-painting-unknown",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": 1788457543,
+    "shows": [
+     "tkg-sakamoto-painting-unknown"
+    ],
+    "crosscheck_ts": 1788494060,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -252146,27 +254478,24 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.354,
    "neighborhood": "Shinjuku/Kagurazaka",
-   "address": "Japan, 〒160-0004 Tokyo, Shinjuku City, Yotsuya, 4-chōme−22 第二富士川ビル 1F",
-   "address_detail": null,
-   "latitude": 35.69023870000001,
-   "longitude": 139.7160501,
-   "coords_source": "places",
-   "website": "http://tppg.jp/",
+   "address": "4-22 Yotsuya, Shinjuku-ku, Tokyo",
+   "address_detail": "Dai-ni Fujikawa Bldg 1F",
+   "latitude": 35.6900651,
+   "longitude": 139.7160793,
+   "coords_source": "show:fujimoto-even-if-i-were-to-climb",
+   "website": "https://tppg.jp/",
    "exhibitions_url": "https://tppg.jp/current/",
    "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_candidates": [
+    "https://tppg.jp/current/"
+   ],
    "hours": [
-    "Monday: Closed",
-    "Tuesday: 12:00 – 7:00 PM",
-    "Wednesday: 12:00 – 7:00 PM",
-    "Thursday: 12:00 – 7:00 PM",
-    "Friday: 12:00 – 7:00 PM",
-    "Saturday: 12:00 – 7:00 PM",
-    "Sunday: 12:00 – 7:00 PM"
+    "Tue - Sun 12:00pm to 7:00pm",
+    "Closed Mondays"
    ],
    "phone": "03-3341-9341",
    "google": {
@@ -252183,16 +254512,70 @@
     ],
     "phone": "03-3341-9341",
     "website": "http://tppg.jp/",
-    "lat": 35.69023870000001,
+    "lat": 35.6902387,
     "lng": 139.7160501,
-    "ts": 1788460153
+    "ts": 1788494034
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493475,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-11",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "fujimoto-even-if-i-were-to-climb",
+     "title": "Even if I were to climb that mountain.",
+     "artist": "Atsushi Fujimoto",
+     "start": "2026-09-01",
+     "end": "2026-09-13",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/01.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-1.jpg",
+       "px": [
+        800,
+        530
+       ]
+      },
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/02.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-2.jpg",
+       "px": [
+        800,
+        530
+       ]
+      },
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/03.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-3.jpg",
+       "px": [
+        800,
+        530
+       ]
+      },
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/04.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-4.jpg",
+       "px": [
+        800,
+        530
+       ]
+      },
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/05.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-5.jpg",
+       "px": [
+        800,
+        530
+       ]
+      },
+      "images/tokyo/fujimoto-even-if-i-were-to-climb/06.jpg": {
+       "url": "https://tppg.jp/wp/wp-content/uploads/2026/07/%E3%81%82%E3%81%AE%E5%B1%B1%E3%81%AB%E7%99%BB%E3%81%A3%E3%81%9F%E3%81%A3%E3%81%A6-6.jpg",
+       "px": [
+        800,
+        530
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -252207,12 +254590,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493475,
+     "session": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+     "outcome": "saved",
+     "slug": "fujimoto-even-if-i-were-to-climb",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": null,
     "directory_session": null,
-    "shows": [],
-    "crosscheck_ts": null,
+    "shows": [
+     "fujimoto-even-if-i-were-to-climb"
+    ],
+    "crosscheck_ts": 1788494034,
     "seed": {
      "places": {
       "ts": 1788460153,
@@ -262262,7 +264657,7 @@
     "website": "http://www.watarium.co.jp/",
     "lat": 35.6707251,
     "lng": 139.7133581,
-    "ts": 1788460153
+    "ts": 1788494006
    },
    "last_scraped": 1788227225,
    "last_outcome": "saved",
@@ -262300,7 +264695,7 @@
     "shows": [
      "nam-june-paik-watarium"
     ],
-    "crosscheck_ts": 1788457546,
+    "crosscheck_ts": 1788494006,
     "site": {
      "ts": 1788457546,
      "url": "http://www.watarium.co.jp/en/",
@@ -267853,24 +270248,31 @@
   },
   {
    "id": "yod",
-   "name": "YOD Gallery",
-   "aliases": [],
+   "name": "YOD Gallery Tennoz",
+   "aliases": [
+    "YOD Gallery Tennoz"
+   ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.313,
    "neighborhood": "Tennozu",
-   "address": "1-32-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo (TERRADA ART COMPLEX II, 2F)",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
+   "address": "1-32-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+   "address_detail": "Terrada Art Complex II, 2F",
+   "latitude": 35.61978190000001,
+   "longitude": 139.7462956,
+   "coords_source": "show:yod-gallery-unconditional",
    "website": "https://www.yodgallery.com/en/",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
-   "exhibitions_url_candidates": [],
-   "hours": [],
+   "exhibitions_url_candidates": [
+    "https://www.yodgallery.com/en/upcoming-exhibition%E5%A4%A9%E7%8E%8B%E6%B4%B2"
+   ],
+   "hours": [
+    "Tue - Sun 11:30am to 6:30pm",
+    "Closed Mondays"
+   ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
@@ -267888,15 +270290,40 @@
     "website": "https://yodgallery.com/",
     "lat": 35.61978190000001,
     "lng": 139.7462956,
-    "ts": 1788467177
+    "ts": 1788494070
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493710,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "yod-gallery-unconditional",
+     "title": "UNCONDITIONAL",
+     "artist": "HR Campos III, E.S.L Chen, Sean Go, Summer De Guia, Patrick De Veyra, Martin Honasan, Jing, Isadore Lerio, Nara Marin, Jason Montinola, Victoria Montinola, R.A. Tijing, Zuh Dai",
+     "start": "2026-09-09",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/yod-gallery-unconditional/01.jpg": {
+       "url": "https://static.wixstatic.com/media/bb34bc_e831a651032e4dca9ea9a9e1a1bac7b4~mv2.jpg/v1/fill/w_1620,h_1080,al_c/bb34bc_e831a651032e4dca9ea9a9e1a1bac7b4~mv2.jpg",
+       "px": [
+        1620,
+        1080
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493710,
+    "reason": "closed_or_between_shows",
+    "detail": "Venue's own site shows the Tennoz space between shows; next confirmed exhibition is the group show \"UNCONDITIONAL\" opening Sept 9, 2026, saved separately as an upcoming show.",
+    "url": "https://www.yodgallery.com/en/upcoming-exhibition%E5%A4%A9%E7%8E%8B%E6%B4%B2",
+    "session": "deep-tokyo-tennozu-1788493260"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -267910,12 +270337,42 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493694,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "yod-gallery-unconditional",
+     "cost_usd": 0.0445,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493706,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "yod-gallery-unconditional",
+     "cost_usd": 0.0426,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493710,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0337,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463771,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": 1788467177,
+    "shows": [
+     "yod-gallery-unconditional"
+    ],
+    "crosscheck_ts": 1788494070,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -271903,31 +274360,30 @@
    ],
    "kind": "gallery",
    "is_museum": false,
-   "status": "candidate",
+   "status": "active",
    "tier": 2,
    "notability": 0.41,
    "neighborhood": "Tennozu",
-   "address": "1-chōme-32-8 Higashishinagawa, Shinagawa City",
-   "address_detail": null,
-   "latitude": 35.6197853,
-   "longitude": 139.7462737,
-   "coords_source": "places",
+   "address": "1-32-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+   "address_detail": "Terrada Art Complex II",
+   "latitude": 35.61978190000001,
+   "longitude": 139.7462956,
+   "coords_source": "show:yukikomizutani-tale-of-blessings",
    "website": "http://yukikomizutani.com/",
    "exhibitions_url": "https://yukikomizutani.com/exhibitions/",
-   "exhibitions_url_source": "discovered",
-   "exhibitions_url_candidates": [],
+   "exhibitions_url_source": "harness",
+   "exhibitions_url_candidates": [
+    "https://yukikomizutani.com/exhibitions/",
+    "https://yukikomizutani.com/exhibitions/a-tale-of-blessings/"
+   ],
    "hours": [
-    "Tue, Wed, Thu, Fri, Sat: 12:00 - 18:00; Closed on Sundays, Mondays and National Holidays"
+    "Tue - Sat 11:00am to 6:00pm",
+    "Closed Sun, Mon and National Holidays"
    ],
    "phone": null,
    "google": {
     "status": "OPERATIONAL",
     "address": "1-chōme-32-8 Higashishinagawa, Shinagawa City, Tokyo 140-0002, Japan",
-    "lat": 35.6197853,
-    "lng": 139.7462737,
-    "ts": 1788467304,
-    "phone": "03-6810-3885",
-    "website": "http://yukikomizutani.com/",
     "hours": [
      "Monday: Closed",
      "Tuesday: 12:00 – 6:00 PM",
@@ -271936,15 +274392,45 @@
      "Friday: 12:00 – 6:00 PM",
      "Saturday: 12:00 – 6:00 PM",
      "Sunday: Closed"
-    ]
+    ],
+    "phone": "03-6810-3885",
+    "website": "http://yukikomizutani.com/",
+    "lat": 35.6197853,
+    "lng": 139.7462737,
+    "ts": 1788494054
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493694,
+   "last_outcome": "skipped:closed_or_between_shows",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
-   "last_skip": null,
+   "last_known_shows": [
+    {
+     "slug": "yukikomizutani-tale-of-blessings",
+     "title": "A Tale of Blessings",
+     "artist": "Hiroko Toyama",
+     "start": "2026-09-09",
+     "end": "2026-10-03",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/yukikomizutani-tale-of-blessings/01.jpg": {
+       "url": "https://yukikomizutani.com/wp-content/uploads/2026/08/72dpi%E3%80%8C%E5%9B%9B%E5%AD%A3%E7%87%95%E5%9B%B3%E3%80%8D%E3%82%A2%E3%83%83%E3%83%97-2.jpg",
+       "px": [
+        1200,
+        505
+       ]
+      }
+     }
+    }
+   ],
+   "last_skip": {
+    "ts": 1788493694,
+    "reason": "closed_or_between_shows",
+    "detail": "Previous show \"Seiji Matsumoto: EVERYONE IS DIFFERENT\" closed Aug 30, 2026; gallery has nothing on view now. Next confirmed show, \"A Tale of Blessings\" (Hiroko Toyama), opens Sept 9, 2026 — saved separately as an upcoming show.",
+    "url": "https://yukikomizutani.com/exhibitions/",
+    "session": "deep-tokyo-tennozu-1788493260"
+   },
    "page": {
     "fetched_ts": null,
     "http_status": null,
@@ -271958,12 +274444,42 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493575,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "yukikomizutani-tale-of-blessings",
+     "cost_usd": 0.2524,
+     "searches": 1,
+     "fetches": 3
+    },
+    {
+     "ts": 1788493677,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "saved",
+     "slug": "yukikomizutani-tale-of-blessings",
+     "cost_usd": 0.2289,
+     "searches": 0,
+     "fetches": 0
+    },
+    {
+     "ts": 1788493694,
+     "session": "deep-tokyo-tennozu-1788493260",
+     "outcome": "skipped:closed_or_between_shows",
+     "slug": null,
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788463771,
     "directory_session": "enum-tokyo-tennozu-1788463630",
-    "shows": [],
-    "crosscheck_ts": 1788467200,
+    "shows": [
+     "yukikomizutani-tale-of-blessings"
+    ],
+    "crosscheck_ts": 1788494054,
     "seed": {
      "priors": {
       "ts": 1788458581,
@@ -272916,21 +275432,22 @@
    "aliases": [],
    "kind": "gallery",
    "is_museum": false,
-   "status": "unknown",
+   "status": "active",
    "tier": 2,
    "notability": 0.489,
    "neighborhood": "Roppongi",
-   "address": "Piramide Bldg 2F, 6-6-9 Roppongi, Minato-ku",
-   "address_detail": null,
-   "latitude": null,
-   "longitude": null,
-   "coords_source": null,
-   "website": "http://www.ykggallery.com/",
+   "address": "6-6-9 Roppongi, Minato-ku, Tokyo",
+   "address_detail": "Piramide Building 2F",
+   "latitude": 35.6618412,
+   "longitude": 139.7315535,
+   "coords_source": "show:ykg-spirituality-in-sculpture",
+   "website": "https://www.yutakakikutakegallery.com/",
    "exhibitions_url": "https://www.yutakakikutakegallery.com/exhibitions/",
    "exhibitions_url_source": "discovered",
    "exhibitions_url_candidates": [],
    "hours": [
-    "Roppongi: 12:00 – 19:00; Kyobashi: 11:00 – 19:00. Closed on Sun, Mon and National Holidays"
+    "Tue - Sat 12:00pm to 7:00pm",
+    "Closed Sun, Mon and national holidays"
    ],
    "phone": null,
    "google": {
@@ -272949,14 +275466,61 @@
     "website": "http://www.ykggallery.com/",
     "lat": 35.6620156,
     "lng": 139.7312965,
-    "ts": 1788467304
+    "ts": 1788494067
    },
-   "last_scraped": null,
-   "last_outcome": null,
+   "last_scraped": 1788493581,
+   "last_outcome": "saved",
    "last_checked": null,
-   "next_check": "2026-09-03",
+   "next_check": "2026-09-17",
    "check_cadence_days": null,
-   "last_known_shows": [],
+   "last_known_shows": [
+    {
+     "slug": "ykg-spirituality-in-sculpture",
+     "title": "The Spirituality Embodied in Sculpture",
+     "artist": "Futoshi Miyagi, Yuko Mohri, Trevor Yeung, Tomoya Matsuzaki",
+     "start": "2026-08-01",
+     "end": "2026-10-10",
+     "end_estimated": false,
+     "placement": "published",
+     "image_sources": {
+      "images/tokyo/ykg-spirituality-sculpture/01.jpg": {
+       "url": "https://www.yutakakikutakegallery.com/ykgg/wp-content/uploads/2026/07/O3_70441.jpg",
+       "px": [
+        1800,
+        1200
+       ]
+      },
+      "images/tokyo/ykg-spirituality-sculpture/02.jpg": {
+       "url": "https://www.yutakakikutakegallery.com/ykgg/wp-content/uploads/2026/07/O3_7070-900x600.jpg",
+       "px": [
+        900,
+        600
+       ]
+      },
+      "images/tokyo/ykg-spirituality-sculpture/03.jpg": {
+       "url": "https://www.yutakakikutakegallery.com/ykgg/wp-content/uploads/2026/07/O3_7055-900x600.jpg",
+       "px": [
+        900,
+        600
+       ]
+      },
+      "images/tokyo/ykg-spirituality-sculpture/04.jpg": {
+       "url": "https://www.yutakakikutakegallery.com/ykgg/wp-content/uploads/2026/07/O3_7074-900x1350.jpg",
+       "px": [
+        900,
+        1350
+       ]
+      },
+      "images/tokyo/ykg-spirituality-sculpture/05.jpg": {
+       "url": "https://www.yutakakikutakegallery.com/ykgg/wp-content/uploads/2026/07/O3_7076-900x1350.jpg",
+       "px": [
+        900,
+        1350
+       ]
+      }
+     }
+    }
+   ],
    "last_skip": null,
    "page": {
     "fetched_ts": null,
@@ -272971,12 +275535,24 @@
     "changed_ts": null,
     "evidence_path": null
    },
-   "scrape_history": [],
+   "scrape_history": [
+    {
+     "ts": 1788493581,
+     "session": "deep-tokyo-roppongi-1788493240",
+     "outcome": "saved",
+     "slug": "ykg-spirituality-in-sculpture",
+     "cost_usd": 0.0,
+     "searches": 0,
+     "fetches": 0
+    }
+   ],
    "sources": {
     "directory_ts": 1788453650,
     "directory_session": "enum-tokyo-roppongi-1788453160",
-    "shows": [],
-    "crosscheck_ts": 1788457544,
+    "shows": [
+     "ykg-spirituality-in-sculpture"
+    ],
+    "crosscheck_ts": 1788494067,
     "seed": {
      "llm": {
       "ts": 1788460345,

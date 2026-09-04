@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "city": null,
+ "today": null,
+ "max_n": null,
+ "threshold": 0.22,
+ "max_per_venue": 2,
+ "include_pending": false,
+ "published_only": true,
+ "require_open": true,
+ "editors_pick_top": 5,
+ "exclude_museums": true,
+ "max_per_neighborhood": null,
+ "max_museum_share": null,
+ "weights": {
+  "judge": 0.44,
+  "venue": 0.14,
+  "quality": 0.08,
+  "closing_soon": 0.04,
+  "press": 0.04,
+  "museum": -0.2,
+  "artist_heat": 0.0,
+  "wiki_heat": 0.0,
+  "keyword": 0.0,
+  "opening_recency": 0.0
+ },
+ "half_life_days": {
+  "press": 21,
+  "artist": 180,
+  "opening": 30
+ },
+ "press_ref": 4,
+ "artist_ref": 3,
+ "cap_per_source": 1.5,
+ "wiki_ref": 20000,
+ "default_source_weight": 0.3,
+ "kind_weights": {
+  "pick": 1,
+  "review": 0.9,
+  "news": 0.6,
+  "listing": 0.3,
+  "press_release_claim": 0.3,
+  "artist_activity": 1,
+  "award": 1.2
+ },
+ "strength_weights": {
+  "headline": 1,
+  "featured": 0.7,
+  "mentioned": 0.4,
+  "passing": 0.2
+ },
+ "sources": {},
+ "venue_tier_map": {
+  "1": 1,
+  "2": 0.8,
+  "3": 0.6,
+  "4": 0.3,
+  "unknown": 0.45
+ },
+ "judge": {
+  "variant": "judge_v1",
+  "model": "sonnet"
+ },
+ "overrides": {
+  "pin": [],
+  "exclude": []
+ },
+ "_note": "seesaw-complete with museums excluded from the feed (user default, 2026-09-03). Museums still appear in List/Map under the Museums and All venues filters; only the Featured set is galleries-only. The -0.20 museum weight is kept so that if the gate is turned off again, museums sink rather than lead."
+}

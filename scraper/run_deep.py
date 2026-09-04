@@ -519,6 +519,8 @@ def main() -> None:
              "queue": queue.snapshot(), "sessions": session_log},
             indent=2, default=str))
 
+    attempted: set[str] = set()      # venue ids batched anywhere in this run
+
     def scrape_one(zone: str, session_n: int) -> tuple[int, bool, int]:
         """One deep session for `zone`: (progress, todo_was_empty, due_left)."""
         zslug = slugify(zone)
@@ -528,11 +530,18 @@ def main() -> None:
                 # a backfill/forced session per venue at most: drop ones this run already visited
                 done_ids = {x.get("venue_id") for x in session_log if x.get("stage") == "backfill"}
                 todo = [v for v in todo if v.get("id") not in done_ids]
+            # A venue this run already worked never comes back: a zone whose TODO
+            # has thinned to one stubborn venue would otherwise re-batch it every
+            # session (Mizuma Ichigaya took four sessions in the Tokyo run, each
+            # ending "unchanged"). due_venues can legitimately keep returning it —
+            # the schedule is written for the NEXT run, not this one.
+            todo = [v for v in todo if v.get("id") not in attempted]
             if not todo:
                 print(f"[{zslug}] TODO empty after {session_n - 1} session(s)", flush=True)
                 return 0, True, 0
             batch = pick_batch(todo, args.session_todo,
                                max_places_only=args.max_places_per_batch)
+            attempted.update(v["id"] for v in batch if v.get("id"))
             if once_per_run:
                 session_log.extend({"stage": "backfill", "venue_id": v.get("id")}
                                    for v in batch)

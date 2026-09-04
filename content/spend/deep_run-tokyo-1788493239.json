@@ -1,0 +1,410 @@
+{
+  "city": "tokyo",
+  "start_ts": 1788493239,
+  "zones": [
+    "Roppongi",
+    "Ginza/Kyobashi",
+    "Nihonbashi/Bakurocho",
+    "Shibuya/Omotesando",
+    "Shinjuku/Kagurazaka",
+    "Ebisu/Meguro",
+    "Kiyosumi-Shirakawa",
+    "Tennozu",
+    "Ueno/Yanaka",
+    "Setagaya/West Tokyo"
+  ],
+  "args": {
+    "city": "tokyo",
+    "zones": null,
+    "session_todo": 6,
+    "session_budget": 3.0,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 6,
+    "stagger": 20.0,
+    "total_budget": 25.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": null,
+    "force_due": false,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 8000,
+    "effort": "medium",
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": true,
+    "min_tier": null,
+    "min_score": 0.2,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": false
+  },
+  "updated_ts": 1788493997,
+  "queue": {
+    "Roppongi": {
+      "zone": "Roppongi",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ginza/Kyobashi": {
+      "zone": "Ginza/Kyobashi",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Nihonbashi/Bakurocho": {
+      "zone": "Nihonbashi/Bakurocho",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Shibuya/Omotesando": {
+      "zone": "Shibuya/Omotesando",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Shinjuku/Kagurazaka": {
+      "zone": "Shinjuku/Kagurazaka",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 5,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ebisu/Meguro": {
+      "zone": "Ebisu/Meguro",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Kiyosumi-Shirakawa": {
+      "zone": "Kiyosumi-Shirakawa",
+      "order": 6,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Tennozu": {
+      "zone": "Tennozu",
+      "order": 7,
+      "due": 1,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Ueno/Yanaka": {
+      "zone": "Ueno/Yanaka",
+      "order": 8,
+      "due": 0,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Setagaya/West Tokyo": {
+      "zone": "Setagaya/West Tokyo",
+      "order": 9,
+      "due": 0,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "scrape",
+      "zone": "Nihonbashi/Bakurocho",
+      "session": 1,
+      "todo": 4,
+      "saved": 1,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-tokyo-nihonbashi-bakurocho-1788493320",
+      "venue_ids": [
+        "con",
+        "koki-arts",
+        "komiyama-tokyo-g",
+        "base"
+      ],
+      "started_ts": 1788493320,
+      "ended_ts": 1788493483
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shibuya/Omotesando",
+      "session": 1,
+      "todo": 3,
+      "saved": 2,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-tokyo-shibuya-omotesando-1788493340",
+      "venue_ids": [
+        "eukaryote",
+        "galerie-a",
+        "design-festa"
+      ],
+      "started_ts": 1788493340,
+      "ended_ts": 1788493504
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 1,
+      "todo": 5,
+      "saved": 4,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788493300",
+      "venue_ids": [
+        "maki",
+        "kenji-taki",
+        "mizuma-art-gallery-ichigaya",
+        "sprout-curation",
+        "totem-pole-photo"
+      ],
+      "started_ts": 1788493300,
+      "ended_ts": 1788493518
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ebisu/Meguro",
+      "session": 1,
+      "todo": 3,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-ebisu-meguro-1788493483",
+      "venue_ids": [
+        "aisho",
+        "kaikai-kiki",
+        "gallery-le-deco"
+      ],
+      "started_ts": 1788493483,
+      "ended_ts": 1788493579
+    },
+    {
+      "stage": "scrape",
+      "zone": "Kiyosumi-Shirakawa",
+      "session": 1,
+      "todo": 2,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-kiyosumi-shirakawa-1788493504",
+      "venue_ids": [
+        "hagiwara-projects",
+        "gallery-momo-projects"
+      ],
+      "started_ts": 1788493504,
+      "ended_ts": 1788493579
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 2,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788493518",
+      "venue_ids": [
+        "mizuma-art-gallery-ichigaya"
+      ],
+      "started_ts": 1788493518,
+      "ended_ts": 1788493583
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roppongi",
+      "session": 1,
+      "todo": 6,
+      "saved": 6,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-tokyo-roppongi-1788493240",
+      "venue_ids": [
+        "taro-nasu",
+        "tomio-koyama",
+        "perrotin-tokyo",
+        "ota",
+        "pace-tokyo",
+        "yutaka-kikutake"
+      ],
+      "started_ts": 1788493240,
+      "ended_ts": 1788493619
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 3,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788493583",
+      "venue_ids": [
+        "mizuma-art-gallery-ichigaya"
+      ],
+      "started_ts": 1788493583,
+      "ended_ts": 1788493648
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 4,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788493648",
+      "venue_ids": [
+        "mizuma-art-gallery-ichigaya"
+      ],
+      "started_ts": 1788493648,
+      "ended_ts": 1788493719
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ginza/Kyobashi",
+      "session": 1,
+      "todo": 5,
+      "saved": 5,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-tokyo-ginza-kyobashi-1788493280",
+      "venue_ids": [
+        "tokyo-gallery-btap",
+        "galerie-nichido-nichido",
+        "shukado",
+        "fuji-photo-gallery-ginza",
+        "ginza-graphic"
+      ],
+      "started_ts": 1788493280,
+      "ended_ts": 1788493744
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 5,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788493719",
+      "venue_ids": [
+        "mizuma-art-gallery-ichigaya"
+      ],
+      "started_ts": 1788493719,
+      "ended_ts": 1788493795
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tennozu",
+      "session": 1,
+      "todo": 6,
+      "saved": 6,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-tokyo-tennozu-1788493260",
+      "venue_ids": [
+        "takuro-someya-contemporary-art",
+        "complex665-tomio-koyama",
+        "anomaly",
+        "yukikomizutani",
+        "yod",
+        "ippodo-gallery-tokyo"
+      ],
+      "started_ts": 1788493260,
+      "ended_ts": 1788493817
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roppongi",
+      "session": 2,
+      "todo": 4,
+      "saved": 6,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-tokyo-roppongi-1788493619",
+      "venue_ids": [
+        "shueisha-manga-art-heritage",
+        "shugoarts",
+        "kotaro-nukaga",
+        "take-ninagawa"
+      ],
+      "started_ts": 1788493619,
+      "ended_ts": 1788493907
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roppongi",
+      "session": 3,
+      "todo": 1,
+      "saved": 2,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-tokyo-roppongi-1788493908",
+      "venue_ids": [
+        "kotaro-nukaga"
+      ],
+      "started_ts": 1788493908,
+      "ended_ts": 1788493979
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tennozu",
+      "session": 2,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-tokyo-tennozu-1788493817",
+      "venue_ids": [
+        "ginza-canon"
+      ],
+      "started_ts": 1788493817,
+      "ended_ts": 1788493997
+    }
+  ]
+}

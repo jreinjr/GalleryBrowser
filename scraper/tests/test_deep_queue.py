@@ -179,3 +179,15 @@ class GalleriesFirstTests(unittest.TestCase):
             {"name": "Taka Ishii Gallery", "website": "https://takaishiigallery.com",
              "represents": names[:2]}])
         self.assertIn("represents: Artist 0, Artist 1", msg)
+
+
+class AttemptedOncePerRun(unittest.TestCase):
+    """A venue batched in this run is not batched again, however due it looks."""
+
+    def test_batch_excludes_already_attempted(self):
+        todo = [{"id": "mizuma", "name": "Mizuma"}, {"id": "maki", "name": "MAKI"}]
+        attempted = {"mizuma"}
+        left = [v for v in todo if v["id"] not in attempted]
+        self.assertEqual([v["id"] for v in run_deep.pick_batch(left, 6)], ["maki"])
+        attempted.update(v["id"] for v in left)
+        self.assertEqual([v for v in todo if v["id"] not in attempted], [])
