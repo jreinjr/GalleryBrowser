@@ -131,15 +131,35 @@ function tierFor(score, params) {
   return null;
 }
 
+// rank_venues.manual_positions: id -> [position, tier] from params.manual_order ({} when automatic)
+function manualPositions(params) {
+  const mo = params.manual_order, out = {};
+  if (!mo || typeof mo !== 'object' || Array.isArray(mo)) return out;
+  let pos = 0;
+  for (const t of ['1', '2', '3']) for (const vid of (mo[t] || [])) if (!(vid in out)) { pos += 1; out[vid] = [pos, +t]; }
+  return out;
+}
+
 function rank(venuesIn, params) {
   const rows = venuesIn.map(v => {
     const { features, basis } = computeFeatures(v, params);
     const { score, contrib } = scoreVenue(features, params);
     return Object.assign({}, v, { features, basis, score, contrib, gate: gateFor(v, score, params) });
   });
-  rows.sort((a, b) => (b.score - a.score) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const manual = manualPositions(params), isManual = Object.keys(manual).length > 0;
+  rows.sort((a, b) => {
+    const ma = manual[a.id], mb = manual[b.id];
+    if (ma && mb) return ma[0] - mb[0];
+    if (ma) return -1;
+    if (mb) return 1;
+    return (b.score - a.score) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  });
   let n = 0;
-  for (const r of rows) { if (r.gate) { r.tier = null; r.rank = null; } else { n += 1; r.rank = n; r.tier = tierFor(r.score, params); } }
+  for (const r of rows) {
+    if (manual[r.id]) { n += 1; r.rank = n; r.tier = manual[r.id][1]; r.gate = null; }
+    else if (r.gate) { r.tier = null; r.rank = null; }
+    else { n += 1; r.rank = n; r.tier = isManual ? null : tierFor(r.score, params); }
+  }
   return rows;
 }
 
@@ -178,7 +198,7 @@ function parityCheck() {
 }
 
 /* ---- params helpers (rank_venues.load_params / _merge_params) ---- */
-const PARAM_KEY_ORDER = ['version', 'city', 'today', 'weights', 'refs', 'list_weights', 'gates', 'tiers', 'judge', 'leak_seesaw'];
+const PARAM_KEY_ORDER = ['version', 'city', 'today', 'weights', 'refs', 'list_weights', 'gates', 'tiers', 'judge', 'leak_seesaw', 'manual_order'];
 const DEEP_KEYS = new Set(['weights', 'refs', 'list_weights', 'gates', 'tiers', 'judge']);
 function normalizeParams(p) {
   p.version = p.version ?? 1; p.city = CITY; p.today = R.today || null;
@@ -187,6 +207,7 @@ function normalizeParams(p) {
   if (!Array.isArray(p.gates.kinds)) p.gates.kinds = [];
   if (!Array.isArray(p.gates.exclude_status)) p.gates.exclude_status = [];
   p.leak_seesaw = !!p.leak_seesaw;
+  if (!p.manual_order || typeof p.manual_order !== 'object' || Array.isArray(p.manual_order)) p.manual_order = null;
   return p;
 }
 function mergeParams(base, over) {

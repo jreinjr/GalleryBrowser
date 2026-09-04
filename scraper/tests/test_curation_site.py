@@ -235,7 +235,7 @@ class GalleryTrimTests(unittest.TestCase):
         self.assertEqual(tuple(re.findall(r"'([a-z_]+)'", m.group(1))), site.G_DEEP_MERGE_KEYS)
         for name in site.G_EXPORTS:
             self.assertRegex(core, rf"(const|function) {name}\b", name)
-        self.assertEqual(len(site.G_CLIENT_PATHS), 5 + 18 - len(site.G_HIDDEN_WEIGHTS))
+        self.assertEqual(len(site.G_CLIENT_PATHS), 5 + 18 - len(site.G_HIDDEN_WEIGHTS) + 1)   # + manual_order
 
     def test_payload_carries_galleries_and_default_mode(self):
         report = {"today": "2026-09-03", "generated_at": "g", "sources": [], "shows": [REPORT_ROW], "params_default": LIVE}
@@ -278,6 +278,15 @@ class GalleryLinkTests(unittest.TestCase):
         self.assertEqual(site.diff_params(VREPORT["params_default"], full, site.G_CLIENT_PATHS), diff)
         empty = site.decode_gallery_link(site.encode_diff({"gates": {"kinds": []}}), dict(VREPORT["params_default"], gates=dict(VPARAMS["gates"], kinds=kinds)))
         self.assertEqual(empty["gates"]["kinds"], [])
+
+    def test_gallery_manual_order_round_trip(self):
+        order = {"1": ["pace", "gagosian-beverly-hills"], "2": [], "3": ["box"]}
+        tok = site.encode_diff({"manual_order": order})
+        full = site.decode_gallery_link(tok, VREPORT["params_default"])
+        self.assertEqual(full["manual_order"], order)
+        self.assertEqual(list(full)[-1], "manual_order")
+        self.assertEqual(site.diff_params(VREPORT["params_default"], full, site.G_CLIENT_PATHS), {"manual_order": order})
+        self.assertIn("manual_order", site.G_CLIENT_PATHS)
 
     def test_gallery_freshness(self):
         reg = {"venues": [{"id": "a", "notability_breakdown": {"params_hash": "abc123def456"}}, {"id": "b", "notability_breakdown": {"params_hash": "abc123def456"}}]}

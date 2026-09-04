@@ -30,7 +30,24 @@ header { position: sticky; top: 0; z-index: 20; background: rgba(245,245,242,0.9
 .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 #layout { max-width: 1280px; margin: 0 auto; padding: 18px 20px 80px; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 22px; align-items: start; }
 aside { position: sticky; top: 64px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; max-height: calc(100vh - 80px); overflow: auto; }
-#panel-toggle { display: none; }
+.panel-tabs { display: none; gap: 8px; margin-bottom: 8px; }
+.panel-tabs .btn { flex: 1; }
+.panel-tabs .btn.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.export-body { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 4px; }
+.manual { background: #fbeedc; border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.45; margin-bottom: 10px; color: #5c3d0e; }
+.manual b { font-weight: 700; }
+.manual .link { display: inline; }
+.card.g.dragging { opacity: 0.4; }
+.card.g.drop-before { box-shadow: 0 -3px 0 0 var(--accent); }
+.card.g.drop-after { box-shadow: 0 3px 0 0 var(--accent); }
+.card.g[draggable="true"] { cursor: grab; }
+.card.g[draggable="true"]:active { cursor: grabbing; }
+.grip { color: var(--faint); font-size: 13px; letter-spacing: -2px; user-select: none; -webkit-user-select: none; margin-top: 4px; }
+.ord { display: inline-flex; gap: 4px; margin-left: 10px; vertical-align: middle; }
+.ord button { border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 0 7px; font-size: 12px; line-height: 22px; color: var(--muted); }
+.ord button:hover { color: var(--ink); border-color: var(--faint); }
+.tierhdr { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 16px 0 8px; }
+.tierhdr:first-child { margin-top: 0; }
 .ctl { display: grid; grid-template-columns: 1fr 64px; gap: 6px 10px; align-items: center; margin: 8px 0; }
 .ctl .lbl { grid-column: 1 / -1; display: flex; align-items: center; gap: 6px; font-size: 14px; }
 .ctl .lbl b { font-weight: 600; }
@@ -116,8 +133,10 @@ table.t td.b { color: var(--muted); font-size: 12px; }
 @media (max-width: 900px) {
   #layout { grid-template-columns: 1fr; padding: 12px 12px 80px; gap: 12px; }
   aside { position: static; max-height: none; padding: 12px; }
-  #panel-toggle { display: block; width: 100%; margin-bottom: 8px; }
-  aside.collapsed .panel-body { display: none; }
+  .panel-tabs { display: flex; }
+  .panel-body { display: none; }
+  aside.show-tune #tune-body, aside.show-export #export-body { display: block; }
+  .export-body { margin-top: 0; border-top: 0; padding-top: 0; }
   .card { grid-template-columns: 30px 52px minmax(0, 1fr); padding: 10px; }
   .card.g { grid-template-columns: 30px minmax(0, 1fr); }
   .card .th { width: 52px; height: 52px; }
@@ -133,14 +152,18 @@ table.t td.b { color: var(--muted); font-size: 12px; }
 <header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="tabs" id="mode" hidden><button data-mode="galleries">Galleries</button><button data-mode="shows">Shows</button></div><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
 <div id="layout">
   <aside id="panel">
-    <button class="btn wide" id="panel-toggle">Tune the ranking</button>
-    <div class="panel-body">
+    <div class="panel-tabs"><button class="btn" id="panel-toggle" data-body="tune">Tune the ranking</button><button class="btn" id="export-toggle" data-body="export">Export</button></div>
+    <div class="panel-body" id="tune-body">
       <h2 id="gates-h">Feed gates</h2>
       <div id="gates"></div>
       <h2 id="weights-h">What counts, and how much</h2>
       <div id="weights"></div>
       <div class="legend" id="legend"></div>
       <div class="summary" id="summary"></div>
+      <div class="hint" id="panel-hint">Every change re-ranks the list instantly. Drag a gallery card (or use ▲▼) to set the order by hand — from then on the weights and gates are paused and every export carries your exact list.</div>
+    </div>
+    <div class="panel-body export-body" id="export-body">
+      <h2>Export &amp; share</h2>
       <div class="btns">
         <button class="btn primary wide" data-act="copy">Copy link to these settings</button>
         <button class="btn" data-act="email">Email link</button>
@@ -149,7 +172,7 @@ table.t td.b { color: var(--muted); font-size: 12px; }
         <button class="btn" data-act="download">Download params JSON</button>
         <button class="btn" data-act="reset">Reset to live</button>
       </div>
-      <div class="hint" id="panel-hint">Every change re-ranks the list instantly. One link carries your gallery and show settings; it encodes only what you changed, so it can be texted or emailed and opened on any device.</div>
+      <div class="hint" id="export-hint">One link carries your gallery and show settings; it encodes only what you changed, so it can be texted or emailed and opened on any device. A hand-set order travels with the link, the email and text bodies, and the params JSON.</div>
     </div>
   </aside>
   <main id="main">
@@ -297,6 +320,39 @@ function recompute() {
   }
 }
 
+// ---- hand-ordered list: gparams.manual_order = {"1": [ids], "2": [ids], "3": [ids]} (mirrors rank_venues.manual_positions) ----
+function gManual() { const mo = gparams.manual_order; return !!(mo && typeof mo === 'object' && !Array.isArray(mo)); }
+function gFlat() { const out = [], mo = gparams.manual_order || {}; for (const t of ['1', '2', '3']) for (const id of (mo[t] || [])) if (!out.some(it => it.id === id)) out.push({ id, tier: +t }); return out; }
+function gSetFlat(flat) { const mo = { '1': [], '2': [], '3': [] }; for (const it of flat) mo[String(it.tier)].push(it.id); gparams.manual_order = mo; }
+function gEnterManual() { if (!gManual()) gSetFlat(gstate.ranked.map(r => ({ id: r.id, tier: r.tier }))); }   // freeze the current automatic order
+function gName(id) { const v = GVENUES.find(x => x.id === id); return v ? (v.name || v.id) : id; }
+function gAfterMove(msg) { renderControls(); renderAll(); if (msg) toast(msg); }
+// place `id` right before/after `targetId`, taking the target's tier; a target outside the list drops `id` from it
+function gMoveTo(id, targetId, before) {
+  if (!id || !targetId || id === targetId) return;
+  gEnterManual();
+  const flat = gFlat().filter(it => it.id !== id);
+  const ti = flat.findIndex(it => it.id === targetId);
+  if (ti < 0) { gSetFlat(flat); gAfterMove(`${gName(id)} removed from the list`); return; }
+  flat.splice(before ? ti : ti + 1, 0, { id, tier: flat[ti].tier });
+  gSetFlat(flat); gAfterMove();
+}
+function gStep(id, dir) {   // one position up (-1) or down (+1); crossing a tier boundary changes the tier
+  gEnterManual();
+  const flat = gFlat(), i = flat.findIndex(it => it.id === id);
+  if (i < 0) return;
+  const j = i + dir;
+  if (j < 0 || j >= flat.length) return;
+  const [it] = flat.splice(i, 1);
+  it.tier = flat[dir < 0 ? j : j - 1].tier;
+  flat.splice(j, 0, it);
+  gSetFlat(flat); gAfterMove();
+}
+function gAdd(id) { gEnterManual(); const flat = gFlat(); if (flat.some(it => it.id === id)) return; flat.push({ id, tier: flat.length ? flat[flat.length - 1].tier : 3 }); gSetFlat(flat); gAfterMove(`${gName(id)} added to the list`); }
+function gRemove(id) { gEnterManual(); gSetFlat(gFlat().filter(it => it.id !== id)); gAfterMove(`${gName(id)} removed from the list`); }
+function gAuto() { gparams.manual_order = null; renderControls(); renderAll(); toast('Automatic ranking restored'); }
+function gOrderLines() { return gstate.rows.filter(r => !r.gate && r.tier != null).map(r => `${r.rank}. ${r.name || r.id} (tier ${r.tier})`); }
+
 // ---- gallery gate helpers ----
 function gMuseumsExcluded(p) { const k = ((p || gparams).gates || {}).kinds || []; return k.length > 0 && !k.includes('museum'); }
 const G_DEFAULT_EXCLUDES = gMuseumsExcluded(GDEFAULT);
@@ -369,6 +425,11 @@ function gRenderControls() {
   }
   if (hidden.length) h += `<div class="hint">Not shown: ${esc(hidden.join(', '))} — no data for ${esc(R.city_name || CITY)} yet (kept at the live weight).</div>`;
   $('#weights').innerHTML = h;
+  if (gManual()) {
+    const n = gFlat().length;
+    $('#gates').insertAdjacentHTML('afterbegin', `<div class="manual"><b>Hand-ordered list</b> — ${n} galler${n === 1 ? 'y' : 'ies'} in the order you set. Weights and gates are paused; drag cards or use ▲▼ to change the order, ✕ to drop one, “Add to list” (under All galleries) to bring one in. <button class="link" data-act="gauto">Back to automatic ranking</button></div>`);
+    document.querySelectorAll('#gates input, #weights input').forEach(i => { i.disabled = true; const c = i.closest('.ctl'); if (c) c.classList.add('off'); });
+  }
 }
 function renderControls() {
   if (ui.mode === 'galleries') gRenderControls(); else sRenderControls();
@@ -406,7 +467,7 @@ function renderHeader() {
   m.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.mode === ui.mode));
   const b = $('#mode-badge'), live = isLive();
   b.classList.toggle('shared', !live);
-  b.lastElementChild.textContent = live ? 'Live settings' : 'Shared settings — differs from live';
+  b.lastElementChild.textContent = live ? 'Live settings' : (HAS_G && gManual() ? 'Hand-ordered list — differs from live' : 'Shared settings — differs from live');
 }
 function sRenderSummary() {
   const feed = state.feed, mus = feed.filter(r => r.venue.is_museum).length;
@@ -432,8 +493,8 @@ function gRenderSummary() {
   if (dropped) bits.push(`<span class="out">−${dropped} dropped</span>`);
   if (up) bits.push(`<span class="in">${up} up a tier</span>`);
   if (down) bits.push(`<span class="out">${down} down a tier</span>`);
-  const delta = bits.length ? 'vs live: ' + bits.join(', ') : 'same tiers as live';
-  $('#summary').innerHTML = `<b>${ranked.length}</b> ranked · tier 1: ${tiers[1]} · tier 2: ${tiers[2]} · tier 3: ${tiers[3]}<div class="delta">${delta}</div>`;
+  const delta = gManual() ? 'hand-ordered — weights and gates are paused' : (bits.length ? 'vs live: ' + bits.join(', ') : 'same tiers as live');
+  $('#summary').innerHTML = `<b>${ranked.length}</b> ${gManual() ? 'in your list' : 'ranked'} · tier 1: ${tiers[1]} · tier 2: ${tiers[2]} · tier 3: ${tiers[3]}<div class="delta">${delta}</div>`;
   $('#legend').innerHTML = G_BAR_ORDER.filter(f => G_VISIBLE.includes(f) && GCOV[f] > 0 && gparams.weights[f]).map(f => `<span>${gSwatchHTML(f)}${esc(G_NICE[f])} ×${fmt(gparams.weights[f], 2)}</span>`).join('');
 }
 function renderSummary() { if (ui.mode === 'galleries') gRenderSummary(); else sRenderSummary(); }
@@ -627,17 +688,24 @@ function gDrawerHTML(r) {
   h += '</div></div>';
   return h;
 }
+function gOrderButtons(r, ranked) {
+  const id = esc(r.id);
+  if (ranked) return `<span class="ord"><button type="button" data-act="gup" data-gid="${id}" title="Move up" aria-label="Move up">▲</button><button type="button" data-act="gdown" data-gid="${id}" title="Move down" aria-label="Move down">▼</button>${gManual() ? `<button type="button" data-act="gremove" data-gid="${id}" title="Remove from the list" aria-label="Remove from the list">✕</button>` : ''}</span>`;
+  if (gManual() && !r.gate) return `<span class="ord"><button type="button" data-act="gadd" data-gid="${id}">+ Add to list</button></span>`;
+  return '';
+}
 function gCardHTML(r, scale) {
   const open = ui.gexpanded.has(r.id);
   const ranked = !r.gate && r.tier != null;
-  return `<div class="card g${ranked ? ' feat' : ' gated'}" id="grow-${esc(r.id)}">
-    <div class="rk">${r.rank != null ? '#' + r.rank : '–'}</div>
+  const draggable = ranked || (gManual() && !r.gate);
+  return `<div class="card g${ranked ? ' feat' : ' gated'}" id="grow-${esc(r.id)}" data-gid="${esc(r.id)}" draggable="${draggable ? 'true' : 'false'}">
+    <div class="rk">${r.rank != null ? '#' + r.rank : '–'}${draggable ? '<div class="grip" title="Drag to reorder">⋮⋮</div>' : ''}</div>
     <div class="body"><div class="ttl">${esc(r.name || r.id)}</div>
       <div class="ven">${esc(r.neighborhood || 'no neighborhood on record')}</div>
       <div class="chips">${gStatusChips(r)}</div>
       <div class="scorerow"><span class="num">${fmt(r.score, 2)}</span>${gBarHTML(r, scale)}</div>
       <div class="why">${esc(gWhyLine(r))}</div>
-      <div class="foot"><button class="link" data-act="gtoggle" data-gid="${esc(r.id)}">${open ? 'Hide details' : 'Why this score'}</button></div></div>
+      <div class="foot"><button class="link" data-act="gtoggle" data-gid="${esc(r.id)}">${open ? 'Hide details' : 'Why this score'}</button>${gOrderButtons(r, ranked)}</div></div>
     ${open ? gDrawerHTML(r) : ''}</div>`;
 }
 function gMatches(r, q) {
@@ -651,9 +719,14 @@ function gRenderList() {
   $('#views').innerHTML = `<button data-view="ranked"${ui.gview === 'ranked' ? ' class="on"' : ''}>Ranked<span class="long"> galleries (tiers 1–3)</span> (${gstate.ranked.length})</button><button data-view="all"${ui.gview === 'all' ? ' class="on"' : ''}>All galleries (${gstate.rows.length})</button>`;
   let h = '';
   const last = ui.gview === 'all' ? rows.reduce((m, r, i) => (!r.gate && r.tier != null ? i : m), -1) : -1;
+  const manual = gManual();
+  let tierShown = null;
   rows.forEach((r, i) => {
+    if (manual && !r.gate && r.tier != null && r.tier !== tierShown) { tierShown = r.tier; h += `<div class="tierhdr">Tier ${r.tier}</div>`; }
     h += gCardHTML(r, scale);
-    if (i === last && i < rows.length - 1) h += `<div class="cutoff">everything below is unranked — tier 3 cutoff ${(+((gparams.tiers || {})['3'] || 0)).toFixed(2)}</div>`;
+    if (i === last && i < rows.length - 1) h += manual
+      ? '<div class="cutoff">everything below is outside your list — drag a gallery above this line, or use “Add to list”, to bring it in</div>'
+      : `<div class="cutoff">everything below is unranked — tier 3 cutoff ${(+((gparams.tiers || {})['3'] || 0)).toFixed(2)}</div>`;
   });
   if (!rows.length) h = `<div class="empty">${q ? 'No galleries match your search.' : 'No gallery reaches tier 3 under these settings — lower the tier 3 cutoff.'}</div>`;
   $('#list').innerHTML = h;
@@ -676,7 +749,13 @@ function setMode(m) {
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('on'), 2200); }
 function exportParams() {
   const stamp = new Date().toISOString().slice(0, 10);
-  if (ui.mode === 'galleries') { const p = G.orderedParams(clone(gparams)); p._note = `Gallery ranking params exported from the curation site on ${stamp}; changes vs live: ${JSON.stringify(gDiffParams())}. Apply with rank_venues.py apply --params <this file>`; return p; }
+  if (ui.mode === 'galleries') {
+    const p = G.orderedParams(clone(gparams));
+    const gd = gDiffParams(); const dNote = Object.assign({}, gd); if (dNote.manual_order) dNote.manual_order = `<${gFlat().length} ids, see manual_order>`;
+    p._note = `Gallery ranking params exported from the curation site on ${stamp}; changes vs live: ${JSON.stringify(dNote)}. Apply with rank_venues.py apply --params <this file>`;
+    if (gManual()) { p._note += ' manual_order is the hand-set list: rank_venues ranks exactly those galleries, in that order, with those tiers; everything else falls below.'; p._order = gOrderLines(); }
+    return p;
+  }
   const p = orderedParams(clone(params)); p._note = `Exported from the curation site on ${stamp}; changes vs live: ${JSON.stringify(diffParams())}`; return p;
 }
 function downloadParams() {
@@ -694,8 +773,12 @@ async function copyLink() {
 function mailBody() {
   const d = diffParams(), gd = gDiffParams();
   const lines = [`Gallery Browser ranking settings (${R.city_name || CITY}):`, shareLink(), ''];
-  if (HAS_G) lines.push(`Galleries — changes vs live: ${Object.keys(gd).length ? JSON.stringify(gd) : 'none'}`);
+  if (HAS_G) {
+    const gdNote = Object.assign({}, gd); if (gdNote.manual_order) gdNote.manual_order = 'hand-set list (below)';
+    lines.push(`Galleries — changes vs live: ${Object.keys(gdNote).length ? JSON.stringify(gdNote) : 'none'}`);
+  }
   lines.push(`Shows — changes vs live: ${Object.keys(d).length ? JSON.stringify(d) : 'none'}`);
+  if (HAS_G && gManual()) { const ol = gOrderLines(); lines.push('', `Hand-set gallery order (${ol.length}):`, ...ol); }
   return lines.join('\n');
 }
 function resetParams() { params = clone(DEFAULT); gparams = clone(GDEFAULT); renderControls(); renderAll(); toast('Back to the live settings'); }
@@ -744,8 +827,48 @@ document.addEventListener('click', e => {
   else if (act === 'share') { if (navigator.share) navigator.share({ title: 'Gallery ranking settings', text: mailBody(), url: shareLink() }).catch(() => {}); }
   else if (act === 'download') downloadParams();
   else if (act === 'reset') resetParams();
+  else if (act === 'gup') gStep(b.dataset.gid, -1);
+  else if (act === 'gdown') gStep(b.dataset.gid, 1);
+  else if (act === 'gremove') gRemove(b.dataset.gid);
+  else if (act === 'gadd') gAdd(b.dataset.gid);
+  else if (act === 'gauto') gAuto();
 });
-$('#panel-toggle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
+// mobile: "Tune the ranking" / "Export" open one panel body at a time (desktop shows both; see the 900px media query)
+for (const btn of document.querySelectorAll('.panel-tabs .btn')) btn.addEventListener('click', () => {
+  const panel = $('#panel'), cls = 'show-' + btn.dataset.body, on = panel.classList.contains(cls);
+  panel.classList.remove('show-tune', 'show-export');
+  document.querySelectorAll('.panel-tabs .btn').forEach(x => x.classList.remove('on'));
+  if (!on) { panel.classList.add(cls); btn.classList.add('on'); }
+});
+// drag to reorder gallery cards (HTML5 DnD; ▲▼ buttons cover touch devices)
+const drag = { id: null, target: null, before: false };
+function gDragEnd() { document.querySelectorAll('.card.g.dragging, .card.g.drop-before, .card.g.drop-after').forEach(x => x.classList.remove('dragging', 'drop-before', 'drop-after')); drag.id = null; drag.target = null; }
+document.addEventListener('dragstart', e => {
+  const c = e.target.closest ? e.target.closest('.card.g[draggable="true"]') : null;
+  if (!c || ui.mode !== 'galleries') return;
+  drag.id = c.dataset.gid; c.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+  try { e.dataTransfer.setData('text/plain', drag.id); } catch (_) { /* older browsers */ }
+});
+document.addEventListener('dragover', e => {
+  if (!drag.id) return;
+  const c = e.target.closest ? e.target.closest('.card.g') : null;
+  if (!c) return;
+  e.preventDefault(); e.dataTransfer.dropEffect = 'move';
+  const rect = c.getBoundingClientRect(), before = e.clientY < rect.top + rect.height / 2;
+  if (drag.target !== c || drag.before !== before) {
+    document.querySelectorAll('.card.g.drop-before, .card.g.drop-after').forEach(x => x.classList.remove('drop-before', 'drop-after'));
+    c.classList.add(before ? 'drop-before' : 'drop-after'); drag.target = c; drag.before = before;
+  }
+});
+document.addEventListener('drop', e => {
+  if (!drag.id) return;
+  e.preventDefault();
+  const id = drag.id, t = drag.target ? drag.target.dataset.gid : null, before = drag.before;
+  gDragEnd();
+  if (t && t !== id) gMoveTo(id, t, before);
+});
+document.addEventListener('dragend', gDragEnd);
 window.addEventListener('hashchange', () => { const h = readHash(); if (h.p || h.g || h.v) { applyShared(h); renderControls(); renderAll(); } });
 
 // public surface for tests / console
@@ -759,6 +882,7 @@ window.site = {
     get params() { return gparams; }, rows: () => gstate.rows, ranked: () => gstate.ranked.map(r => r.id), diff: gDiffParams,
     set(path, v) { setPath(gparams, path, v); if (path.startsWith('tiers.')) gClampTiers(path); renderControls(); renderAll(); },
     museumsExcluded: () => gMuseumsExcluded(gparams), applyShared: applySharedGalleries, has: HAS_G,
+    manual: gManual, move: gMoveTo, step: gStep, add: gAdd, remove: gRemove, auto: gAuto, orderLines: gOrderLines, flat: gFlat,
     fn: { rank: G.rank, computeFeatures: G.computeFeatures, scoreVenue: G.scoreVenue, gateFor: G.gateFor, tierFor: G.tierFor },
   },
 };
@@ -766,7 +890,6 @@ window.site = {
 // boot
 const shared = readHash();
 applyShared(shared);
-if (window.matchMedia('(max-width: 900px)').matches) $('#panel').classList.add('collapsed');
 renderControls();
 renderAll();
 </script>

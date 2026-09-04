@@ -38,6 +38,13 @@ GATES (``gate`` names the first one a venue fails): status in gates.exclude_stat
 -> gates.min_score. Tiers: score >= tiers["1"] -> 1, >= tiers["2"] -> 2,
 >= tiers["3"] -> 3, else null (ungated venues only).
 
+MANUAL ORDER: ``params.manual_order = {"1": [venue_id, ...], "2": [...], "3": [...]}``
+(hand-ordered on the curation site) freezes the ranked set: the listed venues take
+ranks 1..n in exactly that order with the tier of the list they sit in (gates and
+scores no longer decide membership or order); every other venue is scored and gated
+as usual but gets tier null (below the hand-set list) and ranks after it. ``null``
+(the default) = automatic ranking.
+
 Report JSON: content/curation/<city>/venues_ranked.json (docs/GALLERIES.md).
 """
 
@@ -94,6 +101,7 @@ DEFAULT_PARAMS: dict = {
     "tiers": {"1": 0.55, "2": 0.30, "3": 0.10},
     "judge": {"variant": "venue_judge_v1", "model": "sonnet"},
     "leak_seesaw": False,
+    "manual_order": None,          # {"1": [ids], "2": [ids], "3": [ids]} from the curation site, or None
 }
 _DEEP_MERGE_KEYS = ("weights", "refs", "list_weights", "gates", "tiers", "judge")
 JUDGE_MODELS = {"sonnet": "claude-sonnet-5", "opus": "claude-opus-5"}
@@ -425,6 +433,21 @@ def gate_for(v: dict, score: float, params: dict) -> str | None:
     return None
 
 
+def manual_positions(params: dict) -> dict[str, tuple[int, int]]:
+    """venue_id -> (position, tier) from params.manual_order; {} when automatic."""
+    mo = params.get("manual_order")
+    if not isinstance(mo, dict):
+        return {}
+    out: dict[str, tuple[int, int]] = {}
+    pos = 0
+    for t in ("1", "2", "3"):
+        for vid in mo.get(t) or []:
+            if vid not in out:
+                pos += 1
+                out[vid] = (pos, int(t))
+    return out
+
+
 def tier_for(score: float, params: dict) -> int | None:
     t = params.get("tiers") or {}
     for k in ("1", "2", "3"):
@@ -451,15 +474,20 @@ def rank(ctx: Context, params: dict, today: date) -> list[dict]:
             "score": score, "contrib": contrib,
             "gate": gate_for(v, score, params),
         })
-    rows.sort(key=lambda r: (-r["score"], r["id"]))
+    manual = manual_positions(params)
+    rows.sort(key=lambda r: ((0, manual[r["id"]][0], "") if r["id"] in manual
+                             else (1, -r["score"], r["id"])))
     n = 0
     for r in rows:
-        if r["gate"]:
+        if r["id"] in manual:
+            n += 1
+            r["rank"], r["tier"], r["gate"] = n, manual[r["id"]][1], None
+        elif r["gate"]:
             r["tier"], r["rank"] = None, None
         else:
             n += 1
             r["rank"] = n
-            r["tier"] = tier_for(r["score"], params)
+            r["tier"] = None if manual else tier_for(r["score"], params)
     return rows
 
 

@@ -67,8 +67,16 @@ Written by `rank_venues.py score`; the dashboard embeds it. Params live in
 
 Params shape (mirrors curate.py): `{"weights": {feature: w}, "gates": {"require_verified": bool,
 "kinds": [..], "exclude_status": [..]}, "tiers": {"1": 0.55, "2": 0.30, "3": 0.10},
-"refs": {...per-feature saturation constants...}}`. Score = Σ weights·features, linear, so
-the JS mirror stays one-to-one.
+"refs": {...per-feature saturation constants...}, "manual_order": null | {"1": [ids], "2": [ids],
+"3": [ids]}}`. Score = Σ weights·features, linear, so the JS mirror stays one-to-one.
+
+`manual_order` is the curation site's hand-ordered list (drag / ▲▼ on a gallery card freezes the
+current ranked set into it). When present, `rank_venues.rank` and `venue_core.rank` give the
+listed venues ranks 1..n in exactly that order with the tier of the list they sit in, ignoring
+score and gates for them; every other venue is scored and gated as usual but gets tier null and
+ranks after the list. Share links (`#g=`), the email/text bodies (numbered list) and the exported
+params JSON (`manual_order` + a readable `_order`) all carry it, so `curation_site.py decode` →
+`rank_venues.py apply --params` reproduces the exact order.
 
 Feature names (all 0..1): hours_breadth, fairs, curated_lists, press, directory, longevity,
 roster_size, roster_strength, show_cadence, multi_location, places_popularity, web_presence,

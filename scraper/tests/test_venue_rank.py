@@ -203,6 +203,25 @@ class Ranking(unittest.TestCase):
         self.assertEqual(rv.tier_for(0.049, p), None)
         self.assertEqual(rv.tier_for(0.5, p), 1)
 
+    def test_manual_order_freezes_ranked_set(self):
+        auto = rv.rank(self.ctx, self.params, TODAY)
+        by = {r["id"]: r for r in auto}
+        self.assertIsNone(by["big-gallery"]["gate"]); self.assertIsNone(by["small-space"]["gate"])
+        self.assertEqual(by["the-museum"]["gate"], "below_min_score")
+        # hand order: the weakest space first, then the (score-gated) museum — the list wins over score and gates
+        params = dict(self.params, manual_order={"1": ["small-space"], "2": [], "3": ["the-museum"]})
+        rows = rv.rank(self.ctx, params, TODAY)
+        self.assertEqual([r["id"] for r in rows[:3]], ["small-space", "the-museum", "big-gallery"])
+        self.assertEqual([(r["rank"], r["tier"], r["gate"]) for r in rows[:2]], [(1, 1, None), (2, 3, None)])
+        self.assertEqual((rows[2]["rank"], rows[2]["tier"], rows[2]["gate"]), (3, None, None))   # outside the list = below tier 3
+        self.assertTrue(all(r["gate"] and r["rank"] is None for r in rows[3:]))                    # status gates still apply
+        # unknown ids are ignored, duplicates count once, a flat list is not a manual order
+        params["manual_order"] = {"1": ["big-gallery", "big-gallery", "no-such-venue"], "2": [], "3": []}
+        rows = rv.rank(self.ctx, params, TODAY)
+        self.assertEqual([(r["id"], r["rank"]) for r in rows[:2]], [("big-gallery", 1), ("small-space", 2)])
+        self.assertEqual(rv.manual_positions(self.params), {})
+        self.assertEqual(rv.manual_positions({"manual_order": ["x"]}), {})
+
     def test_museum_weight_negative_sinks_museum(self):
         rows = {r["id"]: r for r in rv.rank(self.ctx, self.params, TODAY)}
         self.assertLess(rows["the-museum"]["contrib"]["kind_museum"], 0)

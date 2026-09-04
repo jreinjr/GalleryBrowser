@@ -84,11 +84,11 @@ G_FEATURES = ["hours_breadth", "fairs", "curated_lists", "press", "directory", "
               "venue_judge", "wiki", "kind_gallery", "kind_nonprofit", "kind_museum", "seesaw_presence"]
 G_HIDDEN_WEIGHTS = ("roster_strength", "kind_gallery", "kind_nonprofit", "seesaw_presence")
 G_CLIENT_PATHS = ["gates.require_verified", "gates.kinds", "tiers.1", "tiers.2", "tiers.3"] + \
-                 [f"weights.{f}" for f in G_FEATURES if f not in G_HIDDEN_WEIGHTS]
+                 [f"weights.{f}" for f in G_FEATURES if f not in G_HIDDEN_WEIGHTS] + ["manual_order"]
 G_DEEP_MERGE_KEYS = ("weights", "refs", "list_weights", "gates", "tiers", "judge")   # = rank_venues._DEEP_MERGE_KEYS
-G_PARAM_KEY_ORDER = ["version", "city", "today", "weights", "refs", "list_weights", "gates", "tiers", "judge", "leak_seesaw"]
+G_PARAM_KEY_ORDER = ["version", "city", "today", "weights", "refs", "list_weights", "gates", "tiers", "judge", "leak_seesaw", "manual_order"]
 G_EXPORTS = ["R", "VENUES", "FEATURES", "FEATURE_LABEL", "STACK_ORDER", "FEATURE_SLOT", "KIND_GROUP",
-             "computeFeatures", "scoreVenue", "gateFor", "tierFor", "rank", "normalizeParams", "mergeParams",
+             "computeFeatures", "scoreVenue", "gateFor", "tierFor", "rank", "manualPositions", "normalizeParams", "mergeParams",
              "orderedParams", "diffParams", "PARAM_KEY_ORDER", "DEEP_KEYS", "parityCheck"]
 G_EMPTY_RAW_KEYS = ("judge", "wiki", "seesaw")   # dropped when {} / None; computeFeatures treats missing the same
 ABOUT_MAX = 600
