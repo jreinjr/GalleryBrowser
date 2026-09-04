@@ -71,6 +71,33 @@ def _note_resolution(name: str, bucket: str, reason: str | None = None,
     return r
 
 
+def _deep_page(url: str | None) -> bool:
+    """An exhibition page (two+ path segments), not a homepage or a listing."""
+    try:
+        path = urlparse(url or "").path
+    except ValueError:
+        return False
+    return len([p for p in path.split("/") if p]) >= 2
+
+
+def _same_venue(record: dict, other: dict, key: str) -> bool:
+    """Do two show records sit at one venue? Same normalized name, same registry
+    id, same site with names that share a distinctive word ('Kotaro Nukaga' /
+    'Kotaro Nukaga (Roppongi)' — not two branches with unrelated names), or one
+    exhibition page cited by both."""
+    ov = other.get("venue") or {}
+    if _norm_venue(ov.get("name") or "") == key:
+        return True
+    if record.get("venue_id") and record.get("venue_id") == other.get("venue_id"):
+        return True
+    import venues
+    if (venues.same_site(record["venue"].get("website"), ov.get("website"))
+            and venues._distinct_words(record["venue"]["name"]) & venues._distinct_words(ov.get("name"))):
+        return True
+    mine = {u for u in record.get("source_urls") or [] if _deep_page(u)}
+    return bool(mine & set(other.get("source_urls") or []))
+
+
 def _registry_hook(fn_name: str, *args, **kwargs):
     """Call venues.<fn_name> without letting registry trouble break a save.
     No-op in A/B sandbox mode (registry is real-data only)."""
@@ -1060,7 +1087,7 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
     # Venue identity for the registry (harness-side; not part of the agent's
     # schema). The embedded venue object stays exactly as the apps expect.
     vid = _registry_hook("resolve_id", city_key, record["venue"]["name"],
-                         record["venue"].get("website"))
+                         record["venue"].get("website"), SESSION)
     if vid:
         record["venue_id"] = vid
 
@@ -1073,15 +1100,18 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         main = _load_shows_file(_city_file(city_key))
         pending = _load_shows_file(_pending_file(city_key))
         # A venue may hold any number of concurrent shows; only the SAME show
-        # (same venue + same normalized title) under a different slug is a
-        # duplicate (parallel shards never see each other's saves mid-flight).
-        # Same-slug re-saves still upsert.
+        # (same title at the same venue) under a different slug is a duplicate
+        # (parallel shards never see each other's saves mid-flight). "Same
+        # venue" is any of: normalized name, registry id, site domain, or a
+        # shared exhibition page — a spelling variant ('Kotaro Nukaga
+        # (Roppongi)' vs 'Kotaro Nukaga') once saved one show twice under two
+        # venue ids. Same-slug re-saves still upsert.
         new_key = _norm_venue(record["venue"]["name"])
         new_title = _norm_title(record.get("title"))
         clash = next((s for s in main["shows"] + pending["shows"]
                       if s["slug"] != record["slug"] and not show_expired(s)
-                      and _norm_venue(s["venue"]["name"]) == new_key
-                      and _norm_title(s.get("title")) == new_title), None)
+                      and _norm_title(s.get("title")) == new_title
+                      and _same_venue(record, s, new_key)), None)
         if clash:
             raise ValueError(
                 f"Not saved: this show is already saved at '{record['venue']['name']}' as "

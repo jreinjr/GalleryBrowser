@@ -182,17 +182,23 @@ def llm_seed(city: str, apply: bool, model: str = DEFAULT_MODEL) -> dict:
         for g in new:
             zone = (tools.normalize_zone(g.get("district"), cfg["neighborhoods"], city)
                     if g.get("district") else None)
+            # seed_block keeps sources.seed.places (and its place_id): merge_patch
+            # merges `sources` one level deep, so a bare {"seed": {"llm": ...}}
+            # replaced the whole seed dict.
+            import seed_venues
             patch = {"kind": g["kind"], "status": "candidate", "website": g.get("website"),
                      "neighborhood": zone,
-                     "sources": {"seed": {"llm": {"ts": ts, "confidence": g["confidence"],
-                                                  "district": g.get("district")}}},
+                     "sources": seed_venues.seed_block(None, "llm", {
+                         "ts": ts, "confidence": g["confidence"], "district": g.get("district")}),
                      "notes": f"LLM knowledge seed ({g.get('district') or 'district unknown'})"}
             venues.upsert(city, g["name"], patch, "seed-llm", g.get("website"))
         for g in known:
             hit = venues.find_venue(reg, g["name"], g.get("website"), add_alias=False)
             if hit:
+                import seed_venues
                 venues.upsert(city, hit["name"],
-                              {"sources": {"seed": {"llm": {"ts": ts, "confidence": g["confidence"]}}}},
+                              {"sources": seed_venues.seed_block(
+                                  hit, "llm", {"ts": ts, "confidence": g["confidence"]})},
                               "seed-llm")
         print(f"registry: {len(new)} candidates created, {len(known)} tagged sources.seed.llm")
     return {"total": len(data["galleries"]), "new": len(new), "known": len(known), "cost_usd": cost}

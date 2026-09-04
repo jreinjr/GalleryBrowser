@@ -649,6 +649,15 @@ def main() -> None:
         print("=== STAGE 4: report ===", flush=True)
         out = report.generate_report(args.city, start_ts)
         print(f"report: {out}", flush=True)
+        # Identity audit: alias collisions, orphan aliases, domain conflicts,
+        # one show under two venue ids. Appended to the report so the next
+        # Nukaga/Taka Ishii-style merge is visible in the run output.
+        import venues
+        audit_path, audit_out = venues.write_audit(args.city)
+        audit_line = venues.audit_summary(audit_out)
+        print(f"audit: {audit_line} -> {audit_path}", flush=True)
+        with open(out, "a", encoding="utf-8") as fh:
+            fh.write(f"\n## Identity audit\n\n{audit_line} (details: `{audit_path}`)\n")
 
     summary = {
         "city": args.city,

@@ -243,7 +243,8 @@ def places_checks(v: dict, ctx: Ctx) -> dict:
                                  "user_ratings_total": row.get("user_ratings_total")}
     if g.get("status") or g.get("address"):
         out.update(places_status=g.get("status"), places_source="registry",
-                   places_address=g.get("address"), places_checked=True)
+                   places_address=g.get("address"), places_name=g.get("name"),
+                   places_checked=True)
         return out
     if row:
         out.update(places_status=row.get("status"), places_source="nearby_cache",
@@ -353,11 +354,16 @@ def apply_results(city: str, results: list[dict]) -> int:
             v["verification"] = {"status": r["status"], "ts": r["ts"], "checks": checks,
                                  "reasons": r["reasons"]}
             if lookup and lookup.get("found"):
-                v["google"] = {"status": lookup.get("status"), "address": lookup.get("address"),
-                               "hours": lookup.get("hours"), "phone": lookup.get("phone"),
-                               "website": lookup.get("website"), "lat": lookup.get("lat"),
-                               "lng": lookup.get("lng"), "ts": r["ts"]}
-                v.setdefault("sources", {})["crosscheck_ts"] = r["ts"]
+                if venues.listing_matches(v, lookup):
+                    v["google"] = venues.google_block(lookup, r["ts"])
+                    v.setdefault("sources", {})["crosscheck_ts"] = r["ts"]
+                    v["sources"].pop("crosscheck_mismatch", None)
+                else:
+                    # somebody else's listing: keep it off the record (see
+                    # venues.on_crosscheck)
+                    v.setdefault("sources", {})["crosscheck_mismatch"] = {
+                        "name": lookup.get("name"), "address": lookup.get("address"), "ts": r["ts"]}
+                    lookup = None
             if lookup and lookup.get("status") == "CLOSED_PERMANENTLY":
                 v["status"] = "closed"
             if checks.get("exhibitions_url") and not v.get("exhibitions_url"):

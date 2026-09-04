@@ -605,16 +605,20 @@ def assign_zone(lat: float, lng: float, labeled: list[dict]
 # --- registry matching + patch shaping -------------------------------------------
 
 def match_registry(reg: dict, name: str, website: str | None = None,
-                   lat: float | None = None, lng: float | None = None
-                   ) -> tuple[dict | None, str | None]:
+                   lat: float | None = None, lng: float | None = None,
+                   city: str | None = None) -> tuple[dict | None, str | None]:
     """venues.find_venue (id -> alias -> domain), then a registry venue within
-    PROXIMITY_MATCH_M that shares a non-generic name word."""
-    v = venues.find_venue(reg, name, website)
+    PROXIMITY_MATCH_M that shares a distinctive name word — not a generic one
+    and not a district: 'Taka Ishii Gallery Roppongi' and 'KOTARO NUKAGA
+    (Roppongi)' are 55 m apart and share only the district. Two known,
+    different site domains never match."""
+    v = venues.find_venue(reg, name, website, city=city)
     if v is not None:
         return v, "registry"
     if lat is None or lng is None:
         return None, None
-    words = _words(name)
+    districts = venues._district_tokens(city) if city else set()
+    words = _words(name) - districts
     if not words:
         return None, None
     for v in reg.get("venues", []):
@@ -622,10 +626,12 @@ def match_registry(reg: dict, name: str, website: str | None = None,
             continue
         if crosscheck.haversine_m(lat, lng, v["latitude"], v["longitude"]) > PROXIMITY_MATCH_M:
             continue
+        if venues.same_site(website, v.get("website")) is False:
+            continue
         vw = set()
         for n in [v["name"]] + list(v.get("aliases") or []):
             vw |= _words(n)
-        if words & vw:
+        if words & (vw - districts):
             return v, "proximity"
     return None, None
 
@@ -906,7 +912,7 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
             rep["skipped"].append({"name": p["name"], "reason": f"zone {zone} not requested",
                                    "area": p["area"]})
             continue
-        v, how = match_registry(ctx.reg, p["name"], p.get("website"), p["lat"], p["lng"])
+        v, how = match_registry(ctx.reg, p["name"], p.get("website"), p["lat"], p["lng"], ctx.city)
         if v is None and not ctx.details_all and not details_worth_paying(p["name"], ctx.cfg):
             # No details call means no website, which means places_plausible is
             # False and triage would park the venue anyway - so do not create it.
@@ -927,7 +933,7 @@ def seed_places(ctx: Ctx, rep: dict) -> None:
                     rep["skipped"].append({"name": p["name"], "reason": place_skip_reason(p),
                                            "area": p["area"]})
                     continue
-                v, how = match_registry(ctx.reg, p["name"], p.get("website"), p["lat"], p["lng"])
+                v, how = match_registry(ctx.reg, p["name"], p.get("website"), p["lat"], p["lng"], ctx.city)
         _record_collision(rep, v, p["name"], p.get("website"))
         kind = place_kind(p)
         full = {

@@ -271,26 +271,96 @@ def index_by_id(reg: dict) -> dict[str, dict]:
     return {v["id"]: v for v in reg.get("venues", [])}
 
 
+def _distinct_words(text: str | None) -> set[str]:
+    """Latin name words minus the generic ones ('gallery', 'art'...)."""
+    import crosscheck
+    return crosscheck._name_words(text or "") - crosscheck.GENERIC_NAME_WORDS
+
+
+_SECOND_LEVEL = {"co", "or", "ne", "ac", "go", "com", "org", "net", "gov", "edu"}
+
+
+def root_domain(url: str | None) -> str | None:
+    """registrable_domain minus host prefixes: en.gallery-momo.com and
+    gallery-momo.com are one site; shugoarts.co.jp keeps its three labels."""
+    dom = registrable_domain(url)
+    if not dom:
+        return None
+    labels = dom.split(".")
+    keep = 3 if len(labels) > 2 and labels[-2] in _SECOND_LEVEL else 2
+    return ".".join(labels[-keep:])
+
+
+def same_site(url_a: str | None, url_b: str | None) -> bool | None:
+    """True/False when both sites are known, None when either is not."""
+    a, b = root_domain(url_a), root_domain(url_b)
+    if not a or not b:
+        return None
+    return a == b
+
+
+def _domains_agree(website: str | None, v: dict) -> bool:
+    """A lookup may land on `v` only when the incoming site and the record's site
+    are the same, or one of them is unknown. Two different sites are two
+    different galleries no matter what the names say (Kotaro Nukaga's Places
+    alias sat on Taka Ishii's record; both are in Roppongi)."""
+    return same_site(website, v.get("website")) is not False
+
+
+def _best_domain_hit(hits: list[dict], name: str | None) -> dict:
+    """Among records sharing one site (a gallery's branches), the one whose name
+    reads most like the incoming spelling (Jaccard over distinctive words);
+    registry order breaks ties."""
+    if len(hits) == 1 or not name:
+        return hits[0]
+    words = _distinct_words(name)
+    if not words:
+        return hits[0]
+
+    def score(v: dict) -> float:
+        vw: set[str] = set()
+        for n in [v["name"]] + list(v.get("aliases") or []):
+            vw |= _distinct_words(n)
+        return len(words & vw) / len(words | vw) if (words | vw) else 0.0
+
+    return max(hits, key=score)   # max keeps the first of equal scores
+
+
+def _adds_district(name: str, v: dict, city: str | None) -> bool:
+    """True when `name` carries a district word the record's name lacks — a
+    branch spelling ('Kotaro Nukaga Tennoz'), which must not become an alias
+    of the parent record."""
+    if not city:
+        return False
+    extra = _name_tokens(name) - _name_tokens(v["name"])
+    return bool(extra & _district_tokens(city))
+
+
 def find_venue(reg: dict, name: str | None, website: str | None = None,
-               add_alias: bool = True) -> dict | None:
+               add_alias: bool = True, city: str | None = None) -> dict | None:
     """id -> alias -> domain lookup. A hit through an alias/domain records the
-    new spelling so future lookups are direct."""
+    new spelling so future lookups are direct.
+
+    An alias hit must agree with the record on site domain, a domain hit picks
+    the best-named branch, and a branch spelling never becomes an alias."""
     venues = reg.get("venues", [])
+    dom = registrable_domain(website)
     vid = venue_id(name) if name else None
     if vid:
         for v in venues:
             if v["id"] == vid:
                 return v
         for v in venues:
-            if vid in {venue_id(a) for a in v.get("aliases", [])}:
+            if vid in {venue_id(a) for a in v.get("aliases", [])} and _domains_agree(website, v):
                 return v
-    dom = registrable_domain(website)
     if dom:
-        for v in venues:
-            if registrable_domain(v.get("website")) == dom:
-                if name and add_alias and name != v["name"] and name not in v["aliases"]:
-                    v["aliases"].append(name)
-                return v
+        hits = [v for v in venues if registrable_domain(v.get("website")) == dom]
+        if hits:
+            v = _best_domain_hit(hits, name)
+            if (name and add_alias and name != v["name"] and name not in v["aliases"]
+                    and not _adds_district(name, v, city)):
+                v["aliases"].append(name)
+            return v
     return None
 
 
@@ -383,9 +453,28 @@ def bulk_upsert(city: str, rows: list[dict], protect_existing: tuple[str, ...] =
     return out
 
 
-def resolve_id(city: str, name: str, website: str | None = None) -> str:
-    """Canonical venue id for a name (alias/domain aware; no lock, read-only)."""
-    v = find_venue(load_registry(city), name, website, add_alias=False)
+def _route_show_venue(reg: dict, venue: dict, city: str, trace=None,
+                      venue_id_hint: str | None = None, add_alias: bool = True) -> dict | None:
+    """The registry record a show belongs to. In order: the session's TODO venue
+    the agent's spelling maps to ('Kotaro Nukaga (Roppongi)' while working the
+    TODO line 'Kotaro Nukaga'), the id the show already carries, then the
+    id/alias/domain lookup. A TODO or hint route still has to agree with the
+    show's site domain."""
+    by = index_by_id(reg)
+    site = venue.get("website")
+    if trace is not None:
+        tid = trace.todo_venue_id(venue["name"])
+        if tid and tid in by and _domains_agree(site, by[tid]):
+            return by[tid]
+    if venue_id_hint and venue_id_hint in by and _domains_agree(site, by[venue_id_hint]):
+        return by[venue_id_hint]
+    return find_venue(reg, venue["name"], venue.get("website"), add_alias=add_alias, city=city)
+
+
+def resolve_id(city: str, name: str, website: str | None = None, trace=None) -> str:
+    """Canonical venue id for a name (TODO/alias/domain aware; no lock, read-only)."""
+    v = _route_show_venue(load_registry(city), {"name": name, "website": website}, city,
+                          trace=trace, add_alias=False)
     return v["id"] if v else venue_id(name)
 
 
@@ -1184,6 +1273,34 @@ def _venue_patch_from_show(record: dict, placement: str) -> dict:
     }
 
 
+_IDENTITY_FILL_ONLY = ("name", "website", "address", "address_detail", "neighborhood")
+_IDENTITY_SAME_SITE = ("phone", "hours", "latitude", "longitude", "coords_source")
+
+
+def _identity_fill_only(v: dict, patch: dict, show_website: str | None) -> dict:
+    """A show block never rewrites an existing record's identity: name, site,
+    address and zone only fill gaps; a differing spelling becomes an alias when
+    the show is on the record's own site; phone/hours/coordinates refresh only
+    from the record's own site (Places-verified pin of the same gallery).
+
+    Why: one mis-named save renamed Taka Ishii Gallery Roppongi to 'Kotaro
+    Nukaga (Roppongi)' and moved it to the Piramide Building; MAK Center became
+    'Mackey Apartments', SPARC became "SPARCin' LOTS"."""
+    out = dict(patch)
+    new_name = out.pop("name", None)
+    if same_site(show_website, v.get("website")) is False:
+        # another gallery's site: attach the show, touch nothing else
+        for k in _IDENTITY_FILL_ONLY + _IDENTITY_SAME_SITE:
+            out.pop(k, None)
+        return out
+    if new_name and new_name != v["name"] and new_name not in (v.get("aliases") or []):
+        out["aliases"] = [new_name]
+    for k in _IDENTITY_FILL_ONLY:
+        if k != "name" and v.get(k) not in (None, "", []):
+            out.pop(k, None)
+    return out
+
+
 def on_save_show(record: dict, city: str, session: str | None,
                  trace: SessionTrace | None, placement: str = "pending") -> str:
     """Registry side of save_show: upsert venue facts, attribute this venue's
@@ -1195,10 +1312,13 @@ def on_save_show(record: dict, city: str, session: str | None,
         trace.current_key = tools._norm_venue(record["venue"]["name"])
     today = date.today()
     with locked_registry(city) as reg:
-        v = find_venue(reg, record["venue"]["name"], record["venue"].get("website"))
+        v = _route_show_venue(reg, record["venue"], city, trace=trace,
+                              venue_id_hint=record.get("venue_id"))
         if v is None:
             v = empty_venue(venue_id(record["venue"]["name"]), record["venue"]["name"])
             reg["venues"].append(v)
+        else:
+            patch = _identity_fill_only(v, patch, record["venue"].get("website"))
         merge_patch(v, patch)
         shows = v.setdefault("sources", {}).setdefault("shows", [])
         if record["slug"] not in shows:
@@ -1295,10 +1415,12 @@ def on_confirm_show(show: dict, city: str, placement: str) -> None:
     patch = _venue_patch_from_show(show, placement)
     patch.pop("status", None)
     with locked_registry(city) as reg:
-        v = find_venue(reg, show["venue"]["name"], show["venue"].get("website"))
+        v = _route_show_venue(reg, show["venue"], city, venue_id_hint=show.get("venue_id"))
         if v is None:
             v = empty_venue(venue_id(show["venue"]["name"]), show["venue"]["name"])
             reg["venues"].append(v)
+        else:
+            patch = _identity_fill_only(v, patch, show["venue"].get("website"))
         merge_patch(v, patch)
         v["next_check"] = _iso(compute_next_check(v))
 
@@ -1314,18 +1436,50 @@ def on_sweep_demoted(city: str, slug: str, reason: str) -> None:
                     return
 
 
+def listing_matches(v: dict, g: dict | None) -> bool:
+    """Is this Places listing the record? Name: a shared distinctive Latin word
+    (waived for script-only names, which have none). Address: every digit group
+    of the stored street line appears in the listing (waived when the record
+    has no address yet). crosscheck.listing_matches_venue is the strict form
+    used for coordinates; this one only decides whether a listing may be
+    stored on the record at all."""
+    import crosscheck
+    if not g or not g.get("found"):
+        return False
+    vn = crosscheck._name_words(v.get("name") or "") - crosscheck.GENERIC_NAME_WORDS
+    gn = crosscheck._name_words(g.get("name") or "") - crosscheck.GENERIC_NAME_WORDS
+    if vn and not (vn & gn):
+        return False
+    stored = crosscheck._digit_groups(v.get("address") or "")
+    listing = crosscheck._digit_groups(g.get("address") or "")
+    return all(d in listing for d in stored)
+
+
+def google_block(g: dict, ts: int) -> dict:
+    return {"status": g.get("status"), "address": g.get("address"), "hours": g.get("hours"),
+            "phone": g.get("phone"), "website": g.get("website"), "lat": g.get("lat"),
+            "lng": g.get("lng"), "name": g.get("name"), "ts": ts}
+
+
 def on_crosscheck(city: str, venue_name: str, google: dict | None) -> None:
     if not google or not google.get("found"):
         return
     with locked_registry(city) as reg:
-        v = find_venue(reg, venue_name, google.get("website"), add_alias=False)
+        v = find_venue(reg, venue_name, google.get("website"), add_alias=False, city=city)
         if v is None:
             return
-        v["google"] = {"status": google.get("status"), "address": google.get("address"),
-                       "hours": google.get("hours"), "phone": google.get("phone"),
-                       "website": google.get("website"), "lat": google.get("lat"),
-                       "lng": google.get("lng"), "ts": int(time.time())}
-        v.setdefault("sources", {})["crosscheck_ts"] = v["google"]["ts"]
+        now = int(time.time())
+        if not listing_matches(v, google):
+            # A text search for a mis-named or moved record returns somebody
+            # else's listing; storing it would launder the wrong gallery's
+            # address/phone/site into this record (and validate_venues trusts
+            # a stored block as "registry" without re-checking).
+            v.setdefault("sources", {})["crosscheck_mismatch"] = {
+                "name": google.get("name"), "address": google.get("address"), "ts": now}
+            return
+        v["google"] = google_block(google, now)
+        v.setdefault("sources", {})["crosscheck_ts"] = now
+        v.get("sources", {}).pop("crosscheck_mismatch", None)
         if google.get("status") == "CLOSED_PERMANENTLY":
             v["status"] = "closed"
             v["next_check"] = _iso(compute_next_check(v))
@@ -1522,6 +1676,119 @@ def cmd_dedupe(city: str, apply: bool = False) -> dict:
     return {"merged": len(merge) if apply else 0, "review": len(review)}
 
 
+# --- audit: identity drift the pipeline must never produce again ---------------
+
+def _latin_tokens(name: str) -> set[str]:
+    return {t for t in _name_tokens(name) if re.fullmatch(r"[a-z0-9]+", t)}
+
+
+def _deep_url(url: str | None) -> bool:
+    """An exhibition page (two+ path segments), not a homepage or listing."""
+    try:
+        path = urlparse(url or "").path
+    except ValueError:
+        return False
+    return len([p for p in path.split("/") if p]) >= 2
+
+
+def audit(city: str) -> dict:
+    """Report the shapes of registry damage behind the Kotaro Nukaga / Taka
+    Ishii incident: an alias that resolves to another record's id, an alias
+    unrelated to its record's name (a neighbour merged in), a record whose
+    website / exhibitions_url / Google listing point at different sites, one
+    show saved under two venue ids, and same-site record pairs."""
+    reg = load_registry(city)
+    vs = reg["venues"]
+    districts = _district_tokens(city)
+    by_id = index_by_id(reg)
+    out: dict = {"city": city, "ts": int(time.time()), "alias_collisions": [],
+                 "orphan_aliases": [], "domain_conflicts": [], "duplicate_shows": [],
+                 "duplicate_records": []}
+    owners: dict[str, list[tuple[str, str]]] = {}
+    live = [v for v in vs if v.get("status") != "duplicate"]   # merged-away records keep their name as the keeper's alias
+    for v in live:
+        vt = (_latin_tokens(v["name"]) | _latin_tokens(v["id"].replace("-", " "))) - districts
+        for a in v.get("aliases") or []:
+            aid = venue_id(a)
+            other = by_id.get(aid)
+            if other is not None and other is not v and other.get("status") != "duplicate":
+                out["alias_collisions"].append({"venue": v["id"], "alias": a, "resolves_to": other["id"]})
+            owners.setdefault(aid, []).append((v["id"], a))
+            at = _latin_tokens(a) - districts
+            if not at:
+                continue   # script-only alias: no Latin words to compare
+            spelling = (_letters(a) == _letters(v["name"]) or _letters(a) in _letters(v["name"])
+                        or _letters(v["name"]) in _letters(a)
+                        or _acronym_of(v["name"]).startswith(_letters(a)))
+            if at and vt and not (at & vt) and not spelling:
+                out["orphan_aliases"].append({"venue": v["id"], "name": v["name"], "alias": a})
+    for aid, lst in owners.items():
+        ids = sorted({i for i, _ in lst})
+        if len(ids) > 1:
+            out["alias_collisions"].append({"alias_id": aid, "venues": ids,
+                                            "aliases": sorted({a for _, a in lst})})
+    for v in live:
+        doms = {k: root_domain(u) for k, u in (
+            ("website", v.get("website")), ("exhibitions_url", v.get("exhibitions_url")),
+            ("google", (v.get("google") or {}).get("website")))}
+        known = {d for d in doms.values() if d}
+        if len(known) > 1:
+            out["domain_conflicts"].append({"venue": v["id"], "name": v["name"], **doms})
+    shows = tools.all_city_shows(city)
+    by_title: dict[str, list[dict]] = {}
+    for s in shows:
+        by_title.setdefault(tools._norm_title(s.get("title")), []).append(s)
+    for title, group in by_title.items():
+        for i, a in enumerate(group):
+            for b in group[i + 1:]:
+                if a.get("venue_id") == b.get("venue_id") and a.get("venue_id"):
+                    why = "same venue"
+                else:
+                    da = root_domain((a.get("venue") or {}).get("website"))
+                    shared = {u for u in a.get("source_urls") or [] if _deep_url(u)} & set(b.get("source_urls") or [])
+                    if same_site((a.get("venue") or {}).get("website"), (b.get("venue") or {}).get("website")):
+                        why = f"same site {da}"
+                    elif shared:
+                        why = f"same page {sorted(shared)[0]}"
+                    else:
+                        continue
+                out["duplicate_shows"].append({"title": a.get("title"), "why": why,
+                                               "slugs": [a["slug"], b["slug"]],
+                                               "venue_ids": [a.get("venue_id"), b.get("venue_id")]})
+    merge, review = duplicate_pairs(city)
+    out["duplicate_records"] = [{"keep": k["id"], "drop": d["id"], "kind": kind}
+                                for kind, pairs in (("merge", merge), ("review", review))
+                                for k, d in pairs]
+    return out
+
+
+def write_audit(city: str) -> tuple[Path, dict]:
+    out = audit(city)
+    p = VENUES_DIR / "reports" / f"audit-{city}.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
+    return p, out
+
+
+def audit_summary(out: dict) -> str:
+    keys = ("alias_collisions", "orphan_aliases", "domain_conflicts", "duplicate_shows", "duplicate_records")
+    return ", ".join(f"{k} {len(out[k])}" for k in keys)
+
+
+def cmd_audit(city: str) -> dict:
+    p, out = write_audit(city)
+    print(f"audit {city}: {audit_summary(out)} -> {p}")
+    for row in out["alias_collisions"]:
+        print("  alias collision", json.dumps(row, ensure_ascii=False))
+    for row in out["duplicate_shows"]:
+        print(f"  duplicate show {row['slugs']} ({row['why']})")
+    for row in out["domain_conflicts"]:
+        print(f"  domain conflict {row['venue']}: web {row['website']} exh {row['exhibitions_url']} google {row['google']}")
+    for row in out["orphan_aliases"]:
+        print(f"  orphan alias {row['venue']}: {row['alias']!r}")
+    return out
+
+
 def main() -> None:
     import argparse
     from cities import CITIES
@@ -1530,6 +1797,8 @@ def main() -> None:
     dd = sub.add_parser("dedupe", help="merge same-domain duplicate records (dry-run by default)")
     dd.add_argument("--city", required=True, choices=sorted(CITIES))
     dd.add_argument("--apply", action="store_true")
+    au = sub.add_parser("audit", help="report alias collisions, orphan aliases, domain conflicts, duplicate shows")
+    au.add_argument("--city", required=True, choices=sorted(CITIES))
     rq = sub.add_parser("requeue", help="mark registry-derived cohorts due today (dry-run by default)")
     rq.add_argument("--city", required=True, choices=sorted(CITIES))
     rq.add_argument("--apply", action="store_true", help="write next_check/requeue_reasons")
@@ -1537,6 +1806,9 @@ def main() -> None:
     args = ap.parse_args()
     if args.cmd == "dedupe":
         cmd_dedupe(args.city, args.apply)
+        return
+    if args.cmd == "audit":
+        cmd_audit(args.city)
         return
     if args.cmd == "requeue":
         cohorts = requeue_cohorts(args.city)
