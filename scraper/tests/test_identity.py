@@ -293,5 +293,71 @@ class AuditTests(TokyoRegistry):
         self.assertEqual(out["alias_collisions"][0]["resolves_to"], "taka-ishii-gallery-roppongi")
 
 
+SCAI = {"name": "SCAI The Bathhouse", "website": "https://www.scaithebathhouse.com/en/",
+        "address": "Kashiwayu-Ato, 6-1-23 Yanaka, Taito-ku", "neighborhood": "Ueno/Yanaka"}
+SCAI_PARK_ROW = {"name": "SCAI PARK", "neighborhood": "Tennozu", "kind": "gallery",
+                 "address": "1-33-10 Higashi-Shinagawa (TERRADA ART COMPLEX I, 5F)",
+                 "website": "https://www.scaithebathhouse.com/en/gallery/park/",
+                 "note": "Satellite; viewable through glass windows only", "ts": 1, "session": "enum-tennozu"}
+
+
+class RecordVenueTests(RegistryBase):
+    """Zone enumeration must not rewrite a known record from a same-site row
+    (SCAI PARK, the Tennozu satellite, moved SCAI The Bathhouse out of Yanaka)."""
+
+    def setUp(self):
+        super().setUp()
+        self.scai = self.venue("scai-the-bathhouse", website=SCAI["website"])
+        self.scai.update({k: SCAI[k] for k in ("name", "address", "neighborhood")})
+        self.write(self.scai)
+
+    def reg(self):
+        return venues.index_by_id(venues.load_registry("los-angeles"))
+
+    def test_same_site_row_from_another_zone_gets_its_own_record(self):
+        vid = venues.on_record_venue(dict(SCAI_PARK_ROW), "los-angeles")
+        self.assertEqual(vid, "scai-park")
+        reg = self.reg()
+        parent, park = reg["scai-the-bathhouse"], reg["scai-park"]
+        for k in ("name", "website", "address", "neighborhood"):
+            self.assertEqual(parent[k], SCAI[k], k)
+        self.assertIsNone(parent.get("notes"))
+        self.assertNotIn("SCAI PARK", parent["aliases"])
+        self.assertIsNone(parent["sources"]["directory_session"])
+        self.assertEqual(park["neighborhood"], "Tennozu")
+        self.assertEqual(park["website"], SCAI_PARK_ROW["website"])
+        self.assertEqual(park["sources"]["directory_session"], "enum-tennozu")
+
+    def test_respelling_in_the_same_zone_fills_gaps_only(self):
+        row = dict(SCAI_PARK_ROW, name="SCAI Bathhouse", neighborhood="Ueno/Yanaka",
+                   website="https://scaithebathhouse.com/", note="Former bathhouse")
+        vid = venues.on_record_venue(row, "los-angeles")
+        self.assertEqual(vid, "scai-the-bathhouse")
+        v = self.reg()["scai-the-bathhouse"]
+        self.assertEqual(v["name"], SCAI["name"])
+        self.assertEqual(v["address"], SCAI["address"])            # existing address kept
+        self.assertEqual(v["website"], SCAI["website"])
+        self.assertIn("SCAI Bathhouse", v["aliases"])
+        self.assertEqual(v["notes"], "Former bathhouse")
+        self.assertEqual(v["sources"]["directory_session"], "enum-tennozu")
+
+    def test_stub_without_zone_or_address_is_filled(self):
+        stub = self.venue("scai-the-bathhouse", website=None)
+        stub.update({"name": SCAI["name"], "neighborhood": None, "address": None})
+        self.write(stub)
+        row = dict(SCAI_PARK_ROW, name="SCAI THE BATHHOUSE", neighborhood="Ueno/Yanaka",
+                   address=SCAI["address"], website=SCAI["website"])
+        self.assertEqual(venues.on_record_venue(row, "los-angeles"), "scai-the-bathhouse")
+        v = self.reg()["scai-the-bathhouse"]
+        self.assertEqual((v["neighborhood"], v["address"], v["website"]),
+                         ("Ueno/Yanaka", SCAI["address"], SCAI["website"]))
+
+    def test_unknown_site_row_still_creates_a_record(self):
+        vid = venues.on_record_venue({"name": "Flew Gallery", "neighborhood": "Ueno/Yanaka",
+                                      "kind": "gallery", "ts": 1, "session": "enum-yanaka"}, "los-angeles")
+        self.assertEqual(vid, "flew")
+        self.assertEqual(self.reg()["flew"]["neighborhood"], "Ueno/Yanaka")
+
+
 if __name__ == "__main__":
     unittest.main()

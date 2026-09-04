@@ -1453,18 +1453,47 @@ def on_log_skip(entry: dict, city: str, trace: SessionTrace | None) -> str | Non
         return v["id"]
 
 
+def _is_branch_row(v: dict, entry: dict) -> bool:
+    """An enumeration row that reached `v` through its site domain only (the
+    name is neither the record's name nor an alias) and sits in a different
+    zone is another space of the same gallery, not a respelling of this one."""
+    name = entry.get("name") or ""
+    vid = venue_id(name)
+    if vid == v["id"] or vid in {venue_id(a) for a in v.get("aliases") or []}:
+        return False
+    zone, known = entry.get("neighborhood"), v.get("neighborhood")
+    return bool(zone and known and zone != known)
+
+
 def on_record_venue(entry: dict, city: str) -> str:
+    """Registry side of record_venue (zone enumeration). A row for a space the
+    registry already knows never rewrites that record's identity: name, site,
+    address and zone only fill gaps (a respelling becomes an alias), and a
+    same-site row from ANOTHER zone gets its own record.
+
+    Why: the Tennozu enumeration returned 'SCAI PARK' (a window-viewing
+    satellite), the domain lookup landed it on SCAI The Bathhouse, and the
+    merge moved the Yanaka flagship to Tennozu with the satellite's site and
+    address. Verification then failed on the address, so the gallery was never
+    researched or scraped."""
+    patch = {"neighborhood": entry.get("neighborhood"), "kind": entry.get("kind"),
+             "address": entry.get("address"), "website": entry.get("website"),
+             "notes": entry.get("note"),
+             "sources": {"directory_ts": entry.get("ts"),
+                         "directory_session": entry.get("session")}}
     with locked_registry(city) as reg:
-        v = find_venue(reg, entry["name"], entry.get("website"))
+        v = find_venue(reg, entry["name"], entry.get("website"), add_alias=False, city=city)
+        if v is not None and _is_branch_row(v, entry):
+            v = None
         if v is None:
             v = empty_venue(venue_id(entry["name"]), entry["name"])
             reg["venues"].append(v)
             v["next_check"] = date.today().isoformat()
-        merge_patch(v, {"neighborhood": entry.get("neighborhood"), "kind": entry.get("kind"),
-                        "address": entry.get("address"), "website": entry.get("website"),
-                        "notes": entry.get("note"),
-                        "sources": {"directory_ts": entry.get("ts"),
-                                    "directory_session": entry.get("session")}})
+        else:
+            patch = _identity_fill_only(v, {**patch, "name": entry["name"]}, entry.get("website"))
+            if _adds_district(entry["name"], v, city):
+                patch.pop("aliases", None)   # a branch spelling is not an alias of the parent
+        merge_patch(v, patch)
         return v["id"]
 
 

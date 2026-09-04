@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 404.6909,
-  "total_requests": 4468,
-  "total_web_searches": 2802,
-  "total_input_tokens": 32787304,
-  "total_output_tokens": 12215051,
-  "total_cache_write_tokens": 32269850,
-  "total_cache_read_tokens": 519443603,
+  "total_cost_usd": 417.2433,
+  "total_requests": 4800,
+  "total_web_searches": 2826,
+  "total_input_tokens": 35907277,
+  "total_output_tokens": 12784393,
+  "total_cache_write_tokens": 32371454,
+  "total_cache_read_tokens": 520068967,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -193,6 +193,30 @@
       "cache_read_tokens": 4861861,
       "web_searches": 23,
       "cost_usd": 1.7942
+    },
+    {
+      "session": "classify-los-angeles-1788499512",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 134,
+      "input_tokens": 217083,
+      "output_tokens": 10082,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 0.535
+    },
+    {
+      "session": "classify-tokyo-1788499514",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 58,
+      "input_tokens": 100249,
+      "output_tokens": 4339,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "web_searches": 0,
+      "cost_usd": 0.2439
     },
     {
       "session": "curate-los-angeles-artist_heat_v1-g1-1788314110",
@@ -2559,6 +2583,18 @@
       "cost_usd": 0.4441
     },
     {
+      "session": "deep-tokyo-ueno-yanaka-1788500822",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 146,
+      "output_tokens": 2785,
+      "cache_write_tokens": 24594,
+      "cache_read_tokens": 102098,
+      "web_searches": 0,
+      "cost_usd": 0.11
+    },
+    {
       "session": "enum-los-angeles-beverly-hills-1788314901",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2964,6 +3000,18 @@
       "cost_usd": 0.344
     },
     {
+      "session": "judge-tokyo-judge_v1-claude-sonnet-5-1788497379",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 27,
+      "input_tokens": 18616,
+      "output_tokens": 15283,
+      "cache_write_tokens": 5830,
+      "cache_read_tokens": 151580,
+      "web_searches": 0,
+      "cost_usd": 0.235
+    },
+    {
       "session": "lint-los-angeles-1788457625",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -3218,13 +3266,37 @@
       "session": "research-los-angeles-1788460239",
       "model": "claude-sonnet-5",
       "batch": false,
-      "requests": 586,
-      "input_tokens": 10679022,
-      "output_tokens": 3998940,
-      "cache_write_tokens": 103778,
-      "cache_read_tokens": 719992,
+      "requests": 618,
+      "input_tokens": 11363792,
+      "output_tokens": 4212054,
+      "cache_write_tokens": 108533,
+      "cache_read_tokens": 758677,
       "web_searches": 0,
-      "cost_usd": 61.7509
+      "cost_usd": 65.2712
+    },
+    {
+      "session": "research-los-angeles-1788497888",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 21,
+      "input_tokens": 695753,
+      "output_tokens": 55710,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 30669,
+      "web_searches": 11,
+      "cost_usd": 2.0647
+    },
+    {
+      "session": "research-los-angeles-1788499361",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 54,
+      "input_tokens": 1363828,
+      "output_tokens": 264539,
+      "cache_write_tokens": 11070,
+      "cache_read_tokens": 72539,
+      "web_searches": 9,
+      "cost_usd": 5.5052
     },
     {
       "session": "research-tokyo-1788467469",
@@ -3398,6 +3470,17 @@
       "lookups": 0,
       "fetches": 43,
       "renders": 6
+    },
+    {
+      "session": "validate-tokyo-1788500164",
+      "city": "tokyo",
+      "n": 2,
+      "apply": true,
+      "places_requests": 0,
+      "cost_usd": 0.0,
+      "lookups": 0,
+      "fetches": 2,
+      "renders": 0
     },
     {
       "session": "venice-1788149982",
@@ -4104,6 +4187,18 @@
       "cache_read_tokens": 105294,
       "web_searches": 3,
       "cost_usd": 0.1634
+    },
+    {
+      "session": "verify-tokyo-1788497296",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 39528,
+      "output_tokens": 3490,
+      "cache_write_tokens": 55355,
+      "cache_read_tokens": 229793,
+      "web_searches": 4,
+      "cost_usd": 0.3383
     },
     {
       "session": "verify-venice-1788226511",
