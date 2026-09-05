@@ -146,10 +146,17 @@ gallery, best-ranked first), the List's default sort, the map dots, the tiers.
   file's default cutoffs (`docs/GALLERIES.md`, `tiers: {"1": 20, "2": 50}`).
 - **Venue records** ship for every vouched-for venue of a city, shows or not:
   `data.js` `venues[city][venueId]` = id, name, kind, neighborhood, address,
-  hours, phone, website, coordinates, blurb, rank, tier (`cityconfig.mappable`:
-  pinned, not closed/duplicate/out-of-scope, not flagged, and verified, status
-  active or in a tier; venues with a published show always ship). Keyed per
-  city because registry ids repeat across cities.
+  hours, phone, website, coordinates, blurb, rank, tier, photos
+  (`cityconfig.mappable`: pinned, not closed/duplicate/out-of-scope, not
+  flagged, and verified, status active or in a tier; venues with a published
+  show always ship). Keyed per city because registry ids repeat across cities.
+- **Gallery photos.** `photos` = `[{src, full?, provider?, attribution?}]`, hero
+  first, from the registry's `photos` block (`scraper/gallery_photos.py`:
+  photographs of the gallery as a place, judged by Claude). The venue page shows
+  the first as a hero under the nav row and the rest as a thumbnail strip after
+  the address; both open the zoom viewer. `build.py --venue-photos site` (the
+  default) bundles only the gallery's own images; `all` adds Google-sourced ones
+  with an author credit overlay (Google's terms: 30-day cache, attribution).
 - **Personal ranking.** Settings (the gear on the Lists tab) → **Gallery
   ranking** lists every venue of the city in the order the app uses, with its
   number, its tier dot and a heart; a search field finds one. **Edit** turns on

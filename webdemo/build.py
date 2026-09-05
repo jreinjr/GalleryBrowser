@@ -100,6 +100,10 @@ def main() -> None:
     parser.add_argument("--full-side", type=int, default=3840,
                         help="longest-side cap for full-res variants (0 disables them)")
     parser.add_argument("--full-quality", type=int, default=80)
+    parser.add_argument("--venue-photos", choices=("site", "all", "none"), default="site",
+                        help="gallery photos to bundle: site = the gallery's own images only "
+                             "(default; Google photos are 30-day-cache + attribution content), "
+                             "all = Google-sourced too, with attribution, none = skip")
     parser.add_argument("--out", help=f"output directory (default {DIST})")
     args = parser.parse_args()
     if args.out:
@@ -131,7 +135,50 @@ def main() -> None:
                                       "neighborhood", "address", "addressDetail", "hours",
                                       "phone", "website", "lat", "lng")}
         rec["city"] = city_key
+        photos = venue_photos(rv)
+        if photos:
+            rec["photos"] = photos
         return {k: val for k, val in rec.items() if val is not None}
+
+    venue_photo_count = 0
+
+    # Gallery photos (content/images/venues/<city>/<id>/NN.jpg, gallery_photos.py)
+    # ship like show images: 1080px proxy + @full variant, hero first. Entries
+    # are {src, full?} so the venue page reuses the carousel/viewer conventions;
+    # Google-sourced ones (only with --venue-photos all) carry their attribution.
+    def venue_photos(rv: dict) -> list[dict]:
+        nonlocal img_bytes, full_bytes, full_count, venue_photo_count
+        out: list[dict] = []
+        if args.venue_photos == "none":
+            return out
+        for ph in rv.get("photos") or []:
+            if args.venue_photos == "site" and ph.get("provider") != "site":
+                continue
+            src = cityconfig.CONTENT_DIR / ph["path"]
+            if not src.is_file():
+                print(f"  warning: missing venue photo {ph['path']} — skipped")
+                continue
+            out_rel = str(Path(ph["path"]).with_suffix(".webp"))
+            dest = DIST / out_rel
+            image_pipe.process(src, dest, args.max_width, args.quality)
+            img_bytes += dest.stat().st_size
+            entry: dict = {"src": out_rel}
+            if args.full_side:
+                full_rel = str(Path(ph["path"]).with_suffix("")) + "@full.webp"
+                full_dest = DIST / full_rel
+                if image_pipe.process_full(src, full_dest, args.max_width,
+                                           args.full_side, args.full_quality):
+                    full_bytes += full_dest.stat().st_size
+                    full_count += 1
+                    entry["full"] = full_rel
+            if ph.get("provider") == "google":
+                entry["provider"] = "google"
+                if ph.get("attribution"):
+                    entry["attribution"] = ph["attribution"]
+            out.append(entry)
+        if out:
+            venue_photo_count += 1
+        return out
 
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
@@ -234,7 +281,8 @@ def main() -> None:
     total = sum(f.stat().st_size for f in DIST.rglob("*") if f.is_file())
     print(f"\nBuild -> {DIST}")
     print(f"  cities: {len(cities)}   shows: {len(all_shows)}   venues: {sum(len(v) for v in all_venues.values())} "
-          f"({venues_without_shows} without a show)   curated lists: {sum(len(v) for v in all_lists.values())}")
+          f"({venues_without_shows} without a show, {venue_photo_count} with gallery photos)   "
+          f"curated lists: {sum(len(v) for v in all_lists.values())}")
     for key, text in sorted(corpora.items()):
         print(f"  discover corpus {key}: {human(len(text.encode('utf-8')))}")
     print(f"  code {human(code_bytes)} | data.js {human((DIST / 'data.js').stat().st_size)} "

@@ -269,13 +269,13 @@ def _norm_title(title: str | None) -> str:
     return re.sub(r"\s+", " ", s)
 
 
-def download_image(url: str, city: str, show_slug: str) -> str:
-    """Download an image, verify resolution, normalize to JPEG, store it under
-    content/images/<city>/<show_slug>/ and return the stored relative path."""
-    resp = requests.get(url, headers={"User-Agent": UA, "Referer": url}, timeout=60)
-    resp.raise_for_status()
+def normalize_image_bytes(data: bytes) -> tuple[Image.Image, tuple[int, int]]:
+    """Decode image bytes into the stored form: reject anything narrower than
+    MIN_ACCEPT_WIDTH, convert to RGB, downscale past MAX_STORED_WIDTH. Returns
+    (image, original (w, h)); raises ValueError with an agent-readable message.
+    Shared by download_image (shows) and gallery_photos.py (venues)."""
     try:
-        img = Image.open(io.BytesIO(resp.content))
+        img = Image.open(io.BytesIO(data))
         img.load()
     except Exception as exc:
         raise ValueError(f"URL did not decode as an image ({exc}). Try a different candidate.")
@@ -291,6 +291,15 @@ def download_image(url: str, city: str, show_slug: str) -> str:
         img = img.convert("RGB")
     if width > MAX_STORED_WIDTH:
         img = img.resize((MAX_STORED_WIDTH, int(height * MAX_STORED_WIDTH / width)), Image.LANCZOS)
+    return img, (width, height)
+
+
+def download_image(url: str, city: str, show_slug: str) -> str:
+    """Download an image, verify resolution, normalize to JPEG, store it under
+    content/images/<city>/<show_slug>/ and return the stored relative path."""
+    resp = requests.get(url, headers={"User-Agent": UA, "Referer": url}, timeout=60)
+    resp.raise_for_status()
+    img, (width, height) = normalize_image_bytes(resp.content)
 
     show_dir = _content_root() / "images" / city / _slugify(show_slug)
     show_dir.mkdir(parents=True, exist_ok=True)

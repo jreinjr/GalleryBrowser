@@ -1246,6 +1246,24 @@
     const inSheet = asSheet || !!(opts && opts.inSheet);
     const mapCard = venueMapCard(v);
 
+    // Gallery photos (registry `photos` via build.py): the hero above the title,
+    // the rest as a thumbnail strip; both open the zoom viewer. Entries are
+    // {src, full?} like show images; a Google-sourced one names its author.
+    const photos = v.photos || [];
+    const hero = photos.length
+      ? el('div', { class: 'venue-hero', onclick: () => openViewer(photos, 0) },
+          el('img', { src: photos[0].src, alt: '', decoding: 'async' }),
+          photos[0].attribution
+            ? el('div', { class: 'venue-credit' }, 'Photo: ' + photos[0].attribution) : null)
+      : null;
+    const strip = photos.length > 1
+      ? el('div', { class: 'venue-strip' },
+          ...photos.slice(1).map((p, i) => el('img', {
+            src: p.src, alt: '', loading: 'lazy', decoding: 'async',
+            onclick: () => openViewer(photos, i + 1),
+          })))
+      : null;
+
     const actions = el('div', { class: 'venue-actions' },
       el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
         icon('walk'), el('span', null, 'Directions to venue')),
@@ -1273,6 +1291,7 @@
 
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }, leading, favoriteBtn(v)),
+      hero,
       el('div', { class: 'venue-body' },
         el('div', { class: 'venue-title' }, v.name),
         rankPill(v),
@@ -1281,6 +1300,7 @@
         el('div', { class: 'venue-lines' },
           el('div', null, fullAddress(v)),
           ...(v.hours || []).map(h => el('div', null, h))),
+        strip,
         mapCard,
         actions));
     page.appendChild(scroll);

@@ -13,6 +13,7 @@ content/                   Scraped data bundled into the app (folder reference)
   <city>.json              PUBLISHED (verified) show records per city
   pending/<city>.json      Scraped shows awaiting verification (never displayed)
   images/<city>/<slug>/    Downloaded high-res show imagery (JPEG)
+  images/venues/<city>/<id>/  Gallery photos, hero first (scraper/gallery_photos.py)
   spend/                   Per-session API cost ledgers + TOTAL.json
   curation/params/         Scoring presets (see docs/CURATION.md)
   curation/<city>/seesaw/  Dated See Saw benchmark snapshots

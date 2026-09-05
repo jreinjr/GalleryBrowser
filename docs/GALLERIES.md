@@ -24,6 +24,10 @@ kind_source:  default|places|directory|agent|show|research|manual|null      # ve
 kind_evidence: str|null   # the line that decided `kind`; see venues.KIND_SOURCES for precedence
 features:     {<name>: {value: float 0..1, basis: str, ts: int}}           # rank_venues.py
 rank, score, score_breakdown                                               # rank_venues.py apply
+photos:       {status: done|none, ts, model, confidence, candidates_seen, google_events, note,
+               files: [{path, provider: site|google, px, fetched_ts, subject, caption,
+                        url + source_page (site) | google_photo + attribution (google)}]}
+                                                                           # gallery_photos.py apply
 ```
 
 `tier` / `notability` keep their meaning (tier 1-3 or null) but are now written by
@@ -250,9 +254,38 @@ match "Taka Ishii Gallery Tokyo" — the 2026-09-04 Tokyo pass mis-merged exactl
 rules). Tokyo's ranking became the LLM consensus on 2026-09-04 (`rank --city tokyo --apply`).
 
 **Never written**: `los-angeles` (`NEVER_WRITE`, checked on every write path);
-`content/curation/params/*`. Adding a city: one `CITIES` entry (`display_name, center, span,
+`content/curation/params/*`. (`gallery_photos.py` is not part of this pipeline: it sets only
+`venue.photos`, on any city.) Adding a city: one `CITIES` entry (`display_name, center, span,
 neighborhoods, guidance, metro_tokens` — `cities.json` carries a drafted block), the same
 neighborhoods in `GalleryBrowser/Models.swift`, its zone in `webdemo/cityconfig.CITY_TZ`,
 optionally `harness.SECOND_SOURCES`. Existing cities keep their neighborhood labels
 (published shows, registries and verify sharding key off them); galleries in other districts
 map to the nearest centroid.
+
+## Gallery photos (gallery_photos.py)
+
+Up to five photographs of each venue *as a place* (facade, entrance, interior, installation
+views where the room is the subject), hero first, under `content/images/venues/<city>/<id>/NN.jpg`
+with provenance in `venue.photos` (contract above) and the working state in the same folder's
+`_work.json`. Added 2026-09-05 for the top 50 of Los Angeles and Tokyo.
+
+Sources, cheapest first: the venue's own site — og:image plus hero images from the homepage and
+the dossier's `about` / `contact_hours` pages (`triage.labels`; `/about`, `/contact`, ... probes when
+there is no report), $0, fetched with `refresh.Fetcher` (robots.txt, 2 s per domain, browser-UA
+retry when bot-walled) — then Google Places photos: metadata is free on Places API (New)
+(`id,photos` = the IDs-only SKU; the project's key blocks the New API, so the script falls back to
+legacy Details, a Pro SKU with 5,000 free calls a month) and each download is one Place Photo
+event ($7 / 1,000 after 1,000 free a month, tallied in `content/spend/google-photo-events.json`).
+Candidates are pre-ranked without cost (og:image first; owner-uploaded, landscape, larger Google
+photos first), deduplicated by average hash, then one `claude-sonnet-5` call per venue (candidates
+downscaled to 768 px, json_schema verdict: ordered picks with subject + caption, rejects with a
+reason) chooses the set. ~$0.015 per venue; ledger `content/spend/gallery-photos-<city>-<ts>.json`.
+
+Stages, resumable: `candidates` → `fetch [--google-per-venue 5] [--google-cap 400] [--dry-run]` →
+`judge [--budget USD] [--dry-run]` → `apply`; `run` does all four. Select with `--top N` (rank
+order) or `--venue-ids`.
+
+What ships: Google's terms allow caching Places content other than place IDs for 30 days only and
+require author attribution, so Google-sourced files stay on disk flagged `provider: google` and the
+web build bundles site-sourced photos only (`webdemo/build.py --venue-photos site|all|none`);
+`sync_shows.py` copies the site-sourced paths onto embedded show venues as `venue.photos` for iOS.

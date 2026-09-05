@@ -1,6 +1,6 @@
 /* Venue page + gallery-rank sort checks against a built dist (DIST=<dir> overrides
  * webdemo/dist/gallery-browser-demo). The test pins three venues to ranks 1..3 (every
- * other rank in the city is pushed down by 1000) and puts a blurb on the first, in
+ * other rank in the city is pushed down by 1000), puts a blurb and three gallery photos on the first, in
  * window.DEMO_DATA before the app boots (init script) — the same data shape build.py
  * emits (docs/GALLERIES.md) — so the expectations do not depend on the live registry.
  *   NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/venue.test.js
@@ -67,7 +67,13 @@ function check(name, ok, detail) {
         const ids = [...new Set(shows.map(s => s.venueId))].slice(0, 3).reverse();
         ids.forEach((id, i) => {
           vm[id] = { ...(vm[id] || { id, city }), rank: i + 1 };
-          if (i === 0) vm[id].about = blurb;
+          if (i === 0) {
+            vm[id].about = blurb;
+            // gallery photos (build.py venue_record `photos`): {src, full?} entries, hero first —
+            // borrow three show images that exist in this dist
+            const imgs = shows.filter(s => s.venueId === id).flatMap(s => s.images);
+            vm[id].photos = imgs.slice(0, 3).map(e => ({ src: e.src, full: e.full }));
+          }
         });
         window.__TEST = { ids, shows: shows.length };
       },
@@ -127,6 +133,27 @@ function check(name, ok, detail) {
     return { kids, text: p && p.textContent, color: p && getComputedStyle(p).color, maxw: p && getComputedStyle(p).maxWidth, pill: pill && pill.textContent };
   });
   check('venue page shows the blurb', about.text === BLURB, about.text);
+  const hero = await page.evaluate(() => {
+    const scroll = document.querySelector('#pages-list .venue-page .page-scroll');
+    const kids = [...scroll.children].map(e => e.className);
+    const img = scroll.querySelector('.venue-hero img');
+    const photos = window.DEMO_DATA.venues['los-angeles'][window.__TEST.ids[0]].photos || [];
+    return { kids, hero: img && img.getAttribute('src'), strip: scroll.querySelectorAll('.venue-body .venue-strip img').length,
+             photos: photos.length, first: photos[0] && photos[0].src };
+  });
+  check('gallery photos: the hero sits under the nav row, above the body',
+    hero.photos === 3 && hero.kids.indexOf('venue-hero') === hero.kids.indexOf('navrow') + 1
+      && hero.kids.indexOf('venue-body') === hero.kids.indexOf('venue-hero') + 1, hero.kids.join(','));
+  check('the hero is the first photo, the rest run as a thumbnail strip',
+    hero.hero === hero.first && hero.strip === hero.photos - 1, JSON.stringify(hero));
+  check('tapping the hero opens the zoom viewer on photo 1 of 3', await (async () => {
+    await page.click('#pages-list .venue-hero');
+    await page.waitForSelector('#viewer-root .viewer');
+    const counter = await page.$eval('#viewer-root .viewer .viewer-counter', e => e.textContent);
+    await page.click('#viewer-root .viewer .viewer-close');
+    await page.waitForSelector('#viewer-root .viewer', { state: 'detached' });
+    return counter === '1 / 3';
+  })());
   check('rank-1 venue page shows its rank and tier in the pill', /^#1 · Top 20/.test(about.pill || ''), about.pill);
   check('the venue page has a heart to favorite the gallery', !!(await page.$('#pages-list .venue-page .navrow .fav-btn[data-fav]')));
   check('Shows sit above the blurb, blurb above the address lines',

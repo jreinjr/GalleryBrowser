@@ -4,9 +4,11 @@ iOS bundle) see it without a join.
 
     python sync_shows.py --city los-angeles [--apply]
 
-Today that is only `about` (the published blurb: research_venue.py's
-about.text when about.source_kind is official/secondary — see
-docs/GALLERIES.md). Idempotent; --apply writes, otherwise counts only.
+Today that is `about` (the published blurb: research_venue.py's about.text
+when about.source_kind is official/secondary — see docs/GALLERIES.md) and
+`photos` (site-sourced gallery photo paths, hero first, from
+gallery_photos.py's photos block). Idempotent; --apply writes, otherwise
+counts only.
 Locks the city JSON the way tools.confirm_show does.
 """
 
@@ -34,9 +36,20 @@ def published_about(v: dict) -> str | None:
     return None
 
 
+def published_photos(v: dict) -> list[str] | None:
+    """Site-sourced gallery photo paths in hero order; Google-sourced photos stay
+    out of the app bundle (Google's 30-day cache + attribution terms)."""
+    p = v.get("photos") or {}
+    if p.get("status") != "done":
+        return None
+    paths = [f["path"] for f in p.get("files") or []
+             if f.get("provider") == "site" and f.get("path")]
+    return paths or None
+
+
 def sync_city(city: str, apply: bool = False) -> dict:
     reg = venues.index_by_id(venues.load_registry(city))
-    stats = {"shows": 0, "changed": 0, "with_about": 0, "no_venue_id": 0}
+    stats = {"shows": 0, "changed": 0, "with_about": 0, "with_photos": 0, "no_venue_id": 0}
     lock_path = tools.CONTENT_DIR / f".{city}.json.lock"
     with open(lock_path, "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
@@ -62,6 +75,16 @@ def sync_city(city: str, apply: bool = False) -> dict:
                         show["venue"].pop("about", None)
                     else:
                         show["venue"]["about"] = about
+                photos = published_photos(reg.get(vid) or {})
+                if photos:
+                    stats["with_photos"] += 1
+                if show["venue"].get("photos") != photos:
+                    stats["changed"] += 1
+                    dirty = True
+                    if photos is None:
+                        show["venue"].pop("photos", None)
+                    else:
+                        show["venue"]["photos"] = photos
             if dirty and apply:
                 tools._write_shows_file(path, data)
     return stats
@@ -74,6 +97,7 @@ def main() -> None:
     args = ap.parse_args()
     st = sync_city(args.city, apply=args.apply)
     print(f"{args.city}: {st['shows']} shows, {st['with_about']} with a published blurb, "
+          f"{st['with_photos']} with gallery photos, "
           f"{st['changed']} venue objects {'updated' if args.apply else 'would change'}, "
           f"{st['no_venue_id']} without venue_id")
     if not args.apply:

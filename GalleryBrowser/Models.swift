@@ -65,6 +65,12 @@ struct Venue: Codable, Hashable {
     /// Short gallery blurb copied from the venue registry by
     /// scraper/sync_shows.py (only official/secondary-sourced text is published).
     let about: String?
+    /// Photos of the gallery itself, hero first, as bundle-relative paths like
+    /// `Show.images` (content/images/venues/<city>/<id>/NN.jpg). Copied from the
+    /// registry's `photos` block by scraper/sync_shows.py; only the gallery's own
+    /// site-sourced photos are published. Absent on records written before
+    /// gallery photos existed.
+    let photos: [String]?
 
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

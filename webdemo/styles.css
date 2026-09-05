@@ -211,6 +211,13 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .venue-none { margin-top: 14px; font-size: 15px; color: var(--secondary); }
 .venue-lines { margin-top: 8px; font-size: 15px; color: var(--secondary); line-height: 1.45; }
 .venue-about { margin: 10px 0 0; max-width: 62ch; font-size: 15px; line-height: 1.5; color: var(--secondary); }
+/* gallery photos: hero under the nav row, thumbnail strip after the address */
+.venue-hero { position: relative; margin: 8px 18px 0; border-radius: 14px; overflow: hidden; }
+.venue-hero img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; cursor: zoom-in; }
+.venue-credit { position: absolute; right: 8px; bottom: 6px; font-size: 11px; color: #fff; text-shadow: 0 0 4px rgba(0, 0, 0, .8); }
+.venue-strip { display: flex; gap: 6px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; }
+.venue-strip::-webkit-scrollbar { display: none; }
+.venue-strip img { flex: 0 0 auto; width: 96px; height: 72px; object-fit: cover; border-radius: 8px; cursor: zoom-in; }
 .map-card {
   position: relative; height: 320px; border-radius: 18px; overflow: hidden;
   margin: 18px 0; background: #14171c;

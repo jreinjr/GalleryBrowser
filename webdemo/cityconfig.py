@@ -72,6 +72,18 @@ def published_about(v: dict) -> str | None:
     return None
 
 
+def published_photos(v: dict) -> list[dict]:
+    """Gallery photos (scraper/gallery_photos.py) in hero order, as
+    [{path, provider, attribution}]; [] when the venue has none. build.py decides
+    which providers ship (--venue-photos)."""
+    p = v.get("photos") or {}
+    if p.get("status") != "done":
+        return []
+    return [{"path": f["path"], "provider": f.get("provider") or "site",
+             "attribution": (f.get("attribution") or {}).get("name")}
+            for f in p.get("files") or [] if f.get("path")]
+
+
 def load_venues(city_key: str) -> dict[str, dict]:
     """venue_id -> public venue view from the registry (content/venues/<city>.json,
     see docs/GALLERIES.md); {} when the city has no registry. This is the only
@@ -98,6 +110,7 @@ def load_venues(city_key: str) -> dict[str, dict]:
             "address": v.get("address"), "addressDetail": v.get("address_detail"),
             "neighborhood": v.get("neighborhood"),
             "lat": v.get("latitude"), "lng": v.get("longitude"),
+            "photos": published_photos(v),
         }
     return out
 

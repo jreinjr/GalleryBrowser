@@ -1,7 +1,7 @@
 {
  "schema": 3,
  "city": "los-angeles",
- "updated": 1788561277,
+ "updated": 1788577659,
  "venues": [
   {
    "id": "1301-pe",
@@ -330,7 +330,66 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 4,
+    "google_events": 4,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/1301-pe/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576515,
+      "subject": "exterior",
+      "caption": "Building facade with address and gallery signage",
+      "google_photo": "AVoNoXTstQvDVT37XUKOgM-Elecv0UAODV77JxIRZind4GtGaZuorfLHhUCvFmzzlKq03_3MBUC9h6znihT6AgabHzuGtHWOQWg8gLjLW9ws67GVHwJ5uFIhLJn-L6eQXxGCREww6qj_RxxcUqSX1BqXY61RYrjMYP7kSJ5YvufgWK_-4j1lnTkmaA_VPRSuQjWXJRdiiPwUFLsfwsT3J1KS6HlNggWtXolbaX_T4XlcQzmykI8jUhcPy9-g2TSZLmWyyHoMbb3dYdXRJMHHN5zCttZ9yJWCiBEuE3ejdKxocIf7gSwuZR874sORjGDqHh6TV7QpmNjdOmJlLq6G9km6THBA6-QXBQDWXZe-yxOfzms3Cr-GR154CD0ERoknYuXwz2-0_fsD1D13bOyssxrJtGYMYutaXRn_K-VJXpNdKr8IRoR4CanKDIHvtUDg2Exp",
+      "attribution": {
+       "name": "1301PE",
+       "uri": "https://maps.google.com/maps/contrib/102769399121219187748"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/1301-pe/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1068
+      ],
+      "fetched_ts": 1788576514,
+      "subject": "interior",
+      "caption": "Wide gallery interior with patterned ceiling",
+      "google_photo": "AVoNoXRewlbB5QA0FT2eU0iHehtU0_kXpIJJ-EgYF6A6ienTFqXjKf065PTdsBhBAbR_5-oMeAZwe0sQ--M4Mhb54mY4QA_YVVVa8l3qvCYhHd3Y1KFmCUeLTkDlPLEY8Gojf9KzMGRO76y50-GXMlS84i8YN0wgGPq-9nsUCyV4Hq6ApMNz5JbV72lQDY80OBsULPdRsJ0mJuyhOh-NMwwayuaDaak5AAIgFTB6gqzB02m8UhwA3w91oQT9iP0LbmOQmFnuUxV4qgVyIMeqjeTU96CpBCGvpOphYYFUg5dsmsan1d1Y1kLgSmuZWLOD9uNY6oU8gqH0VBJ-URaRSDQY-saFC5YX2eTRVox--QpaappiBkQZwbeSjrTEthwWtMUS0xExJ3ct36O7o68XHibTYK5p_IimIo2B7PKx_7EQfv2ykw0Ljy9yeMQgtlBnlQ",
+      "attribution": {
+       "name": "1301PE",
+       "uri": "https://maps.google.com/maps/contrib/102769399121219187748"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/1301-pe/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576513,
+      "subject": "interior",
+      "caption": "Bright gallery room with hanging artworks",
+      "google_photo": "AVoNoXQBLlUJ-2RWcODjbvxiB2whtyXgEjQM38d9rmyDB50iYRixYSSIEl7r6Cw5W4quAVhJJUrb4rdFTyevnHggXwj8xA7JOPlM1NG4Oc7Q1mrdvhRuy5xBkfA-s9bjuBj553lUVC9jEgCgTZq3XVfoLkYpqio-WE_8EFqZVRYE9C8DKmOzx1MtgVZh9VpgKkUCgYoAYO9JccIexUEqh0xSVCNspijXPEMKImuvpz8moGOxQZSSpVtLzXJKE0i9dMezh5uKODLrZQ5dKO_m1rMp82D86gZ-2Coz7O4Doz-CUGX68jdmEKuUVUZxDB5WsBBPhJRPDyPue6mNYugjdc0X4MD4ANm7qISLrNzX0g8aFIXAsOM9ioQcnJH7IeEyRmjvuFsv14wB4cQgzktVtHr65V88HAwrX3LQevsmNgIMZXjbCBA1O74Vnh0QUmMRXg",
+      "attribution": {
+       "name": "1301PE",
+       "uri": "https://maps.google.com/maps/contrib/102769399121219187748"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "18th-street-arts-center",
@@ -11945,7 +12004,82 @@
     "multi_location": 0.0425
    },
    "kind_source": "research",
-   "kind_evidence": "Anat Ebgi was founded in 2012 and has since grown to represent a wide array of established artists and emerging talents... gallery joined the Art Dealer's Association of America in 2023."
+   "kind_evidence": "Anat Ebgi was founded in 2012 and has since grown to represent a wide array of established artists and emerging talents... gallery joined the Art Dealer's Association of America in 2023.",
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 13,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/anat-ebgi/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576441,
+      "subject": "interior",
+      "caption": "Wide bright gallery with abstract paintings",
+      "google_photo": "AVoNoXS2Dk2zrVfxsXodJYqrRd2lhL1oqD81fHICjdzTcSM-nq48lkIN5f3wonIBmIVlxE_z8hKJzMPZ5kppv006tjEUbP_4J0qEIMvW-QuBxnT2ksIWBKmLaqTW1raC3j6LOXLeYAnd-EmQ_p8QFgvAhzk_eMPiDQuzwlGGCORUVkJ5wQDRVHnv2-Tob3z4Vm8dIU8F4_c9HiokDBYT3tXNiKTz8fgivbXa-1HMOttatXLV8ef74C3lKFD3wGLxnIrGLIfm-zie82wbfdWuPTwKAWmx1GAwq6h58hlzkPT4ZyxCKumgw-Kun27UT8Vooy1elg6bgpk9IUilQmFozrS8fQtHKgRECBM2Lf2a_L9esVFKCj-OVt_C3s14CVujCUI8P3GpU3kytADx8KKYluT6IDi_hRgY5uw8qIpmsZkgTguJzRWl",
+      "attribution": {
+       "name": "Anat Ebgi - Wilshire",
+       "uri": "https://maps.google.com/maps/contrib/107843462224580267406"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/anat-ebgi/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576442,
+      "subject": "installation",
+      "caption": "Colorful immersive installation in gallery room",
+      "google_photo": "AVoNoXQo_A81E8KCBUrA6YmYFkQJ-moD4RD2zOCJz_H2fHid9oLSyYXiNK4NB_NcYzvpNHgXOinG-MOcSJ1QiziSTDLAbUsq8CXC59HKT9gyJx5lyHAXrNCL5Yxcqb0iDL0suk1CJgWM9KSlI9p0px8VhUP83Szvjk638e1qiQ9ToinEPSvcm9fGrfTHvjzsocQmI395OcTCnXgkpmna3Qwr6Mo4HqVwchKAX8A4ElQTFQMOKbPnjMjjrSbokea0flLOP9QLgEW2zbihcYrLyOlQ13uYg5odG5ZAukKlEyITSWeMV5KR10JDFz5EjN8Ablpgvsx4iCzDnqUNmCc7jSdG95EdzUZMHRm2IJvqpCBS9Gi1fkFjmJT8CVy_6sDouCl2WbflikgJN_D4aUgzSUA25jjVOnSU8sUoXB_5_W8E6FWIPg",
+      "attribution": {
+       "name": "Anat Ebgi - Wilshire",
+       "uri": "https://maps.google.com/maps/contrib/107843462224580267406"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/anat-ebgi/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576443,
+      "subject": "interior",
+      "caption": "Sculptures on pedestals in gallery space",
+      "google_photo": "AVoNoXRYMaVPR_mJzJIsV8XkUE6VTv9H4vWCTklXeDcKFUKJAy-08xG8UvNws_Uh6iB46uYqlUe4ceNCL3KCCtGIgnoRLh9zyzKGF4AKe1FtpZbIW7oHJSSyxIWFLLon2LW0S5-tPW1HqrtiMbglte36NAXdR-p-HtG4xa8G7dcYMDnL0SeyPZCBMbRFQZO6AjkTy1GtOBSL6BSvg3U6HcRpO9-tmVOLSkn0u31t59Jk-tufuxIk0Ngz_Dnw3c2vRN2ViLoO285p5Yxkyo6Sjx-cqwWytL7BjCl32qNcSwJ--RP4sgf_jc6wKJrTTCHHKcXLzr0-06LTYXajjZw0EY2xJAl3wuksGZOxdWPEp_23Rs_Icln7LBNExUiRur7Wcoi_1BiOENH1QnDbk-GyDW98kXR9sC7psl3t6cef9hxcUbufxw",
+      "attribution": {
+       "name": "Anat Ebgi - Wilshire",
+       "uri": "https://maps.google.com/maps/contrib/107843462224580267406"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/anat-ebgi/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576440,
+      "subject": "interior",
+      "caption": "White gallery interior with hung paintings",
+      "google_photo": "AVoNoXTwwRTgIaTzbmH_mzdfVCDPtt8pxIkB5IgfCmJUxXD0BypNu2tJIW1XYUJhhcu4JJTOic4wekAawnb00TjNZMuIKeSldEyrwLqW_zXEEM6K6s8UgBN_8OFNx9YPESRcJpOgGo4_x7Lv1o2-MTCZ3kWsxhewj4DfN0q3Bp3jPiEgWfSetSoabD-IuVA0hWYw8Znpdx4Lw0JJUg4ulDNK6B-40mwCcfPx0YjDGwD-Q2wZVTj8bbkvmROKJJtBUbqtSSF931_khE62xtniqZm9yfCAiir986qvYFDRqMkqj8jz1_FNmr2ZWgbsPs5E4FS-6BHG4SnrtMjI2MPaq4x0Uy5u0SWbKqe47z59wHJo25ahFN_y-6ka8QLdn9EkjceAEjM3o1OXVZfB7ZT4nmv5ohif5ScLNzCdvIW1NuR31o1JJkOo",
+      "attribution": {
+       "name": "Anat Ebgi - Wilshire",
+       "uri": "https://maps.google.com/maps/contrib/107843462224580267406"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "and-and",
@@ -27420,7 +27554,63 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577279,
+    "model": "claude-sonnet-5",
+    "confidence": 0.75,
+    "candidates_seen": 8,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/as-is-la/01.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1405
+      ],
+      "fetched_ts": 1788576882,
+      "subject": "interior",
+      "caption": "Empty white gallery interior with neon light fixture",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e378d7be42d6ba4b077c5d/1577926780404-2IOGE5U0FKFUBEU621V2/L1100286.jpg",
+      "source_page": "https://www.as-is.la/"
+     },
+     {
+      "path": "images/venues/los-angeles/as-is-la/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576883,
+      "subject": "installation",
+      "caption": "Dim gallery room with illuminated wall pieces",
+      "google_photo": "AVoNoXRiMVDKpfeEP24-dRegk5Dp_rc6EF7LCk1D-Yfai1R7pHA3PWr18HWuL6wh_tT-vNtbssZtnnblzjybIy47VGUkQDEzoI7Vc9bi_PGYiQOCeGAA51FsgVe6m79hEL2n4IcFWMv753M6zNOTA8b39Sstn6Xx42dH6wPmAn3fLJHsbRo57Wk4pyb7O-p1PJCJXpIw6iyju9SoUAVG0lecxhx_4Ly6zEXa1krHr7tbK2r6vk9dIzs5WjyKfcwHEis0lVM7O9VYyJSe-x6lbulTJPE5KPglCOlOyT5hK_KXSDvNofGqZEIQI2twetTnp45gSORkLS9jdzy0ioLNfBmnRSvzIMfPKe7yh7Yhhn7wv7VlXGqaWa6SkIVw3TsdvI3AMVjpjtFUe3pU4wgP5YfSWEhkFcvzm1O4eKDEeZTbcC_gmwpA",
+      "attribution": {
+       "name": "As-Is Gallery",
+       "uri": "https://maps.google.com/maps/contrib/103456511065689424099"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/as-is-la/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       902
+      ],
+      "fetched_ts": 1788576883,
+      "subject": "interior",
+      "caption": "Gallery interior with framed newspaper installation",
+      "google_photo": "AVoNoXTupWSc8UOFi-6SsqVdC0EtGz-Z7IiLUfsAaEonRG07dnWiYot-eXO1Maszn-B-1KBzTyboCCqT6WPIW9PcYDvVbOYIdWkcPPFoJZxUNSaO4-cXTO2jHGXpEH501WfSz10QP5Uv334Z2VKDDgqpUW7Phh12Oa0WdHs5CvU-S_ec0bMvjOLr3SGgsKBcjh5V8Fw8dnn3fXrAc0DK8EfDpaRrzR7k3TubsIHybcYgCehEwi80rRAbkqhfSMHmOVal1oG-Jc6MrVKzNRL4R030uOy02KcBXSMXzRPdjZfgf8-SndXqOTbJiAoHSroZSG0Gm09B-svNT0atGHHNFwLTA7-76ABdETHPcexASOlX9Rjw_3VttTyvKZ3DhkdhQi2nopDgAspLJq_NtiGdtbwrzdeZ1XlOHYcy2xH-7BmbI-DaaG1F",
+      "attribution": {
+       "name": "As-Is Gallery",
+       "uri": "https://maps.google.com/maps/contrib/103456511065689424099"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "as-it-stands",
@@ -35316,7 +35506,66 @@
     "show_cadence": 0.0173
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 7,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/bel-ami/01.jpg",
+      "provider": "google",
+      "px": [
+       1067,
+       1600
+      ],
+      "fetched_ts": 1788576760,
+      "subject": "entrance",
+      "caption": "Glass entrance door with Bel Ami signage",
+      "google_photo": "AVoNoXRmdMh-jwV-SbAkK7moTZP2xr69BJHzBNY1PFdjEOeecddWb281xdE_r41ZX0V48akw-xp4n7EhJx72_ZV-QQz97_BkkSyiHNj0D60pvjIfU-oK5KjUwRqoLqB1sJ_YwlKf0U3Ko82mbDzNmcglF9qsczVpP0kYqIOWkVFZG54AAahMKe-GZZuqvRdpSjU-XhtbSVGjkyEBqREVTnVwH3IcmXvOYrar64PTYTVCdRAaNjxhJ1qnVlJegB8WIaSbJBydbT5hVA5ItnMv7kDVtRrqJZCQK9phSon18QwSNk9J0ygRBjhzXHN6m5f7W7t5II58VsJ5OSOa18fM5DUtexzcO5bV0n7l3unPB-IdUtMGgKLCH7nj9FGFF_V8bznQr0iZ0B5O_k6tUJtffQ7kTH2dN_N9e-CG7uO-5-nmIdGNRV4X",
+      "attribution": {
+       "name": "Bel Ami",
+       "uri": "https://maps.google.com/maps/contrib/109212780248173670399"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/bel-ami/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1066
+      ],
+      "fetched_ts": 1788576758,
+      "subject": "interior",
+      "caption": "White gallery interior corner with paintings",
+      "google_photo": "AVoNoXRGEckSQ838ddviS-1BYfZ4ULLCWUlcD6m8JD7J-PnVJ6f9gcASslHdVm8E7R_LQ_7jnGSPBKu6kNrA0ycOxMKoOymBz3MhDE8GzxiyNk-lL0Kfd3RlPIrQYVZ0G9CuF_HVQEXLTNIy9-0o-KrFMgNPIK3mdEL4eAbLy8t_1LrUMXKJZCRqRJxVa18__db8A1y-laEkGr6BIKYHGL1W8wB_HUIfX3y-10rk7T0rq2JIE5mkfxAxiaOq02iCoMFTaLbsIih52JqBvyja87kTz9-utdInuYFMrGxeT1lwMybzQgFWnGAbQLl2J-fa8cwdhu4tPZdgmfGwmsdwtGdbpCiAKmIDvMaEJxLWmALCM-rhJW88WnwOxy2V1eQxdWUiT-7lt4gda3b0QZvU8QOdBOiA_XO6_SaimcdRgQgjeK1sAjri",
+      "attribution": {
+       "name": "Bel Ami",
+       "uri": "https://maps.google.com/maps/contrib/109212780248173670399"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/bel-ami/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1066
+      ],
+      "fetched_ts": 1788576759,
+      "subject": "interior",
+      "caption": "Wide gallery view with multiple artworks",
+      "google_photo": "AVoNoXQe2P5Q6qpryFO2gcEuSGdbdveoB-r8YApRqqkO7Qaau9jVP4b9DO2wPs8WQF98XjFLAq0Na3a1Y3z2I_tpJ5k05v6zSQmDJToApmy3auCJnT2eRf6RHkbPCwQ-nRXdfDQtIODrivCJFKlNJFfMc_1uVAiIZZ1iGi9bN_mA-7zSRkzyIJ65kT7T4Si-_lcry0xvuwhp1QjW6VOYbC_Ziee2iY86xV5fif2rufbTZac9UFmPVeShw8vAPgGyBPka9lommBnIycrPrNngd-Dav6Bsf__uds9z1DE0MAJyyFHIN0WUStWUOHsfut1piNEXS7xbPXl7msMqMwb_REiAbKfUPCYK7B_bhI9YPTuH7AfuYdka6_oSwzOdMxw94-Hc7Udlb3-dHTYjEDhGSIx5G5lNdVmlzaLBe1kYPCc5tRE",
+      "attribution": {
+       "name": "Bel Ami",
+       "uri": "https://maps.google.com/maps/contrib/109212780248173670399"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "belle-aura",
@@ -51401,7 +51650,89 @@
     "show_cadence": 0.0229
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/charlie-james/01.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1668
+      ],
+      "fetched_ts": 1788576524,
+      "subject": "exterior",
+      "caption": "Gallery facade with tiled roof entrance",
+      "url": "https://images.squarespace-cdn.com/content/v1/5fa196c157852a3ac79f4c49/9c9400fd-cbdd-4ebc-9f5f-bb15b0c5eeef/SocialUse-15.jpg?format=2500w",
+      "source_page": "https://www.cjamesgallery.com/gallery"
+     },
+     {
+      "path": "images/venues/los-angeles/charlie-james/02.jpg",
+      "provider": "site",
+      "px": [
+       1155,
+       1280
+      ],
+      "fetched_ts": 1788576528,
+      "subject": "exterior",
+      "caption": "Storefront facade with lanterns and signage",
+      "url": "https://images.squarespace-cdn.com/content/v1/5fa196c157852a3ac79f4c49/5c7bc750-7f74-4476-bfb3-eecbef1aa8bf/image-asset.jpeg?format=2500w",
+      "source_page": "https://www.cjamesgallery.com/gallery"
+     },
+     {
+      "path": "images/venues/los-angeles/charlie-james/03.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1880
+      ],
+      "fetched_ts": 1788576544,
+      "subject": "interior",
+      "caption": "White gallery interior with installation views",
+      "url": "https://images.squarespace-cdn.com/content/v1/5fa196c157852a3ac79f4c49/1787774775724-HRIZK8V0YVNV8KGUZR7S/06_6KpxLong_260706_CJG_083.jpg",
+      "source_page": "https://www.cjamesgallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/charlie-james/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576546,
+      "subject": "installation",
+      "caption": "Interior gallery with paintings and sculpture",
+      "google_photo": "AVoNoXQvvAS-sQii-2CIAA1sI1oEtexVlNAPyTp6DFVZeK4KXS6gHslgNByz1s9Xx2Ik7tonpL74pBQvJ-jN03Y7EVip4f9Z-UFHUnz-4byI2zxFhhdnXt0iqAlPWveEcUqZFuVnapePiyVRCuo4KcOnqEOcl735T5TAQ3XBIzNYKvaNNJRlsWWQR2UoWmHpSYUim0T8v8Zm9vmpsWKrVwqoKjWFNd0pcTBwSlWLAb9uyvXFYR-u0I9At6ZP6XKRBeOogt_7rYnR9HGfGXdoTRYcJ7lc5wRQhqNhbBqK8WjkFKrLQ6uD0No60H3MPEXEtxjIZndcszZ4mJBRY_jXVmkvTp9HlOrNtk_o76IBwA6xNlpwJzIuG8mzrREjxGaKvFmAfwZFUJAzvPOVvHhatewM6YGHNR3KiwPdxAaGnqAAdiuri1jV1KiL4eq7-LX2cGeT",
+      "attribution": {
+       "name": "Rogers",
+       "uri": "https://maps.google.com/maps/contrib/116427035507859131371"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/charlie-james/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       901
+      ],
+      "fetched_ts": 1788576549,
+      "subject": "interior",
+      "caption": "Gallery wall with framed artworks",
+      "google_photo": "AVoNoXRXXlsLiwuE0kNKY7qYP-evH30gQX9YHCqZnVZ50mC9QD4NZ3rcnjAHzeviQlyuZxOqf4fAH5Z_Krsivr7Iwde_nQGQjowP4R-w5zmFrDbqOM3-gKEZSTI4Z_9SZTaWyhmhG7nY5MZyQxRXH31xuYrfRO7W8Zj34KmTCs_bOXmMdnlS9YCo4_OdTFIOPBOiUxAnWRtPleCaUR8U5hKBJigBSde8LdGD9GzabVS9tMaQ10mLUT6BE0-SzhLuSIJ7absTm2Ut5r3yfWpg9Xj0dR6wN73yHCXEP1ZWSF7ham92WcttZoq4mXSLKc6YEiB6WFUWDG7y9vtrJT8vyFJGCSA4bsAzdNkGBE6tHBfQoKmHhcPpRQHpxocqBGlKTizXPUtOaZ-OSyzyjuVpVzQI0tV6ut8kpd0wTb-EPUDQMpf0ug",
+      "attribution": {
+       "name": "Rabi dadi",
+       "uri": "https://maps.google.com/maps/contrib/116592590064064720780"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "charlotte-call",
@@ -52019,7 +52350,95 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/chateau-shatto/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576673,
+      "subject": "exterior",
+      "caption": "Concrete facade with entrance and street view",
+      "google_photo": "AVoNoXRvvFuaGeZD2CwHF_WR8GjkeLy1stfsDhymDobDd-gdHwvwmPWB0XrnyUuxCR_CvXV3J1qoIDDYAp9sQwgSDxDHKNZLLVunG0Gt6aUCl6GOJCo5VmKcK5nzx6DFJFrdVQTzxuVa0TF5QF-BseonLvBsFs7fscjQHG9JGEek9fk4JBW0DWJ4VwMQMkI-mHaXDisNyq7VuFiPvCumCTTcEohxeVi7Q9uB1VvZ_bwV2Iossl-iI3QrbfcJYjWCBSqVypuM-stYCgIgG6H9jVoaiN2IZVet7z2vtc0e9M6qW7Nl07PS7ZD-Kv3dMv_ql9GmWQvGkF7Peb2HjHbEof3RRcR_ZEn0e4mgdsEcttn9Br_LiGKoiTQ1CIUI9SIzOD-OHmpjerEJmv8_MeZhqD-ZfE8Afu98fTIYlD7GqwXxiEs",
+      "attribution": {
+       "name": "Annika",
+       "uri": "https://maps.google.com/maps/contrib/100154265449495429648"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chateau-shatto/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576672,
+      "subject": "interior",
+      "caption": "Bright gallery interior with arched window and city view",
+      "google_photo": "AVoNoXRZxVZEG2B-z0FQVGAL-rJR0EulxXd6l5rP8IkVj4JKHnxUG6pKofb4EogULRF56TAvSeFmClq-cke3hcUfTQjRUHvy44Gv9wp7hfxQ9RtARh_vkEI54K4XD5rriutQrG1cDfvpfHgo248mjRDRTqsSRTNoLJ4RqaXeDF2uUku5IPbQcsRrUdvKJFvQSMEL4_hxaPrh9Kv7eFX3nNa8wrL4cgrIfUjZ8XHVKA7heh6mksJHEfZx9WqsaDs8lkInTzaikmJSKhVQmqALYCjPtrNQap7mMoPsyNgSuLf68yyCYhDLEwDRNDpYAH-rKlWRjOr3AblZUpIYD7W5dc2fFd9nwXeWm9efv7K5-e4OI862P4vY10jzJ-fMLMCfd8DyBs8t50xkCk7P3wZP1Fs9Hk-DulDF2_rRHmX1jE46qLw3xfGm",
+      "attribution": {
+       "name": "Château Shatto",
+       "uri": "https://maps.google.com/maps/contrib/104880094588205461631"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chateau-shatto/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576672,
+      "subject": "interior",
+      "caption": "Interior with exposed wood-truss ceiling and sculptures",
+      "google_photo": "AVoNoXSTZMwgl9fliVmJkQW4JKO5bn-5ChEL5sGFeJVjRxH8IIC_EpeKYZ2jrEvh7QuNQ3WttuU3gj9GV9mjZIVFk8wtzxQ9UD4tcNV31mE7K0-8sqh8d4ZvReAbX3dKNkgALEZxTNh2qdAoG4J0kUD99w_4GddekBuridPHtNdSKIOZem9Y3eLmFCWjnjIHAltSwvHdioxhzJBbMtGZ4a2EhRbJkMADjDtrSL_U77-wyYLrmFscWpzq_Ua22aDUy58YtEduoh4KKxZnJIm3yAcQqlldfMJQxBafTV0GK4FSgElZMf5Doqgy3PQ6wwKs4i_tDooEwMK_twU_XPvNUF4NNt8GzG_pVzmgtysJxtl_XGUfcLlUpj38JKUAZUldTOERdPk8G6aU3gFEm5ylJzUO9zFyYk88m5NpSPjw-Ds6uQZJ7ZPB36xrGw0Qx_Chzg",
+      "attribution": {
+       "name": "Château Shatto",
+       "uri": "https://maps.google.com/maps/contrib/107311828307330052837"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chateau-shatto/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1068
+      ],
+      "fetched_ts": 1788576673,
+      "subject": "interior",
+      "caption": "Corner room with arched window overlooking downtown LA",
+      "google_photo": "AVoNoXQ9F98ka_9UpbY5cFsfjUUGHo_CVeq9jQvuFHGHxaKPIaMTDLc9y0i7DNIeDqBct7ZnyjoEKuuQUotPIRvpvtF97Ou5u4M_8aKKuzK40ey4miL-SOeie5W0X-hHXOj_io3LQ9Ur6RuMLI_NdjlfAiewySiMRGuXMpX1LRxdK7jwfN0wwM9gmESOOdA3TtbA72q4GzmSdPhJdniZyauD0zGZjL5XKH2AIsrNNrY78XkM4NVlOQRyrNHAwRhWz3VA4ZEp4yKGDy1Q3YJNgEfUDDs2PQ5-yl040hCayz_yWC5seA4ksrggC9gPjEmxbsqhB1Q2xkq8IxLz1YE7i0srHsYhCRtZ8fR0REQQUo8OhefM9Ky_ppcJsacHhnoVaY3DAHVe4GxazM7d_cDMEv6Mowh06-iRhJ8fWMI9VJ97kmUeZg",
+      "attribution": {
+       "name": "Château Shatto",
+       "uri": "https://maps.google.com/maps/contrib/104880094588205461631"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chateau-shatto/05.jpg",
+      "provider": "site",
+      "px": [
+       1500,
+       1000
+      ],
+      "fetched_ts": 1788576651,
+      "subject": "installation",
+      "caption": "Gallery wall with row of framed photographs",
+      "url": "https://cdn.sanity.io/images/2mfwqzxa/sample/09c6f5ad38ed51e967b8debbaee01703e6ff54e8-4000x2667.jpg?h=1000",
+      "source_page": "https://www.chateaushatto.com/"
+     }
+    ]
+   }
   },
   {
    "id": "cherry-and-martin",
@@ -53774,7 +54193,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 11,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/chris-sharp/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576469,
+      "subject": "exterior",
+      "caption": "Storefront facade with entrance and signage",
+      "google_photo": "AVoNoXR7thYsfp-I4lbuFwSaMhLNppYtgQzQFgrO1LgXC6Yb1bA9Aiwgh78vjndxYeMuBVhsO0nFBirTwvn9nrk48BsN5pf50lo-yPc0rXxfzzvQOUN4InAnhiXe6IJ7s95waJlHobgOgifCb1s1pyq8WqNaAiEtZEpkxKGhHwA6B0a1VTY2vgToSMbt-bO-KnKS4WZ-oIo8mjqTuYFQbVWdlqeOkeShvJ0hu5K0tLa03dbZnqaNUTkJa4n2y3ywH9FHDVaaMVDWc9Ag4bMbRrveVEVJpHeV0_YQoKUS-2_Xd6chaMUOaa1-jwNOkdDmoJZcA2WWW1wbJn0er9P6YDf7fG8iENImbUd69LZ5ndyYWaVJvTMOsvCnEJRCRak1KU70Nju4EkB2M7M7fA-xcZSmNRZcBN2lVA9Y4369y2_XT63GwHRfqTdTmMjviKBOF6E2",
+      "attribution": {
+       "name": "Chris Sharp Gallery",
+       "uri": "https://maps.google.com/maps/contrib/109372353742414743250"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chris-sharp/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576468,
+      "subject": "interior",
+      "caption": "Wide gallery interior with exposed ceiling beams",
+      "google_photo": "AVoNoXT7_zQdL-7v-big78JNZ-_P6AGyzLVxpp1lEC50ElIjA0y1s51QmamBmft4mYGnfgRM3_akjjVmqlLQogZarKGiIfylUAwRjumpiBz_XDKccNS9LrmRzP0avLD3At1cxLPiJXEwzuMkyydbP5vuaFIQgxkIAcPk76SCU7MP4f8QG2OJoX3Rn1Re8bf7o3rcPSEh4irTV3U_KrykLeH1Taw5sFe1oVygKB4GGmgM2DWKr92CL5r5CwQwVQBziaUZpTLdY7UjwoSefslexvESRHSxTZJHwBL5zCVFmgs-cfrzFq2if4jO59NtOQWIHUDDX5in6P30YiYzfTzLebpbehhIFgpcUSyWvyrjyaM7uJ2wATfoJII50wluSWeti4CAG-FKMW3NPH4fnA_Lkri8hxNq4YU-WrYULYVRd-M0WUBhRdE",
+      "attribution": {
+       "name": "Chris Sharp Gallery",
+       "uri": "https://maps.google.com/maps/contrib/109372353742414743250"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chris-sharp/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576468,
+      "subject": "interior",
+      "caption": "Bright gallery room with hanging paintings",
+      "google_photo": "AVoNoXS9r9oX9LwnngfbBLyskFkPwf0Huhn3vArxsCfUxDF_UACJAUAjHqJKY65so8W4e-EPuBe6UVwul6H222JG-Tva3JpWRPj0gY5UlRDa6qc977KaogKG6FUwsMySKNyKFixpclAQZ3uwxviW349cMFHWf3cWBt3xeRqQ0PVQTE6mhCEdhVd1Ty1SSN9c5bW4PdLfOhaTc69TLRTXn5pbdv-Mn4tlUBFc9EAsOLnmLoHYmBt1JasLZdLPv1g6X4dQA5GKj-pcr-1VxrR1LQWkIz1mUctOyOYhvaqT0Cbc_HQXOQ5ZAPwtU95BrjqCwhhQ5kIAdYX0Pi7J-hwSuP7PX8EGa7FXxzsVehhQFpYsC45NMo9dDmXbv1Ewu3t2sT_HnpC3D9qyU5kI2OsL-JdTq22aMl6FyJvDuYUmhG1WyAPowHz03cFQuNka-4dmQspV",
+      "attribution": {
+       "name": "Chris Sharp Gallery",
+       "uri": "https://maps.google.com/maps/contrib/109372353742414743250"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/chris-sharp/04.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788576469,
+      "subject": "entrance",
+      "caption": "Close view of glass entrance doors",
+      "google_photo": "AVoNoXTkpUt2XT7YgEqmyThCh7VjD4u1ygLP1dzpZOS9POyq4I77TP8jNAW-1PMoQS3WVjtnx9ZTok10P0Jw__N2v38Twd_QMkkCyJM_SQ5qlcMqrRviXs4U72JeolWpzUa-GiBsr_IlJHMhdgHV6yBI90RxqWFD00nn2IFFiP9ThyAh4pZXMoYBKgWi3C2HV0ki_OlUJtbtBRSgn6gD6c9rdDFD87zpicO2wIhfMkaXvI29JSlOeO5TUA3GWp7CZXV26DPh9nV9bn3itaWshExgC6RUdl6qpvHx1hTpy5L9eiTHC_aY__Npj-opfl6bibt2A9EwA4W5okhAChDLU-uRJo1VUdvMlW8WqRuexITnKai36GoE2GBX2KK14f4uwJCBrAhaS1daPSK7tkFgL6vHCtWIrQUaRAqm-5YKraWm-btQ_gJYUMzhUFMB_Eu0__qZ",
+      "attribution": {
+       "name": "Chris Sharp Gallery",
+       "uri": "https://maps.google.com/maps/contrib/109372353742414743250"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "christie-s-los-angeles",
@@ -58754,7 +59248,92 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 17,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/commonwealth-and-council/01.jpg",
+      "provider": "site",
+      "px": [
+       1813,
+       1554
+      ],
+      "fetched_ts": 1788576402,
+      "subject": "entrance",
+      "caption": "Entrance doorway with hallway view",
+      "url": "http://res.cloudinary.com/lacuna/image/upload/w_1813,c_limit/akd2qr613lw1qpflatrc.jpg",
+      "source_page": "https://commonwealthandcouncil.com/visit"
+     },
+     {
+      "path": "images/venues/los-angeles/commonwealth-and-council/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       900
+      ],
+      "fetched_ts": 1788576403,
+      "subject": "interior",
+      "caption": "Gallery interior with skylights and sculpture",
+      "google_photo": "AVoNoXTfEL-YqC_bld0yHUFxpKsfbMv-lDQ70aG_plrYUe1xEEYGo_RGxSUZSv1KyCYb0Mbf_gkfoUh71kDKnvmwkDrgxZ0UanIkuEnZPgu3QTXmvOnMVTZcl-KAOeqcfHpXFOT68L-tbCJ2TIayoks9VXV2TeoBPJlmXgYvuDhSsCEDWGvQD2sZUqssqDytJ-gZ9IUDmm8jX0NuHxmDWDdNRD4gZGMo4v4WDB41KT1rhpc45CxnB5iZqBtyfdWILqgZGm0Ng807iIVYLTXfg00RrEVPlWKUeZbwZV0oLWKKnTWhd_4uZppDCLIjOu-6Go_gawvefKuFg6GqTzGCPC0gWc-q9W8hMXbgbfsp-Q_NNWbREGsiWnwzilfHp_QJQ4iRC_lH9Qil6GqWZ218y6oXA1v4mIPXHe9nB72IGmFUz6KMhg",
+      "attribution": {
+       "name": "Joel Rane",
+       "uri": "https://maps.google.com/maps/contrib/115972217232762362341"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/commonwealth-and-council/03.jpg",
+      "provider": "site",
+      "px": [
+       636,
+       342
+      ],
+      "fetched_ts": 1788576390,
+      "subject": "entrance",
+      "caption": "View through open door into gallery",
+      "url": "http://commonwealthandcouncil.com/assets/img/enter.jpg",
+      "source_page": "https://commonwealthandcouncil.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/commonwealth-and-council/04.jpg",
+      "provider": "google",
+      "px": [
+       1205,
+       1600
+      ],
+      "fetched_ts": 1788576405,
+      "subject": "installation",
+      "caption": "Installation view filling gallery floor",
+      "google_photo": "AVoNoXRjFyGeoQXcQs44iN5eJwDdPu2Wauctileq3GVk0YGfMDB7qRRt7HPlo70MfD0Vp4MaBcax_bMdjebuPH6TN_a6aqPp2X1w__GyU2zctCWyBLqsrHMZl3iK3Hy4uRno23P3_mhOB0SZFagmXhyTZTGFK9IqKrp1TiH85xL_mZ-c0c7pNQhs5d_EJmcq44uUxsGS0SNfbWCbbzrVb2WMmoqaLw-hTYIO6G7LbtiwdLEw1qX_WH0qcRsjtKNzVWlCOyATrQHA3f1iodr1BfqjQtydmtPOKJczxxeZJz_DV9d4QjY_u269svWs4n3vevpP1WBiaELjM73lOWdWELRWxLwXLjjAJRIEM8S1gDqYQCfvB5M4LndjTnMtJg5NQvl_WtvWRea3f_IN65zBcQmgnaf5CE8fmweAE-2OwVJkUAnB9Q",
+      "attribution": {
+       "name": "Cody Smith",
+       "uri": "https://maps.google.com/maps/contrib/112446076052712727765"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/commonwealth-and-council/05.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788576405,
+      "subject": "installation",
+      "caption": "Sculpture legs on wooden gallery floor",
+      "google_photo": "AVoNoXTrg2DiRzIFmUWD58_IYBKUyIsEDbdaO3eev04dcOsn1NSeO3n8qAgJaj7xrhxvvuzLLyqKcgoxjm-HJdLlyYwwtKYmGj0fn5iAz_gZPa2Hir2we1pJcPIhxELQrErhbAYbgETwKg-VKZ5KA6plps-IQ7JmZrEGrSnEjjeW-nZdbUYxj582EKVZN1Int0iRKhwS-AgHR0x2siGXHgbKA_fxL6gKbMpwayknCXOLpfAhdAytBMpszac6nUhuFDwVORIs1BZ8owF_N78amRNpNNBT3WENkRPZghL4jOX0zontHRi1Ccf4hDVflHh_SW4c3LAT9JBIGkrjXig6HC170ltID9_IAw-uzzV5x7dAS126gz9qoHfXYaGoFi-YMTRIb8f607Qww1iPLRaI3hX6QayTkBbdmaDT28xzTAQ0i4ynZg",
+      "attribution": {
+       "name": "h l",
+       "uri": "https://maps.google.com/maps/contrib/109667457979969683766"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "connie-engel-art",
@@ -66765,7 +67344,79 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 18,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/david-kordansky/01.jpg",
+      "provider": "site",
+      "px": [
+       1200,
+       796
+      ],
+      "fetched_ts": 1788576277,
+      "subject": "exterior",
+      "caption": "Gallery facade with signage and ivy",
+      "url": "https://static-assets.artlogic.net/w_1200,h_1200,c_limit/exhibit-e/675c7754605ea781900ec16e/a30b9f670a5863bea538e24cf03b2f81.jpeg",
+      "source_page": "https://davidkordanskygallery.com/gallery-info/about"
+     },
+     {
+      "path": "images/venues/los-angeles/david-kordansky/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576279,
+      "subject": "exterior",
+      "caption": "Street view of gallery building exterior",
+      "google_photo": "AVoNoXTKrOcHMc11dpF45D5NIsQP46CnkDuN9qoYKfYwHxOk-T5By6Qi8s0EIyCBr_FhYi_Zb20Yz3HuPiAg3hfx88zwVH5Sgr7b-50djwbnfHZQRrXW9b9S7juhg5_CpgcY9OOyjy4noLim3gwXZTMc82xqGrkTdq7rgaug6kq5CV1eZf-hdy2y9d2gtR3UVuvlQ_6tdnmqPM-ZNC483JYvzKKJhNbJ3hADiiNUs3LNA0gWO9AfGWjycYOHDmL7J3eOSVgNaIHYkRveZ4fRJ-i70kgA-QF3pRo_Sn1Xs8yOTn79-IHZJ_ekjKsBSZe-RL6UqT4IkD9fYywtkyHYS61gyBBGdg6Im9ExlR1PBahUPx9LxkNs1eIsICExkT-4v1Wkch5a9p9tuzFJ0O5gs6s_nEHO30JyLvCxM0YcJvdomoSCX4s",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/david-kordansky/03.jpg",
+      "provider": "google",
+      "px": [
+       1205,
+       1600
+      ],
+      "fetched_ts": 1788576280,
+      "subject": "interior",
+      "caption": "Interior gallery space with sculpture and paintings",
+      "google_photo": "AVoNoXTjjm4YU3SbPDpBWrbl5HnpuYMyf4XaHxvIY6b28HhwgqQWHg6jaL8osOf0HvbznszzfDrAUXcXbvcAmZdJUxE3Gl95LLLRXc02RXQ1Q_KeBQOzMwuJ8DdgaIQ9DTw_hDONgSeMq9tqKfSdGt5cKCrTsKrs1f-aWvum3I8mo6WvMyl9YI7b91zRnA5lLD0OzGxaDKvLt9lXNT1eALLQPr4jKRoehn5CsZ_ti2hS8o2Ua25tkp6Jw39s9WiyP7iU-Pese7GzNvYMpVimJn546_Bb5KMOD2OhUMhEj_S3hThYM2Tv6omjdZ_1wzKDlPtWhr8y9CT9A5nUDpna2v96pOTwANViF00s2PG03K3diFWmr9qW1iznRsPp0Vagey2vr3MeJBtN-1PBDc5zZ0GWdRk2YwK-2XuJwkLYGwiB2y0HnpH0",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/david-kordansky/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576281,
+      "subject": "installation",
+      "caption": "Large installation view in white gallery room",
+      "google_photo": "AVoNoXQlgChAq89EzHh-OueAA_Uk7ML2petCuYDRT9hmXeUiXegsxovUGOUG_mYdQiQZc28Asd7OuaGWt3grvc9N5aqExgH9seQlCeo50TECYVaj44zGVFG-twa-ctOkOxvoxCNqrmL86KBkAX78v9__Y0WUxvgQfETTCKKQB-ZqKGXjDFxF1hZcdZlEBInmDYmuAsjdWGgGPflvmpR_g5_nKZ8LiFUuuSbhBdhSL3kXcmoThFuip2w14Jl6g2rqgOL7zGHSjYWZPpvxUVfQc5hPYKypCNVh2ViAFye7QPRBDlsrxslJ48YOeQQV3an4QDjKer8M2cRkr6EQpceHx3Q42wRTYXXNDa5da41lmp1cNxeHNrezA1JETgpkhQyINx_u6eBwb7DlfRzlSYVXw25T7lUX7pfKMb8HfU-AxwJvRLY8dCRTubzn2GssvcvPBe0F",
+      "attribution": {
+       "name": "eric lian",
+       "uri": "https://maps.google.com/maps/contrib/106569093333998938575"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "david-tunkl",
@@ -67370,7 +68021,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.75,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/david-zwirner/01.jpg",
+      "provider": "google",
+      "px": [
+       680,
+       430
+      ],
+      "fetched_ts": 1788576154,
+      "subject": "exterior",
+      "caption": "Street facade with David Zwirner signage",
+      "google_photo": "AVoNoXQli5VbRvK2InRJr83S_BVv2T83XSczLC1pd4ZUfmWt1EQEAQ-XlxKy9IpdOPGiRc5KWgSYMrncBq2qHs-yb5LDAgQssg_dmYX7t9UkkxyJShK9l03dgLwQkwgFU7H5zfIBg7L1bz5g0h9YZCBhFKO6JruDACW6KfzUFSURhvXFwDcQthLWszJBj1fQ_P9A1bjUM8ds_mvxGnqVAw20vdWHlOrh3l7lJtlxnbHddtB4CmQVteMHxtwTqqDinS1x5Mi_NjHf-_mz3B3op4_CgxMK1_LigvEt6t3ID2Ku7psXnNuAMZEb77hgiJv5euR59-hG_unxlbhF5y_3uV0jGUG8mq_XLobuB59l0E2Nsl1UIbeDPT1asd6p-0TOJoLn1aeImEmzp0Ca6J4zCPvOACfUGtr0I-_BrDUfoy4Kx4ZUOAg",
+      "attribution": {
+       "name": "David Zwirner",
+       "uri": "https://maps.google.com/maps/contrib/105950200273030943158"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/david-zwirner/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       969
+      ],
+      "fetched_ts": 1788576153,
+      "subject": "exterior",
+      "caption": "White modern exterior with staircase",
+      "google_photo": "AVoNoXQ-m2k5S04K10PdYdrz9z7_5VeGhGzigmZxYPowiWqg2QvNfDxf6rvppmpJhcdtTA_PBbDYwEiSMzVz2AwOmmxliq6hsI9lVEQBdn1vNYeW53LSE9rWFPiugn-zYJKUy5hdPCWztLfrP8ZpYvOyPacLEh1RQ40AlpNK_rSiklbEHGCu8UxZyWQNKtwuByNtaS4VzlCYicw0sHQPUB4nF0AsltLK4lyZY5_lOkGqj9keYL1d1JD2U0sUZ7ZuPRPgRQvhf8sAKC6NaH3u4lLhdw7x-OfvYXsXXYgmDYFsZA3_ToQUehXetd_ugWvVPGTqzCktdMpvKTPGAvP3EMGt5nclsklQ07m-YzvXldCJTZAmxskxjnBQm_dZXZrmfv-aM4N6jRtm82wZqSBU_G7RvfUE-PV3wMBHiSOBOyWzx4D5bw",
+      "attribution": {
+       "name": "David Zwirner",
+       "uri": "https://maps.google.com/maps/contrib/105950200273030943158"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/david-zwirner/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576152,
+      "subject": "installation",
+      "caption": "Wood-beamed gallery room with sculptures",
+      "google_photo": "AVoNoXQiB0pHSnqatK46id4S7c_d303xJxq8hPoObnsAzVC9IXL_uZK3ENnF8dEorIBR80LIH6X4fWaUwqiCo23vkkEJZY11xZ6En1Zy3sPX5SJT9KppK4KirByj2uMix0BzPHTf2kaH2x1eNUjaJdQxIXzFN7W779NBMCUl1F--G6gfhHEE9a9cJTu444cEZaBiS3Cp0vkvoFJX1DYvDN6cZqjyuwn4cc0ECXbCs3rdT1hEes3rh6fUpgJWrh-H25GWVaUCD_pZjy0JVIvVTeRhcN5uFpB-8gcWveQdtvxKN4ogzOGNWRckjKVEt0TfNsuT6Y3I09vc0LyiMXVJL3quvtNVY7DvgUcdTzk4lfOh4-eGMEVwcM7Q1lrgJJRM1PuDrvSTYulqJJx_lkpYRU1yV3prBU9P29fDcLDgwvO8AvQ8LOWOfXF84Z3ckH7Y0g",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/david-zwirner/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576153,
+      "subject": "installation",
+      "caption": "Large gallery space with fabric sculptures",
+      "google_photo": "AVoNoXSEkE2a1Frjvxs-splCs3QZxepQZCZFxMULr8tkGAr2JVMzgBBusjXwIC94O7WZoKCbH-btzUXiXsof7Kq0-boBHOP_QxNxoytDffAS4gIqpHBYFlFvIs_42cwcm347KXmYPNCw22DT1EUbUVJ-lm3zJjFNFA5ND5KwsqfSYPay-xWq5PBjJ78iq8GmoHTkUFslUHGcJ2Jb9Jhj5HaiFO2Vv0UgYbpG3Yhb0iO3mgq5Ilh60ZYmLOlb_3LD4Zt4AhETuw9azAFgDO0yo_VxIwK-wf4sizHcZwKK7VW5pr1KWbW0WaBshnalXipHGz0XuaDshccFsJibywp5k2pTyK_dSnXxnpShVQ9hwC8QwCIQ0wpq-8m-cTmBaSZgNZmUMfnzNusdCIYB_FeuSd8hHd8kgRFXPwhoRrNKHJiIFr5eeLxlI-4nqHnVB65jTS7C",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "davis-keller",
@@ -70329,7 +71055,60 @@
     "show_cadence": 0.0204
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 15,
+    "google_events": 3,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/diane-rosenstein/01.jpg",
+      "provider": "site",
+      "px": [
+       1200,
+       630
+      ],
+      "fetched_ts": 1788576550,
+      "subject": "exterior",
+      "caption": "Gallery facade with entrance and windows",
+      "url": "https://dianerosenstein.com/custom_images/1200x630c/usr/images/pages/mainImage/items/39/39360531cf7d4fc08cd613937fa4ec81/1504-n-gardner-street_exterior_2026.jpg",
+      "source_page": "https://dianerosenstein.com/contact"
+     },
+     {
+      "path": "images/venues/los-angeles/diane-rosenstein/02.jpg",
+      "provider": "site",
+      "px": [
+       1200,
+       630
+      ],
+      "fetched_ts": 1788576549,
+      "subject": "installation",
+      "caption": "Sculptures on pedestals in white gallery room",
+      "url": "https://static-assets.artlogic.net/w_1200,h_630,c_fill,f_auto,fl_lossy,q_auto/ws-artlogicwebsite0001/usr/library/images/main/pages/1/david-hicks_trophies_installation-view-1.jpg",
+      "source_page": "https://dianerosenstein.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/diane-rosenstein/03.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788576574,
+      "subject": "entrance",
+      "caption": "Gallery name etched on entrance glass door",
+      "google_photo": "AVoNoXQV4o0kFiQTLf1PFC9f6_9UHJrCHaugW94dRNulqoXUiMSNMRYsQR3KYb9pCOMXQgVKha04xVG9mnnsYIP5tU4UOz81cewcqfdNaIhO4dFIdWeVmmSV8a40FbGfZbtn6lEwQmZXGu_nK3BFv1mPZ3BVyaOftfbBeQim2lGtAGuaUwix5mkoWJzlAikpZJAQTTcw5fNEigj7nIibLE2QyjWHDIGCFLzjcdYLMZMYExgBwqSb12CIwVY_nSvZ8mHsoD393QHELo7bMWW00pmN6GMI6IaPsmsZGy2KfxCXXSbUlUMqdt8crPc8IA3d2JN1FnvRg5K3X59LtbxCPgytyAjhKLwFlZnOocG1B_4bNmzqsjisDO1_kxfApYJEYaJ82RuvoudKFKtA60eqFaZ187psGWfEY-u1NR_LCduFqqplrqNn_NYvxoVfk49t-ebi",
+      "attribution": {
+       "name": "Ben Jackel",
+       "uri": "https://maps.google.com/maps/contrib/104011475098470159776"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "die-plek",
@@ -87917,7 +88696,95 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 19,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/fernberger/01.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1666
+      ],
+      "fetched_ts": 1788576829,
+      "subject": "interior",
+      "caption": "Bright gallery interior with wood ceiling and paintings",
+      "url": "https://www.fernbergergallery.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvcdi094l%2Fproduction%2F68d55984e58ba86bf00f4fbed1173d546642a41e-2500x1666.jpg%3Fq%3D60%26auto%3Dformat%26dpr%3D2&w=3840&q=75&dpl=dpl_EQUDBV5BPAzcAYSCxoSaWyHKv87z",
+      "source_page": "https://www.fernbergergallery.com/about"
+     },
+     {
+      "path": "images/venues/los-angeles/fernberger/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576857,
+      "subject": "interior",
+      "caption": "Wide gallery space showing entrance and artworks",
+      "google_photo": "AVoNoXQk81n7kFVb6UKyZYqZnP4EAPyPkGfHMB4yOKgJt2pn1M_IudfOrZbNIOdE806Ux0Ex1XwWNU0f_Hhoa-Jl3ztjyJhifATnsIerY4wU19Kerj361rzSBSYcAmvQubQ0uFYTBre7InqN4tZIJ2KrdghdGrOd-WeE_8OdNxBoAwBNzMOWZLs6aIT82IvyKgCTyrxA5xuam0YYHQILiKd3Mb9o6mLky2MCvBcCvFYZK6SG1Qk0fgAbs7rPcVsDVzC30jHS5KbT20sqfij_olZZFzJ9wN043t0GQJTOY6sTc6h0UqfzQ3bJ5wOSUnOPaXlrlaTKDveyTjMkJCOxLdwJNWG1baQtdJtBE4InwfQNMAcK2lK_L63nir3zg42AeH_g-F5nXwzbS6YD09BGrSgb5C8UJL2ZTRfpy5t9GmcGHZjSbQ",
+      "attribution": {
+       "name": "Fernberger Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104843588784573981058"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/fernberger/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576857,
+      "subject": "interior",
+      "caption": "Gallery interior with exposed beams and installation",
+      "google_photo": "AVoNoXRrIuMZAYIHvKDRi8vjl7MEOOBYPRP57piNkCMAyvxzmqd5y0SHRSOxxkHJFgUzSXulEII3H-hmssyzQkHBvUzyxDAAPKAqH6gpvJcehTAQEFryAhvC0jSffp0IGSe-wZF6nfhLGDOsuKpisCbfZYGMG-XY0GPA9vtoHXLr1yr09AFaKNboLyr3Ai6Rx3Zi7iu1mwNmhMa1apOTNWCGeEDy5Ivwzc53_LdGow0GiPabXgn-CTQkdExNDgLqSZosAKP2iOaILk791yjDGzXAD9Dq3tgyKFplenKrV_bdhnUzuOaYrYllzTtIG6hTVyqFETCBIieTMEExsy5KrR7q9PYHv_690LewKxHfTOXSEd4CfCHvkKWVaAn13q3l0o8blWTjJj0hE8MLuhkApheJCGy87E9eNiUKJiiuz44XGvm7ww",
+      "attribution": {
+       "name": "Fernberger Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104843588784573981058"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/fernberger/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576856,
+      "subject": "installation",
+      "caption": "Gallery wall with large diptych painting",
+      "google_photo": "AVoNoXQ7WJ9vYo1_inT6tdDgVOfEOOIxaBSiFeIn70nBCB9IfgrrVyvHuggMiA4VOk__szFbfnCqcBCf64qkVuRrym-SfpmwxgUuIoubaGQgQPHQmY6BrgTILYactAq543HOWdyftFDphkV4JmBNZSkpxtLRFx6uGnXPUX8TIGvsTvykP5Uwmbo1dr2_R-Z4S56AXdZZHxuIE3kmlSjCkmuKYD1r0nm0t-NlKLStbz-ydzZcg9-h4Nl9_Ff3U7UknlEiyFNHPPPp8WijgGp1tSOkv_ZJwIGU3-_R1Gppc2skJF1ESxXLYdNGDDMNN5blpGA5e4dFN3SnwiLvYObuUw3aL94fkOaeB3ZKVefiYqJ_eccK-I0VMHGla7EuO_jo5ep_c_chvyPhQDQ2lyvhlAhPTiOR5yA0hcVrRsB6c-xiVP4b07ZF",
+      "attribution": {
+       "name": "Fernberger Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104843588784573981058"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/fernberger/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576856,
+      "subject": "installation",
+      "caption": "Two paintings displayed on gallery wall",
+      "google_photo": "AVoNoXTCz3fZrxQPtzsQlGIo6UzkE-TNk1uBuBZ6YC9RQ6g4dBwpEamWocwrpDXdHRsMrtbSI2UWh3nMNhX2qfkeGFDTiHAe1UqXulC65Q84az1rcT5H9UfmE-Wc77Id2DXQZ4YfGEdYgDplbl2WKH6jhV5lz2gNGRVI4tsrugQz286KQ2HEvyO42CCZonXT086tFodj0en_H-qsjZapIBpVYV_L6UWlq8-Tg6uJkKD3FEEi69YO0pYShrfH6iRsaQ0Qg_7FEL4BL9P4I_hcq1KP6zoJLZ7vVwTiPZ5v7ZkiZQ-DjaOB9GHnlYvJDdsH6YDyB17UNPPiH5blloVwjGMqU88lDn_VXZDwVSjtuemuZq_-l41uky9DuMh-FTm9BHGYOC1OKQDi_mvaeb6co4qos7mbsyn6SPGdAlOIAdbh0uw",
+      "attribution": {
+       "name": "Fernberger Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104843588784573981058"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "feuilleton",
@@ -93082,7 +93949,63 @@
     "multi_location": 0.0425
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 13,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/francois-ghebaly/01.jpg",
+      "provider": "site",
+      "px": [
+       600,
+       400
+      ],
+      "fetched_ts": 1788576385,
+      "subject": "exterior",
+      "caption": "Gallery facade with mural and entrance",
+      "url": "https://static-assets.artlogic.net/w_600,c_limit,f_auto,fl_lossy,q_auto/ws-ghebaly/usr/images/feature_panels/images_and_objects/39/low-res.jpeg",
+      "source_page": "https://ghebaly.com/contact"
+     },
+     {
+      "path": "images/venues/los-angeles/francois-ghebaly/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576389,
+      "subject": "interior",
+      "caption": "Bright white gallery room with high ceiling",
+      "google_photo": "AVoNoXSA402Ym0fO0-wURuE_iE6a9pZoK7jWi4ypzJwMQLQ5l4ZvD_Fqd9L4ClB4WRtYux1ezcODhnsNOL2dCxuH262Jz83s1RXT-KNdjKsl7rguZExpcWqja5v5bvDg8df8FMU_FRZKFKaddxisO6womaAS4lTbD39GTEu6inMRfsd7BdSmemxfw-FuiPCpOpzIzD2bc4YrcYjnwnL2odnV0NB1xsBFTsUXUIJ6bfpYxT-pOIh230TrG0G2VHBiv4O4q6pii8P9lgdzYsBW0rZVXC9s9-l0-v6eHx55ERH6Bire-DNDleThg7jmqB-q8g_YHi-y_RJmx_Jzd1NCJNGHNVlcYCRwvUamAJ4-nD09jCpspB_ivXoDJQ-T2a9y2xPTi8ZdJo9BEoNIgOfjs4BO8-_AcKZvIU0JbT_DYlcGnWuqBg",
+      "attribution": {
+       "name": "Marty Bruinsma",
+       "uri": "https://maps.google.com/maps/contrib/106901360625117350020"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/francois-ghebaly/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576389,
+      "subject": "installation",
+      "caption": "Wide view of installation in gallery space",
+      "google_photo": "AVoNoXS2KTaJgC1RvOJIZFflqobVPg6SWv2-CC-wko0GM2RydQHND-kcGqCUHD_qQNOIB9TQtcuLIQuW2lQASNvRPnnTKvRK0ut8sCMvn1anbkJg8QeCUs-kYikWS83gIpTG25lBl8lmOF-NKcf78WlW1_jiSNJR5EMonrmz1sYZKCR-mc9AK6CUWLJmhl0etTUVz6Q9qAqPmbnC0DpRy0vFrlZG4dm4kKFOJs2rwk07CVyfyk164RHm1pdsFh4Z17njLbidwJBmjDgeHQCBsYcgH3RUwQIK_t5cE6pr464eWlsnb-_oyU4WMuxtbl1o0OMriS3VewXxZOrb1GFwNFDeaE4UdX8-V7unfYIVhBrXdnlyRcHCqHXEsN_JrTC3huy7w3kzO9Y_44PlFXRXOpSkH4eaKaFCuo8KyzpgX5Q_K6j7VYEG",
+      "attribution": {
+       "name": "n Suda",
+       "uri": "https://maps.google.com/maps/contrib/118143831099056133866"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "frankfurt-ordorica",
@@ -96753,7 +97676,79 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/gagosian-beverly-hills/01.jpg",
+      "provider": "site",
+      "px": [
+       1480,
+       987
+      ],
+      "fetched_ts": 1788576114,
+      "subject": "exterior",
+      "caption": "White modernist facade with signage and entrance",
+      "url": "https://gagosian.com/media/images/gallery/locations/beverly-hills/C7rwnY8GiM8q_2400x2400.jpg",
+      "source_page": "https://gagosian.com/locations/"
+     },
+     {
+      "path": "images/venues/los-angeles/gagosian-beverly-hills/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576122,
+      "subject": "interior",
+      "caption": "Bright gallery interior with gold sculptures",
+      "google_photo": "AVoNoXSdBo0N0fSsfaq45fAEYtma7-G0Zoypmtc_aJdHq7q4NeQIJWK13GdM4ZaTtwADHYWWYdRWyP11qBygI30VkDi7blpsJtUe6ScDgWYeocZIWQf5_VVQDbVHsPGr6WY39fPJW2YIcUqg_Y7qbBLu6jC4FD5fyXH-zeglgEM_Vw8H8DUT5QCmqOX9BMemsKha5tclNMwvLThqU44JN7p5FavCoJF6x77aM5tNIexj9Y-WHqnvNzOxDNti6xRKZEv3AILLtHPKgA0UEz7aN45DYYdRAZQ4UKDIW5C-oSBHJyPObGD0x1S3ZWvFJc0y1NpPo1r_P58h9nEaGqdGhY0z6o3VeDobJStBVRvycrc9Kcxidg_5fem5OiCN_HuJNOdkH9jk6qSK4bNy88PEllUo7j2OWajJfEtUvD48HQdcOJxOsYk",
+      "attribution": {
+       "name": "teng jason",
+       "uri": "https://maps.google.com/maps/contrib/102951847074631622648"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gagosian-beverly-hills/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576122,
+      "subject": "interior",
+      "caption": "Interior gallery wall with framed artworks",
+      "google_photo": "AVoNoXTGh_8GRhyNjR7FTYMXpJ8XauvCEkWNg7nWSlRlLoGb7XUQLEKmsEvo1gEP8iq55So-rNag2AufuKjm-R9zoCxwUtkXr5TkJOdUvhtg-1Iynl75eJVyxkdkFS8T2LpwoIiPD-pjXU9lAHLBStZGwyvuTAyUjX-egDAM5iEz-5cJAM25-ESl7MZNcRb9NoK6EHFfeAHkNjDl5oMI1Bic2pNsHj1y9qCVoL8-FZQv6K6l7c0yOo2Lzp89T6MWfqB7fC04n4pALMGrNXe4n0howpp5uNDWQ51jH9C9yd-cxoG0pybj9pYZb028mktqqltQ2ilelhpkojdh9aAGklwPBUM1uTQDlPI3h7t6En5EMPZitCzKH4uQB0dGWp_zQvkMfblozUUHa0I16fa2mGal_mE82GgQZT0UKUJ2FIrvh7BnKbgC",
+      "attribution": {
+       "name": "Cli M.",
+       "uri": "https://maps.google.com/maps/contrib/110106048947826807731"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gagosian-beverly-hills/04.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788576123,
+      "subject": "interior",
+      "caption": "Interior view with sculpture near glass entrance",
+      "google_photo": "AVoNoXQHe25PSbEFklkl6w4TL92_jFN22IhWn7zhguBoHgXp47zMuwBE7Nh5ISUFsmIQesK6YsGapwQ3qISKZ1HfKbsTzuhSBT9Gw_CnJHduQ5OEQAn9uzI7qwLkRgM0mj5ioWbkPu88bXLTrBxUAFzoOHckIka8OQTLl608GhYFV396cAGvuDa1Sap5IlvJ58PNW8x5vngdwfn-z74z58s1k2Nr1o2OvnjfROsl3PuvU2fD8oPoexH6pBa8Mv7iIIIMR_kV_tdRmR5qHfb--6mWpbhPF4R-8xUOlHcVSpYzBZAolfq0M3fTG-Fj3oXd5dWgvcxNgwxwMMCi-mzBeV_e7UvdLU_DHG7l7AeNX9pOjX6KtD4MV0a_UyEfTKHQaMNYL1PsAlbQL2Kp4tNzRoFqQupNYNi8DsdxVHFtgWWSQArsJR8",
+      "attribution": {
+       "name": "teng jason",
+       "uri": "https://maps.google.com/maps/contrib/102951847074631622648"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "galerie-at-fellow",
@@ -106487,7 +107482,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/gemini-g-e-l/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576789,
+      "subject": "exterior",
+      "caption": "Street facade with Gemini G.E.L. signage",
+      "google_photo": "AVoNoXT8jid6n0Y6utxXb74k0nPHTzPSn_WTxHaDF1uRxy-RKXTXt03-DtzywnOgITV-JiN6t6zEgwjGnoTyjCpD3u10RltQvLY5t83Z9QMMxDICPPFmtnTz8uO7f5aldgyPmABqjuiCo618S5EKtuSPzpogg_9qm6zygfVFkQYWLW2KTYusEC3BRdnjnq33QQaD5dJyDE4jTPSO7vHHrqD4R9SpPjHHakZbPERzSbK4VeVNeoJL1L-o8FAZT5IhwNXftXNZ0DjzwRbSNKUT9BJhcI55-weKPCLiKtzuzaxsmsM-wmb274JZYHmNfYDRBLmWL2kA6HHd8pLa2dlf-xW9SV-DivcI9LoThh6kfx73qs3PbXEFZbzH2J5Cbh8MWi6wA3Hrp0wXajYuWtMuyjFjlB1KvbIDbH61xTlrh95tHpaCp2Y3",
+      "attribution": {
+       "name": "Alexander Westerman",
+       "uri": "https://maps.google.com/maps/contrib/105872625279662536449"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gemini-g-e-l/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576790,
+      "subject": "interior",
+      "caption": "Wide view of print studio workspace",
+      "google_photo": "AVoNoXSTaelPezsOPLzIPTtDz6HwUQ-IqQ02g6fGlS3gDMJzkljxuDn7CpcPlZlHcZTKY5XwIo39a0qOPKn8hNttxQdjiHO3RWoyxcKT7wKHoHODd6ArvM5qx6q9wpvHl0ZYstfLxTbeGxmu3rREsGa5q4-33ibzVVSsRMh2U0rGRwh-RgvR5sQTNiPcqGyyIS5u_4_3o5P_WQ8RUmEAZUEKrE94X9zbFjJkjqi8EHbTKBaK2FEREnF8pO228nvUyEyn-9VOWI5D5PZvslkYTEmFbwgEdeV_E3Yisi0TCaK-XWEYkCGTWs4qY4w_nXQsrWaibi-Q7m2IVw8elFWrSTP8AqqYUAlk1PerXXBZkZp9traUYlpWEALyb8f4N0H_a2GojHssonTjdzJQYU4NNYMCD-a652UJYFOGUUV6ND3UXXrHyuToG1TwtFmd95ybLoPw",
+      "attribution": {
+       "name": "Ben Jackel",
+       "uri": "https://maps.google.com/maps/contrib/104011475098470159776"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gemini-g-e-l/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576789,
+      "subject": "installation",
+      "caption": "Studio storage with racks and artwork panels",
+      "google_photo": "AVoNoXR-JIAUiGzQH8pX-WNYO81f17hQn7LG86G81iDMzpKzuNK_bZgyGLA3l5snVb3W1eWM8unonDr4MBxRJIhrm9LHA73SKqwVXwgbiDdpJp4Y0XxqXRNKqW_HtihMa6x8MY64UzlR9hByehsRACGqBdXxO16DN2gnea-SU0Um3r8u4dHZvOWgjm-UWm54znHeBP7gQG5sk8g826nXBY95IZJZe-EGYJAkwtkGuvOWe4zl1RENlLt0RO3Aq9gUdUHXGu3BPyRfaASKzDseQe_mOUOP_3M66hmGY484LTewsqY8bIHAvxEJvRgb8c0y_PUwt11vWBtqoOnAd7QLv72817qHCUs_rj2U37SNokN2zE-7uJJksghMlXJxjsZIYE43qd_43bgNgnz0zx51QDYM2j7hwokGgKDlDoUh4mJLvHXDf-lt4Is--f-fJCTw_J3K",
+      "attribution": {
+       "name": "Ben Jackel",
+       "uri": "https://maps.google.com/maps/contrib/104011475098470159776"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gemini-g-e-l/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576792,
+      "subject": "interior",
+      "caption": "Vintage camera setup in printmaking studio",
+      "google_photo": "AVoNoXTqLf1vSxtxGyJJygfJKQzX8p41ld9AI7G2JWOVljF5t-tCgr-pponNMuSb2TAKUeRIZjf7seF_rJlVucbKCtwOABDzwuOFA8HucP5-g1mCF32wxh8D1tu3bBHkxJh0n5UMkqJ1S59jK8FLsphc9CCFhDPMxMMlM0epFxOZ6_ZMILDFf65GJGIn0xzNIn0rKBYkoQuV2ifHGKsiaBXtdaMRl3_ebJWQ_iKMNqN64zK2iDfb8zY6jVCYrDfbFHte1AX9eQToeEnWua7RmtoZf7bA9QLMdXPX-KDT5CTRsYUY3g1f3hgNomcro8gJoZetm5_YgPhVWlH7w97nsbnPKE6WA_vdVd-ACJIATt_HBRfBVmU0Lqa6FzhX6pdeQl1PztDt3z_HvXpGPUKm5WH5_WDjBTFJV_5ISgDSMO-aX8teBg",
+      "attribution": {
+       "name": "Justin Collard",
+       "uri": "https://maps.google.com/maps/contrib/109674872148606783729"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/gemini-g-e-l/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576791,
+      "subject": "interior",
+      "caption": "Staff working in printing studio interior",
+      "google_photo": "AVoNoXSQGIjj_WDrR3hNcVQI9hd58ZLxxpsdVd5BxLHGRB2AJAtYNiJxWpIzHT9cFene2Z49UGE1s0aIBGtRnpMwVrlRFESE9VTMR1TuVvcQBTdIcjVhW88EEyEGCvuyjuxvo6uTISOj5i0UF2N4ZRD4ZIDkbKLJiDVHtgERk-s5hGzoB1SeKxVWUwN1mhAWd2Mm7o43f_hFkCNwB1pZvGLiNA_LXP-vAl6bVn7pGTszzJ7X-xiCRQkYS8jgVmnxpbZ4gAZY-BV_IQ4aYkrkrT3v-G1aMFfmIHFePtOVVysRqI_x46lwxxSK4aQwbxcqCAHrfxaW8MINwDQcklnE3KPK0ZFYyLNwUQGka5VH371lqLUagidqtWMWNVzlHJpvFscJhB8cQtZvxuz90A-7PDA82rzi3aZrpzxiv5HOBsdgYSeeZe3-0Pws2dA59bFSQs-p",
+      "attribution": {
+       "name": "Ben Jackel",
+       "uri": "https://maps.google.com/maps/contrib/104011475098470159776"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "gene-s-dispensary",
@@ -116205,7 +117291,60 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.75,
+    "candidates_seen": 7,
+    "google_events": 1,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/harkawik/01.jpg",
+      "provider": "site",
+      "px": [
+       800,
+       600
+      ],
+      "fetched_ts": 1788576713,
+      "subject": "interior",
+      "caption": "Wide gallery interior with photo installation",
+      "url": "https://www.harkawik.com/_cbx/vscale/71/7140e47dea19991b17de4c1649a41f6f.800.webp",
+      "source_page": "https://www.harkawik.com/peter-harkawik"
+     },
+     {
+      "path": "images/venues/los-angeles/harkawik/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576723,
+      "subject": "exterior",
+      "caption": "Gallery facade with teal doors and shutters",
+      "google_photo": "AVoNoXT08srZDRKFN1khfpetslWAKqdJGPzgTOFrOyMKYhg5ry_UhBpBfSakfVa-eYqBi5GgGiZk07GLIeEJ6oJjFqr3j5XPaCE-I8vPJV6MN1Ei6wqkSiB4bPon4jHxRzbRz_sqCYCFETEjIJSm9qF3Q4GxXGelnegO8jV8hjfRyh3Yi65hjnwKgpyUmRZNDnnAUoBQguLUItus87480hFaEhLYhxbGOOafyYUPIB6ztcgmECnyBcGMY0rBZ1gJD8qGg0MuDqT_8_IJasz26fBnbKgUG5bq58V9BgBZZX4Zsc2WrgkDlwc51FoEGsypPyOpGNRYNyILrtqCgfPwszswiAejUgqbqVh6mEqN6l-S2fV2fqaZt6oybDBETVp0lxGuGNFXluE0ofSniSbF5FW_SeJMSd8aNoxI200rqo50uxaLkE4",
+      "attribution": {
+       "name": "Harkawik Gallery",
+       "uri": "https://maps.google.com/maps/contrib/112639308193901297725"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/harkawik/03.jpg",
+      "provider": "site",
+      "px": [
+       800,
+       600
+      ],
+      "fetched_ts": 1788576714,
+      "subject": "installation",
+      "caption": "Gallery room with paintings and sculpture",
+      "url": "https://www.harkawik.com/_cbx/vscale/47/478f3c777fbec882ce253d97d80d4195.800.webp",
+      "source_page": "https://www.harkawik.com/peter-harkawik"
+     }
+    ]
+   }
   },
   {
    "id": "harmony-murphy",
@@ -117086,7 +118225,66 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577418,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 10,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/hauser-and-wirth/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788577368,
+      "subject": "exterior",
+      "caption": "Facade with Hauser & Wirth signage",
+      "google_photo": "AVoNoXQVkM7K4LFHkHOe5QHjmIxOVkLgxE64EbwmNzjjnz2teKG9TWho4ZRMyH7a1fX-2P3I3C9xYn6DZhUvA49V45Lvb88PuMZ2eLhuoBkseBHVVh2MxPZ-erlUVo7d-0u7-5xENdFXd5JgksNgpT7SfZuKKeQGoJN2ovJIl_Df9svTxHDFOnKLWvujkPrTy3ojYw6JBQrrGVc9sMTK3JhfowAA7DzBrvFO9ViE7XnEwbNI2jwBAqhz1npv_BKUwgX6y5K3Nwuk-fGNVzbkGiO9fx-ue8PQQj8cUsPZsq_DArIUoju8Z4dUI_yrrk1M5dNrPQYRrcP3atsawKbfwd6QLbISaB9ySVtUgXSAilJ0y5wGdCcPIx7g3bW5ZFBbio7A_GMiCp6SvjE7LJdSQh24TdX83KcM2fkiIKDUMeEzqowP1A",
+      "attribution": {
+       "name": "Hauser & Wirth",
+       "uri": "https://maps.google.com/maps/contrib/115700012098323768313"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/hauser-and-wirth/02.jpg",
+      "provider": "google",
+      "px": [
+       1500,
+       1500
+      ],
+      "fetched_ts": 1788577369,
+      "subject": "exterior",
+      "caption": "Exterior wall with exhibition window graphics",
+      "google_photo": "AVoNoXTXMnP7wlD_X8zoiUfk86uzdG1-2u_WkrILkVBXW5iFjPwGetR1MfQHm-z6cLVi8AKXGB8wge-J-Nc8hXcxD9x_-ueF9q1naPITZov01fJ0QdthTzAQLindfQAeKFKZLnRJUWswS75RRnf0Gh5x390SXCRwZTo_uSUFtpyn6R4mGcNS3Ubt54Q4buAo7pPr-fiHdYwjFHSJAKokWQuu9DLVe24652mu128tasFXGlUmBL4oaPD2Wf7gwjDSAwQzHeFIZ0Xs5R4QROOyDOKf1eZHz_Dhrp0G0UjEsGcFaneUP8TmG5F-PoztpM9tFoBXecPFEih_9Ni2iFzVpu48FaNX96dCNZvzfeikyiOuDpYc_TLR6Jg-7O9f1XGgb4FuJBpKeoQznCtP5_A0vRM3yMj07CzfC6VkzooBps6KOa8EkuYo",
+      "attribution": {
+       "name": "Hauser & Wirth",
+       "uri": "https://maps.google.com/maps/contrib/115700012098323768313"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/hauser-and-wirth/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788577370,
+      "subject": "interior",
+      "caption": "Wide interior gallery hall with wood ceiling",
+      "google_photo": "AVoNoXSR9JqVqQrVr3UlcpIFsWkhOO1R4PnfX4uEKZhDvOFgBHOBHlb7qCaV-LBIt9gZwrWMHF-TsVv8FELzex6XlH_8FQc0zU-s2mahLy3aeNjsEMLPFK9bPfJZaX0hrwPJN1qKUcro_U0DlWXTozMUYLhlFO_Jl2mCuRy_HoJvQKjL8UuqAaew2w4ie3ROEOTpfHCanb8H5wFPqjQKWs00Enc9ct5mnr3ljjIbXJ3NTEzutNHuu6BfbMUqIbni7Ofq9jzIBDBn8Z2giECfZJcJOiK4_5bJdd7V27odtUuoijQBndzRxoxdZ5ZSsBQ70l5fROXEE54xpPTCgP9gAnSxxqPjDP8U509sQGadMQvBOooRmmgYa8JE9xGYMxRh5-O1jXzlty79bALEm4JPGR6ney4oo86A52NeMAjIXJ3HIlBVhpPL",
+      "attribution": {
+       "name": "CeeCee Peng",
+       "uri": "https://maps.google.com/maps/contrib/109323804423557395898"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "hawaii-fluid-art",
@@ -132198,7 +133396,79 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577279,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 8,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/james-fuentes/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1257
+      ],
+      "fetched_ts": 1788576892,
+      "subject": "exterior",
+      "caption": "White gallery facade on Melrose Avenue",
+      "google_photo": "AVoNoXSrTyjEO-iWI_YOuxw2o6lZ3yrFHJ_acdRoXFaNgvX4iDHTWxkFSKUKaINhmHIwMcKxJxim_E9VPts70d5qq1spwTsbatD_xNSvxIFXzyRKD7Xgw2dQpzsQt6RxGOApaXbBHAy22ODkTZG0-7PlwTZOuS19ygHaZlPkzd2Wib_UTJX07xjnwwskdKeGPdcE98xUHfwUQ383GMziYEyBG2LtJA1EHJEjtXsRvtmQzC6gZHW3zTye5UwtHF00G7EhaugJonOIx5hpmVp_3zzTr8Kr-nHyTqvGiKB2-frXjWUF4iWvXEjwicU-fOomsPHl7zebBf9F3_L9pMij0pRZLsIs9H83SFeiBd9J-IE4jT_enQeIlp9hTkQ2K9X5jJp0iSHi3USQbumCT8E5-VFo9H2p1W3rtUUP3TMpDIdwnNqLkAi4",
+      "attribution": {
+       "name": "James Fuentes Gallery",
+       "uri": "https://maps.google.com/maps/contrib/114817087400645968461"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/james-fuentes/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1257
+      ],
+      "fetched_ts": 1788576893,
+      "subject": "interior",
+      "caption": "Vaulted wood-truss ceiling in gallery space",
+      "google_photo": "AVoNoXT7DQBvEI7DCUlYfZVnlYJHG9towckY6hv3pcHB36dgvvcmSRjH4GaJMmEXcrLJw9FKfYVd5DYm4V7QIdpBtqjOntkIYh0hJdnfsQNeATNFYlGLZp4-SgKYex6Lbrf4XUu9NMCk8B457mfGRRJn7vHsQ5LUkk1zuSwR5ljwtc-t0L-8ms-dtCA3gVe2C8oC__JtwboKaGG0koBzJoOBkpt7oq7DhZH6Y7UzMYbfNZRD8MeK7X7Zcu0a6XRN6s61jrd871WT-lqTqpPH4cossu_oGXmy6GYR-d7antO2CjL8IZlIm3G73K0a29nTyCsoqTENTe_G2nOz5jur_WQMSklhccju7bjqYdhoyqE5d8agpQlZvedfOQbZcwVdbAwO11P4eMVtJGUT0E7B-nl0mzC27oGZ42EeQVV_qt0GNgyYWA",
+      "attribution": {
+       "name": "James Fuentes Gallery",
+       "uri": "https://maps.google.com/maps/contrib/114817087400645968461"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/james-fuentes/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1257
+      ],
+      "fetched_ts": 1788576892,
+      "subject": "interior",
+      "caption": "Gallery interior with glass block windows",
+      "google_photo": "AVoNoXQCa2lUIeReiWjyX_2HuCJzHXy3dQlp1vgReWbxQa1Q_kNjKW39I1XrD7B5o0qAwl9YTqdIXhXjVTxYrX1ssV6rY1bulzHudsBZX0Qvs0QI4NA9F9wBxPK713cBLfjHfycEOrevNB0pDqsfsQcAJUCR4-AxVAY9Sksusfh_F6BmzCmQdQ4mHUh8QSvAaMf3A9liki5mXJm93bY_X5rtC2A70yGjm3eY7bi6pKaobhIFMyJllKwXpXcLNpA6SpiRlbEJadzUQRt0svkN4LRHkfmUl2GUsyJj9RKXsZ8oMUnSHtuFePLxZ2bYL5wKSdqVoV927zmOHigAFb6nV9AfQS-gtBkmaS9571wZhVZ3BTQgucR5LDVOhBMBRdew2S_FfOsCLb7HQSZ95b8toUgu134jW-Kv1NFG9gAMBC7ESjk0UhQ",
+      "attribution": {
+       "name": "James Fuentes Gallery",
+       "uri": "https://maps.google.com/maps/contrib/114817087400645968461"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/james-fuentes/04.jpg",
+      "provider": "site",
+      "px": [
+       800,
+       600
+      ],
+      "fetched_ts": 1788576887,
+      "subject": "interior",
+      "caption": "Bright white gallery room with paintings",
+      "url": "https://cdn.jamesfuentes.com/media/site/5998190a19-1764629401/installation-view-giant-women-on-new-york-7-2048x-q95.jpg?width=800&quality=95",
+      "source_page": "https://jamesfuentes.com/"
+     }
+    ]
+   }
   },
   {
    "id": "jancar",
@@ -134341,7 +135611,98 @@
     "multi_location": 0.085
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577419,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 12,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/jeffrey-deitch/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788577374,
+      "subject": "entrance",
+      "caption": "Gallery entrance with signage and logo",
+      "google_photo": "AVoNoXQsz_QqcgusMJbQMvSg2iNKDxNMhGdV3rPn__aDTEC0Kl5LLieuODKMKjBeSor9AZgA7mCIoyqDH_aDHMFBN_ZPmxbmu_OpixJKVI6EOF5UETbAd_MIDtYbREL_73LHuNAcnryuLDi79zNLyCDD_wGaanmSSBK59GEVx-91veWvdK470NS4z2qcaPGxNUU9Yy8sWfDBgd_XHt6XK1KbWLrBYyJO9drHsOgU_hEoJqoTaFTJDQIh5tcJ9F0n9DovYDU4et85XvDW-kznGhRDvaofKQ1Da-SQDDnSnyNlG4GXS9dBqBzY24NWJdzPdBz6PrVb9fE78VYaWM74i-NPPZVhHMcmdgYfydBBVaCoKEspOWD-b4RY8026Dm8VN7_a0sN6etKy837JWXN98fDfYrHrXG80RerYnHCziFy5alSOYEL-",
+      "attribution": {
+       "name": "A",
+       "uri": "https://maps.google.com/maps/contrib/107971849497449829460"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/jeffrey-deitch/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788577372,
+      "subject": "interior",
+      "caption": "Wide gallery interior with skylights and artworks",
+      "google_photo": "AVoNoXQ5LyL8PdvGroxpCtnkX8d3UVRZg81e-dFVsQhb9dGo-dVn_XJZtPkJqomBxv32ZZ4z5T1LuC76JQ6An1jFyVfiDVqSuWvP6zsv4M_U0UfZWejaEtDSjhoxLEJfwi5x-uhfJXahM0fHoU8c4V64MWVQ-QRoW1S1q4hiiRRAOjgzRKTg8ChNvWlM35E75O5cXZ6mCSSwZI4R3yBaGbz3WgnEpxFmVnpBcvms1YfKAeNG9HsrjUHbmlH0KCBil9CLdQsbataE7GwjE9YyFnFVgPFW2U-EpD-Bq-ptsn6x9AyJSK6-RyGhtO4OU5nYMCkIyyNWd013q1Tf2yjHxhLJcz3crklNW-6epFn5yosyMQIpz4ULXN2rM4vvXEg4ER1cDYXQkgMg1HdmEJAcnXMO0DEldY_5mpP_CvInC_eknZNDmg",
+      "attribution": {
+       "name": "April Huerta",
+       "uri": "https://maps.google.com/maps/contrib/110709800171968926113"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/jeffrey-deitch/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788577373,
+      "subject": "installation",
+      "caption": "Room-scale stool installation viewed from above",
+      "google_photo": "AVoNoXRteW-1JABDaSN3FRg_VvTklxVf78cJs4foXD9TSIplNlJNjC-0_Tg6dICuz_PGLghGw-tlk6UernXdHY7XhNv2gC7TIj8JPGO4HybFPVfqQ26uSeogo1CEaegk00wBcncy5dw9k_KhzmzmGrlApWoaJ4XPA687zV-qpseRkDnY8s2TyltZ18l7F4USs_RBF50VEo9MhP5BNLC1ezJzFoTTbq3Am1vujlSTbKdqU4rKBlS9Ub9wDcbE78r4IGCCERMifYIM-9j0bHFaIJ7zzssug7gDr3qO3duOdPdC4p8uCunRkqSpyvUZAklQKmmpgAR6A7s1Xb0C5-Q6LRaNSBtW6BXfG6meJshKUdZ81cprEJz7sbDBswLH8ZUdn7VKKOtjGDCMBKQ6YexymQzlBcveC8x5oc_dobW4BNdRUF8",
+      "attribution": {
+       "name": "Phillip Vong",
+       "uri": "https://maps.google.com/maps/contrib/111286824747386749848"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/jeffrey-deitch/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788577374,
+      "subject": "interior",
+      "caption": "Interior corridor with patterned wallpaper",
+      "google_photo": "AVoNoXRebRGWgpPyjvdyGo-I6L9sfiCSc1mjr3O51PMlJ7-hfAud7OvkKCWWqw1zmHUad5Qp7ae9qlONT1dBfcwZaB5OaFpTmCR0o1jCDq9zya3a5WJPq1AAzqo8RA732NZUyKTO3zmGu5iNuDhj14Zhu-ezXxozy1yC0SR1j3xk_J_05nJYs-PXpY8D-C7E4KxLDQqmZsLgEvebL8WOcZAQ7EMF-zt4tjLC0lj48H867frsRopuyAEScrxzpSCfyzKtqaI-GKqPACgjI0j-LwQiXbDlkgidIVIuzh3m3YnhcAUXOGSWMBpZ0nzcdEzrgeWpcIl-31iyxgZDlyWwZPu_NS6AxbCv4AlctHsooe4CUpIBUVVDVk3omqPJ_leDF4Rs1kztxu_ZxL2tNXBdPSnz0Es0xEnIJmiYtX0hcYAtOVh7noo",
+      "attribution": {
+       "name": "Irma Zandl",
+       "uri": "https://maps.google.com/maps/contrib/101579716857027286357"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/jeffrey-deitch/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788577373,
+      "subject": "installation",
+      "caption": "Illuminated panels lining gallery wall",
+      "google_photo": "AVoNoXTLZWDufdkLe2qjuLvBF4K-PiSjHCOlYZR3XUjQRtnNB7mMKa1jEnUnaavY2RVqHviNr9Nx7g9qc03efJ0NXpZrz3d0AzNedT6jKT21H_D4qJVJKfIIO-aRzyxuE1go1NlZBxYKSr4niKUa_2RxoWFt8BG1ZQFZBQQ1HDjQHrPJBs2wQ0XBH_OCuJ8TN7tYOLJUzQqJNJWfifhzIJNk2F_XOCXLbPHLfeJkWdM9DGa1XPNwSBeP6pzMDJKbAqRdNbOKkBpXwgvn9FP0cLXTDg8C8xZ2xRwJHFwl0VXMBudNaPOZ80lEnXezG3gO_KHs-evgRa3NcIyvJLDf4gFmtUFCQa5mU6noYZc-6a-1Q7ZZkZF0v83xdJZyuHTRx7Rgzaq1Vq13kYLLQ4HvGG8gDYFNIreNYy7xfURZ-SU4AMAbCdE",
+      "attribution": {
+       "name": "Linh Pham",
+       "uri": "https://maps.google.com/maps/contrib/110735180205385167182"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jeni-abramson",
@@ -140620,7 +141981,66 @@
     "multi_location": 0.085
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577658,
+    "model": "claude-sonnet-5",
+    "confidence": 0.6,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/karma/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       900
+      ],
+      "fetched_ts": 1788577651,
+      "subject": "interior",
+      "caption": "Wide skylit gallery room with two paintings",
+      "google_photo": "AVoNoXSnskZizvgzaL21L0Dhqz8ERuzhFeZAs1z_TyUfEtNnEHgMNMsIkMdflAxcaJbMXT7jz_qNOryAqZ8RjDQOIahQMLOy_Y82vv0sFri8Vq9Jrc6LWvqWS-hUGVb2HEUvFz_gCJU_CgN8qEmNj88LJErMJyWktSeo6wIWoFEABAe1H-CyX2Ntq93Xx7X5u3PAc3kj19m5MoOwM7HqX9rbfsfa5vGMdroXE_QEZVulGkHvt9RjqBgVfxugNBWqtxexcKpladMrk_r8A-CPy5hEqKVzYkC4uLtsLuduZWE2ruwq-dUGqdsYWCWo0OQas7_UDJYJCEquE8A_NhzgT6SKmkR-53ukMdU6CmOMfi8Jh3Le9WSpM4H4YThn7lVcL_hSUsqhkqgeI2O1DXIDVLGGrPXPW_O_jy9V3e13Sjn8fZ16_-lw",
+      "attribution": {
+       "name": "Joe Ahearn",
+       "uri": "https://maps.google.com/maps/contrib/111551973421441421702"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/karma/02.jpg",
+      "provider": "google",
+      "px": [
+       1205,
+       1600
+      ],
+      "fetched_ts": 1788577652,
+      "subject": "installation",
+      "caption": "Sculptural installation view in gallery space",
+      "google_photo": "AVoNoXTXoTrxNMkQKEq2X7fd_gfcA5ig60Rgk8RXDxg-GMzzBGgM-NzbpfU5a3H5nzgBb91Im_khJYlpSz5JLIM-mvvJHqmVeOQRmQQ64yGctWrhcWQMLMqw8oLuUmKz_BKLH4POfPZ4f2iJoDyD6Spvm9SPsGBkx8fJGZT2S0kNnoJt_oLQMhqknXtuyjXz-8MTpOdyYJPngCSgCdXq7ii385fLid2Ntrf27k6cGHVNdP3nooLn12uhje2yRBEYkzEyLIVJK8NpKEtGyhGkuHOq_dBsSE4a9hrAEuKjFyWRqJlmBAgEBklxdtwG-vfZ9409OPIYb3a7aicqhtm6gaToXzI872Bu_KBAS7dN1qL1KI6z580BLc0Y6GVFnHYPPl7RtXII4EMLu9zT9Bfs71ypg_sC0Ut7dsY_5dD8VBz3tFpZEAqWciibUmKBl3BYUJ0B",
+      "attribution": {
+       "name": "Michelle Gerdes",
+       "uri": "https://maps.google.com/maps/contrib/117939104624116517888"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/karma/03.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788577653,
+      "subject": "installation",
+      "caption": "Framed abstract painting on gallery wall",
+      "google_photo": "AVoNoXRKBD222slfeL6w0vQY5MyuHEd9mdQZx67UfcgH71to1Bj0xRKcW58yp5tsotr4vmMyDu2mL-TYQjfoNi6Gg3RtgIF_My9ozryXgXxdqvDNzI_jSrmCxVSjKvax4pXsgMacKvZh1bHDSEqQldjHTP3u4ppm1NWlfk9ObGjiDD8yqqWJqvMMUwCXVqLMiyiPPzVEy8DtedHJ7KyeN_0_dKEtkCLfV1ddnVSxau5HbHOWMaTTkTykxnWzfThBbY9ly8W8lcTr4uw5zyGSx36cIYF2rekDEIadEGnYXF1dd96b2loZsV6Qfd1wbtaqphe7TSFmCY_QuQd02u-09oN7jnnX4Gu0AM2oes7eQz4KruAxLxzMvi-8R1MVuwhGBdchfwUBHnj5nXiYW24926OeKvWg3UVBlYfAzBvhErVNcyTw9-AtYL5OwLLjDHxUew",
+      "attribution": {
+       "name": "Mohammadsaber Sadeghizadeh",
+       "uri": "https://maps.google.com/maps/contrib/101181910085012183485"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "kelley",
@@ -143895,7 +145315,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 10,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/l-a-louver/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1251
+      ],
+      "fetched_ts": 1788576602,
+      "subject": "exterior",
+      "caption": "Facade and entrance gate of gallery",
+      "google_photo": "AVoNoXRGvzaiNKFw5Bb1Y3F6VFkIjYyv5JP2H1yylyhX88VOOepquhOGge9bglTDfiAF4_DykOuIPzaKlXdg7p8hhVNsS-DjSNt1PbGSjGjiYefJnRo1ojho70YmrAybOvgYM0gQNjIMpAmlURwyupB1cPbaPVUgIl2JY7UQV5xplvPowOdFgxQC8R14HnLXKGmYHwhngIzpr3brVbjDr66zbBlGwlP1FODhP81qYGZE0Tfv5wJA7nCsOuH45wf7b2d0w-ZMBbIe67Yn6Y22cGpibnmAkzaSBRu1CXik1ipEisF4nbUdKZx-y8BNoEoK8hnMPHl2eIa78vY1GeHyLk-heatr93DxwMq4Gb1coo1-kwV8c2e1NRraNV_SL8IK5963hNwnH3kjThiZFYytWFSiPvA2mzCmew6Eg32iRPfT385jTQ",
+      "attribution": {
+       "name": "L.A. Louver",
+       "uri": "https://maps.google.com/maps/contrib/109026066468169645215"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/l-a-louver/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576604,
+      "subject": "interior",
+      "caption": "Wide gallery interior with sculptures and paintings",
+      "google_photo": "AVoNoXQJ-AMo8PK2TiKu9hPmHgOFaXKNzrMnDgLjwajK7GwSjBmK2KUyYm1PfD5T_W40o-JHe8bWpJzNwPwVx1v8k9bNsi5KV8zCbqG7p4_fKf8Ym4scm79Z9U38kOCwmqRWxPp9wa8vMFHGQhEbSZD8IrpYsKUOPuo4qH6yLJLzrzxWuHVvTEDcQjmkOYDed3rr_9J5i-Wjn8SLba5DkJkQAx7V7068sY_J-d1H3FCt3hzVzYlueHACY46AnWd5OnMoyFjWDerCm43Y7uwUXvWh9dvGfVFQQlDLBDhq7_d--zT9lYZX2DGeOTTDUx1mzspIGBDfUnsTP_JAhkKlqRJ0fU6JSw348o9US7AT0J6GYbNf51fGWSgVssHcN-8aDPmuDizNy70abpfkNdaMf8NlWo1tQPD0GJ2fOnIVuxwn9pW_xg",
+      "attribution": {
+       "name": "Justin Ouellette",
+       "uri": "https://maps.google.com/maps/contrib/100155389497770759892"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/l-a-louver/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576604,
+      "subject": "installation",
+      "caption": "Blue room with large sculptural installation",
+      "google_photo": "AVoNoXQUxwUiHLIc4Ay0EzBymQZw2uwPhuqHj5SrKhbjsHxLYCLh5bNGYRILbljHyjiij0b_61ZwUtxgIoWLq2OBXdoYyW1xHIdywS1Xf2akhFfkIcc2ajnt9zv3RLiKe3EfH9Cu_XuyehvJMPaWymaAYGVjn_F2bbMTY4hvSx-YyjVEDox6ao5qCFkq1A8fViWbsun73BAbbW1edp0KHs19Y3o3VjBtPfTkMWMOiDNt23eGPcZDyeQ6Dhr_xkFPGLhYOaVNfY5HIWIkbKml_6ZnENVHyttvV5jhgp1NBzJLiE3-ERvl2Yn2BvH15Bcf8u4TMzxFS8sefGPO8-_j5czEIMi4PvihZtxs5B_NB_DGBizFA5YZHiKRpelMfVktilID8q2CmO4ENqcQF3DWgPLWisjvqlakotXJEKlU5l4DO0o",
+      "attribution": {
+       "name": "Marty Bruinsma",
+       "uri": "https://maps.google.com/maps/contrib/106901360625117350020"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/l-a-louver/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1240
+      ],
+      "fetched_ts": 1788576603,
+      "subject": "exterior",
+      "caption": "Street facade with entrance gate",
+      "google_photo": "AVoNoXTb6toNBilL9Odpe79K83cMtWr41KHR39Hl84PLicWjbHepem9qVyc9iatIEtfL5e3jcb6ZrOtKdvuurFi_MEt-uq0v1rUWFIyWNzB7W5zSRyuvwJuwSUvFNto7YSPF6-14mwXtp5CrNzsu2w4ZkrSM88csEt8QHBLiTHWLQGXwl0K7tr6HjRRMJ08ghvk9m42d2OpaNelR13nt95CPoPvaZKpIQmiTAhgARVJZZ9-fzXjWd-oQclhc8sW2W-kBNknJiQOMVfx5uTnsQh-7ZLqoRMjADhO44tZCgz-LphQjLk3h4J9XJGyGL21DZR32QUo1KwYF-IiF2l2vvdnUo3Dp-a-VCV7An8fV9QqJcR-j-wqWA3wOftIN2sH1q0zgkS9aQGi09-qyN1UBt8O3CI8kpKaX4J7W9Fuh1OJ9Kwg2IUUR",
+      "attribution": {
+       "name": "L.A. Louver",
+       "uri": "https://maps.google.com/maps/contrib/109026066468169645215"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/l-a-louver/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576603,
+      "subject": "interior",
+      "caption": "Gallery room with figurative installation",
+      "google_photo": "AVoNoXT0pV1I0HvkAyeKaeN8no-8mkBYeZxyJPagV-zp6hyj2e-yqqO3NHaapPt7dV60sVdJDUz23F8_LXW1ndjcxEKHxDfLchntuCsWwkrNdylFJ6iXb2cENpwF9BCOURK-zqUHsmilUeagTnBM0XCWsm7eyYEmNDCSEk8nfBFze4aBvHhdXo5B4ieOZtJnBPzwRq5Evj8de4ZiELh0NFDqJqoSmces4RmH3Pu6lUpmyaS9nV_Cm9zgWnyZjayy0oeAZzqRtJSWbIq27Ui8UwYt-V6ciIn38aF0lq2u6w2PtlxE4xS8IYMQ-h5Y466VwoLk01gM4ZS6CHBiRMgr3pHPcgiABYLX-EeRt15aUynrVk_5hab89RDcZkQFGiiGXyhK7IbHLkIw_c6OYaklG44Tn9FnxzxhgCS5ObrSFgXEx-54Liw",
+      "attribution": {
+       "name": "Kat N.",
+       "uri": "https://maps.google.com/maps/contrib/111087177699986977279"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "l-ron-hubbard-life-exhibition",
@@ -148924,7 +150435,76 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 12,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/landing/01.jpg",
+      "provider": "site",
+      "px": [
+       1125,
+       797
+      ],
+      "fetched_ts": 1788576606,
+      "subject": "entrance",
+      "caption": "Facade with entrance signage at dusk",
+      "url": "https://images.squarespace-cdn.com/content/v1/55f04045e4b0a5f28738e951/03eb2e71-d6c0-4338-b174-0aeea106d5f4/IMG_7067.jpg?format=2500w",
+      "source_page": "http://www.thelandinggallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/landing/02.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1875
+      ],
+      "fetched_ts": 1788576604,
+      "subject": "interior",
+      "caption": "Interior gallery space with white walls and artwork",
+      "url": "https://images.squarespace-cdn.com/content/v1/55f04045e4b0a5f28738e951/48820383-3d91-4766-8f15-31844f4f28cd/IMG_6906.jpeg?format=2500w",
+      "source_page": "http://www.thelandinggallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/landing/03.jpg",
+      "provider": "google",
+      "px": [
+       1000,
+       667
+      ],
+      "fetched_ts": 1788576608,
+      "subject": "interior",
+      "caption": "Wide interior view with sculptures and skylights",
+      "google_photo": "AVoNoXS-L2UKQD1fes09M3mHm7Vq1H6X7o5YPB3UwgH_Wi8ctJmoi1rxPFYWkB6WftQIHDdAApzYWp4m20JxOydVDdzQTZSJHWR3F7frR5AiXhLSOTzwrh92SS6gdoLhgPIsxRcILHZmcpuSqh9Em1-MFD5n3QO9EDpYHYJ9RoFr39opwo_6d9iwOZ4lGWacQB4zHPGBHefL5L4qdStPehJQOurOdptyXv58QXSGv-_ti9frnEIzzFXZ8uya6CAsFyq_J8feBw_C4jL9MUyur8dYvNggsjFHG-96iJplylxWg74YtdhiDIClMw65IQ1aU82I5aqOdnvMDkIkjkx5HIwlvX3yipu9d_GATUoe_iarMyHwQQK9Nis9zqp5k370O8hm7pW8f-grmyIALlMcmq3uoKtqRuhUv_0cebNPznf7eUH7L98H",
+      "attribution": {
+       "name": "Sam Parker",
+       "uri": "https://maps.google.com/maps/contrib/114870100775185436753"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/landing/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576607,
+      "subject": "interior",
+      "caption": "Gallery interior with visitors viewing art",
+      "google_photo": "AVoNoXT2utqg_om7Y_U1sXq3XxjZVPNvvFg1JKTFXW9MUAyqzZh7TAUFvGsFUX0EwlnPh9BunvlZTd8ebUefslntklZMqiwKnpoSTU6fxyXYLDn0LpT-ANm70kNPCGYhnlZ1_UgP_S2OAt0tqY9mW7aCXtagRAqDEfA5pQNk2PxW5ChTcPq3rfYTeGrMjhnDZffn2bdJlvZMCpBEOG9C4pOx0jmsCYJke1osnZro2qe86t0I8ZKFmwEzp-XPDG-e3mDyjzyMRFOAZPpr-mQkirALVCi-l4Ra9pfGd1gPMRsJe0cr_8J53W8M4hv2x8ihZQx2uTQn7aiK9AqADr17lHXueSz_JycK5h36Qip967O1buq_O1pgkw4tV2g0nljeEo2OTkCp1LrIG9t-_9r8829jM_rCxBeyFW0jMZOSbRaZbXW2ig",
+      "attribution": {
+       "name": "debra caprio",
+       "uri": "https://maps.google.com/maps/contrib/107869902591245285639"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "lapis-press",
@@ -156177,7 +157757,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/lisson/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576361,
+      "subject": "exterior",
+      "caption": "White gallery facade with entrance doors",
+      "google_photo": "AVoNoXTiul8RSuD2McvS4h9Qhy6l6kRX4NZW1Tv_eVWmrrX8jVb-d1Lb6dcBlD5p1I-THy52wPjotKut4qYH0R5amgY5f6S6IdJBtt9tRdYTrBh8y1CpG1F_XN-dXqz8DBLpZ8FgqyRNIjqoXMZfiaOQAf15TAX5Hnmjx4BwGJdYbr59VhQIZsk_cuy74BntrUnuTP7O4CS1sKCJKETZudI-TENA04WJok3iA2rKOY1BYnyELgkkWiExHm4Wqqd0W1E1aDhkeL8BdHLC_QZfPx0L3RCCEfLctMvSGM6BzXoPC7ukjppUzITo-IrhBjjUYVFYCLDsnYNExr8dA4xVD5-9xZUINNgu1aTrOuzhabd8TewGDzQEBQEb3bcxwuValwTPxfCZSh97sj3Ll5dd7FmdPG8PNcAWWx_FrwlmqMu5VnWbOw",
+      "attribution": {
+       "name": "Lisson Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104559695899479566741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/lisson/02.jpg",
+      "provider": "google",
+      "px": [
+       1500,
+       1126
+      ],
+      "fetched_ts": 1788576362,
+      "subject": "interior",
+      "caption": "Bright gallery room with sculptures and paintings",
+      "google_photo": "AVoNoXSk_UWKSpZeGpXQu8O85pZHXqquZUSKUv8uWFaOkHrjLnUt4fJCD9jF8vjIzURVkY2yxu27z0ay9-f1MC1Y4xFdN-DBZ6OEHaJ25nmOthEp7SqNxrOLeEUHW0F2yll-R-qEjSyUt3szp1hSlYVadeYVaDjN51vaESh_YgoenFhyU9lymaRUXGXOeqyHk_7UuRX386wNhxzI77rzd3IlUP8q3Dh-vxjb3T21EAqeeNcwnJO5jWldUvpbXHeK8ZD47WndL9J1l6jmUFBh4XOJTUPzpmTDmJhqUXdn93eJ3-RoUAqg78RvY4TgQSNXRnfkKMtAlINcHpcSRnFJOtzCGCdp6cPjCm3FhS7XBRJImDiMbK0v3j74CU3_4FPwgOnlQ6_PRCRF7Exw_5kR5JyftNyz8xb6apOT6Eb_VPNl7em_KQ",
+      "attribution": {
+       "name": "Lisson Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104559695899479566741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/lisson/03.jpg",
+      "provider": "google",
+      "px": [
+       1500,
+       1126
+      ],
+      "fetched_ts": 1788576363,
+      "subject": "interior",
+      "caption": "Gallery space with dark partition installation",
+      "google_photo": "AVoNoXTKWFZYWqZI0RnpbABddYx1sFySNcVMlb051oetVlgLK6FtzbQhKARlfv67F7NlroaFezqzFXnNs-yUJXNwQMbVqG1yL1O7wqgn0A40c2gxkAFbstzmHfnxkTLNuO-A29X66XQhSPD20gK1oqswoIxeTEcXGE2o96707xlTGCM6nu7kq1x0rIYBhhaXI_aLYl7Rv9m5M8qKDHMRgeCNx26jfWBqJiNp5gGTt5tfIsR_A6rt7JkfKWVE1GI97n9fbnbmkXhlYMkMhoclQdbV4UqHYDTIeeqyBQB4mO2FlfC32GjuCrQPE8OZ1qU-noOQXH3h7NPNl9_mjSnX1OZrfXaAsOqFddAcY8T8DPMgFKThDKAWJgEh8ULvRMgpD9PiDLxfKdEqCq7UsNOvfDPTnreyItYSWaY69uDautDxzovslNU",
+      "attribution": {
+       "name": "Lisson Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104559695899479566741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/lisson/04.jpg",
+      "provider": "google",
+      "px": [
+       1125,
+       1500
+      ],
+      "fetched_ts": 1788576365,
+      "subject": "interior",
+      "caption": "Gallery interior with garment installation view",
+      "google_photo": "AVoNoXR1zIsOwOt-onQLX7qNKsyWzVBenkmeTD11TaDnsQllyzslJ3Gc_O7BUyXg0j7pgh5_NQRelKGvhufD21VxQBCTCnHBtFCZGyGEoM7mmLQhcgzl9UVmJhu1eMNY18J1NSKFB8Ocg_8G-6Z-j0l1mCDDmDrmPaHY6jMM3nZ5nZf_iBaHZHSvJUcQQ7ctIZFJZFYVx0NTcvtwPXizRhWimbR94PhufGFuKMeUwYOORO7UVpiUf4rCSR69FFF-uv64R_-Hh1iDyeDEEZvc4rk8l5Z15DlTP0sSODYjExQnPrW9WTlkOQehVeGNC2f23Kjt2qS14EeDOgSBxL--VvPXIg4DbdZvH_QdmvHoXNth-oFxo9fBn-nNA2r0TK9URH_R_q9VCYuDe2yAnfeAN2BifhWkswKApqEdn_WX2eQgZyI",
+      "attribution": {
+       "name": "Lisson Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104559695899479566741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/lisson/05.jpg",
+      "provider": "google",
+      "px": [
+       1125,
+       1500
+      ],
+      "fetched_ts": 1788576364,
+      "subject": "interior",
+      "caption": "Gallery wall with painting and floor sculpture",
+      "google_photo": "AVoNoXQEDtJKwGcpBKMteRvhf60FKWE7MaxSRPecXbqW9gdBXXQKpk_Fy3-jbvS4YC7o815FO2hy-HsHS54pM2rLLJAsA4PYwEQrKYh-NFVOMmaspPqA1dX8piJBW_rK7nK7rIdQkrwTTF3kesIydhS2CzrtJUnvXF6VNMfBRsAtg1xzSNJYQNjISjdNqlq5V1703D06fP_9xot7dAYccYc8Nj_jsTQ_DLD7gtgqhQwb3so_v9Hx94F9kZSgQFJFz2fTCRPSazyZ6pQLvDaHPwBenMsQUjLX1zSX8nu-3pE9Sj-sfOPqjajbs7V_lK4muv0aRHw6-TGz_0xtMyhjk1y3qwlmY6LM02yLFmqdZ7XOzrLJOgdDOtWEz_oiXanqpMzfHmYKo29DqFuEYIELu-iY_E4-VSVHEwV-wsO7SDl9PnIkJhE",
+      "attribution": {
+       "name": "Lisson Gallery",
+       "uri": "https://maps.google.com/maps/contrib/104559695899479566741"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "little-big-man",
@@ -163161,7 +164832,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/luis-de-jesus-los-angeles/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1178
+      ],
+      "fetched_ts": 1788576598,
+      "subject": "exterior",
+      "caption": "Gray facade with gallery entrance signage",
+      "google_photo": "AVoNoXS5wVZJs3GGssUjhJPx9Dcmj9bx2G-N-1k2id_ycXaQed2PAqRW6ndhor-f9NOzdX5aWHcKiKdDAcIFddXivBtI31n689yejxzb55awx3MApj0lrDyIg_uc-ocOnxOdBy8oAf9WJH1lwhraHvlgE07k0v1jK0hhWR4G-qGu_qKEw7n7Y1recUxrHZFR3wON0Rgyc4WudXMc4Uf_o0h8Bhqvv_CmAy_4GCgu8Vt3a5rZWZd8k1zP9decG7z3EIK16sKsj1nzoIVUFaG_Gyi9K07g_af4kGT8IC6GhPLVPWTQw3xeNfWW737s_z6-V1OYI3eS4uoNig0tBXF1e5YNuwl6SHpZgczCo-MP67mL76KGKlEQageCXJ3OrBRJOwnk59gR-vuKSRv2xdgFVwsSLM6S-UvhJrarNOSbj0KkcW17IQ",
+      "attribution": {
+       "name": "Luis De Jesus Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/103425034226427269008"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/luis-de-jesus-los-angeles/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576600,
+      "subject": "installation",
+      "caption": "Wide interior view with skylight and sculptures",
+      "google_photo": "AVoNoXSzD8gNNuaxXgY5HbNFI9FJSCHe8CQ2PYrD1CvFrD8ZgPKiW_jXcbEgH68M3QDh6cmfCE7-K7VuivK56ue1CqMrSccPyvVpyDs_MLYw7bSsXsqZSrxUVCppQwEJQ0wGy0fjP3X7grlMC-rJWf733XVzEaUJr9Npuh4eb98OB32fOc_nZr0AiljOhYnKL5Upf9y4zNee6vMSJ8RMueOoBp6LjLC7VkrMIw1H2pF0H95-ZUIZTyNGsHwjUz7JCgD1oUblL4GRvvyR5-d9YZlym12FWM-CQenqmIGPO8ViZ1GBRWuvQH5A8OarsDUVpNlcseLcU24qrjJgaE_73h8WaStYJmKeFzesxPtFMXysFzp6OimgZ6lUN8gWjmCXTaolbOpcfuUlrojuTrtft7y66vFNStN_Yd8I2xCBLZTqyoHWub1R",
+      "attribution": {
+       "name": "Luis De Jesus Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/103425034226427269008"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/luis-de-jesus-los-angeles/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576599,
+      "subject": "interior",
+      "caption": "Gallery room with exposed ductwork and paintings",
+      "google_photo": "AVoNoXTg1YTUAnbSvCZjjwYXr6w_MAvQQj9U02gZgDiBK0iaFx4PKwVk4ydmagDW-62xqWC48MkDf0Fx_xJGaZTsVLH7T0C__wrsuh6U6m37zJyBl1JWd2-bSNuXDjeQE_M3ED9WaPZf3mEWrQ_S6oCJW0B8COWvp15bRSpEgWwQ379Rc4a6iB7tNwfy_p9rzUdt8u_BlmvsWnmiavo8ctjlJLFikZpwh72iFNvz6KxLvGlTWErdbdH4xWzCfDRt_xGhIcOTXJRKyovCJTnA_4cy7NMskRTIvvkjhC_T6y3edDiiIXV7FgbysP2-HbWHyii70GqFrHug06X8dpNZxIwcxCFlIjyn5iOa4iqOREMIpdji46MZs3NEjm5neVKOEDzhgwUBH7bPhoMge4yQEf-67HyMsynsRZR8FoPRKlkPlpul-g",
+      "attribution": {
+       "name": "Luis De Jesus Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/103425034226427269008"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/luis-de-jesus-los-angeles/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576601,
+      "subject": "interior",
+      "caption": "Corner gallery space with artworks on white walls",
+      "google_photo": "AVoNoXTZmru7InQkysdPK_fbP2d31Y_WgtXcqXjVvsNq8esI5nct30UJB2J1Z0OZO1cp9IZKL2j-vMGU46CAbrNUB180hgz1ipwgJthVzUtNDuBeeJeWXLHAtTZjq-4krzTF5L0kwsG5MrJbcl_7yZcKjIjict4FFkG1VcQbomgl8I--k20bKzXOw0RcickMU6pn17ykPdWVlJdffRBw_QS2f6lFituNdeKKb_MVx6YJCYlcmrqvbuIpoqxb3cDjzZLNlV5XqfDpdi_6K0Z0DNExzOn6_L_Ow19-5FGdsFaC_qxDgpDn1of174iFxFkoFeWlkQKz0ok50v7IKGfKrytokyFohv7vGf6w6u4Np3vaz3cZLEQtOGdfNmpaTjDqZN7rztzisfkhydwkyEnMI4MCTV4i14sKBNGfWv_YEoYOBHc",
+      "attribution": {
+       "name": "Luis De Jesus Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/103425034226427269008"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "luke",
@@ -166630,7 +168376,86 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/make-room/01.jpg",
+      "provider": "site",
+      "px": [
+       2400,
+       1598
+      ],
+      "fetched_ts": 1788576821,
+      "subject": "exterior",
+      "caption": "Gallery facade with signage and entrance",
+      "url": "https://www.makeroom.la/_next/image?url=https%3A%2F%2Fo5mp3iku6myecouv.public.blob.vercel-storage.com%2Fcore%2Fabout-exterior.jpg&w=3840&q=75",
+      "source_page": "https://www.makeroom.la/about"
+     },
+     {
+      "path": "images/venues/los-angeles/make-room/02.jpg",
+      "provider": "site",
+      "px": [
+       2400,
+       1602
+      ],
+      "fetched_ts": 1788576825,
+      "subject": "interior",
+      "caption": "Empty gallery interior with wood ceiling",
+      "url": "https://www.makeroom.la/_next/image?url=https%3A%2F%2Fo5mp3iku6myecouv.public.blob.vercel-storage.com%2Fcore%2Fcontact-gallery.jpg&w=3840&q=75",
+      "source_page": "https://www.makeroom.la/contact"
+     },
+     {
+      "path": "images/venues/los-angeles/make-room/03.jpg",
+      "provider": "site",
+      "px": [
+       2400,
+       1599
+      ],
+      "fetched_ts": 1788576813,
+      "subject": "interior",
+      "caption": "Wide interior view with sculpture and paintings",
+      "url": "https://www.makeroom.la/_next/image?url=https%3A%2F%2Fo5mp3iku6myecouv.public.blob.vercel-storage.com%2Fcore%2F011529e1-47e0-4041-b8de-6b89cae601a1-hi.jpg&w=3840&q=85",
+      "source_page": "https://www.makeroom.la/"
+     },
+     {
+      "path": "images/venues/los-angeles/make-room/04.jpg",
+      "provider": "site",
+      "px": [
+       2400,
+       1600
+      ],
+      "fetched_ts": 1788576807,
+      "subject": "installation",
+      "caption": "Gallery room with mixed artworks on view",
+      "url": "https://www.makeroom.la/_next/image?url=https%3A%2F%2Fo5mp3iku6myecouv.public.blob.vercel-storage.com%2Fcore%2F6851fc2c-b839-48f6-ac41-e19d762e2e09.jpg&w=3840&q=85",
+      "source_page": "https://www.makeroom.la/"
+     },
+     {
+      "path": "images/venues/los-angeles/make-room/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576826,
+      "subject": "interior",
+      "caption": "Interior galleries with paintings on white walls",
+      "google_photo": "AVoNoXSJTm2HskN2nZFMZE1SSDse5S04Wz5wZxSMRwY84QVBgR86boBRfKIKQhCFhOrfW0-HJTjKYviE9oy907_T__ww74UTG2tMPHeh1M6uurof9U1P6dE-VdL7_6jKj2evLt_w4PjYkTlmNg_ydq1U6WAJ6frwrckVk8GM1PG1V_Y59bbxZjL8_mZVglk8NqVORBaymON_XJNeLKL1t61awHGYJ2ShFACUW3MU1hSWkjbPTThyO5aq6XAk9kwo3A5Tb8kEd7WtknrqyIYSnfHGTLfxvEM37wacpcTYxKALGesOZ3ceydHUlq4_uzQ61lKcBVSNlzlEPYvf_vKXieLDeVpFW3N8D2hPFnHiVpe8szhQd55ysbPirVRctAOQhI1GHqqW3a-kJki-6lVKlCh_v6dpN_bFgTEa9h5lXW2sZDbM7w",
+      "attribution": {
+       "name": "Make Room Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/100348957968074695031"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "malibu",
@@ -168633,7 +170458,34 @@
     "multi_location": 0.085
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 6,
+    "google_events": 1,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/marc-selwyn/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576372,
+      "subject": "entrance",
+      "caption": "Gallery entrance with signage and window view inside",
+      "google_photo": "AVoNoXTaHTyV0QvierjNf5wjg2N5-W59oTqnGAg3B5mr6p6dQQ4loPAAun1W_hMUKzPD6UTwKDixnyBoe-nyoXs8ELt6OUPdr8Ahv9az0qxVBf3xYhM-r5KfbOELm047KuVbezzDMXfl4dX-xnAAbJ1mdjOB1gBiodcm1gtVRONXL14E6bGnvsEc0Y6nDQ3a_pTQeJTEx3dEQdICE1cIpdxIVjQJ7gy5LuDkxoncOI5u9YNKaCx00wxk6P8ibNtq9ch_GBeXAw7bJ5gy68_jZlFCUp_HKUokdpDtP-kp0WssPK3VddR7bKch6OOgDoozylf-afuJthp4RF7Qi2H1n9qIMK7V-07tYP9BX2ov_l4O6fhvX5p540Ll5TCmIdSUU-ZbBmgm3BYOxZc001MGEtwt53QNxb_MPKN_ubCB7vYDCAU3yd6NNeNYpa8MtLjIvw",
+      "attribution": {
+       "name": "Marc Selwyn Fine Art | Camden Annex",
+       "uri": "https://maps.google.com/maps/contrib/109663242953797149844"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "marciano-art-foundation",
@@ -169321,7 +171173,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/marian-goodman/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1330
+      ],
+      "fetched_ts": 1788576230,
+      "subject": "interior",
+      "caption": "Wide gallery interior with sculptures and skylights",
+      "google_photo": "AVoNoXRcn-KyhJOhlXH1rOWgX4P9NPnUQfkBwSr-1L5nFYJQ9uYjOrpjRtdV3OD0rkzwuLZvVLXhhR1S4Cdm5Zcktyh5F0YExNKiqRHYmC-VOw6daomuKuK0wvNGKQvgBxSym4Hjzsp1sVXiAxMxO-I9o9c4TYowyvRXvAfeV1SCyWTZVmmA_HjvXtSbRc3OQVaEKldp31FTskKZOO5ryIZHS6rp47l85YWWVq1-49RgBZq4wIbX68JYRyKp4lvZX1akV5MOky8Le4vF1wqCqkpZsLBqFQUpdTM-mX07J7mkVijB9_tElyf2WtmSUTwVHrQ9zWREJTybiQolT144cD4zjBCymhKRaqpda2lt8g3w1yEuIFeta-Mf96x4n3ZqRgYLOnz-b79uII8qUVjfhFV307F5LgjJ4e64rN7ImTbGPSAR06UZ",
+      "attribution": {
+       "name": "Marian Goodman Gallery",
+       "uri": "https://maps.google.com/maps/contrib/108664557024438619182"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/marian-goodman/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1183
+      ],
+      "fetched_ts": 1788576235,
+      "subject": "installation",
+      "caption": "Room-scale installation with wheat field artwork",
+      "google_photo": "AVoNoXQ-7EcCyDpZQHBkPx-J-flaXyOavK2a-liypBiV-mPG9vCl_-FYtXKoRGxNngv4dnSh_yALegSlQadjXaDaNtMrpJq3dFS0A_886YhpVfZaXiR_h8SKJkwmNhudMiVal7nvB6Uw-0pJb4SOC1g78c8Tcffn97WVW99eE1h3UaSODQtK3X6zNk4Jr3m9bNLr2Va_gpkwySS0MZgMRwwiczGoFK0WpyuFPBtvttc3fsHTylEmp33coWUZAA1z7o12iDPklu33ved1P5rnykRA7KQcRPn9nkhYlT0o_0a_r-kw8wK8DlD9f3hTrURCvSyxKqt0OCEoMqKx7lYnUQpulZ_oGdhKJ9Xdsh_dBM1-LKcgBUJa9qe6h5Zb77VS3kSNNMCBFb80982WuIhCiqkEagxJzPwk9NoABsknHxE45gR6xBw0",
+      "attribution": {
+       "name": "Marian Goodman Gallery",
+       "uri": "https://maps.google.com/maps/contrib/108664557024438619182"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/marian-goodman/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576231,
+      "subject": "installation",
+      "caption": "Large woven metal structure filling gallery room",
+      "google_photo": "AVoNoXSMOsRxAP8zquPAg80FeHKeUPLBCxL_4RAhj8SsiqEi6QG7csVDqZOmKaGFCjbzjOJZG9lu5lF6DlR74MHfKw1MLRdC1v5i6dkhuLic5VnATRKBPLBvqOwE40rjThsOXOvt0E9dd1A3PoYuZW111EKFnQXGxl2yGKykPHZ4FSVojZ__tdQB8CPjCz2VDKjE3sMEq_7pyTzbn_GvR2gruZk627t8BECt7QD_b8FWdT5UB09CAwiikDVMHncU2yqP56zodC-1bpI8kUftv-M1mqPAeDcExYk4jnCfC_s_R7dSQLh4FfD6h11aGEDWBSf_5mho-VIuBPzmHMUG-kq-DzPOZ4pDi6_gSSXfpNrb81mk9yA48ajRqrou6Q9xbJ7aVNGYCRMzYis2rAoij-TyGH5tNKR2Mt5zpzANvlpJNgGMNg",
+      "attribution": {
+       "name": "Marian Goodman Gallery",
+       "uri": "https://maps.google.com/maps/contrib/108664557024438619182"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/marian-goodman/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576234,
+      "subject": "interior",
+      "caption": "Dark corridor with illuminated neon text installation",
+      "google_photo": "AVoNoXQB9Ko0CpSPOoT0zDfYO_aRlBdw1qcvhVs8Pl6y9UoUjNCklVn0LKJxnaZ3JfqjbEGngawppLBaXsSErEge8Q-mq-tiNiWBZqsVBH7OKo4_4uTlFtwCzgYUokO3p9y1EGa0IPw7NTdMeA8E0t0noempAX97vgXNRpvemlD3PpG4w4KEqowg1fQ2GNbBRRIPvV51CaIr4OlageieuCWNFnFb4HiM6eSNCwb0MlyYSwlJ9U1PoxiVXhA_OfY0j5-sbQvN5dz1q_zu1Nalmv9Dsbt98gqFhge6BkTQ-7Vq8CGbt917xXZBl6DGq1IK3fqzyE_2yVh026LRczO5nJ4JoSvJvzmBCUDAlHV4vP_8mkyNx8N2saAqmEIdTqGVx7jerjzXOuNR4eXQxX4KxfjPklmybzrscZrMIyQqNN9G5d4qVjtM",
+      "attribution": {
+       "name": "Marian Goodman Gallery",
+       "uri": "https://maps.google.com/maps/contrib/108664557024438619182"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/marian-goodman/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1180
+      ],
+      "fetched_ts": 1788576236,
+      "subject": "installation",
+      "caption": "Gallery interior with large printed wall installation",
+      "google_photo": "AVoNoXSSu-FaohwfrqmrlcgbzeYlT4hPdkoCo_9fKlGPipQCf5Zp5dZawkNe1JRp_kfuo26Db21XX_By7jLztconcUkyGnlg4mz12ngwg26gBHr64AsqJihxrIlZRFqK-CBpgNn6Lw74nADyDcKUVPqlfQJE6sAEIZaKJvrSyx5XIzWUeNnEELSRmTABwL5RtK_CNKOA_d2PEiyoAyy02ihfjqqgTg6WU5jeO0wK-iBXoPsA03gpV3BLYSIQPdme473kr7emGHQU0e6c2KO4tUGR4dsd2pGig_7qwDW2pdv_iP0psNTCPCHt6Dc63jVxmCCacqnXD9rVSkpIMQ_DpDLTpqjW8YBTumb-AGC1M0MKh7lRWxASeeXqFRi73tEccHzpFH7QirkvFxtyQFoOM3mshuNRI5FreLpS6higzamX8TLWFgIc",
+      "attribution": {
+       "name": "Marian Goodman Gallery",
+       "uri": "https://maps.google.com/maps/contrib/108664557024438619182"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "marina-ochakoff",
@@ -173021,7 +174964,34 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 2,
+    "google_events": 1,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/matthew-brown/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1192
+      ],
+      "fetched_ts": 1788576407,
+      "subject": "exterior",
+      "caption": "Brick facade with roll-up doors and signage",
+      "google_photo": "AVoNoXSzpScICZDefO8XNs4Vb_eC9LlvUcSJsC8suH4urWMvXM6PjpRE0mZwk2r4yIBp4MpqX-0ybbk3_Uamh6kj2fQ5EGXO584CoGvqlrsTVquxu5Qahx6MpAAHnBx9cADrTDplyev_7oJQKfYPizsUCLiviaHTWyki-yCuZIhowHXNiWGT9DNHCPr-PF1KA-isWx-G-Pie-ONH0-mSaAoh9k3V9-Pp1gNF9u-uROJCZB6XcEd3BOgFdjaTJxaOh6f1osojSYGG9yiDmOljjsn5nL3cAEGOEmafkh-NH2_jUcz37lxGJTCwAJ-sw2dEOt0s2rRgDGlp4HjJNEiCDDmW8oikAOZ8vFGw1cMAz8Epe7V-dBVg7h-58GY5pcJgJdpH7u-75B9XH1qVhEQGhq902ErZtMOxVJui-buft8cej3qXjF0rC8K0xIgnHw_PBMLn",
+      "attribution": {
+       "name": "Matthew Brown",
+       "uri": "https://maps.google.com/maps/contrib/117425460901367042856"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "matthew-marks",
@@ -173373,7 +175343,92 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 19,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/matthew-marks/01.jpg",
+      "provider": "google",
+      "px": [
+       625,
+       658
+      ],
+      "fetched_ts": 1788576258,
+      "subject": "exterior",
+      "caption": "Minimalist black-and-white gallery facade with entrance",
+      "google_photo": "AVoNoXTNeIuDdrguI92TezNmiua8uyf3AoCt-uqF1Gh2QLmRH-yXdrDczjXQ8Lyv7xq_zzbgan1z9E_5NWyed94N683vvR4iTAYUMP3d-jN3I7D2FY86vMbn1RWu9o5lPtUSeIZyRn7JyE8vltGdIz4fFDBqWx4FvQpcZ__RlMSm904u7PwkahMcUgPNwzgCPoVmU2vYqGHxKbKWexkUVIF65z082X8XPD3GLgBgMpNhbyualbugFK-zntBJxsh4S6Gjw1F3VZbtGpxWmxWq2c5Gn7UVnuvhf7-rCTf-aBgIX0W5vldQOQFdgze5v-AWsaDoIhYINy0NUOinTw6ROJLN2g_1tKu9zoL3tgWCtO-BHA4owdlmNt1abAe1a05-eC1sRYS24pjZoc6Hp_NAR7yW9K4wpR1JZQPL5fjScHHZ5GjRlg",
+      "attribution": {
+       "name": "Matthew Marks Gallery",
+       "uri": "https://maps.google.com/maps/contrib/112608368834183801544"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/matthew-marks/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576259,
+      "subject": "interior",
+      "caption": "White gallery room with skylights and artworks",
+      "google_photo": "AVoNoXTGdgD_dDksP6erWqYxJyRsA-4KK8HIudV-Daqa2Tfmt45Gf0b4lvGIT0xIt88hm6h68s2Sgraaa4CGU0nnZz-q391Cmo9IQHkS3-3FpiWgFPQska-0qbKVg9m_W3YDY9iV0TPB7U9eyO6dLnJzSyOy-8AR6IeXuumHaYdCKQ40jqQiODF_ZE5SvEI3SBrTmw8OW1XWAACgVs_sllHWxSqBZop-qtd7M9Igj7SshSf8U30pLGg-0T1D-zdaVEj2a1464qS_ZazbKXVi-tt3eu3W8giAxEtBDGvFJOTeDkrgw5SZiXK4HDF7UNCzVG5Pi6s9jS78aB5WisY2k8mS55Kvv-HAXciZK_CyJhTCIUiJiZPbOwOTPg0TM3101ynQLDBAShne7ENNJVAD6E1iFBRZqmdTxzb6dkaG1hxPdPiPMvqH",
+      "attribution": {
+       "name": "Jory",
+       "uri": "https://maps.google.com/maps/contrib/110074943227504122850"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/matthew-marks/03.jpg",
+      "provider": "site",
+      "px": [
+       1000,
+       643
+      ],
+      "fetched_ts": 1788576251,
+      "subject": "exterior",
+      "caption": "Street-level gallery facade with trees",
+      "url": "https://cdn.matthewmarks.com/online/523-west-24th-street/_1000xAUTO_crop_center-center_none/Matthew-Marks-Gallery_523-West-24th-Street_2022_bw.jpg",
+      "source_page": "https://matthewmarks.com/about"
+     },
+     {
+      "path": "images/venues/los-angeles/matthew-marks/04.jpg",
+      "provider": "site",
+      "px": [
+       1000,
+       1236
+      ],
+      "fetched_ts": 1788576253,
+      "subject": "entrance",
+      "caption": "Brick facade with arched entrance and signage",
+      "url": "https://cdn.matthewmarks.com/online/526-west-22nd-street/_1000xAUTO_crop_center-center_none/Matthew-Marks-Gallery_526-W-22nd-St_2020-10-22-192239.jpg",
+      "source_page": "https://matthewmarks.com/about"
+     },
+     {
+      "path": "images/venues/los-angeles/matthew-marks/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576259,
+      "subject": "installation",
+      "caption": "Colorful installation view in gallery space",
+      "google_photo": "AVoNoXSMzbhmzd_1hOeohKjB95dAW1Z6SQ3ClNeqGllgJa2yYjLa7r1R8oVWViyk_i4401xAkeeljoPVB4ZoPYOmF1mTj1H4ri63_m1TcrtGgGscgRoiBro0_JBDQGRKrI964UOHInS6s857IThUMA_AglKkCWPCDRHxvUwdMNJs2-pPji0-y0W6yKXbCTZMEFP2R353UB7mfppLhcCa1AFJ_iJ6YvuVhXyL2egrX4EosEquhd4Lx4Wvdf2zDUMvi3wWjYTj5S_t7RcUPgKL8iofikoRk5rXN9ORFvxw1GdKDNC0JUFna9Y9VftE5vjTfhz-BmwF2Q3pzhqmJCVGXf1J1i5juhe96HaVX6yxq2OdfWRoBbYlO4o60ueWKv2K1SpcYA8-bv6Ytbo_5nfcxhLxpl5bbpeTCOVcO7ppYa20rXVmg8w",
+      "attribution": {
+       "name": "J G",
+       "uri": "https://maps.google.com/maps/contrib/102578436208508260264"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "max-presneill",
@@ -174673,7 +176728,89 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 14,
+    "google_events": 3,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/megan-mulrooney/01.jpg",
+      "provider": "site",
+      "px": [
+       2400,
+       1800
+      ],
+      "fetched_ts": 1788576874,
+      "subject": "exterior",
+      "caption": "Ivy-covered facade with lit entrance at dusk",
+      "url": "https://static-assets.artlogic.net/w_2400,h_2400,c_limit,f_auto,fl_lossy,q_auto/ws-artlogicwebsite3040/usr/images/pages/mainImage/items/23/2381021a2117442aa1de372288f1e66d/sunset-meganmulrooneygallery-exterior.jpg",
+      "source_page": "https://www.meganmulrooney.com/contact"
+     },
+     {
+      "path": "images/venues/los-angeles/megan-mulrooney/02.jpg",
+      "provider": "site",
+      "px": [
+       600,
+       433
+      ],
+      "fetched_ts": 1788576872,
+      "subject": "exterior",
+      "caption": "Gallery storefront with signage and awning",
+      "url": "https://static-assets.artlogic.net/w_600,c_limit,f_auto,fl_lossy,q_auto/ws-artlogicwebsite3040/usr/images/feature_panels/images_and_objects/33/imgi_14_2024_08_27_mulrooney45265-1.jpg",
+      "source_page": "https://www.meganmulrooney.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/megan-mulrooney/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576880,
+      "subject": "entrance",
+      "caption": "Storefront entrance with marquee and windows",
+      "google_photo": "AVoNoXSqyQFQNB_NT7Xf431XLGqZC5EYTIaa8W6vsMOQ23zCK7F3UUafmtN1YG2KKZ5DiP8zBXz-zFyMg7XT47S2Bo-4NZYI0-saENMqOQKrBMo8KUD5KExVlnqkRlWZShDf6oapQBvnD-0CiccPqclyNp4RBapj7-AmBkoTmQwLywiWVnbMMDmHIK4-OYjBp4y0W9Hf5oNIFy5UymIDq_RIv7XRxZpsbgFWmxs_kocbG0yy3qZQ6riKTlDLTQlVYiW4rupR-5BSM1o_Ao0hVn3j7hqqw8LFkKv46EPuQMLih8JShgcdw2w4Nmz__EhuO6Tctq1TcfFdkJk562tBXEjsHl70xUKOO-vvad1nR96UqZC2PVMFSV_nuNiN57giSuh4N14alDiW9V-jkhTK80tOWwHwSQ4OlaxBHcPlWo7yLIU_dA",
+      "attribution": {
+       "name": "Megan Mulrooney",
+       "uri": "https://maps.google.com/maps/contrib/105541150274179843170"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/megan-mulrooney/04.jpg",
+      "provider": "site",
+      "px": [
+       1200,
+       630
+      ],
+      "fetched_ts": 1788576858,
+      "subject": "exterior",
+      "caption": "Ivy-covered wall with entrance doorway",
+      "url": "https://static-assets.artlogic.net/w_1200,h_630,c_fill,f_auto,fl_lossy,q_auto/ws-artlogicwebsite3040/usr/library/images/main/pages/1/imgi_20_2024_08_27_mulrooney45279.jpg",
+      "source_page": "https://www.meganmulrooney.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/megan-mulrooney/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1130
+      ],
+      "fetched_ts": 1788576881,
+      "subject": "entrance",
+      "caption": "Marquee sign reading Megan Mulrooney",
+      "google_photo": "AVoNoXTzHfk1i1wH9ztoGuCzz1eL3UT2piS7aCBcuTAIMb_oi5t5OUXFC_1JG1HeABT7-fxE96rjXX5XTdHzNMN2CLkDFtfeiwimkkrhrHkgM2DuRu0NOwqX-EKPRVDKBYBbaCmAKi7cN3sDEawf2SrXLyGY6_-yS1SXRddC3jgDCk68I-i1nitWQDOsSKpk1J5AvRWxMJp7-h9v9hoTwDyI5jinVdWQ2rws85QaeEVOzArAAiy6y7TPKhlMLIfiVZTMPP3nWwrO-Z557lUFBZilqDQJKzubbQHStF85lnMwQVurVMzd_m8Sslvy-JnZSG67VdjVcEtVOxcGrBO8cZLx2IoR9EsnCEQiWHmVW7r-ci_A27smzxD6puRj66OKWvBGJgVH6pyJvBJx2hX9DaUxqg_hjuGx3OJsvpaGVbqyycBM5g",
+      "attribution": {
+       "name": "Megan Mulrooney",
+       "uri": "https://maps.google.com/maps/contrib/105541150274179843170"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "mek-contemporary",
@@ -177109,7 +179246,95 @@
     "show_cadence": 0.0171
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 18,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/michael-kohn/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1173
+      ],
+      "fetched_ts": 1788576463,
+      "subject": "exterior",
+      "caption": "Gallery facade at dusk with exhibition window",
+      "google_photo": "AVoNoXQRh1TqStJ6jx1-GXgYmPgRQztR2WqaY6pzgwCPwOwB37rmhCWyo-Rb3Z3xKfpHAplqUlp6c_jpILF5Qt-N4RrieK-aKaD9v4yURkeIYtLgK3V8txz2lzwedHHUX6kOPNTC-svJ7dlUbNbbvpY0PKUyx2buL6ou7qa3rXM-Wl6Wa7ZSDNlNjnBWt4oqnBgiFFIgC5xuv3vzx93Juk_6me9ZCCS6HNveBl5zExUHPh2cAajsR8qlPfKii32QgVIni-CuOXFDcQWBJ4tPCKfJiSFB3WXdy9tKmNjpeeIpYjggE_dGQBTaQTo_oJ4qmtozW6ddZZvXxLBzq6dhoh3lhAXo0C_msHlZ-glXM0t0zS7YyimNt3hPXxJJZLVE5baXNZGfJ8vnBHUDke2Qq0zlXBO-bh5NcJoqpukSzPyFjaR49Hac-62k2Gkjb7ag-g",
+      "attribution": {
+       "name": "Kohn Gallery",
+       "uri": "https://maps.google.com/maps/contrib/113313390999842276448"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/michael-kohn/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576464,
+      "subject": "interior",
+      "caption": "Bright gallery interior with paintings on display",
+      "google_photo": "AVoNoXSRHxlICaz0epIZQ0kRvAoaFp4TzYshUlATYELy9DwjHksGN0tgtmwnvF1PNf_0mLT3oD19gnpdKRw2eJQC4Tobm1zQJdNh4GMbrGAl5mAqkyPyjxL5bDPh3vMggHo-bUCEzRg0Z9v6gf8lq-Qfd0DgB77Ryi562oJ0eM5_vdjYr0F3KAxEV_jHEgcTMbiVxq93Uj_jO0seytfpajDAPeD64kI5uvJ2qTg0fgZ2_vuJSmUTxxsLLb-xhqPLhhnBg6zgsrMWextZ7nzsJaSJ2LmgxS_wh6GeFj3H2zBtMtP-BjjP5os2zAF8evmEo7_yGAkWOSWyTmF8rzk_8WJBVd47X_5Kx1ay3qggXcIpcgfofw975eOWueM-5XJivLjbFnpc4fWel_rKchHc3deuaqcM6GMmpuPHFMBCFuG5DtJQkJA",
+      "attribution": {
+       "name": "Marty Bruinsma",
+       "uri": "https://maps.google.com/maps/contrib/106901360625117350020"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/michael-kohn/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1068
+      ],
+      "fetched_ts": 1788576464,
+      "subject": "entrance",
+      "caption": "Michael Kohn Gallery signage on exterior wall",
+      "google_photo": "AVoNoXQmaaO-rw5gzk83fChqZabBZ2QG3uG7Ie3BotpHCzlF2JBmcKru0gxdxY39x7XOPxjgAwnjolk3liwBp3kE1ElkczKiKI_5s6s64knawssVi2UtIKwXwAmezO7GbWHEL7_PSz0Av66ecW4UEMEBr9K50T1fUMxzhyVrSVWKCcF1rSgpVNQRpez3RjFMCzHVKnQ76OCwbnRQjSeKgsgU4dOx3ToLPG5P4XClDpniBzHHyY6eTFjAtrE0vDFC7NhWYfaEjxBknl5w1tPohhPa_L3luNcDZiIKZvymkej5sgukQCkDfzrKpa_LSoECnC2s0UVGwDJKhlVKxYo-h_dy_nefkI9W8b3STCp3tbhmHaB0nWN3wUtwe3_PZ29U7aqkEVhQilZAnTRxMXdUWIsTG4ObI2vjJHX_rEPa6GrCzErcPzG6u-qUkC4OtHbA9eki",
+      "attribution": {
+       "name": "Kohn Gallery",
+       "uri": "https://maps.google.com/maps/contrib/113313390999842276448"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/michael-kohn/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576466,
+      "subject": "exterior",
+      "caption": "Kohn Gallery facade with street corner view",
+      "google_photo": "AVoNoXTok8fbj6YIp63DENj_nvFGKlZR6ScIbCEGMCYWoDhX3h8nmiKFsx5dp2RvpJS_boa_b-cOXxJTN2i8pkNKYnG9wRnJMmXh7gAQmJGagDGiHd89IpzRZ3iCdEj_IGNRl7FkewIpnY1bCr1e9jUmiMlfEMK3l6GwFUCOZtaJ39-h-zjoGStZJ1EmPyH2Wp87FAlSPEwlHL2GaKvpGpQ-xCqMgXEdxewZ7BHM608n4_u372s1mB69hAIrtyHSek8_5PRLAHDWtZMmHc067m6t90RcUDwWF42eVolMQfgg2DAaHswYI46KJWTDYg4PK5IyAnSCN-7dTpsDCKBKW_aLWpBlTxNBGkblsSz2Wu9IctX91AlCARRy25YxMRpys5QnndEB4sSVKHnUd9SjnegaM3ongFOJ_sBEx5ouOevW8Ve0L30q",
+      "attribution": {
+       "name": "Ben Ko",
+       "uri": "https://maps.google.com/maps/contrib/117152606010353254311"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/michael-kohn/05.jpg",
+      "provider": "site",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576455,
+      "subject": "installation",
+      "caption": "Darkened gallery room with video installation",
+      "url": "https://images.squarespace-cdn.com/content/v1/52cdc37be4b0396942d19481/1783619729113-M6W3DLQ1O3NIXORIZP4A/2e1aaf72-7a26-497d-afc4-55acf67df4fc.jpg",
+      "source_page": "https://www.kohngallery.com/"
+     }
+    ]
+   }
   },
   {
    "id": "michael-werner",
@@ -182607,7 +184832,86 @@
     "multi_location": 0.0425
    },
    "kind_source": "research",
-   "kind_evidence": "Established in 2008, Morán Morán focuses on exhibitions of contemporary art, representing emerging and mid-career artists, and participates in commercial art fairs."
+   "kind_evidence": "Established in 2008, Morán Morán focuses on exhibitions of contemporary art, representing emerging and mid-career artists, and participates in commercial art fairs.",
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/moran-moran/01.jpg",
+      "provider": "site",
+      "px": [
+       1500,
+       1000
+      ],
+      "fetched_ts": 1788576743,
+      "subject": "interior",
+      "caption": "Grand gallery hall with vaulted ceiling and column",
+      "url": "https://moranmorangallery.com/wp-content/uploads/2023/03/0E4A0558.jpg",
+      "source_page": "https://moranmorangallery.com/exhibition/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/moran-moran/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1068
+      ],
+      "fetched_ts": 1788576754,
+      "subject": "interior",
+      "caption": "Bright warehouse gallery with exposed ceiling beams",
+      "google_photo": "AVoNoXTI6qBzEwuU72YUwlaATkvlfvdKueyNfEeVG0oSNxcIo2nJ_I0qI-Sql7O8iizW59DGa9rjyTbqDZ81l4HZunCK8OJaixlQrE1xMThdEtBESywMv6FS38O_38ULmIq6gmGuSP485iQgzB18Q1l7SX-W4FsB07eiNEjOJlNMK3Iy2B2inKs-vK7pAsJa11S2Qq9vlg9IDWjBiFiAkNCMEg7yXKboU1e40ua50KJlQfb44jjWwFulIyq5Wv0mcVctIUzdDsZlI__uRrgziLUgX50mwsHo5eozp2CDfJoLKmW4RVqt8FUhCdQD1erZc7ypZnIh_VzbcYKHyQcoWBkS6_QP2pYdWd63EkTxIWV7sfcS3PD2tOK6U3ELo-vlVjb2EEHwPSGV-gMpLdgpxlA34h2YWaI0T_qLmDTI-KZ33J6hpQ",
+      "attribution": {
+       "name": "Morán Morán",
+       "uri": "https://maps.google.com/maps/contrib/111675108879287569379"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/moran-moran/03.jpg",
+      "provider": "site",
+      "px": [
+       1500,
+       1000
+      ],
+      "fetched_ts": 1788576737,
+      "subject": "interior",
+      "caption": "Gallery room with wrought-iron door and mural",
+      "url": "https://moranmorangallery.com/wp-content/uploads/2023/03/0E4A0530.jpg",
+      "source_page": "https://moranmorangallery.com/exhibition/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/moran-moran/04.jpg",
+      "provider": "site",
+      "px": [
+       1500,
+       1000
+      ],
+      "fetched_ts": 1788576745,
+      "subject": "interior",
+      "caption": "Marble hallway leading to gallery rooms",
+      "url": "https://moranmorangallery.com/wp-content/uploads/2023/03/0E4A0555.jpg",
+      "source_page": "https://moranmorangallery.com/exhibition/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/moran-moran/05.jpg",
+      "provider": "site",
+      "px": [
+       1500,
+       840
+      ],
+      "fetched_ts": 1788576731,
+      "subject": "interior",
+      "caption": "Dim gallery entrance with glass facade view",
+      "url": "https://moranmorangallery.com/wp-content/uploads/2021/12/info-page.jpg",
+      "source_page": "https://moranmorangallery.com/information/"
+     }
+    ]
+   }
   },
   {
    "id": "morrison-hotel",
@@ -193155,7 +195459,50 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 14,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/nicodim/01.jpg",
+      "provider": "google",
+      "px": [
+       982,
+       552
+      ],
+      "fetched_ts": 1788576487,
+      "subject": "exterior",
+      "caption": "Brick facade with Nicodim Gallery signage",
+      "google_photo": "AVoNoXRxUs7hfmjxa6LxGUq39G3EDaUq55ZQa_gc0gnMrtqydlAISyjwoNJcXWw8Yz0-04kmN-FJzEiRD1-5408TUvo-7w_zyfJUNH8OedPnSYfZr1DINmRcuwUfnTrGEfzVefvqVc7oZEqHGs_Lz6ZNq7dxmUhskbV3hHvppZW7KT_khaZ5x4uarGRwU-DTWt9DjC0gHq0hc-I-FqiohyDspvms-bi8uQOIRRIkVZfdUP8wKIPWwT_cEzHPTYfLGHxrXBnGkMC_zr-7DA5lpbmq1rep_dMvrx308LEQiwoYslo_pb5IPSNR2zMWDy3d0qPHx4JwJU8ahOc29p_fVhO3z33huCGmV5LC6jcn4rsdsDXdnkWT5zwrhKN2DkfuIwWjg6ONSDGvMCBndk-A0BORWI-ZD-NuHEzzPBdkGjb2-7pBUtCx",
+      "attribution": {
+       "name": "Catherine A. Montgomery",
+       "uri": "https://maps.google.com/maps/contrib/101875998493251463525"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/nicodim/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1033
+      ],
+      "fetched_ts": 1788576485,
+      "subject": "interior",
+      "caption": "Wide interior gallery with exposed wood trusses",
+      "google_photo": "AVoNoXRLEIkXeR-fUiSIYq60uvqEBSwE0J_4xsWcW3HrXubsQLquXl7PSvVWYBldxLd4jfM5hKwrwAB7YiFsnVj1Koc_MRsnPztn4Z4ZLLhPUy2ZtAM6oXMNa_5I2WmKS-R49kGMCQ-CMyr2nJQxcW2P5UNXSwylycB98WjkZTSxhK3m-sf0mh8m0jY8VB0xQuRMuy0HOi-kVcjnzBe0kR04okZFq4U62ZhKu5Gq0UV8yYvaTHawaeeB3TCxTBhye5sIBRQPPt4D3V4GFrAYtMtC5yev4-gc_V--UHZFV12Xp05s5DfW5q6Gk_QYPmZsM4KZpLJef2UjE-IUXbQD-lqY3PE_PttsV6bsXovwtRj0eFNrQHekj9RFvKHAdhRKy-7SAL46HVEaVhfQnx2IEoiqxiw8Jtk0Gi4-qn_7DRwjaUOeMbaJ",
+      "attribution": {
+       "name": "Nicodim Gallery Los Angeles",
+       "uri": "https://maps.google.com/maps/contrib/118342016828796243801"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "night",
@@ -193512,7 +195859,50 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 14,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/night/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576380,
+      "subject": "interior",
+      "caption": "Wide gallery interior with exposed roof trusses",
+      "google_photo": "AVoNoXT2SPrO-aPOCvDNjUetE2K4Ju7vQXG4VsNtmzaNquaGXQ_tY7LY41SFkMXuCL_0nfOv9HDx-FS3XL0RJ9lPAVLL0fdH4SKPS0kiFLOA-GZWhj8uQWMqr2xS8GIMtOFvoB8DDOU0qBfA7pTD9Iwf8PG3vycyursWjPZ4lDDdwNLF9ysiaTIjJrBQE9X41NgvpKovBeWI4Vp2ATMl6of35C9B7nJH--dYL60pWhW_bRI0-5h2oEoT4Kuv47ImlYZL7HObaqtpol65c20ry2EuyygYY26RjNweNKTSshi6f1IrGbcp5IHvUeX8E6utpkpRFrooh55a49y1R4Gk3i_3w-Qa7XmMpBW0FBMd1klJ8Rlo9-N_ylVY7SeeczVnqYd5_ADqvvmX11pHuY4Vuil5-ijO36Julqiv-2eeWTlHljoG1w",
+      "attribution": {
+       "name": "Cli M.",
+       "uri": "https://maps.google.com/maps/contrib/110106048947826807731"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/night/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       901
+      ],
+      "fetched_ts": 1788576382,
+      "subject": "exterior",
+      "caption": "Brick warehouse facade with courtyard",
+      "google_photo": "AVoNoXQuEAJE8aAFOMfoSj0dKsMQsqjpoRDl9ixKA75qbh1PCTkazWVqaACx5XOGY9CbCL2W9MvtXQH6TYh3MAIciOqw9FbFZPFdH2YOwbuScE--wb0ufR-Ua_CKv9m_IRcTyyXqq0o7VU8uftisGwfPzuyL3fk8xkAcOS1mHToS2qNF7oH_Y4MA-TlCtZQL6_lSmnIEYPgofGbK59FXFng3Vm_UHh1Exs9y6gr7OaCNe5nvcBvfIARKWcgQlgAcZk7DODzOn1ePL_JW80bfXEl0_iAOwzUQQLvxKHDOGdfarLwe9jm_NmvtFiI_z_QotV0uy7Zq0CwxtHeNn3SibQay20P2B66DWF8yj3MczcAhh24BLUBWBELwDVHaS29ndihAh6q2TNhkPgOYeuLKiHoj4I70hpCG06iWKiMIVmlUP7ckCaRgQl-1MAln0Wx8Qbpa",
+      "attribution": {
+       "name": "Roberto Ammendola",
+       "uri": "https://maps.google.com/maps/contrib/114272060931501088062"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "nightbreed",
@@ -195264,7 +197654,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.8,
+    "candidates_seen": 11,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/nonaka-hill/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1064
+      ],
+      "fetched_ts": 1788576794,
+      "subject": "exterior",
+      "caption": "Facade with Best Cleaners sign and gallery windows",
+      "google_photo": "AVoNoXQHMwMZgn8_EZfLeUwqniDF0-cXbDgdEepwFc7JJoFh58XL0l5PrVzFwxXvTmn8TmnXKa2leQ6H9-BRn2yAm5FUyXr84z5KqvvvN7fu83AMU_u_WavXo7OyHH4uw-SoMe4qTYEqi70HHGYVd6dzkV8hRNQ_T0NutEYSb5062zXV-wuiATlsHkfgiO14oZ_Hi5bpogdJ5SceL_mCrP1YiYtVVvR-HMhjrjf8W2QNitwGHLgl5GZYGWacLO6_Zox2SfkhsJ3xwKZHqDvByYx30BI32VEaa-t_ZJ4v_iKMu8RbXiw2lEjUiSnLYjmMm1acfn6qJBz_RnYWSUoU_p_Aop-UzmCVNtuFxJ24FHAZO4QX1A-0QyphoKWKqoiW-gcSK_m2vF5vZ43ABxTsvfIyH8wW9nTYo2qGQtQTOsHzPzeax1ld",
+      "attribution": {
+       "name": "Nonaka-Hill",
+       "uri": "https://maps.google.com/maps/contrib/107322692143215519963"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/nonaka-hill/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       901
+      ],
+      "fetched_ts": 1788576793,
+      "subject": "exterior",
+      "caption": "Nighttime storefront view with sculptures visible",
+      "google_photo": "AVoNoXTyY9wTfZT8rzG3m5GUYS0T7VfXAj2MWe-aep3YdS2RlsdtI7cty7fIXITwHParaXPp_0ZzNPrq5fPpqfF8nfMhV_CNRG_doiRuZFPnIhgAog71HldClBvYgjmb7qUzZ3Ucsyo96el_sESdILtPuyr0eJJBnFvE8NFkMs1r1ONbZtZDnTtNZGtUOOs0f1_vfcD-tcJTpKDd7t0BezJvF_NOxOON5mzj-Ilfwl1muHgyJ0vX54xNdh8HIspCyrpWip1mswsRLYZzof8HbLvPO2OpnEXgajcvoWqzxPnC4qOn_3p8URkNdcD6HzAYg2XjLm-1BywQIS0pXoFKNwUyjSMJmmrYrzX2ECfhcgmEomiFFYCB5S54Gubkwdr7sfuAvUh0hM-1bBDPmC4f8u7o6GTOpGlyD1L5im1FWdMvQDE0X5PS",
+      "attribution": {
+       "name": "Nonaka-Hill",
+       "uri": "https://maps.google.com/maps/contrib/107322692143215519963"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/nonaka-hill/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       923
+      ],
+      "fetched_ts": 1788576793,
+      "subject": "entrance",
+      "caption": "Entrance doors with interior gallery view",
+      "google_photo": "AVoNoXTsf-6NPgm90nIbfHGEXikVMu2k0Y3Na2ibY44XYZCmUM1LB6NEKas2lzsA4I3tQ1wHmC7dkv3jSEiu2oxDRw-l0vLTZj7k1mWJyzc7bXMJaA6UiU19_c0132DjY4unzPdLhhLQIqZDRvEIj656FVJAsEs6lnzAKakfcCvMVpPZZbXUhDAXRI878eRH5Ifb4ZwRPqbGUfm0pWodAk-x5p_qriuACVS0XwktopkgZoQKiFRwiWk7fz3pLIo8HHsrw9cOVGGjKjhm4oMqNAwvN7ay4e9_ojc920xBMVncv_407siw3Mf3cBLCFZshTpxsdSlvFNiHk6Oh4cWl1bLuOb6TKjQmsRgZYedQTFHtA8ARbKL87aF0RklLoV3-0DK9xZ8SX6810T5T67qSOxOjZXVtPfbVu68XixyoSlQKNFNRZt6W",
+      "attribution": {
+       "name": "Nonaka-Hill",
+       "uri": "https://maps.google.com/maps/contrib/107322692143215519963"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/nonaka-hill/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1064
+      ],
+      "fetched_ts": 1788576794,
+      "subject": "interior",
+      "caption": "Interior gallery space with installation and paintings",
+      "google_photo": "AVoNoXR6y7wQ53H9O78tVdCwfaoNtdi1T4TQJdK9IT2wVYwP6sKDx5PSHQOmnkq1_QuKxHo23sEPkA2dk_sJY2jSULijX8_CCfRjBWZ5cItqelSn8RNeK8gdxWqRcTGthRx43P3nphAjAxecNutA1MDPmnSnITAbzfUlBEgbHaxiRfZ4addLh1UEJRWehnPdh-ctD7xVPwLRDi47hoti8Und-6unpXC3H-Y33xj7I0gy5CiT5etZBjOABXTsig39k9fEpw9YK1HtUKE8msfLIosXaDFhhf7Fn4fPV15ia950JslwR44PlbysJSOlZbiLqDkYwHfPcImegPQkzwtMX_HGYnDFQGZ_WXKHKagcySRWAb3d-K8kjM9wpJeJwecX33DpAmRC2TYebvhKXeQbTWuPo7UI2UepzueyUB8A6nI2r0qDqttE",
+      "attribution": {
+       "name": "Nonaka-Hill",
+       "uri": "https://maps.google.com/maps/contrib/107322692143215519963"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/nonaka-hill/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1064
+      ],
+      "fetched_ts": 1788576794,
+      "subject": "installation",
+      "caption": "Colorful lit installation room with tables",
+      "google_photo": "AVoNoXTvvzqeCn2IDAtwkSHodnNtUKqbWuBxuS3Y-UotJ9OgXK7t8LTQz_Vt7Zu3kt59ig0YtUoatTnRkl3vDXLywuIXG8Rxo72wWRfyUEGqfto3WL_mMGaIqeBfHBirPMP6KmAIpJYLPDIriukHE-apFDqttcl90zoAnnx4y6_h1ZJ6NxsIdPWGNlh8xjXZKYSmw7wJfcZpa0G9BDfOoTvt3Mqz8JihZwcb4xdClW61JjLZmUD89X_A2KypJ_OoNVEBqd0lKqtBcjBi1vOPiKNu8e0M2my-6ew07k6bAvWFadzaKMHRjHEC0oe2fKjLxgpnZWabHd90NRFzMEg_nPYHJRz5kPbHLiDcLOE7P-oRdLh-2fCGrIcIDZxfK_PvAgxbRwV0F6OAaCzOAPPVFFQY4J374Ur6F0zP8XNgo9RZ9trJ1i4F",
+      "attribution": {
+       "name": "Nonaka-Hill",
+       "uri": "https://maps.google.com/maps/contrib/107322692143215519963"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "noon-projects",
@@ -199010,7 +201491,47 @@
     "gate": null
    },
    "kind_source": "research",
-   "kind_evidence": "Site lists a roster of represented artists, participates in major commercial art fairs (Frieze, NADA, Armory), and announces artist representation ('OCHI is pleased to announce representation of...')."
+   "kind_evidence": "Site lists a roster of represented artists, participates in major commercial art fairs (Frieze, NADA, Armory), and announces artist representation ('OCHI is pleased to announce representation of...').",
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 11,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/ochi/01.jpg",
+      "provider": "site",
+      "px": [
+       2560,
+       1440
+      ],
+      "fetched_ts": 1788576725,
+      "subject": "interior",
+      "caption": "Bright gallery interior with wall art and sculptures",
+      "url": "https://media.ochigallery.com/2026/09/01184748/DF_ITW_Extras-008-2-scaled.webp",
+      "source_page": "https://ochigallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/ochi/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       900
+      ],
+      "fetched_ts": 1788576726,
+      "subject": "installation",
+      "caption": "Ceiling view of hanging sculptural installation",
+      "google_photo": "AVoNoXRo6vK_7nDWJBHPIRKIuPe3Iw75NecjyLq1ZuOeU-uP3ZaOF9YX041_Vpn52TJUYi2yFhxwwSdt0sx0CX5V7S3mMzSpFGt6BXgK_VVmBQxT6d_3YoXWwI5WQZhdD-XKs83gkZPm119SnIHYi_ECYulDtp6neknU492K5HYIwHwpy3Yhc3oRgFCKZtcU-th87E3INIAzFcpwIauKVjlm593L1YpaF6b0_nLjK875ruo2ajbLs8n9-AL2AtlWclx_qi_tzih-skN10zFKU3F_4_wzJOAsR9VQx1ra27RTNWWLV4hsuNvHSzzV6iHopBFpDW2pr05Y5WPLkp391SyD53imybMoSaOQMKwgPHINDjVruAfelZSkr8Y8bp0W7iD6YUONcDkxmIIh5fSy5k-SQdnaz37QbVt1IX3Y-CjSmVFWZQ",
+      "attribution": {
+       "name": "Felis Stella",
+       "uri": "https://maps.google.com/maps/contrib/107152095413230031969"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "odd-ark-la",
@@ -203257,7 +205778,34 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.4,
+    "candidates_seen": 6,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/overduin-and-co/01.jpg",
+      "provider": "google",
+      "px": [
+       1412,
+       810
+      ],
+      "fetched_ts": 1788576521,
+      "subject": "exterior",
+      "caption": "Street view of building facade with tower",
+      "google_photo": "AVoNoXS2nxXmjxAMlu6dZPflqiOCJPtMJIK5PsoUqw_PC2PapN_TowtWaMKpOPmA97UDtT6JKNJeHfxE-M_pnBtoNbDL1Xr0KnmurjncIyGn8TDwFCmvMUfQs8WJuQ5sB8smeHvTTZpoMq0oAqEqK07PiUJxA84p6kwFeRunLkALTai5l_VZvtCPq2lSEfWzCoAISI5CWQlyfVYpFusavztxLDzhObj_2B3rOxZJy6eDbLcK3678O4u3uX9obXLLMqWrD9uJpUpy42Jzz4pi_70yEZm-jJBTJENme0ubdGBhMMQcQeyJbZ8GM31pagZTIhmL1mbSCgWJncDDqe_K5UQQBWDJgxhJJ3GD_4Cf9qWoob50rcJnd0VbbWgbBkNfQ0t63DVM5quQUeKBMF19CS9l6zaGfngvoGdT5K9iJjshR2k",
+      "attribution": {
+       "name": "Overduin & Co.",
+       "uri": "https://maps.google.com/maps/contrib/107498214925079971894"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "oxy-arts-occidental-college",
@@ -204176,7 +206724,89 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/pace/01.jpg",
+      "provider": "site",
+      "px": [
+       1200,
+       630
+      ],
+      "fetched_ts": 1788576179,
+      "subject": "exterior",
+      "caption": "Ivy-covered facade with gated entrance",
+      "url": "https://www.pacegallery.com/media/images/KG_Outside_wall_full_vine_XKPKRbG.2e16d0ba.fill-1200x630.jpg",
+      "source_page": "https://www.pacegallery.com/galleries/los-angeles/"
+     },
+     {
+      "path": "images/venues/los-angeles/pace/02.jpg",
+      "provider": "site",
+      "px": [
+       2000,
+       1333
+      ],
+      "fetched_ts": 1788576204,
+      "subject": "entrance",
+      "caption": "Courtyard entrance with glass doors and ivy",
+      "url": "https://www.pacegallery.com/media/images/KGC_exterior_without_lights_hi_edit_LJYj7tC.width-2000.jpg",
+      "source_page": "https://www.pacegallery.com/culture-equity/"
+     },
+     {
+      "path": "images/venues/los-angeles/pace/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576205,
+      "subject": "interior",
+      "caption": "Bright gallery interior with artworks and sculptures",
+      "google_photo": "AVoNoXS5m7lK714Nvmgq_tmCBnxi2EkmL80KkU1HFZi_SE1zXkfezVXu88yM8DqTUhGwQrarvGuKc9K4Jtm6G3JM_GKsYrjjtYZkbsDIlSRD5IVjGUFYWJg4c1nim0sCNs6WmlF5mSS3kiHI-kvWcduEl1dExRgw-tIKnd6qoBTWlP1ojTkm3Jkbv8OsR114N_oVd36oBCJAURptngPCqOoD_tmrBw56aDT7XvRrJHyB5urWy7k8OpikR3z_uZNBQGWf8GFvxmhcw-k19VT29n45MzKLBwnOkTX8FLni-hL1gY3U6jHgwkUVx1_qCnvcG-sqdJAW106t30dfkw9633NNK8sBS1V2mAyO7M-BOL_X0tlyKeCCGUhufGD2CPSDvsj_fDQpo7e96VeAAfd7KKPV1TWfWiosxhYTqLJQyb6E9WuP0a8DZ446F4f8tUb4pf6s",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/pace/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576207,
+      "subject": "exterior",
+      "caption": "Courtyard lawn with sculpture and ivy walls",
+      "google_photo": "AVoNoXSLTpl1DjIjThQM2LmjWUCjyTZNW5dyzJ3mBNZYz91fiWY-67U4YHqhxHqaCEPllXnUkg7OriS5nXoMS0PzJhy96VfmeFM5TsZhfwyKfFVG51S1pa9POM1szW9qS4qoM0c8A9nXnWte5q2wstDwxhje_tZwrAX075p773wMmwXxrko3IEq-92EqkPoBaIR9usjjCR70-SvjtF8HQnUouuAJnAFY4udpLCqvydNvyD3sKoI9UaK3x3fJ-T-rScz59qX-vUB1TXFgLJu4AkbZwQQrbLEbcrMvTYC72H2tnhlTjLk0L5WjJGfLtwdu3Tej6he9DDkv3C0M2UzB6R24-Vp-gIe_HDoyOAas547z30cjaPy18QmOaPvOPJ4qpnix9DXvkliG8eOHNLAKYyIs6WaYUDRYlm9_XnN23SF1RREhHw",
+      "attribution": {
+       "name": "Jeong Hee Hwang",
+       "uri": "https://maps.google.com/maps/contrib/104948464342929936735"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/pace/05.jpg",
+      "provider": "site",
+      "px": [
+       1281,
+       1920
+      ],
+      "fetched_ts": 1788576194,
+      "subject": "installation",
+      "caption": "Gallery installation with paintings and sculptures",
+      "url": "https://www.pacegallery.com/media/images/07-2018_Wilson_Install_SM-_DSC3802.width-2000.jpg",
+      "source_page": "https://www.pacegallery.com/about-1/"
+     }
+    ]
+   }
   },
   {
    "id": "pacific-arts",
@@ -206318,7 +208948,89 @@
     "show_cadence": 0.0181
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.75,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/parker/01.jpg",
+      "provider": "site",
+      "px": [
+       720,
+       480
+      ],
+      "fetched_ts": 1788576631,
+      "subject": "interior",
+      "caption": "Wide gallery room with wood-beam ceiling and artworks",
+      "url": "https://parkergallery.com/thumbs/exhibitions/wally-hedrick-sex-politics-religion/2026_02_06_parker93340-720x480.jpg",
+      "source_page": "https://parkergallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/parker/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576641,
+      "subject": "exterior",
+      "caption": "Facade with signage, entrance door and landscaping",
+      "google_photo": "AVoNoXRozTBHuNbtMXIycQe0Fi3SLm7AZWFIy_rwHlO7f2FMcfnTb6hOg1ZAj2J6HciOGYxEgM9L_zNXn6QTRaGHmqrjUtRDWVCJb-544xUHb4GEStLlA2Yhm8pJfvb88B6AbXjtWNYsAWllAOM_2lUYun5RF-NqyH6A7WOBpLuoASzplKq3bCHGhKyCbt4Ol87ENa9zC7wfjtYQQr4ryM0g_GYbbXmEPyvkFuegLgHWrjvg8jBBefFwchghJdIzSr9h_Pno8fQERhW-0jM4jdiVLgj3588DbMaObVpcTa1KOyQANoRTAL8CaINEAUnnBSaJWCJMjLIXbDX8gVG-59fBFW6VqG07MFbTh4GttgQnt2b5pJvqRRx4JAQE6jvkHcnjlvaX-_sj4cgT8HnTqjeNgW5DLJtgPXuIf0NnUySvYwNMDNKVr99hZung_eSpkA",
+      "attribution": {
+       "name": "Parker Gallery",
+       "uri": "https://maps.google.com/maps/contrib/107692500435593029384"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/parker/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576642,
+      "subject": "installation",
+      "caption": "Skylit gallery room with sculptures and paintings",
+      "google_photo": "AVoNoXT9M8HZPfDJ2jaPoFTItl6XSnsoovuinugoiUk54PF16rAff4HzbCT5sRNCzreP182U_4wb3dvPIXjZtrLZTWiEM0hxp5ez-Vd3N4fOQI-LGTVORcd61HqVX58rdEOTjVG2DjNVOd7-6fqI4vxXRouiikR_VcrlEUj5zpXpA7FShopVBVCA7PB9bC1G4L7iq0isJfFukOas8VeP--ge07KXJDDpOSXBAn5nulcEoXNt2HnZKH6ahTWFOxy2Fi2zotPKTOsrTp0bly2u44xoNZB70LJtrnHoewaT17UI3uE_QgvJXvkIE5W4ME8lFp-yWCesiIyzulwJJF1ecEcqWZDtWUoMaLxOXK6rdTadHpGLUlK5eREgcaACrZjHYiHn-xLSckyq2Ph7sO61eCEuPhU2H6YYIDeK1kIhrarG6LKyuxhxQZCG1lQjZvzczi9B",
+      "attribution": {
+       "name": "Parker Gallery",
+       "uri": "https://maps.google.com/maps/contrib/107692500435593029384"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/parker/04.jpg",
+      "provider": "site",
+      "px": [
+       720,
+       480
+      ],
+      "fetched_ts": 1788576635,
+      "subject": "interior",
+      "caption": "Bright gallery space with wood plank flooring",
+      "url": "https://parkergallery.com/thumbs/exhibitions/gene-beery-the-master-speaks/2025_11_10_parker87088-720x480.jpg",
+      "source_page": "https://parkergallery.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/parker/05.jpg",
+      "provider": "site",
+      "px": [
+       720,
+       480
+      ],
+      "fetched_ts": 1788576639,
+      "subject": "installation",
+      "caption": "Gallery corner with wraparound wall installation",
+      "url": "https://parkergallery.com/thumbs/exhibitions/christina-forrer/2025_09_10_parker79954-720x480.jpg",
+      "source_page": "https://parkergallery.com/"
+     }
+    ]
+   }
   },
   {
    "id": "parking-banksy",
@@ -206820,7 +209532,63 @@
     "show_cadence": 0.019
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/parrasch-heijnen/01.jpg",
+      "provider": "site",
+      "px": [
+       2429,
+       1745
+      ],
+      "fetched_ts": 1788576694,
+      "subject": "interior",
+      "caption": "Wide gallery interior with sculpture installation",
+      "url": "https://images.squarespace-cdn.com/content/v1/6a456d2806d50f1ef83921b7/90da98ca-6322-4ae2-b0a4-3ec9eab34352/PH+edit2.jpg?format=2500w",
+      "source_page": "https://www.parraschheijnen.com/"
+     },
+     {
+      "path": "images/venues/los-angeles/parrasch-heijnen/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576710,
+      "subject": "entrance",
+      "caption": "Black entrance door with gallery signage",
+      "google_photo": "AVoNoXRNVAq-LPXAXSXoAJd1CvC3ULknihnHw-KXd4tPZGii5EKWv1d9bfxFA8iN_nsL5p9Dda58G2X3WHij8sXsaOMed4tN9zyPoNh6Tx19ZLkVPKlvyEaGm9YJ93glkr5jjsxXXpHqHYiMlGIpoj1HCf4sf9Jt5ZuXmshcqHs6bl5rqf4dN2s4By1m8EkkX7MO6Et26NXPYVnir8Gm13G0oSzQ8gwZTZyP2C8ynzsR3iPPW7t3vfoh7KvqumWqeeKcWdXU-n1-GYDsq1XYCamBhAIuS0FEMuWEG14eleDXriYwe_mY_bEJw9X-lJwPVLdsLNgEB_-ntPF0jAHb4m6R5xSkTNrQgTe9oD_UniNwBTwqe3HhpEoZt_zFBo2h_50nHbSJg2Yd7uYl7kJDLMMa3vaRMZM6dutBSBYVuSrcL6sUbYmDa_6bSJ-cnN-fiVFa",
+      "attribution": {
+       "name": "parrasch heijnen",
+       "uri": "https://maps.google.com/maps/contrib/116368677137750012053"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/parrasch-heijnen/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1055
+      ],
+      "fetched_ts": 1788576711,
+      "subject": "installation",
+      "caption": "Gallery interior with geometric sculptures on plinths",
+      "google_photo": "AVoNoXQhUVxKaGPenm8zxRWbOHDOY0oqRvloULIfZJNYNiWuhuOooF1F7tr4hr1R1tTRo2xMawjSubqsocWvYASVkKIIZ8ytx9KCZwyleDjAyzzp1BxqxDC4V8x-d1vVGwoSxtFHKFYhSRlt1X37Z03PqLoWxQSzPIEK0h6x8gR_jT0kvl91ZVidukUs518WdtnnCPQmsH8a5j77uYpWEgYmihAES77_l78ttlD2xl5z_5PxsA30yj7IqfUld2QZqdKuTmZ3kpNge311hJaJ6AwsnhOjD1qMj7fpvd14yVLpo3YoOrUi_L6_PvKJoWzSpjDEeNeTCU3eVeWyd0P7GRWZuZuaylQwgAV60-FBYo-GrL3aXVRr5irxjtf05_ZSW_fdh-dkAudQe550NvWFgYpzyD2CszJqn0E7J9rQGFqnOQ4",
+      "attribution": {
+       "name": "parrasch heijnen",
+       "uri": "https://maps.google.com/maps/contrib/104548885256166181605"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "pasadena-museum-of-history",
@@ -209088,7 +211856,66 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 10,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/perrotin/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1194
+      ],
+      "fetched_ts": 1788576238,
+      "subject": "exterior",
+      "caption": "Night facade with neon marquee signage",
+      "google_photo": "AVoNoXTZPqIP6gIqXnI_l6WPR4NGTPfiCFSKhMoCGwT_XGM9MbfLVD2Nk1ggyXwDrrCXYH0qIY1lEmJXrCxYIAdaWDRwtlJe3vjY_TZTqww_wfPl5ujBv8xtmBWZMwBz0PuUX2PfsCJpMtkmg1KRdpEs2BDTLJkh3i7-0hiFJOjoU7NYgisdJVdlGCBP_veNthi9_N-ImJJyFY1M_sGp3wOMfsIg20UxoaZGgLqOVAJ3GM9t0mghZqHkxxKTdwQZqdoO4RFbRkhskNGcl67esy80JVm-5qTxSGVdcWOQm6Vz4FGxsj5XgNEDAZy4xJcj_pj2K0PaZgSO7zYne0giqmK2RkLqLzhsKTKQYi7ywUmNKvfBhxJUVsjVsM7Mpc0GUGQKjoOzzTewD6pzK3hB8jfriKona9ImLFHMUBnLP8AbLH1-LW0",
+      "attribution": {
+       "name": "PERROTIN LOS ANGELES",
+       "uri": "https://maps.google.com/maps/contrib/112446878494190506884"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/perrotin/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576237,
+      "subject": "interior",
+      "caption": "Wide gallery interior with wood truss ceiling",
+      "google_photo": "AVoNoXRZcz2oadKyU7cPALLnA8ZC-BjR8JWVnX6IGxzhEtm0qyYOhadaLSkXk7SIEYZoFKf304m9uatCJ7XsSHQDTQEo3uHEisIL2BjN7_awq4V2c9DcrUab2pOYhuf2oyn9gi_7dkfLiqpzN0BS6Sfgv0Yl91feJi5FOqhx6XC20cqKRb3C9xD8aMU8hOw8DQJLp0ZfAbJ3tvE1w5bOEo_XuQWmw8-u0ZqPXNThLMCVEA2Rahx4dNt9Gm3HiEhp4dshjjaapPCK3uER-AJYGQVvjkqHs-uRNVZPckFtPNdpUmTvmAwqEtr4wlO_O86GHX52-nJuzETI3f3uN3ES4gP4diU3JBhemzIZumziFOPSUC7HVDdADwaZ8SqvbcXhhbsIYGb0weoscxPOwI--rc1DWrPXJUSsNgzBhuYLj5x7rWTjCT-I",
+      "attribution": {
+       "name": "PERROTIN LOS ANGELES",
+       "uri": "https://maps.google.com/maps/contrib/112446878494190506884"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/perrotin/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576237,
+      "subject": "interior",
+      "caption": "Gallery interior with sculptural installations",
+      "google_photo": "AVoNoXQ7jFykPCp1XzS1fzzxyuIQFFv9fRakUZ1WBJBuKh8O1aafQYpI2EUrW0gPJtHr2qSmlyaBbZQnZOnztm85SMzPZ6jC8djty-hAL70M53tZ4sDjyf1ymK72CmS2igh0_0vP-7gToVapOWOrELGb0nCORvYMKVoI0NbjaHRjME5b-MlA6jveOvj0KmdpjhEZOYSHPzxamHYm-2OyaZ_7s42HSXEB61CJjVpy4hVyYPVdu6iDLGpLQufxE8k_1ySZ0agOeMq-TWxoqIqtGuJUlXkbF-87KH7bMtgP6VWencgwzvcspiztQ1VS8sgzeot_9lNGv_CwOZBE6WRraxhT349lsh8Vjn1v63oedohJO-M1m40XZnnbnFGvsdayZ9meWO1M-Q1ra7WTVYosOFPQMuEBLoHalX-dEq9qUZH9Fy4W3Q",
+      "attribution": {
+       "name": "PERROTIN LOS ANGELES",
+       "uri": "https://maps.google.com/maps/contrib/112446878494190506884"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "persian-blue-art-studio-and",
@@ -212677,7 +215504,89 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 21,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/pit/01.jpg",
+      "provider": "site",
+      "px": [
+       2500,
+       1666
+      ],
+      "fetched_ts": 1788576487,
+      "subject": "exterior",
+      "caption": "White facade with gallery signage",
+      "url": "https://images.squarespace-cdn.com/content/v1/52ea8189e4b00b18a7734296/113680af-e6b5-4e1e-8029-87e3d6c9e1fd/The+Pit+LA+Front+1.jpg?format=2500w",
+      "source_page": "http://www.the-pit.la/about-us"
+     },
+     {
+      "path": "images/venues/los-angeles/pit/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576510,
+      "subject": "entrance",
+      "caption": "Side entrance with painted sign",
+      "google_photo": "AVoNoXRmni7GoVql4e3R9uKGkkZNTQcFNm73E1AsoPbTrzutxi6L14VcdC39p_lVwBfCH33EXazJd0UOmipWDjPlds0YqZmF3ebYt_ClpLJaaALHvQtRjinF76L1MwgP2USwmn8lc-HG1pmsklhooyC_iW0YAckOfazygs1FUhU56Lzxc8JJMh_Wyq4ZbALznIqGfj4pfHa80SVdr_nRZBDNHG9WP1262EKlSk4QXK6wPp6V5UeESiYSiHXtIYvf7p42O5O0C10Fs1TAZLAXSgKvOaTxzBDCSXEq1wufCZS310q0pSH86uM4EX_a1O70qkK9zuejyX-iIeW0_PH0_HCDk-DYSPhVj9ML19qxIHswX4E3Iz6Ex6AeDrQGzn41fEqLBlLmPzJ4s4f20ew6ub6hOYpua06srS2ReFPXF7pIiWdbNg",
+      "attribution": {
+       "name": "The Pit",
+       "uri": "https://maps.google.com/maps/contrib/113781313243379816741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/pit/03.jpg",
+      "provider": "site",
+      "px": [
+       2250,
+       1500
+      ],
+      "fetched_ts": 1788576499,
+      "subject": "interior",
+      "caption": "Wide gallery interior with exposed ceiling",
+      "url": "https://images.squarespace-cdn.com/content/v1/52ea8189e4b00b18a7734296/1781900418914-L6B2JYP84WJ24P1YXQVO/The_Pit_Maryam_Yousif_installs_001.jpg",
+      "source_page": "http://www.the-pit.la/"
+     },
+     {
+      "path": "images/venues/los-angeles/pit/04.jpg",
+      "provider": "site",
+      "px": [
+       2250,
+       1500
+      ],
+      "fetched_ts": 1788576497,
+      "subject": "exterior",
+      "caption": "Outdoor sculpture garden courtyard",
+      "url": "https://images.squarespace-cdn.com/content/v1/52ea8189e4b00b18a7734296/1787953472802-7C5OEFTDSFI49P2OHAKE/image-asset.jpeg",
+      "source_page": "http://www.the-pit.la/"
+     },
+     {
+      "path": "images/venues/los-angeles/pit/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1121
+      ],
+      "fetched_ts": 1788576511,
+      "subject": "interior",
+      "caption": "Gallery interior with multiple artworks displayed",
+      "google_photo": "AVoNoXRPxRUqxmhGFZKT_e8kTI25PUXF6Elhqh7fnoyDd5YAqylIh_ZXfWdtzpWKG-G_j3PraHqZ-Se6dyRBHVtCqq_aZBbde4A_SbP0abKLgTt2n_nmxt4R6aY3WEyIgyjWsaNzcuFTLTEoinjpqocr5OYms5gtZ0pEN-W0f88pAmB6weNLouWPK1CmWduRLHzGqc71Lpl_rd0gZx7NDIa8bpVGWDiG3fWFIk2MlIsyKxNwlWaWzl2qlXjmoBgPA6Cs_nvXTFdan2dOnXdy2Zwiml2FOorwOhVtFAfbmFnmOgwTzd7rF6LnmJiUGn71cWq6-nf35Prth7oKbQh82ETkIK0KkNoG8Bo16ur4SuO_IwoFsKTjsdxsIHQjZb3FJ911iYxBuXXYxo2WpvLPXmMr3t0eu9y5VQ_dJBzcEWH4rBakROjf",
+      "attribution": {
+       "name": "The Pit",
+       "uri": "https://maps.google.com/maps/contrib/113781313243379816741"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "plane-musuem",
@@ -220485,7 +223394,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577419,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/regen-projects/01.jpg",
+      "provider": "google",
+      "px": [
+       929,
+       622
+      ],
+      "fetched_ts": 1788577402,
+      "subject": "exterior",
+      "caption": "White facade with gallery signage",
+      "google_photo": "AVoNoXR6s_rAZ9ZnXynR-vbcj-jVdasCSEymvsTbSTy-9teyL-pbx0aI8_VWYMoyt2ok6QGEgSZJJlXwC_tIG61V-g0xR4rQbhzQAmc_0Ejfs3vwFtSw8jUKZOIMjicuo2d6hE0URRMYswjJnJNgZ-9hGPF-PoGVXPOX2Z6Val4fnMCzAKHX4fwoji5cziRhx-Pw-o0uQJpaE3TVqniZKmqAgX25tw8bnr0zZQDbsLVxfSQaiG7exHVExdVeprrVC6VCebnwznf6HFlOt032gYbZa7h46GmDURMjGPhNimqOrrtcpF9C9C6cZVEYA7eEy-QGQRdghgH1x8ivWuR_b4iCd3XUHGszeaEHWJW0nOyNCbwaqiDZjSJeLfa3urJoWZa67wVzhmUgGkNY7Klbtn3ztoe42Z0t4wwM14L062ZFGZnSMA",
+      "attribution": {
+       "name": "Regen Projects",
+       "uri": "https://maps.google.com/maps/contrib/104370611455373865944"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/regen-projects/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1186
+      ],
+      "fetched_ts": 1788577404,
+      "subject": "interior",
+      "caption": "Wide gallery hall with mirrored installation",
+      "google_photo": "AVoNoXTXFwx-dZkoKsak2kpr6im5nJghL5CB1-aWofSj3xCJWDIK0_oqszBSAOKBxnvdLGI_joTV9NAA2GOTQjALcEN1VeqPmZHmHA2o0CJJ0AZmdo-ljz2AQMQBG5zYzprbqVyj38uE5TiOIKYxAECC0YCYKiSxzdsU_E9WoC4GxpIu4XETmgZ4OVNrcL9Y1BDt7TYdLFNNGuu8-4NPYPEzquUbqdvi3RRTpuloO8KFKO_330Wiic0fYKhutaqX27GfzwJ7tQ1dz1AVw-NiZsjZdhQKc0rN3wneU17hZLUnKYUQP8Q-kqOQGHFlJFxhC_OC8DKcY7xE9MxCjYMh9Hd3C3J_pWu0ustDCaySX4cVUfGuP_xm878nyJoBO017RVeCAheKpKwg6r8vQjzKt5F-bF147Jp17F3Oyi5ZJ2UZwQp29mdZ",
+      "attribution": {
+       "name": "Jaq Frost",
+       "uri": "https://maps.google.com/maps/contrib/102452478398147498869"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/regen-projects/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788577403,
+      "subject": "installation",
+      "caption": "Room with sculptural bison installation",
+      "google_photo": "AVoNoXSpTjwycNrR8G-vQ2q0KvybVhRRywEdJktLwpmNZIkq8xPQFV53il6Qjy2--M0lxn4ok3F5JOlasTfzQd8efy49LYu1WBUbc-u1C8DgKdKBMbzHJHHm2YKSZbxku3eL_Nu3VAVyqidEdDQGOUjqXWYyy_Gez5YwZYiglGm7P5uuiQNMEfbaAjCQxhCehaJkjy5nKwxmqpg5bQ_mqCXqMWfZWBtTQ_QvFNRaqW_fT9cckJziTVK-BmWYPUEiGEeI6R1JpTMgiH2MKfCFn442yAZM_fg0nn2WkR3FfZMrsOK3DpvbQw9oZta_gwegwcW3YMEnayiRBVwJl6cCAb0iQmIa1s76-nu_tFrRZqL91hAUW7J63L1lo_ap6uJVc5m9g6N5PzfoxZ9iTCcoSyInJjKb6P6fFpho2YXFcukttmNqU9a2DqiR4_UYrC7mT_Pt",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/regen-projects/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788577403,
+      "subject": "installation",
+      "caption": "Illuminated cactus display cabinet piece",
+      "google_photo": "AVoNoXTViglfj6lzYi7GfVEBhZQmUV4MO9QnvXEjwI_8mzUZYOSJ9A_dTn-HF5GN6KLLG21AZzq7DMJly1NQeaNo2E9A8UYsbrRI2Cc-ITqmD6lWGBwB9Kv4F8TRu_DHS7TZTWNnF3AzUYL3eaC7OBAq3bonnHyVZA09kdKsMbcOMUkGXtZA1Zvc4lE0Cu5xRzprvz8T2f2dKLAVHtMonPAUVIi58-JkJ3l0VFN6ItqB6B3VuSB6FKPh5yvDhYWJPsGdGSN3R62mUcWaiT6jfE4SBj8DEn1bNUrOtSiNSIKz6E90DJVdQpG5tVAfkFWVUeCXzXGHid0xA4QpAvw-Bg9tifMCubAUnovXROT6pJrojjzoIyV25uXiW1D1mEMy_RYk_Rs6a18NAD9I8jtqffC3yaeVMSp7IlzKao5qWSK1KQGDPoYyhXOUOYCXYFQW8ffK",
+      "attribution": {
+       "name": "David",
+       "uri": "https://maps.google.com/maps/contrib/107572007679131953933"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "reisig-and-taylor-contemporary",
@@ -222743,7 +225727,50 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.5,
+    "candidates_seen": 13,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/richard-heller/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576680,
+      "subject": "installation",
+      "caption": "Gallery interior with sculpture and paintings",
+      "google_photo": "AVoNoXRhvZcU9j318PTC5bq4Q6Ex3MsRcxnYvcKHLrDsRLbSrSv9VpjJNEq3-BVdkwIbbvLVfJBXsP_PLGUnhUbGLACAzua8Wdo6Yv9D48_KxlrppXh60--8LKoCKiUL9RJsI_BIzuOFszeVQO2ksVb5jzE-cXCPplNsHEwO5P9JM8o7MKuVI2-LbvnFW2F2W_3ntUt-49TGmOzd91QG3MrekP3GwvZ9lbzibSRXIatm9uVqIj5jfZRWMFESdB196HqZoUFQRYzLKTpyZg-VS_T-dycnrcQ0bGBx9UhxIBHWYCZxxqglGAMBqCLuKdpmiPFJSxM0MrpzBJCAshrMNrzR2gBIL1cF7--Jxzk4AOIcXGVvFN8_NxZIUl7PwcAAjbh-4UTj0kTz8-0naX8Skwt1J0NsQS6kUuh3gZzbX3a86No3SQ",
+      "attribution": {
+       "name": "Darius Kuzmickas",
+       "uri": "https://maps.google.com/maps/contrib/110246856500536613741"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/richard-heller/02.jpg",
+      "provider": "google",
+      "px": [
+       1200,
+       1600
+      ],
+      "fetched_ts": 1788576681,
+      "subject": "installation",
+      "caption": "Wall of framed artworks in gallery",
+      "google_photo": "AVoNoXTqpVGc8m4108R2hwj1jaT_a2z7zInpbCgE--jSHbYI_yDmUgKobmC2ho1fSFpMP8zlRvavNNFw6-eqWxiaY4R5sYPsLDBTVv-VxAop0DF9s9busU0r7vdxbmOchmF8q4KT7TV-lDu0mWmSUsdW-RE-jTggHwsWITT4TIKj0gC9Yjcyj2mPQwYZ6UrkRBID48K9rARdZ0TGc4RkI51CgE0PcyAroHrpHo114DVd79i27aDXI-OdIL8eIlorNhK_bPP1vXs6yJeaO7Vdi06sjmn6fnMNRrArTaUfqSj6HIoW2IL0pUjtOaSx7Zam7FcZWaqi5PBoOltnWddS38vs7h5z-y-A-J1Y1ECIdh3R41Dawewwu2ZaRiGYhSjIpulzCi1KbwIny6GazMMCH7wl9TDrnTMINy_L0ZzEmX-6PLo",
+      "attribution": {
+       "name": "Ken Mann",
+       "uri": "https://maps.google.com/maps/contrib/104745565929433688409"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "rift-contemporary",
@@ -226445,7 +229472,34 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 11,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/rosegallery/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       935
+      ],
+      "fetched_ts": 1788576612,
+      "subject": "interior",
+      "caption": "Wide gallery interior with skylights and artwork walls",
+      "google_photo": "AVoNoXR_SM6QGzOjK2u6UExF4OsVXZSAErz7dkibCrhuzeJxApSRwasguvkTh1ECY13RlkqJEXDNaZ9U2y4j2dTqF86QAj4Q7tdQMk4y2O5NG-vO-lt4h0bpvOaR1t8IVWG_qe5gXruZT7zOwWVFTR2JUAcoPSpmjoGqmepgW3IxUIXkiOtXApFqUnYM6jCH2fuIFDTf-YtNRhSKfpg6tB7ss1pTnEoMdnTrG49pcPkyg1A2oChZSKtPdLA4wZVKg2G5Tvo-lffbB6FGRenFJGvzoeWH2ARfK6_ixpbx0s_FezLpH8LWaCE-heHMw4lb3tCJsN5aiOz6J7Hc0dBhxljzSZ6gG0hQZ6QgZu9lG6mb46U9hJ3y-1c2voAr8vMJTN1eF2CZ0_SIeZL3CFSqkyLN3uBEU1a42xis6C2aWfzfvph9urI",
+      "attribution": {
+       "name": "ROSEGALLERY G5",
+       "uri": "https://maps.google.com/maps/contrib/109468835496743697385"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "royale-projects",
@@ -233131,7 +236185,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577276,
+    "model": "claude-sonnet-5",
+    "confidence": 0.85,
+    "candidates_seen": 8,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/sebastian-gladstone/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576472,
+      "subject": "exterior",
+      "caption": "Pink facade with arched entrance",
+      "google_photo": "AVoNoXQg_i0p-wNnStmrky6o319d6SR0JgTbpmlEbMLt0aWLLtyRwyp34bzdbiNJ6yn_fwt6GXIsWFUSsmxooeJRBeLgjZZz7aSSHZ6NGJXmNmSiYd6QeBUV9v656HPemR0cv66Ct5qknsioPtXr8eA_fqLlaJTUV3OfR-eX5Ht7Fmo6L4H5Yi47eLXAR2FVg-22J4ThWu8_ij4uEIWofQp5hjEuslN0Ly6l9X8ZWG1bdIEbx4-seGQ29HubbPTNegfkcNTBlaUXJTnXS3q-QI920-OTpVNz_apcLnwmrKL-9n36zA1k5O9f8hmVW0J-sWVB8I5_vPS89G8JoWQhj5cgFHjoeHc3MLpjFNInikp1ItSzMa4hBIy5Qcc2KjtprMoTlZtJOqeM53QtSCX5t8fPDvIlrrUiXvPF4O_rQFnooRX3iRSicBSUqg6DHvoKEA",
+      "attribution": {
+       "name": "Sebastian Gladstone Gallery",
+       "uri": "https://maps.google.com/maps/contrib/111021625630662375001"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/sebastian-gladstone/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576473,
+      "subject": "interior",
+      "caption": "Wide interior with sculptural installation",
+      "google_photo": "AVoNoXTHTf7venMO78MdJQHk1n7fRwUQCSzyR4QSGYECnVhMEBZqL2wvDovCiCdE-riwu4b_HAUo1587YJT_NaxszTn6W6urgfD3bodc6IAz6LTWNEDbgYEgEaAeIzNvxsROsGBw3bt1WuAxuo7VrdCtCj0h2kJotp4c4l7FxkWbiYWxc8VXf-xOV9cdg9Og1IQj1JlKPo9v1s8PI_fe225h42DbIl4qE7qb2QXzdoqarfXnIntass-9iZwhtQtHKlupfXwY2st9JIRp3w-FOXE1mLziL9w3eb5funALRPrMuVGz8E6WIDcnjnZvbq9fpIF03TswUP2PB3p5j6q0Gy1ugKW5ePpd4mHTAXkLS_LHw0WB87KTnY58qsY8At1pvQVbVoBcrc9agj0SumE0SCxJTqDC0CLYtMC6XbNsixiQVV1FTA",
+      "attribution": {
+       "name": "Dylan Varner",
+       "uri": "https://maps.google.com/maps/contrib/111349199998407387730"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/sebastian-gladstone/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576474,
+      "subject": "interior",
+      "caption": "Gallery interior with sculptures on pedestals",
+      "google_photo": "AVoNoXSQhhC2Wked0SzFH4fU4pu39Wq-eBiEHK-mt6to0gTHaCxCbvhS2caJ54uEXd7RP1qON2Nv4hJ7eugm_P1H4rIJdfAPsml9OuT2COA8jLCXtb5qLu9qTi7jTZHHhbpu-jX4VZig_Z5OgE6vDhpkZMLIqWPa7C7Xs_DGm0Okf4lR89wZ7w-T-ta54djhDoPD2StNm_qIaqlecvRpIf4qGMuqZI1Lz324WovFzqLkmwfQn4Ich_2TAI63ZFE9dWhuQ-x7qSkW8RVbN8Ttk95B8-vLxtH4ucscX0DZQteD0ZEECYE5irHmQvhxoonebz2q-ru50M0-2aK9PxAcnt2igzK5IaVod6VBTM-DnjVxo-MxVTbev0BnYHyrfn5d_GtTE7b_KoZ1OSOmGKB9pes4pDw3dvlznqIpqEP-jydfiO28ZQ",
+      "attribution": {
+       "name": "Dylan Varner",
+       "uri": "https://maps.google.com/maps/contrib/111349199998407387730"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/sebastian-gladstone/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576474,
+      "subject": "interior",
+      "caption": "Minimal white gallery space with artwork",
+      "google_photo": "AVoNoXSWVc3nZCPhRWexqcSCFN6smP9pJc_jo3u86guf3TCmln5MtsQK_tRmxhqs4HeOy2THway9jlfQCxPcEmAvAelaMNZELZsJ0VSh6A_VwE_pwWOWqCNzTEbk77LAj_GuuXeC47tvDrVuLcVAbbJ9QvsevymO7N_lf5Ylw26F8ZZhfOa8oF2-uk8jvyueiiWpLbMglIg4-UrOH2H7s3OuhgGIfo3xH3yA5W7hIX5wkgY19_j2nb4eOG-XiTwmJc8f1XCxUxgm5PMPMIxwTOv8BpEKxpb2N7CHOvIY0NYnQSWN9PuKnUei2STNyU4-Ms_6wObHc_AQibguQJQ2gZE6PCwaRj7kBf3DlCiSoHQXoM7r0pGnqFxqah0Nnk9mH0mfWSsNi2vKmaxq769OZqYoA28Bdl2O22hle5U9KWNcTnoG0w",
+      "attribution": {
+       "name": "Dylan Varner",
+       "uri": "https://maps.google.com/maps/contrib/111349199998407387730"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "seker-factory",
@@ -246468,7 +249597,98 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577274,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/spruth-magers/01.jpg",
+      "provider": "google",
+      "px": [
+       1241,
+       1600
+      ],
+      "fetched_ts": 1788576175,
+      "subject": "exterior",
+      "caption": "Facade of Sprüth Magers with palm tree and reflecting pool",
+      "google_photo": "AVoNoXQnM71E-f1ts111NJh3UNhTSJskEeeZ2y7q2YRdELffe4bCdJbbB6MZisIc5ee3xzFkoR-lHNFfeOngweQN4fMzvaGkcKcBe4LVqc1ukJAj6ge-79tPHTxyZ8Sw5BPvwNrM3FoS23xhI766HrQSS9js7RM6lndL4Nw4BNkj5mfPTimiblyTbImjTUDn3XyuHGLN6GQENatsx_1_jmBDWb3OIoqb88q2B-dUScr8PEfEexMjWaaK6w4iljW5M_xBShUpMu3PnPNd96xoVeg7q3tVcUVUb1TIELI0vUJZGilcpcn76RkYdl7yuP4x29fNCNDP3pz20QizmO--UDgvu-Z8E_ukTdHL_BUuBZUc3dE5ydgBFTyXbZ-dOAJKWXa-TzrymZw9NmMnQSq7mkK20qQ4VKybeMKFgCcd6umbHYeJ9SCE",
+      "attribution": {
+       "name": "Sprüth Magers",
+       "uri": "https://maps.google.com/maps/contrib/108585589372054888942"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/spruth-magers/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576178,
+      "subject": "entrance",
+      "caption": "Building facade with Sprüth Magers signage",
+      "google_photo": "AVoNoXQZ0v-N3TNLjUcF8hjLinOiZu1gmv5vfiRQaDoj_I7_KOoFz28LmsfchBRheNJ2WivuOUvY3PQZhUgEaIRDfJ_l1XUn91jmh54t_J1Sjv1irnarrSbuBMk2rGAbFzRhL2o9qCnjFB9b2rEnWlTRllrD2E-z4PmVFZPEdeC7Fk2izpyzCbtjn0B9pVG1gwOyhUoDGqqn322YWTOWRAcqErwOv02DOsLvKZni1JN-R1SrVKLvvlRWC89zt6yQPTgZhxtRn_tbFofGq6hGLjicWEX45k8Aduf7yYh7oKsh_Qk4QAmOUIs8ZiA9YoPQWbrPV5nhzNrGbaTKkvFuC2CvySwTBInu_m05BRH_ikqdZ2vBqGrhB-wbkbpmBI2_QqnLDgGI65gf_Uo4R4e1OYauHjAJpdzbebR_AM4REzVHeKSe__0",
+      "attribution": {
+       "name": "1007faces_",
+       "uri": "https://maps.google.com/maps/contrib/107440641820881413990"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/spruth-magers/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576176,
+      "subject": "interior",
+      "caption": "Gallery interior with dividing wall and framed works",
+      "google_photo": "AVoNoXQBx-NfZ3uiEGmkuNJu-3buLkNJov6i-T3EyPQIAMpL9Bj9NSOsLbUPrpm-C0qbQ0PNw3F8JHca3bTKir7cBS24pRUUolZ0fIS8FmXr0EaRn0v8oyW3H7asdH5D2LtGSKOeV26zi_uj3uRQgj4k9GvNZZ9TSyWDCiBuJ6HdEERWIfay5e6-z9Avc2ljPsFirMKnv79x12qnSaozghBb0IjmhUOzV4Yvjiu58IMquSpJ9IFAqHUX0zIqKVyWRKHYaEoZUi8UzUjEDVqiTAU_99_xCo8e_YYtglvkfu2XYPsgs4gIrPmntqBWSlJ_2NrmvveYeYFZVDa16kUbeOc938HzbHCVny4P-8fldkRa4BZWdHN3EF9cysoJ1OGTjjf-qeUUv6Z4AUy5qiUDWukf-0DtwafndRdL0ltVsdHe2mA0kA",
+      "attribution": {
+       "name": "C Collins-Stracensky",
+       "uri": "https://maps.google.com/maps/contrib/115113580508023310722"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/spruth-magers/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576176,
+      "subject": "installation",
+      "caption": "Interior view with colorful neon light installation",
+      "google_photo": "AVoNoXQP7PsKK9_ZeGzCjWk8PVEmTqqrGwS2W2cLN8RmPI7_dDXL2ZyPvcLVeiVExTsEZvZ8Ss--JNa5rAEY8HDVJd5WL3eh8M3ol-dJo4gD_TxlEO3R19HbjoJ8HX5xrWfk9D8lxxcWjo9U3lPYb51nA6wZrbZa5Jm6qoQNMU2TlkNhVb3ol-A28u4kR6-bWyUPnEIdxkiL6RmIxpNhwH_Kj6oaGEMxWyRtaiTOLse0C755wySP297EhfVyYmOXw4LfLtvjgr64EO6LgA6e2u4IbnsxNaOyyDYoB-noay1YlUuYGNJ_J35__xrLNs9W_pSvyaHR4G3uc51H9IegSpbgUkgSQbO9JrNdGITmIotHunVGc2MNUW-MHwWJIisFMq4TelwSJ5aKJ9gybOKLM_k0NyqWhOjPFmQe9l_MSWZKgxtyPgJ8",
+      "attribution": {
+       "name": "Morgan Turner",
+       "uri": "https://maps.google.com/maps/contrib/109037602865856433967"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/spruth-magers/05.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576177,
+      "subject": "interior",
+      "caption": "Wide gallery room with large printed artworks",
+      "google_photo": "AVoNoXQrmSlQt70H0UL1bHUWhiRYY_NZpztG3p1riAygQp0o0r0Hk9JJ-UW9-QRq3XqF0NcPWg3egcogbK0GHJTczS5z_UWX4eeAjTPyaCQBgefQc_Omc65PY79IV-phBotLAH6mZFE_gGKQ_KEfGgYo9gM7q5N1Z2mSJ3bMtAQE7c_sN3DdZChMVW4q-OF4rQR4DD5tSd8wHEJgfkX67TqWcMiwJWbeigi398uc3OH9bfrssTUjr5G8R3K0evNsul15ZVWcN0giodZ-arxmkFUc4JRTeVkTUD4Nv03wjwct_4C7TNucVM_lVB4T7bxItxvlxLYXcXjvct_6JiEv8lBngUA878l0GKVIAGEcS_tSxrEY99x7vqraKvyr3xw6EeGZYERMV60qAjydYC6p3Dv1mZMsygNau4yyakXs9oxwXlp9NSkX",
+      "attribution": {
+       "name": "Anthony R",
+       "uri": "https://maps.google.com/maps/contrib/109393402213624909431"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "spy-projects",
@@ -272531,7 +275751,82 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577278,
+    "model": "claude-sonnet-5",
+    "confidence": 0.7,
+    "candidates_seen": 11,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/various-small-fires-vsf/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576796,
+      "subject": "exterior",
+      "caption": "Gallery courtyard with sculptures and facade",
+      "google_photo": "AVoNoXSSubBnAPgSy-hqJeQ_G_-zHFLuDLAsu4RZGfMyW-lxQiFd9aOGEM9fz6_9Ktm8qbNBGpzyeYwGhpbWJvuD8R7OwIIpmOWyHjVYfwsFzvF7Xh_nJSO10DNoSL4r0KDbw2vbWuDTmN-Cy4SSGjoWtP92l04ZRQpcSmY5PtKY72sdWm0ITMZnDXr_h_PtkvHuUYD-z9I9xy3WLYnlIMbMGh6VdNIYAs_4_d_jKXCTnrrXzOhnHp6yT9NBFHhMpd1Ad6EnbnlSeruQnQt9gnlTB9tXDXIOlIbUebImXfVVPQzCt8V03SIbsfT_Rms67qtmdXu2D2aYTFCGnUg1B6JO0bIQK7iOkoHxQ1mZ_faw5v_lNVrQu6DcrcWtBNj_HFr5nKMdiWDq_5YIvXt8M_GWxFtm6xtMXOoH_ZWbsvejrQGo-Q",
+      "attribution": {
+       "name": "Various Small Fires",
+       "uri": "https://maps.google.com/maps/contrib/103635990204861470649"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/various-small-fires-vsf/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1067
+      ],
+      "fetched_ts": 1788576798,
+      "subject": "installation",
+      "caption": "Outdoor installation in gallery courtyard",
+      "google_photo": "AVoNoXSgCfXGs6Op7s9oRSVzFR4O46KyBiWAwgIlbwicNPIYnP1IRZwpe0JUYLtqX61-JQdZYCGf-4a786hzGwbta3pCbfrE025F7_OVqyzgo8vXCBqIUObyR6PTigy96Pj4K52-b_7jW1shvhPvVT7S1Sql6oByM6RkAtuY6Tg-a_A6_1q7n_GjJ5st3JcY2z29qCMqoMcUnMG0X_vYCDHxO_EXTYaaPhrWGAaHi_Wqg9WTBcCyEbHve436SlnCsdE88MccajXFghm3vRLWdr-ZMkClCk3SCUV7EkBCCwG24myr0f3nj7zcK-Co1WTbnj-g6kI6GD1lFTLnagUnhsywrmn5jx0Ilon4y2VgeApFZsOUrdKwaUzrsAOJNjabyN2VcHRTPSbzZAKVqcGsd9XRAOWSKi1DFG5_HQvIjsCiRxEH1A",
+      "attribution": {
+       "name": "Various Small Fires",
+       "uri": "https://maps.google.com/maps/contrib/103635990204861470649"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/various-small-fires-vsf/03.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1200
+      ],
+      "fetched_ts": 1788576799,
+      "subject": "interior",
+      "caption": "Bright gallery interior with paintings",
+      "google_photo": "AVoNoXQtCUzN0occgaMM0f502KeyvDDq5PpqXsQRsuscRk8V_-U9MUJ0gtWpNb37lfUDWlSLLBpLmOnMQK9ffcjA0G-kidsv1_WxWfCekrmawodBdagISVhBc7p-k3ms7FB6cXxoJra9rvlmh2CdYqNzOs7SwBpI-wl_gUnc9FqA4faz9MaeCcsw6aU-JkAk8i8L5UhaVLZjkIp1Qmp6yMxtmRwnFSrQ48aTZGkSXqKBKi2p4X6Yyfre-YOjEaLH_YpfvMn95Y6RT23AWhJgoGw7ShLXaor0fhWISDhq8f4gqARvSL14NME0M3J0PiOqV-h4xlmRAf8IJQR94M88ywbQOWWmyIqQ3STs8Sd0pShHqvrALxi8ecoafTEGbjyWmKTA2LBwpPMbxMpePKv857b5RhbF3PG9T361eueFjpZIQJpZkQ",
+      "attribution": {
+       "name": "M Hernandez",
+       "uri": "https://maps.google.com/maps/contrib/104549631687730378057"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/various-small-fires-vsf/04.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1137
+      ],
+      "fetched_ts": 1788576797,
+      "subject": "exterior",
+      "caption": "Courtyard with wooden structure installation",
+      "google_photo": "AVoNoXSLIE0j383VrdxU1atx-p-rZkWbU5o7Mb0b6bfrupKbLFysFzStkCEA-P0G9GQUmyLUtZofxrPdTTjvdw2-LXkfsRVUdcXw2LCmpLceszVR3XUBCwYMKMpVVW3mCSSUoxX7jGEjt5kYMwk-irOVufwP_6Y1v6sk4yVMSejH3nremb4gAE6L8Qo5Qx7ydX-yHf3sJoc4sJL4vVelgldtVbPl7nqSMXF4WhS8iyQwIC0BS2TdHkXtg3HBqoUnJgXEVNOh9YiWNYS3seDINR9QIw1h6OTOzCaM9aGa2H9A0Q-MabYdT3vYJN85cirzbuko5O9X0ldB_pGIsRui7xFdEVot17BJQpktRaB_wXswfN2h7P1tktC73bngxQv2HzkPlfYCpuWx5Bw3a819CuCjwQ07uZiixBbRuqf8gLc7QvknBQ",
+      "attribution": {
+       "name": "Various Small Fires",
+       "uri": "https://maps.google.com/maps/contrib/103635990204861470649"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "vdl",
@@ -274225,7 +277520,86 @@
     "show_cadence": 0.0117
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577275,
+    "model": "claude-sonnet-5",
+    "confidence": 0.9,
+    "candidates_seen": 22,
+    "google_events": 5,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/vielmetter-los-angeles/01.jpg",
+      "provider": "site",
+      "px": [
+       2560,
+       1707
+      ],
+      "fetched_ts": 1788576413,
+      "subject": "interior",
+      "caption": "Bright empty gallery hall with windows",
+      "url": "https://vielmetter.com/wp-content/uploads/2023/08/Vielmetter_2019_SantaFeUnit2_07_hires-scaled.jpg",
+      "source_page": "https://vielmetter.com/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/vielmetter-los-angeles/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1205
+      ],
+      "fetched_ts": 1788576434,
+      "subject": "exterior",
+      "caption": "Building facade with signage on street",
+      "google_photo": "AVoNoXQSb8pKp4BaPBk73nslRbDRM-E77YyBeUNZADzzC3Jg7M7_sY9VVJ6mWFUbZ0PDab360tgWd-CUc1ZmqVBJ4X2mAxdcUEFkvV2ftxc1m-6-ogvdOCc1AM1vDU0lPfaWLeDo-4qcI-Tcnpxv6__Zkp3ivLOZRysDCutJmHp5RYvfLMZTdYrFiRwLOpYD6pq1kO2coGqRt_qdFTDUsEae-7N0tNjHLDYfc37fc60A8n4ZNpngcGNcXsqXOgf-uPn-MzjyysE0jpJXy2UnS_WJCcZ1o3hpu_jCtlP_tHrhjXScPUQ7KPapjiZFd5BkSPsrVuaEOo2RTcwh4xbwJG54y2htyXSWnXrYu6F0KuyTynuXzlKgP87EX6ePWgL_N5Jwb7jtfaDCCiTCL9uJz1dB7RkCPAiabVcZUJVAUR9Xz5Ofqw",
+      "attribution": {
+       "name": "Richard Schave (Esotouric tours)",
+       "uri": "https://maps.google.com/maps/contrib/105564713069844110350"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/vielmetter-los-angeles/03.jpg",
+      "provider": "site",
+      "px": [
+       2048,
+       1400
+      ],
+      "fetched_ts": 1788576420,
+      "subject": "interior",
+      "caption": "Long hallway with columns and windows",
+      "url": "https://vielmetter.com/wp-content/uploads/2023/08/SVLAP_2018_SantaFeConstruction11_hires-2048x1400.jpg",
+      "source_page": "https://vielmetter.com/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/vielmetter-los-angeles/04.jpg",
+      "provider": "site",
+      "px": [
+       2048,
+       1363
+      ],
+      "fetched_ts": 1788576422,
+      "subject": "interior",
+      "caption": "Sunlit gallery corridor with large windows",
+      "url": "https://vielmetter.com/wp-content/uploads/2023/08/SVLAP_2018_SantaFeConstruction19_hires-2048x1363.jpg",
+      "source_page": "https://vielmetter.com/contact/"
+     },
+     {
+      "path": "images/venues/los-angeles/vielmetter-los-angeles/05.jpg",
+      "provider": "site",
+      "px": [
+       2048,
+       1365
+      ],
+      "fetched_ts": 1788576432,
+      "subject": "entrance",
+      "caption": "Gallery space with framed doorway",
+      "url": "https://vielmetter.com/wp-content/uploads/2023/08/Vielmetter_2019_SantaFeUnit2_04_hires-2048x1365.jpg",
+      "source_page": "https://vielmetter.com/contact/"
+     }
+    ]
+   }
   },
   {
    "id": "vincent-price-art-museum",
@@ -280040,7 +283414,50 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "photos": {
+    "status": "done",
+    "ts": 1788577277,
+    "model": "claude-sonnet-5",
+    "confidence": 0.6,
+    "candidates_seen": 3,
+    "google_events": 2,
+    "note": null,
+    "files": [
+     {
+      "path": "images/venues/los-angeles/wilding-cran/01.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       999
+      ],
+      "fetched_ts": 1788576610,
+      "subject": "interior",
+      "caption": "Gallery interior with exposed beam ceiling",
+      "google_photo": "AVoNoXRwLkrcNCo1I2ZmdAInypHz02a9JFwPPLIR6enqHqKDKwHdllR8yjN8vVYfM01EPU5vP-V9_aCloW-MXYLrGa5xIuhtRcMCc7lFGz4d0chr74ba0HbBLjDQ3zQTrWiOnoiNQt-UVtyA1eDt7n82QBioe_-miGiWMbjvsm1S1tLv5XHaSO4qgH1LjCZowPj4QEzDurw11l4A-ABRPkEli_-70sCz6TkYB1UcqYdwe1FbS6PBjjey2LSbcSAE7qoAN16WY5YNe62bc0FxTZTOmiaojqMQkZwasKTAk4ZhV5-7wAg8eU-TryUV9MRumRnsANKLzbZihLLmgFudQ8pR9dLPBfAqkDjLBVvaj3ZkT8jrdikoPrU2T1wP36wZNKU9UH7pY9oHS3IpTRw4vcWXXAk1ObQuLgfk61dhKuWnef_NQTOPpvOkS-BtWMdHaSQx",
+      "attribution": {
+       "name": "Wilding Cran Gallery",
+       "uri": "https://maps.google.com/maps/contrib/112512192638168330482"
+      }
+     },
+     {
+      "path": "images/venues/los-angeles/wilding-cran/02.jpg",
+      "provider": "google",
+      "px": [
+       1600,
+       1017
+      ],
+      "fetched_ts": 1788576611,
+      "subject": "interior",
+      "caption": "Gallery interior view with artworks on walls",
+      "google_photo": "AVoNoXTrBra9YURQ2U-9djp1_cVZG5r4yAeSqwvmh8WQ0OgUAh5Ztr-ukLJDCENeFNI4wwBuqhSlUcp_eYRDF07_m4fsmw9QEQOsuyZbyALgsBOtt_xEUUGYZU8FC2FRZKx6yv78z00urrtES9X2DhRXSoAC9JRIQBxLDD9iTHcyTBwVM_BdNoCrXyfe7rADc296ucwGBZqO9O6BvdMxNyBCdHkCkGUMkrtoKCtvAQhX0fHyE1Lt0W5S8AV4rXps4GiBN1o4ZmmBWIGC7mOcJX3vICkq3QTIetPPCXPaVAMvO39eJ5LU_1iCLO3bpws9WMsNcpHTho2Gq04rjfItdKEWTvmd3tKqDu-eQvN60tYM7oum9LDDViYQwJed8jCFd8on0ihTM7NH9PpfiluYFgP_XZKNkv21ZICGPtlbpRWmRAnXzlD6WmfdRp7jLtvZ4IUY",
+      "attribution": {
+       "name": "Wilding Cran Gallery",
+       "uri": "https://maps.google.com/maps/contrib/112512192638168330482"
+      }
+     }
+    ]
+   }
   },
   {
    "id": "william-grant-still-art-center",

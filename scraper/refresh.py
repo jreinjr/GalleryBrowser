@@ -206,14 +206,18 @@ class Fetcher:
                 self.robots[host] = rp
         return True if rp is None else rp.can_fetch(UA.split("/")[0], url)
 
-    def get(self, url: str, etag: str | None = None, last_modified: str | None = None) -> dict:
-        """{status, html|None, etag, last_modified, error, final_url}; status 304 = unchanged."""
+    def get(self, url: str, etag: str | None = None, last_modified: str | None = None,
+            user_agent: str | None = None) -> dict:
+        """{status, html|None, etag, last_modified, error, final_url}; status 304 = unchanged.
+        ``user_agent`` overrides the session UA for this one request (bot-walled sites)."""
         out = {"status": None, "html": None, "etag": None, "last_modified": None,
                "error": None, "final_url": url}
         if not self._allowed(url):
             out["error"] = "robots_disallow"
             return out
         headers = {}
+        if user_agent:
+            headers["User-Agent"] = user_agent
         if etag:
             headers["If-None-Match"] = etag
         if last_modified:
@@ -250,6 +254,41 @@ class Fetcher:
                 out["html"] = raw.decode(enc or "utf-8", "replace")
             except LookupError:
                 out["html"] = raw.decode("utf-8", "replace")
+        except requests.RequestException as exc:
+            out["error"] = type(exc).__name__
+        return out
+
+    def get_bytes(self, url: str, referer: str | None = None, cap: int = BODY_CAP,
+                  user_agent: str | None = None) -> dict:
+        """{status, content|None, error, final_url}: a binary fetch (images) under
+        the same robots.txt and per-domain spacing rules as get(). A body past
+        ``cap`` is dropped (error "body_cap") rather than returned truncated."""
+        out = {"status": None, "content": None, "error": None, "final_url": url}
+        if not self._allowed(url):
+            out["error"] = "robots_disallow"
+            return out
+        headers = {}
+        if referer:
+            headers["Referer"] = referer
+        if user_agent:
+            headers["User-Agent"] = user_agent
+        self._wait(urlparse(url).netloc)
+        try:
+            r = self.session.get(url, headers=headers, timeout=TIMEOUT, stream=True,
+                                 allow_redirects=True)
+            out["status"] = r.status_code
+            out["final_url"] = r.url
+            if r.status_code != 200:
+                out["error"] = f"http_{r.status_code}"
+                return out
+            chunks, size = [], 0
+            for chunk in r.iter_content(65536):
+                chunks.append(chunk)
+                size += len(chunk)
+                if size > cap:
+                    out["error"] = "body_cap"
+                    return out
+            out["content"] = b"".join(chunks)
         except requests.RequestException as exc:
             out["error"] = type(exc).__name__
         return out
