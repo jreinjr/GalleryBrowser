@@ -17,9 +17,6 @@ CONTENT_DIR = ROOT / "content"
 sys.path.insert(0, str(ROOT / "scraper"))
 from cities import CITIES  # noqa: E402
 
-# App-side extras not present in the scraper config (mirrors Models.swift).
-AVAILABILITY_NOTES = {"venice": "Available through Sunday, November 22"}
-
 DEFAULT_CITY = "seattle"
 
 # IANA zone per city: the Discover function computes "today", "this weekend"
@@ -47,7 +44,6 @@ def discover() -> list[dict]:
             "key": key,
             "displayName": cfg["display_name"],
             "neighborhoods": list(cfg["neighborhoods"]),
-            "availabilityNote": AVAILABILITY_NOTES.get(key),
             "center": {"lat": cfg["center"]["latitude"], "lng": cfg["center"]["longitude"]},
             "span": max(cfg["span"]["latitudeDelta"], cfg["span"]["longitudeDelta"]),
         })

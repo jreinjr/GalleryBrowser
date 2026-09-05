@@ -24,6 +24,8 @@
     plus: `<svg ${S} ${stroke}><path d="M12 5v14M5 12h14"/></svg>`,
     minus: `<svg ${S} ${stroke}><path d="M5 12h14"/></svg>`,
     grip: `<svg ${S} ${stroke}><path d="M5 9h14M5 15h14"/></svg>`,
+    eye: `<svg ${S} ${stroke}><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg>`,
+    eyeSlash: `<svg ${S} ${stroke}><path d="M3 3l18 18"/><path d="M10.6 5.8A10 10 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-3.2 3.9"/><path d="M6.4 6.6A16 16 0 0 0 2.5 12s3.5 6.5 9.5 6.5a9.5 9.5 0 0 0 4.1-.9"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>`,
     pencil: `<svg ${S} ${stroke}><path d="M4 20h4l10.5-10.5a2.1 2.1 0 00-3-3L5 17v3z"/><path d="M13.5 6.5l3 3"/></svg>`,
     send: `<svg ${S} ${stroke}><path d="M4 12l16-8-6 16-2.5-6.5z"/><path d="M11.5 13.5L20 4"/></svg>`,
     trash: `<svg ${S} ${stroke}><path d="M4 7h16M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v6M14 11v6"/></svg>`,

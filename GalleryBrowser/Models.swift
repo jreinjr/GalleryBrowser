@@ -148,7 +148,7 @@ struct City: Identifiable, Hashable {
         City(key: "venice", displayName: "Venice",
              neighborhoods: ["San Marco", "Dorsoduro", "Cannaregio", "Castello", "Giudecca"],
              center: CLLocationCoordinate2D(latitude: 45.4371, longitude: 12.3326),
-             spanDegrees: 0.15, availabilityNote: "Available through Sunday, November 22"),
+             spanDegrees: 0.15, availabilityNote: nil),
         // quick-city expansion (scraper/quick_city.py, 2026-09-04) — mirrors scraper/cities.py
         City(key: "hong-kong", displayName: "Hong Kong",
              neighborhoods: ["Central/Soho", "Sheung Wan/Sai Ying Pun", "Wan Chai/Causeway Bay",

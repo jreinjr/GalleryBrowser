@@ -23,12 +23,50 @@
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
 
+  // ---------------- city list ----------------
+  // The Cities sheet lists the cities in the person's order and only the ones
+  // they show; both live in localStorage['cityOrder'] (versioned). Out of the
+  // box the seven founding cities are shown, in the build's order; every other
+  // city is there behind Edit. A city the payload no longer has drops out; a
+  // new one joins at the end, hidden until shown.
+  const CITY_ORDER_VERSION = 1;
+  const DEFAULT_SHOWN_CITIES = ['seattle', 'new-york', 'los-angeles', 'tokyo', 'berlin', 'london', 'paris'];
+  const cityPrefs = (() => {
+    let data = null;    // { v, order: [key], shown: [key] } once saved
+    try { const o = JSON.parse(store.get('cityOrder', 'null')); if (o && o.v === CITY_ORDER_VERSION && Array.isArray(o.order) && Array.isArray(o.shown)) data = o; } catch (e) { /* defaults */ }
+    const keys = () => DATA.cities.map(c => c.key);
+    const api = {
+      isPersonal: () => !!data,
+      // Every city, in the order in force: the saved one (unknown keys dropped,
+      // new cities appended in build order), else the build's.
+      order() {
+        const all = keys();
+        if (!data) return all.slice();
+        const known = new Set(all);
+        const out = data.order.filter(k => known.has(k));
+        const seen = new Set(out);
+        all.forEach(k => { if (!seen.has(k)) out.push(k); });
+        return out;
+      },
+      shown() {
+        const s = new Set(data ? data.shown : DEFAULT_SHOWN_CITIES);
+        return new Set(keys().filter(k => s.has(k)));
+      },
+      isShown: key => api.shown().has(key),
+      // The cities the sheet lists outside Edit, as city records.
+      visible: () => { const s = api.shown(); return api.order().filter(k => s.has(k)).map(k => cityByKey[k]); },
+      save(order, shown) { data = { v: CITY_ORDER_VERSION, order: order.slice(), shown: [...shown] }; store.set('cityOrder', JSON.stringify(data)); },
+      reset() { data = null; try { localStorage.removeItem('cityOrder'); } catch (e) { /* private mode */ } },
+    };
+    return api;
+  })();
+
   const persistSaved = () => store.set('savedShowIDs', JSON.stringify([...state.saved]));
   const persistFavorites = () => store.set('favoriteVenueIDs', JSON.stringify([...state.favorites]));
   const persistCity = () => store.set('selectedCityKey', state.cityKey);
+  const cityByKey = Object.fromEntries(DATA.cities.map(c => [c.key, c]));
 
   // ---------------- data helpers ----------------
-  const cityByKey = Object.fromEntries(DATA.cities.map(c => [c.key, c]));
   const showsByCity = {};
   DATA.shows.forEach(s => { (showsByCity[s.city] = showsByCity[s.city] || []).push(s); });
 
@@ -2271,20 +2309,56 @@
   }
 
   // ---------------- city sheet ----------------
+  // The cities the person shows, in their order; a tap switches. Edit lists
+  // every city with a grip to reorder and an eye to show or hide it (same UX
+  // as the gallery ranking); Save keeps both, Cancel discards, and Reset goes
+  // back to the seven default cities in the build's order.
   function openCitySheet() {
-    const rows = DATA.cities.map(c => {
-      const r = el('button', { class: 'row city-row', onclick: () => { setCity(c.key); } },
-        el('span', { style: 'flex:1;min-width:0' },
-          el('div', { class: 'cr-name' }, c.displayName),
-          c.availabilityNote ? el('div', { class: 'cr-note' }, c.availabilityNote) : null),
-        c.key === state.cityKey ? el('span', { class: 'check', html: ICONS.check }) : el('span'));
-      return r;
-    });
-    openSheet(el('div', { class: 'page' },
-      el('div', { class: 'sheet-header' },
-        el('div', { class: 'sheet-title' }, 'Cities'), sheetCloseBtn()),
-      el('div', { class: 'page-scroll' },
-        el('div', { class: 'group', style: 'margin-top:12px' }, ...rows))));
+    const page = el('div', { class: 'page cities-page' });
+    const group = el('div', { class: 'group city-rows', style: 'margin-top:12px' });
+    const header = el('div', { class: 'sheet-header' });
+    const sub = el('div', { class: 'rank-sub' });
+    let editing = false;
+    let order = null, shown = null;     // working copies while editing
+    const cityRow = c => {
+      if (!editing) {
+        return el('button', { class: 'row city-row', 'data-city': c.key, onclick: () => { setCity(c.key); } },
+          el('span', { style: 'flex:1;min-width:0' }, el('div', { class: 'cr-name' }, c.displayName)),
+          c.key === state.cityKey ? el('span', { class: 'check', html: ICONS.check }) : el('span'));
+      }
+      const on = shown.has(c.key);
+      const row = el('div', { class: 'row city-row' + (on ? '' : ' hidden-city'), 'data-city': c.key, 'data-id': c.key },
+        el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')),
+        el('span', { style: 'flex:1;min-width:0' }, el('div', { class: 'cr-name' }, c.displayName)),
+        el('button', { class: 'eye-btn' + (on ? ' on' : ''), 'data-city-eye': '', 'aria-label': on ? 'Hide city' : 'Show city', 'aria-pressed': on ? 'true' : 'false',
+          onclick: () => { if (shown.has(c.key)) shown.delete(c.key); else shown.add(c.key); render(); } },
+          icon(on ? 'eye' : 'eyeSlash')));
+      wireDrag(row, group, keys => { order = keys.slice(); render(); }, '.city-row');
+      return row;
+    };
+    const editBtn = el('button', { class: 'nav-textbtn', 'data-city-edit': '', onclick: () => { editing = true; order = cityPrefs.order(); shown = cityPrefs.shown(); render(); } }, 'Edit');
+    const cancelBtn = el('button', { class: 'nav-textbtn', 'data-city-cancel': '', onclick: () => { editing = false; order = shown = null; render(); } }, 'Cancel');
+    const saveBtn = el('button', { class: 'nav-textbtn bold', 'data-city-save': '', onclick: () => {
+      cityPrefs.save(order, shown); editing = false; order = shown = null; render();
+    } }, 'Save');
+    const resetBtn = el('button', { class: 'delete-list rank-reset', 'data-city-reset': '', onclick: () => {
+      if (!confirm('Go back to the default cities? Your order will be discarded.')) return;
+      cityPrefs.reset(); render();
+    } }, 'Reset to default cities');
+    function render() {
+      const list = editing ? order.map(k => cityByKey[k]).filter(Boolean) : cityPrefs.visible();
+      group.innerHTML = '';
+      list.forEach(c => group.appendChild(cityRow(c)));
+      header.innerHTML = '';
+      header.append(editing ? cancelBtn : editBtn, el('div', { class: 'sheet-title' }, 'Cities'), editing ? saveBtn : sheetCloseBtn());
+      sub.textContent = editing ? 'Drag a city to reorder it; the eye shows or hides it.' : '';
+      sub.hidden = !editing;
+      page.classList.toggle('editing', editing);
+      resetBtn.hidden = editing || !cityPrefs.isPersonal();
+    }
+    render();
+    page.append(header, el('div', { class: 'page-scroll' }, sub, group, resetBtn));
+    openSheet(page);
   }
 
   // ---------------- map tab ----------------
@@ -2534,5 +2608,5 @@
   rebuildTabs();
   setTab('featured');
   // test hook
-  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, venueRank, appRank, filteredShows, mapVenues, cityVenues, favoriteVenues, favoritesAsList, ranking, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
+  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, venueRank, appRank, filteredShows, mapVenues, cityVenues, favoriteVenues, favoritesAsList, ranking, cityPrefs, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
 })();

@@ -43,11 +43,26 @@ viewer shows a slide (current ± 1). Full-res bytes are only fetched on zoom.
   Vanilla JS; the Map tab and the venue-page map card both use MapLibre GL +
   CARTO's dark-matter vector style; state persists in
   `localStorage` (`selectedCityKey`, `savedShowIDs`, `favoriteVenueIDs`,
-  `galleryOrder`, `filter`, `lists`; same semantics as the iOS app where it
-  has them).
+  `galleryOrder`, `cityOrder`, `filter`, `lists`; same semantics as the iOS
+  app where it has them).
 - `api/discover.js` + `api/_lib/` — the Discover endpoint (a Vercel Function,
   ESM; `api/package.json` scopes the module type and the SDK dependency).
 - `devserver.mjs` — local server that serves `dist` and mounts the function.
+
+## Cities
+
+The **Cities** button (Featured, List, Map, Discover) opens a sheet of the
+cities the person shows, in their order; a tap switches city. Out of the box
+it lists the seven founding cities in the build's order (Seattle, New York,
+Los Angeles, Tokyo, Berlin, London, Paris); the quick-city expansion and Venice
+are there behind **Edit**, which lists every city of the build with a grip
+(drag to reorder, same as the gallery ranking) and an eye that shows or hides
+it. **Save** keeps both in `localStorage['cityOrder']` (versioned:
+`{v, order, shown}`); **Cancel** discards; **Reset to default cities** (shown
+once something is saved) returns to the seven. A city the payload drops
+disappears from the saved order; a new one joins at the end, hidden until
+shown. Hiding the selected city leaves it selected. Cities carry no
+availability note any more (`cityconfig.py` used to stamp one on Venice).
 
 ## Lists
 
@@ -247,9 +262,10 @@ tab against the dev server's mocked endpoint, `DISCOVER_MOCK=1` replaying
 `tests/fixtures/*.sse`), `venue.test.js` (gallery rank sort, venue page, the
 rank pill), `map.test.js` (tier dots, faded venues with Active shows off,
 label collision, taps, the heart on a map venue, filter sheet, the ranking
-sheet) and `ranking.test.js` (Settings, the ranking page, Edit / move / drag /
-Save / Cancel / Reset, favorites as a list and a filter context) run the same
-way; set `DIST=<dir>` to test a build made with `build.py --out <dir>`. On
+sheet), `ranking.test.js` (Settings, the ranking page, Edit / move / drag /
+Save / Cancel / Reset, favorites as a list and a filter context) and
+`cities.test.js` (the Cities sheet: the seven defaults, Edit with grips and
+eyes, drag, Save / Cancel / Reset, persistence) run the same way; set `DIST=<dir>` to test a build made with `build.py --out <dir>`. On
 Windows, `NODE_PATH` can point at any directory holding a `playwright` install
 (`npm i playwright` with `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`; the tests drive
 the installed Chrome via `channel: 'chrome'`). `node webdemo/tests/corpus.test.mjs` checks the
