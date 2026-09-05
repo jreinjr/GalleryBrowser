@@ -126,8 +126,17 @@ function venueFeature(show, params) {
   const nFair = v.n_fair != null ? +v.n_fair
     : new Set((show.signals || []).filter(s => s.kind === 'fair_exhibitor').map(s => (s.source && s.source.id) || 'unknown')).size;
   const isMuseum = !!v.is_museum;
+  const rank = v.rank;
+  const rankRef = +(params.venue_rank_ref || 0);
   let value, basis;
-  if (tier != null && Object.prototype.hasOwnProperty.call(map, String(tier))) {
+  if (rankRef > 0 && rank != null && tier != null) {
+    // mirrors curate.venue_feature: list position, 1 for #1 sliding to 0 at #ref
+    value = Math.max(0, Math.min(1, 1 - (+rank - 1) / rankRef));
+    basis = `rank ${rank} of ${rankRef}`;
+  } else if (rankRef > 0) {
+    value = +(map.unknown ?? 0);
+    basis = 'not on the list';
+  } else if (tier != null && Object.prototype.hasOwnProperty.call(map, String(tier))) {
     value = +map[String(tier)];
     basis = `tier ${tier}`;
   } else {
@@ -135,7 +144,7 @@ function venueFeature(show, params) {
     value = Math.min(1.0, Math.max(+(map.unknown ?? 0.2), fallback));
     basis = 'no tier' + (nFair ? `, ${nFair} fair listing(s)` : '') + (isMuseum ? ', museum' : '');
   }
-  return [value, { tier, n_fair: nFair, basis, venue_norm: v.norm }];
+  return [value, { tier, rank, n_fair: nFair, basis, venue_norm: v.norm }];
 }
 
 // reads: params.judge.{variant, model in sonnet|opus|mean|none}; show.judge = {variant: {model_id: row}}
@@ -446,7 +455,7 @@ function parityCheck() {
  * ===================================================================*/
 const PARAM_KEY_ORDER = ['version', 'city', 'today', 'max_n', 'threshold', 'max_per_venue', 'include_pending', 'published_only', 'require_open', 'editors_pick_top',
   'exclude_museums', 'max_per_neighborhood', 'max_museum_share', 'weights', 'half_life_days', 'press_ref', 'artist_ref',
-  'cap_per_source', 'wiki_ref', 'default_source_weight', 'kind_weights', 'strength_weights', 'sources', 'venue_tier_map', 'judge', 'overrides'];
+  'cap_per_source', 'wiki_ref', 'default_source_weight', 'kind_weights', 'strength_weights', 'sources', 'venue_tier_map', 'venue_rank_ref', 'judge', 'overrides'];
 
 function normalizeParams(p) {
   p.version = p.version ?? 1; p.city = CITY; p.today = R.today || null;

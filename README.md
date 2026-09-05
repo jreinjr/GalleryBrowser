@@ -65,6 +65,27 @@ runs those stages; `run_deep.py --galleries-first` then scrapes shows only at
 ranked, verified galleries. See the "Ranking galleries" section of
 `docs/CURATION.md`.
 
+## Quick cities
+
+`scraper/quick_city.py` is the short road to a new city: both models (Claude Opus 5 and
+OpenAI GPT-5.6 Sol) name the city's 100 most significant galleries, the two lists are
+blended, every name is checked against Google Places and the venue's own site (hours,
+address, coordinates and current status must all be confirmed), the verified ones get a
+per-city order file and rank, and the existing deep scrape finds their current shows:
+
+```
+scraper/.venv/bin/python scraper/quick_city.py cities                     # top-25 city list (once)
+scraper/.venv/bin/python scraper/quick_city.py seed --city seoul
+scraper/.venv/bin/python scraper/quick_city.py validate --city seoul --apply
+scraper/.venv/bin/python scraper/quick_city.py rank --city seoul --apply
+scraper/.venv/bin/python scraper/quick_city.py shows --city seoul --total-budget 70
+scraper/.venv/bin/python scraper/quick_city.py status
+```
+
+Unverified galleries stay in the registry but never rank or publish; Los Angeles and Tokyo
+are never written. See the "Quick city" section of `docs/GALLERIES.md`. On Windows run the
+scraper inside WSL (it uses POSIX file locks); the venv lives at `scraper/.venv`.
+
 ## Ranking the feed
 
 The pipeline decides which shows exist; `scraper/curate.py` decides their

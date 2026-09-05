@@ -64,7 +64,7 @@ PARAM_KEY_ORDER = ["version", "city", "today", "max_n", "threshold", "max_per_ve
                    "published_only", "require_open", "editors_pick_top", "exclude_museums",
                    "max_per_neighborhood", "max_museum_share", "weights", "half_life_days", "press_ref",
                    "artist_ref", "cap_per_source", "wiki_ref", "default_source_weight", "kind_weights",
-                   "strength_weights", "sources", "venue_tier_map", "judge", "overrides"]
+                   "strength_weights", "sources", "venue_tier_map", "venue_rank_ref", "judge", "overrides"]
 
 SIGNAL_KEYS = ("kind", "strength", "date", "snippet", "url", "n_rows", "match_confidence", "match_method")
 SOURCE_KEYS = ("id", "name", "kind", "weight", "active")
@@ -435,7 +435,10 @@ def registry_file(city: str) -> Path:
 
 
 def build(city: str, out: Path = DEFAULT_OUT, contact_email: str = DEFAULT_CONTACT, site_url: str = DEFAULT_SITE_URL,
-          thumb_width: int = 320, force: bool = False, thumbs: bool = True) -> Path:
+          thumb_width: int = 320, force: bool = False, thumbs: bool = True,
+          cities: list[dict] | None = None) -> Path:
+    """One city's page into ``out`` (index.html + thumbs/). ``cities`` = the switcher menu
+    ``[{key, name, url}]`` when the page is part of a multi-city site (build_all)."""
     report_file = CONTENT_DIR / "spend" / "reports" / f"curation-{city}.json"
     curated_file = CONTENT_DIR / "curation" / city / "curated.json"
     for f in (report_file, curated_file):
@@ -460,8 +463,55 @@ def build(city: str, out: Path = DEFAULT_OUT, contact_email: str = DEFAULT_CONTA
     thumb_map = make_thumbs(pool, out, thumb_width) if thumbs else {}
     payload = build_payload(city, report, curated, pool, thumb_map, site_url, contact_email,
                             galleries=build_galleries(city, vreport))
+    payload["cities"] = cities or []
     (out / "index.html").write_text(render(payload), encoding="utf-8")
-    (out / "vercel.json").write_text(json.dumps({"trailingSlash": False}) + "\n")
+    if not cities:
+        (out / "vercel.json").write_text(json.dumps({"trailingSlash": False}) + "\n")
+    return out
+
+
+def city_inputs_present(city: str) -> bool:
+    return all(f.exists() for f in (CONTENT_DIR / "spend" / "reports" / f"curation-{city}.json",
+                                    CONTENT_DIR / "curation" / city / "curated.json",
+                                    gallery_report_file(city), registry_file(city)))
+
+
+ROOT_PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery Browser · rankings</title>
+<style>body{font:15px/1.5 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;margin:0;background:#f4f4f1;color:#1b1b1b}
+main{max-width:720px;margin:48px auto;padding:0 20px}h1{font-size:22px;margin:0 0 6px}p{color:#666;margin:0 0 20px}
+ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+a{display:block;padding:14px 16px;background:#fff;border-radius:10px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+a b{display:block}a span{color:#666;font-size:13px}</style></head><body><main>
+<h1>Gallery Browser · rankings</h1><p>Gallery ranking and show ranking per city. Pick a city; every page has a city menu in its header.</p>
+<ul>__LINKS__</ul></main>
+<script>try{var k=localStorage.getItem('gb-curation-city');if(k&&!location.hash&&document.querySelector('a[data-key="'+k+'"]'))location.replace(k+'/');}catch(e){}</script>
+</body></html>
+"""
+
+
+def build_all(cities: list[str], out: Path = DEFAULT_OUT, contact_email: str = DEFAULT_CONTACT,
+              site_url: str = DEFAULT_SITE_URL, thumb_width: int = 320, force: bool = False,
+              thumbs: bool = True) -> Path:
+    """The whole site: ``out/<city>/`` per city plus a root page listing them. Cities
+    whose inputs are missing (no curation report / curated.json / venues_ranked.json /
+    registry) are skipped with a note."""
+    base = site_url if site_url.endswith("/") else site_url + "/"
+    ready = [c for c in cities if city_inputs_present(c)]
+    for c in cities:
+        if c not in ready:
+            print(f"  note: {c} skipped — run curate.py score/apply and rank_venues.py apply first")
+    menu = [{"key": c, "name": city_display_name(c), "url": f"{base}{c}/"} for c in ready]
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+    for c in ready:
+        build(c, out / c, contact_email, f"{base}{c}/", thumb_width, force, thumbs, cities=menu)
+        print(f"  built {c}")
+    links = "".join(f'<li><a href="{m["key"]}/" data-key="{m["key"]}"><b>{m["name"]}</b><span>gallery ranking · show ranking</span></a></li>'
+                    for m in menu)
+    (out / "index.html").write_text(ROOT_PAGE.replace("__LINKS__", links), encoding="utf-8")
+    (out / "vercel.json").write_text(json.dumps({"trailingSlash": True}) + "\n")
     return out
 
 
@@ -508,7 +558,10 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     b = sub.add_parser("build", help="render the site into a deployable directory")
-    b.add_argument("--city", required=True)
+    b.add_argument("--city", default=None, help="one city (single-page site); see --all")
+    b.add_argument("--all", action="store_true",
+                   help="every city with inputs (or --cities): a page per city under <out>/<city>/ plus a root menu")
+    b.add_argument("--cities", default=None, help="comma list for --all (default: scraper/cities.py order)")
     b.add_argument("--out", default=str(DEFAULT_OUT))
     b.add_argument("--contact-email", default=DEFAULT_CONTACT, help="recipient of the page's Email-link button")
     b.add_argument("--site-url", default=DEFAULT_SITE_URL, help="public URL used when composing share links")
@@ -523,10 +576,18 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     if args.cmd == "build":
-        out = build(args.city, Path(args.out), args.contact_email, args.site_url, args.thumb_width, args.force,
-                    thumbs=not args.no_thumbs)
+        if args.all or args.cities:
+            from cities import CITIES
+            cities = [c.strip() for c in args.cities.split(",")] if args.cities else list(CITIES)
+            out = build_all(cities, Path(args.out), args.contact_email, args.site_url, args.thumb_width, args.force,
+                            thumbs=not args.no_thumbs)
+        elif args.city:
+            out = build(args.city, Path(args.out), args.contact_email, args.site_url, args.thumb_width, args.force,
+                        thumbs=not args.no_thumbs)
+        else:
+            raise SystemExit("pass --city C or --all")
         index = out / "index.html"
-        n_thumbs = len(list((out / "thumbs").glob("*.webp"))) if (out / "thumbs").exists() else 0
+        n_thumbs = len(list(out.rglob("thumbs/*.webp")))
         total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file())
         print(f"wrote {index} ({index.stat().st_size:,} bytes; {n_thumbs} thumbs; {total / 1e6:.1f} MB total)")
         print(f"deploy: cd {out} && vercel deploy --prod --yes")

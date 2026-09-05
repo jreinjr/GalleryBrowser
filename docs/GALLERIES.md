@@ -169,3 +169,90 @@ verified  = (places OPERATIONAL or no Places row but site vouched) and website_l
             (address_match or no Places row) and not closed_notice
 flagged   = places CLOSED_PERMANENTLY / CLOSED_TEMPORARILY / NOT_FOUND-with-website-dead / closed_notice
 unverified = everything else. Only `verified` venues enter research, ranking gates, and S1.
+
+## Quick city (quick_city.py) — LLM-seeded, Places-verified galleries
+
+The stages above take days per city. `scraper/quick_city.py` reaches a city in an afternoon
+and leaves a registry in the same shape, so `validate_venues.py`, `research_venue.py` and
+`run_galleries.py --stages research,rank` can flesh it out later unchanged.
+
+```
+quick_city.py cities                       # both models' top-25 gallery cities -> content/expansion/cities.json
+quick_city.py seed     --city C            # both models' top-100 galleries -> content/expansion/C/seed-merged.json
+quick_city.py validate --city C --apply    # Places + own-site checks -> registry (all), verification.status
+quick_city.py rank     --city C --apply    # content/curation/C/venue_order.json (verified only) -> rank_venues.py apply
+quick_city.py shows    --city C            # run_deep.py --venue-ids <verified> --force-due (+ its verify stage)
+quick_city.py status                       # per-city counts, spend, audit of shows at non-verified venues
+```
+
+**Models** — `llm_clients.py`: `claude-opus-5` (Messages API, json_schema output, adaptive
+thinking, effort high) and OpenAI `gpt-5.6-sol` (Responses API, strict json_schema). Raw
+answers are kept under `content/expansion/` so a re-run never pays twice (`--refresh` does).
+Ledgers: `content/spend/quick-<stage>-<city>-<ts>.json`.
+
+**Blended rank** — `merge_rankings`: the two lists are unioned (same id, same site domain, or
+the same distinctive name words); blended = mean of the two positions, a list that omits the
+gallery contributes one past its own length; ties break on the better single rank, then name.
+Both positions are kept (`rank_claude`, `rank_openai`) and written to the registry under
+`sources.seed.quick`. Cities blend the same way; the pilot is the top 10 plus every configured city, minus LA/Tokyo.
+
+**Validation** (`validate_city`, one `verify_order.check_entry` per name, coverage probe off):
+`verify_order.places_lookup` (cached 30 days, ~$0.052 per uncached name; English results and
+a `locationBias` circle from the city's centre/span so a chain's home branch never answers
+for its outpost; a hint-less retry when the address hint returned the building instead of
+the tenant; one retry on DEADLINE_EXCEEDED), `validate_venues.site_checks` (vouching also
+accepts localised words: galería, 畫廊, 갤러리 … and retries the site root when a branch page
+such as davidzwirner.com/hongkong is not in English), `verify_order.stale_check`. A site that
+refuses bots (429 / 403 / robots.txt) is `site_blocked`, not dead: the venue still verifies
+when the Places listing is complete AND names the same site (Hauser & Wirth). Zone = `seed_venues.assign_zone`
+over the geocoded neighborhood centroids (`content/expansion/<city>/zones.json`, via
+`seed_venues.geocode_area`) plus any registry venue that already has coordinates; footprint =
+inside `center ± span` widened by half a span. The LLM's free-text note is never passed to
+the checks (`NOT_A_VENUE_RE` would fire on "dealer"). **verified** needs all of: a
+name-matched Places listing inside the metro (`metro_tokens` in cities.py) with
+`OPERATIONAL`, an address, coordinates and opening hours; the site live, vouched as an art
+venue, no closed notice; a dated show on the site newer than ~2 years; the pin in the
+footprint; a zone. Anything else is `unverified` with reason codes
+(`places_missing|places_mismatch|places_closed|no_location|no_hours|no_website|site_dead|
+site_not_vouched|closed_notice|stale|out_of_footprint|not_a_venue|no_zone`) in
+`verification.checks.reasons`. A street-number disagreement between the LLM's address hint
+and Places is recorded as `checks.moved_hint` (Places wins). Every checked gallery is written
+(`venues.bulk_upsert`, source `seed-quick`, `protect_existing` = status / neighborhood /
+next_check / website / exhibitions_url / address_detail): verified -> `status active`, else
+`unknown`; hours, address, coordinates, `google` and `verification` are refreshed from the
+pass. Report: `content/expansion/<city>/validate-<ts>.json`.
+
+**Rank** — the order file lists only verified venues in blended order with ids pinned
+(`note: "claude #a / openai #b"`); `rank_venues.py apply` then gives them ranks 1..n and
+tiers by the cutoffs, and every other venue ranks after with tier null. `rank` refuses to
+replace an existing `venue_order.json` without `--force` (LA's is the client's list).
+`content/expansion/<city>/verified-ids.txt` feeds the show stage.
+
+**Shows** — `run_deep.py --city C --venue-ids @verified-ids.txt --force-due --no-report`
+(Sonnet 5): every id must be verified less than 30 days ago and carry a configured zone
+(`check_show_preconditions`; with `--venue-ids` the deep scrape drops the unzoned bucket).
+run_deep's own verify stage promotes in-window verified shows to `content/<city>.json`;
+upcoming ones wait in pending; then `sync_shows.py --apply`.
+
+**Feed and client site** — every quick city's show feed uses the gallery-order preset
+(`content/curation/params/publish-galleryorder.json`, docs/CURATION.md "The live preset"):
+`curate.py score` + `apply --reorder` per city, then `curation_site.py build --all` renders one
+page per city under `webdemo/dist/gallery-browser-curation/<city>/` with a city menu in the
+header (Galleries and Shows modes as before) and a root page listing the cities.
+
+**Augmenting a city** — `quick_city.py augment --city C --apply` seeds, keeps only the names the
+registry does not know (id / alias / site domain / normalised name), validates and adds those,
+scrapes the verified ones' shows and writes `content/expansion/<city>/augment-report.json`. It may
+add to a protected city but never ranks it. Existing records keep their `name` (the model's
+spelling becomes an alias) and are matched on the model's website, never the Places one; the
+city's own name is not a distinctive word when matching a Places result ("Gagosian Tokyo" must not
+match "Taka Ishii Gallery Tokyo" — the 2026-09-04 Tokyo pass mis-merged exactly that before these
+rules). Tokyo's ranking became the LLM consensus on 2026-09-04 (`rank --city tokyo --apply`).
+
+**Never written**: `los-angeles` (`NEVER_WRITE`, checked on every write path);
+`content/curation/params/*`. Adding a city: one `CITIES` entry (`display_name, center, span,
+neighborhoods, guidance, metro_tokens` — `cities.json` carries a drafted block), the same
+neighborhoods in `GalleryBrowser/Models.swift`, its zone in `webdemo/cityconfig.CITY_TZ`,
+optionally `harness.SECOND_SOURCES`. Existing cities keep their neighborhood labels
+(published shows, registries and verify sharding key off them); galleries in other districts
+map to the nearest centroid.

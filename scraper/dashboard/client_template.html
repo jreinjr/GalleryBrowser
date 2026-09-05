@@ -25,6 +25,7 @@ h2:first-child { margin-top: 0; }
 header { position: sticky; top: 0; z-index: 20; background: rgba(245,245,242,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .hwrap { max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .hmeta { color: var(--muted); font-size: 13px; flex: 1; min-width: 200px; }
+.city-switch { font: inherit; font-weight: 600; font-size: 14px; padding: 6px 10px; border-radius: 8px; border: 1px solid #d8d8d2; background: #fff; color: var(--ink); }
 .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #e3f0e8; color: var(--ok); white-space: nowrap; }
 .badge.shared { background: #fbeedc; color: var(--warn); }
 .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
@@ -153,7 +154,7 @@ table.t td.b { color: var(--muted); font-size: 12px; }
 </style>
 </head>
 <body>
-<header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><div class="tabs" id="mode" hidden><button data-mode="galleries">Galleries</button><button data-mode="shows">Shows</button></div><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
+<header><div class="hwrap"><h1 id="hdr-title">Gallery Browser</h1><select id="city-switch" class="city-switch" hidden title="Switch city"></select><div class="tabs" id="mode" hidden><button data-mode="galleries">Galleries</button><button data-mode="shows">Shows</button></div><div class="hmeta" id="hdr-meta"></div><span class="badge" id="mode-badge"><span class="dot"></span><span>Live settings</span></span></div></header>
 <div id="layout">
   <aside id="panel">
     <div class="panel-tabs"><button class="btn" id="panel-toggle" data-body="tune">Tune the ranking</button><button class="btn" id="export-toggle" data-body="export">Export</button><button class="btn reset" data-act="reset" title="Back to the live settings">Reset to live</button></div>
@@ -461,7 +462,18 @@ function readInput(el) {
 }
 
 // ---- rendering: header / summary ----
+function renderCitySwitch() {
+  const sel = $('#city-switch'), cities = R.cities || [];
+  if (!sel || cities.length < 2) return;
+  if (!sel.options.length) {
+    for (const c of cities) { const o = document.createElement('option'); o.value = c.url; o.textContent = c.name; o.selected = c.key === CITY; sel.appendChild(o); }
+    sel.addEventListener('change', () => { location.href = sel.value; });
+    sel.hidden = false;
+  }
+  try { localStorage.setItem('gb-curation-city', CITY); } catch (e) {}
+}
 function renderHeader() {
+  renderCitySwitch();
   $('#hdr-title').textContent = `Gallery Browser · ${R.city_name || CITY}`;
   if (ui.mode === 'galleries') {
     const applied = GR.generated_at ? new Date((+GR.generated_at) * 1000).toLocaleDateString() : '?';

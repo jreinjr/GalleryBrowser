@@ -56,16 +56,20 @@ def haversine_m(lat1, lng1, lat2, lng2) -> float:
 _V1_DISABLED = False
 
 
-def _google_lookup_legacy(key: str, query: str) -> dict:
+def _google_lookup_legacy(key: str, query: str, bias: dict | None = None) -> dict:
     """Fallback for keys with only the legacy Places API enabled (2 calls/venue)."""
+    params = {"query": query, "key": key, "language": "en"}
+    if bias:
+        params["location"] = f"{bias['lat']},{bias['lng']}"
+        params["radius"] = int(min(50000, max(1000, bias.get("radius_m", 20000))))
     ts = requests.get("https://maps.googleapis.com/maps/api/place/textsearch/json",
-                      params={"query": query, "key": key}, timeout=20).json()
+                      params=params, timeout=20).json()
     if ts.get("status") != "OK" or not ts.get("results"):
         return {"found": False} if ts.get("status") == "ZERO_RESULTS" else \
             {"found": False, "error": ts.get("status")}
     det = requests.get(
         "https://maps.googleapis.com/maps/api/place/details/json",
-        params={"place_id": ts["results"][0]["place_id"], "key": key,
+        params={"place_id": ts["results"][0]["place_id"], "key": key, "language": "en",
                 "fields": "name,business_status,formatted_address,geometry,"
                           "opening_hours,formatted_phone_number,website"},
         timeout=20).json()
@@ -84,19 +88,30 @@ def _google_lookup_legacy(key: str, query: str) -> dict:
     }
 
 
-def google_lookup(key: str, name: str, address: str, city_name: str) -> dict:
+def google_lookup(key: str, name: str, address: str, city_name: str,
+                  bias: dict | None = None) -> dict:
+    """Places text search for one venue. ``bias`` = {"lat", "lng", "radius_m"} keeps a
+    chain's home branch from answering for a city outpost ("Pace Gallery, Hong Kong"
+    otherwise returns 540 W 25th St)."""
     global _V1_DISABLED
+    query = ", ".join(p for p in (name, address, city_name) if p)
     if _V1_DISABLED:
         try:
-            return _google_lookup_legacy(key, f"{name}, {address}, {city_name}")
+            return _google_lookup_legacy(key, query, bias)
         except Exception as exc:
             return {"error": str(exc)[:200]}
     try:
+        body: dict = {"textQuery": query, "languageCode": "en"}
+        # English names/addresses everywhere: the app is English-only and the name
+        # match (verify_order.name_matches) compares Latin words
+        if bias:
+            body["locationBias"] = {"circle": {"center": {"latitude": bias["lat"], "longitude": bias["lng"]},
+                                               "radius": float(min(50000, max(1000, bias.get("radius_m", 20000))))}}
         resp = requests.post(
             PLACES_URL, timeout=20,
             headers={"X-Goog-Api-Key": key, "X-Goog-FieldMask": PLACES_FIELDS,
                      "Content-Type": "application/json"},
-            json={"textQuery": f"{name}, {address}, {city_name}"},
+            json=body,
         )
         resp.raise_for_status()
         places = resp.json().get("places", [])
@@ -117,7 +132,7 @@ def google_lookup(key: str, name: str, address: str, city_name: str) -> dict:
     except requests.HTTPError as exc:
         if exc.response is not None and exc.response.status_code == 403:
             _V1_DISABLED = True  # Places API (New) not enabled — use legacy from now on
-            return google_lookup(key, name, address, city_name)
+            return google_lookup(key, name, address, city_name, bias)
         return {"error": str(exc)[:200]}
     except Exception as exc:
         return {"error": str(exc)[:200]}

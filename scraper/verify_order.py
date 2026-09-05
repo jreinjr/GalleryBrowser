@@ -45,6 +45,7 @@ Writes content/spend/reports/verify-order-<city>-<ts>.json and a spend record.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import glob
 import json
 import os
@@ -147,16 +148,25 @@ def stale_check(fetcher, website: str | None, exhibitions_url: str | None, rende
     return out
 
 
-def name_matches(name: str, found: str | None) -> bool:
+def name_matches(name: str, found: str | None, ignore: set[str] | frozenset[str] = frozenset()) -> bool:
     """The Places result is the venue we asked for: a shared distinctive word, or the
-    same letters once spaces go ('ArtPic' vs 'Art Pic')."""
+    same letters once spaces go ('ArtPic' vs 'Art Pic'). ``ignore`` = words that are
+    never distinctive here (the city's own name: "Gagosian Tokyo" must not match
+    "Taka Ishii Gallery Tokyo")."""
     if not found:
         return False
-    if words(name) & words(found):
+    if (words(name) - ignore) & (words(found) - ignore):
         return True
     a = re.sub(r"[^a-z0-9]", "", tools._norm_venue(name))
     b = re.sub(r"[^a-z0-9]", "", tools._norm_venue(found))
     return bool(a) and (a in b or b in a)
+
+
+def city_words(city: str) -> frozenset[str]:
+    """Words of the city's display name and metro tokens — never distinctive in a venue name."""
+    cfg = CITIES.get(city) or {}
+    toks = [cfg.get("display_name") or ""] + list(cfg.get("metro_tokens") or [])
+    return frozenset(w for t in toks for w in crosscheck._name_words(t))
 
 
 def in_metro(pl: dict, city: str) -> bool | None:
@@ -266,19 +276,43 @@ def registry_near_misses(reg: dict, name: str, limit: int = 3) -> list[dict]:
 
 def places_lookup(key: str | None, city: str, name: str, hint: str | None, budget: dict) -> dict:
     """crosscheck.google_lookup, cached like the seed lookups; never raises."""
+    bias = city_bias(city)
     query = {"op": "order_lookup", "name": name, "hint": hint or ""}
+    if bias:
+        query["bias"] = "city"
     k = seed_venues._cache_key(query)
     c = seed_venues._cache_get(city, k, LOOKUP_CACHE_DAYS) if not budget.get("refetch") else None
     if c is not None:
         return dict(c["data"], cached=True)
-    if not key or budget["requests"] + validate_venues.LOOKUP_REQUESTS > budget["max_requests"]:
-        return {"found": None, "skipped": "no_key" if not key else "budget"}
-    budget["requests"] += validate_venues.LOOKUP_REQUESTS
-    budget["cost_usd"] += validate_venues.LOOKUP_COST
-    res = crosscheck.google_lookup(key, name, hint or "", CITIES[city]["display_name"])
+    with (budget.get("lock") or contextlib.nullcontext()):   # quick_city checks venues in threads
+        if not key or budget["requests"] + validate_venues.LOOKUP_REQUESTS > budget["max_requests"]:
+            return {"found": None, "skipped": "no_key" if not key else "budget"}
+        budget["requests"] += validate_venues.LOOKUP_REQUESTS
+        budget["cost_usd"] += validate_venues.LOOKUP_COST
+    res = crosscheck.google_lookup(key, name, hint or "", CITIES[city]["display_name"], bias)
+    for pause in (2, 5, 10):
+        # Places (New) answers DEADLINE_EXCEEDED / INTERNAL / UNAVAILABLE under load: back off and retry
+        if not TRANSIENT_RE.search(str(res.get("error") or "")):
+            break
+        time.sleep(pause)
+        res = crosscheck.google_lookup(key, name, hint or "", CITIES[city]["display_name"], bias)
     if "error" not in res:
         seed_venues._cache_put(city, k, query, res)
     return res
+
+
+TRANSIENT_RE = re.compile(r"DEADLINE_EXCEEDED|UNAVAILABLE|INTERNAL|timed? ?out|Timeout|50\d\b|RESOURCE_EXHAUSTED|Connection", re.I)
+
+
+def city_bias(city: str) -> dict | None:
+    """Places locationBias circle from the city's map centre/span: a chain's outpost in
+    this city, not its home branch ('Pace Gallery, Hong Kong' -> 540 W 25th St otherwise)."""
+    cfg = CITIES.get(city) or {}
+    c, sp = cfg.get("center"), cfg.get("span")
+    if not c or not sp:
+        return None
+    radius = max(sp["latitudeDelta"], sp["longitudeDelta"]) * 111_000 / 2
+    return {"lat": c["latitude"], "lng": c["longitude"], "radius_m": int(min(50000, max(5000, radius)))}
 
 
 def verdict_for(entry: dict, near: list[dict], pl: dict, site: dict, zone: str | None,
@@ -351,6 +385,72 @@ def verdict_for(entry: dict, near: list[dict], pl: dict, site: dict, zone: str |
     return "miss", why
 
 
+def check_entry(e: dict, *, city: str, reg: dict, key: str | None, network: bool, fetcher, vctx,
+                labeled: list[dict], budget: dict, render: bool, cov: "Coverage | None" = None,
+                today_year: int | None = None, retry_without_hint: bool = False) -> dict:
+    """Every check for one order entry ``{name, neighborhood?, address?, website?, note?}``
+    -> the report row (places / site / dated / geo / zone / coverage / verdict). The
+    coverage probe is skipped when ``cov`` is None (quick_city reuses the checks
+    without the LA directory nets); ``verdict_for`` then answers ``miss`` for a
+    confirmed venue. ``retry_without_hint``: when an address hint steered Places to
+    the building instead of the tenant ("Pace Gallery, H Queen's" -> "H Queen's"),
+    ask once more by name and district only."""
+    name = e.get("name") or ""
+    near = registry_near_misses(reg, name)
+    cw = city_words(city)
+
+    def nm(found):
+        return name_matches(name, found, cw)
+    # an entry may carry `address` / `website` hints (hand-added after a first pass)
+    hint = e.get("address") or e.get("neighborhood")
+    pl = places_lookup(key, city, name, hint, budget) if network else {"found": None, "skipped": "no_network"}
+    if network and not (pl.get("found") and nm(pl.get("name"))) and not re.search(r"gallery|galerie", name, re.I):
+        pl2 = places_lookup(key, city, name + " gallery", e.get("neighborhood"), budget)
+        if pl2.get("found") and nm(pl2.get("name")):
+            pl = pl2
+    moved = bool(pl.get("found")) and nm(pl.get("name")) and pl.get("status") == "CLOSED_PERMANENTLY"
+    if network and retry_without_hint and e.get("address") and (moved or not (pl.get("found") and nm(pl.get("name")))):
+        # name + city only (a district label such as "Central/Soho" pulls in New York's SoHo);
+        # also when the address hint found the OLD listing of a gallery that moved
+        pl3 = places_lookup(key, city, name, None, budget)
+        if pl3.get("found") and nm(pl3.get("name")) and (not moved or pl3.get("status") == "OPERATIONAL"):
+            pl = pl3
+    pl["metro"] = in_metro(pl, city) if pl.get("found") else None
+    pl["matched"] = bool(pl.get("found")) and nm(pl.get("name")) and pl["metro"] is not False
+    if pl.get("found") and not pl["matched"]:
+        # another business (or the same name in another city): keep only the note, never its data
+        pl = {"found": True, "matched": False, "mismatch": pl.get("name"), "address_seen": pl.get("address"),
+              "metro": pl.get("metro"), "cached": pl.get("cached")}
+    website = (pl.get("website") if pl["matched"] else None) or e.get("website")
+    fake = {"id": venues.venue_id(name), "name": name, "website": website, "exhibitions_url": None}
+    site = validate_venues.site_checks(fake, vctx) if website else {"website": None}
+    if site.get("website_live"):
+        site["dated"] = stale_check(fetcher, site.get("final_url") or website, site.get("exhibitions_url"), render,
+                                    today_year or time.gmtime().tm_year)
+    geo = {"lat": pl.get("lat"), "lng": pl.get("lng"), "source": "places"} if pl["matched"] and pl.get("lat") is not None else None
+    if geo is None and e.get("address") and key:
+        # precise geocode of the hint; a second try drops the unit/zip tail ("4619 W Washington Blvd, Los Angeles")
+        tries = [e["address"], ", ".join(e["address"].split(",")[:2])]
+        for addr in dict.fromkeys(tries):
+            g = seed_venues.geocode_address(key, addr, CITIES[city]["display_name"], city) or {}
+            lat, lng = g.get("lat", g.get("latitude")), g.get("lng", g.get("longitude"))
+            if lat is not None and lng is not None:
+                geo = {"lat": lat, "lng": lng, "source": "geocode:address_hint"}
+                break
+    zone = seed_venues.assign_zone(geo["lat"], geo["lng"], labeled)[0] if geo else None
+    if zone is None and geo is None and e.get("neighborhood"):
+        # no coordinates at all: the list's own neighbourhood label, mapped onto the city's zones
+        zone = tools.normalize_zone(e["neighborhood"], CITIES[city]["neighborhoods"], city)
+    c = cov.check(name, (geo or {}).get("lat"), (geo or {}).get("lng")) if cov is not None else {}
+    verdict, why = verdict_for(dict(e, _geo=geo), near, pl, site, zone, c)
+    return {"rank": e.get("rank"), "name": name, "neighborhood": e.get("neighborhood"), "note": e.get("note"),
+            "hints": {k: e.get(k) for k in ("address", "website") if e.get(k)},
+            "verdict": verdict, "why": why, "zone": zone, "geo": geo, "near_misses": near,
+            "places": {k: pl.get(k) for k in ("found", "matched", "mismatch", "address_seen", "name", "status", "address", "website", "phone", "hours", "lat", "lng", "metro", "cached", "skipped", "error")},
+            "site": {k: site.get(k) for k in ("website", "website_live", "site_vouched", "closed_notice", "exhibitions_page", "exhibitions_url", "js_only", "final_url", "dated", "error")},
+            "coverage": c}
+
+
 def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch: bool,
         render: bool = True, ranks: list[int] | None = None) -> dict:
     _load_env()
@@ -384,50 +484,10 @@ def run(city: str, apply: bool, max_places_requests: int, network: bool, refetch
           f"sweep rows {len(cov.sweep)}, logs {len(cov.logs)}; places budget {max_places_requests} requests", flush=True)
     rows = []
     for e in entries:
-        name = e.get("name") or ""
-        near = registry_near_misses(reg, name)
-        # an entry may carry `address` / `website` hints (hand-added after a first pass)
-        hint = e.get("address") or e.get("neighborhood")
-        pl = places_lookup(key, city, name, hint, budget) if network else {"found": None, "skipped": "no_network"}
-        if network and not (pl.get("found") and name_matches(name, pl.get("name"))) and not re.search(r"gallery|galerie", name, re.I):
-            pl2 = places_lookup(key, city, name + " gallery", e.get("neighborhood"), budget)
-            if pl2.get("found") and name_matches(name, pl2.get("name")):
-                pl = pl2
-        pl["metro"] = in_metro(pl, city) if pl.get("found") else None
-        pl["matched"] = bool(pl.get("found")) and name_matches(name, pl.get("name")) and pl["metro"] is not False
-        if pl.get("found") and not pl["matched"]:
-            # another business (or the same name in another city): keep only the note, never its data
-            pl = {"found": True, "matched": False, "mismatch": pl.get("name"), "address_seen": pl.get("address"),
-                  "metro": pl.get("metro"), "cached": pl.get("cached")}
-        website = (pl.get("website") if pl["matched"] else None) or e.get("website")
-        fake = {"id": venues.venue_id(name), "name": name, "website": website, "exhibitions_url": None}
-        site = validate_venues.site_checks(fake, vctx) if website else {"website": None}
-        if site.get("website_live"):
-            site["dated"] = stale_check(fetcher, site.get("final_url") or website, site.get("exhibitions_url"), render, time.gmtime().tm_year)
-        geo = {"lat": pl.get("lat"), "lng": pl.get("lng"), "source": "places"} if pl["matched"] and pl.get("lat") is not None else None
-        if geo is None and e.get("address") and key:
-            # precise geocode of the hint; a second try drops the unit/zip tail ("4619 W Washington Blvd, Los Angeles")
-            tries = [e["address"], ", ".join(e["address"].split(",")[:2])]
-            for addr in dict.fromkeys(tries):
-                g = seed_venues.geocode_address(key, addr, CITIES[city]["display_name"], city) or {}
-                lat, lng = g.get("lat", g.get("latitude")), g.get("lng", g.get("longitude"))
-                if lat is not None and lng is not None:
-                    geo = {"lat": lat, "lng": lng, "source": "geocode:address_hint"}
-                    break
-        zone = seed_venues.assign_zone(geo["lat"], geo["lng"], labeled)[0] if geo else None
-        if zone is None and geo is None and e.get("neighborhood"):
-            # no coordinates at all: the list's own neighbourhood label, mapped onto the city's zones
-            zone = tools.normalize_zone(e["neighborhood"], CITIES[city]["neighborhoods"], city)
-        c = cov.check(name, (geo or {}).get("lat"), (geo or {}).get("lng"))
-        verdict, why = verdict_for(dict(e, _geo=geo), near, pl, site, zone, c)
-        row = {"rank": e.get("rank"), "name": name, "neighborhood": e.get("neighborhood"), "note": e.get("note"),
-               "hints": {k: e.get(k) for k in ("address", "website") if e.get(k)},
-               "verdict": verdict, "why": why, "zone": zone, "geo": geo, "near_misses": near,
-               "places": {k: pl.get(k) for k in ("found", "matched", "mismatch", "address_seen", "name", "status", "address", "website", "phone", "hours", "lat", "lng", "metro", "cached", "skipped", "error")},
-               "site": {k: site.get(k) for k in ("website", "website_live", "site_vouched", "closed_notice", "exhibitions_page", "exhibitions_url", "js_only", "final_url", "dated")},
-               "coverage": c}
+        row = check_entry(e, city=city, reg=reg, key=key, network=network, fetcher=fetcher, vctx=vctx,
+                          labeled=labeled, budget=budget, render=render, cov=cov)
         rows.append(row)
-        print(f"  #{row['rank']:<4} {name:<34} {verdict:<16} {'; '.join(why)[:150]}", flush=True)
+        print(f"  #{row['rank']:<4} {row['name']:<34} {row['verdict']:<16} {'; '.join(row['why'])[:150]}", flush=True)
     rep = {"session": session, "city": city, "ts": ts, "n": len(rows), "apply": apply,
            "counts": {k: sum(1 for r in rows if r["verdict"] == k) for k in ("miss", "unverified", "closed", "not_found", "out_of_footprint", "not_a_venue")},
            "spend": {"places_requests": budget["requests"], "cost_usd": round(budget["cost_usd"], 4),

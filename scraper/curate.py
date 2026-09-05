@@ -23,7 +23,10 @@ FEATURE FORMULA (raw evidence -> feature in [0, ~1.25]) — params keys in ()
     press               = min(1.25, log2(1 + press_raw) / log2(1 + press_ref))
     artist_heat         = same shape over {artist_activity, award} with half_life_days.artist
                           and artist_ref
-    venue               = venue_tier_map[registry tier] when the registry knows the tier, else
+    venue               = 1 - (registry rank - 1) / venue_rank_ref when params set venue_rank_ref
+                          and the venue holds a rank AND a tier (a hand order: the feed follows
+                          the list), else venue_tier_map[registry tier] when the registry knows
+                          the tier, else
                           min(1, max(venue_tier_map.unknown,
                                      0.4 * n_distinct_fair_exhibitor_sources + 0.3 * is_museum))
     museum              = 1 if venue.is_museum else 0
@@ -281,17 +284,29 @@ def venue_feature(show: dict, ctx: Context, params: dict) -> tuple[float, dict]:
     if reg is None and show.get("venue_id"):
         reg = ctx.registry_by_id.get(show["venue_id"])
     tier = reg.get("tier") if reg else None
+    rank = reg.get("rank") if reg else None
     tier_map = params.get("venue_tier_map") or {}
+    rank_ref = params.get("venue_rank_ref")
     n_fair = len(ctx.fair_sources.get(norm, ()))
     is_museum = bool(v.get("is_museum"))
-    if tier is not None and str(tier) in tier_map:
+    if rank_ref and rank is not None and tier is not None:
+        # position on the city's gallery ranking (a hand order: tier is set only for
+        # listed venues): 1 for #1, sliding to 0 at #ref — the feed follows the list
+        value = max(0.0, min(1.0, 1.0 - (float(rank) - 1.0) / float(rank_ref)))
+        basis = f"rank {rank} of {rank_ref}"
+    elif rank_ref:
+        # gallery-order mode: a venue off the list gets the unknown value, never the
+        # fair-listing / museum fallback (a fair booth must not outrank list position)
+        value = float(tier_map.get("unknown", 0.0))
+        basis = "not on the list"
+    elif tier is not None and str(tier) in tier_map:
         value = float(tier_map[str(tier)])
         basis = f"tier {tier}"
     else:
         fallback = 0.4 * n_fair + (0.3 if is_museum else 0.0)
         value = min(1.0, max(float(tier_map.get("unknown", 0.2)), fallback))
         basis = "no tier" + (f", {n_fair} fair listing(s)" if n_fair else "") + (", museum" if is_museum else "")
-    return value, {"tier": tier, "n_fair": n_fair, "basis": basis,
+    return value, {"tier": tier, "rank": rank, "n_fair": n_fair, "basis": basis,
                    "registry_id": reg.get("id") if reg else None, "venue_norm": norm}
 
 
@@ -525,6 +540,12 @@ def rank(shows: list[dict], params: dict, today: date, ctx: Context | None = Non
     """Score every pool show, sort, gate. Returns report-shaped rows (plan
     2.4 ``shows[]``) in rank order."""
     ctx = ctx or empty_context()
+    if params.get("venue_rank_ref") == "auto":
+        # the length of the city's ranked list (a hand / consensus order: those venues
+        # carry both a rank and a tier); resolved here so the report, the applied hash
+        # and the JS mirror all see the same number
+        listed = sum(1 for v in ctx.registry_by_id.values() if v.get("rank") is not None and v.get("tier") is not None)
+        params["venue_rank_ref"] = listed or None
     rows = []
     for show in shows:
         feats, detail = compute_features(show, ctx, params, today)
@@ -537,7 +558,8 @@ def rank(shows: list[dict], params: dict, today: date, ctx: Context | None = Non
             "dates": {"start": show.get("start_date"), "end": show.get("end_date")},
             "n_images": detail["n_images"], "desc_words": detail["desc_words"],
             "venue": {"name": v.get("name"), "id": show.get("venue_id") or detail["venue"]["registry_id"] or store.venue_id_for(v.get("name") or ""),
-                      "tier": detail["venue"]["tier"], "n_fair": detail["venue"]["n_fair"], "is_museum": bool(v.get("is_museum")),
+                      "tier": detail["venue"]["tier"], "rank": detail["venue"].get("rank"),
+                      "n_fair": detail["venue"]["n_fair"], "is_museum": bool(v.get("is_museum")),
                       "neighborhood": v.get("neighborhood"), "norm": detail["venue"]["venue_norm"]},
             "signals": [_signal_view(s) for s in detail["signals"]],
             "judge": (ctx.judge.get(show["slug"]) or {}),

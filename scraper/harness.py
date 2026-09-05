@@ -412,6 +412,16 @@ SECOND_SOURCES = {
     "berlin": "Artsy (artsy.net) or Index Berlin",
     "seattle": "Artsy (artsy.net) or visitseattle/art guides",
     "venice": "the Biennale/institutional listings",
+    # quick-city expansion (quick_city.py)
+    "hong-kong": "Artsy (artsy.net) or Ocula (ocula.com)",
+    "seoul": "Artsy (artsy.net) or Ocula (ocula.com)",
+    "shanghai": "Ocula (ocula.com) or Artsy (artsy.net)",
+    "mexico-city": "Artsy (artsy.net)",
+    "brussels": "Artsy (artsy.net) or Contemporary Art Daily",
+    "milan": "Artsy (artsy.net) or ATP Diary",
+    "chicago": "Artsy (artsy.net) or Newcity Art",
+    "san-francisco": "Artsy (artsy.net) or SF/Arts",
+    "miami": "Artsy (artsy.net)",
 }
 
 

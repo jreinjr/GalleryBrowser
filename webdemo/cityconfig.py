@@ -29,6 +29,10 @@ CITY_TZ = {
     "los-angeles": "America/Los_Angeles", "tokyo": "Asia/Tokyo",
     "berlin": "Europe/Berlin", "london": "Europe/London", "paris": "Europe/Paris",
     "venice": "Europe/Rome",
+    # quick-city expansion (scraper/quick_city.py)
+    "hong-kong": "Asia/Hong_Kong", "seoul": "Asia/Seoul", "mexico-city": "America/Mexico_City",
+    "shanghai": "Asia/Shanghai", "brussels": "Europe/Brussels", "milan": "Europe/Rome",
+    "chicago": "America/Chicago", "san-francisco": "America/Los_Angeles", "miami": "America/New_York",
 }
 
 

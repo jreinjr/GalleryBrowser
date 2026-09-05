@@ -1117,7 +1117,13 @@ CANDIDATE_DENY = SHARED_PLATFORMS + (
     "thegramercyla.com", "losangeles.com", "la.curbed.com", "hollywoodreporter.com",
 )
 VENUE_RE = re.compile(r"\b(exhibitions?|gallery|galerie|museum|art space|project space|"
-                      r"artist-run|on view|opening reception|kunsthalle)\b", re.I)
+                      r"artist-run|on view|opening reception|kunsthalle|"
+                      # the quick-city cities: a venue's own page is often localised
+                      r"galer[ií]a|galleria|exposici[oó]n(?:es)?|exposi[cç][aã]o|exposition|mostra|"
+                      r"ausstellung(?:en)?|kunstverein)\b"
+                      # CJK has no \b: match the bare words (Chinese gallery / exhibition,
+                      # Japanese gallery / exhibition, Korean gallery / exhibition)
+                      r"|畫廊|画廊|展覽|展览|ギャラリー|展覧会|展示|갤러리|전시", re.I)
 ADDR_RE = re.compile(r"\b\d{2,5}\s+(?:[NSEW]\.?\s+)?[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){0,3}\s+"
                      r"(?:St|Street|Ave|Avenue|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Pl|Place|"
                      r"Ln|Lane|Hwy|Highway|Ct|Court|Pkwy|Parkway)\b\.?")

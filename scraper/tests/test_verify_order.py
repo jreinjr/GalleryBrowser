@@ -14,6 +14,14 @@ COV = {"gpla": None, "carla": None, "sweep": None, "enumeration_logs": [], "circ
 
 
 class NameMatch(unittest.TestCase):
+    def test_city_words_are_not_distinctive(self):
+        cw = vo.city_words("tokyo")
+        self.assertIn("tokyo", cw)
+        self.assertTrue(vo.name_matches("Gagosian Tokyo", "Taka Ishii Gallery Tokyo"))          # bare match is fooled
+        self.assertFalse(vo.name_matches("Gagosian Tokyo", "Taka Ishii Gallery Tokyo", cw))     # with the city ignored
+        self.assertTrue(vo.name_matches("Pace Tokyo", "Pace Gallery", cw))
+        self.assertIn("york", vo.city_words("new-york"))
+
     def test_shared_word_or_squashed_letters(self):
         self.assertTrue(vo.name_matches("Tanya Leighton", "Tanya Leighton Gallery"))
         self.assertTrue(vo.name_matches("ArtPic", "Art Pic"))

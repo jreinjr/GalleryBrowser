@@ -3,6 +3,7 @@
 CITIES = {
     "seattle": {
         "display_name": "Seattle",
+        "metro_tokens": ["Seattle", ", WA "],
         "center": {"latitude": 47.6062, "longitude": -122.3321},
         "span": {"latitudeDelta": 0.35, "longitudeDelta": 0.35},
         "neighborhoods": [
@@ -26,6 +27,7 @@ CITIES = {
     },
     "new-york": {
         "display_name": "New York",
+        "metro_tokens": [", NY ", "New York", "Brooklyn", "Queens"],
         "center": {"latitude": 40.7359, "longitude": -73.9911},
         "span": {"latitudeDelta": 0.5, "longitudeDelta": 0.5},
         "neighborhoods": ["Chelsea", "Downtown", "Uptown", "Brooklyn/Queens", "Hamptons"],
@@ -444,6 +446,7 @@ CITIES = {
     },
     "berlin": {
         "display_name": "Berlin",
+        "metro_tokens": ["Berlin"],
         "center": {"latitude": 52.5200, "longitude": 13.4050},
         "span": {"latitudeDelta": 0.35, "longitudeDelta": 0.35},
         "neighborhoods": ["Mitte", "Kreuzberg", "Charlottenburg", "Schöneberg"],
@@ -454,6 +457,7 @@ CITIES = {
     },
     "london": {
         "display_name": "London",
+        "metro_tokens": ["London"],
         "center": {"latitude": 51.5074, "longitude": -0.1278},
         "span": {"latitudeDelta": 0.35, "longitudeDelta": 0.35},
         "neighborhoods": ["Mayfair", "East End", "South London", "West End/Soho"],
@@ -464,6 +468,7 @@ CITIES = {
     },
     "paris": {
         "display_name": "Paris",
+        "metro_tokens": ["Paris", "Pantin", "Romainville", "Ivry", "Saint-Ouen"],
         "center": {"latitude": 48.8606, "longitude": 2.3376},
         "span": {"latitudeDelta": 0.3, "longitudeDelta": 0.3},
         "neighborhoods": ["Marais", "Saint-Germain", "Avenue Matignon/8th", "Belleville/Pantin"],
@@ -474,6 +479,7 @@ CITIES = {
     },
     "venice": {
         "display_name": "Venice",
+        "metro_tokens": ["Venezia", "Venice"],
         "center": {"latitude": 45.4371, "longitude": 12.3326},
         "span": {"latitudeDelta": 0.12, "longitudeDelta": 0.18},
         "neighborhoods": ["San Marco", "Dorsoduro", "Cannaregio", "Castello", "Giudecca"],
@@ -481,6 +487,135 @@ CITIES = {
             "Focus on current institutional and collateral shows: Palazzo Grassi, Punta della "
             "Dogana, Peggy Guggenheim Collection, Fondazione Prada, Palazzo Fortuny, or "
             "gallery outposts and Biennale-adjacent exhibitions currently on view."
+        ),
+    },
+    # --- quick-city expansion (scraper/quick_city.py, 2026-09-04) -------------------
+    # Seeded from the LLM city list (content/expansion/cities.json). Only the keys the
+    # deep scrape and quick validation need: no `zones` (no Places sweep), guidance is
+    # a plain string. `metro_tokens` = strings a Places address inside the metro carries
+    # (verify_order.in_metro). Flesh out with zones/areas when the full pipeline runs.
+    "hong-kong": {
+        "display_name": "Hong Kong",
+        "metro_tokens": ["Hong Kong", "Kowloon"],
+        "center": {"latitude": 22.283, "longitude": 114.158},
+        "span": {"latitudeDelta": 0.22, "longitudeDelta": 0.22},
+        "neighborhoods": ["Central/Soho", "Sheung Wan/Sai Ying Pun", "Wan Chai/Causeway Bay",
+                          "Wong Chuk Hang/Aberdeen", "Chai Wan/Eastern", "Tsim Sha Tsui/Kowloon"],
+        "guidance": (
+            "Hong Kong's gallery districts, busiest first: Central (H Queen's, Pedder Building, "
+            "Tai Kwun/Soho), Sheung Wan, Wan Chai, the Wong Chuk Hang warehouse galleries, "
+            "Chai Wan, and Tsim Sha Tsui across the harbour. Verify which shows are actually "
+            "on view right now on the venues' own websites."
+        ),
+    },
+    "seoul": {
+        "display_name": "Seoul",
+        "metro_tokens": ["Seoul"],
+        "center": {"latitude": 37.545, "longitude": 126.995},
+        "span": {"latitudeDelta": 0.28, "longitudeDelta": 0.28},
+        "neighborhoods": ["Samcheong/Bukchon", "Seochon/Tongui", "Hannam/Itaewon", "Cheongdam/Apgujeong",
+                          "Euljiro/Jung-gu", "Seongsu", "Yeonhui/Mapo"],
+        "guidance": (
+            "Seoul's gallery districts, busiest first: Samcheong-dong and Bukchon by the palaces, "
+            "Seochon, Hannam-dong and Itaewon, Cheongdam-dong and Apgujeong in Gangnam, Euljiro, "
+            "Seongsu-dong, and Yeonhui-dong/Mapo. Verify which shows are actually on view right "
+            "now on the venues' own websites."
+        ),
+    },
+    "mexico-city": {
+        "display_name": "Mexico City",
+        "metro_tokens": ["Ciudad de México", "CDMX", "Mexico City"],
+        "center": {"latitude": 19.421, "longitude": -99.168},
+        "span": {"latitudeDelta": 0.28, "longitudeDelta": 0.28},
+        "neighborhoods": ["Colonia Juárez/Cuauhtémoc", "San Miguel Chapultepec", "Roma/Condesa", "Polanco",
+                          "San Rafael/Santa María la Ribera", "Escandón", "San Ángel/Coyoacán"],
+        "guidance": (
+            "Mexico City's gallery districts, busiest first: Colonia Juárez, San Miguel Chapultepec, "
+            "Roma and Condesa, Polanco, San Rafael and Santa María la Ribera, Escandón, and San "
+            "Ángel/Coyoacán. Verify which shows are actually on view right now on the venues' own "
+            "websites."
+        ),
+    },
+    "shanghai": {
+        "display_name": "Shanghai",
+        "metro_tokens": ["Shanghai", "Shang Hai", "上海"],   # Places (en) writes "Shang Hai Shi, China"
+        "center": {"latitude": 31.22, "longitude": 121.46},
+        "span": {"latitudeDelta": 0.32, "longitudeDelta": 0.32},
+        "neighborhoods": ["West Bund/Xuhui", "M50/Moganshan Road", "The Bund/Rockbund", "Jing'an",
+                          "Former French Concession", "Putuo", "Pudong"],
+        "guidance": (
+            "Shanghai's gallery districts, busiest first: the West Bund (Xuhui Binjiang), M50 on "
+            "Moganshan Road, the Bund and Rockbund, Jing'an, the Former French Concession, Putuo, "
+            "and Pudong. Verify which shows are actually on view right now on the venues' own "
+            "websites."
+        ),
+    },
+    "brussels": {
+        "display_name": "Brussels",
+        "metro_tokens": ["Brussels", "Bruxelles", "Brussel", "Ixelles", "Elsene", "Saint-Gilles", "Sint-Gillis",
+                         "Uccle", "Ukkel", "Forest", "Vorst", "Anderlecht", "Molenbeek", "Etterbeek", "Schaerbeek"],
+        "center": {"latitude": 50.833, "longitude": 4.355},
+        "span": {"latitudeDelta": 0.2, "longitudeDelta": 0.2},
+        "neighborhoods": ["Ixelles/Louise", "Sablon/Centre", "Saint-Gilles/Forest", "Dansaert/Canal",
+                          "Molenbeek/Anderlecht", "Uccle"],
+        "guidance": (
+            "Brussels's gallery districts, busiest first: Ixelles around Avenue Louise, the Sablon "
+            "and the centre, Saint-Gilles and Forest, Dansaert and the canal, Molenbeek and "
+            "Anderlecht, and Uccle. Verify which shows are actually on view right now on the "
+            "venues' own websites."
+        ),
+    },
+    "milan": {
+        "display_name": "Milan",
+        "metro_tokens": ["Milano", "Milan"],
+        "center": {"latitude": 45.47, "longitude": 9.19},
+        "span": {"latitudeDelta": 0.22, "longitudeDelta": 0.22},
+        "neighborhoods": ["Porta Venezia", "Brera/Centro", "Isola/Farini", "Lambrate/Ventura",
+                          "Tortona/Navigli", "Città Studi/Bicocca"],
+        "guidance": (
+            "Milan's gallery districts, busiest first: Porta Venezia, Brera and the centre, Isola "
+            "and Via Farini, Lambrate/Ventura, Tortona and the Navigli, and Città Studi/Bicocca. "
+            "Verify which shows are actually on view right now on the venues' own websites."
+        ),
+    },
+    "chicago": {
+        "display_name": "Chicago",
+        "metro_tokens": [", IL ", "Chicago"],
+        "center": {"latitude": 41.888, "longitude": -87.656},
+        "span": {"latitudeDelta": 0.3, "longitudeDelta": 0.3},
+        "neighborhoods": ["West Town/West Loop", "River North", "Pilsen/Bridgeport", "Logan Square/Wicker Park",
+                          "Garfield Park", "Hyde Park"],
+        "guidance": (
+            "Chicago's gallery districts, busiest first: West Town and the West Loop, River North, "
+            "Pilsen and Bridgeport, Logan Square and Wicker Park, Garfield Park, and Hyde Park. "
+            "Verify which shows are actually on view right now on the venues' own websites."
+        ),
+    },
+    "san-francisco": {
+        "display_name": "San Francisco",
+        "metro_tokens": [", CA ", "San Francisco", "Oakland", "Berkeley"],
+        "center": {"latitude": 37.777, "longitude": -122.4},
+        "span": {"latitudeDelta": 0.4, "longitudeDelta": 0.4},
+        "neighborhoods": ["Dogpatch/Minnesota Street", "Potrero/SoMa", "Union Square/Downtown", "Mission",
+                          "Chinatown/North Beach", "Oakland/Berkeley"],
+        "guidance": (
+            "San Francisco's gallery districts, busiest first: Dogpatch around the Minnesota Street "
+            "Project, Potrero Flats and SoMa, Union Square and downtown, the Mission, Chinatown and "
+            "North Beach, and Oakland/Berkeley across the bay. Verify which shows are actually on view "
+            "right now on the venues' own websites."
+        ),
+    },
+    "miami": {
+        "display_name": "Miami",
+        "metro_tokens": [", FL ", "Miami"],
+        "center": {"latitude": 25.81, "longitude": -80.195},
+        "span": {"latitudeDelta": 0.35, "longitudeDelta": 0.35},
+        "neighborhoods": ["Little Haiti/Little River", "Allapattah", "Wynwood", "Design District", "Downtown",
+                          "Coral Gables", "Miami Beach", "Doral"],
+        "guidance": (
+            "Miami's gallery districts, busiest first: Little Haiti and Little River, Allapattah, "
+            "Wynwood, the Design District, downtown, Coral Gables, Miami Beach, and Doral. Verify which "
+            "shows are actually on view right now on the venues' own websites."
         ),
     },
 }
