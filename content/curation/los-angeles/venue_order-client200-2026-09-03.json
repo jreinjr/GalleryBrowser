@@ -1,0 +1,1422 @@
+{
+ "city": "los-angeles",
+ "source": "client's hand-ordered 'Los Angeles galleries' list, 200 entries, 2026-09-03",
+ "_note": "From la-galleries-ranked.pdf (client hand-ranked, Hauser & Wirth first). Names resolved to registry ids on 2026-09-04 (scratchpad matcher + hand fixes: ROSEGALLERY, Luis De Jesus, Copro, Jonathan Novak, TAG); id null = not in the registry, resolved by name at load time if a venue with that name appears later. #193 Gallery of Functional Art = #127 Lois Lambert Gallery (same venue), #197 Santa Monica Auctions = #91 Robert Berman Gallery (same venue). Rebuild after editing: rank_venues.py apply --city los-angeles --params content/curation/params/venues-la-ranked200.json; curation_site.py build --city los-angeles; webdemo/build.py.",
+ "tiers": {
+  "1": 20,
+  "2": 50
+ },
+ "entries": [
+  {
+   "rank": 1,
+   "name": "Hauser & Wirth",
+   "id": "hauser-and-wirth",
+   "neighborhood": "Arts District + West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 2,
+   "name": "David Zwirner",
+   "id": "david-zwirner",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 3,
+   "name": "Regen Projects",
+   "id": "regen-projects",
+   "neighborhood": "Hollywood",
+   "note": "the most important LA-native program"
+  },
+  {
+   "rank": 4,
+   "name": "Gagosian",
+   "id": "gagosian-beverly-hills",
+   "neighborhood": "Beverly Hills",
+   "note": null
+  },
+  {
+   "rank": 5,
+   "name": "David Kordansky",
+   "id": "david-kordansky",
+   "neighborhood": "Mid-Wilshire",
+   "note": null
+  },
+  {
+   "rank": 6,
+   "name": "Matthew Marks",
+   "id": "matthew-marks",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 7,
+   "name": "Sprüth Magers",
+   "id": "spruth-magers",
+   "neighborhood": "Miracle Mile",
+   "note": null
+  },
+  {
+   "rank": 8,
+   "name": "Pace",
+   "id": "pace",
+   "neighborhood": "Mid-Wilshire",
+   "note": null
+  },
+  {
+   "rank": 9,
+   "name": "Marian Goodman",
+   "id": "marian-goodman",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 10,
+   "name": "Jeffrey Deitch",
+   "id": "jeffrey-deitch",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 11,
+   "name": "François Ghebaly",
+   "id": "francois-ghebaly",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 12,
+   "name": "Night Gallery",
+   "id": "night",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 13,
+   "name": "Vielmetter Los Angeles",
+   "id": "vielmetter-los-angeles",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 14,
+   "name": "Roberts Projects",
+   "id": "roberts-projects",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 15,
+   "name": "Nicodim",
+   "id": "nicodim",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 16,
+   "name": "Lisson",
+   "id": "lisson",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 17,
+   "name": "Commonwealth and Council",
+   "id": "commonwealth-and-council",
+   "neighborhood": "Koreatown",
+   "note": null
+  },
+  {
+   "rank": 18,
+   "name": "Karma",
+   "id": "karma",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 19,
+   "name": "Perrotin",
+   "id": "perrotin",
+   "neighborhood": "Mid-Wilshire",
+   "note": null
+  },
+  {
+   "rank": 20,
+   "name": "Michael Kohn",
+   "id": "michael-kohn",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 21,
+   "name": "Morán Morán",
+   "id": "moran-moran",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 22,
+   "name": "Anat Ebgi",
+   "id": "anat-ebgi",
+   "neighborhood": "Wilshire + additional spaces",
+   "note": null
+  },
+  {
+   "rank": 23,
+   "name": "The Box",
+   "id": "box",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 24,
+   "name": "Parrasch Heijnen",
+   "id": "parrasch-heijnen",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 25,
+   "name": "Marc Selwyn Fine Art",
+   "id": "marc-selwyn",
+   "neighborhood": "Beverly Hills",
+   "note": null
+  },
+  {
+   "rank": 26,
+   "name": "Chris Sharp Gallery",
+   "id": "chris-sharp",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 27,
+   "name": "Matthew Brown",
+   "id": "matthew-brown",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 28,
+   "name": "Bel Ami",
+   "id": "bel-ami",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 29,
+   "name": "Overduin & Co.",
+   "id": "overduin-and-co",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 30,
+   "name": "Chateau Shatto",
+   "id": "chateau-shatto",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 31,
+   "name": "Michael Benevento",
+   "id": "michael-benevento",
+   "neighborhood": "Koreatown",
+   "note": null
+  },
+  {
+   "rank": 32,
+   "name": "Tanya Leighton",
+   "id": "tanya-leighton",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 33,
+   "name": "James Fuentes",
+   "id": "james-fuentes",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 34,
+   "name": "Nonaka-Hill",
+   "id": "nonaka-hill",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 35,
+   "name": "ROSE Gallery",
+   "id": "rosegallery",
+   "neighborhood": "Bergamot",
+   "note": "the serious photography room in LA"
+  },
+  {
+   "rank": 36,
+   "name": "Fahey/Klein",
+   "id": "fahey-klein",
+   "neighborhood": "La Brea",
+   "note": "20th-century photography"
+  },
+  {
+   "rank": 37,
+   "name": "Peter Fetterman",
+   "id": "peter-fetterman",
+   "neighborhood": "Bergamot",
+   "note": "classic photography"
+  },
+  {
+   "rank": 38,
+   "name": "Southern Guild",
+   "id": "southern-guild",
+   "neighborhood": "Melrose Hill",
+   "note": "South African program"
+  },
+  {
+   "rank": 39,
+   "name": "Rele Gallery",
+   "id": "rele",
+   "neighborhood": "Melrose Hill",
+   "note": "Lagos-founded"
+  },
+  {
+   "rank": 40,
+   "name": "Luis De Jesus",
+   "id": "luis-de-jesus-los-angeles",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 41,
+   "name": "Charlie James Gallery",
+   "id": "charlie-james",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 42,
+   "name": "Honor Fraser",
+   "id": "honor-fraser",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 43,
+   "name": "Steve Turner",
+   "id": "steve-turner",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 44,
+   "name": "Diane Rosenstein",
+   "id": "diane-rosenstein",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 45,
+   "name": "Harkawik",
+   "id": "harkawik",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 46,
+   "name": "Murmurs",
+   "id": "murmurs",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 47,
+   "name": "The Pit",
+   "id": "pit",
+   "neighborhood": "Pasadena",
+   "note": null
+  },
+  {
+   "rank": 48,
+   "name": "Philip Martin Gallery",
+   "id": "philip-martin",
+   "neighborhood": "Glassell Park",
+   "note": null
+  },
+  {
+   "rank": 49,
+   "name": "Shoshana Wayne",
+   "id": "shoshana-wayne",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 50,
+   "name": "Richard Heller",
+   "id": "richard-heller",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 51,
+   "name": "Gaga & Reena Spaulings",
+   "id": "gaga-and-reena-spaulings",
+   "neighborhood": "Hollywood",
+   "note": null,
+   "address": "6916 Santa Monica Blvd, Los Angeles, CA 90038",
+   "website": "https://gagareena.com/"
+  },
+  {
+   "rank": 52,
+   "name": "Various Small Fires (VSF)",
+   "id": "various-small-fires-vsf",
+   "neighborhood": "Koreatown",
+   "note": null
+  },
+  {
+   "rank": 53,
+   "name": "1301PE",
+   "id": "1301-pe",
+   "neighborhood": "Mid-Wilshire",
+   "note": null
+  },
+  {
+   "rank": 54,
+   "name": "Hoffman Donahue",
+   "id": "hoffman-donahue",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 55,
+   "name": "Make Room",
+   "id": "make-room",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 56,
+   "name": "Moskowitz Bayse",
+   "id": "moskowitz-bayse",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 57,
+   "name": "Parker Gallery",
+   "id": "parker",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 58,
+   "name": "The Landing",
+   "id": "landing",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 59,
+   "name": "Ochi Projects",
+   "id": "ochi",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 60,
+   "name": "Lowell Ryan Projects",
+   "id": "lowell-ryan-projects",
+   "neighborhood": "West Adams",
+   "note": null,
+   "address": "4619 W Washington Blvd, Los Angeles, CA 90016",
+   "website": "https://www.lowellryanprojects.com/"
+  },
+  {
+   "rank": 61,
+   "name": "Nazarian / Curcio",
+   "id": "nazarian-curcio",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 62,
+   "name": "Wilding Cran",
+   "id": "wilding-cran",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 63,
+   "name": "Baert Gallery",
+   "id": "baert",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 64,
+   "name": "De Boer",
+   "id": "de-boer",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 65,
+   "name": "NOON Projects",
+   "id": "noon-projects",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 66,
+   "name": "as-is.la",
+   "id": "as-is-la",
+   "neighborhood": "Koreatown",
+   "note": null
+  },
+  {
+   "rank": 67,
+   "name": "Sidecar",
+   "id": "sidecar",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 68,
+   "name": "Craig Krull",
+   "id": "craig-krull",
+   "neighborhood": "Bergamot",
+   "note": "photography"
+  },
+  {
+   "rank": 69,
+   "name": "Von Lintel",
+   "id": "von-lintel",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 70,
+   "name": "M+B",
+   "id": "m-b",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 71,
+   "name": "The Journal Gallery",
+   "id": "journal",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 72,
+   "name": "Marshall Gallery",
+   "id": "marshall",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 73,
+   "name": "Track 16",
+   "id": "track-16",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 74,
+   "name": "Cirrus Gallery",
+   "id": "cirrus",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 75,
+   "name": "Gattopardo",
+   "id": "gattopardo",
+   "neighborhood": "Glendale",
+   "note": null
+  },
+  {
+   "rank": 76,
+   "name": "Reisig and Taylor Contemporary",
+   "id": "reisig-and-taylor-contemporary",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 77,
+   "name": "Good Mother Gallery",
+   "id": "good-mother",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 78,
+   "name": "SPY Projects",
+   "id": "spy-projects",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 79,
+   "name": "Rusha & Co.",
+   "id": "rusha-and-co",
+   "neighborhood": "Florence-Firestone",
+   "note": null
+  },
+  {
+   "rank": 80,
+   "name": "Fernberger",
+   "id": "fernberger",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 81,
+   "name": "Megan Mulrooney",
+   "id": "megan-mulrooney",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 82,
+   "name": "Meliksetian | Briggs",
+   "id": "meliksetian-briggs",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 83,
+   "name": "Hostler Burrows",
+   "id": "hostler-burrows",
+   "neighborhood": "La Brea",
+   "note": "design"
+  },
+  {
+   "rank": 84,
+   "name": "Carpenters Workshop",
+   "id": "carpenters-workshop",
+   "neighborhood": "West Hollywood",
+   "note": "collectible design"
+  },
+  {
+   "rank": 85,
+   "name": "Louis Stern Fine Arts",
+   "id": "louis-stern",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 86,
+   "name": "Gallery Luisotti",
+   "id": "gallery-luisotti",
+   "neighborhood": "Downtown",
+   "note": "photography"
+  },
+  {
+   "rank": 87,
+   "name": "Duncan Miller Gallery",
+   "id": "duncan-miller",
+   "neighborhood": "Downtown",
+   "note": "photography"
+  },
+  {
+   "rank": 88,
+   "name": "Danziger Gallery",
+   "id": null,
+   "neighborhood": "By appointment",
+   "note": "photography"
+  },
+  {
+   "rank": 89,
+   "name": "Leslie Sacks",
+   "id": "leslie-sacks",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 90,
+   "name": "William Turner Gallery",
+   "id": "william-turner",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 91,
+   "name": "Robert Berman Gallery",
+   "id": "robert-berman-gallery-santa-monica-auctions",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 92,
+   "name": "Walter Maciel",
+   "id": "walter-maciel",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 93,
+   "name": "Billis Williams",
+   "id": "billis-williams",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 94,
+   "name": "Corey Helford",
+   "id": "corey-helford",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 95,
+   "name": "Thinkspace",
+   "id": "thinkspace-projects",
+   "neighborhood": "West Adams",
+   "note": null
+  },
+  {
+   "rank": 96,
+   "name": "Band of Vices",
+   "id": "band-of-vices",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 97,
+   "name": "Royale Projects",
+   "id": "royale-projects",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 98,
+   "name": "Emma Gray HQ / Five Car Garage",
+   "id": "emma-gray-hq-five-car-garage",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 99,
+   "name": "Feia",
+   "id": "feia",
+   "neighborhood": "Highland Park",
+   "note": null
+  },
+  {
+   "rank": 100,
+   "name": "Durden and Ray",
+   "id": "durden-and-ray",
+   "neighborhood": "Downtown",
+   "note": "artist-run"
+  },
+  {
+   "rank": 101,
+   "name": "Sebastian Gladstone",
+   "id": "sebastian-gladstone",
+   "neighborhood": "Hollywood",
+   "note": "craft-based practices"
+  },
+  {
+   "rank": 102,
+   "name": "Sea View",
+   "id": "sea-view",
+   "neighborhood": "Mount Washington",
+   "note": "residential-format gallery"
+  },
+  {
+   "rank": 103,
+   "name": "Sow & Tailor",
+   "id": null,
+   "neighborhood": "West Adams",
+   "note": "increasingly photography-forward"
+  },
+  {
+   "rank": 104,
+   "name": "ICA LA",
+   "id": "ica-la-institute-of-contemporary-art-los-angeles",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 105,
+   "name": "The Brick",
+   "id": "brick-formerly-laxart",
+   "neighborhood": "Melrose Hill",
+   "note": null
+  },
+  {
+   "rank": 106,
+   "name": "The Mistake Room",
+   "id": "mistake-room-tmr",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 107,
+   "name": "JOAN",
+   "id": "joan",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 108,
+   "name": "Gallery at REDCAT",
+   "id": "gallery-at-redcat",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 109,
+   "name": "LAXART",
+   "id": "laxart",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 110,
+   "name": "Gemini G.E.L.",
+   "id": "gemini-g-e-l",
+   "neighborhood": "Melrose",
+   "note": "historic editions workshop"
+  },
+  {
+   "rank": 111,
+   "name": "Mixografia",
+   "id": "mixografia",
+   "neighborhood": "South LA",
+   "note": "print workshop"
+  },
+  {
+   "rank": 112,
+   "name": "Human Resources",
+   "id": "human-resources",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 113,
+   "name": "Del Vaz Projects",
+   "id": "del-vaz-projects",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 114,
+   "name": "Dama Gallery",
+   "id": "dama",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 115,
+   "name": "Foyer-LA",
+   "id": "foyer-la",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 116,
+   "name": "Phase Gallery",
+   "id": "phase",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 117,
+   "name": "Wönzimer",
+   "id": "wonzimer",
+   "neighborhood": "Chinatown",
+   "note": null
+  },
+  {
+   "rank": 118,
+   "name": "Central Server Works",
+   "id": "central-server-works-csw",
+   "neighborhood": "Downtown + Venice",
+   "note": null
+  },
+  {
+   "rank": 119,
+   "name": "Subliminal Projects",
+   "id": "subliminal-projects",
+   "neighborhood": "Echo Park",
+   "note": null
+  },
+  {
+   "rank": 120,
+   "name": "Cevera Yoon",
+   "id": "cevera-yoon",
+   "neighborhood": "Koreatown",
+   "note": null
+  },
+  {
+   "rank": 121,
+   "name": "Patricia Sweetow",
+   "id": "patricia-sweetow",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 122,
+   "name": "Abigail Ogilvy",
+   "id": "abigail-ogilvy",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 123,
+   "name": "Simard Bilodeau Contemporary",
+   "id": "simard-bilodeau-contemporary",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 124,
+   "name": "Nuart Gallery",
+   "id": "nuart",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 125,
+   "name": "Galerie XII",
+   "id": "gallery-xii",
+   "neighborhood": "Bergamot",
+   "note": "photography"
+  },
+  {
+   "rank": 126,
+   "name": "bG Gallery",
+   "id": "bg-gallery",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 127,
+   "name": "Lois Lambert Gallery",
+   "id": "gallery-of-functional-art",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 128,
+   "name": "Copro Nason",
+   "id": "copro",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 129,
+   "name": "Derek Eller (LA space)",
+   "id": "derek-eller",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 130,
+   "name": "Yiwei Gallery",
+   "id": "yiwei",
+   "neighborhood": "Venice",
+   "note": null
+  },
+  {
+   "rank": 131,
+   "name": "Bruce Lurie Gallery",
+   "id": "bruce-lurie",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 132,
+   "name": "Jonathan Novak Contemporary",
+   "id": "jonathan-novak-contemporary-art",
+   "neighborhood": "Beverly Hills",
+   "note": "secondary market"
+  },
+  {
+   "rank": 133,
+   "name": "Anderson Galleries",
+   "id": "anderson",
+   "neighborhood": "Beverly Hills",
+   "note": null
+  },
+  {
+   "rank": 134,
+   "name": "Kylin Gallery",
+   "id": null,
+   "neighborhood": "Beverly Hills",
+   "note": null
+  },
+  {
+   "rank": 135,
+   "name": "Hamilton-Selway Fine Art",
+   "id": "hamilton-selway",
+   "neighborhood": "West Hollywood",
+   "note": "Warhol/Pop secondary"
+  },
+  {
+   "rank": 136,
+   "name": "Ikon Ltd. Contemporary",
+   "id": "ikon-ltd",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 137,
+   "name": "Advocartsy",
+   "id": "advocartsy-dtla",
+   "neighborhood": "West Hollywood",
+   "note": "Iranian contemporary"
+  },
+  {
+   "rank": 138,
+   "name": "Trigg Ison Fine Art",
+   "id": "trigg-ison",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 139,
+   "name": "Art Angels",
+   "id": "art-angels",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 140,
+   "name": "7811 Gallery",
+   "id": "7811",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 141,
+   "name": "Jack Rutberg Fine Arts",
+   "id": "jack-rutberg-fine-arts",
+   "neighborhood": "Pasadena",
+   "note": null
+  },
+  {
+   "rank": 142,
+   "name": "Maxwell Alexander Gallery",
+   "id": "maxwell-alexander",
+   "neighborhood": "Pasadena",
+   "note": null
+  },
+  {
+   "rank": 143,
+   "name": "Timothy Yarger Fine Art",
+   "id": "timothy-yarger",
+   "neighborhood": "Jefferson Park",
+   "note": null,
+   "address": "354 N Bedford Dr, Beverly Hills, CA 90210",
+   "website": "https://www.yargerfinearts.com/"
+  },
+  {
+   "rank": 144,
+   "name": "Allouche Gallery",
+   "id": "allouche-gallery-los-angeles",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 145,
+   "name": "Taylor Fine Art",
+   "id": "taylor",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 146,
+   "name": "The Lapis Press",
+   "id": "lapis-press",
+   "neighborhood": "Culver City",
+   "note": "editions"
+  },
+  {
+   "rank": 147,
+   "name": "Babst Gallery",
+   "id": "babst",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 148,
+   "name": "HVW8 Art + Design",
+   "id": "hvw8",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 149,
+   "name": "Beyond The Streets",
+   "id": "beyond-the-streets",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 150,
+   "name": "KP Projects",
+   "id": "kp-projects-merry-karnowsky",
+   "neighborhood": "Melrose",
+   "note": null
+  },
+  {
+   "rank": 151,
+   "name": "La Luz de Jesus",
+   "id": "la-luz-de-jesus",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 152,
+   "name": "Ellie Mayer Gallery",
+   "id": null,
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 153,
+   "name": "Weinstein Gallery",
+   "id": "weinstein",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 154,
+   "name": "Musichead Gallery",
+   "id": "musichead",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 155,
+   "name": "Superchief Gallery LA",
+   "id": "superchief-gallery-l-a",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 156,
+   "name": "Gabba Gallery",
+   "id": "gabba",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 157,
+   "name": "Friday Gallery",
+   "id": "friday",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 158,
+   "name": "Gloria Delson Contemporary",
+   "id": "gloria-delson-contemporary-arts",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 159,
+   "name": "The Hive Gallery",
+   "id": "hive",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 160,
+   "name": "Sugar Press Art",
+   "id": "sugar-press-art",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 161,
+   "name": "Tiger Strikes Asteroid LA",
+   "id": "tiger-strikes-asteroid",
+   "neighborhood": "Downtown",
+   "note": "artist-run"
+  },
+  {
+   "rank": 162,
+   "name": "Cadfab Creative",
+   "id": "cadfab-creative",
+   "neighborhood": "South LA",
+   "note": null
+  },
+  {
+   "rank": 163,
+   "name": "The Loft at Liz's",
+   "id": "loft-at-liz-s",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 164,
+   "name": "Artspace Warehouse",
+   "id": "artspace-warehouse",
+   "neighborhood": "La Brea",
+   "note": null
+  },
+  {
+   "rank": 165,
+   "name": "Dorado 806 Projects",
+   "id": "dorado-806-projects",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 166,
+   "name": "E2 / Green Bus Artspace",
+   "id": "green-bus-artspace-e2-artspace",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 167,
+   "name": "Silvana Gallery",
+   "id": "silvana",
+   "neighborhood": "Glendale",
+   "note": null
+  },
+  {
+   "rank": 168,
+   "name": "Gallery Nucleus",
+   "id": "gallery-nucleus",
+   "neighborhood": "Alhambra",
+   "note": "illustration"
+  },
+  {
+   "rank": 169,
+   "name": "ArtPic",
+   "id": null,
+   "neighborhood": "North Hollywood",
+   "note": null
+  },
+  {
+   "rank": 170,
+   "name": "Gallery 612",
+   "id": "gallery-612",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 171,
+   "name": "Armory Center for the Arts",
+   "id": "armory-center-for-the-arts",
+   "neighborhood": "Pasadena",
+   "note": null
+  },
+  {
+   "rank": 172,
+   "name": "Craft Contemporary",
+   "id": "craft-contemporary",
+   "neighborhood": "Miracle Mile",
+   "note": null
+  },
+  {
+   "rank": 173,
+   "name": "18th Street Arts Center",
+   "id": "18th-street-arts-center",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 174,
+   "name": "Art Share L.A.",
+   "id": "art-share-l-a",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 175,
+   "name": "L.A. Artcore",
+   "id": "la-artcore-union-center-for-the-arts",
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 176,
+   "name": "MAK Center / Schindler House",
+   "id": "mak-center-for-art-and-architecture",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 177,
+   "name": "Corita Art Center",
+   "id": "corita-art-center",
+   "neighborhood": "Hollywood",
+   "note": null
+  },
+  {
+   "rank": 178,
+   "name": "Tierra del Sol Gallery",
+   "id": "tierra-del-sol",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 179,
+   "name": "Gallery 825 / LA Art Association",
+   "id": "gallery-825",
+   "neighborhood": "West Hollywood",
+   "note": null
+  },
+  {
+   "rank": 180,
+   "name": "Launch LA",
+   "id": "launch-la",
+   "neighborhood": "Los Angeles",
+   "note": null
+  },
+  {
+   "rank": 181,
+   "name": "Beacon Arts Building",
+   "id": "beacon-arts-building",
+   "neighborhood": "Inglewood",
+   "note": null
+  },
+  {
+   "rank": 182,
+   "name": "Building Bridges Art Exchange",
+   "id": "building-bridges-art-exchange",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 183,
+   "name": "Contemporary Irish Arts Center LA",
+   "id": null,
+   "neighborhood": "Los Angeles",
+   "note": null
+  },
+  {
+   "rank": 184,
+   "name": "TAG Gallery",
+   "id": "artists",
+   "neighborhood": "Miracle Mile",
+   "note": "artist co-op"
+  },
+  {
+   "rank": 185,
+   "name": "Pasadena Society of Artists",
+   "id": null,
+   "neighborhood": "Pasadena",
+   "note": null
+  },
+  {
+   "rank": 186,
+   "name": "The dA Center for the Arts",
+   "id": null,
+   "neighborhood": "Pomona",
+   "note": null,
+   "candidates": [
+    "armory-center-for-the-arts",
+    "center-for-the-arts-eagle-rock",
+    "los-angeles-center-for-digital-art"
+   ]
+  },
+  {
+   "rank": 187,
+   "name": "Watts Towers Arts Center",
+   "id": null,
+   "neighborhood": "Watts",
+   "note": null
+  },
+  {
+   "rank": 188,
+   "name": "Vincent Price Art Museum",
+   "id": "vincent-price-art-museum",
+   "neighborhood": "East LA",
+   "note": null
+  },
+  {
+   "rank": 189,
+   "name": "Wende Museum",
+   "id": "wende-museum",
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 190,
+   "name": "Hollywood Sculpture Garden",
+   "id": null,
+   "neighborhood": "Hollywood Hills",
+   "note": null
+  },
+  {
+   "rank": 191,
+   "name": "Ten Women Gallery",
+   "id": "ten-women",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 192,
+   "name": "Connie Engel Art",
+   "id": "connie-engel-art",
+   "neighborhood": "Santa Monica",
+   "note": null
+  },
+  {
+   "rank": 193,
+   "name": "Gallery of Functional Art",
+   "id": "gallery-of-functional-art",
+   "neighborhood": "Bergamot",
+   "note": null
+  },
+  {
+   "rank": 194,
+   "name": "Arcana: Books on the Arts",
+   "id": null,
+   "neighborhood": "Culver City",
+   "note": null
+  },
+  {
+   "rank": 195,
+   "name": "The Last Bookstore",
+   "id": null,
+   "neighborhood": "Downtown",
+   "note": null
+  },
+  {
+   "rank": 196,
+   "name": "Los Angeles Modern Auctions (LAMA)",
+   "id": null,
+   "neighborhood": "Van Nuys",
+   "note": "auction"
+  },
+  {
+   "rank": 197,
+   "name": "Santa Monica Auctions",
+   "id": "robert-berman-gallery-santa-monica-auctions",
+   "neighborhood": "Santa Monica",
+   "note": "auction"
+  },
+  {
+   "rank": 198,
+   "name": "Christie's Los Angeles",
+   "id": "christie-s-los-angeles",
+   "neighborhood": "Beverly Hills",
+   "note": "auction"
+  },
+  {
+   "rank": 199,
+   "name": "HK Art Advisory + Projects",
+   "id": null,
+   "neighborhood": "Private dealing",
+   "note": null
+  },
+  {
+   "rank": 200,
+   "name": "Skidmore Contemporary Art",
+   "id": null,
+   "neighborhood": "Private dealing",
+   "note": null
+  }
+ ]
+}
