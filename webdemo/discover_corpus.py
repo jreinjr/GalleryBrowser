@@ -1,6 +1,6 @@
 """Per-city corpus for the Discover function (webdemo/api/discover.js).
 
-build.py calls ``build(city, shows, ranking, images)`` once per city and writes
+build.py calls ``build(city, shows, images)`` once per city and writes
 the result to dist/api/_data/<city>.json. Everything fragile is parsed here,
 in Python, at build time: opening hours become a per-weekday table (Google's
 weekday_text first, the agent-written lines second, via scraper/hours.py),
@@ -24,8 +24,10 @@ sys.path.insert(0, str(ROOT / "scraper"))
 import hours as hours_mod  # noqa: E402
 
 DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
-# mirrors GALLERY_TIER_CUTOFF in app.js
-GALLERY_TIER_CUTOFF = {"top": 25, "notable": 100}
+# mirrors GALLERY_TIER_CUTOFF in app.js and api/_lib/corpus.js: the gallery
+# rank (rank_venues.py) is the only ranking signal; top = the 20 best, notable
+# = the 50 best.
+GALLERY_TIER_CUTOFF = {"top": 20, "notable": 50}
 
 MONTHS = ["january", "february", "march", "april", "may", "june", "july",
           "august", "september", "october", "november", "december"]
@@ -229,10 +231,11 @@ def load_artists(city_key: str) -> list[dict]:
     return out
 
 
-def build(city: dict, shows: list[dict], ranking: dict[str, dict], images: dict[str, str]) -> dict:
+def build(city: dict, shows: list[dict], images: dict[str, str]) -> dict:
     """The corpus for one city. `shows` are the raw published records that made
     it into data.js (build.py skips image-less shows), `images` maps slug ->
-    the first proxy image path."""
+    the first proxy image path. Shows carry no rank of their own: the gallery
+    rank (venues[].rank) orders everything."""
     key = city["key"]
     registry = load_registry(key)
     judge = load_judge(key)
@@ -246,7 +249,6 @@ def build(city: dict, shows: list[dict], ranking: dict[str, dict], images: dict[
         used.setdefault(vid, v)
         rv = registry.get(vid) or {}
         rec_date, rec_kind = reception_info(s)
-        rk = ranking.get(s["slug"]) or {}
         j = judge.get(s["slug"]) or {}
         kind = rv.get("kind") or ("museum" if v.get("is_museum") else "gallery")
         out_shows.append({
@@ -257,8 +259,7 @@ def build(city: dict, shows: list[dict], ranking: dict[str, dict], images: dict[
             "startDate": s.get("start_date"), "endDate": s.get("end_date"),
             "datesNote": s.get("dates_note"), "datesConfidence": s.get("dates_confidence"),
             "receptionText": s.get("reception"), "receptionDate": rec_date, "receptionKind": rec_kind,
-            "featured": bool(s.get("featured")), "editorsPick": bool(s.get("editors_pick")),
-            "rank": rk.get("rank"), "galleryTier": gallery_tier(rv.get("rank")),
+            "galleryRank": rv.get("rank"), "galleryTier": gallery_tier(rv.get("rank")),
             "description": s.get("description") or "",
             "sourceUrls": s.get("source_urls") or [],
             "image": images.get(s["slug"]),

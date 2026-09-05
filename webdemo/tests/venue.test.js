@@ -1,7 +1,8 @@
 /* Venue page + gallery-rank sort checks against a built dist (DIST=<dir> overrides
- * webdemo/dist/gallery-browser-demo). No registry venue carries a blurb or rank yet, so the
- * test injects both into window.DEMO_DATA before the app boots (init script), which is the
- * same data shape build.py emits (docs/GALLERIES.md).
+ * webdemo/dist/gallery-browser-demo). The test pins three venues to ranks 1..3 (every
+ * other rank in the city is pushed down by 1000) and puts a blurb on the first, in
+ * window.DEMO_DATA before the app boots (init script) — the same data shape build.py
+ * emits (docs/GALLERIES.md) — so the expectations do not depend on the live registry.
  *   NODE_PATH=/opt/homebrew/lib/node_modules node webdemo/tests/venue.test.js
  */
 const path = require('path');
@@ -45,8 +46,10 @@ function check(name, ok, detail) {
   page.on('pageerror', e => console.log('PAGEERROR', e.message));
   await page.addInitScript(([city, blurb]) => {
     localStorage.setItem('selectedCityKey', city);
-    localStorage.removeItem('listFilter');
+    localStorage.removeItem('filter');
+    localStorage.removeItem('galleryOrder');
     localStorage.setItem('savedShowIDs', '[]');
+    localStorage.setItem('favoriteVenueIDs', '[]');
     // data.js runs before app.js: patch DEMO_DATA the moment it appears
     let data;
     Object.defineProperty(window, 'DEMO_DATA', {
@@ -55,12 +58,16 @@ function check(name, ok, detail) {
       set(v) {
         data = v;
         const shows = v.shows.filter(s => s.city === city && s.venueId);
+        v.venues = v.venues || {};
+        const vm = v.venues[city] = v.venues[city] || {};   // venues are keyed by city, then id
+        // the registry ranks the city already: push every rank down so the three pinned below lead
+        Object.values(vm).forEach(r => { if (r.rank != null) r.rank += 1000; });
+        v.shows.forEach(s => { if (s.city === city && s.venue.rank != null) s.venue.rank += 1000; });
         // rank three venues 1..3 (in reverse file order so rank != file order), blurb on rank 1
         const ids = [...new Set(shows.map(s => s.venueId))].slice(0, 3).reverse();
-        v.venues = v.venues || {};
         ids.forEach((id, i) => {
-          v.venues[id] = { ...(v.venues[id] || { id }), rank: i + 1 };
-          if (i === 0) v.venues[id].about = blurb;
+          vm[id] = { ...(vm[id] || { id, city }), rank: i + 1 };
+          if (i === 0) vm[id].about = blurb;
         });
         window.__TEST = { ids, shows: shows.length };
       },
@@ -73,21 +80,18 @@ function check(name, ok, detail) {
   await page.waitForSelector('#pages-list .list-results');
   const info = await page.evaluate(() => ({
     ...window.__TEST,
-    venuesEmitted: Object.keys(window.DEMO_DATA.venues || {}).length,
+    venuesEmitted: Object.keys((window.DEMO_DATA.venues || {})['los-angeles'] || {}).length,
     allHaveId: window.DEMO_DATA.shows.every(s => !s.venueId || (s.venue.id === s.venueId)),
   }));
   check('build emits a venues map', info.venuesEmitted > 0, `${info.venuesEmitted} venues`);
   check('venue.id mirrors show.venueId', info.allHaveId);
 
-  // Gallery rank sort: widen to all venues and all shows in the filter sheet, pick the sort
-  await page.click('#pages-list .page:last-child .icon-btn');
+  // Gallery rank is the default sort: widen to all venues and all shows in the filter sheet
+  await page.click('#pages-list .page:last-child .icon-btn[data-filter-btn]');
   await page.waitForSelector('.sheet.open .filter-sheet');
-  await page.click('.sheet.open .seg-row[data-seg="showRank"] button[data-value="all"]');
   await page.click('.sheet.open .seg-row[data-seg="kind"] button[data-value="all"]');
   await page.click('.sheet.open [data-switch="active"]');   // include shows that have closed or not yet opened
-  check('Gallery rank sort offered', (await page.$('.sheet.open [data-sort] .row:has-text("Gallery rank")')) != null);
-  await page.click('.sheet.open [data-sort] .row:has-text("Gallery rank")');
-  const sortChecked = await page.$('.sheet.open [data-sort] .row:has-text("Gallery rank") .check');
+  check('Gallery rank sort offered, and checked by default', (await page.$('.sheet.open [data-sort] .row:has-text("Gallery rank") .check')) != null);
   await page.click('.sheet.open .sheet-foot .capsule-btn');
   await page.waitForSelector('.sheet.open', { state: 'detached' });
   const order = await page.evaluate(() => {
@@ -100,13 +104,15 @@ function check(name, ok, detail) {
   const firstRankedIdx = order.findIndex(id => ranked.includes(id));
   check('ranked venues sort first, in rank order', firstRankedIdx === 0 && JSON.stringify(firstThree) === JSON.stringify(ranked),
     `${JSON.stringify(firstThree)} vs ${JSON.stringify(ranked)}`);
-  check('sort row Gallery rank checked', sortChecked != null);
-  check('the gallery rank stays off the show detail venue block', await (async () => {
+  check('the rank-1 gallery is starred on its rows, the show name is not', await page.$eval('#pages-list .list-results .show-row',
+    e => !!e.querySelector('.sr-venue .tier-star[data-tier="top"]') && !e.querySelector('.sr-name .tier-star')));
+  check('the show detail venue block carries the gallery star', await (async () => {
     await page.click('#pages-list .list-results .show-row .sr-text');
     await page.waitForSelector('#pages-list .page:last-child .detail-body');
     const n = await page.$$eval('#pages-list .page:last-child .vb-name .tier-star', els => els.length);
+    const meta = await page.$$eval('#pages-list .page:last-child .detail-meta-row', els => els.length);
     await page.evaluate(() => document.querySelector('#pages-list .page:last-child').remove());
-    return n === 0;
+    return n === 1 && meta === 0;
   })());
 
   // Venue page: open the rank-1 venue's show, then its venue page; Shows above the blurb
@@ -121,7 +127,8 @@ function check(name, ok, detail) {
     return { kids, text: p && p.textContent, color: p && getComputedStyle(p).color, maxw: p && getComputedStyle(p).maxWidth, pill: pill && pill.textContent };
   });
   check('venue page shows the blurb', about.text === BLURB, about.text);
-  check('rank-1 venue page shows the Top Gallery pill', about.pill === 'Top Gallery', about.pill);
+  check('rank-1 venue page shows its rank and tier in the pill', /^#1 · Top 20/.test(about.pill || ''), about.pill);
+  check('the venue page has a heart to favorite the gallery', !!(await page.$('#pages-list .venue-page .navrow .fav-btn[data-fav]')));
   check('Shows sit above the blurb, blurb above the address lines',
     about.kids.indexOf('venue-shows') === about.kids.indexOf('venue-title') + 1
       && about.kids.indexOf('venue-about') === about.kids.indexOf('venue-shows') + 1

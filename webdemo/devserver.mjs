@@ -64,7 +64,8 @@ function mock(res) {
   const q = process.env.DISCOVER_MOCK_FIXTURE || 'discover-list';
   const f = path.join(HERE, 'tests', 'fixtures', `${q}.sse`);
   res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-cache' });
-  const chunks = fs.readFileSync(f, 'utf8').split('\n\n').filter(Boolean);
+  // a Windows checkout (core.autocrlf) hands the fixture over with CRLF; SSE frames end in \n\n
+  const chunks = fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n').split('\n\n').filter(Boolean);
   let i = 0;
   const tick = () => { if (i >= chunks.length) { res.end(); return; } res.write(chunks[i++] + '\n\n'); setTimeout(tick, 60); };
   tick();

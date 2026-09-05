@@ -4,11 +4,17 @@
 //
 // Dates are ISO strings compared lexically, in the city's own timezone; a
 // missing start or end date means the show runs open-ended (the app's rule).
+//
+// Shows carry no rank of their own. The gallery rank (rank_venues.py, on the
+// venue record) is the only ranking signal, so every "best first" order here
+// is by the venue's rank, exactly as the app sorts.
 
 import DATA from '../_data/index.js';
 import { NEIGHBORHOOD_ALIASES, CONCEPTS, TRIGGERS, ARTIST_PROFILES, STOPWORDS } from './tables.js';
 
-export const GALLERY_TIER_CUTOFF = { top: 25, notable: 100 };
+export const GALLERY_TIER_CUTOFF = { top: 20, notable: 50 };
+// Rank of the show's gallery; unranked galleries sort last.
+export const galleryRank = (c, s) => { const v = c.venues[s.venueId]; const r = v && v.rank != null ? v.rank : s.galleryRank; return r == null ? 9999 : r; };
 export const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 const DAY_LONG = { sun: 'Sunday', mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday' };
 
@@ -202,7 +208,7 @@ function scoreDoc(c, doc, qTokens, conceptTerms) {
     }
     if (weight > 0) { total += Math.min(weight, 3); hitTerms.push(term); }
   }
-  if (total > 0 && doc.s.featured) total += 0.3;
+  if (total > 0 && doc.s.galleryTier === 'top') total += 0.3;   // a top-20 gallery edges a tie
   return { total, matched, hitTerms };
 }
 function grounding(doc, matched, hitTerms) {
@@ -250,8 +256,6 @@ export function findShows(c, input, today) {
     if (inp.venue_kind && inp.venue_kind !== 'any' && !(KIND_OK[inp.venue_kind] || KIND_OK.any)({ kind: s.venueKind })) return false;
     if (inp.gallery_tier === 'top' && s.galleryTier !== 'top') return false;
     if (inp.gallery_tier === 'notable' && s.galleryTier === 'listed') return false;
-    if (inp.show_tier === 'picks' && !s.editorsPick) return false;
-    if (inp.show_tier === 'featured' && !s.featured) return false;
     if (!relax.dates) {
       if (inp.closing_by && !(s.endDate && s.endDate <= inp.closing_by && s.endDate >= today)) return false;
       if (inp.opening_from && !(s.startDate && s.startDate >= inp.opening_from)) return false;
@@ -278,10 +282,11 @@ export function findShows(c, input, today) {
         hits.push({ doc, score: sc.total, why: grounding(doc, sc.matched, sc.hitTerms) });
       } else hits.push({ doc, score: 0, why: null });
     }
-    if (inp.reception_from || inp.reception_to) hits.sort((a, b) => (a.doc.s.receptionDate || '').localeCompare(b.doc.s.receptionDate || '') || (a.doc.s.rank || 999) - (b.doc.s.rank || 999));
-    else if (inp.closing_by) hits.sort((a, b) => (a.doc.s.endDate || '').localeCompare(b.doc.s.endDate || '') || (a.doc.s.rank || 999) - (b.doc.s.rank || 999));
-    else if (query) hits.sort((a, b) => b.score - a.score || (a.doc.s.rank || 999) - (b.doc.s.rank || 999));
-    else hits.sort((a, b) => (a.doc.s.rank || 999) - (b.doc.s.rank || 999));
+    const byGallery = (a, b) => galleryRank(c, a.doc.s) - galleryRank(c, b.doc.s);
+    if (inp.reception_from || inp.reception_to) hits.sort((a, b) => (a.doc.s.receptionDate || '').localeCompare(b.doc.s.receptionDate || '') || byGallery(a, b));
+    else if (inp.closing_by) hits.sort((a, b) => (a.doc.s.endDate || '').localeCompare(b.doc.s.endDate || '') || byGallery(a, b));
+    else if (query) hits.sort((a, b) => b.score - a.score || byGallery(a, b));
+    else hits.sort(byGallery);
     return hits;
   };
   let hits = run({});
@@ -293,7 +298,7 @@ export function findShows(c, input, today) {
   return {
     count: hits.length, strict_count: strictCount, relaxed,
     applied: { query: query || null, concepts, reading, neighborhoods: hoods.neighborhoods, status, venue: venue ? venue.id : null,
-      venue_kind: inp.venue_kind || 'any', gallery_tier: inp.gallery_tier || 'any', show_tier: inp.show_tier || 'any',
+      venue_kind: inp.venue_kind || 'any', gallery_tier: inp.gallery_tier || 'any',
       closing_by: inp.closing_by || null, opening_from: inp.opening_from || null, reception_from: inp.reception_from || null, reception_to: inp.reception_to || null, open_on: inp.open_on || null, artist: inp.artist || null },
     errors: errors.length ? errors : undefined,
     hits: hits.slice(0, limit).map(h => hitView(c, h.doc.s, today, h.why)),
@@ -302,7 +307,6 @@ export function findShows(c, input, today) {
 export function hitView(c, s, today, why) {
   const v = c.venues[s.venueId] || {};
   const flags = [];
-  if (s.editorsPick) flags.push('editors_pick'); else if (s.featured) flags.push('featured');
   if (kindTag(s.venueKind)) flags.push(kindTag(s.venueKind));
   if (s.galleryTier === 'top') flags.push('top_gallery'); else if (s.galleryTier === 'notable') flags.push('notable_gallery');
   if (s.datesNote || (s.datesConfidence && s.datesConfidence !== 'high')) flags.push('dates_approximate');
@@ -350,7 +354,7 @@ export function getDetails(c, input, today) {
     }
     const v = c.venues[s.venueId] || {};
     return { ...hitView(c, s, today, null), description: s.description, dates_note: s.datesNote || null, source_urls: s.sourceUrls,
-      curation_rank: s.rank, curation_note: s.judgeRationale || null,
+      gallery_rank: v.rank ?? null, gallery_tier: v.tier || s.galleryTier, curation_note: s.judgeRationale || null,
       venue_details: { id: v.id, address: [v.address, v.addressDetail].filter(Boolean).join(', '), hours: v.hoursText, hours_today: hoursOn(v, weekdayOf(today)).text, website: v.website, about: v.about || null } };
   }
   if (kind === 'venue') {
@@ -391,16 +395,15 @@ export function catalog(c, today) {
     const approx = s.datesNote || (s.datesConfidence && s.datesConfidence !== 'high') ? ' ~' : '';
     const parts = [s.id, names, clip(s.title, 70), `${s.venueName} (${tags})`, `${s.startDate || '?'}..${s.endDate || 'open'}${approx}`];
     if (s.receptionDate && s.receptionDate >= today) parts.push(`${s.receptionKind === 'opening' ? 'rcpt' : s.receptionKind} ${s.receptionDate}`);
-    if (s.editorsPick) parts.push('pick'); else if (s.featured) parts.push('feat');
     return parts.join(' | ');
   };
-  const byRank = (a, b) => (a.rank || 999) - (b.rank || 999);
+  const byRank = (a, b) => galleryRank(c, a) - galleryRank(c, b);
   const onView = c.shows.filter(s => showStatus(s, today) === 'on_view').sort(byRank);
   const soon = addDays(today, 30);
   const upcoming = c.shows.filter(s => showStatus(s, today) === 'upcoming' && s.startDate <= soon).sort((a, b) => a.startDate.localeCompare(b.startDate));
   return [
     '<catalog>',
-    '# One line per show: id | artists | title | venue (neighborhood[, museum|nonprofit|university|project_space|other — absent means a commercial gallery][, T=top gallery|N=notable]) | start..end (~ = dates approximate) | rcpt/talk/closing DATE | pick|feat',
+    '# One line per show, best-ranked gallery first: id | artists | title | venue (neighborhood[, museum|nonprofit|university|project_space|other — absent means a commercial gallery][, T=top-20 gallery|N=top-50]) | start..end (~ = dates approximate) | rcpt/talk/closing DATE',
     `## ON VIEW (${onView.length})`, ...onView.map(line),
     `## UPCOMING within 30 days (${upcoming.length})`, ...upcoming.map(line),
     '</catalog>',

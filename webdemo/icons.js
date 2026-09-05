@@ -31,5 +31,10 @@
     compass: `<svg ${S} fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm4.8-12.8l-6.4 2.4-2.4 6.4 6.4-2.4 2.4-6.4zM12 13.2a1.2 1.2 0 110-2.4 1.2 1.2 0 010 2.4z"/></svg>`,
     phone: `<svg ${S} fill="currentColor"><path d="M6.8 3.2c.5-.5 1.3-.4 1.7.1l2 2.6c.4.5.4 1.2-.1 1.6l-1.2 1.2c.5 1.2 1.2 2.3 2.2 3.3s2.1 1.7 3.3 2.2l1.2-1.2c.4-.5 1.1-.5 1.6-.1l2.6 2c.5.4.6 1.2.1 1.7l-1.5 1.5c-.7.7-1.7 1-2.6.7-2.6-.8-5.1-2.3-7.2-4.4S5.6 9.9 4.8 7.3c-.3-.9 0-1.9.7-2.6l1.3-1.5z"/></svg>`,
     pin: `<svg ${S} fill="currentColor" stroke="rgba(255,255,255,0.85)" stroke-width="0.8"><path d="M12 1.8a7.5 7.5 0 00-7.5 7.5c0 5.3 6.3 11.7 7 12.4a.7.7 0 001 0c.7-.7 7-7.1 7-12.4A7.5 7.5 0 0012 1.8z"/><circle cx="12" cy="9.3" r="2.8" fill="#fff" stroke="none"/></svg>`,
+    // Galleries: favorites + settings
+    heart: `<svg ${S} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M12 20.3S3.2 15 3.2 8.9a4.6 4.6 0 018.8-1.9 4.6 4.6 0 018.8 1.9c0 6.1-8.8 11.4-8.8 11.4z"/></svg>`,
+    heartFill: `<svg ${S} fill="currentColor"><path d="M12 20.3S3.2 15 3.2 8.9a4.6 4.6 0 018.8-1.9 4.6 4.6 0 018.8 1.9c0 6.1-8.8 11.4-8.8 11.4z"/></svg>`,
+    gear: `<svg ${S} ${stroke}><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3L5.5 5.5"/></svg>`,
+    arrowUp: `<svg ${S} ${stroke}><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>`,
   };
 })();

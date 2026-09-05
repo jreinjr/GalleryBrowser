@@ -43,7 +43,9 @@ function check(name, ok, detail) {
     localStorage.setItem('selectedCityKey', city);
     localStorage.removeItem('filter');
     localStorage.removeItem('lists');
+    localStorage.removeItem('galleryOrder');
     localStorage.setItem('savedShowIDs', '[]');
+    localStorage.setItem('favoriteVenueIDs', '[]');
   }, [CITY]);
   await page.goto(`http://localhost:${PORT}/`);
   await page.click('.tab-btn[data-tab="list"]');
@@ -51,13 +53,14 @@ function check(name, ok, detail) {
 
   const data = await page.evaluate(city => {
     const all = window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.isActiveShow(s));
-    const featGal = all.filter(s => s.featured && !s.venue.isMuseum);
+    // the default filter: running gallery shows, best-ranked gallery first
+    const featGal = window.DemoDebug.filteredShows();
     const ended = window.DEMO_DATA.shows.find(s => s.city === city && s.endDate && s.endDate < '2026-01-01') || window.DEMO_DATA.shows.filter(s => s.city === city).sort((a, b) => (a.endDate || '9') < (b.endDate || '9') ? -1 : 1)[0];
     return {
       city: window.DEMO_DATA.cities.find(c => c.key === city).displayName,
       featGal: featGal.length,
-      first: featGal.sort((a, b) => a.rank - b.rank)[0].slug,
-      second: featGal.sort((a, b) => a.rank - b.rank)[1].slug,
+      first: featGal[0].slug,
+      second: featGal[1].slug,
       curated: window.DemoDebug.curatedLists().map(l => l.id),
       curatedNames: window.DemoDebug.curatedLists().map(l => l.name),
       endedSlug: ended && !window.DemoDebug.isActiveShow(ended) ? ended.slug : null,
@@ -70,13 +73,15 @@ function check(name, ok, detail) {
   // 1. shell
   check('four tabs: Featured, Lists, Map, Discover', tabs.join(',') === 'Featured,Lists,Map,Discover', tabs.join(','));
   check('Lists tab header is the city', (await page.$eval('#pages-list .large-title', e => e.textContent)) === data.city);
-  check('filter version bumped to 6', data.filterVersion === 6);
+  check('filter version bumped to 7 (no show rank)', data.filterVersion === 7);
 
-  // 2. library at defaults
+  // 2. library at defaults: All shows and the Favorite galleries default list
   let p = await pinned();
-  check('only "All shows in <City>" pinned at defaults', p.length === 1 && p[0] === `All shows in ${data.city}`, p.join(' | '));
+  check('"All shows in <City>" and "Favorite galleries" pinned at defaults', p.length === 2 && p[0] === `All shows in ${data.city}` && p[1] === 'Favorite galleries', p.join(' | '));
+  check('the empty favorites row explains the heart', /heart/i.test(await page.$eval('#pages-list .lib-row.favorites .lib-sub', e => e.textContent)));
+  check('a settings gear sits beside the filter button', !!(await page.$('#pages-list .navrow .nav-btns [data-settings-btn] + [data-filter-btn]')));
   check('no Your lists section at defaults', await page.$eval('#pages-list .lib-grid', e => e.hidden));
-  check("Curated starts with Editor's Picks, no Museums this month, no Recent asks", data.curated[0] === 'c-picks' && !data.curatedNames.some(n => /museum/i.test(n)) && !(await page.$('#pages-list .ask-row')), data.curatedNames.join(' | '));
+  check("Curated starts with Top 20 galleries (no Editor's Picks), no Museums this month, no Recent asks", data.curated[0] === 'c-top' && !data.curated.includes('c-picks') && !data.curatedNames.some(n => /museum/i.test(n)) && !(await page.$('#pages-list .ask-row')), data.curatedNames.join(' | '));
   check('curated shelf shows the curated lists with Save pills', (await page.$$('#pages-list .lib-shelf .lib-tile .tile-save')).length === data.curated.length);
   check('See all button beside Curated', !!(await page.$('#pages-list [data-see-all]')));
   const sub = await page.$eval('#pages-list .lib-pinned .lib-row.all .lib-sub', e => e.textContent);
@@ -105,7 +110,7 @@ function check(name, ok, detail) {
   await page.click('#pages-list .page:last-child .navrow .circle-btn');   // back to the library
   await page.waitForTimeout(350);
   p = await pinned();
-  check('My Shows appears once something is saved', p.length === 2 && p[1] === 'My Shows', p.join(' | '));
+  check('My Shows appears once something is saved, before Favorite galleries', p.length === 3 && p[1] === 'My Shows' && p[2] === 'Favorite galleries', p.join(' | '));
   check('Your lists appears with the new list', !(await page.$eval('#pages-list .lib-grid', e => e.hidden)) && (await page.$$eval('#pages-list .lib-grid .lib-name', els => els.map(e => e.textContent))).includes('Ceramics to see'));
 
   // 5. list detail: caret byline, Map/Edit actions, no Featured/Share
@@ -199,7 +204,7 @@ function check(name, ok, detail) {
   check('the curated tile offers Save again once its copy is gone', (await page.$eval('#pages-list .lib-shelf .lib-tile .tile-save', e => e.textContent)).includes('Save') && !(await page.$eval('#pages-list .lib-shelf .lib-tile .tile-save', e => e.textContent)).includes('Saved'));
   await page.click('#pages-list [data-see-all]');
   await page.waitForSelector('#pages-list .guide-hero');
-  check('curated page leads with Editor\'s Picks', (await page.$eval('#pages-list .guide-hero .gh-name', e => e.textContent)) === "Editor's Picks");
+  check('curated page leads with Top 20 galleries', (await page.$eval('#pages-list .guide-hero .gh-name', e => e.textContent)) === 'Top 20 galleries');
   await page.click('#pages-list .page:last-child .navrow .circle-btn');
   await page.waitForTimeout(350);
 

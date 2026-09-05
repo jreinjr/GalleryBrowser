@@ -54,7 +54,7 @@ const rendered = (page, layer) => page.evaluate(layer => {
     seen.add(f.properties.key);
     const p = m.project(f.geometry.coordinates);
     return [{ x: p.x, y: p.y, lngLat: f.geometry.coordinates, name: f.properties.name,
-      count: f.properties.count, tier: f.properties.tier, key: f.properties.key }];
+      count: f.properties.count, tier: f.properties.tier, key: f.properties.key, active: f.properties.active }];
   });
 }, layer);
 
@@ -89,11 +89,15 @@ async function collisionOn(page) {
   };
 
   const ctx = await browser.newContext({ viewport: { width: 393, height: 852 } });
-  // Widen the shared filter so every venue is on the map (default = featured, running gallery shows).
+  // Widen the shared filter so every venue is on the map (default = running gallery
+  // shows): all venue kinds, Active shows off — which also brings in every gallery
+  // of the city with nothing on view, drawn faded.
   await ctx.addInitScript(city => { try {
     localStorage.setItem('selectedCityKey', city);
-    localStorage.setItem('filter', JSON.stringify({ v: 6, kind: 'all', showRank: 'all', active: false }));
+    localStorage.setItem('filter', JSON.stringify({ v: 7, kind: 'all', active: false }));
     localStorage.setItem('savedShowIDs', '[]');
+    localStorage.setItem('favoriteVenueIDs', '[]');
+    localStorage.removeItem('galleryOrder');
   } catch (e) { /* */ } }, CITY);
   const page = await ctx.newPage();
   page.on('pageerror', e => { console.log('PAGEERROR', e.message); fails.push('pageerror: ' + e.message); });
@@ -120,6 +124,7 @@ async function collisionOn(page) {
   let labels = await rendered(page, 'gal-label');
   await page.screenshot({ path: path.join(SHOT, 'map-city.png') });
   const features = () => page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.length);
+  const featureProps = () => page.evaluate(() => window.__demoMap.getSource('venues').serialize().data.features.map(f => f.properties));
   const total = await features();
   check('M1 gallery dots at city zoom', dots.length > 0 && dots.length <= total,
     `zoom=${zoom0.toFixed(2)} dots=${dots.length}/${total} labels=${labels.length}`);
@@ -129,9 +134,28 @@ async function collisionOn(page) {
     check('M1b dots carry at least two tiers', Object.keys(tiers).length >= 2, JSON.stringify(tiers));
     const radii = await page.evaluate(() => {
       const m = window.__demoMap;
-      return { top: m.getPaintProperty('gal-dot', 'circle-radius'), sort: m.getLayoutProperty('gal-dot', 'circle-sort-key') };
+      return { top: m.getPaintProperty('gal-dot', 'circle-radius'), sort: m.getLayoutProperty('gal-dot', 'circle-sort-key'), opacity: m.getPaintProperty('gal-dot', 'circle-opacity') };
     });
-    check('M1c dot radius and paint order come from the tier', !!radii.top && !!radii.sort);
+    check('M1c dot radius, paint order and opacity come from the tier and the active flag', !!radii.top && !!radii.sort && !!radii.opacity);
+    // Active shows off: the whole city's galleries are on the map, faded where nothing is on view
+    const props = await featureProps();
+    const expect = await page.evaluate(() => {
+      const city = localStorage.getItem('selectedCityKey');
+      const key = window.__venueKey;
+      const withShows = new Set(window.DEMO_DATA.shows.filter(s => s.city === city).map(s => key(s.venue)));
+      const running = new Set(window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.isActiveShow(s)).map(s => key(s.venue)));
+      const all = new Set([...withShows, ...window.DemoDebug.cityVenues().map(key)]);
+      return { all: all.size, running: running.size, withShows: withShows.size };
+    });
+    check('M1d every gallery of the city is a feature with Active shows off',
+      props.length === expect.all && expect.all > expect.withShows, `features=${props.length} expected=${expect.all} (with shows ${expect.withShows})`);
+    check('M1e venues with a running show are active, the rest faded',
+      props.filter(p => p.active === 1).length === expect.running && props.some(p => p.active === 0 && p.count === 0),
+      `active=${props.filter(p => p.active === 1).length} / ${expect.running}, faded=${props.filter(p => p.active === 0).length}`);
+    check('M1f the tier is the gallery\'s own (top = 20 best, notable = 50 best)',
+      props.filter(p => p.tier === 'top').length <= 20 && props.filter(p => p.tier !== 'listed').length <= 50 && props.some(p => p.tier === 'top'),
+      `top=${props.filter(p => p.tier === 'top').length} notable=${props.filter(p => p.tier === 'notable').length}`);
+    check('M1g the legend explains the faded dots while Active shows is off', !(await page.$eval('#map-legend-off', e => e.hidden)));
   }
   check('M2 labels are placed by the collision engine at city zoom',
     (await collisionOn(page)) && labels.length > 0 && labels.length <= dots.length,
@@ -252,7 +276,7 @@ async function collisionOn(page) {
   {
     const n = await features();
     check('M6b Upcoming receptions narrows the source', n < beforeM6, `features=${n} / ${beforeM6}`);
-    check('M6c filter pill shows the badge', (await page.$eval('#map-filter-btn .badge', e => e.textContent)) === '4');
+    check('M6c filter pill shows the badge', (await page.$eval('#map-filter-btn .badge', e => e.textContent)) === '3');
     await openFilters();
     await page.click('.sheet.open [data-switch="receptions"]');
     await closeFilters();
@@ -267,9 +291,11 @@ async function collisionOn(page) {
     const expectTop = await page.evaluate(() => {
       const city = localStorage.getItem('selectedCityKey');
       const key = window.__venueKey;   // the app's own grouping, not a copy that can drift from it
-      return new Set(window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.galleryTier(s.venue) === 'top').map(s => key(s.venue))).size;
+      const D = window.DemoDebug;
+      return new Set([...window.DEMO_DATA.shows.filter(s => s.city === city && D.galleryTier(s.venue) === 'top').map(s => key(s.venue)),
+        ...D.cityVenues().filter(v => D.galleryTier(v) === 'top').map(key)]).size;
     });
-    check('M6e Top Ranked narrows the source to top-tier venues', top === expectTop && top > 0, `features=${top} expected=${expectTop}`);
+    check('M6e Top 20 narrows the source to top-tier venues (shows or not)', top === expectTop && top > 0 && top <= 20, `features=${top} expected=${expectTop}`);
     await openFilters();
     await page.click('.sheet.open .seg-row[data-seg="galleryRank"] button[data-value="all"]');
     await closeFilters();
@@ -290,6 +316,8 @@ async function collisionOn(page) {
     });
     check('M7 Active shows narrows the map to venues with a running show',
       active === expectActive && active > 0 && active <= total, `features=${active} expected=${expectActive} of ${total}`);
+    check('M7b with Active shows on every dot is active and the faded-dot legend row hides',
+      (await featureProps()).every(p => p.active === 1) && (await page.$eval('#map-legend-off', e => e.hidden)));
     await openFilters();
     await page.click('.sheet.open [data-switch="active"]');
     await closeFilters();
@@ -298,6 +326,57 @@ async function collisionOn(page) {
 
   // ---- M8: the tier legend is always on screen ----
   check('M8 legend visible', !(await page.$eval('#map-legend', e => e.hidden)));
+
+  // ---- M11: a faded dot (nothing on view) opens a full venue page; the heart favorites it ----
+  {
+    const quiet = await page.evaluate(() => {
+      const D = window.DemoDebug, key = window.__venueKey;
+      const all = D.mapVenues();
+      // a faded venue standing on its own: two galleries in one building stack their dots
+      const alone = g => all.every(o => o === g || Math.abs(o.venue.lat - g.venue.lat) > 0.0006 || Math.abs(o.venue.lng - g.venue.lng) > 0.0006);
+      const cands = all.filter(x => !x.active && x.shows.length === 0 && alone(x));
+      const g = cands.find(x => x.tier === 'top') || cands.find(x => x.tier === 'notable') || cands[0];
+      return g && { lat: g.venue.lat, lng: g.venue.lng, name: g.venue.name, id: g.venue.id, key: key(g.venue) };
+    });
+    const d = await focusVenue(quiet);
+    const hit = d && d.key === quiet.key;
+    check('M11 a gallery with nothing on view has its own faded dot', hit && d.active === 0 && d.count === 0, d && `${d.name} active=${d.active} count=${d.count}`);
+    await page.mouse.click(d.x, d.y);
+    await sleep(500);
+    const st = await page.evaluate(() => ({
+      sheets: document.querySelectorAll('#sheet-root .sheet').length,
+      title: (document.querySelector('#sheet-root .venue-title') || {}).textContent,
+      none: !!document.querySelector('#sheet-root .venue-none'),
+      cards: document.querySelectorAll('#sheet-root .venue-show-card').length,
+      pill: (document.querySelector('#sheet-root .tier-pill') || {}).textContent,
+      heart: !!document.querySelector('#sheet-root .navrow .fav-btn[data-fav]'),
+      address: !!document.querySelector('#sheet-root .venue-lines'),
+    }));
+    check('M11b its venue page opens with "Nothing on view", the rank pill, the address and a heart',
+      st.sheets === 1 && st.title === quiet.name && st.none && st.cards === 0 && st.heart && st.address && /^#\d+/.test(st.pill || ''), JSON.stringify(st));
+    await page.click('#sheet-root .navrow .fav-btn');
+    await sleep(150);
+    const favs = await page.evaluate(() => JSON.parse(localStorage.getItem('favoriteVenueIDs')));
+    check('M11c the heart saves the gallery as a favorite from the map',
+      favs.length === 1 && favs[0] === `${CITY}/${quiet.id}` && (await page.$eval('#sheet-root .navrow .fav-btn', e => e.classList.contains('on'))), JSON.stringify(favs));
+    await closeSheet();
+  }
+
+  // ---- M12: the legend's link opens the gallery ranking as a sheet ----
+  {
+    await page.click('#map-rank-btn');
+    await page.waitForSelector('.sheet.open .galleries-page .rank-row');
+    const st = await page.evaluate(() => ({
+      rows: document.querySelectorAll('.sheet.open .galleries-page .rank-row').length,
+      venues: window.DemoDebug.cityVenues().length,
+      firstRank: (document.querySelector('.sheet.open .galleries-page .rank-row .rank-n') || {}).textContent,
+      hearts: document.querySelectorAll('.sheet.open .galleries-page .rank-row .fav-btn.on').length,
+    }));
+    check('M12 the ranking sheet lists every gallery of the city, the favorite from M11 marked',
+      st.rows === st.venues && st.rows > 50 && st.firstRank === '1' && st.hearts === 1, JSON.stringify(st));
+    await page.click('.sheet.open .galleries-page .navrow .circle-btn');
+    await page.waitForSelector('.sheet.open', { state: 'detached' });
+  }
 
   // ---- M9: no glyph request failed ----
   check('M9 label glyphs served', fontFails.length === 0, fontFails.join(', ') || 'all 200');

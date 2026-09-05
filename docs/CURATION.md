@@ -27,9 +27,12 @@ overrides.exclude → in-window → published_only → require_open
 
 `featured` = the survivors; `editors_pick` = the top `editors_pick_top` of
 them. `curate.py apply --reorder` writes those flags into the published file
-in rank order, and `webdemo/build.py` renders that order as the app's Featured
-tab. The formula is mirrored one-to-one in the dashboard's JS — change one,
-change the other.
+in rank order. The formula is mirrored one-to-one in the dashboard's JS — change one,
+change the other. **The app no longer reads any of it** (2026-09-04): the web
+demo orders the feed and the list by the gallery rank alone
+(`rank_venues.py`, `content/venues/<city>.json`), and `webdemo/build.py` does
+not publish `rank`, `featured` or `editors_pick` on a show. The show ranking
+lives on for the dashboard and the client curation site.
 
 ## What actually predicts a See Saw pick
 
@@ -123,6 +126,24 @@ Every preset carries a `_note` with its fitting method, results, and caveats.
 Read it before trusting the numbers.
 
 ### The live preset
+
+**Los Angeles since 2026-09-04: `publish-galleryorder.json`.** The client asked for the
+feed to follow their hand-set gallery order first and foremost, so LA's live preset is the
+gallery-order feed: `venue_rank_ref: "auto"` (the length of the ranked list, 110 for LA) turns the `venue` feature into the venue's position
+on `content/curation/los-angeles/venue_order.json` (1 for #1, sliding to 0 at #110; venues off
+the list score the `unknown` value, 0 — never the fair-listing fallback) at weight 0.99, with
+judge / quality / closing_soon as tie-breakers (max 0.01, about one list step) among shows at
+the same gallery; threshold 0, no per-venue cap, museums still excluded from Featured. Rebuild
+after editing the list: `rank_venues.py order --city los-angeles --names list.txt --tiers 24,46`
+→ `rank_venues.py apply --city los-angeles --params content/curation/params/venues-la-ranked200.json`
+→ `curate.py apply --city los-angeles --params content/curation/params/publish-galleryorder.json --reorder`
+→ dashboard / `webdemo/build.py` / `curation_site.py build`. The previous 200-entry client list
+is kept as `venue_order-client200-2026-09-03.json`. The same preset drives every other city's feed
+(quick cities rank by the LLM-consensus order file; `venue_rank_ref: "auto"` = that list's length),
+and `curation_site.py build --all` renders the client site for all cities at once (a page per
+city plus a city menu). The paragraphs below describe the See Saw-fitted preset the LA feed used
+before, kept for benchmarking.
+
 
 `seesaw-complete.json` optimises two things at once: **completion** (every show
 See Saw lists survives the gates) and **graded precision** (See Saw's shows
@@ -254,8 +275,8 @@ embeds `content/curation/params/*.json` at render time, so re-run it after
 adding a preset or the new file will not appear in its Presets panel.
 
 `apply` also writes every published show's rank into `curated.json`
-(`ranked`), which `webdemo/build.py` embeds so the app's List tab can sort by
-ranking; run `apply` before `build.py` or the list falls back to file order.
+(`ranked`) for the dashboard and the client site. The web demo does not read
+it: the app sorts by gallery rank, so `build.py` needs no `apply` first.
 
 ## The client site
 

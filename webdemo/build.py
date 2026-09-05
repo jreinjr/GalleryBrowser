@@ -111,22 +111,33 @@ def main() -> None:
 
     cities = cityconfig.discover()
     all_shows: list[dict] = []
-    all_venues: dict[str, dict] = {}   # venue_id -> public venue view (only venues with an emitted show)
+    # city -> venue_id -> public venue record (every mappable venue, shows or
+    # not). Keyed per city: registry ids repeat across cities (gagosian,
+    # hauser-and-wirth), so a flat map would hand one city another's record.
+    all_venues: dict[str, dict[str, dict]] = {}
     all_lists: dict[str, list] = {}    # city -> curated lists (content/lists/<city>.json)
     corpora: dict[str, str] = {}       # city -> Discover corpus JSON text
     img_bytes = 0
     full_bytes = 0
     full_count = 0
+    venues_without_shows = 0
+
+    # The venue record the app works from: everything a venue page and a map
+    # dot need, so a gallery with nothing on view is still a full venue. The
+    # gallery rank (rank_venues.py) is the app's only ranking signal; show-level
+    # curation (curate.py's rank / featured / editors_pick) is not published.
+    def venue_record(rv: dict, city_key: str) -> dict:
+        rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier", "rank",
+                                      "neighborhood", "address", "addressDetail", "hours",
+                                      "phone", "website", "lat", "lng")}
+        rec["city"] = city_key
+        return {k: val for k, val in rec.items() if val is not None}
 
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
         registry_venues = cityconfig.load_venues(cty["key"])
         venue_kinds = {vid: v["kind"] for vid, v in registry_venues.items() if v.get("kind")}
-        ranking = cityconfig.load_ranking(cty["key"])
-        if shows and not any(s.get("featured") for s in shows):
-            print(f"  note: {cty['key']} has no featured shows — featuring the first 3")
-            for s in shows[:3]:
-                s["featured"] = True
+        city_venues = all_venues.setdefault(cty["key"], {})
         kept: list[dict] = []              # raw records that made it into data.js
         img_by_slug: dict[str, str] = {}
 
@@ -157,7 +168,6 @@ def main() -> None:
             kept.append(s)
             img_by_slug[s["slug"]] = out_imgs[0]["src"]
             v = s["venue"]
-            rk = ranking.get(s["slug"]) or {}
             # registry `kind` is the source of truth; the show record's boolean is
             # only the fallback for a venue with no registry entry
             kind = venue_kinds.get(s.get("venue_id")) or ("museum" if v["is_museum"] else "gallery")
@@ -166,21 +176,12 @@ def main() -> None:
             # venue-level data (blurb, gallery rank) is read from the registry and
             # exposed twice: on the embedded copy (no client join needed) and in
             # the top-level `venues` map keyed by venueId (docs/GALLERIES.md)
-            if vid and rv and vid not in all_venues:
-                # only what the embedded copy lacks: address/hours/coords already
-                # ship on every show's venue object, so the map stays small
-                rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier",
-                                              "rank", "score", "verified", "neighborhood")}
-                rec["city"] = s["city"]
-                all_venues[vid] = {k: val for k, val in rec.items() if val is not None}
+            if vid and rv and vid not in city_venues:
+                city_venues[vid] = venue_record(rv, s["city"])
             all_shows.append({
                 "city": s["city"], "slug": s["slug"], "title": s["title"],
                 "artist": s.get("artist"), "startDate": s["start_date"], "endDate": s["end_date"],
-                "description": s["description"], "editorsPick": s["editors_pick"],
-                "featured": s["featured"], "reception": s.get("reception"),
-                # curation rank over the whole published pool (file order when no
-                # curated.json exists); the List tab's default sort
-                "rank": rk.get("rank", len(all_shows) + 1), "score": rk.get("score"),
+                "description": s["description"], "reception": s.get("reception"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
                 "venueId": vid,
                 "venue": {
@@ -193,9 +194,18 @@ def main() -> None:
                 },
             })
 
+        # Every verified, pinned venue ships too, so the Map can show the
+        # whole city's galleries (faded when nothing is on view) and the
+        # gallery ranking page lists them all.
+        for vid, rv in registry_venues.items():
+            if vid in city_venues or not cityconfig.mappable(rv):
+                continue
+            city_venues[vid] = venue_record(rv, cty["key"])
+            venues_without_shows += 1
+
         if kept:
             all_lists[cty["key"]] = cityconfig.load_lists(cty["key"], {s["slug"] for s in kept})
-            corpora[cty["key"]] = discover_corpus.dumps(discover_corpus.build(cty, kept, ranking, img_by_slug))
+            corpora[cty["key"]] = discover_corpus.dumps(discover_corpus.build(cty, kept, img_by_slug))
 
     data = {
         "defaultCity": cityconfig.DEFAULT_CITY,
@@ -223,7 +233,8 @@ def main() -> None:
     code_bytes = sum((DIST / n).stat().st_size for n in STATIC + ["index.html"])
     total = sum(f.stat().st_size for f in DIST.rglob("*") if f.is_file())
     print(f"\nBuild -> {DIST}")
-    print(f"  cities: {len(cities)}   shows: {len(all_shows)}   curated lists: {sum(len(v) for v in all_lists.values())}")
+    print(f"  cities: {len(cities)}   shows: {len(all_shows)}   venues: {sum(len(v) for v in all_venues.values())} "
+          f"({venues_without_shows} without a show)   curated lists: {sum(len(v) for v in all_lists.values())}")
     for key, text in sorted(corpora.items()):
         print(f"  discover corpus {key}: {human(len(text.encode('utf-8')))}")
     print(f"  code {human(code_bytes)} | data.js {human((DIST / 'data.js').stat().st_size)} "

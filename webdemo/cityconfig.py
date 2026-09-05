@@ -92,7 +92,9 @@ def load_venues(city_key: str) -> dict[str, dict]:
             "about": published_about(v),
             "tier": v.get("tier"), "rank": v.get("rank"), "score": v.get("score"),
             "verified": (v.get("verification") or {}).get("status") == "verified",
-            "website": v.get("website"), "hours": v.get("hours") or [],
+            "verification": (v.get("verification") or {}).get("status"),
+            "status": v.get("status"),
+            "website": v.get("website"), "phone": v.get("phone"), "hours": v.get("hours") or [],
             "address": v.get("address"), "addressDetail": v.get("address_detail"),
             "neighborhood": v.get("neighborhood"),
             "lat": v.get("latitude"), "lng": v.get("longitude"),
@@ -100,21 +102,29 @@ def load_venues(city_key: str) -> dict[str, dict]:
     return out
 
 
+# Registry statuses that mean "not a venue to show anyone" (rank_venues.py gates
+# on the same set).
+HIDDEN_STATUSES = {"closed", "duplicate", "out_of_scope"}
+
+
+def mappable(v: dict) -> bool:
+    """A registry venue the app may show on its own, with or without a show.
+    Pinned, not closed / a duplicate / out of scope, not flagged closed by
+    validate_venues.py, and vouched for by at least one pipeline: verified
+    (quick cities), status active (the older LA/Tokyo pipeline, which never
+    wrote verification for most of its records), or ranked into a tier (the
+    market order / hand list). Venues with a published show are always emitted."""
+    if v.get("lat") is None or v.get("lng") is None:
+        return False
+    if v.get("status") in HIDDEN_STATUSES or v.get("verification") == "flagged":
+        return False
+    return bool(v.get("verified")) or v.get("status") == "active" or v.get("tier") is not None
+
+
 def load_venue_kinds(city_key: str) -> dict[str, str]:
     """venue_id -> kind (gallery / museum / nonprofit / project_space / ...) from the
     venue registry; {} when the city has no registry."""
     return {vid: v["kind"] for vid, v in load_venues(city_key).items() if v.get("kind")}
-
-
-def load_ranking(city_key: str) -> dict[str, dict]:
-    """slug -> {rank, score} for every published show, from the last
-    ``curate.py apply`` (content/curation/<city>/curated.json); {} when absent."""
-    f = CONTENT_DIR / "curation" / city_key / "curated.json"
-    if not f.exists():
-        return {}
-    data = json.loads(f.read_text())
-    rows = data.get("ranked") or data.get("featured") or []
-    return {r["slug"]: {"rank": r["rank"], "score": r.get("score")} for r in rows if r.get("slug")}
 
 
 def load_lists(city_key: str, published_slugs: set[str]) -> list[dict]:

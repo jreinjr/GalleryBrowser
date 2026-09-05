@@ -18,15 +18,14 @@ export function customTools(c) {
   return [
     {
       name: 'find_shows',
-      description: "Search and filter the city's shows. Call this for any question that names a topic, medium, mood, artist, neighborhood, venue type, gallery tier, or a time window (this weekend, closing soon, opening receptions, open on Sunday). Omit query for pure filters. Returns matches sorted by relevance or curation rank with a grounding snippet, and reports strict_count and any relaxation applied (neighborhood, dates, concepts) when the strict filter found nothing. Prefer one call with all constraints over several narrow calls. Dates are YYYY-MM-DD in the city's own calendar.",
+      description: "Search and filter the city's shows. Call this for any question that names a topic, medium, mood, artist, neighborhood, venue type, gallery tier, or a time window (this weekend, closing soon, opening receptions, open on Sunday). Omit query for pure filters. Returns matches sorted by relevance or by the gallery's city-wide rank with a grounding snippet, and reports strict_count and any relaxation applied (neighborhood, dates, concepts) when the strict filter found nothing. Prefer one call with all constraints over several narrow calls. Dates are YYYY-MM-DD in the city's own calendar.",
       input_schema: {
         type: 'object', additionalProperties: false,
         properties: {
           query: { type: 'string', description: 'Free-text topic: medium, theme, movement, mood, or an artist to be "similar to". Omit for pure filters.' },
           neighborhoods: { type: 'array', items: { type: 'string', enum: c.neighborhoods }, description: 'Exact neighborhood names from the list.' },
           venue_kind: { type: 'string', enum: ['gallery', 'museum', 'any'], description: 'gallery = commercial galleries only; museum = museums only; any (default) = also nonprofits, university galleries, project spaces and other venues.' },
-          gallery_tier: { type: 'string', enum: ['top', 'notable', 'any'] },
-          show_tier: { type: 'string', enum: ['picks', 'featured', 'any'] },
+          gallery_tier: { type: 'string', enum: ['top', 'notable', 'any'], description: 'top = the 20 best-ranked galleries; notable = the 50 best.' },
           status: { type: 'string', enum: ['on_view', 'upcoming', 'any'], description: 'Default on_view. any = on view or upcoming.' },
           closing_by: { type: 'string', description: 'Only shows whose last day is on or before this date (YYYY-MM-DD).' },
           opening_from: { type: 'string', description: 'Only shows whose first day is on or after this date.' },
@@ -47,7 +46,7 @@ export function customTools(c) {
         properties: {
           neighborhoods: { type: 'array', items: { type: 'string', enum: c.neighborhoods } },
           kind: { type: 'string', enum: ['gallery', 'museum', 'any'], description: 'gallery = commercial galleries only; museum = museums only; any (default) = also nonprofits, university galleries, project spaces and other venues.' },
-          tier: { type: 'string', enum: ['top', 'notable', 'any'] },
+          tier: { type: 'string', enum: ['top', 'notable', 'any'], description: 'top = the 20 best-ranked galleries; notable = the 50 best.' },
           query: { type: 'string', description: 'Words to match in the venue name, blurb, program focus or roster.' },
           with_shows_only: { type: 'boolean' },
           limit: { type: 'integer', description: 'Default 20, max 40.' },

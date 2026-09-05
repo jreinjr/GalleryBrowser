@@ -1,10 +1,13 @@
 /* Map tab: MapLibre GL with CARTO dark style; venues as a GeoJSON source.
  *
- * Galleries over the filtered show set: one unclustered dot per venue,
- * coloured and sized by gallery tier. Name labels live in a symbol layer, so
- * MapLibre's collision engine guarantees they never overlap (a label is hidden
- * when there is no room; the dot itself is a circle layer and always renders).
- * Better-ranked venues sort first, so they win the label slots. */
+ * Galleries: one unclustered dot per venue, coloured and sized by the
+ * gallery's tier (its city-wide rank: top 20, top 50, the rest). With the
+ * Active-shows filter off the app hands over every gallery of the city, and
+ * a venue with nothing on view is drawn faded. Name labels live in a symbol
+ * layer, so MapLibre's collision engine guarantees they never overlap (a label
+ * is hidden when there is no room; the dot itself is a circle layer and always
+ * renders). Better-ranked venues sort first, so they win the label slots, and
+ * an active venue beats a faded one of the same tier. */
 (function () {
   'use strict';
 
@@ -15,6 +18,10 @@
   const TIER_COLOR = { top: 'rgba(97, 173, 242, 0.95)', notable: 'rgba(255, 255, 255, 0.85)', listed: 'rgba(150, 150, 158, 0.55)' };
   const TIER_RADIUS = { top: 10.5, notable: 8, listed: 5.5 };
   const RING = 'rgba(255, 255, 255, 0.6)';
+  // A venue with nothing on view (only reachable with Active shows off) is semi-transparent.
+  const IS_ACTIVE = ['==', ['get', 'active'], 1];
+  const DOT_OPACITY = ['case', IS_ACTIVE, 1, 0.38];
+  const LABEL_OPACITY = ['case', IS_ACTIVE, 1, 0.55];
   // Copy the CARTO style's own font stacks so the glyph request hits a
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
@@ -26,11 +33,13 @@
   const CTX_LAYERS = ['ctx-line', 'ctx-dim', 'ctx-dot', 'ctx-num', 'ctx-label'];
   const GAL_LAYERS = ['gal-dot', 'gal-label'];
 
-  // venueKey(venue) -> string groups shows that share a venue (one dot per venue).
-  // venueTier(venue) -> 'top' | 'notable' | 'listed'.
+  // getVenues() -> [{ key, venue, shows, active, tier, rank }]: one entry per
+  //   venue to draw (app.js mapVenues), tier 'top' | 'notable' | 'listed', rank
+  //   the gallery's rank or null, active whether a show is on view there.
+  // venueKey(venue) -> string groups shows that share a venue (the context layer).
   // onVenueTap(venue, shows) opens the venue page.
   // getContext() -> null | { list: {kind}, shows: [ordered list shows], backdrop: [other shows] }
-  window.DemoMap = function ({ getCity, getShows, venueKey, venueTier, onVenueTap, getContext }) {
+  window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
@@ -44,28 +53,27 @@
       ];
     }
 
-    // Several shows can run at one venue: group them so each venue is a single
-    // feature instead of a stack of identically labelled points.
+    // One feature per venue (the app has already grouped a venue's concurrent
+    // shows). Sort keys are the gallery's own tier and rank — a show has no
+    // rank of its own — with an active venue ahead of a faded one.
     function buildGeoJSON() {
       groups = new Map();
-      getShows().forEach(s => {
-        const key = venueKey(s.venue);
-        const g = groups.get(key);
-        if (g) g.shows.push(s);
-        else groups.set(key, { venue: s.venue, shows: [s] });
-      });
       const features = [];
-      groups.forEach(({ venue: v, shows }, key) => features.push({
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-        properties: { key, name: v.name, count: shows.length,
-                      // sort keys: best show rank at the venue, then the venue's own tier
-                      rank: Math.min(...shows.map(s => s.rank ?? 1e9)),
-                      tier: venueTier ? venueTier(v) : 'listed' },
-      }));
+      getVenues().forEach(g => {
+        const v = g.venue;
+        if (v.lat == null || v.lng == null) return;
+        groups.set(g.key, { venue: v, shows: g.shows });
+        features.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
+          properties: { key: g.key, name: v.name, count: g.shows.length, active: g.active ? 1 : 0,
+                        tier: g.tier || 'listed', rank: g.rank == null ? 1e5 : g.rank },
+        });
+      });
       return { type: 'FeatureCollection', features };
     }
     const tierOrder = ['match', ['get', 'tier'], 'top', 0, 'notable', 1, 2];
+    const activeOrder = ['case', IS_ACTIVE, 0, 1];
 
     // Context features: the list's venues as numbered stops (a route) or
     // plain highlighted dots, other venues of the filter as dim grey, and for
@@ -96,14 +104,17 @@
     function addLayers() {
       map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-      // One dot per venue, by tier; top dots paint above listed ones.
+      // One dot per venue, by tier; top dots paint above listed ones, active
+      // ones above faded ones of the same tier.
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC,
-        layout: { 'circle-sort-key': ['*', -1, tierOrder] },
+        layout: { 'circle-sort-key': ['-', ['*', -1, tierOrder], ['*', 0.5, activeOrder]] },
         paint: {
           'circle-color': ['match', ['get', 'tier'], 'top', TIER_COLOR.top, 'notable', TIER_COLOR.notable, TIER_COLOR.listed],
           'circle-radius': ['match', ['get', 'tier'], 'top', TIER_RADIUS.top, 'notable', TIER_RADIUS.notable, TIER_RADIUS.listed],
+          'circle-opacity': DOT_OPACITY,
           'circle-stroke-width': ['match', ['get', 'tier'], 'listed', 0, 1], 'circle-stroke-color': RING,
+          'circle-stroke-opacity': DOT_OPACITY,
         },
       });
       // Name label under the dot; default collision => labels never overlap.
@@ -115,10 +126,11 @@
           'text-font': FONT_BOLD, 'text-size': 11,
           'text-anchor': 'top', 'text-offset': [0, 1.2],
           'text-max-width': 12, 'text-padding': 4,
-          'symbol-sort-key': ['+', ['*', 1e6, tierOrder], ['get', 'rank']],   // top tier first, then show rank
+          // top tier first, active before faded, then the gallery's rank
+          'symbol-sort-key': ['+', ['*', 1e6, tierOrder], ['*', 5e5, activeOrder], ['get', 'rank']],
         },
         paint: {
-          'text-color': '#fff',
+          'text-color': '#fff', 'text-opacity': LABEL_OPACITY,
           'text-halo-color': 'rgba(0, 0, 0, 0.9)', 'text-halo-width': 1.2, 'text-halo-blur': 0.6,
         },
       });
@@ -159,12 +171,17 @@
       }
     }
 
-    // One map-level click: a bbox query returns the top-most feature under the
-    // finger, so a dot and its own label never fire two handlers.
+    // One map-level click: a bbox query returns the features under the finger,
+    // so a dot and its own label never fire two handlers. Two galleries in one
+    // building stack their dots; the one painted on top (better tier, active
+    // before faded, better rank) is the one the tap means.
+    const TIER_ORDER = { top: 0, notable: 1, listed: 2 };
+    const paintOrder = f => { const p = f.properties; return (p.tier in TIER_ORDER ? TIER_ORDER[p.tier] : -1) * 1e6 + (p.active === 0 ? 5e5 : 0) + (Number(p.rank) || 0); };
     function onClick(e) {
       const pad = 6;
       const box = [[e.point.x - pad, e.point.y - pad], [e.point.x + pad, e.point.y + pad]];
-      const f = map.queryRenderedFeatures(box, { layers: CLICK_LAYERS.filter(id => map.getLayer(id)) })[0];
+      const hits = map.queryRenderedFeatures(box, { layers: CLICK_LAYERS.filter(id => map.getLayer(id)) });
+      const f = hits.sort((a, b) => paintOrder(a) - paintOrder(b))[0];
       if (!f) return;
       const g = groups.get(f.properties.key);
       if (g) { onVenueTap(g.venue, g.shows); return; }

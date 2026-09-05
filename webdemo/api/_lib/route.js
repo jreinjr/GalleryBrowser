@@ -5,7 +5,7 @@
 // minutes of arrival. Times live in this result only; a saved route list keeps
 // just the order.
 
-import { DAYS, hoursOn, fmtMinutes, weekdayOf, displayName } from './corpus.js';
+import { DAYS, hoursOn, fmtMinutes, weekdayOf, displayName, galleryRank } from './corpus.js';
 
 const WALK_KMH = 4.8, DWELL = 40, MIN_VISIT = 30;
 
@@ -28,8 +28,8 @@ export function planRoute(c, input, today) {
   for (const id of ids) {
     const s = c.showsById.get(id);
     if (!s) continue;
-    const cur = byVenue.get(s.venueId);
-    if (!cur || (s.rank || 999) < (cur.rank || 999)) byVenue.set(s.venueId, s);
+    // one stop per venue: the first of its shows the model listed
+    if (!byVenue.has(s.venueId)) byVenue.set(s.venueId, s);
   }
   const cands = [...byVenue.values()].map(s => {
     const v = c.venues[s.venueId] || {};
@@ -39,7 +39,7 @@ export function planRoute(c, input, today) {
   const pool = cands.filter(x => {
     if (x.hours.known && !x.hours.open) { skipped.push({ id: x.s.id, venue: x.v.name, reason: x.hours.text }); return false; }
     return true;
-  }).sort((a, b) => (a.s.rank || 999) - (b.s.rank || 999));
+  }).sort((a, b) => galleryRank(c, a.s) - galleryRank(c, b.s));
   if (!pool.length) return { weekday, stops: [], skipped, unknown_ids: unknown, note: 'no candidate is open that day' };
 
   const stops = [];

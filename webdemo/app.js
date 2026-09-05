@@ -14,14 +14,17 @@
     set(key, value) { try { localStorage.setItem(key, value); } catch (e) { /* private mode */ } },
   };
 
+  const readSet = key => { try { return new Set(JSON.parse(store.get(key, '[]')) || []); } catch (e) { return new Set(); } };
   const state = {
     cityKey: store.get('selectedCityKey', DATA.defaultCity),
-    saved: new Set(JSON.parse(store.get('savedShowIDs', '[]'))),
+    saved: readSet('savedShowIDs'),            // My Shows: "<city>/<slug>"
+    favorites: readSet('favoriteVenueIDs'),    // favorite galleries: "<city>/<venueId>"
     tab: 'featured',
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
 
   const persistSaved = () => store.set('savedShowIDs', JSON.stringify([...state.saved]));
+  const persistFavorites = () => store.set('favoriteVenueIDs', JSON.stringify([...state.favorites]));
   const persistCity = () => store.set('selectedCityKey', state.cityKey);
 
   // ---------------- data helpers ----------------
@@ -47,12 +50,32 @@
     return name ? name + '@' + pos : pos;
   };
   const venueShows = v => { const k = venueKey(v); return cityShows().filter(s => venueKey(s.venue) === k); };
-  // Venue-level data (blurb, gallery rank) lives in DATA.venues keyed by venueId;
-  // the embedded copy carries the same fields as a fallback for older bundles.
+  // Venue records live in DATA.venues, keyed by city then venueId (registry ids
+  // repeat across cities): every vouched-for venue of the city, with or
+  // without a show (build.py), carrying what a venue page and a map dot need.
+  // A show's embedded venue copy carries the same fields as a fallback for a
+  // venue the registry lacks.
   const VENUES = DATA.venues || {};
-  const venueRecord = v => { const id = v && (v.venueId || v.id); return (id && VENUES[id]) || null; };
+  const cityVenueMap = () => VENUES[state.cityKey] || {};
+  const venueId = v => (v && (v.venueId || v.id)) || null;
+  const venueRecord = v => { const id = venueId(v); return (id && cityVenueMap()[id]) || null; };
   const venueAbout = v => { const r = venueRecord(v); return (r && r.about) || (v && v.about) || null; };
-  const venueRank = v => { const r = venueRecord(v); const n = r && r.rank != null ? r.rank : (v && v.rank); return n == null ? null : +n; };
+  // The registry's own rank (rank_venues.py, city-wide); null when unranked.
+  const appRank = v => { const r = venueRecord(v); const n = r && r.rank != null ? r.rank : (v && v.rank); return n == null ? null : +n; };
+  // The rank the app uses everywhere: the person's saved order for this city
+  // when there is one (see `ranking` below), else the registry rank.
+  const venueRank = v => ranking.rankOf(venueId(v), v);
+  // Every venue of the current city the payload knows, shows or not.
+  const cityVenues = () => Object.values(cityVenueMap());
+  // A show's embedded venue with the registry record filling whatever the copy lacks.
+  const fullVenue = v => {
+    const r = venueRecord(v);
+    if (!r) return v;
+    const out = { ...v };
+    Object.entries(r).forEach(([k, val]) => { if (out[k] == null) out[k] = val; });
+    return out;
+  };
+  const KIND_LABEL = { museum: 'Museum', nonprofit: 'Nonprofit', project_space: 'Project space', university: 'University', other: 'Other' };
   const displayName = s => s.artist || s.title;
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
@@ -245,7 +268,101 @@
   const firstSentence = t => { const m = /^(.+?[.!?])(\s|$)/.exec((t || '').trim()); return m ? m[1] : (t || '').slice(0, 140); };
   const NOT_OPENING = /\b(talk|conversation|closing|panel|screening|walkthrough|walk-through|tour|brunch)\b/i;
 
-  // Curated lists: Editor's Picks and Openings this weekend are rules over the
+  // ---------------- gallery ranking ----------------
+  // The registry rank (rank_venues.py, city-wide) is the app's only ranking
+  // signal: it orders the feed and the list, colours and sizes the map dots and
+  // sets the tiers (top 20 / top 50). Shows carry no rank of their own. A person
+  // can save their own order of the city's galleries (Settings → Gallery
+  // ranking); it then replaces the app's rank everywhere. Stored per city in
+  // localStorage['galleryOrder'] (versioned).
+  const RANKING_VERSION = 1;
+  const ranking = (() => {
+    let data = { v: RANKING_VERSION, cities: {} };
+    try { const o = JSON.parse(store.get('galleryOrder', '{}')); if (o && o.v === RANKING_VERSION && o.cities) data = o; } catch (e) { /* defaults */ }
+    const maps = new Map();     // city -> Map(venueId -> rank) under the saved order; cleared on a write
+    const write = () => { store.set('galleryOrder', JSON.stringify(data)); maps.clear(); };
+    const byApp = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9) || (a.name || '').localeCompare(b.name || '');
+    const venuesOf = city => Object.values(VENUES[city] || {});
+    const api = {
+      // The city's venues in the app's own order: registry rank, unranked last, A–Z.
+      appOrder: city => venuesOf(city).sort(byApp),
+      personal: city => (data.cities[city] && Array.isArray(data.cities[city].order) && data.cities[city].order) || null,
+      savedAt: city => (data.cities[city] && data.cities[city].updatedAt) || null,
+      isPersonal: city => !!api.personal(city),
+      // The order in force: the saved one (venues the payload no longer has drop
+      // out; new ones join at the end in app order), else the app's.
+      order(city) {
+        const app = api.appOrder(city);
+        const mine = api.personal(city);
+        if (!mine) return app;
+        const byId = new Map(app.map(v => [v.id, v]));
+        const out = mine.map(id => byId.get(id)).filter(Boolean);
+        const seen = new Set(out.map(v => v.id));
+        app.forEach(v => { if (!seen.has(v.id)) out.push(v); });
+        return out;
+      },
+      rankMap(city) {
+        let m = maps.get(city);
+        if (!m) { m = new Map(); if (api.personal(city)) api.order(city).forEach((v, i) => m.set(v.id, i + 1)); maps.set(city, m); }
+        return m;
+      },
+      // Effective rank of a venue of the current city: its place in the saved
+      // order, else the registry rank; null when unranked (or unknown to a saved order).
+      rankOf(id, v) {
+        if (!id) return null;
+        const m = api.rankMap(state.cityKey);
+        if (m.has(id)) return m.get(id);
+        return api.personal(state.cityKey) ? null : appRank(v);
+      },
+      save(city, ids) { data.cities[city] = { order: ids.slice(), updatedAt: Date.now() }; write(); },
+      reset(city) { delete data.cities[city]; write(); },
+    };
+    return api;
+  })();
+
+  // ---------------- favorite galleries ----------------
+  // A heart on a gallery (its page, the ranking page) follows it; "Favorite
+  // galleries" is then a default list — their shows — and a filter context.
+  // Stored as "<city>/<venueId>" in localStorage['favoriteVenueIDs'].
+  const favKey = v => state.cityKey + '/' + venueId(v);
+  const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
+  const favoriteVenues = () => cityVenues().filter(isFavorite)
+    .sort((a, b) => (venueRank(a) ?? 1e9) - (venueRank(b) ?? 1e9) || (a.name || '').localeCompare(b.name || ''));
+  function toggleFavorite(v) {
+    if (!venueId(v)) return;
+    const k = favKey(v);
+    if (state.favorites.has(k)) state.favorites.delete(k); else state.favorites.add(k);
+    persistFavorites();
+    refreshFavoriteUI();
+    if (state.filter.list === 'favorites') refreshAll();   // the context itself changed
+    else refreshLibrary();
+  }
+  function refreshFavoriteUI() {
+    document.querySelectorAll('[data-fav]').forEach(btn => {
+      const on = state.favorites.has(btn.dataset.fav);
+      btn.classList.toggle('on', on);
+      btn.innerHTML = on ? ICONS.heartFill : ICONS.heart;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  const favoriteBtn = (v, cls) => {
+    if (!venueId(v)) return el('span');
+    const on = isFavorite(v);
+    return el('button', {
+      class: 'fav-btn' + (cls ? ' ' + cls : '') + (on ? ' on' : ''), 'data-fav': favKey(v),
+      'aria-label': 'Favorite gallery', 'aria-pressed': on ? 'true' : 'false',
+      html: on ? ICONS.heartFill : ICONS.heart,
+      onclick: e => { e.stopPropagation(); toggleFavorite(v); },
+    });
+  };
+  // Shows at the favorite galleries, best-ranked gallery first, as a list.
+  const favoritesAsList = () => {
+    const ids = new Set(favoriteVenues().map(v => v.id));
+    return { id: 'favorites', name: 'Favorite galleries', kind: 'favorites', desc: '', city: state.cityKey, cover: null,
+      entries: sortShows(cityShows().filter(s => ids.has(venueId(s.venue))), 'rank').map(s => ({ id: showId(s), note: null })) };
+  };
+
+  // Curated lists: Top 20 galleries and Openings this weekend are rules over the
   // data; the rest are authored in content/lists/<city>.json (DATA.lists).
   function weekendWindow() {
     const today = startOfToday(); const dow = today.getDay();
@@ -257,8 +374,8 @@
   }
   function curatedLists() {
     const ck = state.cityKey;
-    const byRank = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9);
-    const picks = cityShows().filter(s => s.editorsPick && isActiveShow(s)).sort(byRank);
+    const byRank = (a, b) => (venueRank(a.venue) ?? 1e9) - (venueRank(b.venue) ?? 1e9);
+    const top = sortShows(cityShows().filter(s => isActiveShow(s) && galleryTier(s.venue) === 'top'), 'rank');
     const [from, to] = weekendWindow();
     const openings = cityShows().filter(s => {
       const d = receptionDate(s);
@@ -269,7 +386,7 @@
     const fromAuthored = l => mk(l.id, l.name, l.desc, l.kind, l.entries.map(e => ({ id: ck + '/' + e.slug, note: e.note || null })));
     const walks = authored.filter(l => l.kind === 'route'), rest = authored.filter(l => l.kind !== 'route');
     const out = [
-      mk('c-picks', "Editor's Picks", 'The shows we would send a visitor to first.', 'list', picks.map(s => ({ id: showId(s), note: null }))),
+      mk('c-top', 'Top 20 galleries', "What the city's best-ranked galleries have on view.", 'list', top.map(s => ({ id: showId(s), note: null }))),
       ...walks.map(fromAuthored),
       mk('c-openings-weekend', 'Openings this weekend', "Receptions Friday to Sunday, from each venue's own listing.", 'list', openings.map(s => ({ id: showId(s), note: s.reception }))),
       ...rest.map(fromAuthored),
@@ -278,8 +395,8 @@
   }
   const curatedById = id => curatedLists().find(l => l.id === id) || null;
   const savedCopyOf = curatedId => lists.all().find(l => l.source && l.source.curated === curatedId) || null;
-  // Any list id -> the list: 'saved', a user list, a draft, or a curated id.
-  const listById = id => !id ? null : id === 'saved' ? savedAsList() : (lists.get(id) || curatedById(id));
+  // Any list id -> the list: 'saved', 'favorites', a user list, a draft, or a curated id.
+  const listById = id => !id ? null : id === 'saved' ? savedAsList() : id === 'favorites' ? favoritesAsList() : (lists.get(id) || curatedById(id));
 
   // ---------------- navigation ----------------
   const pagesRoot = {
@@ -1041,10 +1158,10 @@
 
       const venueBlock = el('button', {
         class: 'venue-block',
-        onclick: () => pushOrSheet(venuePage(s.venue, asSheet ? { inSheet: true } : undefined)),
+        onclick: () => pushOrSheet(venuePage(fullVenue(s.venue), asSheet ? { inSheet: true } : undefined)),
       },
         el('div', { class: 'vb-text' },
-          el('div', { class: 'vb-name' }, listLine(s.venue)),
+          el('div', { class: 'vb-name' }, tierStar(galleryTier(s.venue)), listLine(s.venue)),
           el('div', { class: 'vb-line' }, fullAddress(s.venue)),
           ...s.venue.hours.map(h => el('div', { class: 'vb-line' }, h))),
         icon('chevronRight'));
@@ -1052,7 +1169,6 @@
       const body = el('div', { class: 'detail-body' },
         s.artist ? el('div', { class: 'detail-artist' }, s.artist) : null,
         el('div', { class: 'detail-title' }, s.title),
-        metaRow(tierGlyph(showTier(s))),   // a gallery's own rank shows only on its page
         el('div', { class: 'detail-dates' }, dateLine(s)),
         s.reception ? el('div', { class: 'detail-reception' }, 'Reception: ' + s.reception) : null,
         saveBtn,
@@ -1100,15 +1216,17 @@
       v.phone ? el('a', { class: 'capsule-btn', href: 'tel:' + v.phone.replace(/[^\d+]/g, '') },
         icon('phone'), el('span', null, 'Call venue')) : null);
 
-    const page = el('div', { class: 'page' });
-    const shows = venueShows(v);
+    const page = el('div', { class: 'page venue-page' });
+    // A venue with nothing on view (reached from the Map with Active shows off,
+    // or from the ranking page) still gets its full page.
+    const shows = sortShows(venueShows(v), 'rank');
     const openShow = inSheet ? s => pushShowInSheet(page.parentElement, s) : pushDetailFromRow;
     const showsSection = shows.length
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, 'Shows'),
           el('div', { class: 'venue-show-list' },
             ...shows.map(s => venueShowCard(s, openShow))))
-      : null;
+      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const leading = asSheet
       ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close' })
@@ -1116,15 +1234,15 @@
     if (asSheet) leading.onclick = () => closeSheet();
 
     const scroll = el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' }, leading, el('span')),
+      el('div', { class: 'navrow' }, leading, favoriteBtn(v)),
       el('div', { class: 'venue-body' },
         el('div', { class: 'venue-title' }, v.name),
-        tierPill(galleryTier(v)),
+        rankPill(v),
         showsSection,
         venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null,
         el('div', { class: 'venue-lines' },
           el('div', null, fullAddress(v)),
-          ...v.hours.map(h => el('div', null, h))),
+          ...(v.hours || []).map(h => el('div', null, h))),
         mapCard,
         actions));
     page.appendChild(scroll);
@@ -1254,8 +1372,8 @@
   function showRow(s, onOpen) {
     return el('div', { class: 'show-row' },
       el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
-        el('div', { class: 'sr-name' }, tierStar(showTier(s)), el('span', { class: 'sr-txt' }, displayName(s))),
-        el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+        el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+        el('div', { class: 'sr-venue' }, tierStar(galleryTier(s.venue)), el('span', { class: 'sr-txt' }, listLine(s.venue))),
         el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
       bookmarkBtn(s));
   }
@@ -1265,32 +1383,28 @@
   }
 
   // ---------------- filters: one state shared by Featured, List and Map ----------------
-  // Defaults: featured gallery shows that are running now (museums, the long
-  // tail, unranked galleries and shows that have closed or not yet opened are
-  // opt-in). kind: 'all' | 'galleries' | 'museums'; showRank: 'all' |
-  // 'featured' | 'picks'; galleryRank: 'all' | 'notable' | 'top'; active /
-  // receptions are toggles; list: null | 'saved' | a list id (the chosen list
-  // is the context every tab shows, L5); sort: SORTS key (List order only).
-  const FILTER_VERSION = 6;
-  const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', showRank: 'featured', galleryRank: 'all',
+  // Defaults: gallery shows that are running now, best-ranked gallery first
+  // (museums, the long tail and shows that have closed or not yet opened are
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: 'all' |
+  // 'notable' | 'top'; active / receptions are toggles; list: null | 'saved' |
+  // 'favorites' | a list id (the chosen list is the context every tab shows,
+  // L5); sort: SORTS key (List order only). There is no show-level rank: the
+  // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
+  const FILTER_VERSION = 7;
+  const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: 'all',
     active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  const SHOW_RANKS = [['all', 'All Shows'], ['featured', 'Featured'], ['picks', "Editor's Picks"]];
-  const GALLERY_RANKS = [['all', 'All Galleries'], ['notable', 'Notable'], ['top', 'Top Ranked']];
+  const GALLERY_RANKS = [['all', 'All'], ['notable', 'Top 50'], ['top', 'Top 20']];
   const SORTS = [
-    ['rank', 'Ranking'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
-    ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['gallery', 'Gallery rank'],
-    ['nearby', 'Nearby'],
+    ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
+    ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
   ];
-  // Gallery tiers come from the registry rank (rank_venues.py, city-wide over
-  // every venue, not just those with shows): Top = the 25 best, Notable = the
-  // 100 best, Listed = everything else or unranked.
-  const GALLERY_TIER_CUTOFF = { top: 25, notable: 100 };
-  const galleryTier = v => {
-    const r = venueRank(v);
-    return r == null ? 'listed' : r <= GALLERY_TIER_CUTOFF.top ? 'top' : r <= GALLERY_TIER_CUTOFF.notable ? 'notable' : 'listed';
-  };
-  const showTier = s => s.editorsPick ? 'picks' : s.featured ? 'featured' : null;
+  // Gallery tiers come from the gallery rank (the registry's, or the person's
+  // own order once saved): Top = the 20 best, Notable = the 50 best, Listed =
+  // everything else or unranked. Mirrored in discover_corpus.py / api/_lib/corpus.js.
+  const GALLERY_TIER_CUTOFF = { top: 20, notable: 50 };
+  const tierForRank = r => r == null ? 'listed' : r <= GALLERY_TIER_CUTOFF.top ? 'top' : r <= GALLERY_TIER_CUTOFF.notable ? 'notable' : 'listed';
+  const galleryTier = v => tierForRank(venueRank(v));
 
   function loadFilter() {
     let o = {};
@@ -1300,7 +1414,6 @@
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
-    if (!SHOW_RANKS.some(([k]) => k === f.showRank)) f.showRank = FILTER_DEFAULT.showRank;
     if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     if (typeof f.list !== 'string') f.list = null;
     return f;
@@ -1312,14 +1425,14 @@
   const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
   const filterActiveCount = f => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    f.showRank !== FILTER_DEFAULT.showRank, f.galleryRank !== FILTER_DEFAULT.galleryRank,
+    f.galleryRank !== FILTER_DEFAULT.galleryRank,
     f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
   // One line for the Discover context message.
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
-    const bits = [label(KINDS, f.kind), label(SHOW_RANKS, f.showRank)];
-    if (f.galleryRank !== 'all') bits.push(label(GALLERY_RANKS, f.galleryRank));
+    const bits = [label(KINDS, f.kind)];
+    if (f.galleryRank !== 'all') bits.push(label(GALLERY_RANKS, f.galleryRank) + ' galleries');
     bits.push(f.active ? 'Active' : 'All dates');
     if (f.receptions) bits.push('Upcoming receptions');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
@@ -1352,8 +1465,6 @@
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
       if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
-      if (f.showRank === 'featured' && !s.featured) return false;
-      if (f.showRank === 'picks' && !s.editorsPick) return false;
       if (f.galleryRank !== 'all') {
         const tier = galleryTier(s.venue);
         if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
@@ -1365,10 +1476,49 @@
   }
   // The shows the Map dims behind a list context: everything else the filter admits.
   const backdropShows = () => filterShows(cityShows(), { ...state.filter, list: null });
-  // Pure: stable sort by the chosen key; ties fall back to curation rank.
+  // Venue-level filter: what a gallery with nothing on view has to pass to
+  // reach the Map (name search, neighborhood, venue type, gallery tier).
+  function venueMatches(v, f) {
+    const t = f.q.trim().toLowerCase();
+    if (t && !(v.name || '').toLowerCase().includes(t)) return false;
+    if (f.hoods.length && !f.hoods.includes(v.neighborhood)) return false;
+    const kind = v.kind || (v.isMuseum ? 'museum' : 'gallery');
+    if (f.kind === 'museums' && kind !== 'museum') return false;
+    if (f.kind === 'galleries' && kind !== 'gallery') return false;
+    if (f.galleryRank !== 'all') {
+      const tier = galleryTier(v);
+      if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
+    }
+    return true;
+  }
+  // The Map's venues: one entry per venue of the filtered shows, plus — when
+  // Active shows is off and nothing else narrows to shows (upcoming receptions,
+  // a list as context) — every other venue of the city the filter admits, with
+  // no shows. `active` says whether something is on view there; the map fades
+  // the rest. Tier and rank are the gallery's own (a show has no rank).
+  function mapVenues() {
+    const f = state.filter;
+    const out = new Map();
+    filteredShows().forEach(s => {
+      const k = venueKey(s.venue);
+      const g = out.get(k);
+      if (g) g.shows.push(s); else out.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
+    });
+    if (!f.active && !f.receptions && !f.list) {
+      cityVenues().forEach(v => {
+        const k = venueKey(v);
+        if (!out.has(k) && venueMatches(v, f)) out.set(k, { key: k, venue: v, shows: [] });
+      });
+    }
+    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue) }));
+  }
+  // Pure: stable sort by the chosen key; ties fall back to the gallery rank,
+  // then, within one gallery, to the show closing soonest.
   function sortShows(shows, sort, origin) {
-    const byRank = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9);
     const time = str => { const d = parseDate(str); return d ? d.getTime() : null; };
+    const vr = s => venueRank(s.venue) ?? 1e9;
+    const byRank = (a, b) => vr(a) - vr(b) || (a.venue.name || '').localeCompare(b.venue.name || '')
+      || (time(a.endDate) ?? Infinity) - (time(b.endDate) ?? Infinity) || a.title.localeCompare(b.title);
     const now = Date.now();
     const arr = [...shows];
     if (sort === 'closing') {
@@ -1383,10 +1533,6 @@
       arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
     } else if (sort === 'venue') {
       arr.sort((a, b) => a.venue.name.localeCompare(b.venue.name) || byRank(a, b));
-    } else if (sort === 'gallery') {
-      // best-ranked gallery first (registry rank via rank_venues.py); unranked venues last
-      const key = s => { const r = venueRank(s.venue); return r == null ? Infinity : r; };
-      arr.sort((a, b) => key(a) - key(b) || byRank(a, b));
     } else if (sort === 'nearby' && origin) {
       const dist = s => haversine(origin.lat, origin.lng, s.venue.lat, s.venue.lng);
       arr.sort((a, b) => dist(a) - dist(b) || byRank(a, b));
@@ -1419,11 +1565,19 @@
     });
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
     renderMapContext();
+    renderMapLegend();
     MapTab.applyFilter();
+  }
+  // The legend's "Nothing on view" row only means something when faded venues can appear.
+  function renderMapLegend() {
+    const off = document.getElementById('map-legend-off');
+    if (!off) return;
+    const f = state.filter;
+    off.hidden = !!(f.active || f.receptions || f.list);
   }
 
   // ---- a list as context (L5b/L5c): bar under the Featured title, pill on the Map ----
-  const ctxIcon = l => (l.draft || l.kind === 'answer' || l.kind === 'route' || (l.source && l.source.query)) ? 'sparkle' : 'listBullet';
+  const ctxIcon = l => l.kind === 'favorites' ? 'heartFill' : (l.draft || l.kind === 'answer' || l.kind === 'route' || (l.source && l.source.query)) ? 'sparkle' : 'listBullet';
   function ctxBar(l, opts) {
     const running = listRunning(l);
     const saveAct = l.draft && !(l.savedAs && lists.get(l.savedAs))
@@ -1449,34 +1603,26 @@
   }
 
   // ---------------- rank glyphs ----------------
-  // Three dots + a short word; nothing for the "All" / listed / plain cases.
-  // Only the top tier is marked, with a filled blue star: Editor's Pick for a
-  // show, Top for a gallery. Featured and Notable get nothing.
-  const TIER_GLYPH = {
-    picks: { icon: 'star', label: "Editor's Pick" },
-    top: { icon: 'star', label: 'Top Gallery' },
-  };
-  // The star alone, as a prefix to whatever it rates.
+  // Only the top tier is marked, with a filled blue star, and only the gallery
+  // is ever rated: the star leads the gallery's name on a show row and in the
+  // show detail's venue block. Shows carry no mark of their own.
+  const TIER_GLYPH = { top: { icon: 'star', label: 'Top 20' } };
+  // The star alone, as a prefix to the gallery it rates.
   function tierStar(tier) {
     const g = TIER_GLYPH[tier];
     if (!g) return null;
     return el('span', { class: 'tier-star t-' + tier, 'data-tier': tier }, icon(g.icon));
   }
-  // Star + word, for the show detail header and the venue-page pill.
-  function tierGlyph(tier) {
-    const g = TIER_GLYPH[tier];
-    if (!g) return null;
-    return el('span', { class: 'sr-tier t-' + tier, 'data-tier': tier }, icon(g.icon), g.label);
+  // The gallery page's pill: "#4 · Top 20", "#33 · Top 50", "#120"; nothing when unranked.
+  function rankPill(v) {
+    const r = venueRank(v);
+    if (r == null) return null;
+    const tier = galleryTier(v);
+    const label = tier === 'top' ? 'Top 20' : tier === 'notable' ? 'Top 50' : null;
+    return el('div', { class: 'tier-pill t-' + tier, 'data-tier': tier, 'data-rank': String(r) },
+      tier === 'top' ? icon('star') : null,
+      el('span', null, `#${r}${label ? ' · ' + label : ''}${ranking.isPersonal(state.cityKey) ? ' · your ranking' : ''}`));
   }
-  function tierPill(tier) {
-    const g = TIER_GLYPH[tier];
-    if (!g) return null;
-    return el('div', { class: 'tier-pill t-' + tier, 'data-tier': tier }, icon(g.icon), g.label);
-  }
-  const metaRow = (...glyphs) => {
-    const kids = glyphs.filter(Boolean);
-    return kids.length ? el('div', { class: 'detail-meta-row' }, ...kids) : null;
-  };
 
   // ---------------- filter button + sheet ----------------
   function updateFilterBadge(btn) {
@@ -1520,8 +1666,7 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
-      header('Show Rank'), seg('showRank', SHOW_RANKS),
-      header('Gallery Rank'), seg('galleryRank', GALLERY_RANKS),
+      header('Gallery rank'), seg('galleryRank', GALLERY_RANKS),
       header('Venue Type'), seg('kind', KINDS),
       header('Neighborhoods'), hoodWrap,
       ...(withSort ? [header('Sort'), sortGroup] : []));
@@ -1537,13 +1682,15 @@
 
     function update(apply) {
       if (apply !== false) refreshAll();
-      // List group (L5a): All shows, My Shows when something is saved, the
-      // user's lists (saved copies of curated lists included), and the
-      // current draft from Discover when it is the context.
+      // List group (L5a): All shows, My Shows when something is saved, Favorite
+      // galleries once a gallery is followed, the user's lists (saved copies
+      // of curated lists included), and the current draft from Discover when
+      // it is the context.
       listGroup.innerHTML = '';
       const options = [{ id: null, name: 'All shows', n: null }];
       const savedRunning = listRunning(savedAsList());
       if (savedRunning.length) options.push({ id: 'saved', name: 'My Shows', n: savedRunning.length });
+      if (favoriteVenues().length) options.push({ id: 'favorites', name: 'Favorite galleries', n: listRunning(favoritesAsList()).length });
       lists.all().filter(listVisible).forEach(l => options.push({ id: l.id, name: l.name, n: listRunning(l).length }));
       const cur = currentList();
       if (cur && !options.some(o => o.id === cur.id)) options.push({ id: cur.id, name: cur.name, n: listRunning(cur).length });
@@ -1631,7 +1778,7 @@
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
-        filterButton()),
+        el('div', { class: 'nav-btns' }, settingsButton(), filterButton())),
       el('div', { class: 'large-title' }, city().displayName),
       pinned, yourHead, grid, curHead, shelf, el('div', { class: 'lib-tail' }));
     const inline = el('div', { class: 'inline-title' }, city().displayName);
@@ -1649,6 +1796,15 @@
         pinned.appendChild(libRow({ name: 'My Shows', shows: savedRunning.map(x => x.show), sub: `${plural(savedRunning.length, 'show')} · saved by you` },
           { cls: 'mine', onclick: () => push('list', listPage(saved)) }));
       }
+      // Favorite galleries is a default list: what the galleries the person
+      // follows have on view. Empty, it leads to the ranking page to pick some.
+      const favs = favoriteVenues(), favList = favoritesAsList(), favRunning = listRunning(favList);
+      pinned.appendChild(libRow({
+        name: 'Favorite galleries', shows: favRunning.map(x => x.show),
+        sub: favs.length
+          ? `${plural(favRunning.length, 'show')} on view · ${plural(favs.length, 'gallery', 'galleries')}`
+          : 'Follow galleries with the heart · browse the ranking',
+      }, { cls: 'favorites', onclick: () => push('list', favs.length ? listPage(favList) : galleriesPage()) }));
       const mine = lists.all().filter(listVisible);
       grid.innerHTML = '';
       mine.forEach(l => grid.appendChild(libTile(l, { onclick: () => push('list', listPage(l)) })));
@@ -1692,8 +1848,8 @@
     const s = x.show, id = showId(s), gone = !isActiveShow(s);
     const row = el('div', { class: 'list-row' + (gone ? ' gone' : '') + (expanded.has(id) ? ' expanded' : ''), 'data-id': id });
     const main = el('button', { class: 'lr-main', onclick: () => push(tab, showDetailPage(shows, i)) },
-      el('div', { class: 'sr-name' }, tierStar(showTier(s)), el('span', { class: 'sr-txt' }, displayName(s))),
-      el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
+      el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+      el('div', { class: 'sr-venue' }, tierStar(galleryTier(s.venue)), el('span', { class: 'sr-txt' }, listLine(s.venue))),
       el('div', { class: 'sr-sub' }, rowSub(s)),
       el('div', { class: 'lr-byline' }, x.note || firstSentence(s.description)));
     const caret = el('button', { class: 'lr-caret', 'aria-label': 'Why this show', 'aria-expanded': expanded.has(id) ? 'true' : 'false', onclick: () => {
@@ -1724,15 +1880,18 @@
     const scroll = el('div', { class: 'page-scroll' });
     page.appendChild(scroll);
     const expanded = new Set();
-    const current = () => list.id === 'saved' ? savedAsList() : (lists.get(list.id) || curatedById(list.id) || list);
+    const builtIn = list.id === 'saved' || list.id === 'favorites';
+    const current = () => builtIn ? listById(list.id) : (lists.get(list.id) || curatedById(list.id) || list);
     function render() {
       const l = current();
       const xs = listShows(l), running = xs.filter(x => isActiveShow(x.show)), shows = xs.map(x => x.show);
-      const owned = l.kind === 'saved' || (!l.curated && !l.draft && !!lists.get(l.id));
+      const owned = builtIn || (!l.curated && !l.draft && !!lists.get(l.id));
       const savedAs = l.draft ? (l.savedAs && lists.get(l.savedAs)) : l.curated ? savedCopyOf(l.id) : null;
       scroll.innerHTML = '';
       const acts = [heroAct('map', 'Map', () => { state.filter.list = l.id; refreshAll(); setTab('map'); })];
-      if (owned && l.kind !== 'saved') {
+      if (l.kind === 'favorites') {
+        acts.push(heroAct('heart', 'Galleries', () => push(tab, galleriesPage())));
+      } else if (owned && l.kind !== 'saved') {
         acts.push(heroAct('pencil', 'Edit', () => push(tab, listEditPage(l, tab))));
         acts.push(heroAct('trash', 'Remove', () => removeList(l, tab, 1)));
       } else if (!owned) {
@@ -1750,8 +1909,11 @@
         el('div', { class: 'lh-actions' }, ...acts));
       const rows = el('div', { class: 'list-rows' });
       xs.forEach((x, i) => rows.appendChild(listRow(x, i, l, shows, expanded, tab)));
+      const emptyText = xs.length ? 'Nothing on this list is still on view.'
+        : l.kind === 'favorites' ? (favoriteVenues().length ? 'Nothing on view at your favorite galleries right now.' : 'Follow galleries with the heart to see their shows here.')
+        : 'This list is empty.';
       [el('div', { class: 'navrow' }, backBtn(tab), el('span')), hero,
-        !running.length ? el('div', { class: 'list-empty' }, xs.length ? 'Nothing on this list is still on view.' : 'This list is empty.') : null,
+        !running.length ? el('div', { class: 'list-empty' }, emptyText) : null,
         xs.length ? rows : null].filter(Boolean).forEach(n => scroll.appendChild(n));
     }
     page.refresh = render;
@@ -1761,27 +1923,54 @@
   }
 
   // ---- edit (L3d): name, description, cover, order, membership ----
-  function wireDrag(row, container, onReorder) {
+  // Drag a row by its grip to reorder it among its siblings (`rowSel`, default
+  // .list-row); onReorder gets the ids in their new order. Dragging near the
+  // top or bottom of the enclosing scroller scrolls it, so a long list (the
+  // gallery ranking) can be reordered end to end.
+  function wireDrag(row, container, onReorder, rowSel) {
+    const sel = rowSel || '.list-row';
     const grip = row.querySelector('.grip');
-    let active = false, target = null, before = false;
+    let active = false, target = null, before = false, px = 0, py = 0, raf = 0;
     const clear = () => container.querySelectorAll('.drop-before, .drop-after').forEach(r => r.classList.remove('drop-before', 'drop-after'));
-    grip.addEventListener('pointerdown', e => {
-      e.preventDefault(); active = true; grip.setPointerCapture(e.pointerId); row.classList.add('dragging');
-    });
-    grip.addEventListener('pointermove', e => {
-      if (!active) return;
-      const under = document.elementFromPoint(e.clientX, e.clientY);
-      const r = under && under.closest ? under.closest('.list-row') : null;
+    const scroller = () => { let n = container; while (n && !(n.classList && n.classList.contains('page-scroll'))) n = n.parentElement; return n; };
+    const hover = () => {
+      const under = document.elementFromPoint(px, py);
+      const r = under && under.closest ? under.closest(sel) : null;
       clear();
       if (!r || r === row || r.parentElement !== container) { target = null; return; }
       const box = r.getBoundingClientRect();
-      before = e.clientY < box.top + box.height / 2;
+      before = py < box.top + box.height / 2;
       target = r; r.classList.add(before ? 'drop-before' : 'drop-after');
+    };
+    const autoscroll = () => {
+      raf = 0;
+      if (!active) return;
+      const sc = scroller();
+      if (sc) {
+        const b = sc.getBoundingClientRect(), edge = 60;
+        const step = py < b.top + edge ? -Math.min(24, (b.top + edge - py) / 2) : py > b.bottom - edge ? Math.min(24, (py - (b.bottom - edge)) / 2) : 0;
+        if (step) { sc.scrollTop += step; hover(); }
+      }
+      raf = requestAnimationFrame(autoscroll);
+    };
+    // the sheet's drag-to-dismiss and the edge-swipe listen on ancestors
+    grip.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
+    grip.addEventListener('touchmove', e => e.stopPropagation(), { passive: true });
+    grip.addEventListener('pointerdown', e => {
+      e.preventDefault(); active = true; grip.setPointerCapture(e.pointerId); row.classList.add('dragging');
+      px = e.clientX; py = e.clientY;
+      if (!raf) raf = requestAnimationFrame(autoscroll);
+    });
+    grip.addEventListener('pointermove', e => {
+      if (!active) return;
+      px = e.clientX; py = e.clientY;
+      hover();
     });
     const finish = () => {
       if (!active) return;
       active = false; row.classList.remove('dragging'); clear();
-      if (target) { container.insertBefore(row, before ? target : target.nextSibling); onReorder([...container.querySelectorAll('.list-row')].map(r => r.dataset.id)); }
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      if (target) { container.insertBefore(row, before ? target : target.nextSibling); onReorder([...container.querySelectorAll(sel)].map(r => r.dataset.id)); }
       target = null;
     };
     grip.addEventListener('pointerup', finish);
@@ -1913,9 +2102,9 @@
   // ---- curated page (L7): the See-all behind the shelf ----
   function curatedPage() {
     const cur = curatedLists();
-    const picks = cur.find(l => l.id === 'c-picks');
+    const picks = cur.find(l => l.id === 'c-top');
     const walks = cur.filter(l => l.kind === 'route'), weekend = cur.filter(l => l.id === 'c-openings-weekend');
-    const medium = cur.filter(l => l.id !== 'c-picks' && l.kind !== 'route' && l.id !== 'c-openings-weekend');
+    const medium = cur.filter(l => l.id !== 'c-top' && l.kind !== 'route' && l.id !== 'c-openings-weekend');
     const shelfOf = ls => el('div', { class: 'lib-shelf' }, ...ls.map(l => libTile(l, { cls: 'small', save: true, onclick: () => push('list', listPage(l)) })));
     const section = (t, ls) => ls.length ? [libHeader(t), shelfOf(ls)] : [];
     const hero = picks ? el('button', { class: 'guide-hero', onclick: () => push('list', listPage(picks)) },
@@ -1929,6 +2118,155 @@
     largeTitleScroll(scroll, inline);
     const page = el('div', { class: 'page' }, inline, scroll);
     const unsub = lists.subscribe(() => { if (!page.isConnected) { unsub(); return; } page.querySelectorAll('[data-save-list]').forEach(b => { const l = curatedById(b.dataset.saveList); if (l) b.replaceWith(savePill(l)); }); });
+    return page;
+  }
+
+  // ---------------- settings ----------------
+  // A gear on the Lists tab. Settings holds what is personal and city-wide:
+  // the gallery ranking (the app's, or the person's own) and the favorites.
+  const settingsButton = () => el('button', { class: 'icon-btn', 'data-settings-btn': '', 'aria-label': 'Settings', onclick: () => push(state.tab, settingsPage()) }, icon('gear'));
+  const settingRow = (label, sub, onclick, key) => el('button', { class: 'row city-row', 'data-setting': key, onclick },
+    el('span', { style: 'flex:1;min-width:0' }, el('div', { class: 'cr-name' }, label), el('div', { class: 'cr-note' }, sub)),
+    el('span', { class: 'chev' }, icon('chevronRight')));
+  function settingsPage() {
+    const tab = state.tab;
+    const group = el('div', { class: 'group settings-group' });
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn(tab), el('span')),
+      el('div', { class: 'large-title' }, 'Settings'),
+      el('div', { class: 'group-header' }, city().displayName),
+      group,
+      el('p', { class: 'settings-note' }, 'Galleries are ranked city-wide. The rank orders the feed and the list, colours the map, and sets the tiers: the top 20 and the top 50. Shows themselves are not ranked. Save your own ranking and the app uses it instead.'),
+      el('div', { class: 'lib-tail' }));
+    const inline = el('div', { class: 'inline-title' }, 'Settings');
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page settings-page' }, inline, scroll);
+    page.refresh = () => {
+      const n = cityVenues().length, favs = favoriteVenues().length;
+      group.innerHTML = '';
+      group.append(
+        settingRow('Gallery ranking',
+          `${ranking.isPersonal(state.cityKey) ? 'Your ranking' : 'App ranking'} · ${plural(n, 'gallery', 'galleries')}`,
+          () => push(tab, galleriesPage()), 'ranking'),
+        settingRow('Favorite galleries', favs ? plural(favs, 'gallery', 'galleries') : 'None yet',
+          () => push(tab, favs ? listPage(favoritesAsList()) : galleriesPage()), 'favorites'));
+    };
+    page.refresh();
+    return page;
+  }
+
+  // ---------------- gallery ranking page ----------------
+  // Every venue of the city in the order the app uses, with the tier dot, the
+  // rank and a heart. Edit reorders (drag a row, or tap its number to move it
+  // to a rank) and Save keeps the order as the person's own ranking; Reset
+  // returns to the app's. In a sheet (from the Map) venue pages layer inside it.
+  function galleriesPage(opts) {
+    const asSheet = !!(opts && opts.asSheet);
+    const tab = state.tab;
+    const cityKey = state.cityKey;
+    const page = el('div', { class: 'page galleries-page' });
+    const scroll = el('div', { class: 'page-scroll' });
+    const rows = el('div', { class: 'rank-rows' });
+    const sub = el('div', { class: 'rank-sub' });
+    const input = el('input', { type: 'search', placeholder: 'Find a gallery', autocomplete: 'off', 'aria-label': 'Find a gallery' });
+    const clearQ = el('button', { class: 'search-clear', html: ICONS.xmark, 'aria-label': 'Clear search', hidden: '' });
+    input.addEventListener('input', () => { clearQ.hidden = !input.value; render(); });
+    clearQ.addEventListener('click', () => { input.value = ''; clearQ.hidden = true; render(); input.focus(); });
+    let editing = false;
+    let order = null;               // working copy while editing: venue ids
+
+    const openVenue = v => {
+      if (!asSheet) { push(tab, venuePage(v)); return; }
+      const p = venuePage(v, { inSheet: true });
+      page.parentElement.appendChild(p);
+      p.dataset.sheetSub = '1';
+      const nav = p.querySelector('.navrow .circle-btn');
+      if (nav) nav.onclick = () => p.remove();
+    };
+    // A drag reorders the rows on screen; with a search narrowing them, the
+    // visible ids take their new relative order and hidden ones keep their slots.
+    const reorderVisible = visible => {
+      const vis = new Set(visible); let j = 0;
+      order = order.map(id => (vis.has(id) ? visible[j++] : id));
+    };
+    function moveSheet(v) {
+      const n = order.length, cur = order.indexOf(v.id) + 1;
+      const num = el('input', { class: 'move-num', type: 'number', min: '1', max: String(n), value: String(cur), inputmode: 'numeric', 'aria-label': 'Rank' });
+      let close;
+      const move = to => {
+        const i = order.indexOf(v.id);
+        if (i < 0) return;
+        order.splice(i, 1);
+        order.splice(Math.max(0, Math.min(n - 1, (Number(to) || cur) - 1)), 0, v.id);
+        close(); render();
+        const r = rows.querySelector(`[data-id="${CSS.escape(v.id)}"]`);
+        if (r) r.scrollIntoView({ block: 'center' });
+      };
+      num.addEventListener('keydown', e => { if (e.key === 'Enter') move(num.value); });
+      close = openSheet(el('div', { class: 'page move-sheet' },
+        el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Move gallery'), sheetCloseBtn()),
+        el('div', { class: 'page-scroll' },
+          el('div', { class: 'move-name' }, v.name),
+          el('div', { class: 'group', style: 'margin-top:12px' },
+            el('div', { class: 'row' }, el('span', { class: 'row-label' }, `Rank (1–${n})`), num),
+            el('button', { class: 'row', 'data-move': 'top', onclick: () => move(1) }, el('span', { class: 'row-icon', html: ICONS.arrowUp }), el('span', { class: 'row-label' }, 'Move to top')))),
+        el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', 'data-move': 'go', onclick: () => move(num.value) }, 'Move'))));
+      setTimeout(() => { num.focus(); if (num.select) num.select(); }, 320);
+    }
+    function rankRow(v, n, onView) {
+      const r = editing ? n : venueRank(v);
+      const tier = tierForRank(r);
+      const kind = v.kind || 'gallery';
+      const row = el('div', { class: 'rank-row t-' + tier, 'data-id': v.id },
+        editing ? el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')) : null,
+        el('button', { class: 'rank-n', 'data-rank': r == null ? '' : String(r), disabled: editing ? null : '',
+          'aria-label': editing ? 'Move to a rank' : null, onclick: editing ? () => moveSheet(v) : null },
+          el('i', { class: 'dot t-' + tier }), r == null ? '–' : String(r)),
+        el('button', { class: 'rr-main', onclick: editing ? null : () => openVenue(v) },
+          el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name)),
+          el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
+            onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
+        favoriteBtn(v));
+      if (editing) wireDrag(row, rows, ids => { reorderVisible(ids); render(); }, '.rank-row');
+      return row;
+    }
+    function render() {
+      const byId = VENUES[cityKey] || {};
+      const list = editing ? order.map(id => byId[id]).filter(Boolean) : ranking.order(cityKey);
+      const t = input.value.trim().toLowerCase();
+      const onView = new Map();
+      cityShows().forEach(s => { if (isActiveShow(s)) { const id = venueId(s.venue); if (id) onView.set(id, (onView.get(id) || 0) + 1); } });
+      const frag = document.createDocumentFragment();
+      list.forEach((v, i) => { if (!t || (v.name || '').toLowerCase().includes(t)) frag.appendChild(rankRow(v, i + 1, onView.get(v.id) || 0)); });
+      rows.innerHTML = '';
+      rows.appendChild(frag);
+      sub.textContent = editing ? 'Drag a gallery, or tap its number to move it.'
+        : `${ranking.isPersonal(cityKey) ? 'Your ranking' : 'App ranking'} · ${plural(list.length, 'gallery', 'galleries')}`;
+      page.classList.toggle('editing', editing);
+      nav.innerHTML = '';
+      nav.append(editing ? cancelBtn : leading, editing ? saveBtn : editBtn);
+      resetBtn.hidden = editing || !ranking.isPersonal(cityKey);
+    }
+    const leading = asSheet
+      ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })
+      : backBtn(tab);
+    const editBtn = el('button', { class: 'nav-textbtn', 'data-rank-edit': '', onclick: () => { editing = true; order = ranking.order(cityKey).map(v => v.id); render(); } }, 'Edit');
+    const cancelBtn = el('button', { class: 'nav-textbtn', 'data-rank-cancel': '', onclick: () => { editing = false; order = null; render(); } }, 'Cancel');
+    const saveBtn = el('button', { class: 'nav-textbtn bold', 'data-rank-save': '', onclick: () => {
+      ranking.save(cityKey, order); editing = false; order = null; refreshAll(); render();
+    } }, 'Save');
+    const resetBtn = el('button', { class: 'delete-list rank-reset', 'data-rank-reset': '', onclick: () => {
+      if (!confirm('Go back to the app’s ranking? Your order will be discarded.')) return;
+      ranking.reset(cityKey); refreshAll(); render();
+    } }, 'Reset to app ranking');
+    const nav = el('div', { class: 'navrow' });
+    scroll.append(nav, el('div', { class: 'large-title' }, 'Galleries'), sub,
+      el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
+      rows, resetBtn, el('div', { class: 'lib-tail' }));
+    const inline = el('div', { class: 'inline-title' }, 'Galleries');
+    largeTitleScroll(scroll, inline);
+    page.append(inline, scroll);
+    render();
     return page;
   }
 
@@ -1953,9 +2291,8 @@
   window.__venueKey = venueKey;          // test hook, alongside map_maplibre's window.__demoMap
   const MapTab = window.DemoMap({
     getCity: city,
-    getShows: filteredShows,
+    getVenues: mapVenues,
     venueKey,
-    venueTier: galleryTier,
     onVenueTap: v => {
       openSheet(venuePage(v, { asSheet: true }));
     },
@@ -1974,6 +2311,8 @@
   updateFilterBadge(mapFilterBtn);
   mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false }));   // Sort orders the List only
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
+  // The legend's link opens the ranking as a sheet (the Map has no page stack).
+  document.getElementById('map-rank-btn').addEventListener('click', () => openSheet(galleriesPage({ asSheet: true })));
 
   // ---------------- discover tab ----------------
   // A chat over the city's data, answered by /api/discover (webdemo/api). Every
@@ -2184,6 +2523,7 @@
     push('discover', discoverRoot());
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
     renderMapContext();
+    renderMapLegend();
   }
 
   // ---------------- boot ----------------
@@ -2194,5 +2534,5 @@
   rebuildTabs();
   setTab('featured');
   // test hook
-  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, showTier, filteredShows, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
+  window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, venueRank, appRank, filteredShows, mapVenues, cityVenues, favoriteVenues, favoritesAsList, ranking, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
 })();

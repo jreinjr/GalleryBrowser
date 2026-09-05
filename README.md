@@ -68,10 +68,14 @@ ranked, verified galleries. See the "Ranking galleries" section of
 ## Ranking the feed
 
 The pipeline decides which shows exist; `scraper/curate.py` decides their
-order. Each show gets ten features and an LLM verdict, combined linearly and
-put through a gate chain; `curate.py apply --reorder` writes `featured` /
-`editors_pick` into the published file in rank order, which is what the app's
-Featured tab renders. The live preset is
+order for the dashboard and the client curation site. Each show gets ten
+features and an LLM verdict, combined linearly and put through a gate chain;
+`curate.py apply --reorder` writes `featured` / `editors_pick` into the
+published file in rank order. **The app itself ranks galleries, not shows**
+(2026-09-04): the web demo orders its feed, list and map by the gallery rank
+from `rank_venues.py` (top 20 / top 50 tiers), lets a person save their own
+gallery ranking and favorite galleries, and ignores the show-level flags
+(see `webdemo/README.md`, "Galleries"). The live preset is
 `content/curation/params/seesaw-complete.json`. The client-facing view of that
 ranking — every discovered show, its evidence, and sliders for the few
 parameters that matter — is https://gallery-browser-curation.vercel.app, built
