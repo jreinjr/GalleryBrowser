@@ -1,0 +1,589 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788561226,
+ "system": "You are an art-world editor compiling a gallery guide for Miami, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Miami itself (galleries whose home is\nelsewhere count only through a permanent Miami space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Little Haiti/Little River, Allapattah, Wynwood, Design District, Downtown, Coral Gables, Miami Beach, Doral) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Miami spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Miami, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 415,
+  "output_tokens": 16862,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.3389,
+  "seconds": 311.9
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Fredric Snitzer Gallery",
+    "website": "https://www.snitzer.org",
+    "neighborhood": "Downtown",
+    "address_hint": "1540 NE Miami Ct",
+    "kind": "gallery",
+    "note": "Miami’s most established internationally connected contemporary gallery, with a long Art Basel presence and an influential multigenerational roster."
+   },
+   {
+    "rank": 2,
+    "name": "Nina Johnson",
+    "website": "https://www.ninajohnson.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "6315 NW 2nd Ave",
+    "kind": "gallery",
+    "note": "A nationally prominent programme spanning emerging artists, major Miami figures and critically reappraised practices."
+   },
+   {
+    "rank": 3,
+    "name": "David Castillo",
+    "website": "https://www.davidcastillogallery.com",
+    "neighborhood": "Design District",
+    "address_hint": "3930 NE 2nd Ave",
+    "kind": "gallery",
+    "note": "Internationally respected for conceptually rigorous exhibitions and strong advocacy for queer artists and artists of color."
+   },
+   {
+    "rank": 4,
+    "name": "Spinello Projects",
+    "website": "https://www.spinelloprojects.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "2930 NW 7th Ave",
+    "kind": "gallery",
+    "note": "A central force in Miami’s contemporary scene, known for ambitious installations and sustained support of locally rooted artists."
+   },
+   {
+    "rank": 5,
+    "name": "Locust Projects",
+    "website": "https://locustprojects.org",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "297 NE 67th St",
+    "kind": "nonprofit",
+    "note": "Miami’s seminal alternative art space, commissioning experimental, site-specific projects since 1998."
+   },
+   {
+    "rank": 6,
+    "name": "Piero Atchugarry Gallery",
+    "website": "https://www.pieroatchugarry.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5520 NE 4th Ave",
+    "kind": "gallery",
+    "note": "An internationally active Miami–Uruguay gallery with a strong programme of sculpture, abstraction and Latin American conceptual art."
+   },
+   {
+    "rank": 7,
+    "name": "Central Fine",
+    "website": "https://www.centralfine.com",
+    "neighborhood": "Miami Beach",
+    "address_hint": "1224–1226 Normandy Dr",
+    "kind": "gallery",
+    "note": "A critically followed gallery pairing emerging international artists with distinctive South Florida practices."
+   },
+   {
+    "rank": 8,
+    "name": "Jupiter Contemporary",
+    "website": "https://www.jupitercontemporary.com",
+    "neighborhood": "Miami Beach",
+    "address_hint": "1217 71st St",
+    "kind": "gallery",
+    "note": "A fast-rising gallery with notable fair participation and an adventurous programme focused on emerging global artists."
+   },
+   {
+    "rank": 9,
+    "name": "Pan American Art Projects",
+    "website": "https://www.panamericanart.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "274 NE 67th St",
+    "kind": "gallery",
+    "note": "A longstanding authority on contemporary art from Cuba and the Americas, with substantial institutional and fair visibility."
+   },
+   {
+    "rank": 10,
+    "name": "Dot Fiftyone Gallery",
+    "website": "https://dotfiftyone.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7275 NE 4th Ave",
+    "kind": "gallery",
+    "note": "An established platform for Latin American and international contemporary art, particularly conceptualism, photography and abstraction."
+   },
+   {
+    "rank": 11,
+    "name": "Emerson Dorsch",
+    "website": "https://emersondorsch.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5900 NW 2nd Ave",
+    "kind": "gallery",
+    "note": "One of Miami’s formative contemporary galleries, with decades of support for experimental and locally influential artists."
+   },
+   {
+    "rank": 12,
+    "name": "Dimensions Variable",
+    "website": "https://dimensionsvariable.net",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "101 NW 79th St",
+    "kind": "nonprofit",
+    "note": "An artist-led nonprofit recognized for research-driven exhibitions, new commissions and experimental spatial practices."
+   },
+   {
+    "rank": 13,
+    "name": "KDR",
+    "website": "https://kdr305.com",
+    "neighborhood": "Kendall",
+    "address_hint": "7900 SW 77th Ave",
+    "kind": "gallery",
+    "note": "A closely watched emerging gallery whose intergenerational programme has earned national press and major fair invitations."
+   },
+   {
+    "rank": 14,
+    "name": "Mindy Solomon Gallery",
+    "website": "https://mindysolomon.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "848 NW 22nd St",
+    "kind": "gallery",
+    "note": "Known nationally for contemporary ceramics alongside painting, sculpture and materially adventurous interdisciplinary work."
+   },
+   {
+    "rank": 15,
+    "name": "The Bonnier Gallery",
+    "website": "https://www.thebonniergallery.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "3408 NW 7th Ave",
+    "kind": "gallery",
+    "note": "A focused programme connecting postwar minimal and conceptual art with exacting contemporary abstraction."
+   },
+   {
+    "rank": 16,
+    "name": "LnS Gallery",
+    "website": "https://lnsgallery.com",
+    "neighborhood": "Coconut Grove",
+    "address_hint": "2610 SW 28th Ln",
+    "kind": "gallery",
+    "note": "Represents important Cuban, Latin American and Miami artists through a polished programme with institutional reach."
+   },
+   {
+    "rank": 17,
+    "name": "Voloshyn Gallery",
+    "website": "https://voloshyngallery.art",
+    "neighborhood": "Allapattah",
+    "address_hint": "802 NW 22nd St",
+    "kind": "gallery",
+    "note": "The Kyiv-founded gallery’s permanent Miami space brings internationally visible Ukrainian and Eastern European practices to the city."
+   },
+   {
+    "rank": 18,
+    "name": "Galería La Cometa",
+    "website": "https://galerialacometa.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "1015 NW 23rd St",
+    "kind": "gallery",
+    "note": "The Colombian gallery’s Miami branch adds a substantial Latin American programme and established international fair network."
+   },
+   {
+    "rank": 19,
+    "name": "El Apartamento",
+    "website": "https://elapartamento.net",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7900 NE 2nd Ave",
+    "kind": "gallery",
+    "note": "An influential Havana-founded gallery presenting Cuban and international artists through an independent, cross-border programme."
+   },
+   {
+    "rank": 20,
+    "name": "PRIMARY",
+    "website": "https://primaryprojectspace.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7410 NW Miami Ct",
+    "kind": "gallery",
+    "note": "An artist-founded gallery and cultural platform with deep roots in Miami’s street, design and contemporary-art communities."
+   },
+   {
+    "rank": 21,
+    "name": "Oolite Arts",
+    "website": "https://oolitearts.org",
+    "neighborhood": "Miami Beach",
+    "address_hint": "924 Lincoln Rd",
+    "kind": "nonprofit",
+    "note": "A major artist-support organization whose galleries present curated exhibitions, commissions and work by resident artists."
+   },
+   {
+    "rank": 22,
+    "name": "Bakehouse Art Complex",
+    "website": "https://www.bacfl.org",
+    "neighborhood": "Wynwood",
+    "address_hint": "561 NW 32nd St",
+    "kind": "nonprofit",
+    "note": "A longstanding nonprofit studio complex with an increasingly ambitious public exhibition and commissioning programme."
+   },
+   {
+    "rank": 23,
+    "name": "Faena Art",
+    "website": "https://www.faenaart.org",
+    "neighborhood": "Miami Beach",
+    "address_hint": "3400 Collins Ave",
+    "kind": "nonprofit",
+    "note": "Produces prominent public commissions, installations and project-room exhibitions with leading international contemporary artists."
+   },
+   {
+    "rank": 24,
+    "name": "Nohra Haime Gallery",
+    "website": "https://nohrahaimegallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2239 NW 2nd Ave",
+    "kind": "gallery",
+    "note": "A veteran international gallery presenting Latin American, European and US artists across painting, sculpture and installation."
+   },
+   {
+    "rank": 25,
+    "name": "ArtSpace/Virginia Miller Galleries",
+    "website": "https://www.virginiamiller.com",
+    "neighborhood": "Coral Gables",
+    "address_hint": "169 Madeira Ave",
+    "kind": "gallery",
+    "note": "One of South Florida’s longest-running galleries, especially important for Latin American and Caribbean contemporary art."
+   },
+   {
+    "rank": 26,
+    "name": "Diana Lowenstein Gallery",
+    "website": "https://www.dianalowensteingallery.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "A longstanding Miami gallery with an international programme and a history of ambitious installations and art-fair participation."
+   },
+   {
+    "rank": 27,
+    "name": "Gary Nader Art Centre",
+    "website": "https://garynader.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "62 NE 27th St",
+    "kind": "gallery",
+    "note": "A major commercial force in Latin American modern and contemporary art, with extensive inventory and regional market influence."
+   },
+   {
+    "rank": 28,
+    "name": "Homework",
+    "website": "https://homework.gallery",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7338 NW Miami Ct",
+    "kind": "gallery",
+    "note": "An emerging gallery and creative platform cultivating young Miami and international artists through exhibitions and fairs."
+   },
+   {
+    "rank": 29,
+    "name": "Andrew Reed Gallery",
+    "website": "https://andrewreedgallery.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "A critically oriented young gallery showing emerging artists and participating in respected independent fairs."
+   },
+   {
+    "rank": 30,
+    "name": "Tomás Redrado Art",
+    "website": "https://tomasredrado.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "8163 NE 2nd Ave",
+    "kind": "gallery",
+    "note": "A young Latin American gallery building visibility for emerging artists through Miami exhibitions and international fairs."
+   },
+   {
+    "rank": 31,
+    "name": "Green Space Miami",
+    "website": "https://greenspacemiami.org",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7200 Biscayne Blvd",
+    "kind": "nonprofit",
+    "note": "A Green Family Foundation initiative presenting socially engaged exhibitions with strong local and diasporic perspectives."
+   },
+   {
+    "rank": 32,
+    "name": "Edge Zones",
+    "website": "https://edgezones.org",
+    "neighborhood": "Allapattah",
+    "address_hint": "3317 NW 7th Ave",
+    "kind": "nonprofit",
+    "note": "A durable experimental nonprofit supporting performance, video, installation and exchange across the Caribbean and Americas."
+   },
+   {
+    "rank": 33,
+    "name": "Bridge Red Studios/Project Space",
+    "website": "https://bridgeredstudios.com",
+    "neighborhood": "North Miami",
+    "address_hint": "12425 NE 13th Ave",
+    "kind": "project_space",
+    "note": "An artist-run venue known for thoughtful exhibitions connecting established South Florida artists with younger practices."
+   },
+   {
+    "rank": 34,
+    "name": "Swampspace Gallery",
+    "website": "https://swampspace.com",
+    "neighborhood": "Design District",
+    "address_hint": "3940 N Miami Ave",
+    "kind": "project_space",
+    "note": "One of Miami’s longest-lived artist-run spaces, valued for irreverent, experimental exhibitions and community history."
+   },
+   {
+    "rank": 35,
+    "name": "Laundromat Art Space",
+    "website": "https://laundromatartspace.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5900 NE 2nd Ave",
+    "kind": "project_space",
+    "note": "An artist-run studio and exhibition space that provides an accessible platform for emerging Miami practices."
+   },
+   {
+    "rank": 36,
+    "name": "IS Projects",
+    "website": "https://isprojectsfl.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7200 NW 2nd Ave",
+    "kind": "project_space",
+    "note": "A respected printmaking studio and gallery advancing artist books, editions and experimental works on paper."
+   },
+   {
+    "rank": 37,
+    "name": "The Contemporary Art Modern Project",
+    "website": "https://thecampgallery.com",
+    "neighborhood": "North Miami",
+    "address_hint": "791 NE 125th St",
+    "kind": "gallery",
+    "note": "Known as The CAMP Gallery, it foregrounds women, LGBTQ artists and diasporic contemporary practices."
+   },
+   {
+    "rank": 38,
+    "name": "Dále Zine",
+    "website": "https://dalézineshop.com",
+    "neighborhood": "Design District",
+    "address_hint": "50 NE 40th St",
+    "kind": "project_space",
+    "note": "An artist-run publishing platform and exhibition venue central to Miami’s independent zine, edition and emerging-art ecosystem."
+   },
+   {
+    "rank": 39,
+    "name": "Durban Segnini Gallery",
+    "website": "https://durbansegnini.com",
+    "neighborhood": "Coral Gables",
+    "address_hint": "3072 SW 38th Ave",
+    "kind": "gallery",
+    "note": "A longstanding specialist in Latin American abstraction, geometric art and related contemporary practices."
+   },
+   {
+    "rank": 40,
+    "name": "Ascaso Gallery",
+    "website": "https://ascasogallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1325 NE 1st Ave",
+    "kind": "gallery",
+    "note": "A Miami branch of the Venezuelan-founded gallery with substantial holdings and exhibitions in Latin American modern and contemporary art."
+   },
+   {
+    "rank": 41,
+    "name": "Cernuda Arte",
+    "website": "https://cernudaarte.com",
+    "neighborhood": "Coral Gables",
+    "address_hint": "3155 Ponce de Leon Blvd",
+    "kind": "gallery",
+    "note": "An authoritative gallery for Cuban art, combining historical scholarship with representation of significant contemporary Cuban artists."
+   },
+   {
+    "rank": 42,
+    "name": "Art Nouveau Gallery",
+    "website": "https://artnouveaugaleria.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "348 NW 29th St",
+    "kind": "gallery",
+    "note": "An established Venezuelan-founded gallery with a permanent Miami programme and regular international fair participation."
+   },
+   {
+    "rank": 43,
+    "name": "Fabien Castanier Gallery",
+    "website": "https://www.castaniergallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "45 NE 26th St",
+    "kind": "gallery",
+    "note": "An international gallery associated with urban contemporary art, large-scale painting and artists emerging from street-art contexts."
+   },
+   {
+    "rank": 44,
+    "name": "The Americas Collection",
+    "website": "https://americascollection.com",
+    "neighborhood": "Coral Gables",
+    "address_hint": "4213 Ponce de Leon Blvd",
+    "kind": "gallery",
+    "note": "A veteran Coral Gables gallery with sustained expertise in modern and contemporary art from Latin America and the Caribbean."
+   },
+   {
+    "rank": 45,
+    "name": "Imago Art in Action",
+    "website": "https://imagoartinaction.org",
+    "neighborhood": "Coral Gables",
+    "address_hint": "165 Majorca Ave",
+    "kind": "nonprofit",
+    "note": "A nonprofit exhibition platform supporting contemporary Latin American artists, educational programmes and cultural exchange."
+   },
+   {
+    "rank": 46,
+    "name": "Opera Gallery Miami",
+    "website": "https://www.operagallery.com",
+    "neighborhood": "Design District",
+    "address_hint": "151 NE 41st St",
+    "kind": "gallery",
+    "note": "The global gallery’s permanent Miami branch has considerable market reach across postwar, contemporary and secondary-market art."
+   },
+   {
+    "rank": 47,
+    "name": "Markowicz Fine Art",
+    "website": "https://markowiczfineart.com",
+    "neighborhood": "Design District",
+    "address_hint": "110 NE 40th St",
+    "kind": "gallery",
+    "note": "A high-traffic commercial gallery with an international network and a programme spanning pop, street art, photography and sculpture."
+   },
+   {
+    "rank": 48,
+    "name": "Oliver Cole Gallery",
+    "website": "https://olivercolegallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "301 NW 28th St",
+    "kind": "gallery",
+    "note": "A Miami-based gallery presenting established and emerging international contemporary artists in a large exhibition space."
+   },
+   {
+    "rank": 49,
+    "name": "Taglialatella Galleries Miami",
+    "website": "https://www.taglialatellagalleries.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "219 NW 20th St",
+    "kind": "gallery",
+    "note": "A permanent branch of the international dealer, focused on blue-chip pop art, editions and urban contemporary work."
+   },
+   {
+    "rank": 50,
+    "name": "Zadok Gallery",
+    "website": "https://zadokgallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2534 N Miami Ave",
+    "kind": "gallery",
+    "note": "A longstanding Wynwood gallery presenting international contemporary painting, sculpture and installation."
+   },
+   {
+    "rank": 51,
+    "name": "Waltman Ortega Fine Art",
+    "website": "https://waltmanortega.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2300 N Miami Ave",
+    "kind": "gallery",
+    "note": "A Miami–Paris gallery connecting European, Latin American and South Florida artists through exhibitions and fairs."
+   },
+   {
+    "rank": 52,
+    "name": "Sammer Gallery",
+    "website": "https://sammergallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "82 NE 29th St",
+    "kind": "gallery",
+    "note": "An established specialist in Latin American geometric abstraction and its contemporary descendants."
+   },
+   {
+    "rank": 53,
+    "name": "Yeelen Gallery",
+    "website": "https://yeelengallery.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "294 NW 54th St",
+    "kind": "gallery",
+    "note": "An important Black-owned gallery that has advanced African-diasporic, Caribbean and socially engaged contemporary art in Miami."
+   },
+   {
+    "rank": 54,
+    "name": "IPC ArtSpace",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "225 NE 59th St",
+    "kind": "project_space",
+    "note": "A photography-centered space created by the Iris PhotoCollective, presenting documentary and fine-art projects with civic relevance."
+   },
+   {
+    "rank": 55,
+    "name": "Hampton Art Lovers at the Historic Ward Rooming House",
+    "website": "https://hamptonartlovers.com",
+    "neighborhood": "Overtown",
+    "address_hint": "2490 NW 9th St",
+    "kind": "nonprofit",
+    "note": "A culturally important nonprofit gallery presenting Black art within one of historic Overtown’s landmark buildings."
+   },
+   {
+    "rank": 56,
+    "name": "KROMA Art Space & Studios",
+    "website": "https://kromamiami.com",
+    "neighborhood": "Coconut Grove",
+    "address_hint": "3670 Grand Ave",
+    "kind": "project_space",
+    "note": "A community-rooted venue providing studios and exhibitions for artists from Coconut Grove and across Miami."
+   },
+   {
+    "rank": 57,
+    "name": "Goldman Global Arts Gallery",
+    "website": "https://goldmanglobalarts.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "266 NW 26th St",
+    "kind": "gallery",
+    "note": "The commercial gallery associated with Wynwood Walls brings internationally known muralists and street artists into a gallery setting."
+   },
+   {
+    "rank": 58,
+    "name": "WYN 317 Gallery",
+    "website": "https://wyn317.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "4320 NW 2nd Ave",
+    "kind": "gallery",
+    "note": "A locally established platform for Miami street art, graffiti, pop-inflected work and emerging artists."
+   },
+   {
+    "rank": 59,
+    "name": "Mirus Gallery Miami",
+    "website": "https://mirusgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "475 NE 2nd St",
+    "kind": "gallery",
+    "note": "The Miami branch of a multcity gallery presenting contemporary figurative, surrealist and urban-influenced art."
+   },
+   {
+    "rank": 60,
+    "name": "Manolis Projects",
+    "website": "https://manolisprojects.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "335 NE 59th Ter",
+    "kind": "gallery",
+    "note": "A large independent gallery and studio venue giving Miami artists substantial space for exhibitions and public events."
+   },
+   {
+    "rank": 61,
+    "name": "Collective 62",
+    "website": "https://collective62.com",
+    "neighborhood": "Liberty City",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "An artist-run collective that supports shared studios, collaborative exhibitions and neighborhood-based cultural activity."
+   },
+   {
+    "rank": 62,
+    "name": "New Low",
+    "website": "https://newlow.art",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7327 NW Miami Ct",
+    "kind": "project_space",
+    "note": "A small artist-run venue valued for experimental exhibitions by emerging local and visiting artists."
+   },
+   {
+    "rank": 63,
+    "name": "Good To Know.FYI",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "An independent project space contributing intimate, artist-led exhibitions and events to Little River’s contemporary-art ecology."
+   }
+  ]
+ }
+}

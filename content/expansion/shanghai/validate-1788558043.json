@@ -1,0 +1,7697 @@
+{
+ "session": "quick-validate-shanghai-1788557698",
+ "city": "shanghai",
+ "ts": 1788558043,
+ "n": 79,
+ "counts": {
+  "verified": 1,
+  "unverified": 78
+ },
+ "reasons": {
+  "places_mismatch": 44,
+  "no_hours": 34,
+  "site_dead": 22,
+  "no_website": 17,
+  "site_not_vouched": 9,
+  "stale": 8,
+  "places_closed": 1,
+  "places_status": 1,
+  "site_blocked": 1
+ },
+ "spend": {
+  "places_requests": 4,
+  "cost_usd": 0.104,
+  "fetches": 65,
+  "renders": 9
+ },
+ "rows": [
+  {
+   "rank": 1,
+   "name": "ShanghART Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "Building 10, 2555 Longteng Avenue",
+    "website": "https://www.shanghartgallery.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: shanghart (unknown)"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.1683265,
+    "lng": 121.4621991,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "shanghart",
+     "name": "ShanghART Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shangh Art Gallery",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Xu Hui Qu, 西岸龙腾大道2555号10号楼 邮政编码: 200232",
+    "website": "http://www.shanghartgallery.com/",
+    "phone": "021 6359 3923",
+    "hours": null,
+    "lat": 31.1683265,
+    "lng": 121.4621991,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.shanghartgallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.shanghartgallery.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "ShanghART Gallery",
+    "website": "https://www.shanghartgallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "Building 10, 2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Founded 1996 by Lorenz Helbling, the pioneering Chinese contemporary gallery; represents Zhang Enli, Ding Yi, Yang Fudong, Geng Jianyi, Xu Zhen and Liang Shaoji, with Beijing and Singapore spaces and a constant presence at Basel and Frieze.",
+     "openai": "Shanghai’s foundational contemporary gallery, with three decades of influence and a landmark roster spanning Zeng Fanzhi, Ding Yi, Xu Zhen and Yang Fudong."
+    },
+    "ranks": {
+     "anthropic": 1,
+     "openai": 1
+    },
+    "names": {
+     "anthropic": "ShanghART Gallery",
+     "openai": "ShanghART Gallery"
+    },
+    "rank_claude": 1,
+    "rank_openai": 1,
+    "blended": 1.0,
+    "best": 1,
+    "both": true,
+    "rank": 1
+   },
+   "venue_id": "shanghart"
+  },
+  {
+   "rank": 2,
+   "name": "Antenna Space",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "Room 202, Building 17, 50 Moganshan Road",
+    "website": "https://www.antenna-space.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "antenna-space",
+     "name": "Antenna Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.antenna-space.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Antenna Space",
+    "website": "https://www.antenna-space.com",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Room 202, Building 17, 50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Simon Wang's gallery is the key launchpad for a younger international generation — Guan Xiao, Li Ming, Yu Honglei, Cui Jie — and among the most critically watched Chinese galleries at Basel, Frieze and biennials.",
+     "openai": "Internationally respected for an adventurous emerging programme and artists including Cheng Xinyi, Guan Xiao and Cui Jie."
+    },
+    "ranks": {
+     "anthropic": 2,
+     "openai": 2
+    },
+    "names": {
+     "anthropic": "Antenna Space",
+     "openai": "Antenna Space"
+    },
+    "rank_claude": 2,
+    "rank_openai": 2,
+    "blended": 2.0,
+    "best": 2,
+    "both": true,
+    "rank": 2
+   },
+   "venue_id": "antenna-space"
+  },
+  {
+   "rank": 3,
+   "name": "Perrotin Shanghai",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "27 Huqiu Road, Amber Building",
+    "website": "https://www.perrotin.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: perrotin-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "perrotin-shanghai",
+     "name": "Perrotin Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai Gallery of Art",
+    "status": "OPERATIONAL",
+    "address": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": "https://www.shanghaigalleryofart.com/",
+    "phone": "021 6323 3355",
+    "hours": null,
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.shanghaigalleryofart.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.space-gallery-association.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Perrotin Shanghai",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "The French mega-gallery's mainland flagship; blue-chip international programme (Murakami, JR, Kusama, Sophie Calle) that helped make the Huqiu Road building the Bund's gallery hub.",
+     "openai": "One of Shanghai’s most visible international galleries, combining globally prominent artists with Chinese and Asian positions."
+    },
+    "ranks": {
+     "anthropic": 4,
+     "openai": 5
+    },
+    "names": {
+     "anthropic": "Perrotin Shanghai",
+     "openai": "Perrotin"
+    },
+    "rank_claude": 4,
+    "rank_openai": 5,
+    "blended": 4.5,
+    "best": 4,
+    "both": true,
+    "rank": 3
+   },
+   "venue_id": "perrotin-shanghai"
+  },
+  {
+   "rank": 4,
+   "name": "MadeIn Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue",
+    "website": "https://www.madeingallery.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "Places only knows a listing outside the metro: 2879 Long Teng Da Dao, 2879, Xu Hui Qu, China, 200032"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.16727,
+    "lng": 121.46241,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "madein",
+     "name": "MadeIn Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Madein Gallery",
+    "address_seen": "2879 Long Teng Da Dao, 2879, Xu Hui Qu, China, 200032",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.madeingallery.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "MadeIn Gallery",
+    "website": "https://www.madeingallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Xu Zhen's artist-founded gallery, an incubator for experimental Chinese practices and a platform that blurs corporate, curatorial and artistic production.",
+     "openai": "Xu Zhen’s influential gallery and cultural-production platform, central to Shanghai’s experimental scene."
+    },
+    "ranks": {
+     "anthropic": 7,
+     "openai": 3
+    },
+    "names": {
+     "anthropic": "MadeIn Gallery",
+     "openai": "MadeIn Gallery"
+    },
+    "rank_claude": 7,
+    "rank_openai": 3,
+    "blended": 5.0,
+    "best": 3,
+    "both": true,
+    "rank": 4
+   },
+   "venue_id": "madein"
+  },
+  {
+   "rank": 5,
+   "name": "Almine Rech Shanghai",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "27 Huqiu Road, Amber Building",
+    "website": "https://www.alminerech.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: almine-rech-shanghai (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.241341,
+    "lng": 121.4872516,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "almine-rech-shanghai",
+     "name": "Almine Rech Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Almine Rech Gallery",
+    "status": "OPERATIONAL",
+    "address": "Hu Qiu Er Qi, 2层27 Hu Qiu Lu, 27, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.241341,
+    "lng": 121.4872516,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.alminerech.com",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.alminerech.com/exhibitions/",
+    "js_only": false,
+    "final_url": "https://www.alminerech.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.alminerech.com/exhibitions/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.alminerech.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.alminerech.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Almine Rech Shanghai",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Global gallery's Shanghai space (opened 2022), presenting its roster of international painters and postwar estates to mainland collectors.",
+     "openai": "A major international gallery whose Shanghai branch brings blue-chip and historically significant artists into sustained dialogue with China."
+    },
+    "ranks": {
+     "anthropic": 12,
+     "openai": 4
+    },
+    "names": {
+     "anthropic": "Almine Rech Shanghai",
+     "openai": "Almine Rech"
+    },
+    "rank_claude": 12,
+    "rank_openai": 4,
+    "blended": 8.0,
+    "best": 4,
+    "both": true,
+    "rank": 5
+   },
+   "venue_id": "almine-rech-shanghai"
+  },
+  {
+   "rank": 6,
+   "name": "AIKE",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue",
+    "website": "https://www.aike-gallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it",
+    "registry near-miss: aike (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.238988,
+    "lng": 121.471448,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "aike",
+     "name": "AIKE",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Aike Supermarket",
+    "status": "OPERATIONAL",
+    "address": "6FQC+HHW, Nan Su Zhou Lu, Huang Pu Qu, Shang Hai Shi, China, 200001",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.238988,
+    "lng": 121.471448,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.aike-gallery.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.aike-gallery.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "AIKE",
+    "website": "https://www.aike-gallery.com/",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Formerly Aike-Dellarco; a serious cross-cultural programme pairing Chinese abstraction and conceptual art with Italian and international figures, long-standing at Art Basel Hong Kong.",
+     "openai": "A leading locally founded gallery known for tightly curated exhibitions and sustained support of Chinese artists with growing institutional profiles."
+    },
+    "ranks": {
+     "anthropic": 9,
+     "openai": 9
+    },
+    "names": {
+     "anthropic": "AIKE",
+     "openai": "AIKE"
+    },
+    "rank_claude": 9,
+    "rank_openai": 9,
+    "blended": 9.0,
+    "best": 9,
+    "both": true,
+    "rank": 6
+   },
+   "venue_id": "aike"
+  },
+  {
+   "rank": 7,
+   "name": "Capsule Shanghai",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "Building 16, Lane 275 Anfu Road",
+    "website": "https://www.capsuleshanghai.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it",
+    "registry near-miss: capsule-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "Former French Concession",
+   "geo": {
+    "lat": 31.207897,
+    "lng": 121.468997,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "capsule-shanghai",
+     "name": "Capsule Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai French Concession Needle General Yard Former Site",
+    "status": "OPERATIONAL",
+    "address": "6F59+5H5, Tai Kang Lu, 打浦桥 Huang Pu Qu, Shang Hai Shi, China, 200023",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.207897,
+    "lng": 121.468997,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.capsuleshanghai.com",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://capsuleshanghai.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://capsuleshanghai.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://capsuleshanghai.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://capsuleshanghai.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Capsule Shanghai",
+    "website": "https://www.capsuleshanghai.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "Building 16, Lane 275 Anfu Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Enrico Polato's garden-lane gallery is one of the city's best barometers of emerging Asian art, with a growing international fair profile and a Venice outpost.",
+     "openai": "An internationally visible, curatorially distinctive gallery particularly strong in emerging, diasporic and psychologically charged practices."
+    },
+    "ranks": {
+     "anthropic": 10,
+     "openai": 10
+    },
+    "names": {
+     "anthropic": "Capsule Shanghai",
+     "openai": "Capsule Shanghai"
+    },
+    "rank_claude": 10,
+    "rank_openai": 10,
+    "blended": 10.0,
+    "best": 10,
+    "both": true,
+    "rank": 7
+   },
+   "venue_id": "capsule-shanghai"
+  },
+  {
+   "rank": 8,
+   "name": "Pearl Lam Galleries",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "181 Middle Jiangxi Road",
+    "website": "https://www.pearllam.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: pearl-lam (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2348423,
+    "lng": 121.4871522,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "pearl-lam",
+     "name": "Pearl Lam Galleries",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "PearlLam Fineart",
+    "status": "OPERATIONAL",
+    "address": "181 Jiang Xi Zhong Lu, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": "https://www.pearllam.com/zh-hans/",
+    "phone": null,
+    "hours": null,
+    "lat": 31.2348423,
+    "lng": 121.4871522,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.pearllam.com/zh-hans/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.pearllam.com/exhibition/",
+    "js_only": false,
+    "final_url": "https://www.pearllam.com/zh-hans/",
+    "dated": {
+     "latest_year": 2024,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.pearllam.com/exhibition/",
+       "latest_year": 2024,
+       "online": false
+      },
+      {
+       "url": "https://www.pearllam.com/zh-hans/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pearllam.com/zh-hans",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Pearl Lam Galleries",
+    "website": "https://www.pearllam.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "181 Middle Jiangxi Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Long-running Hong Kong–Shanghai operation mixing Chinese abstraction, international contemporary art and design; a fixture of the city's collecting scene.",
+     "openai": "A long-running cross-cultural gallery with strong Asian and international networks, major fairs and a prominent Chinese contemporary roster."
+    },
+    "ranks": {
+     "anthropic": 14,
+     "openai": 7
+    },
+    "names": {
+     "anthropic": "Pearl Lam Galleries",
+     "openai": "Pearl Lam Galleries"
+    },
+    "rank_claude": 14,
+    "rank_openai": 7,
+    "blended": 10.5,
+    "best": 7,
+    "both": true,
+    "rank": 8
+   },
+   "venue_id": "pearl-lam"
+  },
+  {
+   "rank": 9,
+   "name": "Gallery Vacancy",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "39 Nanchang Road",
+    "website": "https://www.galleryvacancy.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "places returned a different business: 'Shanghai Gallery'",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: gallery-vacancy (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.21892,
+    "lng": 121.46749,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "gallery-vacancy",
+     "name": "Gallery Vacancy",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai Gallery",
+    "address_seen": "China, Shang Hai Shi, Lu Wan Qu, Huai Hai Zhong Lu, 淮海中路622弄3号1层 邮政编码: 200041",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.galleryvacancy.com",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.galleryvacancy.com/exhibitions.html",
+    "js_only": false,
+    "final_url": "https://www.galleryvacancy.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.galleryvacancy.com/exhibitions.html",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.galleryvacancy.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.galleryvacancy.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Gallery Vacancy",
+    "website": "https://www.galleryvacancy.com",
+    "neighborhood": "Jing'an",
+    "address_hint": "39 Nanchang Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Young, internationally minded gallery with a tightly curated roster of emerging painters and sculptors; a regular at Frieze, Basel Hong Kong and Liste-type platforms.",
+     "openai": "One of Shanghai’s sharpest younger galleries, with strong fair participation and a programme connecting Chinese and international emerging artists."
+    },
+    "ranks": {
+     "anthropic": 13,
+     "openai": 12
+    },
+    "names": {
+     "anthropic": "Gallery Vacancy",
+     "openai": "Gallery Vacancy"
+    },
+    "rank_claude": 13,
+    "rank_openai": 12,
+    "blended": 12.5,
+    "best": 12,
+    "both": true,
+    "rank": 9
+   },
+   "venue_id": "gallery-vacancy"
+  },
+  {
+   "rank": 10,
+   "name": "Vanguard Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue",
+    "website": "https://www.vanguardgallery.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: vanguard (unknown)"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.247605,
+    "lng": 121.448655,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "vanguard",
+     "name": "Vanguard Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Vanguard画廊",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Pu Tuo Qu, 莫干山路50号21号楼305 邮政编码: 200071",
+    "website": "http://www.vanguardgallery.com/",
+    "phone": "021 6299 3523",
+    "hours": null,
+    "lat": 31.247605,
+    "lng": 121.448655,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.vanguardgallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "http://www.vanguardgallery.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Vanguard Gallery",
+    "website": "https://www.vanguardgallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Lise Li's gallery, founded 2004 at M50; early champion of Chinese video, photography and installation (Chen Zhe, Liu Chuang, Hu Weiyi).",
+     "openai": "A longstanding Shanghai gallery respected for supporting experimental Chinese practices and developing artists over extended periods."
+    },
+    "ranks": {
+     "anthropic": 11,
+     "openai": 17
+    },
+    "names": {
+     "anthropic": "Vanguard Gallery",
+     "openai": "Vanguard Gallery"
+    },
+    "rank_claude": 11,
+    "rank_openai": 17,
+    "blended": 14.0,
+    "best": 11,
+    "both": true,
+    "rank": 10
+   },
+   "venue_id": "vanguard"
+  },
+  {
+   "rank": 11,
+   "name": "Ota Fine Arts Shanghai",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue",
+    "website": "https://www.otafinearts.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site describes online exhibitions — physical space unconfirmed",
+    "Places only knows a listing outside the metro: 7 Lock Rd, #02-13, Singapore 108935"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.16727,
+    "lng": 121.46241,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "ota-fine-arts-shanghai",
+     "name": "Ota Fine Arts Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Ota Fine Arts",
+    "address_seen": "7 Lock Rd, #02-13, Singapore 108935",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.otafinearts.com",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.otafinearts.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.otafinearts.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": true,
+     "pages": [
+      {
+       "url": "https://www.otafinearts.com/exhibitions",
+       "latest_year": 2026,
+       "online": true
+      },
+      {
+       "url": "https://www.otafinearts.com",
+       "latest_year": 2026,
+       "online": true
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Ota Fine Arts Shanghai",
+    "website": "https://www.otafinearts.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Tokyo/Singapore gallery's West Bund space; brings Yayoi Kusama, Tomoko Kashiki and pan-Asian conceptual practices into dialogue with Chinese artists.",
+     "openai": "The respected Japanese gallery maintains an important Shanghai platform for leading Asian artists, including historically significant conceptual practices."
+    },
+    "ranks": {
+     "anthropic": 16,
+     "openai": 14
+    },
+    "names": {
+     "anthropic": "Ota Fine Arts Shanghai",
+     "openai": "Ota Fine Arts"
+    },
+    "rank_claude": 16,
+    "rank_openai": 14,
+    "blended": 15.0,
+    "best": 14,
+    "both": true,
+    "rank": 11
+   },
+   "venue_id": "ota-fine-arts-shanghai"
+  },
+  {
+   "rank": 12,
+   "name": "Don Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it",
+    "registry near-miss: don (unknown)"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.1710155,
+    "lng": 121.4628352,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "don",
+     "name": "Don Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Don Gallery",
+    "status": "OPERATIONAL",
+    "address": "5FC7+C44, Long Teng Da Dao, Xu Hui Qu, Shang Hai Shi, China, 200232",
+    "website": "http://dongallery.cn/",
+    "phone": "021 6473 1533",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 10:00 AM – 6:00 PM",
+     "Wednesday: 10:00 AM – 6:00 PM",
+     "Thursday: 10:00 AM – 6:00 PM",
+     "Friday: 10:00 AM – 6:00 PM",
+     "Saturday: 10:00 AM – 6:00 PM",
+     "Sunday: 1:00 – 6:00 PM"
+    ],
+    "lat": 31.1710155,
+    "lng": 121.4628352,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://dongallery.cn/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "http://dongallery.cn/portal/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "site_unvouched"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Don Gallery",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Founded 2008 by Cynthia Wang; a consistently rigorous programme of Chinese conceptual and painting practices (Chen Wei, Ma Qiusha, Li Shan, Tang Dixin) with strong fair and institutional traction.",
+     "openai": "A respected local gallery that has steadily developed emerging and mid-career Chinese artists through focused solo exhibitions."
+    },
+    "ranks": {
+     "anthropic": 6,
+     "openai": 25
+    },
+    "names": {
+     "anthropic": "Don Gallery",
+     "openai": "Don Gallery"
+    },
+    "rank_claude": 6,
+    "rank_openai": 25,
+    "blended": 15.5,
+    "best": 6,
+    "both": true,
+    "rank": 12
+   },
+   "venue_id": "don"
+  },
+  {
+   "rank": 13,
+   "name": "Chronus Art Center (CAC)",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "Building 18, 50 Moganshan Road",
+    "website": "https://www.chronusartcenter.org"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "chronus-art-center-cac",
+     "name": "Chronus Art Center (CAC)",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.chronusartcenter.org",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Chronus Art Center (CAC)",
+    "website": "https://www.chronusartcenter.org",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 18, 50 Moganshan Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "China's leading nonprofit dedicated to media art — research, residencies and exhibitions on art, technology and computation.",
+     "openai": "China’s leading nonprofit institution devoted to media art, supporting exhibitions, commissions, research and technological experimentation."
+    },
+    "ranks": {
+     "anthropic": 19,
+     "openai": 20
+    },
+    "names": {
+     "anthropic": "Chronus Art Center (CAC)",
+     "openai": "Chronus Art Center"
+    },
+    "rank_claude": 19,
+    "rank_openai": 20,
+    "blended": 19.5,
+    "best": 19,
+    "both": true,
+    "rank": 13
+   },
+   "venue_id": "chronus-art-center-cac"
+  },
+  {
+   "rank": 14,
+   "name": "Leo Gallery",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "376 Wukang Road, Ferguson Lane",
+    "website": "https://www.leogallery.com.cn"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: leo (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.2066115,
+    "lng": 121.4394343,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "leo",
+     "name": "Leo Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Leo Gallery",
+    "status": "OPERATIONAL",
+    "address": "376 Wu Kang Lu, Xu Hui Qu, Shang Hai Shi, China, 200031",
+    "website": "https://www.leogallery.com.cn/",
+    "phone": "021 5465 8785",
+    "hours": null,
+    "lat": 31.2066115,
+    "lng": 121.4394343,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.leogallery.com.cn/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.leogallery.com.cn/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.leogallery.com.cn/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.leogallery.com.cn/exhibitions/past",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.leogallery.com.cn",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Leo Gallery",
+    "website": "https://www.leogallery.com.cn",
+    "neighborhood": "Former French Concession",
+    "address_hint": "376 Wukang Road, Ferguson Lane",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Established Shanghai–Hong Kong gallery with a broad Chinese and international programme and one of the most visited addresses in the Concession.",
+     "openai": "A durable Shanghai gallery with strong connections across mainland China and Hong Kong and a broad cross-generational programme."
+    },
+    "ranks": {
+     "anthropic": 18,
+     "openai": 22
+    },
+    "names": {
+     "anthropic": "Leo Gallery",
+     "openai": "Leo Gallery"
+    },
+    "rank_claude": 18,
+    "rank_openai": 22,
+    "blended": 20.0,
+    "best": 18,
+    "both": true,
+    "rank": 14
+   },
+   "venue_id": "leo"
+  },
+  {
+   "rank": 15,
+   "name": "m97 Gallery",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "363 Changping Road",
+    "website": "https://www.m97gallery.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site's newest dated show is from 2018"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.2364567,
+    "lng": 121.4487452,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "m97",
+     "name": "m97 Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "M97画廊",
+    "status": "OPERATIONAL",
+    "address": "363 Chang Ping Lu, Jing An Qu, Shang Hai Shi, China, 200041",
+    "website": "http://www.m97gallery.com/",
+    "phone": "021 6266 1597",
+    "hours": null,
+    "lat": 31.2364567,
+    "lng": 121.4487452,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.m97gallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.m97gallery.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.m97gallery.com/",
+    "dated": {
+     "latest_year": 2018,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.m97gallery.com/exhibitions",
+       "latest_year": 2018,
+       "online": false
+      },
+      {
+       "url": "https://www.m97gallery.com/exhibitions/past",
+       "latest_year": 2018,
+       "online": false
+      },
+      {
+       "url": "https://www.m97gallery.com/current-exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.m97gallery.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "m97 Gallery",
+    "website": "https://www.m97gallery.com/",
+    "neighborhood": "Jing'an",
+    "address_hint": "363 Changping Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Shanghai's best-known dedicated photography dealer since 2006, showing Chinese and international photographers and vintage material.",
+     "openai": "China’s most durable specialist gallery for contemporary photography, with significant documentary, conceptual and historical holdings."
+    },
+    "ranks": {
+     "anthropic": 29,
+     "openai": 16
+    },
+    "names": {
+     "anthropic": "m97 Gallery",
+     "openai": "M97 Gallery"
+    },
+    "rank_claude": 29,
+    "rank_openai": 16,
+    "blended": 22.5,
+    "best": 16,
+    "both": true,
+    "rank": 15
+   },
+   "venue_id": "m97"
+  },
+  {
+   "rank": 16,
+   "name": "Longlati Foundation",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "117 Xianggang Road",
+    "website": "https://www.longlatifoundation.org/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'Long Museum'"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.24248,
+    "lng": 121.48563,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "longlati-foundation",
+     "name": "Longlati Foundation",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Long Museum",
+    "address_seen": "3398 Long Teng Da Dao, Xu Hui Qu, Shang Hai Shi, China, 200032",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.longlatifoundation.org/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "SSLError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Longlati Foundation",
+    "website": "https://www.longlatifoundation.org/",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "117 Xianggang Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Collection-based nonprofit with a research and exhibition programme focused on women artists and emerging contemporary practices.",
+     "openai": "A collector-founded nonprofit presenting ambitious exhibitions and commissions by internationally prominent and emerging artists."
+    },
+    "ranks": {
+     "anthropic": 24,
+     "openai": 26
+    },
+    "names": {
+     "anthropic": "Longlati Foundation",
+     "openai": "Longlati Foundation"
+    },
+    "rank_claude": 24,
+    "rank_openai": 26,
+    "blended": 25.0,
+    "best": 24,
+    "both": true,
+    "rank": 16
+   },
+   "venue_id": "longlati-foundation"
+  },
+  {
+   "rank": 17,
+   "name": "Art Labor Gallery",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "Lane 570 Yongjia Road",
+    "website": "https://www.artlaborgallery.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: art-labor (unknown)"
+   ],
+   "zone": "Former French Concession",
+   "geo": {
+    "lat": 31.2058674,
+    "lng": 121.4515319,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "art-labor",
+     "name": "Art Labor Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Art Labor",
+    "status": "OPERATIONAL",
+    "address": "570 Yong Jia Lu, Xu Hui Qu, Shang Hai Shi, China, 200031",
+    "website": "https://artlaborgallery.com/",
+    "phone": "021 3460 5331",
+    "hours": null,
+    "lat": 31.2058674,
+    "lng": 121.4515319,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://artlaborgallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.artlaborgallery.com/exhibitions/",
+    "js_only": false,
+    "final_url": "https://www.artlaborgallery.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.artlaborgallery.com/exhibitions/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.artlaborgallery.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.artlaborgallery.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Art Labor Gallery",
+    "website": "https://www.artlaborgallery.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "Lane 570 Yongjia Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Independent gallery with a long record of showing emerging Chinese and expatriate artists in the Concession.",
+     "openai": "A long-established independent gallery known for culturally diverse programming and sustained support for Shanghai-based artists."
+    },
+    "ranks": {
+     "anthropic": 31,
+     "openai": 23
+    },
+    "names": {
+     "anthropic": "Art Labor Gallery",
+     "openai": "Art Labor Gallery"
+    },
+    "rank_claude": 31,
+    "rank_openai": 23,
+    "blended": 27.0,
+    "best": 23,
+    "both": true,
+    "rank": 17
+   },
+   "venue_id": "art-labor"
+  },
+  {
+   "rank": 18,
+   "name": "Long March Space",
+   "neighborhood": null,
+   "note": null,
+   "hints": {
+    "website": "https://www.longmarchspace.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.183927,
+    "lng": 121.464324,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "long-march-space",
+     "name": "Long March Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Long Museum",
+    "status": "OPERATIONAL",
+    "address": "3398 Long Teng Da Dao, Xu Hui Qu, Shang Hai Shi, China, 200032",
+    "website": "http://www.thelongmuseum.org/",
+    "phone": null,
+    "hours": null,
+    "lat": 31.183927,
+    "lng": 121.464324,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.thelongmuseum.org/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "http://www.thelongmuseum.org/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "http://www.thelongmuseum.org",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Long March Space",
+    "website": "https://www.longmarchspace.com/",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A defining force in Chinese contemporary art whose permanent Shanghai branch extends its rigorous, institutionally followed programme."
+    },
+    "ranks": {
+     "openai": 6
+    },
+    "names": {
+     "openai": "Long March Space"
+    },
+    "rank_claude": null,
+    "rank_openai": 6,
+    "blended": 28.0,
+    "best": 6,
+    "both": false,
+    "rank": 18
+   },
+   "venue_id": "long-march-space"
+  },
+  {
+   "rank": 19,
+   "name": "Lehmann Maupin",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "100 North Suzhou Road",
+    "website": "https://www.lehmannmaupin.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "Places only knows a listing outside the metro: 501 W 24th St, New York, NY 10011, USA",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: lehmann-maupin (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "lehmann-maupin",
+     "name": "Lehmann Maupin",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Lehmann Maupin",
+    "address_seen": "501 W 24th St, New York, NY 10011, USA",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.lehmannmaupin.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.lehmannmaupin.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.lehmannmaupin.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.lehmannmaupin.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.lehmannmaupin.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Lehmann Maupin",
+    "website": "https://www.lehmannmaupin.com/",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "100 North Suzhou Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "The influential international gallery’s Shanghai space presents globally established artists and deepens its longstanding engagement with Asia."
+    },
+    "ranks": {
+     "openai": 8
+    },
+    "names": {
+     "openai": "Lehmann Maupin"
+    },
+    "rank_claude": null,
+    "rank_openai": 8,
+    "blended": 29.0,
+    "best": 8,
+    "both": false,
+    "rank": 19
+   },
+   "venue_id": "lehmann-maupin"
+  },
+  {
+   "rank": 20,
+   "name": "LINSEED",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "website": "https://www.linseedprojects.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "places returned a different business: 'French Concession'"
+   ],
+   "zone": "Former French Concession",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "linseed",
+     "name": "LINSEED",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "French Concession",
+    "address_seen": "86 Wu Lu Mu Qi Zhong Lu, Xu Hui Qu, Shang Hai Shi, China, 200031",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.linseedprojects.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://linseedprojects.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "LINSEED",
+    "website": "https://www.linseedprojects.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Founded 2021, one of the most talked-about young Shanghai galleries, showing emerging Chinese and diasporic artists and quickly building a fair and institutional profile.",
+     "openai": "A young gallery developed from an independent project platform, emphasizing research, experimentation and emerging practices."
+    },
+    "ranks": {
+     "anthropic": 15,
+     "openai": 44
+    },
+    "names": {
+     "anthropic": "LINSEED",
+     "openai": "LINSEED"
+    },
+    "rank_claude": 15,
+    "rank_openai": 44,
+    "blended": 29.5,
+    "best": 15,
+    "both": true,
+    "rank": 20
+   },
+   "venue_id": "linseed"
+  },
+  {
+   "rank": 21,
+   "name": "Qiao Space",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "1817 Longteng Avenue"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "Places only knows a listing outside the metro: 2555 Long Teng Da Dao, Xu Hui Qu, China, 200232"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "qiao-space",
+     "name": "Qiao Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Qiao Space",
+    "address_seen": "2555 Long Teng Da Dao, Xu Hui Qu, China, 200232",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Qiao Space",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "1817 Longteng Avenue",
+    "kind": "project_space",
+    "notes": {
+     "anthropic": "Collector Qiao Zhibing's exhibition space, which staged ambitious curated shows and helped seed the West Bund art district before TANK Shanghai.",
+     "openai": "Collector Qiao Zhibing’s exhibition space has mounted focused presentations by important Chinese and international contemporary artists."
+    },
+    "ranks": {
+     "anthropic": 23,
+     "openai": 36
+    },
+    "names": {
+     "anthropic": "Qiao Space",
+     "openai": "Qiao Space"
+    },
+    "rank_claude": 23,
+    "rank_openai": 36,
+    "blended": 29.5,
+    "best": 23,
+    "both": true,
+    "rank": 21
+   },
+   "venue_id": "qiao-space"
+  },
+  {
+   "rank": 22,
+   "name": "BANK",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "298 Anfu Road",
+    "website": "https://www.bankmabsociety.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "Places only knows a listing outside the metro: Basement, Building 2, Land, 298 安福路徐汇区 China, 200000",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: bank (unknown), bank-mabsociety (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.21347,
+    "lng": 121.44078,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "bank",
+     "name": "BANK",
+     "status": "unknown"
+    },
+    {
+     "id": "bank-mabsociety",
+     "name": "BANK / MABSOCIETY",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "BANK/ MABSOCIETY",
+    "address_seen": "Basement, Building 2, Land, 298 安福路徐汇区 China, 200000",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.bankmabsociety.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://bankmabsociety.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://bankmabsociety.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://bankmabsociety.com/exhibitions/past",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://bankmabsociety.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "BANK",
+    "website": "https://www.bankmabsociety.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": "298 Anfu Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "The gallery established by MABSOCIETY is known for ambitious cross-generational exhibitions and a cosmopolitan, critically engaged programme."
+    },
+    "ranks": {
+     "openai": 11
+    },
+    "names": {
+     "openai": "BANK"
+    },
+    "rank_claude": null,
+    "rank_openai": 11,
+    "blended": 30.5,
+    "best": 11,
+    "both": false,
+    "rank": 22
+   },
+   "venue_id": "bank"
+  },
+  {
+   "rank": 23,
+   "name": "Tang Contemporary Art",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "588 Weihai Road",
+    "website": "https://www.tangcontemporary.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all",
+    "places returned a different business: 'Museum of Contemporary Art Shanghai'"
+   ],
+   "zone": "Jing'an",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "tang-contemporary-art",
+     "name": "Tang Contemporary Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Museum of Contemporary Art Shanghai",
+    "address_seen": "231 Nan Jing Xi Lu, People's Square, Huang Pu Qu, Shang Hai Shi, China, 200003",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.tangcontemporary.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.tangcontemporary.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.tangcontemporary.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "stale"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Tang Contemporary Art",
+    "website": "https://www.tangcontemporary.com/",
+    "neighborhood": "Jing'an",
+    "address_hint": "588 Weihai Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A major Asian commercial gallery whose Shanghai branch adds a substantial roster of established Chinese and international artists."
+    },
+    "ranks": {
+     "openai": 13
+    },
+    "names": {
+     "openai": "Tang Contemporary Art"
+    },
+    "rank_claude": null,
+    "rank_openai": 13,
+    "blended": 31.5,
+    "best": 13,
+    "both": false,
+    "rank": 23
+   },
+   "venue_id": "tang-contemporary-art"
+  },
+  {
+   "rank": 24,
+   "name": "YveYANG Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555 Longteng Avenue",
+    "website": "https://www.yveyang.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "Places only knows a listing outside the metro: 12 Wooster St, New York, NY 10013, USA",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: yveyang (unknown)"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.16727,
+    "lng": 121.46241,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "yveyang",
+     "name": "YveYANG Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "YveYANG Gallery",
+    "address_seen": "12 Wooster St, New York, NY 10013, USA",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.yveyang.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.yveyang.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.yveyang.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.yveyang.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "YveYANG Gallery",
+    "website": "https://www.yveyang.com/",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A transnational gallery with a conceptually driven programme and a strong record of introducing younger Chinese artists internationally."
+    },
+    "ranks": {
+     "openai": 15
+    },
+    "names": {
+     "openai": "YveYANG Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 15,
+    "blended": 32.5,
+    "best": 15,
+    "both": false,
+    "rank": 24
+   },
+   "venue_id": "yveyang"
+  },
+  {
+   "rank": 25,
+   "name": "Shanghai Gallery of Art",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "Three on the Bund, 3 Zhongshan Dong Yi Road",
+    "website": "https://www.artplusshanghai.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: shanghai-gallery-of-art (unknown), asia-art-center-shanghai (unknown), bluerider-art-shanghai (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    },
+    {
+     "id": "asia-art-center-shanghai",
+     "name": "Asia Art Center Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "bluerider-art-shanghai",
+     "name": "Bluerider ART Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai Gallery of Art",
+    "status": "OPERATIONAL",
+    "address": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": "https://www.shanghaigalleryofart.com/",
+    "phone": "021 6323 3355",
+    "hours": null,
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.shanghaigalleryofart.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.space-gallery-association.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Shanghai Gallery of Art",
+    "website": "https://www.artplusshanghai.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "Three on the Bund, 3 Zhongshan Dong Yi Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Opened 2004 in the Three on the Bund building; an early exhibition-driven space that hosted major curated shows and remains a Bund landmark for contemporary art.",
+     "openai": "The gallery at Three on the Bund has played a longstanding role in presenting Chinese and international contemporary art in central Shanghai."
+    },
+    "ranks": {
+     "anthropic": 17,
+     "openai": 48
+    },
+    "names": {
+     "anthropic": "Shanghai Gallery of Art",
+     "openai": "Shanghai Gallery of Art"
+    },
+    "rank_claude": 17,
+    "rank_openai": 48,
+    "blended": 32.5,
+    "best": 17,
+    "both": true,
+    "rank": 25
+   },
+   "venue_id": "shanghai-gallery-of-art"
+  },
+  {
+   "rank": 26,
+   "name": "Matthew Liu Fine Arts",
+   "neighborhood": "Huangpu",
+   "note": null,
+   "hints": {
+    "address": "115 Wukang Road",
+    "website": "https://www.matthewliufinearts.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '115 Wu Kang Lu'"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.20842,
+    "lng": 121.44047,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "matthew-liu",
+     "name": "Matthew Liu Fine Arts",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "115 Wu Kang Lu",
+    "address_seen": "115 Wu Kang Lu, Xu Hui Qu, Shang Hai Shi, China, 200031",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.matthewliufinearts.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Matthew Liu Fine Arts",
+    "website": "https://www.matthewliufinearts.com/",
+    "neighborhood": "Huangpu",
+    "address_hint": "115 Wukang Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Dealer-run gallery with an internationalist programme spanning Chinese contemporary art and Western modern works on paper.",
+     "openai": "A refined programme spanning contemporary painting, abstraction and works on paper, with active participation in leading Asian fairs."
+    },
+    "ranks": {
+     "anthropic": 42,
+     "openai": 24
+    },
+    "names": {
+     "anthropic": "Matthew Liu Fine Arts",
+     "openai": "Matthew Liu Fine Arts"
+    },
+    "rank_claude": 42,
+    "rank_openai": 24,
+    "blended": 33.0,
+    "best": 24,
+    "both": true,
+    "rank": 26
+   },
+   "venue_id": "matthew-liu"
+  },
+  {
+   "rank": 27,
+   "name": "BANK / MABSOCIETY",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "298 Anfu Road",
+    "website": "https://www.bank-mabsociety.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "Places only knows a listing outside the metro: Basement, Building 2, Land, 298 安福路徐汇区 China, 200000"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.21347,
+    "lng": 121.44078,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "bank-mabsociety",
+     "name": "BANK / MABSOCIETY",
+     "status": "unknown"
+    },
+    {
+     "id": "bank",
+     "name": "BANK",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "BANK/ MABSOCIETY",
+    "address_seen": "Basement, Building 2, Land, 298 安福路徐汇区 China, 200000",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.bank-mabsociety.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "BANK / MABSOCIETY",
+    "website": "https://www.bank-mabsociety.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "298 Anfu Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Mathieu Borysevicz's curator-led gallery, known for sharp, research-driven exhibitions and for rediscovering overlooked Chinese artists alongside international emerging names."
+    },
+    "ranks": {
+     "anthropic": 3
+    },
+    "names": {
+     "anthropic": "BANK / MABSOCIETY"
+    },
+    "rank_claude": 3,
+    "rank_openai": null,
+    "blended": 34.0,
+    "best": 3,
+    "both": false,
+    "rank": 27
+   },
+   "venue_id": "bank-mabsociety"
+  },
+  {
+   "rank": 28,
+   "name": "Arario Gallery",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2879 Longteng Avenue",
+    "website": "https://www.arariogallery.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "Places: permanently closed, but its own site is live with an exhibitions page — check by hand (moved?)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.1966357,
+    "lng": 121.4398224,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "arario",
+     "name": "Arario Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "ARARIO GALLERY",
+    "status": "CLOSED_PERMANENTLY",
+    "address": "China, Shang Hai Shi, Xu Hui Qu, Xujiahui, 天平路320弄衡山坊内 邮政编码: 200030",
+    "website": "http://www.arariogallery.com/",
+    "phone": null,
+    "hours": null,
+    "lat": 31.1966357,
+    "lng": 121.4398224,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.arariogallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.arariogallery.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.arariogallery.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.arariogallery.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.arariogallery.com",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_closed",
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Arario Gallery",
+    "website": "https://www.arariogallery.com/",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2879 Longteng Avenue",
+    "kind": "gallery",
+    "notes": {
+     "openai": "An influential Korean-founded gallery with deep experience across Asia and an established Shanghai programme of regional contemporary art."
+    },
+    "ranks": {
+     "openai": 18
+    },
+    "names": {
+     "openai": "Arario Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 18,
+    "blended": 34.0,
+    "best": 18,
+    "both": false,
+    "rank": 28
+   },
+   "venue_id": "arario"
+  },
+  {
+   "rank": 29,
+   "name": "Danysz Gallery",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "8 East Beijing Road",
+    "website": "https://www.danyszgallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "places returned a different business: '605-8 Bei Jing Xi Lu'",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: danysz (unknown), danysz-gallery-shanghai (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.23295,
+    "lng": 121.46281,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "danysz",
+     "name": "Danysz Gallery",
+     "status": "unknown"
+    },
+    {
+     "id": "danysz-gallery-shanghai",
+     "name": "Danysz Gallery Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "605-8 Bei Jing Xi Lu",
+    "address_seen": "605-8 Bei Jing Xi Lu, Jing An Qu, Shang Hai Shi, China, 200041",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.danyszgallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://danyszgallery.com/exhibitions/current/",
+    "js_only": false,
+    "final_url": "https://danyszgallery.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://danyszgallery.com/exhibitions/current/",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://danyszgallery.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://danyszgallery.com/exhibitions/past",
+       "latest_year": 2026,
+       "online": true
+      },
+      {
+       "url": "https://danyszgallery.com",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Danysz Gallery",
+    "website": "https://www.danyszgallery.com/",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "8 East Beijing Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A Paris-founded gallery with longstanding Shanghai roots, especially influential in street-derived, digital and new-media practices."
+    },
+    "ranks": {
+     "openai": 19
+    },
+    "names": {
+     "openai": "Danysz Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 19,
+    "blended": 34.5,
+    "best": 19,
+    "both": false,
+    "rank": 29
+   },
+   "venue_id": "danysz"
+  },
+  {
+   "rank": 30,
+   "name": "Lisson Gallery Shanghai",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "27 Huqiu Road, Amber Building",
+    "website": "https://www.lissongallery.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: lisson-gallery-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "lisson-gallery-shanghai",
+     "name": "Lisson Gallery Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai Gallery of Art",
+    "status": "OPERATIONAL",
+    "address": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": "https://www.shanghaigalleryofart.com/",
+    "phone": "021 6323 3355",
+    "hours": null,
+    "lat": 31.2343738,
+    "lng": 121.491306,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.shanghaigalleryofart.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.space-gallery-association.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Lisson Gallery Shanghai",
+    "website": "https://www.lissongallery.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "London gallery's mainland outpost, bringing Ai Weiwei, Anish Kapoor, Carmen Herrera and Marina Abramović-calibre programming to Shanghai audiences."
+    },
+    "ranks": {
+     "anthropic": 5
+    },
+    "names": {
+     "anthropic": "Lisson Gallery Shanghai"
+    },
+    "rank_claude": 5,
+    "rank_openai": null,
+    "blended": 35.0,
+    "best": 5,
+    "both": false,
+    "rank": 30
+   },
+   "venue_id": "lisson-gallery-shanghai"
+  },
+  {
+   "rank": 31,
+   "name": "ROH",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "322 Jiaozhou Road",
+    "website": "https://www.rohprojects.net/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.22973,
+    "lng": 121.44275,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "roh",
+     "name": "ROH",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "丙",
+    "status": null,
+    "address": "China, Shang Hai Shi, Jing An Qu, Jiao Zhou Lu, 322号丙 邮政编码: 200042",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.22973,
+    "lng": 121.44275,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.rohprojects.net/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://rohprojects.net/exhibitions",
+    "js_only": true,
+    "final_url": "https://rohprojects.net/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://rohprojects.net/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_status",
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "ROH",
+    "website": "https://www.rohprojects.net/",
+    "neighborhood": "Jing'an",
+    "address_hint": "322 Jiaozhou Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "The prominent Indonesian gallery’s Shanghai branch brings a rigorous Southeast Asian and international programme to the city."
+    },
+    "ranks": {
+     "openai": 21
+    },
+    "names": {
+     "openai": "ROH"
+    },
+    "rank_claude": null,
+    "rank_openai": 21,
+    "blended": 35.5,
+    "best": 21,
+    "both": false,
+    "rank": 31
+   },
+   "venue_id": "roh"
+  },
+  {
+   "rank": 32,
+   "name": "AroundSpace Gallery",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "71 Nanjing East Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'Shanghai Gallery of Art'"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "aroundspace",
+     "name": "AroundSpace Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai Gallery of Art",
+    "address_seen": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "AroundSpace Gallery",
+    "website": null,
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "71 Nanjing East Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Bund-area gallery presenting emerging Chinese and Japanese artists, with an emphasis on drawing, painting and small-scale works.",
+     "openai": "A Shanghai gallery with a steady programme of emerging and mid-career Chinese artists, especially painting and conceptually informed installation."
+    },
+    "ranks": {
+     "anthropic": 37,
+     "openai": 34
+    },
+    "names": {
+     "anthropic": "AroundSpace Gallery",
+     "openai": "AroundSpace Gallery"
+    },
+    "rank_claude": 37,
+    "rank_openai": 34,
+    "blended": 35.5,
+    "best": 34,
+    "both": true,
+    "rank": 32
+   },
+   "venue_id": "aroundspace"
+  },
+  {
+   "rank": 33,
+   "name": "Massimo De Carlo Shanghai",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "Yuanmingyuan Road, Rockbund",
+    "website": "https://www.massimodecarlo.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all",
+    "Places only knows a listing outside the metro: Citofono: MASSIMODECARLO, Viale Lombardia, 17, 20131 Milano MI, Italy"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "massimo-de-carlo-shanghai",
+     "name": "Massimo De Carlo Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Galleria Massimo De Carlo",
+    "address_seen": "Citofono: MASSIMODECARLO, Viale Lombardia, 17, 20131 Milano MI, Italy",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.massimodecarlo.com",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.massimodecarlo.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.massimodecarlo.com/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.massimodecarlo.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "stale"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Massimo De Carlo Shanghai",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "Yuanmingyuan Road, Rockbund",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Milan gallery's Shanghai space, showing Maurizio Cattelan, Rudolf Stingel, Yan Pei-Ming and younger internationals in a landmark Bund heritage building."
+    },
+    "ranks": {
+     "anthropic": 8
+    },
+    "names": {
+     "anthropic": "Massimo De Carlo Shanghai"
+    },
+    "rank_claude": 8,
+    "rank_openai": null,
+    "blended": 36.5,
+    "best": 8,
+    "both": false,
+    "rank": 33
+   },
+   "venue_id": "massimo-de-carlo-shanghai"
+  },
+  {
+   "rank": 34,
+   "name": "MAO Space",
+   "neighborhood": "Huangpu",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: mao-space (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.196495,
+    "lng": 121.439449,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "mao-space",
+     "name": "MAO Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Mao Space",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Xu Hui Qu, Xujiahui, Tian Ping Lu, 天平路320弄6 邮政编码: 200030",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.196495,
+    "lng": 121.439449,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "MAO Space",
+    "website": null,
+    "neighborhood": "Huangpu",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Contemporary gallery known for concept-led solo presentations by younger Chinese artists and design-crossover projects.",
+     "openai": "An established M50 gallery presenting contemporary Chinese painting, sculpture and installation with regular fair participation."
+    },
+    "ranks": {
+     "anthropic": 38,
+     "openai": 35
+    },
+    "names": {
+     "anthropic": "MAO Space",
+     "openai": "Mao Space"
+    },
+    "rank_claude": 38,
+    "rank_openai": 35,
+    "blended": 36.5,
+    "best": 35,
+    "both": true,
+    "rank": 34
+   },
+   "venue_id": "mao-space"
+  },
+  {
+   "rank": 35,
+   "name": "Gallery All",
+   "neighborhood": null,
+   "note": null,
+   "hints": {
+    "website": "https://www.galleryall.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'Shanghai Gallery of Art'"
+   ],
+   "zone": null,
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "gallery-all",
+     "name": "Gallery All",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai Gallery of Art",
+    "address_seen": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.galleryall.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "SSLError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Gallery All",
+    "website": "https://www.galleryall.com/",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A Shanghai- and Los Angeles-connected gallery influential at the boundary between contemporary art, sculpture and collectible design."
+    },
+    "ranks": {
+     "openai": 27
+    },
+    "names": {
+     "openai": "Gallery All"
+    },
+    "rank_claude": null,
+    "rank_openai": 27,
+    "blended": 38.5,
+    "best": 27,
+    "both": false,
+    "rank": 35
+   },
+   "venue_id": "gallery-all"
+  },
+  {
+   "rank": 36,
+   "name": "Fosun Foundation",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "600 Zhongshan No. 2 East Road"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: fosun-foundation (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.22694,
+    "lng": 121.498,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "fosun-foundation",
+     "name": "Fosun Foundation",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Fosun Foundation",
+    "status": "OPERATIONAL",
+    "address": "600 Zhong Shan Dong Er Lu, 600, Huang Pu Qu, Shang Hai Shi, China, 200120",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.22694,
+    "lng": 121.498,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Fosun Foundation",
+    "website": null,
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "600 Zhongshan No. 2 East Road",
+    "kind": "nonprofit",
+    "notes": {
+     "openai": "A prominent Bund foundation staging high-profile contemporary exhibitions and commissions in the Heatherwick-designed Bund Finance Center arts building."
+    },
+    "ranks": {
+     "openai": 28
+    },
+    "names": {
+     "openai": "Fosun Foundation"
+    },
+    "rank_claude": null,
+    "rank_openai": 28,
+    "blended": 39.0,
+    "best": 28,
+    "both": false,
+    "rank": 36
+   },
+   "venue_id": "fosun-foundation"
+  },
+  {
+   "rank": 37,
+   "name": "Gallery Func",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "website": "https://www.galleryfunc.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'Shanghai Gallery of Art'"
+   ],
+   "zone": "Jing'an",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "gallery-func",
+     "name": "Gallery Func",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai Gallery of Art",
+    "address_seen": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.galleryfunc.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "http_404"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Gallery Func",
+    "website": "https://www.galleryfunc.com/",
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Design-conscious gallery pairing contemporary art with collectible design and craft, active at Shanghai's fairs.",
+     "openai": "A young Shanghai gallery noted for internet-aware, digitally inflected and new-generation practices."
+    },
+    "ranks": {
+     "anthropic": 39,
+     "openai": 39
+    },
+    "names": {
+     "anthropic": "Gallery Func",
+     "openai": "Gallery Func"
+    },
+    "rank_claude": 39,
+    "rank_openai": 39,
+    "blended": 39.0,
+    "best": 39,
+    "both": true,
+    "rank": 37
+   },
+   "venue_id": "gallery-func"
+  },
+  {
+   "rank": 38,
+   "name": "Prada Rong Zhai",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "186 North Shaanxi Road",
+    "website": "https://www.prada.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: prada-rong-zhai (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.2267549,
+    "lng": 121.4557037,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "prada-rong-zhai",
+     "name": "Prada Rong Zhai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "荣氏老宅",
+    "status": "OPERATIONAL",
+    "address": "186 Shan Xi Bei Lu, Jing An Qu, Shang Hai Shi, China, 200041",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.2267549,
+    "lng": 121.4557037,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.prada.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ReadTimeout"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Prada Rong Zhai",
+    "website": "https://www.prada.com/",
+    "neighborhood": "Jing'an",
+    "address_hint": "186 North Shaanxi Road",
+    "kind": "other",
+    "notes": {
+     "openai": "Prada’s restored historic residence hosts carefully produced exhibitions by major international and Chinese contemporary artists."
+    },
+    "ranks": {
+     "openai": 29
+    },
+    "names": {
+     "openai": "Prada Rong Zhai"
+    },
+    "rank_claude": null,
+    "rank_openai": 29,
+    "blended": 39.5,
+    "best": 29,
+    "both": false,
+    "rank": 38
+   },
+   "venue_id": "prada-rong-zhai"
+  },
+  {
+   "rank": 39,
+   "name": "Yibo Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.yibogallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: yibo (unknown)"
+   ],
+   "zone": "Pudong",
+   "geo": {
+    "lat": 31.266325,
+    "lng": 121.5494693,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "yibo",
+     "name": "Yibo Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Yibo Gallery",
+    "status": "OPERATIONAL",
+    "address": "2361 Yang Shu Pu Lu, Yang Pu Qu, Shang Hai Shi, China, 200090",
+    "website": null,
+    "phone": "021 5888 0111",
+    "hours": null,
+    "lat": 31.266325,
+    "lng": 121.5494693,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.yibogallery.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Yibo Gallery",
+    "website": "https://www.yibogallery.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Long-running M50 gallery with a focus on contemporary Chinese painting and abstraction.",
+     "openai": "A Shanghai gallery with an expanding roster of contemporary Chinese artists and increasingly consistent fair participation."
+    },
+    "ranks": {
+     "anthropic": 36,
+     "openai": 43
+    },
+    "names": {
+     "anthropic": "Yibo Gallery",
+     "openai": "Yibo Gallery"
+    },
+    "rank_claude": 36,
+    "rank_openai": 43,
+    "blended": 39.5,
+    "best": 36,
+    "both": true,
+    "rank": 39
+   },
+   "venue_id": "yibo"
+  },
+  {
+   "rank": 40,
+   "name": "Anomaly",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "261 Wulumuqi Middle Road",
+    "website": "https://www.anomalyshanghai.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "places returned a different business: 'Wulumuqi Middle Road'"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.21211,
+    "lng": 121.44699,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "anomaly",
+     "name": "Anomaly",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Wulumuqi Middle Road",
+    "address_seen": "6C8V+GJ9, Wu Lu Mu Qi Zhong Lu, Jing An Qu, Shang Hai Shi, China, 200031",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.anomalyshanghai.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.anomalyshanghai.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Anomaly",
+    "website": "https://www.anomalyshanghai.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": "261 Wulumuqi Middle Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A younger gallery with a research-minded programme focused on experimental and emerging practices from China and abroad."
+    },
+    "ranks": {
+     "openai": 30
+    },
+    "names": {
+     "openai": "Anomaly"
+    },
+    "rank_claude": null,
+    "rank_openai": 30,
+    "blended": 40.0,
+    "best": 30,
+    "both": false,
+    "rank": 40
+   },
+   "venue_id": "anomaly"
+  },
+  {
+   "rank": 41,
+   "name": "NANZUKA ART INSTITUTE",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "website": "https://www.nanzuka.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "places returned a different business: 'Shanghai French Concession Needle General Yard Former Site'",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: nanzuka-art-institute (unknown)"
+   ],
+   "zone": "Former French Concession",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "nanzuka-art-institute",
+     "name": "NANZUKA ART INSTITUTE",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai French Concession Needle General Yard Former Site",
+    "address_seen": "6F59+5H5, Tai Kang Lu, 打浦桥 Huang Pu Qu, Shang Hai Shi, China, 200023",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.nanzuka.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://nanzuka.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "NANZUKA ART INSTITUTE",
+    "website": "https://www.nanzuka.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "NANZUKA’s permanent Shanghai platform brings influential Japanese countercultural, pop and interdisciplinary artists into the local scene."
+    },
+    "ranks": {
+     "openai": 31
+    },
+    "names": {
+     "openai": "NANZUKA ART INSTITUTE"
+    },
+    "rank_claude": null,
+    "rank_openai": 31,
+    "blended": 40.5,
+    "best": 31,
+    "both": false,
+    "rank": 41
+   },
+   "venue_id": "nanzuka-art-institute"
+  },
+  {
+   "rank": 42,
+   "name": "Bluerider ART Shanghai",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "133 Sichuan Middle Road",
+    "website": "https://www.blueriderart.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all",
+    "Places only knows a listing outside the metro: No. 77號, Section 2, Dunhua S Rd, Yi'an Village, Da’an District, Taipei City, Taiwan 106"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "bluerider-art-shanghai",
+     "name": "Bluerider ART Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Bluerider ART 藍騎士藝術空間",
+    "address_seen": "No. 77號, Section 2, Dunhua S Rd, Yi'an Village, Da’an District, Taipei City, Taiwan 106",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.blueriderart.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://blueriderart.com/tw/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://blueriderart.com/tw/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://blueriderart.com/tw",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "stale"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Bluerider ART Shanghai",
+    "website": "https://www.blueriderart.com/",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "133 Sichuan Middle Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "The Taipei-founded gallery’s Shanghai location presents established international artists and technically ambitious contemporary work."
+    },
+    "ranks": {
+     "openai": 32
+    },
+    "names": {
+     "openai": "Bluerider ART Shanghai"
+    },
+    "rank_claude": null,
+    "rank_openai": 32,
+    "blended": 41.0,
+    "best": 32,
+    "both": false,
+    "rank": 42
+   },
+   "venue_id": "bluerider-art-shanghai"
+  },
+  {
+   "rank": 43,
+   "name": "A+ Contemporary",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.apluscontemporary.org/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.apluscontemporary.org/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectTimeout"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "A+ Contemporary",
+    "website": "https://www.apluscontemporary.org/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A critically minded gallery supporting younger Chinese and Asian artists through research-led exhibitions and regional art-fair exposure."
+    },
+    "ranks": {
+     "openai": 33
+    },
+    "names": {
+     "openai": "A+ Contemporary"
+    },
+    "rank_claude": null,
+    "rank_openai": 33,
+    "blended": 41.5,
+    "best": 33,
+    "both": false,
+    "rank": 43
+   },
+   "venue_id": "a-contemporary"
+  },
+  {
+   "rank": 44,
+   "name": "OCAT Shanghai",
+   "neighborhood": "Putuo",
+   "note": null,
+   "hints": {
+    "address": "1016 Wuning Road",
+    "website": "https://www.ocatshanghai.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: ocat-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.23136,
+    "lng": 121.472801,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "ocat-shanghai",
+     "name": "OCAT Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Museum of Contemporary Art Shanghai",
+    "status": "OPERATIONAL",
+    "address": "231 Nan Jing Xi Lu, People's Square, Huang Pu Qu, Shang Hai Shi, China, 200003",
+    "website": null,
+    "phone": "021 6327 9900",
+    "hours": null,
+    "lat": 31.23136,
+    "lng": 121.472801,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.ocatshanghai.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectTimeout"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "OCAT Shanghai",
+    "website": "https://www.ocatshanghai.com",
+    "neighborhood": "Putuo",
+    "address_hint": "1016 Wuning Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Shanghai node of the OCAT network, focused on media art, curatorial research and exhibitions supporting experimental Chinese practices."
+    },
+    "ranks": {
+     "anthropic": 20
+    },
+    "names": {
+     "anthropic": "OCAT Shanghai"
+    },
+    "rank_claude": 20,
+    "rank_openai": null,
+    "blended": 42.5,
+    "best": 20,
+    "both": false,
+    "rank": 44
+   },
+   "venue_id": "ocat-shanghai"
+  },
+  {
+   "rank": 45,
+   "name": "Ren Space",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "1250 Huaihai Middle Road",
+    "website": "https://www.ren-space.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "places returned a different business: 'Smart Shanghai'"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.21413,
+    "lng": 121.45242,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "ren-space",
+     "name": "Ren Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Smart Shanghai",
+    "address_seen": "China, Shang Hai Shi, Xu Hui Qu, Xiang Yang Bei Lu, 97号襄阳大楼615 邮政编码: 200041",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.ren-space.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://ren-space.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Ren Space",
+    "website": "https://www.ren-space.com/",
+    "neighborhood": "Jing'an",
+    "address_hint": "1250 Huaihai Middle Road",
+    "kind": "project_space",
+    "notes": {
+     "anthropic": "Villa-based independent art space presenting cross-disciplinary exhibitions bridging traditional aesthetics and contemporary practice.",
+     "openai": "A curatorially focused space presenting emerging artists through compact exhibitions, collaborations and public programmes."
+    },
+    "ranks": {
+     "anthropic": 45,
+     "openai": 40
+    },
+    "names": {
+     "anthropic": "Ren Space",
+     "openai": "Rén Space"
+    },
+    "rank_claude": 45,
+    "rank_openai": 40,
+    "blended": 42.5,
+    "best": 40,
+    "both": true,
+    "rank": 45
+   },
+   "venue_id": "ren-space"
+  },
+  {
+   "rank": 46,
+   "name": "Eastlink Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "5F, Building 6, 50 Moganshan Road"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: eastlink (unknown)"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.247532,
+    "lng": 121.44866,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "eastlink",
+     "name": "Eastlink Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Eastlink Gallery",
+    "status": "OPERATIONAL",
+    "address": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "website": null,
+    "phone": "021 6276 9932",
+    "hours": null,
+    "lat": 31.247532,
+    "lng": 121.44866,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Eastlink Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "5F, Building 6, 50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Founded 1999 by Li Liang, one of Shanghai's oldest private galleries and an early supporter of edgy performance and installation art in the city."
+    },
+    "ranks": {
+     "anthropic": 21
+    },
+    "names": {
+     "anthropic": "Eastlink Gallery"
+    },
+    "rank_claude": 21,
+    "rank_openai": null,
+    "blended": 43.0,
+    "best": 21,
+    "both": false,
+    "rank": 46
+   },
+   "venue_id": "eastlink"
+  },
+  {
+   "rank": 47,
+   "name": "Shanghai Center of Photography (SCôP)",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "address": "2555-1 Longteng Avenue",
+    "website": "https://www.scopphoto.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: shanghai-center-of-photography-scop (unknown)"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 31.16795,
+    "lng": 121.463,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "shanghai-center-of-photography-scop",
+     "name": "Shanghai Center of Photography (SCôP)",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai Photography Art Center",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Xu Hui Qu, CN 上海市 徐汇区 140 米 邮政编码: 200232",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.16795,
+    "lng": 121.463,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.scopphoto.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Shanghai Center of Photography (SCôP)",
+    "website": "https://www.scopphoto.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555-1 Longteng Avenue",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Founded by Liu Heung Shing; the city's dedicated nonprofit photography exhibition space, anchoring the West Bund cluster."
+    },
+    "ranks": {
+     "anthropic": 22
+    },
+    "names": {
+     "anthropic": "Shanghai Center of Photography (SCôP)"
+    },
+    "rank_claude": 22,
+    "rank_openai": null,
+    "blended": 43.5,
+    "best": 22,
+    "both": false,
+    "rank": 47
+   },
+   "venue_id": "shanghai-center-of-photography-scop"
+  },
+  {
+   "rank": 48,
+   "name": "CC Foundation",
+   "neighborhood": null,
+   "note": null,
+   "hints": {
+    "website": "https://www.cc-foundation.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'Fosun Foundation'"
+   ],
+   "zone": null,
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "cc-foundation",
+     "name": "CC Foundation",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Fosun Foundation",
+    "address_seen": "600 Zhong Shan Dong Er Lu, 600, Huang Pu Qu, Shang Hai Shi, China, 200120",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.cc-foundation.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectTimeout"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "CC Foundation",
+    "website": "https://www.cc-foundation.com/",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "nonprofit",
+    "notes": {
+     "openai": "A private nonprofit foundation supporting exhibitions, commissions, residencies and research around Chinese and international contemporary art."
+    },
+    "ranks": {
+     "openai": 37
+    },
+    "names": {
+     "openai": "CC Foundation"
+    },
+    "rank_claude": null,
+    "rank_openai": 37,
+    "blended": 43.5,
+    "best": 37,
+    "both": false,
+    "rank": 48
+   },
+   "venue_id": "cc-foundation"
+  },
+  {
+   "rank": 49,
+   "name": "OFOTO Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "2F, Building 13, 50 Moganshan Road",
+    "website": "https://www.ofoto-gallery.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "ofoto",
+     "name": "OFOTO Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.ofoto-gallery.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "SSLError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "OFOTO Gallery",
+    "website": "https://www.ofoto-gallery.com",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "2F, Building 13, 50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Founded 2005, a specialist photography and image-based gallery that has shaped the reception of Chinese contemporary photography.",
+     "openai": "A specialist photography gallery with longstanding attention to Chinese documentary and contemporary image-making."
+    },
+    "ranks": {
+     "anthropic": 28,
+     "openai": 60
+    },
+    "names": {
+     "anthropic": "OFOTO Gallery",
+     "openai": "OFOTO Gallery"
+    },
+    "rank_claude": 28,
+    "rank_openai": 60,
+    "blended": 44.0,
+    "best": 28,
+    "both": true,
+    "rank": 49
+   },
+   "venue_id": "ofoto"
+  },
+  {
+   "rank": 50,
+   "name": "MINE PROJECT",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.mine-project.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: mine-project (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.223821,
+    "lng": 121.5012942,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "mine-project",
+     "name": "MINE PROJECT",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "MINE",
+    "status": "OPERATIONAL",
+    "address": "122 Zhong Shan Nan Lu, Huang Pu Qu, Shang Hai Shi, China, 200010",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.223821,
+    "lng": 121.5012942,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.mine-project.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "MINE PROJECT",
+    "website": "https://www.mine-project.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "An emerging-oriented gallery recognized for giving younger artists substantial early exhibitions and access to international fairs."
+    },
+    "ranks": {
+     "openai": 38
+    },
+    "names": {
+     "openai": "MINE PROJECT"
+    },
+    "rank_claude": null,
+    "rank_openai": 38,
+    "blended": 44.0,
+    "best": 38,
+    "both": false,
+    "rank": 50
+   },
+   "venue_id": "mine-project"
+  },
+  {
+   "rank": 51,
+   "name": "Hive Contemporary Art Center, Shanghai",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "website": "https://www.hiveart.cn"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "places returned a different business: 'West Bund Artistic Center'"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "hive-contemporary-art-center-shanghai",
+     "name": "Hive Contemporary Art Center, Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "West Bund Artistic Center",
+    "address_seen": "2555 Long Teng Da Dao, Xu Hui Qu, Shang Hai Shi, China, 200232",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.hiveart.cn",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://hiveart.cn/",
+    "dated": {
+     "latest_year": 2025,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://hiveart.cn/exhibitions",
+       "latest_year": 2025,
+       "online": false
+      },
+      {
+       "url": "https://hiveart.cn",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Hive Contemporary Art Center, Shanghai",
+    "website": "https://www.hiveart.cn",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Shanghai space of the influential Beijing gallery, known for a strong painting programme and consistent art-fair presence."
+    },
+    "ranks": {
+     "anthropic": 25
+    },
+    "names": {
+     "anthropic": "Hive Contemporary Art Center, Shanghai"
+    },
+    "rank_claude": 25,
+    "rank_openai": null,
+    "blended": 45.0,
+    "best": 25,
+    "both": false,
+    "rank": 51
+   },
+   "venue_id": "hive-contemporary-art-center-shanghai"
+  },
+  {
+   "rank": 52,
+   "name": "A+ Contemporary (Asia Contemporary Art Space)",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "Building 7, 50 Moganshan Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'M50 Creative Space'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "a-contemporary-asia-contemporary-art-space",
+     "name": "A+ Contemporary (Asia Contemporary Art Space)",
+     "status": "unknown"
+    },
+    {
+     "id": "asia-art-center-shanghai",
+     "name": "Asia Art Center Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "M50 Creative Space",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "A+ Contemporary (Asia Contemporary Art Space)",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 7, 50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Taipei-linked space at M50 promoting young Asian artists through exhibitions, prizes and cross-strait exchange projects."
+    },
+    "ranks": {
+     "anthropic": 26
+    },
+    "names": {
+     "anthropic": "A+ Contemporary (Asia Contemporary Art Space)"
+    },
+    "rank_claude": 26,
+    "rank_openai": null,
+    "blended": 45.5,
+    "best": 26,
+    "both": false,
+    "rank": 52
+   },
+   "venue_id": "a-contemporary-asia-contemporary-art-space"
+  },
+  {
+   "rank": 53,
+   "name": "island6 Arts Center",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "Building 6, 120 Moganshan Road",
+    "website": "https://www.island6.org"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24851,
+    "lng": 121.44792,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "island6-arts-center",
+     "name": "island6 Arts Center",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.island6.org",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://island6.org/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://island6.org",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "island6 Arts Center",
+    "website": "https://www.island6.org",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 6, 120 Moganshan Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Artist collective (Liu Dao) and nonprofit space producing LED and new-media works; a long-standing fixture of the M50 scene.",
+     "openai": "The home of the Liu Dao collective is a durable artist-run venue known for interactive, LED and multimedia work."
+    },
+    "ranks": {
+     "anthropic": 34,
+     "openai": 57
+    },
+    "names": {
+     "anthropic": "island6 Arts Center",
+     "openai": "island6 Arts Center"
+    },
+    "rank_claude": 34,
+    "rank_openai": 57,
+    "blended": 45.5,
+    "best": 34,
+    "both": true,
+    "rank": 53
+   },
+   "venue_id": "island6-arts-center"
+  },
+  {
+   "rank": 54,
+   "name": "J Gallery",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {},
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: j-gallery (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.226559,
+    "lng": 121.452066,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "j-gallery",
+     "name": "J Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "j.gallery",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Jing An Qu, 南京西路1376号上海商城2楼 邮政编码: 200041",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.226559,
+    "lng": 121.452066,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "J Gallery",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A locally rooted gallery with a growing programme of younger Chinese artists and a visible presence at mainland fairs."
+    },
+    "ranks": {
+     "openai": 41
+    },
+    "names": {
+     "openai": "J Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 41,
+    "blended": 45.5,
+    "best": 41,
+    "both": false,
+    "rank": 54
+   },
+   "venue_id": "j-gallery"
+  },
+  {
+   "rank": 55,
+   "name": "Aura Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "aura",
+     "name": "Aura Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Aura Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Long-established gallery with Taipei roots, historically important for photography and contemporary Chinese art at M50."
+    },
+    "ranks": {
+     "anthropic": 27
+    },
+    "names": {
+     "anthropic": "Aura Gallery"
+    },
+    "rank_claude": 27,
+    "rank_openai": null,
+    "blended": 46.0,
+    "best": 27,
+    "both": false,
+    "rank": 55
+   },
+   "venue_id": "aura"
+  },
+  {
+   "rank": 56,
+   "name": "TONG Gallery+Projects",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "tong-gallery-projects",
+     "name": "TONG Gallery+Projects",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "TONG Gallery+Projects",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "An M50 gallery and project platform supporting experimental exhibitions and artists at early and mid-career stages."
+    },
+    "ranks": {
+     "openai": 42
+    },
+    "names": {
+     "openai": "TONG Gallery+Projects"
+    },
+    "rank_claude": null,
+    "rank_openai": 42,
+    "blended": 46.0,
+    "best": 42,
+    "both": false,
+    "rank": 56
+   },
+   "venue_id": "tong-gallery-projects"
+  },
+  {
+   "rank": 57,
+   "name": "Galerie Dumonteil",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "website": "https://www.dumonteil.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Former French Concession",
+   "geo": {
+    "lat": 31.205036,
+    "lng": 121.44696,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "galerie-dumonteil",
+     "name": "Galerie Dumonteil",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Galerie Dumonteil",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Xu Hui Qu, Heng Shan Lu, 199号CN 永平里 105栋 邮政编码: 200021",
+    "website": "http://www.dumonteil.com/",
+    "phone": "021 6418 6367",
+    "hours": null,
+    "lat": 31.205036,
+    "lng": 121.44696,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.dumonteil.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.dumonteil.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.dumonteil.com/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.dumonteil.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Galerie Dumonteil",
+    "website": "https://www.dumonteil.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Paris/New York/Shanghai gallery specialising in modern and contemporary sculpture and animalier traditions; a durable Concession presence.",
+     "openai": "The international gallery’s Shanghai operation is notable for modern and contemporary sculpture, particularly animalier and materially focused work."
+    },
+    "ranks": {
+     "anthropic": 41,
+     "openai": 52
+    },
+    "names": {
+     "anthropic": "Galerie Dumonteil",
+     "openai": "DUMONTEIL"
+    },
+    "rank_claude": 41,
+    "rank_openai": 52,
+    "blended": 46.5,
+    "best": 41,
+    "both": true,
+    "rank": 57
+   },
+   "venue_id": "galerie-dumonteil"
+  },
+  {
+   "rank": 58,
+   "name": "Danysz Gallery Shanghai",
+   "neighborhood": "Yangpu",
+   "note": null,
+   "hints": {
+    "address": "188 Linqing Road",
+    "website": "https://www.magda-gallery.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '188 Lin Qing Lu'"
+   ],
+   "zone": "Pudong",
+   "geo": {
+    "lat": 31.26489,
+    "lng": 121.54266,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "danysz-gallery-shanghai",
+     "name": "Danysz Gallery Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "danysz",
+     "name": "Danysz Gallery",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "188 Lin Qing Lu",
+    "address_seen": "188 Lin Qing Lu, Yang Pu Qu, Shang Hai Shi, China, 200090",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.magda-gallery.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "SSLError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Danysz Gallery Shanghai",
+    "website": "https://www.magda-gallery.com",
+    "neighborhood": "Yangpu",
+    "address_hint": "188 Linqing Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Magda Danysz's Shanghai space, notable for urban/street art, Obey- and JR-adjacent figures and large-scale mural projects in the city."
+    },
+    "ranks": {
+     "anthropic": 30
+    },
+    "names": {
+     "anthropic": "Danysz Gallery Shanghai"
+    },
+    "rank_claude": 30,
+    "rank_openai": null,
+    "blended": 47.5,
+    "best": 30,
+    "both": false,
+    "rank": 58
+   },
+   "venue_id": "danysz-gallery-shanghai"
+  },
+  {
+   "rank": 59,
+   "name": "Grain Projects",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.grainprojects.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "grain-projects",
+     "name": "Grain Projects",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.grainprojects.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Grain Projects",
+    "website": "https://www.grainprojects.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "nonprofit",
+    "notes": {
+     "openai": "An independent photography platform supporting exhibitions, publishing, research and underrepresented approaches to the photographic image."
+    },
+    "ranks": {
+     "openai": 45
+    },
+    "names": {
+     "openai": "Grain Projects"
+    },
+    "rank_claude": null,
+    "rank_openai": 45,
+    "blended": 47.5,
+    "best": 45,
+    "both": false,
+    "rank": 59
+   },
+   "venue_id": "grain-projects"
+  },
+  {
+   "rank": 60,
+   "name": "A2Z Art Gallery",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "41 Fumin Road",
+    "website": "https://www.a2z-art.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "Places only knows a listing outside the metro: 24 Rue de l'Echaudé, 75006 Paris, France",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: a2z-art (unknown)"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": {
+    "lat": 30.91303,
+    "lng": 121.64093,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "a2z-art",
+     "name": "A2Z Art Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "A2Z Art Gallery",
+    "address_seen": "24 Rue de l'Echaudé, 75006 Paris, France",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.a2z-art.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.a2z-art.com/exhibitions",
+    "js_only": true,
+    "final_url": "https://www.a2z-art.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.a2z-art.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.a2z-art.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "A2Z Art Gallery",
+    "website": "https://www.a2z-art.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": "41 Fumin Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A Paris–Shanghai gallery presenting Chinese, French and other international artists across painting, sculpture and mixed media."
+    },
+    "ranks": {
+     "openai": 46
+    },
+    "names": {
+     "openai": "A2Z Art Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 46,
+    "blended": 48.0,
+    "best": 46,
+    "both": false,
+    "rank": 60
+   },
+   "venue_id": "a2z-art"
+  },
+  {
+   "rank": 61,
+   "name": "Asia Art Center Shanghai",
+   "neighborhood": "West Bund/Xuhui",
+   "note": null,
+   "hints": {
+    "website": "https://www.asiaartcenter.org"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "places returned a different business: 'West Bund Artistic Center'"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "asia-art-center-shanghai",
+     "name": "Asia Art Center Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "a-contemporary-asia-contemporary-art-space",
+     "name": "A+ Contemporary (Asia Contemporary Art Space)",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "West Bund Artistic Center",
+    "address_seen": "2555 Long Teng Da Dao, Xu Hui Qu, Shang Hai Shi, China, 200232",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.asiaartcenter.org",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://asiaartcenter.org/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://asiaartcenter.org/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://asiaartcenter.org/exhibitions/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://asiaartcenter.org",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched",
+    "stale"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Asia Art Center Shanghai",
+    "website": "https://www.asiaartcenter.org",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Taipei-founded gallery's Shanghai branch, presenting modern Chinese masters alongside contemporary abstraction and sculpture."
+    },
+    "ranks": {
+     "anthropic": 32
+    },
+    "names": {
+     "anthropic": "Asia Art Center Shanghai"
+    },
+    "rank_claude": 32,
+    "rank_openai": null,
+    "blended": 48.5,
+    "best": 32,
+    "both": false,
+    "rank": 61
+   },
+   "venue_id": "asia-art-center-shanghai"
+  },
+  {
+   "rank": 62,
+   "name": "BROWNIE Project",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "website": "https://www.brownieproject.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "Places only knows a listing outside the metro: 6-105, 50 莫干山路普陀区 China, 200060"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "brownie-project",
+     "name": "BROWNIE Project",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "BROWNIE Project",
+    "address_seen": "6-105, 50 莫干山路普陀区 China, 200060",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.brownieproject.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "http_500"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "BROWNIE Project",
+    "website": "https://www.brownieproject.com/",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A contemporary-photography gallery known for introducing younger Asian photographers and image-based artists."
+    },
+    "ranks": {
+     "openai": 47
+    },
+    "names": {
+     "openai": "BROWNIE Project"
+    },
+    "rank_claude": null,
+    "rank_openai": 47,
+    "blended": 48.5,
+    "best": 47,
+    "both": false,
+    "rank": 62
+   },
+   "venue_id": "brownie-project"
+  },
+  {
+   "rank": 63,
+   "name": "FQ Projects",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "address": "76 Wuyuan Road",
+    "website": "https://www.fqprojects.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: fq-projects (unknown)"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.2169877,
+    "lng": 121.4596382,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "fq-projects",
+     "name": "FQ Projects",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "FQ Projects",
+    "status": "OPERATIONAL",
+    "address": "927 Huai Hai Zhong Lu, 淮海路中段徐汇区 Shang Hai Shi, China, 200041",
+    "website": null,
+    "phone": "021 6466 2940",
+    "hours": null,
+    "lat": 31.2169877,
+    "lng": 121.4596382,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.fqprojects.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "FQ Projects",
+    "website": "https://www.fqprojects.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": "76 Wuyuan Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Small independent gallery focused on emerging Asian artists and intimate solo presentations.",
+     "openai": "One of Shanghai’s enduring smaller galleries, with a record of supporting emerging artists and works on paper."
+    },
+    "ranks": {
+     "anthropic": 48,
+     "openai": 50
+    },
+    "names": {
+     "anthropic": "FQ Projects",
+     "openai": "FQ Projects"
+    },
+    "rank_claude": 48,
+    "rank_openai": 50,
+    "blended": 49.0,
+    "best": 48,
+    "both": true,
+    "rank": 63
+   },
+   "venue_id": "fq-projects"
+  },
+  {
+   "rank": 64,
+   "name": "WS Gallery",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {},
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'Shanghai Gallery of Art'"
+   ],
+   "zone": "Jing'an",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "ws-gallery",
+     "name": "WS Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Shanghai Gallery of Art",
+    "address_seen": "3 Zhong Shan Dong Yi Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "WS Gallery",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A locally active contemporary gallery presenting younger Chinese artists and participating in Shanghai’s principal art-market events."
+    },
+    "ranks": {
+     "openai": 51
+    },
+    "names": {
+     "openai": "WS Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 51,
+    "blended": 50.5,
+    "best": 50,
+    "both": false,
+    "rank": 64
+   },
+   "venue_id": "ws-gallery"
+  },
+  {
+   "rank": 65,
+   "name": "Ora-Ora Shanghai",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "website": "https://www.ora-ora.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "places returned a different business: '50 Moganshan Road'",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: ora-ora-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "ora-ora-shanghai",
+     "name": "Ora-Ora Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.ora-ora.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.ora-ora.com/exhibitions/140-the-pleasure-dome-of-hills-a-curated-hallucination-of/",
+    "js_only": false,
+    "final_url": "https://www.ora-ora.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.ora-ora.com/exhibitions/140-the-pleasure-dome-of-hills-a-curated-hallucination-of/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.ora-ora.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.ora-ora.com/exhibitions/past",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.ora-ora.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Ora-Ora Shanghai",
+    "website": "https://www.ora-ora.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "The Hong Kong-founded gallery’s Shanghai platform broadens access to its programme of Asian contemporary and cross-disciplinary artists."
+    },
+    "ranks": {
+     "openai": 53
+    },
+    "names": {
+     "openai": "Ora-Ora Shanghai"
+    },
+    "rank_claude": null,
+    "rank_openai": 53,
+    "blended": 51.5,
+    "best": 50,
+    "both": false,
+    "rank": 65
+   },
+   "venue_id": "ora-ora-shanghai"
+  },
+  {
+   "rank": 66,
+   "name": "WOAW Gallery Shanghai",
+   "neighborhood": "Former French Concession",
+   "note": null,
+   "hints": {
+    "website": "https://www.woawgallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: woaw-gallery-shanghai (unknown), shanghai-gallery-of-art (unknown)"
+   ],
+   "zone": "Former French Concession",
+   "geo": {
+    "lat": 31.207897,
+    "lng": 121.468997,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "woaw-gallery-shanghai",
+     "name": "WOAW Gallery Shanghai",
+     "status": "unknown"
+    },
+    {
+     "id": "shanghai-gallery-of-art",
+     "name": "Shanghai Gallery of Art",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shanghai French Concession Needle General Yard Former Site",
+    "status": "OPERATIONAL",
+    "address": "6F59+5H5, Tai Kang Lu, 打浦桥 Huang Pu Qu, Shang Hai Shi, China, 200023",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.207897,
+    "lng": 121.468997,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.woawgallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.woawgallery.com/exhibitions/past/2025/",
+    "js_only": false,
+    "final_url": "https://www.woawgallery.com/",
+    "dated": {
+     "latest_year": 2025,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.woawgallery.com/exhibitions/past/2025/",
+       "latest_year": 2025,
+       "online": false
+      },
+      {
+       "url": "https://www.woawgallery.com/exhibitions",
+       "latest_year": 2025,
+       "online": false
+      },
+      {
+       "url": "https://www.woawgallery.com/exhibitions/past",
+       "latest_year": 2025,
+       "online": false
+      },
+      {
+       "url": "https://www.woawgallery.com",
+       "latest_year": 2025,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "WOAW Gallery Shanghai",
+    "website": "https://www.woawgallery.com/",
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "A younger international gallery bringing highly market-visible figurative painting and emerging global artists to Shanghai."
+    },
+    "ranks": {
+     "openai": 54
+    },
+    "names": {
+     "openai": "WOAW Gallery Shanghai"
+    },
+    "rank_claude": null,
+    "rank_openai": 54,
+    "blended": 52.0,
+    "best": 50,
+    "both": false,
+    "rank": 66
+   },
+   "venue_id": "woaw-gallery-shanghai"
+  },
+  {
+   "rank": 67,
+   "name": "Modern Art Base",
+   "neighborhood": "Xuhui",
+   "note": null,
+   "hints": {},
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'Museum of Contemporary Art Shanghai'"
+   ],
+   "zone": "West Bund/Xuhui",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "modern-art-base",
+     "name": "Modern Art Base",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Museum of Contemporary Art Shanghai",
+    "address_seen": "231 Nan Jing Xi Lu, People's Square, Huang Pu Qu, Shang Hai Shi, China, 200003",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Modern Art Base",
+    "website": null,
+    "neighborhood": "Xuhui",
+    "address_hint": null,
+    "kind": "project_space",
+    "notes": {
+     "anthropic": "Independent exhibition base linked to the ZiWU creative platform, hosting experimental exhibitions and photography projects."
+    },
+    "ranks": {
+     "anthropic": 40
+    },
+    "names": {
+     "anthropic": "Modern Art Base"
+    },
+    "rank_claude": 40,
+    "rank_openai": null,
+    "blended": 52.5,
+    "best": 40,
+    "both": false,
+    "rank": 67
+   },
+   "venue_id": "modern-art-base"
+  },
+  {
+   "rank": 68,
+   "name": "Noeli Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.noeligallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it",
+    "registry near-miss: noeli (unknown)"
+   ],
+   "zone": "Former French Concession",
+   "geo": {
+    "lat": 31.205613,
+    "lng": 121.452267,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "noeli",
+     "name": "Noeli Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Noeli Gallery",
+    "status": "OPERATIONAL",
+    "address": "150 Yue Yang Lu, Xu Hui Qu, Shang Hai Shi, China, 200031",
+    "website": "http://www.noeligallery.com/",
+    "phone": "021 6431 9442",
+    "hours": null,
+    "lat": 31.205613,
+    "lng": 121.452267,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.noeligallery.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "http://stopnote.vhostgo.com/?host=www.noeligallery.com&refer=",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Noeli Gallery",
+    "website": "https://www.noeligallery.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A longstanding M50 gallery connecting Chinese and European artists through accessible but consistently contemporary programming."
+    },
+    "ranks": {
+     "openai": 55
+    },
+    "names": {
+     "openai": "Noeli Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 55,
+    "blended": 52.5,
+    "best": 50,
+    "both": false,
+    "rank": 68
+   },
+   "venue_id": "noeli"
+  },
+  {
+   "rank": 69,
+   "name": "Two Cities Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road",
+    "website": "https://www.twocitiesgallery.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: two-cities (unknown)"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.2476427,
+    "lng": 121.4487734,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "two-cities",
+     "name": "Two Cities Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Twocities Gallery",
+    "status": "OPERATIONAL",
+    "address": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "website": null,
+    "phone": "021 5252 1518",
+    "hours": null,
+    "lat": 31.2476427,
+    "lng": 121.4487734,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.twocitiesgallery.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectTimeout"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Two Cities Gallery",
+    "website": "https://www.twocitiesgallery.com/",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "An important specialist in contemporary glass, ceramics, lacquer and other craft-based practices, active in M50 since its early years."
+    },
+    "ranks": {
+     "openai": 56
+    },
+    "names": {
+     "openai": "Two Cities Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 56,
+    "blended": 53.0,
+    "best": 50,
+    "both": false,
+    "rank": 69
+   },
+   "venue_id": "two-cities"
+  },
+  {
+   "rank": 70,
+   "name": "Basement 6 Collective",
+   "neighborhood": "Hongkou",
+   "note": null,
+   "hints": {},
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: basement-6-collective (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2342451,
+    "lng": 121.4910973,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "basement-6-collective",
+     "name": "Basement 6 Collective",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "沪申画廊",
+    "status": "OPERATIONAL",
+    "address": "China, Shang Hai Shi, Huang Pu Qu, Waitan, Zhong Shan Dong Yi Lu, 3号, Wai Tan San Hao 3楼 邮政编码: 200002",
+    "website": "http://www.shanghaigalleryofart.com/",
+    "phone": "021 6323 3355",
+    "hours": null,
+    "lat": 31.2342451,
+    "lng": 121.4910973,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.shanghaigalleryofart.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.space-gallery-association.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Basement 6 Collective",
+    "website": null,
+    "neighborhood": "Hongkou",
+    "address_hint": null,
+    "kind": "project_space",
+    "notes": {
+     "anthropic": "Artist-run underground collective known for experimental, performance and sound programming outside the commercial circuit."
+    },
+    "ranks": {
+     "anthropic": 43
+    },
+    "names": {
+     "anthropic": "Basement 6 Collective"
+    },
+    "rank_claude": 43,
+    "rank_openai": null,
+    "blended": 54.0,
+    "best": 43,
+    "both": false,
+    "rank": 70
+   },
+   "venue_id": "basement-6-collective"
+  },
+  {
+   "rank": 71,
+   "name": "Studio Rouge",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: studio-rouge (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.2355083,
+    "lng": 121.4901792,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "studio-rouge",
+     "name": "Studio Rouge",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Studio Rouge",
+    "status": "OPERATIONAL",
+    "address": "17 Fu Zhou Lu, Waitan, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": 31.2355083,
+    "lng": 121.4901792,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Studio Rouge",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A veteran M50 gallery with a broad programme of Chinese and international painting, sculpture and mixed-media work."
+    },
+    "ranks": {
+     "openai": 58
+    },
+    "names": {
+     "openai": "Studio Rouge"
+    },
+    "rank_claude": null,
+    "rank_openai": 58,
+    "blended": 54.0,
+    "best": 50,
+    "both": false,
+    "rank": 71
+   },
+   "venue_id": "studio-rouge"
+  },
+  {
+   "rank": 72,
+   "name": "Swatch Art Peace Hotel",
+   "neighborhood": "The Bund/Rockbund",
+   "note": null,
+   "hints": {
+    "address": "23 East Nanjing Road",
+    "website": "https://www.swatch-artpeacehotel.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "Places only knows a listing outside the metro: Waitan, Huangpu, China, 200002"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.23872,
+    "lng": 121.48935,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "swatch-art-peace-hotel",
+     "name": "Swatch Art Peace Hotel",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Swatch Art Peace Hotel",
+    "address_seen": "Waitan, Huangpu, China, 200002",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.swatch-artpeacehotel.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Swatch Art Peace Hotel",
+    "website": "https://www.swatch-artpeacehotel.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "23 East Nanjing Road",
+    "kind": "other",
+    "notes": {
+     "anthropic": "Artist residency on the Bund with public exhibition galleries; an unusual long-term platform for international artists working in Shanghai."
+    },
+    "ranks": {
+     "anthropic": 44
+    },
+    "names": {
+     "anthropic": "Swatch Art Peace Hotel"
+    },
+    "rank_claude": 44,
+    "rank_openai": null,
+    "blended": 54.5,
+    "best": 44,
+    "both": false,
+    "rank": 72
+   },
+   "venue_id": "swatch-art-peace-hotel"
+  },
+  {
+   "rank": 73,
+   "name": "Gallery 55",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.247551,
+    "lng": 121.448722,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "GALLERY55 Gallery",
+    "status": "OPERATIONAL",
+    "address": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "website": "http://www.gallery55.cn/ch/contact.aspx",
+    "phone": "021 6266 4108",
+    "hours": null,
+    "lat": 31.247551,
+    "lng": 121.448722,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.gallery55.cn/ch/contact.aspx",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "http://www.gallery55.cn/ch/contact.aspx",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null,
+    "vouched_via_root": "http://www.gallery55.cn/"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Gallery 55",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "A long-established M50 venue showing contemporary Chinese artists and contributing to the district’s public gallery ecology."
+    },
+    "ranks": {
+     "openai": 59
+    },
+    "names": {
+     "openai": "Gallery 55"
+    },
+    "rank_claude": null,
+    "rank_openai": 59,
+    "blended": 54.5,
+    "best": 50,
+    "both": false,
+    "rank": 73
+   },
+   "venue_id": "gallery-55"
+  },
+  {
+   "rank": 74,
+   "name": "V Art Center",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'M50 Creative Space'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "v-art-center",
+     "name": "V Art Center",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "M50 Creative Space",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "V Art Center",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Nonprofit exhibition space at M50 supporting young artists and curatorial experiments."
+    },
+    "ranks": {
+     "anthropic": 46
+    },
+    "names": {
+     "anthropic": "V Art Center"
+    },
+    "rank_claude": 46,
+    "rank_openai": null,
+    "blended": 55.5,
+    "best": 46,
+    "both": false,
+    "rank": 74
+   },
+   "venue_id": "v-art-center"
+  },
+  {
+   "rank": 75,
+   "name": "AM Art Space",
+   "neighborhood": "Jing'an",
+   "note": null,
+   "hints": {
+    "address": "50B Fengxian Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: '1918 Art Space'"
+   ],
+   "zone": "Jing'an",
+   "geo": {
+    "lat": 31.23195,
+    "lng": 121.46191,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "am-art-space",
+     "name": "AM Art Space",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "1918 Art Space",
+    "address_seen": "20 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "AM Art Space",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": "50B Fengxian Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Compact Concession-edge gallery with a consistent programme of contemporary ink, photography and young Shanghai artists.",
+     "openai": "A small independent space valued for experimental exhibitions, artist projects and sustained engagement with Shanghai’s grassroots scene."
+    },
+    "ranks": {
+     "anthropic": 49,
+     "openai": 62
+    },
+    "names": {
+     "anthropic": "AM Art Space",
+     "openai": "AM Art Space"
+    },
+    "rank_claude": 49,
+    "rank_openai": 62,
+    "blended": 55.5,
+    "best": 49,
+    "both": true,
+    "rank": 75
+   },
+   "venue_id": "am-art-space"
+  },
+  {
+   "rank": 76,
+   "name": "ArtCN Gallery",
+   "neighborhood": null,
+   "note": null,
+   "hints": {},
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: 'Museum of Contemporary Art Shanghai'"
+   ],
+   "zone": null,
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "artcn",
+     "name": "ArtCN Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Museum of Contemporary Art Shanghai",
+    "address_seen": "231 Nan Jing Xi Lu, People's Square, Huang Pu Qu, Shang Hai Shi, China, 200003",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "ArtCN Gallery",
+    "website": null,
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "An independent Shanghai gallery presenting locally based Chinese and international artists across painting, photography and mixed media."
+    },
+    "ranks": {
+     "openai": 61
+    },
+    "names": {
+     "openai": "ArtCN Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 61,
+    "blended": 55.5,
+    "best": 50,
+    "both": false,
+    "rank": 76
+   },
+   "venue_id": "artcn"
+  },
+  {
+   "rank": 77,
+   "name": "Other Gallery",
+   "neighborhood": "Xuhui",
+   "note": null,
+   "hints": {},
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: other (unknown)"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.2476427,
+    "lng": 121.4487734,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "other",
+     "name": "Other Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Other Gallery",
+    "status": "OPERATIONAL",
+    "address": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "website": null,
+    "phone": "021 3353 2273",
+    "hours": null,
+    "lat": 31.2476427,
+    "lng": 121.4487734,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Other Gallery",
+    "website": null,
+    "neighborhood": "Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Shanghai space of the Beijing-founded gallery, with a programme of conceptual and installation-based Chinese artists."
+    },
+    "ranks": {
+     "anthropic": 47
+    },
+    "names": {
+     "anthropic": "Other Gallery"
+    },
+    "rank_claude": 47,
+    "rank_openai": null,
+    "blended": 56.0,
+    "best": 47,
+    "both": false,
+    "rank": 77
+   },
+   "venue_id": "other"
+  },
+  {
+   "rank": 78,
+   "name": "Goethe Open Space Shanghai",
+   "neighborhood": null,
+   "note": null,
+   "hints": {
+    "website": "https://www.goethe.de/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: goethe-open-space-shanghai (unknown)"
+   ],
+   "zone": "The Bund/Rockbund",
+   "geo": {
+    "lat": 31.234529,
+    "lng": 121.484259,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "goethe-open-space-shanghai",
+     "name": "Goethe Open Space Shanghai",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Generalkonsulat der Bundesrepublik Deutschland in Shanghai Cultural and Education Section",
+    "status": "OPERATIONAL",
+    "address": "318 Fu Zhou Lu, Huang Pu Qu, Shang Hai Shi, China, 200002",
+    "website": "https://www.goethe.de/ins/cn/zh/sta/sha.html",
+    "phone": "021 6391 2211",
+    "hours": null,
+    "lat": 31.234529,
+    "lng": 121.484259,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.goethe.de/ins/cn/zh/sta/sha.html",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "http_403"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_blocked"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Goethe Open Space Shanghai",
+    "website": "https://www.goethe.de/",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "nonprofit",
+    "notes": {
+     "openai": "A nonprofit cultural platform supporting contemporary exhibitions, commissions and exchange between artists in China and Germany."
+    },
+    "ranks": {
+     "openai": 63
+    },
+    "names": {
+     "openai": "Goethe Open Space Shanghai"
+    },
+    "rank_claude": null,
+    "rank_openai": 63,
+    "blended": 56.5,
+    "best": 50,
+    "both": false,
+    "rank": 78
+   },
+   "venue_id": "goethe-open-space-shanghai"
+  },
+  {
+   "rank": 79,
+   "name": "Reflexion Gallery",
+   "neighborhood": "M50/Moganshan Road",
+   "note": null,
+   "hints": {
+    "address": "50 Moganshan Road"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "places returned a different business: '50 Moganshan Road'"
+   ],
+   "zone": "M50/Moganshan Road",
+   "geo": {
+    "lat": 31.24758,
+    "lng": 121.44859,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "reflexion",
+     "name": "Reflexion Gallery",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "50 Moganshan Road",
+    "address_seen": "50 Mo Gan Shan Lu, Pu Tuo Qu, Shang Hai Shi, China, 200071",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": true,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Reflexion Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "notes": {
+     "openai": "An independent M50 gallery focused principally on contemporary photography and lens-based work by Chinese and international artists."
+    },
+    "ranks": {
+     "openai": 64
+    },
+    "names": {
+     "openai": "Reflexion Gallery"
+    },
+    "rank_claude": null,
+    "rank_openai": 64,
+    "blended": 57.0,
+    "best": 50,
+    "both": false,
+    "rank": 79
+   },
+   "venue_id": "reflexion"
+  }
+ ]
+}

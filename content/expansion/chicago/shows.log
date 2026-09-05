@@ -1,0 +1,672 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: West Town/West Loop=23, River North=16, Pilsen/Bridgeport=8, Logan Square/Wicker Park=8, Garfield Park=1, Hyde Park=7
+[west-town-west-loop] session 1: 8 TODO venues -> deep-chicago-west-town-west-loop-1788562383.log
+[west-town-west-loop]   ['acre-projects', 'andrew-rafacz', 'arc', 'chicago-artists-coalition', 'chicago-truborn', 'corbett-vs-dempsey', 'epiphany-center-for-the-arts', 'filter-photo']
+[river-north] session 1: 8 TODO venues -> deep-chicago-river-north-1788562403.log
+[river-north]   ['addington', 'bert-green', 'chicago-cultural-center', 'elephant-room', 'gallery-400', 'gallery-victor-armendariz', 'glass-curtain-gallery-columbia-college-chicago', 'graham-foundation']
+[pilsen-bridgeport] session 1: 8 TODO venues -> deep-chicago-pilsen-bridgeport-1788562427.log
+[pilsen-bridgeport]   ['bridgeport-art-center', 'co-prosperity', 'mana-contemporary-chicago', 'pilsen-outpost', 'prairie', 'project-onward', 'tiger-strikes-asteroid-chicago', 'woman-made']
+[west-town-west-loop] session 1 done: +0 saved, +0 skipped (exit 1)
+[logan-square-wicker-park] session 1: 8 TODO venues -> deep-chicago-logan-square-wicker-park-1788562853.log
+[logan-square-wicker-park]   ['6018north', 'hairpin-arts-center', 'm-leblanc', 'oliva', 'perspective', 'ralph-arnold-gallery-loyola-university', 'soccer-club-club', 'weatherproof']
+[pilsen-bridgeport] session 1 done: +10 saved, +2 skipped (exit 1)
+[hyde-park] session 1: 7 TODO venues -> deep-chicago-hyde-park-1788562854.log
+[hyde-park]   ['beverly-arts-center', 'blanc', 'boundary', 'gallery-guichard', 'hyde-park-art-center', 'logan-center-exhibitions', 'renaissance-society']
+[river-north] session 1 done: +9 saved, +0 skipped (exit 1)
+[garfield-park] session 1: 1 TODO venues -> deep-chicago-garfield-park-1788562856.log
+[garfield-park]   ['devening-projects']
+[logan-square-wicker-park] session 1 done: +0 saved, +0 skipped (exit 1)
+[west-town-west-loop] session 2: 8 TODO venues -> deep-chicago-west-town-west-loop-1788562864.log
+[west-town-west-loop]   ['gray', 'heaven', 'ken-saunders', 'lvl3', 'mariane-ibrahim', 'monique-meloche', 'no-nation-art-lab', 'patron']
+[hyde-park] session 1 done: +0 saved, +0 skipped (exit 1)
+[river-north] session 2: 8 TODO venues -> deep-chicago-river-north-1788562868.log
+[river-north]   ['gruen', 'hilton-asmus-contemporary', 'jean-albano', 'kavi-gupta', 'richard-norton', 'stephen-daiter', 'threewalls', 'zolla-lieberman']
+[garfield-park] session 1 done: +0 saved, +0 skipped (exit 1)
+[pilsen-bridgeport] TODO empty after 1 session(s)
+[pilsen-bridgeport] zone done: todo_empty after 1 session(s)
+[logan-square-wicker-park] TODO empty after 1 session(s)
+[logan-square-wicker-park] zone done: todo_empty after 1 session(s)
+[garfield-park] TODO empty after 1 session(s)
+[garfield-park] zone done: todo_empty after 1 session(s)
+[hyde-park] TODO empty after 1 session(s)
+[hyde-park] zone done: todo_empty after 1 session(s)
+[west-town-west-loop] session 2 done: +0 saved, +0 skipped (exit 1)
+[west-town-west-loop] zone done: zero_progress after 2 session(s)
+[river-north] session 2 done: +0 saved, +0 skipped (exit 1)
+[river-north] TODO empty after 2 session(s)
+[river-north] zone done: todo_empty after 2 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  chicago/bac-color-songs: ok
+  chicago/bac-gurushots-2026: ok
+  chicago/bac-return-to-nature: ok
+  chicago/bac-art-connection: ok
+  chicago/bac-una-vuelta-raices: ok
+  chicago/coprosperity-between-memory-becoming: COORDS_OFF_OSM_4213m
+  chicago/coprosperity-katharine-joy-houpt: COORDS_OFF_OSM_4213m
+  chicago/prairie-connie-wilson-dazzle-pig: ok
+  chicago/projectonward-my-little-pictures: ok
+  chicago/projectonward-forever-yours: ok
+  chicago/all-terrain-landscape: ok
+  chicago/sundowning-kevin-blake: ok
+  chicago/latinitudes: ok
+  chicago/tangible-sound: ok
+  chicago/big-picture-large-format: ok
+  chicago/cls-urban-grain: GOOGLE_NOT_FOUND
+  chicago/cydney-lewis-reflection: ok
+  chicago/press-and-pull: ok
+  chicago/honoring-resilience: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (19 shows, 11 venue lookups); flags: {'COORDS_OFF_OSM_4213m': 2, 'GOOGLE_NOT_FOUND': 1}
+=== agent verification pass ===
+[verify chicago/River North] 9 shows
+[verify chicago/River North] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejERd2BPLm6AJWYTEXiB'}
+[verify chicago/Pilsen/Bridgeport] 10 shows
+[verify chicago/Pilsen/Bridgeport] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejESpBRfR32ouWRRasKo'}
+{
+  "city": "chicago",
+  "zones": [
+    "West Town/West Loop",
+    "River North",
+    "Pilsen/Bridgeport",
+    "Logan Square/Wicker Park",
+    "Garfield Park",
+    "Hyde Park"
+  ],
+  "run_spend_usd": 6.0249,
+  "shows_total": 19,
+  "remaining_todo": {
+    "West Town/West Loop": 23,
+    "River North": 12,
+    "Pilsen/Bridgeport": 2,
+    "Logan Square/Wicker Park": 8,
+    "Garfield Park": 1,
+    "Hyde Park": 7
+  },
+  "queue": {
+    "West Town/West Loop": {
+      "zone": "West Town/West Loop",
+      "order": 0,
+      "due": 7,
+      "sessions_run": 2,
+      "zero_progress": 2,
+      "exhausted": true,
+      "active": false,
+      "why": "zero_progress"
+    },
+    "River North": {
+      "zone": "River North",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Pilsen/Bridgeport": {
+      "zone": "Pilsen/Bridgeport",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Logan Square/Wicker Park": {
+      "zone": "Logan Square/Wicker Park",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Garfield Park": {
+      "zone": "Garfield Park",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Hyde Park": {
+      "zone": "Hyde Park",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "acre-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "andrew-rafacz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-artists-coalition"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-truborn"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "corbett-vs-dempsey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "epiphany-center-for-the-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "filter-photo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "addington"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bert-green"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-cultural-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "elephant-room"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-400"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-victor-armendariz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "glass-curtain-gallery-columbia-college-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "graham-foundation"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bridgeport-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "co-prosperity"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mana-contemporary-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pilsen-outpost"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "prairie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "project-onward"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tiger-strikes-asteroid-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "woman-made"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Town/West Loop",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-west-town-west-loop-1788562383",
+      "venue_ids": [
+        "acre-projects",
+        "andrew-rafacz",
+        "arc",
+        "chicago-artists-coalition",
+        "chicago-truborn",
+        "corbett-vs-dempsey",
+        "epiphany-center-for-the-arts",
+        "filter-photo"
+      ],
+      "started_ts": 1788562383,
+      "ended_ts": 1788562853
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "6018north"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hairpin-arts-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "m-leblanc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "oliva"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "perspective"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ralph-arnold-gallery-loyola-university"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soccer-club-club"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "weatherproof"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pilsen/Bridgeport",
+      "session": 1,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 2,
+      "exit": 1,
+      "label": "deep-chicago-pilsen-bridgeport-1788562427",
+      "venue_ids": [
+        "bridgeport-art-center",
+        "co-prosperity",
+        "mana-contemporary-chicago",
+        "pilsen-outpost",
+        "prairie",
+        "project-onward",
+        "tiger-strikes-asteroid-chicago",
+        "woman-made"
+      ],
+      "started_ts": 1788562427,
+      "ended_ts": 1788562854
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "beverly-arts-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "blanc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "boundary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-guichard"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hyde-park-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "logan-center-exhibitions"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "renaissance-society"
+    },
+    {
+      "stage": "scrape",
+      "zone": "River North",
+      "session": 1,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-river-north-1788562403",
+      "venue_ids": [
+        "addington",
+        "bert-green",
+        "chicago-cultural-center",
+        "elephant-room",
+        "gallery-400",
+        "gallery-victor-armendariz",
+        "glass-curtain-gallery-columbia-college-chicago",
+        "graham-foundation"
+      ],
+      "started_ts": 1788562403,
+      "ended_ts": 1788562856
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "devening-projects"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Logan Square/Wicker Park",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-logan-square-wicker-park-1788562853",
+      "venue_ids": [
+        "6018north",
+        "hairpin-arts-center",
+        "m-leblanc",
+        "oliva",
+        "perspective",
+        "ralph-arnold-gallery-loyola-university",
+        "soccer-club-club",
+        "weatherproof"
+      ],
+      "started_ts": 1788562853,
+      "ended_ts": 1788562864
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gray"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "heaven"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ken-saunders"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lvl3"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mariane-ibrahim"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "monique-meloche"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "no-nation-art-lab"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "patron"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hyde Park",
+      "session": 1,
+      "todo": 7,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-hyde-park-1788562854",
+      "venue_ids": [
+        "beverly-arts-center",
+        "blanc",
+        "boundary",
+        "gallery-guichard",
+        "hyde-park-art-center",
+        "logan-center-exhibitions",
+        "renaissance-society"
+      ],
+      "started_ts": 1788562854,
+      "ended_ts": 1788562868
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gruen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hilton-asmus-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jean-albano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kavi-gupta"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "richard-norton"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "stephen-daiter"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "threewalls"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zolla-lieberman"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Garfield Park",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-garfield-park-1788562856",
+      "venue_ids": [
+        "devening-projects"
+      ],
+      "started_ts": 1788562856,
+      "ended_ts": 1788562874
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Town/West Loop",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-west-town-west-loop-1788562864",
+      "venue_ids": [
+        "gray",
+        "heaven",
+        "ken-saunders",
+        "lvl3",
+        "mariane-ibrahim",
+        "monique-meloche",
+        "no-nation-art-lab",
+        "patron"
+      ],
+      "started_ts": 1788562864,
+      "ended_ts": 1788562877
+    },
+    {
+      "stage": "scrape",
+      "zone": "River North",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-river-north-1788562868",
+      "venue_ids": [
+        "gruen",
+        "hilton-asmus-contemporary",
+        "jean-albano",
+        "kavi-gupta",
+        "richard-norton",
+        "stephen-daiter",
+        "threewalls",
+        "zolla-lieberman"
+      ],
+      "started_ts": 1788562868,
+      "ended_ts": 1788562884
+    }
+  ],
+  "verification": {
+    "chicago": {
+      "verified": 0,
+      "corrected": 0,
+      "unverified": 0,
+      "unchecked": [
+        "bac-color-songs",
+        "bac-gurushots-2026",
+        "bac-return-to-nature",
+        "bac-art-connection",
+        "bac-una-vuelta-raices",
+        "coprosperity-between-memory-becoming",
+        "coprosperity-katharine-joy-houpt",
+        "prairie-connie-wilson-dazzle-pig",
+        "projectonward-my-little-pictures",
+        "projectonward-forever-yours",
+        "all-terrain-landscape",
+        "sundowning-kevin-blake",
+        "latinitudes",
+        "tangible-sound",
+        "big-picture-large-format",
+        "cls-urban-grain",
+        "cydney-lewis-reflection",
+        "press-and-pull",
+        "honoring-resilience"
+      ],
+      "published": 0,
+      "pending": [
+        {
+          "slug": "bac-color-songs",
+          "venue": "Bridgeport Art Center",
+          "reason": null
+        },
+        {
+          "slug": "bac-gurushots-2026",
+          "venue": "Bridgeport Art Center",
+          "reason": null
+        },
+        {
+          "slug": "bac-return-to-nature",
+          "venue": "Bridgeport Art Center",
+          "reason": null
+        },
+        {
+          "slug": "bac-art-connection",
+          "venue": "Bridgeport Art Center",
+          "reason": null
+        },
+        {
+          "slug": "bac-una-vuelta-raices",
+          "venue": "Bridgeport Art Center",
+          "reason": null
+        },
+        {
+          "slug": "coprosperity-between-memory-becoming",
+          "venue": "Co-Prosperity",
+          "reason": null
+        },
+        {
+          "slug": "coprosperity-katharine-joy-houpt",
+          "venue": "Co-Prosperity",
+          "reason": null
+        },
+        {
+          "slug": "prairie-connie-wilson-dazzle-pig",
+          "venue": "Prairie",
+          "reason": null
+        },
+        {
+          "slug": "projectonward-my-little-pictures",
+          "venue": "Project Onward",
+          "reason": null
+        },
+        {
+          "slug": "projectonward-forever-yours",
+          "venue": "Project Onward",
+          "reason": null
+        },
+        {
+          "slug": "all-terrain-landscape",
+          "venue": "Addington Gallery",
+          "reason": null
+        },
+        {
+          "slug": "sundowning-kevin-blake",
+          "venue": "Bert Green Fine Art",
+          "reason": null
+        },
+        {
+          "slug": "latinitudes",
+          "venue": "Graham Foundation",
+          "reason": null
+        },
+        {
+          "slug": "tangible-sound",
+          "venue": "Chicago Cultural Center",
+          "reason": null
+        },
+        {
+          "slug": "big-picture-large-format",
+          "venue": "Chicago Cultural Center",
+          "reason": null
+        },
+        {
+          "slug": "cls-urban-grain",
+          "venue": "Elephant Room Gallery",
+          "reason": null
+        },
+        {
+          "slug": "cydney-lewis-reflection",
+          "venue": "Gallery 400, University of Illinois Chicago",
+          "reason": null
+        },
+        {
+          "slug": "press-and-pull",
+          "venue": "Gallery 400, University of Illinois Chicago",
+          "reason": null
+        },
+        {
+          "slug": "honoring-resilience",
+          "venue": "Gallery Victor",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-chicago-1788562383.json"
+}
+chicago: 19 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+chicago: 63 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city chicago --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/chicago/shows-ids.txt --force-due --total-budget 70.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

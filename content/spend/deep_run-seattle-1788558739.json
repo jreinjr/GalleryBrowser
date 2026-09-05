@@ -1,0 +1,439 @@
+{
+  "city": "seattle",
+  "start_ts": 1788558739,
+  "zones": [
+    "Pioneer Square",
+    "Downtown",
+    "Capitol Hill",
+    "Ballard/Fremont",
+    "Georgetown",
+    "University District"
+  ],
+  "args": {
+    "city": "seattle",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 60.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/seattle/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559684,
+  "queue": {
+    "Pioneer Square": {
+      "zone": "Pioneer Square",
+      "order": 0,
+      "due": 5,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Downtown": {
+      "zone": "Downtown",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Capitol Hill": {
+      "zone": "Capitol Hill",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ballard/Fremont": {
+      "zone": "Ballard/Fremont",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Georgetown": {
+      "zone": "Georgetown",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "University District": {
+      "zone": "University District",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "arte-noir"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "common-area-maintenance"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-mack"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ghost"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "harris-harvey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hedreen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "onyx-fine-arts-collective"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "orcas-paley"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artx-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "center-on-contemporary-art-coca"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "core"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "foster-white"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-b612"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery110"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gray-sky"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "inscape-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artswest"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "columbia-city"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fogue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mini-mart-city-park"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nepantla-cultural-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-e"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "youngstown-cultural-arts-center"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-seattle-downtown-1788558739",
+      "venue_ids": [
+        "arte-noir",
+        "common-area-maintenance",
+        "gallery-mack",
+        "ghost",
+        "harris-harvey",
+        "hedreen",
+        "onyx-fine-arts-collective",
+        "orcas-paley"
+      ],
+      "started_ts": 1788558739,
+      "ended_ts": 1788559149
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "phinney-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "push-pull"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vestibule"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vetri-glass"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Georgetown",
+      "session": 1,
+      "todo": 7,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-seattle-georgetown-1788558782",
+      "venue_ids": [
+        "artswest",
+        "columbia-city",
+        "fogue",
+        "mini-mart-city-park",
+        "nepantla-cultural-arts",
+        "studio-e",
+        "youngstown-cultural-arts-center"
+      ],
+      "started_ts": 1788558782,
+      "ended_ts": 1788559181
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "howard-house"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "interstitial"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jack-straw-new-media"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jacob-lawrence"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pioneer Square",
+      "session": 1,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-pioneer-square-1788558759",
+      "venue_ids": [
+        "artx-contemporary",
+        "center-on-contemporary-art-coca",
+        "core",
+        "foster-white",
+        "gallery-b612",
+        "gallery110",
+        "gray-sky",
+        "inscape-arts"
+      ],
+      "started_ts": 1788558759,
+      "ended_ts": 1788559235
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "amce-creative-arts"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ballard/Fremont",
+      "session": 1,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-ballard-fremont-1788559149",
+      "venue_ids": [
+        "phinney-center",
+        "push-pull",
+        "vestibule",
+        "vetri-glass"
+      ],
+      "started_ts": 1788559149,
+      "ended_ts": 1788559237
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "photographic-center-northwest"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "roq-la-rue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "slip"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "steinbrueck-native"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vera-project"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "woodside-braseth"
+    },
+    {
+      "stage": "scrape",
+      "zone": "University District",
+      "session": 1,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-university-district-1788559181",
+      "venue_ids": [
+        "howard-house",
+        "interstitial",
+        "jack-straw-new-media",
+        "jacob-lawrence"
+      ],
+      "started_ts": 1788559181,
+      "ended_ts": 1788559240
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kobo-at-higo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lynn-hanson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "method"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "shift"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soil"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Capitol Hill",
+      "session": 1,
+      "todo": 1,
+      "saved": 3,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-seattle-capitol-hill-1788559235",
+      "venue_ids": [
+        "amce-creative-arts"
+      ],
+      "started_ts": 1788559235,
+      "ended_ts": 1788559407
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 2,
+      "todo": 6,
+      "saved": 7,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-seattle-downtown-1788559237",
+      "venue_ids": [
+        "photographic-center-northwest",
+        "roq-la-rue",
+        "slip",
+        "steinbrueck-native",
+        "vera-project",
+        "woodside-braseth"
+      ],
+      "started_ts": 1788559237,
+      "ended_ts": 1788559560
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pioneer Square",
+      "session": 2,
+      "todo": 5,
+      "saved": 9,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-seattle-pioneer-square-1788559240",
+      "venue_ids": [
+        "kobo-at-higo",
+        "lynn-hanson",
+        "method",
+        "shift",
+        "soil"
+      ],
+      "started_ts": 1788559240,
+      "ended_ts": 1788559684
+    }
+  ]
+}

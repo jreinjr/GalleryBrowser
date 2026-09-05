@@ -1,0 +1,712 @@
+{
+  "city": "new-york",
+  "start_ts": 1788555909,
+  "zones": [
+    "Chelsea",
+    "Downtown",
+    "Uptown",
+    "Brooklyn/Queens"
+  ],
+  "args": {
+    "city": "new-york",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/new-york/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559443,
+  "queue": {
+    "Chelsea": {
+      "zone": "Chelsea",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 4,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Downtown": {
+      "zone": "Downtown",
+      "order": 1,
+      "due": 4,
+      "sessions_run": 5,
+      "zero_progress": 1,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Uptown": {
+      "zone": "Uptown",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Brooklyn/Queens": {
+      "zone": "Brooklyn/Queens",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "a-i-r"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "anat-ebgi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "andrew-edlin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "apexart"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artists-space"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bortolami"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "broadway"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bureau"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "303"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bruce-silverstein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-kordansky"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-zwirner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dc-moore"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fergus-mccaffrey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-lelong-and-co"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gladstone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "acquavella"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "almine-rech"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "anton-kern"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "craig-f-starr"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gagosian-980-madison-at-76th-street"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-buchholz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "howard-greenberg"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "levy-gorvy-dayan"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chelsea",
+      "session": 1,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-new-york-chelsea-1788555929",
+      "venue_ids": [
+        "303",
+        "bruce-silverstein",
+        "david-kordansky",
+        "david-zwirner",
+        "dc-moore",
+        "fergus-mccaffrey",
+        "galerie-lelong-and-co",
+        "gladstone"
+      ],
+      "started_ts": 1788555929,
+      "ended_ts": 1788556494
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "recess"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Uptown",
+      "session": 1,
+      "todo": 8,
+      "saved": 13,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-new-york-uptown-1788555951",
+      "venue_ids": [
+        "acquavella",
+        "almine-rech",
+        "anton-kern",
+        "craig-f-starr",
+        "gagosian-980-madison-at-76th-street",
+        "galerie-buchholz",
+        "howard-greenberg",
+        "levy-gorvy-dayan"
+      ],
+      "started_ts": 1788555951,
+      "ended_ts": 1788556565
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gordon-robichaux"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "harper-s"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hauser-and-wirth"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "karma"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kurimanzutto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lehmann-maupin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lisson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marianne-boesky"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brooklyn/Queens",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-new-york-brooklyn-queens-1788556494",
+      "venue_ids": [
+        "recess"
+      ],
+      "started_ts": 1788556494,
+      "ended_ts": 1788556567
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "luxembourg-co"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nahmad-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "skarstedt"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spruth-magers"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "white-cube"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 1,
+      "todo": 8,
+      "saved": 14,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-new-york-downtown-1788555909",
+      "venue_ids": [
+        "a-i-r",
+        "anat-ebgi",
+        "andrew-edlin",
+        "apexart",
+        "artists-space",
+        "bortolami",
+        "broadway",
+        "bureau"
+      ],
+      "started_ts": 1788555909,
+      "ended_ts": 1788556724
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "canada"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chapter-ny"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "company"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-nolan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "derek-eller"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "drawing-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "garth-greenan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "grimm"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Uptown",
+      "session": 2,
+      "todo": 5,
+      "saved": 4,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-new-york-uptown-1788556567",
+      "venue_ids": [
+        "luxembourg-co",
+        "nahmad-contemporary",
+        "skarstedt",
+        "spruth-magers",
+        "white-cube"
+      ],
+      "started_ts": 1788556567,
+      "ended_ts": 1788556780
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chelsea",
+      "session": 2,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-new-york-chelsea-1788556565",
+      "venue_ids": [
+        "gordon-robichaux",
+        "harper-s",
+        "hauser-and-wirth",
+        "karma",
+        "kurimanzutto",
+        "lehmann-maupin",
+        "lisson",
+        "marianne-boesky"
+      ],
+      "started_ts": 1788556565,
+      "ended_ts": 1788557053
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "matthew-marks"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "michael-rosenfeld"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "miles-mcenery"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nara-roesler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pace"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "paula-cooper"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "petzel"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "printed-matter"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chelsea",
+      "session": 3,
+      "todo": 8,
+      "saved": 17,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-new-york-chelsea-1788557054",
+      "venue_ids": [
+        "matthew-marks",
+        "michael-rosenfeld",
+        "miles-mcenery",
+        "nara-roesler",
+        "pace",
+        "paula-cooper",
+        "petzel",
+        "printed-matter"
+      ],
+      "started_ts": 1788557054,
+      "ended_ts": 1788557626
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sean-kelly"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "susan-inglett"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tanya-bonakdar"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tina-kim"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "yancey-richardson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "yossi-milo"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chelsea",
+      "session": 4,
+      "todo": 6,
+      "saved": 8,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-new-york-chelsea-1788557626",
+      "venue_ids": [
+        "sean-kelly",
+        "susan-inglett",
+        "tanya-bonakdar",
+        "tina-kim",
+        "yancey-richardson",
+        "yossi-milo"
+      ],
+      "started_ts": 1788557626,
+      "ended_ts": 1788557925
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 2,
+      "todo": 8,
+      "saved": 14,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-new-york-downtown-1788556724",
+      "venue_ids": [
+        "canada",
+        "chapter-ny",
+        "company",
+        "david-nolan",
+        "derek-eller",
+        "drawing-center",
+        "garth-greenan",
+        "grimm"
+      ],
+      "started_ts": 1788556724,
+      "ended_ts": 1788557982
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "half"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hole"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jack-shainman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "james-cohan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "james-fuentes"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jeffrey-deitch"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kaufmann-repetto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "klaus-von-nichtssagend"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 3,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-new-york-downtown-1788557982",
+      "venue_ids": [
+        "half",
+        "hole",
+        "jack-shainman",
+        "james-cohan",
+        "james-fuentes",
+        "jeffrey-deitch",
+        "kaufmann-repetto",
+        "klaus-von-nichtssagend"
+      ],
+      "started_ts": 1788557982,
+      "ended_ts": 1788558463
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "magenta-plains"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marc-straus"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marian-goodman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mendes-wood-dm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "miguel-abreu"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nathalie-karg"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nicelle-beauchene"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "p-p-o-w"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 4,
+      "todo": 8,
+      "saved": 12,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-new-york-downtown-1788558464",
+      "venue_ids": [
+        "magenta-plains",
+        "marc-straus",
+        "marian-goodman",
+        "mendes-wood-dm",
+        "miguel-abreu",
+        "nathalie-karg",
+        "nicelle-beauchene",
+        "p-p-o-w"
+      ],
+      "started_ts": 1788558464,
+      "ended_ts": 1788559142
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "participant-inc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "perrotin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "peter-freeman-inc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pioneer-works"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rachel-uffner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ramiken"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "reena-spaulings"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "smack-mellon"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 5,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-new-york-downtown-1788559142",
+      "venue_ids": [
+        "participant-inc",
+        "perrotin",
+        "peter-freeman-inc",
+        "pioneer-works",
+        "rachel-uffner",
+        "ramiken",
+        "reena-spaulings",
+        "smack-mellon"
+      ],
+      "started_ts": 1788559142,
+      "ended_ts": 1788559238
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "swiss-institute"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "theta"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "venus-over-manhattan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "white-columns"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 6,
+      "todo": 4,
+      "saved": 3,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-new-york-downtown-1788559238",
+      "venue_ids": [
+        "swiss-institute",
+        "theta",
+        "venus-over-manhattan",
+        "white-columns"
+      ],
+      "started_ts": 1788559238,
+      "ended_ts": 1788559443
+    }
+  ]
+}

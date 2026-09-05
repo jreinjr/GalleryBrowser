@@ -1,0 +1,850 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788560988,
+ "system": "You are an art-world editor compiling a gallery guide for San Francisco, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in San Francisco itself (galleries whose home is\nelsewhere count only through a permanent San Francisco space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Dogpatch/Minnesota Street, Potrero/SoMa, Union Square/Downtown, Mission, Chinatown/North Beach, Oakland/Berkeley) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several San Francisco spaces once.",
+ "user": "What are the 100 most significant and influential galleries in San Francisco, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 59,
+  "output_tokens": 29391,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.74077,
+  "seconds": 366.8
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Fraenkel Gallery",
+    "website": "https://fraenkelgallery.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "49 Geary St, 4th floor",
+    "kind": "gallery",
+    "note": "Founded 1979; the West Coast's most internationally significant photography-centred gallery, with Diane Arbus, Sophie Calle, Lee Friedlander, Richard Learoyd and Elisheva Biernoff, and a constant art-fair and museum presence."
+   },
+   {
+    "rank": 2,
+    "name": "Jessica Silverman",
+    "website": "https://jessicasilvermangallery.com",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "621 Grant Ave",
+    "kind": "gallery",
+    "note": "The city's most ambitious younger blue-chip dealer; Woody De Othello, Rupy C. Tut, Judy Chicago, Clare Rojas and Hayal Pozanti, with placements in major museum collections and top-tier fairs."
+   },
+   {
+    "rank": 3,
+    "name": "Gagosian San Francisco",
+    "website": "https://gagosian.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "657 Howard St",
+    "kind": "gallery",
+    "note": "The only mega-gallery with a permanent San Francisco outpost (opened 2016), bringing blue-chip international programming to the Bay Area."
+   },
+   {
+    "rank": 4,
+    "name": "Berggruen Gallery",
+    "website": "https://berggruen.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "10 Hawthorne St",
+    "kind": "gallery",
+    "note": "John Berggruen's gallery, since 1970 the city's leading dealer in postwar and modern masters alongside a strong contemporary roster; purpose-built Hawthorne Street space."
+   },
+   {
+    "rank": 5,
+    "name": "Altman Siegel",
+    "website": "https://altmansiegel.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1150 25th St",
+    "kind": "gallery",
+    "note": "Critically the sharpest contemporary programme in the city — Trevor Paglen, K.r.m. Mooney, Liam Everett, Shannon Ebner — with consistent biennial and museum crossover."
+   },
+   {
+    "rank": 6,
+    "name": "Crown Point Press",
+    "website": "https://crownpoint.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "20 Hawthorne St",
+    "kind": "gallery",
+    "note": "Kathan Brown's etching workshop and gallery since 1962; editions with Diebenkorn, Kentridge, Marioni, Julie Mehretu and Tomma Abts make it a historic engine of Bay Area art."
+   },
+   {
+    "rank": 7,
+    "name": "Haines Gallery",
+    "website": "https://hainesgallery.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Founded 1987; Andy Goldsworthy, Zhan Wang, Ai Weiwei projects and leading Bay Area artists, now anchoring Minnesota Street Project after decades at 49 Geary."
+   },
+   {
+    "rank": 8,
+    "name": "CCA Wattis Institute for Contemporary Arts",
+    "website": "https://wattis.org",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "360 Kansas St",
+    "kind": "university",
+    "note": "The Bay Area's most intellectually influential kunsthalle-style exhibition and research space, with a curatorial fellowship pipeline and internationally followed programme."
+   },
+   {
+    "rank": 9,
+    "name": "Anglim/Trimble",
+    "website": "https://anglimtrimble.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Successor to Gallery Paule Anglim (est. 1970s), the keeper of Bay Area conceptual and Funk legacies: Deborah Oropallo, William T. Wiley, Tony Labat, Nathaniel Dorsky estate artists."
+   },
+   {
+    "rank": 10,
+    "name": "Catharine Clark Gallery",
+    "website": "https://cclarkgallery.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "248 Utah St",
+    "kind": "gallery",
+    "note": "Since 1991 a pioneer of new-media and politically engaged art, with the Media Room video programme and artists such as Masami Teraoka, Sandow Birk and Stephanie Syjuco."
+   },
+   {
+    "rank": 11,
+    "name": "Hosfelt Gallery",
+    "website": "https://hosfeltgallery.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "260 Utah St",
+    "kind": "gallery",
+    "note": "Large warehouse space with a rigorous international programme — Jim Campbell, Emil Lukas, Liliana Porter, Alan Rath estate — and long fair participation."
+   },
+   {
+    "rank": 12,
+    "name": "Gallery Wendi Norris",
+    "website": "https://gallerywendinorris.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "161 Jessie St (by appointment/offsite)",
+    "kind": "gallery",
+    "note": "Scholarly programme around Leonora Carrington, Remedios Varo and contemporary artists including Chitra Ganesh and María Magdalena Campos-Pons; pioneered a roving 'offsite' exhibition model."
+   },
+   {
+    "rank": 13,
+    "name": "Rena Bransten Gallery",
+    "website": "https://renabranstengallery.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Operating since 1974, a Bay Area institution showing Robert Colescott, Hung Liu, Rigo 23 and self-taught artists alongside emerging talent."
+   },
+   {
+    "rank": 14,
+    "name": "KADIST San Francisco",
+    "website": "https://kadist.org",
+    "neighborhood": "Mission",
+    "address_hint": "3295 20th St",
+    "kind": "nonprofit",
+    "note": "Collection-based international nonprofit with residencies, commissions and a globally networked exhibition and video programme."
+   },
+   {
+    "rank": 15,
+    "name": "Southern Exposure",
+    "website": "https://soex.org",
+    "neighborhood": "Mission",
+    "address_hint": "3030 20th St",
+    "kind": "nonprofit",
+    "note": "Since 1974 the city's key artist-centred nonprofit: juried and curated exhibitions, Alternative Exposure grants and generations of Bay Area artists' first shows."
+   },
+   {
+    "rank": 16,
+    "name": "Institute of Contemporary Art San Francisco",
+    "website": "https://icasf.org",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "901 Minnesota St",
+    "kind": "nonprofit",
+    "note": "Free, non-collecting kunsthalle opened 2022 that has quickly become a major platform for local and international contemporary artists."
+   },
+   {
+    "rank": 17,
+    "name": "Jenkins Johnson Gallery",
+    "website": "https://jenkinsjohnsongallery.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "464 Sutter St",
+    "kind": "gallery",
+    "note": "Founded 1996; a leading champion of Black artists and photography — Gordon Parks, Ming Smith, Lava Thomas — with a Brooklyn project space and strong fair presence."
+   },
+   {
+    "rank": 18,
+    "name": "Casemore Gallery",
+    "website": "https://casemoregallery.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Photography-forward programme (formerly Casemore Kirkeby) with artists such as Klea McKenna, Lucas Blalock and John Chiara; a critical hub for lens-based work."
+   },
+   {
+    "rank": 19,
+    "name": "Et al.",
+    "website": "https://etaletc.com",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "620 Kearny St (basement)",
+    "kind": "gallery",
+    "note": "Beloved basement gallery under a Chinatown shop; scrappy, curatorially adventurous and disproportionately influential on the city's younger scene."
+   },
+   {
+    "rank": 20,
+    "name": "Ratio 3",
+    "website": "https://ratio3.org",
+    "neighborhood": "Mission",
+    "address_hint": "2831A Mission St",
+    "kind": "gallery",
+    "note": "Chris Perez's gallery has shaped two decades of Bay Area contemporary practice, showing Ruth Laskey, Mitzi Pederson, Takeshi Murata and Jordan Kantor."
+   },
+   {
+    "rank": 21,
+    "name": "Micki Meng",
+    "website": "https://mickimeng.com",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "716 Sacramento St",
+    "kind": "gallery",
+    "note": "Grown out of Friends Indeed; a nimble, internationally connected dealer with New York collaborations and a sharply curated emerging roster."
+   },
+   {
+    "rank": 22,
+    "name": "Ever Gold [Projects]",
+    "website": "https://evergoldprojects.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Andrew McClintock's gallery pairs Bay Area conceptual legacies with young international artists; active on the fair circuit and in artist publishing."
+   },
+   {
+    "rank": 23,
+    "name": "Yerba Buena Center for the Arts",
+    "website": "https://ybca.org",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "701 Mission St",
+    "kind": "nonprofit",
+    "note": "Non-collecting multidisciplinary arts centre; decades of major commissions, the Bay Area Now survey and civic-scale contemporary programming."
+   },
+   {
+    "rank": 24,
+    "name": "The Lab",
+    "website": "https://thelab.org",
+    "neighborhood": "Mission",
+    "address_hint": "2948 16th St",
+    "kind": "nonprofit",
+    "note": "Founded 1984; experimental sound, performance and installation programming in a landmark Redstone Building space, with an internationally respected commissioning record."
+   },
+   {
+    "rank": 25,
+    "name": "Rebecca Camacho Presents",
+    "website": "https://rebeccacamacho.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Founded 2019 by a veteran of the city's leading galleries; a well-reviewed programme of emerging and mid-career artists with growing fair visibility."
+   },
+   {
+    "rank": 26,
+    "name": "Pier 24 Photography",
+    "website": "https://pier24.org",
+    "neighborhood": "Embarcadero",
+    "address_hint": "Pier 24, The Embarcadero",
+    "kind": "nonprofit",
+    "note": "Pilara Foundation's vast free-admission photography exhibition space, one of the largest in the world and a magnet for scholars and collectors."
+   },
+   {
+    "rank": 27,
+    "name": "San Francisco Camerawork",
+    "website": "https://sfcamerawork.org",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "nonprofit",
+    "note": "Founded 1974; a historic nonprofit for experimental lens-based practice, publications and emerging photographers."
+   },
+   {
+    "rank": 28,
+    "name": "Minnesota Street Project",
+    "website": "https://minnesotastreetproject.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "other",
+    "note": "The subsidised gallery and studio complex that reorganised the SF art map after the 49 Geary exodus; also mounts its own foundation exhibitions."
+   },
+   {
+    "rank": 29,
+    "name": "CULT Aimee Friberg Exhibitions",
+    "website": "https://cultexhibitions.com",
+    "neighborhood": "Polk Gulch/Lower Nob Hill",
+    "address_hint": "1217 Sutter St",
+    "kind": "gallery",
+    "note": "Curator-driven gallery known for launching Bay Area artists such as Chelsea Ryoko Wong and Rachelle Bussières into wider institutional attention."
+   },
+   {
+    "rank": 30,
+    "name": "Creativity Explored",
+    "website": "https://creativityexplored.org",
+    "neighborhood": "Mission",
+    "address_hint": "3245 16th St",
+    "kind": "nonprofit",
+    "note": "Studio and gallery for artists with developmental disabilities since 1983; its artists now appear in museum collections and commercial galleries worldwide."
+   },
+   {
+    "rank": 31,
+    "name": "Gallery 16",
+    "website": "https://gallery16.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "501 Third St",
+    "kind": "gallery",
+    "note": "Griff Williams's gallery and Urban Digital Color press; thirty years of editions and exhibitions with Rex Ray, Amy Ellingson and Chris Johanson."
+   },
+   {
+    "rank": 32,
+    "name": "Eleanor Harwood Gallery",
+    "website": "https://eleanorharwood.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Longstanding dealer of Bay Area emerging and mid-career artists, with an eye for craft-inflected and narrative painting."
+   },
+   {
+    "rank": 33,
+    "name": "Jack Fischer Gallery",
+    "website": "https://jackfischergallery.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Two decades of championing outsider, visionary and idiosyncratic contemporary work that few other SF galleries would show."
+   },
+   {
+    "rank": 34,
+    "name": "Chinese Culture Center of San Francisco",
+    "website": "https://cccsf.us",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "750 Kearny St, 3rd floor",
+    "kind": "nonprofit",
+    "note": "Contemporary Asian and Asian American programming through its Hilton-level galleries, 41 Ross and Edge on the Square; a leading voice in community-based contemporary art."
+   },
+   {
+    "rank": 35,
+    "name": "The Luggage Store Gallery",
+    "website": "https://luggagestoregallery.org",
+    "neighborhood": "Mid-Market/Tenderloin",
+    "address_hint": "1007 Market St",
+    "kind": "nonprofit",
+    "note": "Since 1987 a crucible of Mission School and street-derived practice (Barry McGee, Margaret Kilgallen) plus a long-running new-music series."
+   },
+   {
+    "rank": 36,
+    "name": "SOMArts Cultural Center",
+    "website": "https://somarts.org",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "934 Brannan St",
+    "kind": "nonprofit",
+    "note": "Big-tent civic arts centre with curatorial residencies, the annual Día de los Muertos exhibition and decades of community-rooted contemporary shows."
+   },
+   {
+    "rank": 37,
+    "name": "Root Division",
+    "website": "https://rootdivision.org",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "1131 Mission St",
+    "kind": "nonprofit",
+    "note": "Studio-plus-gallery nonprofit linking artist residencies to arts education; a key entry point for emerging Bay Area artists."
+   },
+   {
+    "rank": 38,
+    "name": "Modernism Inc.",
+    "website": "https://modernisminc.com",
+    "neighborhood": "Tenderloin",
+    "address_hint": "724 Ellis St",
+    "kind": "gallery",
+    "note": "Martin Muller's gallery since 1979, mixing Russian avant-garde and European modernism with contemporary figures such as Mel Ramos and Gottfried Helnwein."
+   },
+   {
+    "rank": 39,
+    "name": "Dolby Chadwick Gallery",
+    "website": "https://dolbychadwickgallery.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "210 Post St",
+    "kind": "gallery",
+    "note": "Painting-focused Union Square gallery open since 1997, with a consistent stable of contemporary figurative and abstract painters."
+   },
+   {
+    "rank": 40,
+    "name": "Andrea Schwartz Gallery",
+    "website": "https://asgallery.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "545 Fourth St",
+    "kind": "gallery",
+    "note": "Operating since 1982; a durable SoMa space showing mid-career Bay Area painters and sculptors to corporate and private collections."
+   },
+   {
+    "rank": 41,
+    "name": "Brian Gross Fine Art",
+    "website": "https://briangrossfineart.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "248 Utah St",
+    "kind": "gallery",
+    "note": "Specialist in West Coast minimalism, Light and Space and geometric abstraction; represents artists including John Zurier and Peter Alexander's circle."
+   },
+   {
+    "rank": 42,
+    "name": "Robert Koch Gallery",
+    "website": "https://kochgallery.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "49 Geary St",
+    "kind": "gallery",
+    "note": "Long-established dealer in vintage and contemporary photography, from the Russian avant-garde to contemporary lens-based artists."
+   },
+   {
+    "rank": 43,
+    "name": "Euqinom Gallery",
+    "website": "https://euqinomgallery.com",
+    "neighborhood": "Mission",
+    "address_hint": "1295 Alabama St",
+    "kind": "gallery",
+    "note": "Monique Deschaines's photography-driven gallery, showing artists like Meghann Riepenhoff and Ian van Coller with strong fair and museum traction."
+   },
+   {
+    "rank": 44,
+    "name": "Nancy Toomey Fine Art",
+    "website": null,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Abstraction-focused programme with international mid-career artists; a steady presence at Minnesota Street Project and West Coast fairs."
+   },
+   {
+    "rank": 45,
+    "name": "Themes+Projects",
+    "website": null,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "1275 Minnesota St",
+    "kind": "gallery",
+    "note": "Curated, thematically organised exhibitions with an emphasis on photography and cross-cultural Asian–American dialogues."
+   },
+   {
+    "rank": 46,
+    "name": "500 Capp Street Foundation (The David Ireland House)",
+    "website": "https://500cappstreet.org",
+    "neighborhood": "Mission",
+    "address_hint": "500 Capp St",
+    "kind": "nonprofit",
+    "note": "David Ireland's conceptual house-artwork preserved as a public site with commissions and residencies by contemporary artists."
+   },
+   {
+    "rank": 47,
+    "name": "Recology Artist in Residence Program",
+    "website": null,
+    "neighborhood": "Bayview",
+    "address_hint": "503 Tunnel Ave",
+    "kind": "nonprofit",
+    "note": "The pioneering dump residency (since 1990) with public exhibitions of work made from discarded materials; internationally imitated."
+   },
+   {
+    "rank": 48,
+    "name": "SFAC Galleries",
+    "website": "https://sfartscommission.org/experience-art/galleries",
+    "neighborhood": "Civic Center",
+    "address_hint": "401 Van Ness Ave",
+    "kind": "nonprofit",
+    "note": "San Francisco Arts Commission's exhibition programme in the Veterans Building and Main Library, giving civic platform to Bay Area contemporary artists."
+   },
+   {
+    "rank": 49,
+    "name": "Adobe Books Backroom Gallery",
+    "website": "https://adobebooks.com",
+    "neighborhood": "Mission",
+    "address_hint": "3130 24th St",
+    "kind": "project_space",
+    "note": "Legendary bookstore back room where the Mission School and countless young artists showed first; still a barometer of the underground scene."
+   },
+   {
+    "rank": 50,
+    "name": "Slash Art",
+    "website": "https://slashart.org",
+    "neighborhood": "Mission",
+    "address_hint": "2150 Folsom St",
+    "kind": "nonprofit",
+    "note": "Nonprofit exhibition space and residency emphasising research-driven and socially engaged projects by Bay Area and international artists."
+   },
+   {
+    "rank": 51,
+    "name": "Gray Area",
+    "website": "https://grayarea.org",
+    "neighborhood": "Mission",
+    "address_hint": "2665 Mission St",
+    "kind": "nonprofit",
+    "note": "Art-and-technology nonprofit in the Grand Theater; festivals, immersive commissions and a leading platform for digital and new-media art."
+   },
+   {
+    "rank": 52,
+    "name": "Telematic Media Arts",
+    "website": "https://telematic.space",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "323 10th St",
+    "kind": "nonprofit",
+    "note": "Small but respected new-media nonprofit presenting experimental digital, networked and time-based work."
+   },
+   {
+    "rank": 53,
+    "name": "Galería de la Raza",
+    "website": "https://galeriadelaraza.org",
+    "neighborhood": "Mission",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Founded 1970, the historic engine of Chicano/Latinx contemporary art in the Bay Area, from Ester Hernández to today's digital mural projects."
+   },
+   {
+    "rank": 54,
+    "name": "Mission Cultural Center for Latino Arts",
+    "website": "https://missionculturalcenter.org",
+    "neighborhood": "Mission",
+    "address_hint": "2868 Mission St",
+    "kind": "nonprofit",
+    "note": "Community anchor since 1977 with gallery exhibitions and the Mission Gráfica print studio, a key site for Latinx contemporary practice."
+   },
+   {
+    "rank": 55,
+    "name": "African American Art & Culture Complex",
+    "website": "https://aaacc.org",
+    "neighborhood": "Western Addition/Fillmore",
+    "address_hint": "762 Fulton St",
+    "kind": "nonprofit",
+    "note": "Longstanding Black cultural centre presenting contemporary exhibitions, residencies and performance in the historic Fillmore."
+   },
+   {
+    "rank": 56,
+    "name": "Jonathan Carver Moore",
+    "website": "https://jonathancarvermoore.com",
+    "neighborhood": "Mid-Market",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Opened 2023 with a mission to platform BIPOC and LGBTQ+ artists; among the most watched recent additions to the SF gallery scene."
+   },
+   {
+    "rank": 57,
+    "name": "Serge Sorokko Gallery",
+    "website": "https://sorokko.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "231 Grant Ave",
+    "kind": "gallery",
+    "note": "Union Square dealer in modern and contemporary blue-chip names, from Kounellis and Botero to Chihuly and Zhang Huan."
+   },
+   {
+    "rank": 58,
+    "name": "Paul Thiebaud Gallery",
+    "website": "https://paulthiebaudgallery.com",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "645 Chestnut St",
+    "kind": "gallery",
+    "note": "Custodian of Wayne Thiebaud's legacy plus a select group of Bay Area representational painters and printmakers."
+   },
+   {
+    "rank": 59,
+    "name": "Caldwell Snyder Gallery",
+    "website": "https://caldwellsnyder.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "341 Sutter St",
+    "kind": "gallery",
+    "note": "Since 1983, a commercially strong programme of European and American contemporary painting and sculpture with a St Helena branch."
+   },
+   {
+    "rank": 60,
+    "name": "Hashimoto Contemporary",
+    "website": "https://hashimotocontemporary.com",
+    "neighborhood": "Polk Gulch/Lower Nob Hill",
+    "address_hint": "804 Sutter St",
+    "kind": "gallery",
+    "note": "Leading new-contemporary/illustrative gallery with New York and Los Angeles branches; large young collector base."
+   },
+   {
+    "rank": 61,
+    "name": "Spoke Art",
+    "website": "https://spoke-art.com",
+    "neighborhood": "Polk Gulch/Lower Nob Hill",
+    "address_hint": "816 Sutter St",
+    "kind": "gallery",
+    "note": "Pop-surrealist and film-inflected gallery known for blockbuster themed shows and a national following."
+   },
+   {
+    "rank": 62,
+    "name": "Modern Eden Gallery",
+    "website": "https://moderneden.com",
+    "neighborhood": "Chinatown/North Beach",
+    "address_hint": "801 Greenwich St",
+    "kind": "gallery",
+    "note": "North Beach fixture for figurative, surrealist and craft-based contemporary work with a strong group-show tradition."
+   },
+   {
+    "rank": 63,
+    "name": "Voss Gallery",
+    "website": "https://vossgallery.co",
+    "neighborhood": "Mission",
+    "address_hint": "3344 24th St",
+    "kind": "gallery",
+    "note": "Young Mission gallery focused on emerging Bay Area painters, with an accessible, community-facing exhibition model."
+   },
+   {
+    "rank": 64,
+    "name": "Fouladi Projects",
+    "website": "https://fouladiprojects.com",
+    "neighborhood": "Hayes Valley",
+    "address_hint": "1803 Market St",
+    "kind": "gallery",
+    "note": "Contemporary programme spanning painting, ceramics and design-adjacent work by emerging Bay Area and international artists."
+   },
+   {
+    "rank": 65,
+    "name": "Hedge Gallery",
+    "website": "https://hedgegallery.com",
+    "neighborhood": "Jackson Square",
+    "address_hint": "501 Pacific Ave",
+    "kind": "gallery",
+    "note": "Sculpture and collectible-design programme in Jackson Square, bridging fine art and studio furniture with museum-quality presentation."
+   },
+   {
+    "rank": 66,
+    "name": "Marrow Gallery",
+    "website": "https://marrowgallery.com",
+    "neighborhood": "Outer Richmond",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Neighbourhood gallery west of Twin Peaks with a serious, artist-run sensibility and a following for Bay Area abstraction and ceramics."
+   },
+   {
+    "rank": 67,
+    "name": "111 Minna Gallery",
+    "website": "https://111minnagallery.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "111 Minna St",
+    "kind": "gallery",
+    "note": "Hybrid gallery-bar operating since 1993; an early platform for street-derived and underground SF artists."
+   },
+   {
+    "rank": 68,
+    "name": "Park Life",
+    "website": "https://parklifestore.com",
+    "neighborhood": "Inner Richmond",
+    "address_hint": "220 Clement St",
+    "kind": "gallery",
+    "note": "Design-store-with-gallery that has shown a generation of Bay Area artists and publishes small-run artist editions and books."
+   },
+   {
+    "rank": 69,
+    "name": "Arc Gallery",
+    "website": "https://arc-sf.com",
+    "neighborhood": "Potrero/SoMa",
+    "address_hint": "1246 Folsom St",
+    "kind": "project_space",
+    "note": "Artist-run gallery and studio building with juried national exhibitions and a strong local membership base."
+   },
+   {
+    "rank": 70,
+    "name": "Incline Gallery",
+    "website": null,
+    "neighborhood": "Mission",
+    "address_hint": "766 Valencia St",
+    "kind": "project_space",
+    "note": "Idiosyncratic ramped space in a former mortuary hosting emerging artists, installation and performance."
+   },
+   {
+    "rank": 71,
+    "name": "The Great Highway Gallery",
+    "website": null,
+    "neighborhood": "Outer Sunset",
+    "address_hint": "3649 Lawton St",
+    "kind": "gallery",
+    "note": "Outer Sunset gallery centred on surf, landscape and photographic culture; the west side's most consistent exhibition venue."
+   },
+   {
+    "rank": 72,
+    "name": "Cushion Works",
+    "website": null,
+    "neighborhood": "Mission",
+    "address_hint": "3320 18th St",
+    "kind": "project_space",
+    "note": "Small artist-organised space in a working upholstery shop, known for tightly curated, experimental exhibitions."
+   },
+   {
+    "rank": 73,
+    "name": "Ruth's Table",
+    "website": "https://ruthstable.org",
+    "neighborhood": "Mission",
+    "address_hint": "3160 21st St",
+    "kind": "nonprofit",
+    "note": "Nonprofit gallery and studio centring older adults and disability-inclusive contemporary practice, with a professionally curated programme."
+   },
+   {
+    "rank": 74,
+    "name": "Thacher Gallery, University of San Francisco",
+    "website": "https://www.usfca.edu/thacher-gallery",
+    "neighborhood": "Lone Mountain",
+    "address_hint": "2130 Fulton St",
+    "kind": "university",
+    "note": "Free public university gallery with socially engaged, faith- and justice-themed contemporary exhibitions and Bay Area artist commissions."
+   },
+   {
+    "rank": 75,
+    "name": "Fine Arts Gallery, San Francisco State University",
+    "website": null,
+    "neighborhood": "Lake Merced",
+    "address_hint": "1600 Holloway Ave",
+    "kind": "university",
+    "note": "Long-running academic gallery presenting contemporary group exhibitions and Bay Area artists to a wide public audience."
+   },
+   {
+    "rank": 76,
+    "name": "Fort Mason Center for Arts & Culture (Gallery 308)",
+    "website": "https://fortmason.org",
+    "neighborhood": "Marina/Fort Mason",
+    "address_hint": "2 Marina Blvd",
+    "kind": "nonprofit",
+    "note": "Waterfront arts campus whose Gallery 308 and Festival Pavilion host large-scale contemporary exhibitions and commissions."
+   },
+   {
+    "rank": 77,
+    "name": "The Midway",
+    "website": "https://themidwaysf.com",
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "address_hint": "900 Marin St",
+    "kind": "other",
+    "note": "Warehouse arts complex with a gallery and residency programme bridging music, immersive installation and visual art."
+   },
+   {
+    "rank": 78,
+    "name": "Weinstein Gallery",
+    "website": "https://weinstein.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Large downtown operation dealing in surrealism and modern masters alongside contemporary figuration; a high-traffic commercial presence."
+   },
+   {
+    "rank": 79,
+    "name": "Hackett Mill",
+    "website": "https://hackettmill.com",
+    "neighborhood": "Union Square/Downtown",
+    "address_hint": "201 Post St",
+    "kind": "gallery",
+    "note": "Private dealership and exhibition space handling postwar California artists and estates, with strong secondary-market scholarship."
+   },
+   {
+    "rank": 80,
+    "name": "Creative Growth Art Center",
+    "website": "https://creativegrowth.org",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "355 24th St, Oakland",
+    "kind": "nonprofit",
+    "note": "The world's pioneering studio and gallery for artists with disabilities (since 1974); its artists are in MoMA, SFMOMA and the Pompidou."
+   },
+   {
+    "rank": 81,
+    "name": "Kala Art Institute",
+    "website": "https://kala.org",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "2990 San Pablo Ave, Berkeley",
+    "kind": "nonprofit",
+    "note": "Printmaking and media residency centre with an active gallery; a four-decade fixture of Bay Area artist development."
+   },
+   {
+    "rank": 82,
+    "name": "Paulson Fontaine Press",
+    "website": "https://paulsonfontainepress.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "2390 Fourth St, Berkeley",
+    "kind": "gallery",
+    "note": "Fine-art print publisher and gallery producing editions with Martin Puryear, Kerry James Marshall and the Gee's Bend quilters."
+   },
+   {
+    "rank": 83,
+    "name": "Traywick Contemporary",
+    "website": "https://traywick.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "895 Colusa Ave, Berkeley",
+    "kind": "gallery",
+    "note": "Long-running East Bay gallery with a conceptually grounded roster and consistent art-fair participation."
+   },
+   {
+    "rank": 84,
+    "name": "pt.2 Gallery",
+    "website": "https://pt2gallery.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "1523 Webster St, Oakland",
+    "kind": "gallery",
+    "note": "One of the East Bay's most visible young galleries, showing emerging painters with national fair presence."
+   },
+   {
+    "rank": 85,
+    "name": "Johansson Projects",
+    "website": "https://johanssonprojects.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "2300 Telegraph Ave, Oakland",
+    "kind": "gallery",
+    "note": "Uptown Oakland gallery known for material-driven, offbeat contemporary work since 2006."
+   },
+   {
+    "rank": 86,
+    "name": "Interface Gallery",
+    "website": "https://interfacegallery.org",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "486 49th St, Oakland",
+    "kind": "nonprofit",
+    "note": "Tiny curator-run nonprofit with an outsized critical reputation for focused, experimental solo projects."
+   },
+   {
+    "rank": 87,
+    "name": "Pro Arts",
+    "website": "https://proarts.org",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "150 Frank H. Ogawa Plaza, Oakland",
+    "kind": "nonprofit",
+    "note": "Since 1974 the East Bay's main artist-service nonprofit, running the Open Studios and a commons-model exhibition programme."
+   },
+   {
+    "rank": 88,
+    "name": "Berkeley Art Center",
+    "website": "https://berkeleyartcenter.org",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "1275 Walnut St, Berkeley",
+    "kind": "nonprofit",
+    "note": "Live Oak Park nonprofit presenting contemporary Bay Area exhibitions and public programmes for more than fifty years."
+   },
+   {
+    "rank": 89,
+    "name": "NIAD Art Center",
+    "website": "https://niadart.org",
+    "neighborhood": "Richmond, CA",
+    "address_hint": "551 23rd St, Richmond",
+    "kind": "nonprofit",
+    "note": "Progressive studio and gallery for disabled artists whose programme has gained major curatorial attention nationally."
+   },
+   {
+    "rank": 90,
+    "name": "Mercury 20 Gallery",
+    "website": "https://mercurytwenty.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "475 25th St, Oakland",
+    "kind": "project_space",
+    "note": "Artist-run cooperative gallery, a durable node of Oakland's Art Murmur ecosystem."
+   },
+   {
+    "rank": 91,
+    "name": "Transmission Gallery",
+    "website": "https://transmissiongallery.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "770 West Grand Ave, Oakland",
+    "kind": "gallery",
+    "note": "Small West Oakland gallery with a steady programme of Bay Area painting, sculpture and works on paper."
+   },
+   {
+    "rank": 92,
+    "name": "The Compound Gallery",
+    "website": "https://thecompoundgallery.com",
+    "neighborhood": "Oakland/Berkeley",
+    "address_hint": "1167 65th St, Oakland",
+    "kind": "gallery",
+    "note": "Gallery, studios and an art-subscription programme that has broadened access to collecting emerging Bay Area artists."
+   }
+  ]
+ }
+}

@@ -1,0 +1,1227 @@
+{
+ "city": "venice",
+ "generated_at": "2026-09-04T22:09:21+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "venice",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 30,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "varejao-modernisms",
+   "title": "Modernisms",
+   "artist": "Adriana Varejão",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-31"
+   },
+   "n_images": 6,
+   "desc_words": 279,
+   "venue": {
+    "name": "Victoria Miro Venice",
+    "id": "victoria-miro-venice",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Marco",
+    "norm": "victoria miro venice"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.993,
+   "days_since_open": -8,
+   "days_to_close": 57,
+   "rank": 1,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 30)",
+    "quality 1.00 (6 images, 279 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "oceanspace-tide-of-returns",
+   "title": "Tide of Returns",
+   "artist": "Repatriates Collective (Verena Melgarejo Weinandt, Khadija von Zinnenburg Carroll, and collaborators)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-28",
+    "end": "2026-10-11"
+   },
+   "n_images": 3,
+   "desc_words": 239,
+   "venue": {
+    "name": "Ocean Space (TBA21-Academy)",
+    "id": "ocean-space-tba21-academy",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "ocean space tba21 academy"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.024803141437003122,
+    "closing_soon": 0.0,
+    "quality": 0.778
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.858,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002334
+   },
+   "score": 0.8603339999999999,
+   "days_since_open": 160,
+   "days_to_close": 37,
+   "rank": 2,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 5 of 30)",
+    "quality 0.78 (3 images, 239 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "darkness-visible",
+   "title": "Darkness Visible: The Long Shadow of Dictatorship",
+   "artist": "Nicanor Aráoz, Eduardo Basualdo, Marcelo Brodsky, Luis Camnitzer, Flavia Da Rin, Sergio De Loof, León Ferrari, Ana Gallardo, Eduardo Gil, Guillermo Kuitca, Liliana Maresca & Marcos López, Gianni Mestichelli, Marta Minujín, Luis Pazos, Néstor Perlongher, Aldo Sessa, Archivo de la Memoria Trans, La Organización Negra",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-06",
+    "end": "2026-11-22"
+   },
+   "n_images": 3,
+   "desc_words": 237,
+   "venue": {
+    "name": "Spazio Punch",
+    "id": "spazio-punch",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Giudecca",
+    "norm": "spazio punch"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7333333333333334,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.061072498027140376,
+    "closing_soon": 0.0,
+    "quality": 0.774
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7260000000000001,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0023220000000000003
+   },
+   "score": 0.7283220000000001,
+   "days_since_open": 121,
+   "days_to_close": 79,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 9 of 30)",
+    "quality 0.77 (3 images, 237 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "berlendis-guatemala-pavilion",
+   "title": "Las Invisibles (Guatemala Pavilion, 61st Venice Biennale)",
+   "artist": "ARKEO, Luana Bottallo, Jorge Chavarría, Manuel Navichoc, Ana Lorena Núñez, SOY artistic group, Elsie Wunderlich",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-09",
+    "end": "2026-11-22"
+   },
+   "n_images": 4,
+   "desc_words": 182,
+   "venue": {
+    "name": "Spazio Berlendis",
+    "id": "spazio-berlendis",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "spazio berlendis"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.06545588267628918,
+    "closing_soon": 0.0,
+    "quality": 0.764
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.594,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002292
+   },
+   "score": 0.5962919999999999,
+   "days_since_open": 118,
+   "days_to_close": 79,
+   "rank": 4,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 13 of 30)",
+    "quality 0.76 (4 images, 182 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "berlendis-grenada-pavilion",
+   "title": "The Poetics of Correspondence (Grenada Pavilion, 61st Venice Biennale)",
+   "artist": "Edward Bowen, Arthur Daniel, Josine Dupont, Alexandra Kordas, Lilo Nido and Chris Mast, Jeverson Ramirez, The Holzwege Group, Russell Watson",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-09",
+    "end": "2026-11-22"
+   },
+   "n_images": 3,
+   "desc_words": 186,
+   "venue": {
+    "name": "Spazio Berlendis",
+    "id": "spazio-berlendis",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "spazio berlendis"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.06545588267628918,
+    "closing_soon": 0.0,
+    "quality": 0.6719999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.594,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002016
+   },
+   "score": 0.596016,
+   "days_since_open": 118,
+   "days_to_close": 79,
+   "rank": 5,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 13 of 30)",
+    "quality 0.67 (3 images, 186 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "smac-lee-ufan",
+   "title": "Lee Ufan",
+   "artist": "Lee Ufan",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-09",
+    "end": "2026-11-22"
+   },
+   "n_images": 5,
+   "desc_words": 229,
+   "venue": {
+    "name": "SMAC - San Marco Art Centre",
+    "id": "smac-san-marco-art-centre",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "smac san marco art centre"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "survey of his",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commission",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.06545588267628918,
+    "closing_soon": 0.0,
+    "quality": 0.958
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5609999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002874
+   },
+   "score": 0.563874,
+   "days_since_open": 118,
+   "days_to_close": 79,
+   "rank": 6,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 14 of 30)",
+    "quality 0.96 (5 images, 229 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "smac-boetti",
+   "title": "Alighiero Boetti",
+   "artist": "Alighiero Boetti",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-07",
+    "end": "2026-11-22"
+   },
+   "n_images": 4,
+   "desc_words": 222,
+   "venue": {
+    "name": "SMAC - San Marco Art Centre",
+    "id": "smac-san-marco-art-centre",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "smac san marco art centre"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0625,
+    "closing_soon": 0.0,
+    "quality": 0.8440000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5609999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0025320000000000004
+   },
+   "score": 0.5635319999999999,
+   "days_since_open": 120,
+   "days_to_close": 79,
+   "rank": 7,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 14 of 30)",
+    "quality 0.84 (4 images, 222 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "castello925-sharing-legacy",
+   "title": "Sharing Legacy",
+   "artist": "Nancy Azara and Darla Bjork",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-30",
+    "end": "2026-09-20"
+   },
+   "n_images": 2,
+   "desc_words": 207,
+   "venue": {
+    "name": "Castello 925",
+    "id": "castello-925",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "castello 925"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.43527528164806206,
+    "closing_soon": 0.0,
+    "quality": 0.614
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36300000000000004,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001842
+   },
+   "score": 0.36484200000000006,
+   "days_since_open": 36,
+   "days_to_close": 16,
+   "rank": 8,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 20 of 30)",
+    "quality 0.61 (2 images, 207 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "castello925-future-light",
+   "title": "Future Light",
+   "artist": "Gabriella Kirby",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-30",
+    "end": "2026-09-20"
+   },
+   "n_images": 2,
+   "desc_words": 171,
+   "venue": {
+    "name": "Castello 925 (Castello 780 space)",
+    "id": "castello-925",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "castello 925 castello 780 space"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.43527528164806206,
+    "closing_soon": 0.0,
+    "quality": 0.542
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36300000000000004,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001626
+   },
+   "score": 0.36462600000000006,
+   "days_since_open": 36,
+   "days_to_close": 16,
+   "rank": 9,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 20 of 30)",
+    "quality 0.54 (2 images, 171 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "castello925-chromatic-conditions",
+   "title": "Chromatic Conditions",
+   "artist": "Whitney Hagen",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-24",
+    "end": "2026-11-22"
+   },
+   "n_images": 1,
+   "desc_words": 113,
+   "venue": {
+    "name": "Castello 925 (Castello 780 space)",
+    "id": "castello-925",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Castello",
+    "norm": "castello 925 castello 780 space"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.326
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36300000000000004,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0009780000000000001
+   },
+   "score": 0.363978,
+   "days_since_open": -20,
+   "days_to_close": 79,
+   "rank": 10,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 20 of 30)",
+    "quality 0.33 (1 images, 113 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "leo-frontini-yields-of-fray",
+   "title": "Yields of Fray",
+   "artist": "Leo Frontini",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-05",
+    "end": "2026-09-05"
+   },
+   "n_images": 6,
+   "desc_words": 221,
+   "venue": {
+    "name": "SPARC* - Spazio Arte Contemporanea (Galleria d'Arte Santo Stefano)",
+    "id": "sparc-spazio-arte-contemporanea",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dorsoduro",
+    "norm": "sparc spazio arte contemporanea galleria d arte santo stefano"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33333333333333337,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.059677600244401045,
+    "closing_soon": 1.0,
+    "quality": 0.942
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002826
+   },
+   "score": 0.334826,
+   "days_since_open": 122,
+   "days_to_close": 1,
+   "rank": 11,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.33 (rank 21 of 30)",
+    "quality 0.94 (6 images, 221 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "armitage-promise-of-change",
+   "title": "The Promise of Change",
+   "artist": "Michael Armitage",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-29",
+    "end": "2027-01-10"
+   },
+   "n_images": 5,
+   "desc_words": 266,
+   "venue": {
+    "name": "Palazzo Grassi",
+    "id": "palazzo-grassi",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "San Marco",
+    "norm": "palazzo grassi"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.025382887386132362,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.003,
+   "days_since_open": 159,
+   "days_to_close": 128,
+   "rank": 12,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 1.00 (5 images, 266 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "lorna-simpson-third-person",
+   "title": "Third Person",
+   "artist": "Lorna Simpson",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-29",
+    "end": "2026-11-22"
+   },
+   "n_images": 5,
+   "desc_words": 262,
+   "venue": {
+    "name": "Punta della Dogana",
+    "id": "palazzo-grassi",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Dorsoduro",
+    "norm": "punta della dogana"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.025382887386132362,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.003,
+   "days_since_open": 159,
+   "days_to_close": 79,
+   "rank": 13,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 1.00 (5 images, 262 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "peggy-guggenheim-in-london",
+   "title": "Peggy Guggenheim in London: The Making of a Collector",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-25",
+    "end": "2026-10-19"
+   },
+   "n_images": 6,
+   "desc_words": 227,
+   "venue": {
+    "name": "Peggy Guggenheim Collection",
+    "id": "peggy-guggenheim-collection",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Dorsoduro",
+    "norm": "peggy guggenheim collection"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.04736614270344993,
+    "closing_soon": 0.0,
+    "quality": 0.954
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002862
+   },
+   "score": 0.002862,
+   "days_since_open": 132,
+   "days_to_close": 45,
+   "rank": 14,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 0.95 (6 images, 227 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788559761,
+   "run_id": "apply-venice-1788559761",
+   "city": "venice",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=14 reorder=True params=01db044f743d",
+   "params_hash": "01db044f743d"
+  },
+  {
+   "ts": 1788559761,
+   "run_id": "score-venice-1788559761",
+   "city": "venice",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.06,
+   "notes": "n_shows=14 featured=9 snapshot=None params=01db044f743d",
+   "params_hash": "01db044f743d",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 13,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

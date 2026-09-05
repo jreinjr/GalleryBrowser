@@ -1,0 +1,733 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: Little Haiti/Little River=15, Allapattah=3, Wynwood=14, Design District=7, Downtown=3, Coral Gables=6, Miami Beach=1
+[little-haiti-little-river] session 1: 8 TODO venues -> deep-miami-little-haiti-little-river-1788561901.log
+[little-haiti-little-river]   ['central-fine', 'contemporary-art-modern-project', 'dimensions-variable', 'dot-fiftyone', 'etra', 'green-space-miami', 'homework', 'ipc-artspace']
+[wynwood] session 1: 8 TODO venues -> deep-miami-wynwood-1788561924.log
+[wynwood]   ['andrew-reed', 'bakehouse-art-complex', 'fredric-snitzer', 'galeria-la-cometa', 'gary-nader-art-centre', 'harold-golen', 'kdr', 'lelia-mordoch']
+[design-district] session 1: 7 TODO venues -> deep-miami-design-district-1788561944.log
+[design-district]   ['avant', 'dale-zine', 'david-castillo', 'diana-lowenstein', 'opera-gallery-miami', 'swampspace', 'wyn-317']
+[design-district] session 1 done: +3 saved, +6 skipped (exit 0)
+[coral-gables] session 1: 6 TODO venues -> deep-miami-coral-gables-1788562208.log
+[coral-gables]   ['americas-collection', 'cernuda-arte', 'durban-segnini', 'el-apartamento', 'kavachnina-contemporary', 'lns']
+[wynwood] session 1 done: +3 saved, +7 skipped (exit 0)
+[allapattah] session 1: 3 TODO venues -> deep-miami-allapattah-1788562213.log
+[allapattah]   ['pan-american-art-projects', 'sammer', 'superblue-miami']
+[little-haiti-little-river] session 1 done: +2 saved, +6 skipped (exit 0)
+[downtown] session 1: 3 TODO venues -> deep-miami-downtown-1788562272.log
+[downtown]   ['ascaso', 'hampton-art-lovers-at-the-historic-ward-rooming-house', 'zu-galeria']
+[allapattah] session 1 done: +0 saved, +3 skipped (exit 0)
+[miami-beach] session 1: 1 TODO venues -> deep-miami-miami-beach-1788562303.log
+[miami-beach]   ['oolite-arts']
+[miami-beach] session 1 done: +2 saved, +0 skipped (exit 0)
+[little-haiti-little-river] session 2: 7 TODO venues -> deep-miami-little-haiti-little-river-1788562397.log
+[little-haiti-little-river]   ['jupiter-contemporary', 'little-haiti-cultural-complex', 'locust-projects', 'manolis-projects', 'n-namdi-contemporary', 'nina-johnson', 'piero-atchugarry']
+[downtown] session 1 done: +1 saved, +2 skipped (exit 0)
+[wynwood] session 2: 6 TODO venues -> deep-miami-wynwood-1788562460.log
+[wynwood]   ['mindy-solomon', 'spinello-projects', 'tomas-redrado-art', 'voloshyn', 'wynwood-walls', 'youngarts']
+[coral-gables] session 1 done: +7 saved, +2 skipped (exit 0)
+[allapattah] TODO empty after 1 session(s)
+[allapattah] zone done: todo_empty after 1 session(s)
+[design-district] TODO empty after 1 session(s)
+[design-district] zone done: todo_empty after 1 session(s)
+[downtown] TODO empty after 1 session(s)
+[downtown] zone done: todo_empty after 1 session(s)
+[coral-gables] TODO empty after 1 session(s)
+[coral-gables] zone done: todo_empty after 1 session(s)
+[miami-beach] TODO empty after 1 session(s)
+[miami-beach] zone done: todo_empty after 1 session(s)
+[little-haiti-little-river] session 2 done: +5 saved, +6 skipped (exit 0)
+[little-haiti-little-river] TODO empty after 2 session(s)
+[little-haiti-little-river] zone done: todo_empty after 2 session(s)
+[wynwood] session 2 done: +4 saved, +5 skipped (exit 0)
+[wynwood] TODO empty after 2 session(s)
+[wynwood] zone done: todo_empty after 2 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  miami/david-castillo-jillian-mayer-placeholder-future: ok
+  miami/david-castillo-adler-guerrier-small-oscillations: ok
+  miami/diana-lowenstein-dirk-salz-dissolving-boundaries: ok
+  miami/bakehouse-at-forty: ok
+  miami/snitzer-after-icarus: ok
+  miami/kdr-common-skin-fantasy: ok
+  miami/dot-fiftyone-david-rohn-crowded-conditions: ok
+  miami/green-space-count-it-all-joy: ok
+  miami/sites-of-the-self: ok
+  miami/from-within: ok
+  miami/ascaso-a-smaller-death: ok
+  miami/cernuda-wifredo-lam-around-galleries: ok
+  miami/cernuda-gina-pellon-centennial: ok
+  miami/cernuda-diago-selections: ok
+  miami/cernuda-tomas-sanchez-selection: ok
+  miami/durban-segnini-ines-silva: ok
+  miami/el-apartamento-orestes-hernandez-in-depth: ok
+  miami/lns-scapes-territories: ok
+  miami/lhcc-sanctuary-our-sacred-place: ok
+  miami/nina-johnson-miguel-ferrando-off-the-shelf: ok
+  miami/nina-johnson-ruhwald-sculptures-for-plants-and-people: ok
+  miami/piero-atchugarry-laure-mary-interdum-mane: ok
+  miami/piero-atchugarry-jesse-zuo-photosynthesis: ok
+  miami/msg-ernesto-garcia-sanchez-acoples: ok
+  miami/msg-matthew-phillips-falling-tide: ok
+  miami/msg-lee-kunin-electromagnetic: ok
+  miami/voloshyn-palm-trees: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (27 shows, 18 venue lookups); flags: none
+=== agent verification pass ===
+[verify miami/Little Haiti/Little River] 7 shows
+[verify miami/Little Haiti/Little River] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejENjZFhNKysyUDkin71'}
+[verify miami/Wynwood] 7 shows
+[verify miami/Wynwood] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejEPtfU4fpyt7AwrqfTK'}
+[verify miami/Design District] 3 shows
+[verify miami/Design District] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejER6vSBVJQxyJ8d4f7g'}
+[verify miami/Downtown] 1 shows
+[verify miami/Downtown] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejESKGNbJfFQjzPKqUXj'}
+[verify miami/Coral Gables] 7 shows
+[verify miami/Coral Gables] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejETYDGRrFmzaH5DXyv5'}
+[verify miami/Miami Beach] 2 shows
+[verify miami/Miami Beach] FAILED: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CejEUjyDmLKbWS5ZJE9xM'}
+{
+  "city": "miami",
+  "zones": [
+    "Little Haiti/Little River",
+    "Allapattah",
+    "Wynwood",
+    "Design District",
+    "Downtown",
+    "Coral Gables",
+    "Miami Beach"
+  ],
+  "run_spend_usd": 9.042,
+  "shows_total": 27,
+  "remaining_todo": {
+    "Little Haiti/Little River": 0,
+    "Allapattah": 0,
+    "Wynwood": 0,
+    "Design District": 0,
+    "Downtown": 0,
+    "Coral Gables": 0,
+    "Miami Beach": 0
+  },
+  "queue": {
+    "Little Haiti/Little River": {
+      "zone": "Little Haiti/Little River",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Allapattah": {
+      "zone": "Allapattah",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Wynwood": {
+      "zone": "Wynwood",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Design District": {
+      "zone": "Design District",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Downtown": {
+      "zone": "Downtown",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Coral Gables": {
+      "zone": "Coral Gables",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Miami Beach": {
+      "zone": "Miami Beach",
+      "order": 6,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "central-fine"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "contemporary-art-modern-project"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dimensions-variable"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dot-fiftyone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "etra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "green-space-miami"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "homework"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ipc-artspace"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "andrew-reed"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bakehouse-art-complex"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fredric-snitzer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-la-cometa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gary-nader-art-centre"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "harold-golen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kdr"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lelia-mordoch"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "avant"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dale-zine"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-castillo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "diana-lowenstein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "opera-gallery-miami"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "swampspace"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "wyn-317"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Design District",
+      "session": 1,
+      "todo": 7,
+      "saved": 3,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-miami-design-district-1788561944",
+      "venue_ids": [
+        "avant",
+        "dale-zine",
+        "david-castillo",
+        "diana-lowenstein",
+        "opera-gallery-miami",
+        "swampspace",
+        "wyn-317"
+      ],
+      "started_ts": 1788561944,
+      "ended_ts": 1788562208
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "americas-collection"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cernuda-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "durban-segnini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "el-apartamento"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kavachnina-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lns"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Wynwood",
+      "session": 1,
+      "todo": 8,
+      "saved": 3,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-miami-wynwood-1788561924",
+      "venue_ids": [
+        "andrew-reed",
+        "bakehouse-art-complex",
+        "fredric-snitzer",
+        "galeria-la-cometa",
+        "gary-nader-art-centre",
+        "harold-golen",
+        "kdr",
+        "lelia-mordoch"
+      ],
+      "started_ts": 1788561924,
+      "ended_ts": 1788562213
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pan-american-art-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sammer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "superblue-miami"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Little Haiti/Little River",
+      "session": 1,
+      "todo": 8,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-miami-little-haiti-little-river-1788561901",
+      "venue_ids": [
+        "central-fine",
+        "contemporary-art-modern-project",
+        "dimensions-variable",
+        "dot-fiftyone",
+        "etra",
+        "green-space-miami",
+        "homework",
+        "ipc-artspace"
+      ],
+      "started_ts": 1788561901,
+      "ended_ts": 1788562272
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ascaso"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hampton-art-lovers-at-the-historic-ward-rooming-house"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zu-galeria"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Allapattah",
+      "session": 1,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-miami-allapattah-1788562213",
+      "venue_ids": [
+        "pan-american-art-projects",
+        "sammer",
+        "superblue-miami"
+      ],
+      "started_ts": 1788562213,
+      "ended_ts": 1788562303
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "oolite-arts"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Miami Beach",
+      "session": 1,
+      "todo": 1,
+      "saved": 2,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-miami-miami-beach-1788562303",
+      "venue_ids": [
+        "oolite-arts"
+      ],
+      "started_ts": 1788562303,
+      "ended_ts": 1788562397
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jupiter-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "little-haiti-cultural-complex"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "locust-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "manolis-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "n-namdi-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nina-johnson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "piero-atchugarry"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 1,
+      "todo": 3,
+      "saved": 1,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-miami-downtown-1788562272",
+      "venue_ids": [
+        "ascaso",
+        "hampton-art-lovers-at-the-historic-ward-rooming-house",
+        "zu-galeria"
+      ],
+      "started_ts": 1788562272,
+      "ended_ts": 1788562460
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mindy-solomon"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spinello-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tomas-redrado-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "voloshyn"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "wynwood-walls"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "youngarts"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Coral Gables",
+      "session": 1,
+      "todo": 6,
+      "saved": 7,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-miami-coral-gables-1788562208",
+      "venue_ids": [
+        "americas-collection",
+        "cernuda-arte",
+        "durban-segnini",
+        "el-apartamento",
+        "kavachnina-contemporary",
+        "lns"
+      ],
+      "started_ts": 1788562208,
+      "ended_ts": 1788562485
+    },
+    {
+      "stage": "scrape",
+      "zone": "Little Haiti/Little River",
+      "session": 2,
+      "todo": 7,
+      "saved": 5,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-miami-little-haiti-little-river-1788562397",
+      "venue_ids": [
+        "jupiter-contemporary",
+        "little-haiti-cultural-complex",
+        "locust-projects",
+        "manolis-projects",
+        "n-namdi-contemporary",
+        "nina-johnson",
+        "piero-atchugarry"
+      ],
+      "started_ts": 1788562397,
+      "ended_ts": 1788562686
+    },
+    {
+      "stage": "scrape",
+      "zone": "Wynwood",
+      "session": 2,
+      "todo": 6,
+      "saved": 4,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-miami-wynwood-1788562460",
+      "venue_ids": [
+        "mindy-solomon",
+        "spinello-projects",
+        "tomas-redrado-art",
+        "voloshyn",
+        "wynwood-walls",
+        "youngarts"
+      ],
+      "started_ts": 1788562460,
+      "ended_ts": 1788562826
+    }
+  ],
+  "verification": {
+    "miami": {
+      "verified": 0,
+      "corrected": 0,
+      "unverified": 0,
+      "unchecked": [
+        "david-castillo-jillian-mayer-placeholder-future",
+        "david-castillo-adler-guerrier-small-oscillations",
+        "diana-lowenstein-dirk-salz-dissolving-boundaries",
+        "bakehouse-at-forty",
+        "snitzer-after-icarus",
+        "kdr-common-skin-fantasy",
+        "dot-fiftyone-david-rohn-crowded-conditions",
+        "green-space-count-it-all-joy",
+        "sites-of-the-self",
+        "from-within",
+        "ascaso-a-smaller-death",
+        "cernuda-wifredo-lam-around-galleries",
+        "cernuda-gina-pellon-centennial",
+        "cernuda-diago-selections",
+        "cernuda-tomas-sanchez-selection",
+        "durban-segnini-ines-silva",
+        "el-apartamento-orestes-hernandez-in-depth",
+        "lns-scapes-territories",
+        "lhcc-sanctuary-our-sacred-place",
+        "nina-johnson-miguel-ferrando-off-the-shelf",
+        "nina-johnson-ruhwald-sculptures-for-plants-and-people",
+        "piero-atchugarry-laure-mary-interdum-mane",
+        "piero-atchugarry-jesse-zuo-photosynthesis",
+        "msg-ernesto-garcia-sanchez-acoples",
+        "msg-matthew-phillips-falling-tide",
+        "msg-lee-kunin-electromagnetic",
+        "voloshyn-palm-trees"
+      ],
+      "published": 0,
+      "pending": [
+        {
+          "slug": "david-castillo-jillian-mayer-placeholder-future",
+          "venue": "David Castillo",
+          "reason": null
+        },
+        {
+          "slug": "david-castillo-adler-guerrier-small-oscillations",
+          "venue": "David Castillo",
+          "reason": null
+        },
+        {
+          "slug": "diana-lowenstein-dirk-salz-dissolving-boundaries",
+          "venue": "Diana Lowenstein Gallery",
+          "reason": null
+        },
+        {
+          "slug": "bakehouse-at-forty",
+          "venue": "Bakehouse Art Complex",
+          "reason": null
+        },
+        {
+          "slug": "snitzer-after-icarus",
+          "venue": "Fredric Snitzer Gallery",
+          "reason": null
+        },
+        {
+          "slug": "kdr-common-skin-fantasy",
+          "venue": "KDR305",
+          "reason": null
+        },
+        {
+          "slug": "dot-fiftyone-david-rohn-crowded-conditions",
+          "venue": "Dot Fiftyone Gallery",
+          "reason": null
+        },
+        {
+          "slug": "green-space-count-it-all-joy",
+          "venue": "Green Space Miami",
+          "reason": null
+        },
+        {
+          "slug": "sites-of-the-self",
+          "venue": "Oolite Arts",
+          "reason": null
+        },
+        {
+          "slug": "from-within",
+          "venue": "Oolite Arts",
+          "reason": null
+        },
+        {
+          "slug": "ascaso-a-smaller-death",
+          "venue": "Ascaso Gallery",
+          "reason": null
+        },
+        {
+          "slug": "cernuda-wifredo-lam-around-galleries",
+          "venue": "Cernuda Arte",
+          "reason": null
+        },
+        {
+          "slug": "cernuda-gina-pellon-centennial",
+          "venue": "Cernuda Arte",
+          "reason": null
+        },
+        {
+          "slug": "cernuda-diago-selections",
+          "venue": "Cernuda Arte",
+          "reason": null
+        },
+        {
+          "slug": "cernuda-tomas-sanchez-selection",
+          "venue": "Cernuda Arte",
+          "reason": null
+        },
+        {
+          "slug": "durban-segnini-ines-silva",
+          "venue": "Durban Segnini Gallery",
+          "reason": null
+        },
+        {
+          "slug": "el-apartamento-orestes-hernandez-in-depth",
+          "venue": "El Apartamento",
+          "reason": null
+        },
+        {
+          "slug": "lns-scapes-territories",
+          "venue": "LnS Gallery",
+          "reason": null
+        },
+        {
+          "slug": "lhcc-sanctuary-our-sacred-place",
+          "venue": "Little Haiti Cultural Complex",
+          "reason": null
+        },
+        {
+          "slug": "nina-johnson-miguel-ferrando-off-the-shelf",
+          "venue": "Nina Johnson",
+          "reason": null
+        },
+        {
+          "slug": "nina-johnson-ruhwald-sculptures-for-plants-and-people",
+          "venue": "Nina Johnson",
+          "reason": null
+        },
+        {
+          "slug": "piero-atchugarry-laure-mary-interdum-mane",
+          "venue": "Piero Atchugarry Gallery",
+          "reason": null
+        },
+        {
+          "slug": "piero-atchugarry-jesse-zuo-photosynthesis",
+          "venue": "Piero Atchugarry Gallery",
+          "reason": null
+        },
+        {
+          "slug": "msg-ernesto-garcia-sanchez-acoples",
+          "venue": "Mindy Solomon Gallery",
+          "reason": null
+        },
+        {
+          "slug": "msg-matthew-phillips-falling-tide",
+          "venue": "Mindy Solomon Gallery",
+          "reason": null
+        },
+        {
+          "slug": "msg-lee-kunin-electromagnetic",
+          "venue": "Mindy Solomon Gallery",
+          "reason": null
+        },
+        {
+          "slug": "voloshyn-palm-trees",
+          "venue": "Voloshyn Gallery",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-miami-1788561901.json"
+}
+miami: 27 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+miami: 49 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city miami --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/miami/shows-ids.txt --force-due --total-budget 60.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

@@ -1,0 +1,349 @@
+{
+ "ts": 1788559055,
+ "city": "hong-kong",
+ "today": "2026-09-04",
+ "params_hash": "39009a5137a8",
+ "params": {
+  "version": 1,
+  "city": "hong-kong",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 54,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "dan-flavin-grids-dz",
+   "rank": 2,
+   "featured_rank": 1,
+   "score": 0.9766066666666666,
+   "editors_pick": true
+  },
+  {
+   "slug": "why-the-butterflies",
+   "rank": 11,
+   "featured_rank": 2,
+   "score": 0.8463333333333334,
+   "editors_pick": true
+  },
+  {
+   "slug": "aaa-at-25-part-ii",
+   "rank": 12,
+   "featured_rank": 3,
+   "score": 0.82728,
+   "editors_pick": true
+  },
+  {
+   "slug": "ora-ora-pleasure-dome-hills",
+   "rank": 16,
+   "featured_rank": 4,
+   "score": 0.6988146666666667,
+   "editors_pick": true
+  },
+  {
+   "slug": "videotage-itit-cheung-tide",
+   "rank": 22,
+   "featured_rank": 5,
+   "score": 0.5516380000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "hkac-collaboration-in-collision",
+   "rank": 23,
+   "featured_rank": 6,
+   "score": 0.5337666666666666,
+   "editors_pick": false
+  },
+  {
+   "slug": "wesley-tongson-asiasociety",
+   "rank": 24,
+   "featured_rank": 7,
+   "score": 0.49794,
+   "editors_pick": false
+  },
+  {
+   "slug": "cbal-lightness-of-being",
+   "rank": 25,
+   "featured_rank": 8,
+   "score": 0.4814566666666667,
+   "editors_pick": false
+  },
+  {
+   "slug": "tranquil-state-3812",
+   "rank": 26,
+   "featured_rank": 9,
+   "score": 0.4243546666666667,
+   "editors_pick": false
+  },
+  {
+   "slug": "blue-lotus-city-of-lights",
+   "rank": 28,
+   "featured_rank": 10,
+   "score": 0.36960666666666664,
+   "editors_pick": false
+  },
+  {
+   "slug": "sinsin-form",
+   "rank": 29,
+   "featured_rank": 11,
+   "score": 0.33488,
+   "editors_pick": false
+  },
+  {
+   "slug": "jps-runway-51",
+   "rank": 30,
+   "featured_rank": 12,
+   "score": 0.3143546666666666,
+   "editors_pick": false
+  },
+  {
+   "slug": "reweaving-memory-persia",
+   "rank": 35,
+   "featured_rank": 13,
+   "score": 0.14815466666666666,
+   "editors_pick": false
+  },
+  {
+   "slug": "the-feast-of-joy",
+   "rank": 36,
+   "featured_rank": 14,
+   "score": 0.13119533333333336,
+   "editors_pick": false
+  },
+  {
+   "slug": "soil-shared-life-in-time",
+   "rank": 37,
+   "featured_rank": 15,
+   "score": 0.05745400000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "va-incising-the-matrix",
+   "rank": 38,
+   "featured_rank": 16,
+   "score": 0.002814,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "stanley-whitney-gagosian",
+   "rank": 1,
+   "score": 0.992286,
+   "gate": "not_open"
+  },
+  {
+   "slug": "dan-flavin-grids-dz",
+   "rank": 2,
+   "score": 0.9766066666666666,
+   "gate": null
+  },
+  {
+   "slug": "tesfaye-urgessa-the-lingering-departure",
+   "rank": 5,
+   "score": 0.936974,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kiang-malingue-wayfarer-of-fire",
+   "rank": 7,
+   "score": 0.9181546666666667,
+   "gate": "not_open"
+  },
+  {
+   "slug": "desarthe-lau-wai-after-intelligence",
+   "rank": 9,
+   "score": 0.8818959999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "why-the-butterflies",
+   "rank": 11,
+   "score": 0.8463333333333334,
+   "gate": null
+  },
+  {
+   "slug": "aaa-at-25-part-ii",
+   "rank": 12,
+   "score": 0.82728,
+   "gate": null
+  },
+  {
+   "slug": "rossi-rossi-strange-song-amongst-snow",
+   "rank": 15,
+   "score": 0.717838,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ora-ora-pleasure-dome-hills",
+   "rank": 16,
+   "score": 0.6988146666666667,
+   "gate": null
+  },
+  {
+   "slug": "whitestone-traces-isobe-mizu",
+   "rank": 17,
+   "score": 0.6625920000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "gallery-exit-cho-wing-ki-dazzled",
+   "rank": 18,
+   "score": 0.6446246666666666,
+   "gate": "not_open"
+  },
+  {
+   "slug": "toil-and-soil-gdm",
+   "rank": 20,
+   "score": 0.5894686666666666,
+   "gate": "not_open"
+  },
+  {
+   "slug": "videotage-itit-cheung-tide",
+   "rank": 22,
+   "score": 0.5516380000000001,
+   "gate": null
+  },
+  {
+   "slug": "hkac-collaboration-in-collision",
+   "rank": 23,
+   "score": 0.5337666666666666,
+   "gate": null
+  },
+  {
+   "slug": "wesley-tongson-asiasociety",
+   "rank": 24,
+   "score": 0.49794,
+   "gate": null
+  },
+  {
+   "slug": "cbal-lightness-of-being",
+   "rank": 25,
+   "score": 0.4814566666666667,
+   "gate": null
+  },
+  {
+   "slug": "tranquil-state-3812",
+   "rank": 26,
+   "score": 0.4243546666666667,
+   "gate": null
+  },
+  {
+   "slug": "blue-lotus-city-of-lights",
+   "rank": 28,
+   "score": 0.36960666666666664,
+   "gate": null
+  },
+  {
+   "slug": "sinsin-form",
+   "rank": 29,
+   "score": 0.33488,
+   "gate": null
+  },
+  {
+   "slug": "jps-runway-51",
+   "rank": 30,
+   "score": 0.3143546666666666,
+   "gate": null
+  },
+  {
+   "slug": "alisan-atelier-revisiting-jade-terrace",
+   "rank": 31,
+   "score": 0.2954333333333333,
+   "gate": "not_open"
+  },
+  {
+   "slug": "leo-xiao-bo-46-sai-street",
+   "rank": 33,
+   "score": 0.16745399999999996,
+   "gate": "not_open"
+  },
+  {
+   "slug": "reweaving-memory-persia",
+   "rank": 35,
+   "score": 0.14815466666666666,
+   "gate": null
+  },
+  {
+   "slug": "the-feast-of-joy",
+   "rank": 36,
+   "score": 0.13119533333333336,
+   "gate": null
+  },
+  {
+   "slug": "soil-shared-life-in-time",
+   "rank": 37,
+   "score": 0.05745400000000002,
+   "gate": null
+  },
+  {
+   "slug": "va-incising-the-matrix",
+   "rank": 38,
+   "score": 0.002814,
+   "gate": null
+  }
+ ]
+}

@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788555181,
+ "system": "You are an art-world editor compiling a gallery guide for Mexico City, Mexico. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Mexico City itself (galleries whose home is\nelsewhere count only through a permanent Mexico City space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Colonia Juárez/Cuauhtémoc, San Miguel Chapultepec, Roma/Condesa, Polanco, San Rafael/Santa María la Ribera, Escandón, San Ángel/Coyoacán) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Mexico City spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Mexico City, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 434,
+  "output_tokens": 19405,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.389836,
+  "seconds": 298.2
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Kurimanzutto",
+    "website": "https://www.kurimanzutto.com",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "Gobernador Rafael Rebollar 94",
+    "kind": "gallery",
+    "note": "Mexico’s most internationally influential contemporary gallery, with a generation-defining roster and sustained blue-chip institutional and fair presence."
+   },
+   {
+    "rank": 2,
+    "name": "OMR",
+    "website": "https://omr.art",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Córdoba 100",
+    "kind": "gallery",
+    "note": "A cornerstone of Mexico City’s gallery scene, known for ambitious exhibitions, major Latin American artists and exceptional international reach."
+   },
+   {
+    "rank": 3,
+    "name": "LABOR",
+    "website": "https://www.labor.org.mx",
+    "neighborhood": "Daniel Garza",
+    "address_hint": "General Francisco Ramírez 5",
+    "kind": "gallery",
+    "note": "Critically rigorous gallery focused on research-led, political and conceptual practices with strong museum recognition."
+   },
+   {
+    "rank": 4,
+    "name": "Gaga",
+    "website": "https://www.houseofgaga.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Amsterdam 123",
+    "kind": "gallery",
+    "note": "Highly influential gallery linking Mexico City with international experimental art through a tightly edited, critically followed programme."
+   },
+   {
+    "rank": 5,
+    "name": "Proyectos Monclova",
+    "website": "https://www.proyectosmonclova.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Colima 55",
+    "kind": "gallery",
+    "note": "Major contemporary gallery combining internationally established artists, historical research and prominent art-fair participation."
+   },
+   {
+    "rank": 6,
+    "name": "joségarcía, mx",
+    "website": "https://josegarcia.mx",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "General Juan Cano 68",
+    "kind": "gallery",
+    "note": "A leading platform for conceptually sharp emerging and mid-career artists from Mexico and abroad."
+   },
+   {
+    "rank": 7,
+    "name": "Galerie Nordenhake México",
+    "website": "https://www.nordenhake.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Colima 159",
+    "kind": "gallery",
+    "note": "The Mexico City branch of the influential European gallery contributes a museum-level international programme and significant fair presence."
+   },
+   {
+    "rank": 8,
+    "name": "Travesía Cuatro",
+    "website": "https://travesiacuatro.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Guadalajara 111",
+    "kind": "gallery",
+    "note": "An important transatlantic gallery with a strong Latin American roster and regular participation in leading global fairs."
+   },
+   {
+    "rank": 9,
+    "name": "Galería de Arte Mexicano (GAM)",
+    "website": "https://www.gam.com.mx",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "Gobernador Rafael Rebollar 43",
+    "kind": "gallery",
+    "note": "Founded in 1935, Mexico’s foundational modern gallery remains relevant through contemporary exhibitions, estates and unmatched historical continuity."
+   },
+   {
+    "rank": 10,
+    "name": "RGR",
+    "website": "https://www.rgrart.com",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "General Antonio León 48",
+    "kind": "gallery",
+    "note": "Internationally visible gallery connecting geometric abstraction’s historical legacies with prominent contemporary Latin American practices."
+   },
+   {
+    "rank": 11,
+    "name": "Galería Hilario Galguera",
+    "website": "https://www.hilariogalguera.com",
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": "Francisco Pimentel 3",
+    "kind": "gallery",
+    "note": "Long-running gallery recognized for large-scale exhibitions, international artists and a substantial presence in Mexico’s art market."
+   },
+   {
+    "rank": 12,
+    "name": "PEANA",
+    "website": "https://www.peana.co",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Tlaxcala 103",
+    "kind": "gallery",
+    "note": "A fast-rising gallery with a strong younger roster, sophisticated installations and growing international fair and institutional attention."
+   },
+   {
+    "rank": 13,
+    "name": "Revolver Galería",
+    "website": "https://www.revolvergaleria.com",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "The Mexico City space of the Lima-founded gallery advances experimental Latin American practices and productive regional exchange."
+   },
+   {
+    "rank": 14,
+    "name": "Arróniz",
+    "website": "https://arroniz-arte.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Tabasco 198",
+    "kind": "gallery",
+    "note": "Established gallery with sustained support for Mexican and Latin American artists and consistent participation in international fairs."
+   },
+   {
+    "rank": 15,
+    "name": "Mariane Ibrahim",
+    "website": "https://marianeibrahim.com",
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": "Río Pánuco 36",
+    "kind": "gallery",
+    "note": "The gallery’s permanent Mexico City space brings a globally prominent programme centered on artists of Africa and its diaspora."
+   },
+   {
+    "rank": 16,
+    "name": "Galería Karen Huber",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": "Bucareli 120",
+    "kind": "gallery",
+    "note": "Respected for sustained engagement with contemporary painting and for developing several closely watched Mexican artists."
+   },
+   {
+    "rank": 17,
+    "name": "Proyecto Paralelo",
+    "website": "https://proyectoparalelo.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Alfonso Reyes 58",
+    "kind": "gallery",
+    "note": "A rigorous gallery known for conceptual, archival and socially attentive practices from Mexico and Latin America."
+   },
+   {
+    "rank": 18,
+    "name": "Galería Agustina Ferreyra",
+    "website": "https://agustinaferreyra.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Internationally connected gallery presenting adventurous emerging practices, particularly from Latin America and the Caribbean."
+   },
+   {
+    "rank": 19,
+    "name": "Patricia Conde Galería",
+    "website": "https://patriciacondegaleria.com",
+    "neighborhood": "Polanco",
+    "address_hint": "Lafontaine 73",
+    "kind": "gallery",
+    "note": "Mexico’s leading commercial gallery devoted to photography, with an established roster and strong specialist-fair visibility."
+   },
+   {
+    "rank": 20,
+    "name": "Anonymous Gallery",
+    "website": "https://anonymousgallery.com",
+    "neighborhood": "Pensil",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Independent gallery with a distinctive cross-border programme spanning emerging art, subculture and experimental exhibition formats."
+   },
+   {
+    "rank": 21,
+    "name": "MASA",
+    "website": null,
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "Gobernador Rafael Rebollar 95",
+    "kind": "gallery",
+    "note": "Globally influential nomadic and permanent platform dissolving distinctions between contemporary art, collectible design and architecture."
+   },
+   {
+    "rank": 22,
+    "name": "AGO Projects",
+    "website": "https://ago-projects.com",
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": "Marsella 68",
+    "kind": "gallery",
+    "note": "Internationally recognized gallery for collectible design and art, particularly work grounded in Mexican materials and craft knowledge."
+   },
+   {
+    "rank": 23,
+    "name": "SAENGER Galería",
+    "website": null,
+    "neighborhood": "Tacubaya",
+    "address_hint": "Manuel Dublán 33",
+    "kind": "gallery",
+    "note": "Dynamic contemporary gallery with a growing roster and regular appearances at Mexico’s principal and emerging-art fairs."
+   },
+   {
+    "rank": 24,
+    "name": "Galería Mascota",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Valladolid 61",
+    "kind": "gallery",
+    "note": "Closely watched gallery presenting emerging international artists through concise, experimental exhibitions."
+   },
+   {
+    "rank": 25,
+    "name": "Lodos",
+    "website": null,
+    "neighborhood": "Escandón",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Influential artist-led gallery associated with conceptually adventurous young artists and Mexico City’s independent scene."
+   },
+   {
+    "rank": 26,
+    "name": "General Expenses",
+    "website": "https://generalexpenses.info",
+    "neighborhood": "Atlampa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Critically regarded independent gallery whose experimental programme gives early support to emerging local and international artists."
+   },
+   {
+    "rank": 27,
+    "name": "Campeche",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Campeche 130",
+    "kind": "gallery",
+    "note": "Artist-founded gallery with an inventive emerging programme and increasing visibility at international young-gallery fairs."
+   },
+   {
+    "rank": 28,
+    "name": "Biquini Wax EPS",
+    "website": null,
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": "José Rosas Moreno 41",
+    "kind": "project_space",
+    "note": "Seminal artist-run collective and research space whose exhibitions, library and public discussions have shaped independent discourse."
+   },
+   {
+    "rank": 29,
+    "name": "Salón Silicón",
+    "website": "https://salonsilicon.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Tehuantepec 223",
+    "kind": "project_space",
+    "note": "Important queer and feminist artist-run space supporting transgressive practices often underserved by commercial institutions."
+   },
+   {
+    "rank": 30,
+    "name": "Galería Enrique Guerrero",
+    "website": null,
+    "neighborhood": "Polanco",
+    "address_hint": "Horacio 1549",
+    "kind": "gallery",
+    "note": "Long-established gallery with a broad Mexican and Latin American roster and decades of art-fair participation."
+   },
+   {
+    "rank": 31,
+    "name": "Pequod Co.",
+    "website": "https://pequodco.com",
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": "Lancaster 29",
+    "kind": "gallery",
+    "note": "Small but internationally visible gallery known for precise exhibitions by emerging and under-recognized artists."
+   },
+   {
+    "rank": 32,
+    "name": "Le Laboratoire",
+    "website": "https://lelaboratoire.mx",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Vicente Suárez 69",
+    "kind": "gallery",
+    "note": "Established Condesa gallery presenting multidisciplinary Mexican and international contemporary art with a conceptual emphasis."
+   },
+   {
+    "rank": 33,
+    "name": "Galería Alfredo Ginocchio",
+    "website": "https://ginocchiogaleria.com",
+    "neighborhood": "Polanco",
+    "address_hint": "Arquímedes 175",
+    "kind": "gallery",
+    "note": "Veteran commercial gallery with extensive Latin American fair activity and a sizable roster of established artists."
+   },
+   {
+    "rank": 34,
+    "name": "Machete Galería",
+    "website": "https://macheteart.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Córdoba 25",
+    "kind": "gallery",
+    "note": "Known for politically engaged Latin American art and for cultivating artists from across the region."
+   },
+   {
+    "rank": 35,
+    "name": "La Cometa México",
+    "website": "https://galerialacometa.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "The Mexico City location extends an established Latin American gallery network with a strong modern and contemporary programme."
+   },
+   {
+    "rank": 36,
+    "name": "MAIA Contemporary",
+    "website": "https://maiacontemporary.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Colima 159",
+    "kind": "gallery",
+    "note": "Polished contemporary programme emphasizing Latin American artists and growing regional and international market visibility."
+   },
+   {
+    "rank": 37,
+    "name": "CAM Galería",
+    "website": "https://camgaleria.com",
+    "neighborhood": "Polanco",
+    "address_hint": "Aristóteles 354",
+    "kind": "gallery",
+    "note": "Active commercial gallery combining established Mexican artists with newer contemporary positions and regular fair participation."
+   },
+   {
+    "rank": 38,
+    "name": "N.A.S.A.L. México",
+    "website": "https://nasal.co",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Cross-Latin American gallery supporting experimental emerging artists through its permanent Mexico City programme."
+   },
+   {
+    "rank": 39,
+    "name": "Deli Gallery",
+    "website": "https://www.deli-gallery.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Puebla 114",
+    "kind": "gallery",
+    "note": "Mexico City branch of the independent gallery, notable for an energetic younger roster and transnational programme."
+   },
+   {
+    "rank": 40,
+    "name": "guadalajara90210",
+    "website": "https://guadalajara90210.com",
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Artist-driven gallery with an irreverent identity, experimental installations and sustained attention from the emerging-art circuit."
+   },
+   {
+    "rank": 41,
+    "name": "Llano",
+    "website": null,
+    "neighborhood": "Doctores",
+    "address_hint": "Doctor Lucio 181",
+    "kind": "gallery",
+    "note": "Independent gallery valued for site-responsive exhibitions and its engagement with younger Mexican and international practices."
+   },
+   {
+    "rank": 42,
+    "name": "Fundación Olivia",
+    "website": null,
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "A newer private foundation and public exhibition space presenting ambitious projects drawn from and developed around its contemporary collection."
+   },
+   {
+    "rank": 43,
+    "name": "FF Projects",
+    "website": "https://ffprojects.org",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Monterrey 174",
+    "kind": "gallery",
+    "note": "Emerging gallery and curatorial platform focused on experimental exhibitions and international exchange."
+   },
+   {
+    "rank": 44,
+    "name": "JO-HS",
+    "website": "https://jo-hs.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Gallery and residency platform connecting Mexico City with an international community of emerging artists and curators."
+   },
+   {
+    "rank": 45,
+    "name": "LaNao Galería",
+    "website": null,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Independent gallery recognized for accessible but critically engaged exhibitions by younger Mexican artists."
+   },
+   {
+    "rank": 46,
+    "name": "Arredondo Arozarena",
+    "website": "https://arredondoarozarena.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary gallery with a sustained commitment to emerging and mid-career Latin American artists."
+   },
+   {
+    "rank": 47,
+    "name": "Proyecto H",
+    "website": "https://proyectoh.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Guadalajara 88",
+    "kind": "gallery",
+    "note": "Mexico–Spain gallery platform with a diverse contemporary roster and regular presence at regional fairs."
+   },
+   {
+    "rank": 48,
+    "name": "Tiro al Blanco México",
+    "website": "https://tiroalblanco.art",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "The gallery’s Mexico City venue broadens its support for emerging Mexican artists beyond its Guadalajara base."
+   },
+   {
+    "rank": 49,
+    "name": "Galería Unión",
+    "website": null,
+    "neighborhood": "Escandón",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Independent gallery promoting exchange among artists from Mexico and the wider Latin American scene."
+   },
+   {
+    "rank": 50,
+    "name": "EDS Galería",
+    "website": "https://edsgaleria.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Atlixco 32",
+    "kind": "gallery",
+    "note": "Established gallery known for contemporary painting, sculpture and multidisciplinary work by Mexican artists."
+   },
+   {
+    "rank": 51,
+    "name": "Galería 54",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Montes de Oca 54",
+    "kind": "gallery",
+    "note": "Condesa gallery providing a visible platform for emerging and mid-career contemporary practices."
+   },
+   {
+    "rank": 52,
+    "name": "Colector",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Younger gallery with a collector-facing programme of current Mexican and Latin American art."
+   },
+   {
+    "rank": 53,
+    "name": "Templo",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Emerging gallery whose intimate exhibitions contribute to the city’s active younger-gallery ecosystem."
+   },
+   {
+    "rank": 54,
+    "name": "Relaciones Públicas",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent curatorial and exhibition platform recognized for collaborative, unconventional presentations."
+   },
+   {
+    "rank": 55,
+    "name": "Casa Equis",
+    "website": "https://casa-equis.com",
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": "Doctor Enrique González Martínez 7",
+    "kind": "gallery",
+    "note": "Gallery and residency that gives artists room for experimentation while building links with local collectors and curators."
+   },
+   {
+    "rank": 56,
+    "name": "Heart Ego",
+    "website": null,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young gallery presenting intimate exhibitions centered on emerging contemporary voices."
+   },
+   {
+    "rank": 57,
+    "name": "Elipsis",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Emerging space notable for compact, conceptually focused exhibitions and participation in the city’s independent art circuit."
+   },
+   {
+    "rank": 58,
+    "name": "Yope Projects",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Small artist-centered platform supporting experimental production and exchange among younger practices."
+   },
+   {
+    "rank": 59,
+    "name": "Sismo",
+    "website": null,
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "General Juan Cano 63",
+    "kind": "gallery",
+    "note": "New-generation gallery gaining attention for a tightly curated programme and engagement with Mexico City’s artist community."
+   },
+   {
+    "rank": 60,
+    "name": "Can Can",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent project space adding experimental and collaborative exhibitions to the city’s emerging-art landscape."
+   },
+   {
+    "rank": 61,
+    "name": "Tiempos Modernos",
+    "website": null,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Young curatorial platform known for flexible exhibition formats and participation in alternative art-week programming."
+   },
+   {
+    "rank": 62,
+    "name": "Galería Nina Menocal",
+    "website": "https://ninamenocal.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Zacatecas 93",
+    "kind": "gallery",
+    "note": "Long-running gallery particularly important for its advocacy of Cuban and Latin American contemporary art."
+   },
+   {
+    "rank": 63,
+    "name": "Terreno Baldío Arte",
+    "website": "https://terrenobaldio.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Orizaba 177",
+    "kind": "gallery",
+    "note": "Established Roma gallery with a broad multidisciplinary programme and longstanding ties to Mexican artists."
+   },
+   {
+    "rank": 64,
+    "name": "Galería López Quiroga",
+    "website": "https://lopezquiroga.com",
+    "neighborhood": "Polanco",
+    "address_hint": "Aristóteles 169",
+    "kind": "gallery",
+    "note": "Veteran gallery and dealer bridging major modern Mexican names with selected contemporary artists and estates."
+   },
+   {
+    "rank": 65,
+    "name": "Galería Juan Martín",
+    "website": null,
+    "neighborhood": "Polanco",
+    "address_hint": "Dickens 33",
+    "kind": "gallery",
+    "note": "Historic gallery whose decades of work with important Mexican artists give it enduring art-historical significance."
+   },
+   {
+    "rank": 66,
+    "name": "Galería Arvil",
+    "website": null,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": "Hamburgo 241",
+    "kind": "gallery",
+    "note": "One of the city’s long-lived commercial galleries, with deep experience in Mexican modern and contemporary art."
+   },
+   {
+    "rank": 67,
+    "name": "Galería Óscar Román",
+    "website": "https://oscarroman.com.mx",
+    "neighborhood": "Polanco",
+    "address_hint": "Julio Verne 14",
+    "kind": "gallery",
+    "note": "Established Polanco gallery representing a wide range of Mexican painters, sculptors and mixed-media artists."
+   },
+   {
+    "rank": 68,
+    "name": "ETHRA",
+    "website": null,
+    "neighborhood": "Polanco",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Commercial gallery supporting contemporary Mexican artists through exhibitions, commissions and fair participation."
+   },
+   {
+    "rank": 69,
+    "name": "LS/Galería",
+    "website": null,
+    "neighborhood": "Miguel Hidalgo",
+    "address_hint": "Lago Superior 48",
+    "kind": "gallery",
+    "note": "Gallery with a sustained programme of modern and contemporary Mexican and Latin American work."
+   },
+   {
+    "rank": 70,
+    "name": "Aldama Fine Art",
+    "website": "https://aldamafineart.com",
+    "neighborhood": "Insurgentes Mixcoac",
+    "address_hint": "Málaga 27",
+    "kind": "gallery",
+    "note": "Long-running gallery especially associated with contemporary figurative painting and careful artist development."
+   },
+   {
+    "rank": 71,
+    "name": "Praxis México",
+    "website": null,
+    "neighborhood": "Polanco",
+    "address_hint": "Anatole France 120",
+    "kind": "gallery",
+    "note": "Mexico branch of the Latin American gallery network, with decades of activity and a broad regional roster."
+   },
+   {
+    "rank": 72,
+    "name": "Galería Lourdes Sosa",
+    "website": null,
+    "neighborhood": "Polanco",
+    "address_hint": "Calderón de la Barca 38",
+    "kind": "gallery",
+    "note": "Veteran commercial gallery presenting established Mexican and international contemporary artists."
+   },
+   {
+    "rank": 73,
+    "name": "Aura Galerías",
+    "website": null,
+    "neighborhood": "Lomas de Chapultepec",
+    "address_hint": "Monte Athos 179",
+    "kind": "gallery",
+    "note": "Longstanding gallery with a large collector base and regular exhibitions of Mexican and Latin American art."
+   },
+   {
+    "rank": 74,
+    "name": "ArtSpace México",
+    "website": "https://artspace.mx",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Commercial platform offering exhibitions and visibility to emerging and mid-career Mexican artists."
+   },
+   {
+    "rank": 75,
+    "name": "Aguafuerte Galería",
+    "website": "https://aguafuertegaleria.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Guanajuato 118",
+    "kind": "gallery",
+    "note": "Accessible Roma gallery with a busy programme of contemporary painting, illustration and graphic work."
+   },
+   {
+    "rank": 76,
+    "name": "Almanaque Fotográfica",
+    "website": "https://almanaquefotografica.com",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Colima 101",
+    "kind": "gallery",
+    "note": "Specialist platform supporting contemporary photography through exhibitions, editions and artist-focused projects."
+   },
+   {
+    "rank": 77,
+    "name": "Hydra + Fotografía",
+    "website": "https://hydra.lat",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Influential photography platform combining exhibitions, publishing, education and an important regional professional network."
+   },
+   {
+    "rank": 78,
+    "name": "Salón de la Plástica Mexicana",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Colima 196",
+    "kind": "gallery",
+    "note": "Historic artist-membership institution that continues to provide public exhibition space for Mexican visual artists."
+   },
+   {
+    "rank": 79,
+    "name": "Cráter Invertido",
+    "website": "https://craterinvertido.org",
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Juan de la Barrera 116",
+    "kind": "project_space",
+    "note": "Important artist-run collective combining exhibitions, printmaking, publishing and politically engaged collaborative practice."
+   },
+   {
+    "rank": 80,
+    "name": "Aeromoto",
+    "website": "https://aeromoto.mx",
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Independent public art library and programme that has become a key intellectual resource for artists and researchers."
+   },
+   {
+    "rank": 81,
+    "name": "Archivo Diseño y Arquitectura",
+    "website": "https://archivo.design",
+    "neighborhood": "Daniel Garza",
+    "address_hint": "General Francisco Ramírez 4",
+    "kind": "nonprofit",
+    "note": "Influential research and exhibition space examining modern and contemporary design, architecture and visual culture."
+   },
+   {
+    "rank": 82,
+    "name": "Casa Wabi Santa María",
+    "website": "https://casawabi.org",
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": "Doctor Atl 62",
+    "kind": "nonprofit",
+    "note": "Urban outpost of Fundación Casa Wabi, hosting exhibitions, residencies and community-oriented contemporary projects."
+   },
+   {
+    "rank": 83,
+    "name": "Fundación Alumnos47",
+    "website": "https://alumnos47.org",
+    "neighborhood": "San Miguel Chapultepec",
+    "address_hint": "Alumnos 47",
+    "kind": "nonprofit",
+    "note": "Nonprofit foundation supporting experimental education, publishing, public programmes and artist-led contemporary initiatives."
+   },
+   {
+    "rank": 84,
+    "name": "ESPAC",
+    "website": null,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Private nonprofit platform noted for research-driven exhibitions and sustained engagement with contemporary artistic practices."
+   },
+   {
+    "rank": 85,
+    "name": "LIGA, Espacio para Arquitectura",
+    "website": "https://liga-df.com",
+    "neighborhood": "Doctores",
+    "address_hint": "Doctor Erazo 176",
+    "kind": "nonprofit",
+    "note": "Internationally respected nonprofit where experimental architecture frequently intersects with installation, sculpture and contemporary art."
+   },
+   {
+    "rank": 86,
+    "name": "Proyector",
+    "website": "https://proyector.mx",
+    "neighborhood": "Industrial",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Independent curatorial space dedicated to critical architectural research, spatial practice and exhibition-making."
+   },
+   {
+    "rank": 87,
+    "name": "La Quiñonera",
+    "website": null,
+    "neighborhood": "San Ángel/Coyoacán",
+    "address_hint": "Santa Cruz 111",
+    "kind": "project_space",
+    "note": "Legendary artist-run house whose countercultural exhibitions and gatherings have influenced Mexico City art since the 1980s."
+   },
+   {
+    "rank": 88,
+    "name": "Bodega 1249",
+    "website": null,
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent artist-run venue offering flexible space for experimental exhibitions and collaborative projects."
+   },
+   {
+    "rank": 89,
+    "name": "Vernacular Institute",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Research-oriented independent platform exploring vernacular knowledge, material culture and contemporary artistic production."
+   },
+   {
+    "rank": 90,
+    "name": "CC186",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Chihuahua 186",
+    "kind": "project_space",
+    "note": "Artist-led venue supporting exhibitions, performances and informal exchange outside conventional gallery structures."
+   },
+   {
+    "rank": 91,
+    "name": "Seminario 12",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": "Seminario 12",
+    "kind": "project_space",
+    "note": "Centro Histórico project space known for context-sensitive exhibitions and collaborations with emerging artists."
+   },
+   {
+    "rank": 92,
+    "name": "Obra Negra",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent space presenting experimental installations and interdisciplinary work in a raw architectural setting."
+   },
+   {
+    "rank": 93,
+    "name": "ATEA",
+    "website": "https://atea.mx",
+    "neighborhood": "Centro Histórico",
+    "address_hint": "Topacio 25",
+    "kind": "nonprofit",
+    "note": "Collaborative cultural venue hosting exhibitions, performances, workshops and projects by independent creative communities."
+   },
+   {
+    "rank": 94,
+    "name": "Casa Gallina",
+    "website": "https://casagallina.org.mx",
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "address_hint": "Sabino 190",
+    "kind": "nonprofit",
+    "note": "Locally embedded nonprofit linking contemporary art with food systems, ecology, education and neighborhood participation."
+   },
+   {
+    "rank": 95,
+    "name": "Casa Vecina",
+    "website": null,
+    "neighborhood": "Centro Histórico",
+    "address_hint": "Primer Callejón de Mesones 7",
+    "kind": "nonprofit",
+    "note": "Residency and cultural platform with a history of commissioning artists to work with the social fabric of the historic center."
+   },
+   {
+    "rank": 96,
+    "name": "Casa de El Hijo del Ahuizote",
+    "website": "https://casadelhijodelahuizote.mx",
+    "neighborhood": "Centro Histórico",
+    "address_hint": "República de Colombia 42",
+    "kind": "nonprofit",
+    "note": "Independent archive and cultural space where contemporary exhibitions engage political memory, print culture and civil liberties."
+   },
+   {
+    "rank": 97,
+    "name": "Galería Metropolitana (UAM)",
+    "website": null,
+    "neighborhood": "Roma/Condesa",
+    "address_hint": "Medellín 28",
+    "kind": "university",
+    "note": "Prominent public university gallery presenting contemporary artists, curatorial projects and academically grounded exhibitions."
+   },
+   {
+    "rank": 98,
+    "name": "Galería José María Velasco",
+    "website": null,
+    "neighborhood": "Morelos",
+    "address_hint": "Peralvillo 55",
+    "kind": "other",
+    "note": "INBAL public gallery important for exhibitions connecting contemporary practice with popular, urban and neighborhood visual cultures."
+   },
+   {
+    "rank": 99,
+    "name": "Galería del IFAL",
+    "website": "https://ifal.mx",
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "address_hint": "Río Nazas 43",
+    "kind": "nonprofit",
+    "note": "French cultural institute gallery fostering exchange between Mexican and international contemporary artists."
+   },
+   {
+    "rank": 100,
+    "name": "Centro Cultural de España en México",
+    "website": "https://ccemx.org",
+    "neighborhood": "Centro Histórico",
+    "address_hint": "República de Guatemala 18",
+    "kind": "other",
+    "note": "Major public cultural venue whose galleries regularly present contemporary art, media, design and socially engaged projects."
+   }
+  ]
+ }
+}

@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788553238,
+ "system": "You are an art-world editor compiling a gallery guide for Paris, France. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Paris itself (galleries whose home is\nelsewhere count only through a permanent Paris space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Marais, Saint-Germain, Avenue Matignon/8th, Belleville/Pantin) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Paris spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Paris, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 403,
+  "output_tokens": 16248,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.326572,
+  "seconds": 272.9
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "4 rue de Ponthieu",
+    "kind": "gallery",
+    "note": "The Paris arm of the global mega-gallery, with exceptional blue-chip artists, market power and institutional reach."
+   },
+   {
+    "rank": 2,
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Marais",
+    "address_hint": "76 rue de Turenne",
+    "kind": "gallery",
+    "note": "Paris-founded international powerhouse known for a large, globally visible programme and major art-fair presence."
+   },
+   {
+    "rank": 3,
+    "name": "Thaddaeus Ropac",
+    "website": "https://ropac.net",
+    "neighborhood": "Marais",
+    "address_hint": "7 rue Debelleyme",
+    "kind": "gallery",
+    "note": "A leading European gallery representing major postwar and contemporary artists across ambitious Paris exhibitions."
+   },
+   {
+    "rank": 4,
+    "name": "Mennour",
+    "website": "https://mennour.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "47 rue Saint-André-des-Arts",
+    "kind": "gallery",
+    "note": "One of France's most influential galleries, combining prominent international artists with major French practices."
+   },
+   {
+    "rank": 5,
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Marais",
+    "address_hint": "108 rue Vieille-du-Temple",
+    "kind": "gallery",
+    "note": "The Paris branch of a top-tier global gallery with a museum-calibre programme and powerful secondary market."
+   },
+   {
+    "rank": 6,
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "26 bis rue François 1er",
+    "kind": "gallery",
+    "note": "A global mega-gallery whose substantial Paris space presents leading living artists and major estates."
+   },
+   {
+    "rank": 7,
+    "name": "Marian Goodman Gallery",
+    "website": "https://www.mariangoodman.com",
+    "neighborhood": "Marais",
+    "address_hint": "79 rue du Temple",
+    "kind": "gallery",
+    "note": "Historically crucial for introducing major European conceptual artists to international audiences and vice versa."
+   },
+   {
+    "rank": 8,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Marais",
+    "address_hint": "64 rue de Turenne",
+    "kind": "gallery",
+    "note": "A highly international gallery spanning canonical postwar figures, established contemporaries and younger painters."
+   },
+   {
+    "rank": 9,
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "10 avenue Matignon",
+    "kind": "gallery",
+    "note": "The prominent London gallery's permanent Paris space brings a globally recognised roster to the city."
+   },
+   {
+    "rank": 10,
+    "name": "Templon",
+    "website": "https://www.templon.com",
+    "neighborhood": "Marais",
+    "address_hint": "30 rue Beaubourg",
+    "kind": "gallery",
+    "note": "A pillar of the Paris scene since 1966, with deep ties to American, European and French contemporary art."
+   },
+   {
+    "rank": 11,
+    "name": "Galleria Continua",
+    "website": "https://www.galleriacontinua.com",
+    "neighborhood": "Marais",
+    "address_hint": "87 rue du Temple",
+    "kind": "gallery",
+    "note": "An internationally expansive gallery distinguished by ambitious installations and a geographically diverse roster."
+   },
+   {
+    "rank": 12,
+    "name": "Galerie Chantal Crousel",
+    "website": "https://www.crousel.com",
+    "neighborhood": "Marais",
+    "address_hint": "10 rue Charlot",
+    "kind": "gallery",
+    "note": "A defining Paris gallery for conceptually rigorous international art, with sustained institutional influence."
+   },
+   {
+    "rank": 13,
+    "name": "Galerie Nathalie Obadia",
+    "website": "https://www.nathalieobadia.com",
+    "neighborhood": "Marais",
+    "address_hint": "3 rue du Cloître Saint-Merri",
+    "kind": "gallery",
+    "note": "A major French gallery with a strong transatlantic programme and extensive museum and fair visibility."
+   },
+   {
+    "rank": 14,
+    "name": "Galerie Lelong & Co.",
+    "website": "https://www.galerie-lelong.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "13 rue de Téhéran",
+    "kind": "gallery",
+    "note": "A longstanding postwar and contemporary gallery representing important artists and estates internationally."
+   },
+   {
+    "rank": 15,
+    "name": "Galerie Max Hetzler",
+    "website": "https://www.maxhetzler.com",
+    "neighborhood": "Marais",
+    "address_hint": "46 rue du Temple",
+    "kind": "gallery",
+    "note": "An influential European gallery with a formidable roster spanning German postwar art and global contemporaries."
+   },
+   {
+    "rank": 16,
+    "name": "Massimo De Carlo",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "Marais",
+    "address_hint": "54 rue de Turenne",
+    "kind": "gallery",
+    "note": "The Paris outpost of the important Milan-founded gallery, noted for adventurous cross-generational programming."
+   },
+   {
+    "rank": 17,
+    "name": "Esther Schipper",
+    "website": "https://www.estherschipper.com",
+    "neighborhood": "Place Vendôme/1st",
+    "address_hint": "16 place Vendôme",
+    "kind": "gallery",
+    "note": "An internationally important gallery for conceptual, installation and time-based art, now with a permanent Paris presence."
+   },
+   {
+    "rank": 18,
+    "name": "Skarstedt",
+    "website": "https://www.skarstedt.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "2 avenue Matignon",
+    "kind": "gallery",
+    "note": "A major secondary-market and contemporary gallery presenting canonical American and European artists."
+   },
+   {
+    "rank": 19,
+    "name": "Mendes Wood DM",
+    "website": "https://mendeswooddm.com",
+    "neighborhood": "Marais",
+    "address_hint": "25 place des Vosges",
+    "kind": "gallery",
+    "note": "A globally influential Brazilian-founded gallery with a distinctive, critically engaged international programme."
+   },
+   {
+    "rank": 20,
+    "name": "gb agency",
+    "website": "https://www.gbagency.fr",
+    "neighborhood": "Marais",
+    "address_hint": "18 rue des Quatre-Fils",
+    "kind": "gallery",
+    "note": "A key gallery for conceptual, moving-image and research-driven practices, with strong curatorial credibility."
+   },
+   {
+    "rank": 21,
+    "name": "Art : Concept",
+    "website": "https://www.artconcept.net",
+    "neighborhood": "Marais",
+    "address_hint": "4 passage Sainte-Avoye",
+    "kind": "gallery",
+    "note": "A central force in French contemporary art, known for intellectually precise and institutionally connected programming."
+   },
+   {
+    "rank": 22,
+    "name": "Lafayette Anticipations",
+    "website": "https://www.lafayetteanticipations.com",
+    "neighborhood": "Marais",
+    "address_hint": "9 rue du Plâtre",
+    "kind": "nonprofit",
+    "note": "A major foundation exhibition and production space commissioning ambitious work by international contemporary artists."
+   },
+   {
+    "rank": 23,
+    "name": "Marcelle Alix",
+    "website": "https://www.marcellealix.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "4 rue Jouye-Rouve",
+    "kind": "gallery",
+    "note": "A highly respected independent gallery with a distinctive programme rooted in long-term artist relationships."
+   },
+   {
+    "rank": 24,
+    "name": "Balice Hertling",
+    "website": "https://www.balicehertling.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "47 rue Ramponeau",
+    "kind": "gallery",
+    "note": "An influential gallery associated with critically prominent emerging and mid-career international artists."
+   },
+   {
+    "rank": 25,
+    "name": "High Art",
+    "website": "https://www.highart.fr",
+    "neighborhood": "Marais",
+    "address_hint": "1 rue Froissart",
+    "kind": "gallery",
+    "note": "A closely watched gallery whose concise programme has achieved substantial international institutional recognition."
+   },
+   {
+    "rank": 26,
+    "name": "Crèvecoeur",
+    "website": "https://www.galeriecrevecoeur.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "5 rue de Beaune",
+    "kind": "gallery",
+    "note": "An important platform for emerging and mid-career artists, with strong curatorial and international fair visibility."
+   },
+   {
+    "rank": 27,
+    "name": "frank elbaz",
+    "website": "https://www.frankelbaz.com",
+    "neighborhood": "Marais",
+    "address_hint": "66 rue de Turenne",
+    "kind": "gallery",
+    "note": "Known for historically informed exhibitions linking conceptual legacies, counterculture and contemporary practices."
+   },
+   {
+    "rank": 28,
+    "name": "Campoli Presti",
+    "website": "https://www.campolipresti.com",
+    "neighborhood": "Marais",
+    "address_hint": "6 rue de Braque",
+    "kind": "gallery",
+    "note": "A rigorous international gallery especially influential in conceptual, photographic and moving-image practices."
+   },
+   {
+    "rank": 29,
+    "name": "Galerie Jocelyn Wolff",
+    "website": "https://www.galeriewolff.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "78 rue Julien-Lacroix",
+    "kind": "gallery",
+    "note": "A critically esteemed gallery known for sustained support of demanding, process-led and research-oriented artists."
+   },
+   {
+    "rank": 30,
+    "name": "Loevenbruck",
+    "website": "https://www.loevenbruck.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "6 rue Jacques-Callot",
+    "kind": "gallery",
+    "note": "A distinctive gallery balancing major French figures, artist estates and unconventional contemporary practices."
+   },
+   {
+    "rank": 31,
+    "name": "Semiose",
+    "website": "https://www.semiose.com",
+    "neighborhood": "Marais",
+    "address_hint": "44 rue Quincampoix",
+    "kind": "gallery",
+    "note": "A prominent Paris gallery with a lively international programme spanning painting, installation and outsider positions."
+   },
+   {
+    "rank": 32,
+    "name": "mor charpentier",
+    "website": "https://www.mor-charpentier.com",
+    "neighborhood": "Marais",
+    "address_hint": "61 rue de Bretagne",
+    "kind": "gallery",
+    "note": "Internationally recognised for politically engaged, research-based artists, particularly from Latin America and Europe."
+   },
+   {
+    "rank": 33,
+    "name": "Sultana",
+    "website": "https://www.galeriesultana.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "10 rue Ramponeau",
+    "kind": "gallery",
+    "note": "A respected incubator of emerging practices with notable strength in queer, feminist and performative art."
+   },
+   {
+    "rank": 34,
+    "name": "Fitzpatrick Gallery",
+    "website": "https://fitzpatrick.gallery",
+    "neighborhood": "Marais",
+    "address_hint": "123 rue de Turenne",
+    "kind": "gallery",
+    "note": "A critically alert gallery presenting influential younger international artists in tightly curated exhibitions."
+   },
+   {
+    "rank": 35,
+    "name": "Meyer Riegger",
+    "website": "https://www.meyerriegger.de",
+    "neighborhood": "Marais",
+    "address_hint": "43 rue du Temple",
+    "kind": "gallery",
+    "note": "The Paris space of an established German gallery with a strong roster of internationally exhibited artists."
+   },
+   {
+    "rank": 36,
+    "name": "Fondation Pernod Ricard",
+    "website": "https://www.fondation-pernod-ricard.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "1 cours Paul Ricard",
+    "kind": "nonprofit",
+    "note": "A central nonprofit platform for the French scene, noted for exhibitions, commissions and its influential annual prize."
+   },
+   {
+    "rank": 37,
+    "name": "KADIST Paris",
+    "website": "https://kadist.org",
+    "neighborhood": "Montmartre/18th",
+    "address_hint": "19 bis rue des Trois-Frères",
+    "kind": "nonprofit",
+    "note": "Part of a globally networked nonprofit supporting socially engaged art through exhibitions, residencies and commissions."
+   },
+   {
+    "rank": 38,
+    "name": "Le Plateau, Frac Île-de-France",
+    "website": "https://www.fraciledefrance.com",
+    "neighborhood": "19th arrondissement",
+    "address_hint": "22 rue des Alouettes",
+    "kind": "nonprofit",
+    "note": "An important public exhibition space presenting experimental contemporary art and collection-based projects."
+   },
+   {
+    "rank": 39,
+    "name": "Bétonsalon – Centre d'art et de recherche",
+    "website": "https://www.betonsalon.net",
+    "neighborhood": "13th arrondissement",
+    "address_hint": "9 esplanade Pierre Vidal-Naquet",
+    "kind": "nonprofit",
+    "note": "A leading research-oriented art centre known for discursive, postcolonial and interdisciplinary programmes."
+   },
+   {
+    "rank": 40,
+    "name": "Galerie Georges-Philippe & Nathalie Vallois",
+    "website": "https://www.galerie-vallois.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "36 rue de Seine",
+    "kind": "gallery",
+    "note": "A longstanding gallery bridging Nouveau Réalisme and other postwar histories with established contemporary artists."
+   },
+   {
+    "rank": 41,
+    "name": "Jeanne Bucher Jaeger",
+    "website": "https://jeannebucherjaeger.com",
+    "neighborhood": "Marais",
+    "address_hint": "5 rue de Saintonge",
+    "kind": "gallery",
+    "note": "A historic Paris gallery whose modernist legacy supports an active, internationally oriented contemporary programme."
+   },
+   {
+    "rank": 42,
+    "name": "Galerie Karsten Greve",
+    "website": "https://www.galerie-karsten-greve.com",
+    "neighborhood": "Marais",
+    "address_hint": "5 rue Debelleyme",
+    "kind": "gallery",
+    "note": "An established European gallery with major postwar artists, important estates and museum-level exhibitions."
+   },
+   {
+    "rank": 43,
+    "name": "Tornabuoni Art",
+    "website": "https://www.tornabuoniart.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "16 avenue Matignon",
+    "kind": "gallery",
+    "note": "A powerful specialist in Italian postwar art that also stages substantial contemporary exhibitions."
+   },
+   {
+    "rank": 44,
+    "name": "Jousse Entreprise",
+    "website": "https://www.jousse-entreprise.com",
+    "neighborhood": "Marais",
+    "address_hint": "6 rue Saint-Claude",
+    "kind": "gallery",
+    "note": "An established gallery supporting conceptually ambitious artists across installation, photography, film and sculpture."
+   },
+   {
+    "rank": 45,
+    "name": "Galerie Christophe Gaillard",
+    "website": "https://www.christophegaillard.com",
+    "neighborhood": "Marais",
+    "address_hint": "5 rue Chapon",
+    "kind": "gallery",
+    "note": "Noted for rediscovering overlooked practices while maintaining a strong programme of contemporary artists."
+   },
+   {
+    "rank": 46,
+    "name": "Galerie Mitterrand",
+    "website": "https://www.galeriemitterrand.com",
+    "neighborhood": "Marais",
+    "address_hint": "79 rue du Temple",
+    "kind": "gallery",
+    "note": "A longstanding gallery especially strong in large-scale sculpture, public art and established international artists."
+   },
+   {
+    "rank": 47,
+    "name": "Marguo",
+    "website": "https://www.marguo.com",
+    "neighborhood": "Marais",
+    "address_hint": "4 rue des Minimes",
+    "kind": "gallery",
+    "note": "A fast-rising gallery with a cross-cultural programme and growing presence at significant international fairs."
+   },
+   {
+    "rank": 48,
+    "name": "Ketabi Bourdet",
+    "website": "https://www.ketabibourdet.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "22 passage Dauphine",
+    "kind": "gallery",
+    "note": "A dynamic young gallery combining contemporary positions with reassessments of under-recognised postwar artists."
+   },
+   {
+    "rank": 49,
+    "name": "Galerie Imane Farès",
+    "website": "https://www.imanefares.com",
+    "neighborhood": "Saint-Germain",
+    "address_hint": "41 rue Mazarine",
+    "kind": "gallery",
+    "note": "A rigorous gallery supporting artists from Africa and the Middle East through research-intensive international practices."
+   },
+   {
+    "rank": 50,
+    "name": "Galerie Cécile Fakhoury",
+    "website": "https://www.cecilefakhoury.com",
+    "neighborhood": "Avenue Matignon/8th",
+    "address_hint": "29 avenue Matignon",
+    "kind": "gallery",
+    "note": "A leading platform for contemporary artists from Africa and its diaspora, with strong institutional momentum."
+   },
+   {
+    "rank": 51,
+    "name": "MAGNIN-A",
+    "website": "https://www.magnin-a.com",
+    "neighborhood": "11th arrondissement",
+    "address_hint": "118 boulevard Richard-Lenoir",
+    "kind": "gallery",
+    "note": "A highly influential specialist in modern and contemporary African art with decades of curatorial expertise."
+   },
+   {
+    "rank": 52,
+    "name": "Galerie Anne de Villepoix",
+    "website": "https://www.annedevillepoix.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "18 rue du Moulin-Joly",
+    "kind": "gallery",
+    "note": "A pioneering Paris gallery for artists from Africa and the diaspora alongside wider international practices."
+   },
+   {
+    "rank": 53,
+    "name": "Galerie Allen",
+    "website": "https://www.galerieallen.com",
+    "neighborhood": "10th arrondissement",
+    "address_hint": "3 rue de Dunkerque",
+    "kind": "gallery",
+    "note": "An artist-centred gallery known for experimental formats, collaborative exhibition-making and critical independence."
+   },
+   {
+    "rank": 54,
+    "name": "Parliament",
+    "website": "https://www.parliament.gallery",
+    "neighborhood": "10th arrondissement",
+    "address_hint": "36 rue d'Enghien",
+    "kind": "gallery",
+    "note": "A closely watched gallery presenting conceptually engaged emerging artists with increasing international visibility."
+   },
+   {
+    "rank": 55,
+    "name": "sans titre",
+    "website": "https://www.sanstitre.gallery",
+    "neighborhood": "Marais",
+    "address_hint": "13 rue Michel-le-Comte",
+    "kind": "gallery",
+    "note": "An agile young gallery whose emerging programme has quickly gained curatorial and art-fair attention."
+   },
+   {
+    "rank": 56,
+    "name": "Galerie Derouillon",
+    "website": "https://www.galeriederouillon.com",
+    "neighborhood": "Marais",
+    "address_hint": "13 rue de Turbigo",
+    "kind": "gallery",
+    "note": "A prominent younger gallery with particular strength in contemporary painting and international emerging artists."
+   },
+   {
+    "rank": 57,
+    "name": "Galerie Jérôme Poggi",
+    "website": "https://www.galeriepoggi.com",
+    "neighborhood": "Marais",
+    "address_hint": "2 rue Beaubourg",
+    "kind": "gallery",
+    "note": "An established gallery combining contemporary practices, historical research and sustained institutional advocacy."
+   },
+   {
+    "rank": 58,
+    "name": "Les filles du calvaire",
+    "website": "https://www.fillesducalvaire.com",
+    "neighborhood": "Marais",
+    "address_hint": "17 rue des Filles-du-Calvaire",
+    "kind": "gallery",
+    "note": "A longstanding gallery with notable strength in photography, feminist perspectives and cross-media practices."
+   },
+   {
+    "rank": 59,
+    "name": "Galerie Suzanne Tarasieve",
+    "website": "https://www.suzanne-tarasieve.com",
+    "neighborhood": "Marais",
+    "address_hint": "7 rue Pastourelle",
+    "kind": "gallery",
+    "note": "An idiosyncratic, respected gallery known for forceful painting, photography and transgressive international positions."
+   },
+   {
+    "rank": 60,
+    "name": "Galerie Anne Barrault",
+    "website": "https://www.annebarrault.com",
+    "neighborhood": "Marais",
+    "address_hint": "51 rue des Archives",
+    "kind": "gallery",
+    "note": "A durable independent gallery supporting distinctive artists across drawing, film, installation and narrative practices."
+   },
+   {
+    "rank": 61,
+    "name": "Galerie Éric Dupont",
+    "website": "https://www.eric-dupont.com",
+    "neighborhood": "Marais",
+    "address_hint": "138 rue du Temple",
+    "kind": "gallery",
+    "note": "A longstanding Paris gallery recognised for sustained artist development and materially ambitious exhibitions."
+   },
+   {
+    "rank": 62,
+    "name": "Galerie Papillon",
+    "website": "https://www.galeriepapillonparis.com",
+    "neighborhood": "Marais",
+    "address_hint": "13 rue Chapon",
+    "kind": "gallery",
+    "note": "A multigenerational gallery with durable commitments to sculpture, drawing and environmentally engaged work."
+   },
+   {
+    "rank": 63,
+    "name": "Galerie Laurent Godin",
+    "website": "https://www.laurentgodin.com",
+    "neighborhood": "13th arrondissement",
+    "address_hint": "36 bis rue Eugène-Oudiné",
+    "kind": "gallery",
+    "note": "A respected gallery whose carefully selected artists receive substantial French and international institutional attention."
+   },
+   {
+    "rank": 64,
+    "name": "Bendana | Pinel Art Contemporain",
+    "website": "https://www.bendana-pinel.com",
+    "neighborhood": "Marais",
+    "address_hint": "4 rue du Perche",
+    "kind": "gallery",
+    "note": "An internationally oriented gallery supporting artists from varied geographies and conceptually diverse practices."
+   },
+   {
+    "rank": 65,
+    "name": "Alberta Pane",
+    "website": "https://www.albertapane.com",
+    "neighborhood": "Marais",
+    "address_hint": "47 rue de Montmorency",
+    "kind": "gallery",
+    "note": "A Paris-Venice gallery known for performance, installation and socially or ecologically engaged practices."
+   },
+   {
+    "rank": 66,
+    "name": "Galerie Dix9 Hélène Lacharmoise",
+    "website": "https://www.galeriedix9.com",
+    "neighborhood": "Marais",
+    "address_hint": "19 rue des Filles-du-Calvaire",
+    "kind": "gallery",
+    "note": "A sustained international programme attentive to migration, identity and cross-cultural contemporary practices."
+   },
+   {
+    "rank": 67,
+    "name": "Praz-Delavallade",
+    "website": "https://www.praz-delavallade.com",
+    "neighborhood": "Marais",
+    "address_hint": "5 rue des Haudriettes",
+    "kind": "gallery",
+    "note": "A Franco-American gallery with a long record of presenting contemporary painting, sculpture and installation."
+   },
+   {
+    "rank": 68,
+    "name": "Ceysson & Bénétière",
+    "website": "https://www.ceyssonbenetiere.com",
+    "neighborhood": "Marais",
+    "address_hint": "23 rue du Renard",
+    "kind": "gallery",
+    "note": "An internationally active French gallery linking Supports/Surfaces histories to younger European and American artists."
+   },
+   {
+    "rank": 69,
+    "name": "Rabouan Moussion",
+    "website": "https://www.rabouanmoussion.com",
+    "neighborhood": "Marais",
+    "address_hint": "11 rue Pastourelle",
+    "kind": "gallery",
+    "note": "A well-established gallery balancing recognised French artists with photography, installation and urban practices."
+   },
+   {
+    "rank": 70,
+    "name": "Galerie Sator",
+    "website": "https://www.galeriesator.com",
+    "neighborhood": "Marais",
+    "address_hint": "8 passage des Gravilliers",
+    "kind": "gallery",
+    "note": "Known for politically and socially engaged artists working across video, installation, painting and research."
+   },
+   {
+    "rank": 71,
+    "name": "Galerie Maubert",
+    "website": "https://www.galeriemaubert.com",
+    "neighborhood": "Marais",
+    "address_hint": "20 rue Saint-Gilles",
+    "kind": "gallery",
+    "note": "A focused gallery supporting research-led work around landscape, technology, ecology and systems of representation."
+   },
+   {
+    "rank": 72,
+    "name": "Galerie Dohyang Lee",
+    "website": "https://www.galeriedohyanglee.com",
+    "neighborhood": "Marais",
+    "address_hint": "73–75 rue Quincampoix",
+    "kind": "gallery",
+    "note": "A respected independent venue for experimental, politically attentive and cross-disciplinary contemporary practices."
+   },
+   {
+    "rank": 73,
+    "name": "Galerie Anne-Sarah Bénichou",
+    "website": null,
+    "neighborhood": "Marais",
+    "address_hint": "45 rue Chapon",
+    "kind": "gallery",
+    "note": "A rising gallery pairing emerging artists with historically informed projects and strong curatorial framing."
+   },
+   {
+    "rank": 74,
+    "name": "Galerie Maria Lund",
+    "website": "https://www.marialund.com",
+    "neighborhood": "Marais",
+    "address_hint": "48 rue de Turenne",
+    "kind": "gallery",
+    "note": "A longstanding gallery with a distinctive Franco-Scandinavian programme spanning painting, sculpture and craft-informed work."
+   },
+   {
+    "rank": 75,
+    "name": "Galerie Bernard Bouche",
+    "website": null,
+    "neighborhood": "Marais",
+    "address_hint": "123 rue Vieille-du-Temple",
+    "kind": "gallery",
+    "note": "A quietly influential gallery devoted to rigorous abstraction, material experimentation and long-term artist relationships."
+   },
+   {
+    "rank": 76,
+    "name": "Hussenot",
+    "website": "https://www.hussenot.com",
+    "neighborhood": "Marais",
+    "address_hint": "5 bis rue des Haudriettes",
+    "kind": "gallery",
+    "note": "A compact, critically minded gallery presenting international artists with particular strength in contemporary painting."
+   },
+   {
+    "rank": 77,
+    "name": "PACT",
+    "website": null,
+    "neighborhood": "Marais",
+    "address_hint": "70 rue des Gravilliers",
+    "kind": "gallery",
+    "note": "An emerging-focused gallery recognised for tightly curated exhibitions and adventurous interdisciplinary practices."
+   },
+   {
+    "rank": 78,
+    "name": "Galerie Claire Gastaud",
+    "website": "https://www.claire-gastaud.com",
+    "neighborhood": "Marais",
+    "address_hint": "37 rue Chapon",
+    "kind": "gallery",
+    "note": "An established French gallery with a broad contemporary roster and consistent national art-fair presence."
+   },
+   {
+    "rank": 79,
+    "name": "Double V Gallery",
+    "website": "https://www.double-v-gallery.com",
+    "neighborhood": "Marais",
+    "address_hint": "28 rue Saint-Claude",
+    "kind": "gallery",
+    "note": "A Marseille- and Paris-based gallery supporting a younger generation across painting, sculpture and installation."
+   },
+   {
+    "rank": 80,
+    "name": "A Gentil Carioca",
+    "website": "https://www.agentilcarioca.com.br",
+    "neighborhood": "Saint-Germain",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "The Paris space of the influential Brazilian gallery brings important Afro-Brazilian and experimental practices to Europe."
+   },
+   {
+    "rank": 81,
+    "name": "HdM Gallery",
+    "website": "https://www.hdmgallery.com",
+    "neighborhood": "Marais",
+    "address_hint": "46 rue Chapon",
+    "kind": "gallery",
+    "note": "An established cross-cultural gallery connecting Chinese contemporary artists with European and international audiences."
+   },
+   {
+    "rank": 82,
+    "name": "193 Gallery",
+    "website": "https://www.193gallery.com",
+    "neighborhood": "Marais",
+    "address_hint": "24 rue Béranger",
+    "kind": "gallery",
+    "note": "A fast-growing gallery centred on artists from the Caribbean, Africa, Latin America and their diasporas."
+   },
+   {
+    "rank": 83,
+    "name": "AFIKARIS",
+    "website": "https://www.afikaris.com",
+    "neighborhood": "Marais",
+    "address_hint": "38 rue Quincampoix",
+    "kind": "gallery",
+    "note": "A significant younger platform for contemporary African and diasporic artists with expanding international visibility."
+   },
+   {
+    "rank": 84,
+    "name": "Danysz Gallery",
+    "website": "https://www.danyszgallery.com",
+    "neighborhood": "11th arrondissement",
+    "address_hint": "78 rue Amelot",
+    "kind": "gallery",
+    "note": "An internationally active gallery influential in legitimising graffiti, street art and related contemporary practices."
+   },
+   {
+    "rank": 85,
+    "name": "Le BAL",
+    "website": "https://www.le-bal.fr",
+    "neighborhood": "18th arrondissement",
+    "address_hint": "6 impasse de la Défense",
+    "kind": "nonprofit",
+    "note": "A leading independent centre for contemporary photography, film and politically engaged image culture."
+   },
+   {
+    "rank": 86,
+    "name": "Galerie Binome",
+    "website": "https://www.galeriebinome.com",
+    "neighborhood": "Marais",
+    "address_hint": "19 rue Charlemagne",
+    "kind": "gallery",
+    "note": "A respected photography gallery focused on expanded photographic practices and experimentation with the medium."
+   },
+   {
+    "rank": 87,
+    "name": "Galerie Clémentine de la Féronnière",
+    "website": "https://www.clementinedelaferonniere.fr",
+    "neighborhood": "Île Saint-Louis",
+    "address_hint": "51 rue Saint-Louis-en-l'Île",
+    "kind": "gallery",
+    "note": "An important contemporary photography gallery representing internationally exhibited documentary and conceptual artists."
+   },
+   {
+    "rank": 88,
+    "name": "Galerie XII",
+    "website": "https://www.galeriexii.com",
+    "neighborhood": "Marais",
+    "address_hint": "14 rue des Jardins-Saint-Paul",
+    "kind": "gallery",
+    "note": "A Paris photography gallery with an international programme and regular participation in specialist fairs."
+   },
+   {
+    "rank": 89,
+    "name": "Les Douches la Galerie",
+    "website": "https://www.lesdoucheslagalerie.com",
+    "neighborhood": "10th arrondissement",
+    "address_hint": "5 rue Legouvé",
+    "kind": "gallery",
+    "note": "A respected photography gallery combining historically important bodies of work with contemporary practitioners."
+   },
+   {
+    "rank": 90,
+    "name": "Polka Galerie",
+    "website": "https://www.polkagalerie.com",
+    "neighborhood": "Marais",
+    "address_hint": "12 rue Saint-Gilles",
+    "kind": "gallery",
+    "note": "A prominent Paris venue for documentary and fine-art photography, supported by strong publishing and fair activity."
+   },
+   {
+    "rank": 91,
+    "name": "Florence Loewy",
+    "website": "https://www.florenceloewy.com",
+    "neighborhood": "Marais",
+    "address_hint": "9 rue de Thorigny",
+    "kind": "gallery",
+    "note": "A distinctive gallery and artists' book specialist with longstanding importance to conceptual publishing and editions."
+   },
+   {
+    "rank": 92,
+    "name": "mfc-michèle didier",
+    "website": "https://www.micheledidier.com",
+    "neighborhood": "Marais",
+    "address_hint": "66 rue Notre-Dame-de-Nazareth",
+    "kind": "gallery",
+    "note": "An influential publisher-gallery producing and exhibiting editions by leading conceptual and contemporary artists."
+   },
+   {
+    "rank": 93,
+    "name": "Romero-Paprocki",
+    "website": "https://www.romeropaprocki.com",
+    "neighborhood": "Marais",
+    "address_hint": "13 rue Saint-Claude",
+    "kind": "gallery",
+    "note": "A younger Paris gallery recognised for accessible but critically engaged painting, sculpture and installation programmes."
+   },
+   {
+    "rank": 94,
+    "name": "Glassbox",
+    "website": "https://www.glassbox.fr",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "4 rue Moret",
+    "kind": "nonprofit",
+    "note": "A longstanding artist-run nonprofit that provides an important experimental platform for emerging and independent practices."
+   },
+   {
+    "rank": 95,
+    "name": "DOC!",
+    "website": "https://doc.work",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "26 rue du Docteur Potain",
+    "kind": "project_space",
+    "note": "A large artist-run workspace and exhibition venue central to Paris's independent and collaborative scene."
+   },
+   {
+    "rank": 96,
+    "name": "Treize",
+    "website": null,
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "24 rue Moret",
+    "kind": "nonprofit",
+    "note": "An artist-run nonprofit known for experimental exhibitions, performances, publishing and collective research."
+   },
+   {
+    "rank": 97,
+    "name": "The Community",
+    "website": "https://thecommunity.io",
+    "neighborhood": "10th arrondissement",
+    "address_hint": "65 rue du Château-d'Eau",
+    "kind": "project_space",
+    "note": "A multidisciplinary art, fashion and publishing platform that connects emerging Paris practices with international networks."
+   },
+   {
+    "rank": 98,
+    "name": "Exo Exo",
+    "website": "https://www.exoexo.fr",
+    "neighborhood": "18th arrondissement",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "An independent curatorial platform and exhibition space recognised for experimental projects by younger international artists."
+   },
+   {
+    "rank": 99,
+    "name": "22,48 m²",
+    "website": "https://www.2248m2.com",
+    "neighborhood": "Belleville/Pantin",
+    "address_hint": "30 rue des Envierges",
+    "kind": "project_space",
+    "note": "A durable independent project space offering emerging artists room for formally and curatorially experimental exhibitions."
+   },
+   {
+    "rank": 100,
+    "name": "Drawing Lab",
+    "website": "https://www.drawinglabparis.com",
+    "neighborhood": "1st arrondissement",
+    "address_hint": "17 rue de Richelieu",
+    "kind": "nonprofit",
+    "note": "A dedicated contemporary drawing centre commissioning exhibitions that expand the medium into installation and performance."
+   }
+  ]
+ }
+}

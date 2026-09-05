@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788556518,
+ "system": "You are an art-world editor compiling a gallery guide for Brussels, Belgium. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Brussels itself (galleries whose home is\nelsewhere count only through a permanent Brussels space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Ixelles/Louise, Sablon/Centre, Saint-Gilles/Forest, Dansaert/Canal, Molenbeek/Anderlecht, Uccle) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Brussels spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Brussels, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 422,
+  "output_tokens": 18126,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.364208,
+  "seconds": 297.3
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Xavier Hufkens",
+    "website": "https://www.xavierhufkens.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Saint-Georges 6",
+    "kind": "gallery",
+    "note": "Brussels powerhouse with a museum-caliber international roster, major estates and a commanding fair presence."
+   },
+   {
+    "rank": 2,
+    "name": "WIELS",
+    "website": "https://www.wiels.org",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Avenue Van Volxem 354",
+    "kind": "nonprofit",
+    "note": "Belgium’s leading non-collecting contemporary-art institution, known internationally for ambitious exhibitions and residencies."
+   },
+   {
+    "rank": 3,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Avenue Louise 20",
+    "kind": "gallery",
+    "note": "The Brussels branch of a major global gallery representing influential postwar and contemporary artists."
+   },
+   {
+    "rank": 4,
+    "name": "Gladstone Gallery",
+    "website": "https://www.gladstonegallery.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue du Grand Cerf 12",
+    "kind": "gallery",
+    "note": "Long-standing Brussels outpost of an internationally dominant gallery with an exceptional artist and estate roster."
+   },
+   {
+    "rank": 5,
+    "name": "Galerie Greta Meert",
+    "website": "https://www.galeriegretameert.com",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue du Canal 13",
+    "kind": "gallery",
+    "note": "A foundational Brussels gallery respected for rigorous conceptual, minimal and postwar programmes."
+   },
+   {
+    "rank": 6,
+    "name": "Jan Mot",
+    "website": "https://www.janmot.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue du Petit Sablon 10",
+    "kind": "gallery",
+    "note": "Highly influential conceptual gallery representing artists central to institutional and art-historical discourse."
+   },
+   {
+    "rank": 7,
+    "name": "Rodolphe Janssen",
+    "website": "https://www.rodolphejanssen.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de Livourne 35",
+    "kind": "gallery",
+    "note": "A leading Belgian gallery with three decades of adventurous programming and strong international fair visibility."
+   },
+   {
+    "rank": 8,
+    "name": "C L E A R I N G",
+    "website": "https://www.c-l-e-a-r-i-n-g.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Avenue Van Volxem 311",
+    "kind": "gallery",
+    "note": "Internationally influential gallery that helped make Forest a destination for emerging and mid-career art."
+   },
+   {
+    "rank": 9,
+    "name": "Baronian",
+    "website": "https://baronian.eu",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de la Concorde 33",
+    "kind": "gallery",
+    "note": "One of Brussels’ longest-running contemporary galleries, with a historically important Belgian and international programme."
+   },
+   {
+    "rank": 10,
+    "name": "La Loge",
+    "website": "https://www.la-loge.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de l’Ermitage 86",
+    "kind": "nonprofit",
+    "note": "Internationally regarded nonprofit commissioning thoughtful exhibitions in a distinctive former Masonic temple."
+   },
+   {
+    "rank": 11,
+    "name": "dépendance",
+    "website": "https://dependance.be",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue du Marché aux Porcs 4",
+    "kind": "gallery",
+    "note": "A defining Brussels gallery for critically engaged, conceptually driven artists with strong institutional careers."
+   },
+   {
+    "rank": 12,
+    "name": "Meessen",
+    "website": "https://www.meessen.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de l’Abbaye 2A",
+    "kind": "gallery",
+    "note": "Research-oriented programme connecting contemporary practice with colonial histories, politics and visual culture."
+   },
+   {
+    "rank": 13,
+    "name": "Templon",
+    "website": "https://www.templon.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Veydt 13A",
+    "kind": "gallery",
+    "note": "Brussels space of the prominent French gallery, presenting internationally established contemporary artists."
+   },
+   {
+    "rank": 14,
+    "name": "Galerie Nathalie Obadia",
+    "website": "https://www.nathalieobadia.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Charles Decoster 8",
+    "kind": "gallery",
+    "note": "Major Paris-Brussels gallery with a strong multinational roster and regular blue-chip fair participation."
+   },
+   {
+    "rank": 15,
+    "name": "argos centre for audiovisual arts",
+    "website": "https://www.argosarts.org",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue du Chantier 13",
+    "kind": "nonprofit",
+    "note": "Essential institution for artists’ film, video, media art and one of Europe’s important audiovisual archives."
+   },
+   {
+    "rank": 16,
+    "name": "Michel Rein",
+    "website": "https://michelrein.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Washington 51A",
+    "kind": "gallery",
+    "note": "Politically alert international programme with sustained institutional and biennial recognition."
+   },
+   {
+    "rank": 17,
+    "name": "Mendes Wood DM",
+    "website": "https://mendeswooddm.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue des Sablons 13",
+    "kind": "gallery",
+    "note": "Brussels branch of the influential transatlantic gallery known for globally minded, intergenerational programming."
+   },
+   {
+    "rank": 18,
+    "name": "Dvir Gallery",
+    "website": "https://dvirgallery.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "International gallery with a demanding conceptual programme and artists prominent in museums and biennials."
+   },
+   {
+    "rank": 19,
+    "name": "Maruani Mercier",
+    "website": "https://www.maruanimercier.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Avenue Louise 430",
+    "kind": "gallery",
+    "note": "Established Brussels gallery pairing prominent American and European artists with major secondary-market exhibitions."
+   },
+   {
+    "rank": 20,
+    "name": "Stems Gallery",
+    "website": "https://stems-gallery.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Avenue Van Volxem 482",
+    "kind": "gallery",
+    "note": "Fast-rising international gallery recognized for shaping markets around a younger generation of painters and sculptors."
+   },
+   {
+    "rank": 21,
+    "name": "BOZAR",
+    "website": "https://www.bozar.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Ravenstein 23",
+    "kind": "nonprofit",
+    "note": "Belgium’s major multidisciplinary arts centre, regularly mounting consequential modern and contemporary exhibitions."
+   },
+   {
+    "rank": 22,
+    "name": "Sorry We’re Closed",
+    "website": "https://sorrywereclosed.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Régence 67",
+    "kind": "gallery",
+    "note": "Distinctive gallery known for idiosyncratic, psychologically charged work and a strong international collector following."
+   },
+   {
+    "rank": 23,
+    "name": "La Patinoire Royale Bach",
+    "website": "https://www.prvbgallery.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Veydt 15",
+    "kind": "gallery",
+    "note": "Monumental former skating rink presenting large-scale contemporary exhibitions and historically grounded surveys."
+   },
+   {
+    "rank": 24,
+    "name": "Super Dakota",
+    "website": "https://superdakota.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Washington 45",
+    "kind": "gallery",
+    "note": "Forward-looking programme focused on technology, image culture and emerging international practices."
+   },
+   {
+    "rank": 25,
+    "name": "Établissement d’en face",
+    "website": "https://www.etablissementdenface.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue de la Victoire 96",
+    "kind": "nonprofit",
+    "note": "Long-running artist-led institution central to Brussels’ experimental and discursive art ecology."
+   },
+   {
+    "rank": 26,
+    "name": "Irène Laub Gallery",
+    "website": "https://irenelaubgallery.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Van Eyck 29",
+    "kind": "gallery",
+    "note": "Respected Brussels gallery supporting conceptually rigorous emerging and established international artists."
+   },
+   {
+    "rank": 27,
+    "name": "Harlan Levey Projects",
+    "website": "https://hl-projects.com",
+    "neighborhood": "Molenbeek/Anderlecht",
+    "address_hint": "Rue Isidoor Teirlinck 65",
+    "kind": "gallery",
+    "note": "Internationally active gallery known for socially engaged, technological and research-based practices."
+   },
+   {
+    "rank": 28,
+    "name": "Hopstreet Gallery",
+    "website": "https://hopstreet.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Saint-Georges 109",
+    "kind": "gallery",
+    "note": "Established Belgian gallery with a consistent intergenerational programme and notable institutional placements."
+   },
+   {
+    "rank": 29,
+    "name": "Keteleer Gallery",
+    "website": "https://keteleer.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Van Eyck 26",
+    "kind": "gallery",
+    "note": "Prominent Belgian gallery presenting established national figures alongside internationally visible contemporary artists."
+   },
+   {
+    "rank": 30,
+    "name": "Nosbaum Reding",
+    "website": "https://www.nosbaumreding.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de la Concorde 60",
+    "kind": "gallery",
+    "note": "Luxembourg-founded gallery whose permanent Brussels space brings a strong European programme to the city."
+   },
+   {
+    "rank": 31,
+    "name": "Nino Mier Gallery",
+    "website": "https://www.ninomiergallery.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Ernest Allard 25",
+    "kind": "gallery",
+    "note": "Brussels outpost of a high-profile international gallery particularly visible in contemporary painting."
+   },
+   {
+    "rank": 32,
+    "name": "Mitterrand",
+    "website": "https://www.mitterrand.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Régence 67",
+    "kind": "gallery",
+    "note": "Belgian branch of the established Paris gallery, with strength in sculpture, estates and historically important artists."
+   },
+   {
+    "rank": 33,
+    "name": "Galerie Christophe Gaillard",
+    "website": "https://galeriegaillard.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Régence 67",
+    "kind": "gallery",
+    "note": "Brussels branch extending a respected French programme of contemporary artists and rediscovered historical positions."
+   },
+   {
+    "rank": 34,
+    "name": "CENTRALE for contemporary art",
+    "website": "https://centrale.brussels",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Place Sainte-Catherine 44",
+    "kind": "nonprofit",
+    "note": "Brussels’ municipal contemporary-art centre, combining established figures, local scenes and emerging practices."
+   },
+   {
+    "rank": 35,
+    "name": "LMNO",
+    "website": "https://lmno.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de la Concorde 31",
+    "kind": "gallery",
+    "note": "Compact but ambitious gallery supporting emerging artists through carefully staged exhibitions and fairs."
+   },
+   {
+    "rank": 36,
+    "name": "Ballon Rouge",
+    "website": "https://www.balloonrougecollective.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Place du Jardin aux Fleurs 2",
+    "kind": "gallery",
+    "note": "Internationally minded platform and gallery known for identifying artists early and building cross-border networks."
+   },
+   {
+    "rank": 37,
+    "name": "Waldburger Wouters",
+    "website": "https://www.waldburgerwouters.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Independent gallery valued for intellectually exacting exhibitions and long-term artist development."
+   },
+   {
+    "rank": 38,
+    "name": "Damien & The Love Guru",
+    "website": "https://www.damientheloveguru.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue de Tamines 19",
+    "kind": "gallery",
+    "note": "Cult Brussels gallery with an experimental programme and a strong reputation among artists and curators."
+   },
+   {
+    "rank": 39,
+    "name": "Pierre Marie Giraud",
+    "website": "https://www.pierremariegiraud.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de Praetere 7",
+    "kind": "gallery",
+    "note": "Internationally important gallery at the intersection of contemporary sculpture, ceramics and collectible design."
+   },
+   {
+    "rank": 40,
+    "name": "MANIERA",
+    "website": "https://www.maniera.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Place de la Justice 27",
+    "kind": "gallery",
+    "note": "Globally influential gallery commissioning architects and artists to create experimental furniture and objects."
+   },
+   {
+    "rank": 41,
+    "name": "KIN",
+    "website": "https://kinbrussels.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Ravenstein 37",
+    "kind": "nonprofit",
+    "note": "Curatorial platform founded to connect younger practices with international institutional debate."
+   },
+   {
+    "rank": 42,
+    "name": "Spazio Nobile",
+    "website": "https://www.spazionobile.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Franz Merjay 142",
+    "kind": "gallery",
+    "note": "Internationally visible gallery for contemporary applied arts, sculpture, ceramics and collectible design."
+   },
+   {
+    "rank": 43,
+    "name": "Komplot",
+    "website": "https://komplot.brussels",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Avenue Van Volxem 295",
+    "kind": "nonprofit",
+    "note": "Long-standing curatorial collective producing experimental exhibitions, publications and artist-led collaborations."
+   },
+   {
+    "rank": 44,
+    "name": "ISELP",
+    "website": "https://iselp.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Boulevard de Waterloo 31",
+    "kind": "nonprofit",
+    "note": "Historic Brussels institute combining contemporary exhibitions with research, talks and critical education."
+   },
+   {
+    "rank": 45,
+    "name": "iMAL",
+    "website": "https://www.imal.org",
+    "neighborhood": "Molenbeek/Anderlecht",
+    "address_hint": "Quai des Charbonnages 30–34",
+    "kind": "nonprofit",
+    "note": "Leading Brussels centre for digital cultures, new media, sound and technologically engaged art."
+   },
+   {
+    "rank": 46,
+    "name": "La Verrière",
+    "website": "https://www.fondationdentreprisehermes.org",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Boulevard de Waterloo 50",
+    "kind": "nonprofit",
+    "note": "Hermès Foundation exhibition space commissioning tightly curated projects from international contemporary artists."
+   },
+   {
+    "rank": 47,
+    "name": "Fondation CAB",
+    "website": "https://fondationcab.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Borrens 32–34",
+    "kind": "nonprofit",
+    "note": "Private foundation recognized for substantial exhibitions of minimal, conceptual and contemporary art."
+   },
+   {
+    "rank": 48,
+    "name": "Fondation Thalie",
+    "website": "https://fondationthalie.org",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Buchholtz 15",
+    "kind": "nonprofit",
+    "note": "Foundation presenting contemporary exhibitions, commissions and residencies with ecological and literary dimensions."
+   },
+   {
+    "rank": 49,
+    "name": "Hangar",
+    "website": "https://www.hangar.art",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Place du Châtelain 18",
+    "kind": "nonprofit",
+    "note": "Major Brussels photography centre with international exhibitions, commissions and a prominent annual programme."
+   },
+   {
+    "rank": 50,
+    "name": "Contretype",
+    "website": "https://www.contretype.org",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Cité Fontainas 4A",
+    "kind": "nonprofit",
+    "note": "Important nonprofit devoted to contemporary photography, artist residencies, production and publishing."
+   },
+   {
+    "rank": 51,
+    "name": "Le Botanique",
+    "website": "https://botanique.be",
+    "neighborhood": "Saint-Josse-ten-Noode",
+    "address_hint": "Rue Royale 236",
+    "kind": "nonprofit",
+    "note": "Major cultural centre with a long-running visual-arts programme emphasizing Belgian and emerging photography and art."
+   },
+   {
+    "rank": 52,
+    "name": "Cloud Seven",
+    "website": "https://cloudseven.be",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Quai du Commerce 7",
+    "kind": "nonprofit",
+    "note": "Private nonprofit art space presenting curated exhibitions from a significant international contemporary collection."
+   },
+   {
+    "rank": 53,
+    "name": "Fondation Boghossian – Villa Empain",
+    "website": "https://www.villaempain.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Avenue Franklin Roosevelt 67",
+    "kind": "nonprofit",
+    "note": "Architecturally distinguished foundation producing international exhibitions across contemporary art and cultural history."
+   },
+   {
+    "rank": 54,
+    "name": "Gauli Zitter",
+    "website": "https://gaulizitter.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Thérésienne 4",
+    "kind": "gallery",
+    "note": "Artist-focused young gallery admired for nuanced exhibitions and a distinctive emerging programme."
+   },
+   {
+    "rank": 55,
+    "name": "Night Café",
+    "website": "https://nightcafe.gallery",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue de Flandre 162",
+    "kind": "gallery",
+    "note": "Independent gallery with an agile international programme and growing relevance to Brussels’ younger scene."
+   },
+   {
+    "rank": 56,
+    "name": "Galerie Felix Frachon",
+    "website": "https://felixfrachon.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Chaussée de Charleroi 5",
+    "kind": "gallery",
+    "note": "Cross-cultural programme foregrounding emerging practices from Africa, Asia, Latin America and Europe."
+   },
+   {
+    "rank": 57,
+    "name": "Galerie La Forest Divonne",
+    "website": "https://www.galerielaforestdivonne.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue de l’Hôtel des Monnaies 66",
+    "kind": "gallery",
+    "note": "Established French-Belgian gallery sustaining an intergenerational programme across painting, sculpture and photography."
+   },
+   {
+    "rank": 58,
+    "name": "Frédéric Mouraux Gallery",
+    "website": "https://www.fredericmourauxgallery.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue du Congrès 14",
+    "kind": "gallery",
+    "note": "Independent gallery presenting conceptually grounded Belgian and international contemporary artists."
+   },
+   {
+    "rank": 59,
+    "name": "Archiraar Gallery",
+    "website": "https://www.archiraar.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de la Tulipe 31",
+    "kind": "gallery",
+    "note": "Emerging gallery recognized for materially inventive practices and close development of younger artists."
+   },
+   {
+    "rank": 60,
+    "name": "Kusseneers Gallery",
+    "website": "https://kusseneers.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-established Belgian gallery with an international programme spanning conceptual art, painting and sculpture."
+   },
+   {
+    "rank": 61,
+    "name": "10N Gallery",
+    "website": "https://10n.gallery",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Avenue de la Toison d’Or 10",
+    "kind": "gallery",
+    "note": "Young Brussels gallery building visibility for emerging international painters and multidisciplinary artists."
+   },
+   {
+    "rank": 62,
+    "name": "EDJI Gallery",
+    "website": "https://edjigallery.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue du Page 15",
+    "kind": "gallery",
+    "note": "New-generation gallery focused on accessible but critically ambitious work by emerging artists."
+   },
+   {
+    "rank": 63,
+    "name": "Grège Gallery",
+    "website": "https://gregegallery.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young gallery with a carefully edited programme emphasizing materiality, intimacy and contemporary craft languages."
+   },
+   {
+    "rank": 64,
+    "name": "Gallery Nosco",
+    "website": "https://gallerynosco.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Pépinière 19",
+    "kind": "gallery",
+    "note": "International gallery supporting emerging and mid-career artists through exhibitions, residencies and fairs."
+   },
+   {
+    "rank": 65,
+    "name": "After Howl",
+    "website": "https://afterhowl.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue des Fabriques 4C",
+    "kind": "project_space",
+    "note": "Experimental artist-run venue valued for collaborative exhibitions and unconventional curatorial formats."
+   },
+   {
+    "rank": 66,
+    "name": "SB34 – The Pool",
+    "website": "https://sb34.org",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue Saint-Bernard 34",
+    "kind": "nonprofit",
+    "note": "Independent nonprofit hosting ambitious exhibitions, performances and projects by Brussels-based and international artists."
+   },
+   {
+    "rank": 67,
+    "name": "Rectangle",
+    "website": "https://rectangle.be",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue Émile Féron 189",
+    "kind": "project_space",
+    "note": "Long-running street-facing exhibition window offering concentrated solo presentations and experimental commissions."
+   },
+   {
+    "rank": 68,
+    "name": "Deborah Bowmann",
+    "website": "https://deborahbowmann.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Régence 67",
+    "kind": "project_space",
+    "note": "Artist-run curatorial project known for playful, critically sharp exhibitions and collaborations."
+   },
+   {
+    "rank": 69,
+    "name": "ELEVEN STEENS",
+    "website": "https://elevensteens.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue Steens 11",
+    "kind": "project_space",
+    "note": "Independent exhibition space supporting emerging artists and artist-organized projects in Saint-Gilles."
+   },
+   {
+    "rank": 70,
+    "name": "Q-O2",
+    "website": "https://www.q-o2.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue du Chevreuil 24",
+    "kind": "nonprofit",
+    "note": "Internationally connected workspace and presentation venue dedicated to experimental music and sound art."
+   },
+   {
+    "rank": 71,
+    "name": "Recyclart",
+    "website": "https://recyclart.be",
+    "neighborhood": "Molenbeek/Anderlecht",
+    "address_hint": "Rue de Manchester 13–15",
+    "kind": "nonprofit",
+    "note": "Influential multidisciplinary urban arts centre supporting experimental visual art, music and socially engaged production."
+   },
+   {
+    "rank": 72,
+    "name": "Globe Aroma",
+    "website": "https://www.globe-aroma.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de la Braie 26",
+    "kind": "nonprofit",
+    "note": "Open arts house creating serious exhibition and development opportunities for newcomer and refugee artists."
+   },
+   {
+    "rank": 73,
+    "name": "Pilar",
+    "website": "https://pilar.brussels",
+    "neighborhood": "Etterbeek",
+    "address_hint": "Boulevard de la Plaine 2",
+    "kind": "university",
+    "note": "VUB-affiliated contemporary arts laboratory presenting exhibitions, commissions and cross-disciplinary programmes."
+   },
+   {
+    "rank": 74,
+    "name": "W-O-L-K-E",
+    "website": "https://wolke.brussels",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue de la Verrerie 23",
+    "kind": "project_space",
+    "note": "Artist-run workspace and exhibition venue contributing to Forest’s experimental cultural network."
+   },
+   {
+    "rank": 75,
+    "name": "n0dine",
+    "website": "https://www.n0dine.com",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue de Laeken 105",
+    "kind": "project_space",
+    "note": "Independent laboratory for audiovisual, digital and interdisciplinary practices, with exhibitions and public events."
+   },
+   {
+    "rank": 76,
+    "name": "Constant",
+    "website": "https://constantvzw.org",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue du Fort 5",
+    "kind": "nonprofit",
+    "note": "Internationally respected artist-run organization exploring technology, feminism, open culture and collaborative research."
+   },
+   {
+    "rank": 77,
+    "name": "Zsenne Art Lab",
+    "website": "https://zsenne.be",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Flexible Brussels platform for emerging artists, experimental exhibitions and cross-disciplinary encounters."
+   },
+   {
+    "rank": 78,
+    "name": "Maison des Arts de Schaerbeek",
+    "website": "https://www.lamaisondesarts.be",
+    "neighborhood": "Schaerbeek",
+    "address_hint": "Chaussée de Haecht 147",
+    "kind": "nonprofit",
+    "note": "Municipal art centre presenting contemporary exhibitions in a historically significant house and garden."
+   },
+   {
+    "rank": 79,
+    "name": "Rosa Brux",
+    "website": "https://rosabrux.org",
+    "neighborhood": "Brussels-City",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-led platform supporting exhibitions, collective research and alternative modes of cultural production."
+   },
+   {
+    "rank": 80,
+    "name": "Le Lac",
+    "website": "https://www.le-lac.be",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue de Witte de Haelen 36",
+    "kind": "project_space",
+    "note": "Independent multidisciplinary venue with artist-organized exhibitions, performances and experimental gatherings."
+   },
+   {
+    "rank": 81,
+    "name": "Tête",
+    "website": "https://tete.gallery",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue de l’Enseignement 55",
+    "kind": "project_space",
+    "note": "Small artist-run gallery valued for concentrated, risk-taking presentations by emerging practitioners."
+   },
+   {
+    "rank": 82,
+    "name": "Sterput",
+    "website": "https://www.sterput.org",
+    "neighborhood": "Dansaert/Canal",
+    "address_hint": "Rue de Laeken 122",
+    "kind": "project_space",
+    "note": "Distinctive underground venue for contemporary drawing, comics, illustration and outsider-oriented visual culture."
+   },
+   {
+    "rank": 83,
+    "name": "Galerie DYS",
+    "website": "https://www.galeriedys.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue de l’Arbre Bénit 84",
+    "kind": "gallery",
+    "note": "Established local gallery with a consistent figurative and narrative contemporary-art programme."
+   },
+   {
+    "rank": 84,
+    "name": "Galerie Odradek",
+    "website": "https://www.galerieodradek.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Américaine 35",
+    "kind": "gallery",
+    "note": "Independent gallery presenting carefully curated projects by Belgian and international contemporary artists."
+   },
+   {
+    "rank": 85,
+    "name": "Galerie Faider",
+    "website": "https://www.galeriefaider.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Faider 12",
+    "kind": "gallery",
+    "note": "Long-running Brussels gallery supporting Belgian and European painting, sculpture and works on paper."
+   },
+   {
+    "rank": 86,
+    "name": "Galerie Pierre Hallet",
+    "website": "https://www.galeriepierrehallet.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue du Page 19",
+    "kind": "gallery",
+    "note": "Established neighbourhood gallery known for sustained relationships with Belgian and international artists."
+   },
+   {
+    "rank": 87,
+    "name": "Galerie Zedes",
+    "website": "https://www.galeriezedes.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue Paul Lauters 36",
+    "kind": "gallery",
+    "note": "Brussels gallery with a durable programme in contemporary sculpture, painting and photography."
+   },
+   {
+    "rank": 88,
+    "name": "Galerie Quadri",
+    "website": "https://www.galeriequadri.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Avenue Louis Lepoutre 48",
+    "kind": "gallery",
+    "note": "Long-established gallery presenting Belgian and international abstraction, painting and sculpture."
+   },
+   {
+    "rank": 89,
+    "name": "La Peau de l’Ours",
+    "website": null,
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue des Renards 6",
+    "kind": "gallery",
+    "note": "Independent Marolles gallery giving emerging artists accessible early-career exhibition opportunities."
+   },
+   {
+    "rank": 90,
+    "name": "Huberty & Breyne",
+    "website": "https://hubertybreyne.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Place du Châtelain 33",
+    "kind": "gallery",
+    "note": "Internationally prominent gallery elevating comics, drawing and narrative art within the contemporary market."
+   },
+   {
+    "rank": 91,
+    "name": "Champaka",
+    "website": "https://www.champakagallery.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Ernest Allard 27",
+    "kind": "gallery",
+    "note": "Influential gallery for original comic art, illustration and contemporary narrative drawing."
+   },
+   {
+    "rank": 92,
+    "name": "Victor Hunt Designart Dealer",
+    "website": "https://www.victor-hunt.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue des Fabriques 15",
+    "kind": "gallery",
+    "note": "Internationally recognized gallery commissioning experimental collectible design that crosses into contemporary art."
+   },
+   {
+    "rank": 93,
+    "name": "Atelier Jespers",
+    "website": "https://www.atelierjespers.com",
+    "neighborhood": "Woluwe-Saint-Pierre",
+    "address_hint": "Avenue du Prince Héritier 149",
+    "kind": "gallery",
+    "note": "Architectural house-gallery presenting collectible design and contemporary art in carefully composed installations."
+   },
+   {
+    "rank": 94,
+    "name": "Objects with Narratives",
+    "website": "https://objectswithnarratives.com",
+    "neighborhood": "Saint-Gilles/Forest",
+    "address_hint": "Rue Jean Stas 17",
+    "kind": "gallery",
+    "note": "Concept-led gallery promoting collectible objects whose research and storytelling align with contemporary-art practice."
+   },
+   {
+    "rank": 95,
+    "name": "BOX Galerie",
+    "website": "https://www.boxgalerie.be",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Chaussée de Vleurgat 102",
+    "kind": "gallery",
+    "note": "Specialist photography gallery presenting established and emerging Belgian and international image-makers."
+   },
+   {
+    "rank": 96,
+    "name": "Macadam Gallery",
+    "website": "https://www.macadamgallery.com",
+    "neighborhood": "Uccle",
+    "address_hint": "Chaussée de Waterloo 690",
+    "kind": "gallery",
+    "note": "Rivoli-based gallery showing contemporary painting, sculpture and photography in an international programme."
+   },
+   {
+    "rank": 97,
+    "name": "Rossicontemporary",
+    "website": "https://rossicontemporary.be",
+    "neighborhood": "Uccle",
+    "address_hint": "Chaussée de Waterloo 690",
+    "kind": "gallery",
+    "note": "Independent Rivoli gallery supporting emerging artists through solo exhibitions and curated group projects."
+   },
+   {
+    "rank": 98,
+    "name": "Galerie Esther Verhaeghe",
+    "website": "https://www.estherverhaeghe.com",
+    "neighborhood": "Uccle",
+    "address_hint": "Chaussée de Waterloo 690",
+    "kind": "gallery",
+    "note": "Conceptually oriented Rivoli gallery with particular attention to identity, society and cross-cultural practice."
+   },
+   {
+    "rank": 99,
+    "name": "Galerie Martine Ehmer",
+    "website": "https://www.martineehmer.com",
+    "neighborhood": "Sablon/Centre",
+    "address_hint": "Rue Haute 200",
+    "kind": "gallery",
+    "note": "Long-running Brussels gallery with a visible programme in urban art, photography and contemporary figuration."
+   },
+   {
+    "rank": 100,
+    "name": "Galerie Duret",
+    "website": "https://www.galerieduret.com",
+    "neighborhood": "Ixelles/Louise",
+    "address_hint": "Rue du Page 25",
+    "kind": "gallery",
+    "note": "Paris-Brussels gallery presenting contemporary figurative, pop-influenced and urban practices."
+   }
+  ]
+ }
+}

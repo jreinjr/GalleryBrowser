@@ -1,0 +1,715 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788557611,
+ "system": "You are an art-world editor compiling a gallery guide for Seattle, . Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Seattle itself (galleries whose home is\nelsewhere count only through a permanent Seattle space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Pioneer Square, Downtown, Capitol Hill, Ballard/Fremont, Georgetown, University District) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Seattle spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Seattle, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 58,
+  "output_tokens": 24904,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.628421,
+  "seconds": 323.6
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Greg Kucera Gallery",
+    "website": "https://www.gregkucera.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "212 Third Ave S",
+    "kind": "gallery",
+    "note": "Seattle's flagship contemporary dealer since 1983; museum-quality shows, a deep print program and the region's most consistent art-fair and institutional presence."
+   },
+   {
+    "rank": 2,
+    "name": "Traver Gallery",
+    "website": "https://www.travergallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "110 Union St, Suite 200",
+    "kind": "gallery",
+    "note": "Founded 1977; the gallery that made Northwest studio glass an international story, now balancing glass with painting and sculpture, with long-running fair participation."
+   },
+   {
+    "rank": 3,
+    "name": "Winston Wächter Fine Art",
+    "website": "https://www.winstonwachter.com",
+    "neighborhood": "South Lake Union",
+    "address_hint": "203 Dexter Ave N",
+    "kind": "gallery",
+    "note": "Seattle–New York dealer with a polished contemporary painting and photography roster and steady Art Miami / Seattle Art Fair presence."
+   },
+   {
+    "rank": 4,
+    "name": "Foster/White Gallery",
+    "website": "https://www.fosterwhite.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "220 Third Ave S",
+    "kind": "gallery",
+    "note": "Operating since 1968, one of the oldest and largest commercial spaces in the city; bridges Northwest School legacies with mid-career contemporary artists."
+   },
+   {
+    "rank": 5,
+    "name": "Wa Na Wari",
+    "website": "https://www.wanawari.org",
+    "neighborhood": "Central District",
+    "address_hint": "911 24th Ave",
+    "kind": "nonprofit",
+    "note": "Black art space in a family home in the Central District; nationally covered model for art, anti-displacement work and community archive."
+   },
+   {
+    "rank": 6,
+    "name": "ARTS at King Street Station",
+    "website": null,
+    "neighborhood": "Chinatown-International District",
+    "address_hint": "303 S Jackson St",
+    "kind": "nonprofit",
+    "note": "City-run cultural space whose top-floor gallery opened with yəhaw̓; the largest publicly programmed contemporary exhibition hall outside the museums."
+   },
+   {
+    "rank": 7,
+    "name": "MadArt Studio",
+    "website": "https://www.madartseattle.com",
+    "neighborhood": "South Lake Union",
+    "address_hint": "325 Westlake Ave N",
+    "kind": "nonprofit",
+    "note": "Commissions large-scale installations built on site in public view; has given ambitious platforms to artists such as John Grade and Lauren Iida."
+   },
+   {
+    "rank": 8,
+    "name": "SOIL Gallery",
+    "website": "https://www.soilart.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "112 Third Ave S",
+    "kind": "nonprofit",
+    "note": "Artist-run cooperative founded 1995 and the incubator for a generation of Seattle artists; still the city's most credible experimental co-op."
+   },
+   {
+    "rank": 9,
+    "name": "Davidson Galleries",
+    "website": "https://www.davidsongalleries.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "313 Occidental Ave S",
+    "kind": "gallery",
+    "note": "Since 1974 the Northwest's authority on works on paper, pairing antique master prints with a serious contemporary print and drawing program."
+   },
+   {
+    "rank": 10,
+    "name": "Linda Hodges Gallery",
+    "website": "https://www.lindahodgesgallery.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "316 First Ave S",
+    "kind": "gallery",
+    "note": "Thirty-plus years of representational and narrative painting; a core stop on the First Thursday circuit and a steady supporter of regional mid-career artists."
+   },
+   {
+    "rank": 11,
+    "name": "J. Rinehart Gallery",
+    "website": "https://www.jrinehartgallery.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "319 Third Ave S",
+    "kind": "gallery",
+    "note": "The most energetic newer commercial gallery in Pioneer Square, with a diverse emerging roster and strong Seattle Art Fair visibility."
+   },
+   {
+    "rank": 12,
+    "name": "James Harris Gallery",
+    "website": "https://www.jamesharrisgallery.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "604 Second Ave",
+    "kind": "gallery",
+    "note": "For two decades Seattle's most internationally connected program (Bunny Rogers, Claude Zervas, Robert Yoder) before closing its space in 2021; still the benchmark local dealers are measured against."
+   },
+   {
+    "rank": 13,
+    "name": "studio e",
+    "website": "https://www.studioegallery.com",
+    "neighborhood": "Georgetown",
+    "address_hint": "609 S Brandon St",
+    "kind": "gallery",
+    "note": "Dawna Holloway's compact Georgetown room with an outsized critical reputation for tightly curated shows by respected Northwest artists."
+   },
+   {
+    "rank": 14,
+    "name": "Koplin Del Rio",
+    "website": "https://www.koplindelrio.com",
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-established Los Angeles gallery that relocated to Seattle in 2017 and later joined forces with Prographica; figurative work and drawing of national standing."
+   },
+   {
+    "rank": 15,
+    "name": "Jacob Lawrence Gallery",
+    "website": null,
+    "neighborhood": "University District",
+    "address_hint": "UW School of Art, 15th Ave NE",
+    "kind": "university",
+    "note": "University of Washington's kunsthalle-style gallery; adventurous curated projects, visiting-artist shows and a link to the Jacob Lawrence legacy."
+   },
+   {
+    "rank": 16,
+    "name": "Gallery 4Culture",
+    "website": "https://www.4culture.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "101 Prefontaine Pl S",
+    "kind": "nonprofit",
+    "note": "King County's juried exhibition space; a career-launching solo slot for emerging and mid-career artists, free of commercial pressure."
+   },
+   {
+    "rank": 17,
+    "name": "Stonington Gallery",
+    "website": "https://www.stoningtongallery.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "125 S Jackson St",
+    "kind": "gallery",
+    "note": "Leading dealer of contemporary Northwest Coast and Alaska Native art since 1979, with artists collected by major museums."
+   },
+   {
+    "rank": 18,
+    "name": "Photographic Center Northwest",
+    "website": "https://www.pcnw.org",
+    "neighborhood": "Capitol Hill",
+    "address_hint": "900 12th Ave",
+    "kind": "nonprofit",
+    "note": "The region's photography hub; its gallery brings national photographers and juried surveys to Seattle audiences."
+   },
+   {
+    "rank": 19,
+    "name": "Method Gallery",
+    "website": "https://www.methodgallery.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "106 Third Ave S",
+    "kind": "nonprofit",
+    "note": "Single-installation white box devoted to site-responsive sculpture and immersive projects — a rare non-commercial platform for ambitious three-dimensional work."
+   },
+   {
+    "rank": 20,
+    "name": "Punch Gallery",
+    "website": "https://www.punchgallery.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "119 Prefontaine Pl S",
+    "kind": "nonprofit",
+    "note": "Artist-run collective since 2007 known for conceptually driven solo shows and invitational projects."
+   },
+   {
+    "rank": 21,
+    "name": "Gallery110",
+    "website": "https://www.gallery110.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "110 Third Ave S",
+    "kind": "nonprofit",
+    "note": "Long-running artist cooperative with a juried associate program; a dependable entry point for emerging Seattle artists."
+   },
+   {
+    "rank": 22,
+    "name": "Abmeyer + Wood Fine Art",
+    "website": "https://www.abmeyerwood.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1210 Second Ave",
+    "kind": "gallery",
+    "note": "Downtown gallery of contemporary sculpture, glass and painting with an international roster and consistent presence at major fairs."
+   },
+   {
+    "rank": 23,
+    "name": "Steinbrueck Native Gallery",
+    "website": "https://www.steinbruecknativegallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "2030 Western Ave",
+    "kind": "gallery",
+    "note": "Major Waterfront dealer in contemporary Northwest Coast Native art, representing established carvers, printmakers and weavers."
+   },
+   {
+    "rank": 24,
+    "name": "ArtXchange Gallery",
+    "website": "https://www.artxchange.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "512 First Ave S",
+    "kind": "gallery",
+    "note": "Globally oriented program of diaspora and immigrant artists; socially engaged exhibitions with a strong community education component."
+   },
+   {
+    "rank": 25,
+    "name": "Bryan Ohno Gallery",
+    "website": "https://www.bryanohnogallery.com",
+    "neighborhood": "Chinatown-International District",
+    "address_hint": "521 S Main St",
+    "kind": "gallery",
+    "note": "Contemporary Japanese and Asian-American art, including projects with Gerard Tsutakawa; long history of ambitious sculptural exhibitions."
+   },
+   {
+    "rank": 26,
+    "name": "Harris Harvey Gallery",
+    "website": "https://www.harrisharveygallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1915 First Ave",
+    "kind": "gallery",
+    "note": "Specialist in contemporary and historic Northwest painting near Pike Place; scholarly presentation of the regional canon."
+   },
+   {
+    "rank": 27,
+    "name": "Lisa Harris Gallery",
+    "website": "https://www.lisaharrisgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1922 Pike Pl",
+    "kind": "gallery",
+    "note": "In Pike Place Market since 1985, showing Northwest landscape and figurative painters with an unusually loyal collector base."
+   },
+   {
+    "rank": 28,
+    "name": "Patricia Rovzar Gallery",
+    "website": "https://www.rovzargallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1225 Second Ave",
+    "kind": "gallery",
+    "note": "Thirty-year-old downtown gallery of contemporary Northwest painting and mixed media, active in corporate and civic collections."
+   },
+   {
+    "rank": 29,
+    "name": "Woodside/Braseth Gallery",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Founded 1962 and Seattle's oldest continuously operating gallery; custodian of the Northwest School and its contemporary descendants."
+   },
+   {
+    "rank": 30,
+    "name": "Gallery IMA",
+    "website": "https://www.galleryima.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "123 S Jackson St",
+    "kind": "gallery",
+    "note": "Long-running Pioneer Square gallery mixing contemporary painting, sculpture and craft-based media."
+   },
+   {
+    "rank": 31,
+    "name": "Center on Contemporary Art (CoCA)",
+    "website": "https://cocaseattle.org",
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Founded 1980, Seattle's veteran alternative art organization; historically the venue for the city's most provocative exhibitions and performances."
+   },
+   {
+    "rank": 32,
+    "name": "Vermillion Art Gallery and Bar",
+    "website": "https://www.vermillionseattle.com",
+    "neighborhood": "Capitol Hill",
+    "address_hint": "1508 11th Ave",
+    "kind": "gallery",
+    "note": "Capitol Hill's social heart for emerging and BIPOC artists; exhibitions, readings and music in one hybrid room."
+   },
+   {
+    "rank": 33,
+    "name": "AMcE Creative Arts",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Recent arrival with an ambitious contemporary program and fair aspirations, signalling new commercial energy on Capitol Hill."
+   },
+   {
+    "rank": 34,
+    "name": "Martyr Sauce",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": "Yesler Way",
+    "kind": "project_space",
+    "note": "Tariqa Waters's pop-art project space and micro-museum; playful, irreverent, and a visible platform for Black artists in Pioneer Square."
+   },
+   {
+    "rank": 35,
+    "name": "Veronica",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-organized space showing sharp, research-driven work by younger regional and out-of-town artists."
+   },
+   {
+    "rank": 36,
+    "name": "Specialist",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Small artist-run venue with a conceptually rigorous, quickly rotating program that critics follow closely."
+   },
+   {
+    "rank": 37,
+    "name": "G. Gibson Gallery",
+    "website": "https://www.ggibsongallery.com",
+    "neighborhood": "Queen Anne",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Gail Gibson's gallery was for thirty years the Northwest's most serious photography dealer; now operating privately after closing its public space."
+   },
+   {
+    "rank": 38,
+    "name": "Roq La Rue Gallery",
+    "website": "https://www.roqlarue.com",
+    "neighborhood": "Pioneer Square",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Kirsten Anderson's gallery put Seattle at the centre of pop surrealism from 1998; closed its storefront in 2021 but shaped a whole scene."
+   },
+   {
+    "rank": 39,
+    "name": "Zinc Contemporary",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Clean-lined contemporary program of abstraction and photo-based work by Northwest and national artists."
+   },
+   {
+    "rank": 40,
+    "name": "Shift Gallery",
+    "website": "https://www.shiftgallery.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "312 S Washington St",
+    "kind": "nonprofit",
+    "note": "Artist-run cooperative offering members annual solos; a steady incubator within the Tashiro Kaplan arts building."
+   },
+   {
+    "rank": 41,
+    "name": "Core Gallery",
+    "website": "https://www.coregallery.org",
+    "neighborhood": "Pioneer Square",
+    "address_hint": "117 Prefontaine Pl S",
+    "kind": "nonprofit",
+    "note": "Member-run space with a well-regarded juried solo program for emerging artists."
+   },
+   {
+    "rank": 42,
+    "name": "Push/Pull",
+    "website": "https://www.pushpullseattle.com",
+    "neighborhood": "Ballard/Fremont",
+    "address_hint": "5484 Shilshole Ave NW",
+    "kind": "nonprofit",
+    "note": "Artist-run gallery, shop and studio for comics, illustration and zine culture; the hub of Seattle's alt-comics community."
+   },
+   {
+    "rank": 43,
+    "name": "Vestibule",
+    "website": null,
+    "neighborhood": "Ballard/Fremont",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Curator-run Ballard project space known for tightly conceived group shows and support of experimental practice."
+   },
+   {
+    "rank": 44,
+    "name": "Bonfire Gallery",
+    "website": null,
+    "neighborhood": "Chinatown-International District",
+    "address_hint": "603 S Main St",
+    "kind": "gallery",
+    "note": "Historic Nihonmachi storefront showing contemporary painting, ceramics and Asian-American artists."
+   },
+   {
+    "rank": 45,
+    "name": "Flatcolor Gallery",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": "77 S Main St",
+    "kind": "gallery",
+    "note": "Long-standing home for street art, graffiti and lowbrow practice in Seattle, with international guest artists."
+   },
+   {
+    "rank": 46,
+    "name": "Treason Gallery",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary and urban-art gallery with a strong secondary-market and editions component."
+   },
+   {
+    "rank": 47,
+    "name": "Ltd. Art Gallery",
+    "website": "https://www.ltdartgallery.com",
+    "neighborhood": "Capitol Hill",
+    "address_hint": "307 E Pike St",
+    "kind": "gallery",
+    "note": "Pop-culture and illustration gallery with themed group shows that draw large young audiences."
+   },
+   {
+    "rank": 48,
+    "name": "Ghost Gallery",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Tiny, densely hung salon of small-format work by dozens of local artists; a long-lived Capitol Hill fixture."
+   },
+   {
+    "rank": 49,
+    "name": "Slip Gallery",
+    "website": null,
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Georgetown artist-run space for installation and experimental exhibitions outside the commercial circuit."
+   },
+   {
+    "rank": 50,
+    "name": "Fogue Gallery",
+    "website": null,
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Georgetown gallery and studios showing a broad cross-section of Seattle artists; anchor of the neighborhood art walk."
+   },
+   {
+    "rank": 51,
+    "name": "Equinox Studios",
+    "website": "https://www.equinoxstudios.org",
+    "neighborhood": "Georgetown",
+    "address_hint": "6555 Fifth Ave S",
+    "kind": "other",
+    "note": "Vast industrial complex of artist and maker studios whose open-house exhibitions are among the city's largest public art events."
+   },
+   {
+    "rank": 52,
+    "name": "Base: Experimental Arts + Space",
+    "website": null,
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Platform for performance, sound and time-based practice that commercial galleries rarely accommodate."
+   },
+   {
+    "rank": 53,
+    "name": "Interstitial",
+    "website": null,
+    "neighborhood": "Georgetown",
+    "address_hint": "6007 12th Ave S",
+    "kind": "project_space",
+    "note": "Influential Georgetown space for video, new media and installation in the late 2010s; shaped local expectations for time-based art."
+   },
+   {
+    "rank": 54,
+    "name": "Mount Analogue",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Publishing-and-exhibition project blending poetry, performance and visual art; nomadic since leaving its storefront but critically visible."
+   },
+   {
+    "rank": 55,
+    "name": "Vignettes",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Sierra Stinson's apartment-gallery series that gave first shows to many now-established Seattle artists."
+   },
+   {
+    "rank": 56,
+    "name": "Cairo",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": "507 E Mercer St",
+    "kind": "project_space",
+    "note": "DIY gallery, shop and music venue that defined a strand of 2010s Capitol Hill youth culture and artist community."
+   },
+   {
+    "rank": 57,
+    "name": "The Alice",
+    "website": null,
+    "neighborhood": "Georgetown",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Georgetown artist-run gallery praised for rigorous, curatorially framed exhibitions during its run."
+   },
+   {
+    "rank": 58,
+    "name": "Season",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Robert Yoder's by-appointment gallery, admired for pairing Seattle artists with sympathetic national figures."
+   },
+   {
+    "rank": 59,
+    "name": "SAM Gallery",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": "1300 First Ave",
+    "kind": "gallery",
+    "note": "Rental-and-sales gallery presenting Northwest contemporary artists to a broad museum audience; a longstanding first market for many locals."
+   },
+   {
+    "rank": 60,
+    "name": "Jack Straw New Media Gallery",
+    "website": "https://www.jackstraw.org",
+    "neighborhood": "University District",
+    "address_hint": "4261 Roosevelt Way NE",
+    "kind": "nonprofit",
+    "note": "Rare dedicated venue for sound art and audio-based installation, tied to a respected artist-residency program."
+   },
+   {
+    "rank": 61,
+    "name": "Hedreen Gallery",
+    "website": null,
+    "neighborhood": "Capitol Hill",
+    "address_hint": "901 12th Ave",
+    "kind": "university",
+    "note": "Seattle University's exhibition space, known for socially engaged curatorial projects and collaborations with local artist-organizers."
+   },
+   {
+    "rank": 62,
+    "name": "ArtsWest Gallery",
+    "website": "https://www.artswest.org",
+    "neighborhood": "West Seattle",
+    "address_hint": "4711 California Ave SW",
+    "kind": "nonprofit",
+    "note": "West Seattle's principal contemporary gallery, programmed in dialogue with the theatre's season."
+   },
+   {
+    "rank": 63,
+    "name": "Youngstown Cultural Arts Center",
+    "website": null,
+    "neighborhood": "West Seattle",
+    "address_hint": "4408 Delridge Way SW",
+    "kind": "nonprofit",
+    "note": "Delridge arts centre whose galleries and studios foreground youth, immigrant and community-based artists."
+   },
+   {
+    "rank": 64,
+    "name": "LANGSTON (Langston Hughes Performing Arts Institute)",
+    "website": "https://www.langstonseattle.org",
+    "neighborhood": "Central District",
+    "address_hint": "104 17th Ave S",
+    "kind": "nonprofit",
+    "note": "Black arts institution in the Central District whose visual-art exhibitions and residencies complement its performance program."
+   },
+   {
+    "rank": 65,
+    "name": "INSCAPE Arts",
+    "website": "https://www.inscapearts.org",
+    "neighborhood": "Chinatown-International District",
+    "address_hint": "815 Seattle Blvd S",
+    "kind": "other",
+    "note": "Former immigration detention building converted into 125 artist studios with regular public open-studio exhibitions."
+   },
+   {
+    "rank": 66,
+    "name": "yəhaw̓ Indigenous Creatives Collective",
+    "website": "https://www.yehawshow.com",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Grew from a landmark 200-artist exhibition into an ongoing Indigenous-led organization with studio and gallery space and public commissions."
+   },
+   {
+    "rank": 67,
+    "name": "Onyx Fine Arts Collective",
+    "website": null,
+    "neighborhood": "Central District",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Artist collective mounting large annual surveys of Black Northwest artists in borrowed and partner venues."
+   },
+   {
+    "rank": 68,
+    "name": "Bherd Studios Gallery",
+    "website": "https://www.bherdstudios.com",
+    "neighborhood": "Greenwood",
+    "address_hint": "8537 Greenwood Ave N",
+    "kind": "gallery",
+    "note": "Studio-and-gallery complex north of downtown known for its annual small-works show and support of illustrators and muralists."
+   },
+   {
+    "rank": 69,
+    "name": "Phinney Center Gallery",
+    "website": "https://www.phinneycenter.org",
+    "neighborhood": "Phinney Ridge",
+    "address_hint": "6532 Phinney Ave N",
+    "kind": "nonprofit",
+    "note": "Neighborhood association gallery with a juried program that has shown north-end artists for decades."
+   },
+   {
+    "rank": 70,
+    "name": "KOBO at Higo",
+    "website": "https://www.koboseattle.com",
+    "neighborhood": "Chinatown-International District",
+    "address_hint": "604 S Jackson St",
+    "kind": "gallery",
+    "note": "Japanese craft-and-art gallery in the historic Higo store, mixing contemporary ceramics and design with neighborhood history exhibits."
+   },
+   {
+    "rank": 71,
+    "name": "Vetri Glass",
+    "website": "https://www.vetriglass.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1404 First Ave",
+    "kind": "gallery",
+    "note": "Traver's separate downtown storefront for emerging glass artists and small-scale contemporary work."
+   },
+   {
+    "rank": 72,
+    "name": "Western Bridge",
+    "website": "https://www.westernbridge.org",
+    "neighborhood": "SoDo",
+    "address_hint": "3412 Fourth Ave S",
+    "kind": "nonprofit",
+    "note": "Bill and Ruth True's 2004–2012 exhibition space for their international collection; the most ambitious private contemporary venue Seattle has had."
+   },
+   {
+    "rank": 73,
+    "name": "Suyama Space",
+    "website": null,
+    "neighborhood": "Belltown",
+    "address_hint": "2324 Second Ave",
+    "kind": "nonprofit",
+    "note": "Architect George Suyama's timber-framed hall commissioned major site-specific installations for twenty years until 2017; a benchmark for installation art in the city."
+   },
+   {
+    "rank": 74,
+    "name": "Lawrimore Project",
+    "website": null,
+    "neighborhood": "SoDo",
+    "address_hint": "831 Airport Way S",
+    "kind": "gallery",
+    "note": "Scott Lawrimore's 2006–2012 gallery was the most conceptually daring commercial space of its era and reshaped what Seattle dealers attempt."
+   },
+   {
+    "rank": 75,
+    "name": "Platform Gallery",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": "114 Third Ave S",
+    "kind": "gallery",
+    "note": "Championed emerging Northwest artists in the 2000s and helped export them to national fairs before closing."
+   },
+   {
+    "rank": 76,
+    "name": "Howard House",
+    "website": null,
+    "neighborhood": "Pioneer Square",
+    "address_hint": "604 Second Ave",
+    "kind": "gallery",
+    "note": "Billy Howard's gallery (1998–2011) built the careers of numerous regional contemporary artists and set a professional standard for the market."
+   },
+   {
+    "rank": 77,
+    "name": "Francine Seders Gallery",
+    "website": null,
+    "neighborhood": "Greenwood",
+    "address_hint": "6701 Greenwood Ave N",
+    "kind": "gallery",
+    "note": "From 1966 to 2013 the dealer for Jacob Lawrence, Gwendolyn Knight and Michael Spafford; arguably the most historically important gallery in Seattle's history."
+   }
+  ]
+ }
+}

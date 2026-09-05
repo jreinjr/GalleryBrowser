@@ -1,0 +1,504 @@
+{
+  "city": "chicago",
+  "start_ts": 1788562383,
+  "zones": [
+    "West Town/West Loop",
+    "River North",
+    "Pilsen/Bridgeport",
+    "Logan Square/Wicker Park",
+    "Garfield Park",
+    "Hyde Park"
+  ],
+  "args": {
+    "city": "chicago",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/chicago/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788562884,
+  "queue": {
+    "West Town/West Loop": {
+      "zone": "West Town/West Loop",
+      "order": 0,
+      "due": 7,
+      "sessions_run": 2,
+      "zero_progress": 2,
+      "exhausted": true,
+      "active": false,
+      "why": "zero_progress"
+    },
+    "River North": {
+      "zone": "River North",
+      "order": 1,
+      "due": 8,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Pilsen/Bridgeport": {
+      "zone": "Pilsen/Bridgeport",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Logan Square/Wicker Park": {
+      "zone": "Logan Square/Wicker Park",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Garfield Park": {
+      "zone": "Garfield Park",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Hyde Park": {
+      "zone": "Hyde Park",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "acre-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "andrew-rafacz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-artists-coalition"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-truborn"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "corbett-vs-dempsey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "epiphany-center-for-the-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "filter-photo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "addington"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bert-green"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chicago-cultural-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "elephant-room"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-400"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-victor-armendariz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "glass-curtain-gallery-columbia-college-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "graham-foundation"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bridgeport-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "co-prosperity"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mana-contemporary-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pilsen-outpost"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "prairie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "project-onward"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tiger-strikes-asteroid-chicago"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "woman-made"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Town/West Loop",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-west-town-west-loop-1788562383",
+      "venue_ids": [
+        "acre-projects",
+        "andrew-rafacz",
+        "arc",
+        "chicago-artists-coalition",
+        "chicago-truborn",
+        "corbett-vs-dempsey",
+        "epiphany-center-for-the-arts",
+        "filter-photo"
+      ],
+      "started_ts": 1788562383,
+      "ended_ts": 1788562853
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "6018north"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hairpin-arts-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "m-leblanc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "oliva"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "perspective"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ralph-arnold-gallery-loyola-university"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soccer-club-club"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "weatherproof"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pilsen/Bridgeport",
+      "session": 1,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 2,
+      "exit": 1,
+      "label": "deep-chicago-pilsen-bridgeport-1788562427",
+      "venue_ids": [
+        "bridgeport-art-center",
+        "co-prosperity",
+        "mana-contemporary-chicago",
+        "pilsen-outpost",
+        "prairie",
+        "project-onward",
+        "tiger-strikes-asteroid-chicago",
+        "woman-made"
+      ],
+      "started_ts": 1788562427,
+      "ended_ts": 1788562854
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "beverly-arts-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "blanc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "boundary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-guichard"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hyde-park-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "logan-center-exhibitions"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "renaissance-society"
+    },
+    {
+      "stage": "scrape",
+      "zone": "River North",
+      "session": 1,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-river-north-1788562403",
+      "venue_ids": [
+        "addington",
+        "bert-green",
+        "chicago-cultural-center",
+        "elephant-room",
+        "gallery-400",
+        "gallery-victor-armendariz",
+        "glass-curtain-gallery-columbia-college-chicago",
+        "graham-foundation"
+      ],
+      "started_ts": 1788562403,
+      "ended_ts": 1788562856
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "devening-projects"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Logan Square/Wicker Park",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-logan-square-wicker-park-1788562853",
+      "venue_ids": [
+        "6018north",
+        "hairpin-arts-center",
+        "m-leblanc",
+        "oliva",
+        "perspective",
+        "ralph-arnold-gallery-loyola-university",
+        "soccer-club-club",
+        "weatherproof"
+      ],
+      "started_ts": 1788562853,
+      "ended_ts": 1788562864
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gray"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "heaven"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ken-saunders"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lvl3"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mariane-ibrahim"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "monique-meloche"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "no-nation-art-lab"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "patron"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hyde Park",
+      "session": 1,
+      "todo": 7,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-hyde-park-1788562854",
+      "venue_ids": [
+        "beverly-arts-center",
+        "blanc",
+        "boundary",
+        "gallery-guichard",
+        "hyde-park-art-center",
+        "logan-center-exhibitions",
+        "renaissance-society"
+      ],
+      "started_ts": 1788562854,
+      "ended_ts": 1788562868
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gruen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hilton-asmus-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jean-albano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kavi-gupta"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "richard-norton"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "stephen-daiter"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "threewalls"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zolla-lieberman"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Garfield Park",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-garfield-park-1788562856",
+      "venue_ids": [
+        "devening-projects"
+      ],
+      "started_ts": 1788562856,
+      "ended_ts": 1788562874
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Town/West Loop",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-west-town-west-loop-1788562864",
+      "venue_ids": [
+        "gray",
+        "heaven",
+        "ken-saunders",
+        "lvl3",
+        "mariane-ibrahim",
+        "monique-meloche",
+        "no-nation-art-lab",
+        "patron"
+      ],
+      "started_ts": 1788562864,
+      "ended_ts": 1788562877
+    },
+    {
+      "stage": "scrape",
+      "zone": "River North",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-chicago-river-north-1788562868",
+      "venue_ids": [
+        "gruen",
+        "hilton-asmus-contemporary",
+        "jean-albano",
+        "kavi-gupta",
+        "richard-norton",
+        "stephen-daiter",
+        "threewalls",
+        "zolla-lieberman"
+      ],
+      "started_ts": 1788562868,
+      "ended_ts": 1788562884
+    }
+  ]
+}

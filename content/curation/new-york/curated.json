@@ -1,0 +1,718 @@
+{
+ "ts": 1788560858,
+ "city": "new-york",
+ "today": "2026-09-04",
+ "params_hash": "bb07b67b000c",
+ "params": {
+  "version": 1,
+  "city": "new-york",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 88,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "robert-rauschenberg-cy-twombly-foundation",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.992964,
+   "editors_pick": true
+  },
+  {
+   "slug": "gagosian-marcel-duchamp",
+   "rank": 2,
+   "featured_rank": 2,
+   "score": 0.992946,
+   "editors_pick": true
+  },
+  {
+   "slug": "karma-yvonne-jacquette-air",
+   "rank": 37,
+   "featured_rank": 3,
+   "score": 0.7678860000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "ginsberg-maier-notes-from-the-margins",
+   "rank": 87,
+   "featured_rank": 4,
+   "score": 0.30874999999999997,
+   "editors_pick": true
+  },
+  {
+   "slug": "susan-inglett-ryan-wallace",
+   "rank": 92,
+   "featured_rank": 5,
+   "score": 0.22961600000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "marc-straus-otis-jones-continuum",
+   "rank": 96,
+   "featured_rank": 6,
+   "score": 0.17308999999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "marc-straus-out-of-the-blue",
+   "rank": 97,
+   "featured_rank": 7,
+   "score": 0.17286799999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "yossi-milo-pierre-knop",
+   "rank": 101,
+   "featured_rank": 8,
+   "score": 0.14898,
+   "editors_pick": false
+  },
+  {
+   "slug": "katia-santibanez-and-yet-again",
+   "rank": 104,
+   "featured_rank": 9,
+   "score": 0.10353600000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "on-in-off-the-grid",
+   "rank": 105,
+   "featured_rank": 10,
+   "score": 0.10319400000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "drawing-center-pope-l",
+   "rank": 107,
+   "featured_rank": 11,
+   "score": 0.046607999999999955,
+   "editors_pick": false
+  },
+  {
+   "slug": "drawing-center-student-exhibition",
+   "rank": 109,
+   "featured_rank": 12,
+   "score": 0.046067999999999956,
+   "editors_pick": false
+  },
+  {
+   "slug": "doug-aitken-lightscape",
+   "rank": 115,
+   "featured_rank": 13,
+   "score": 0.004964,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "robert-rauschenberg-cy-twombly-foundation",
+   "rank": 1,
+   "score": 0.992964,
+   "gate": null
+  },
+  {
+   "slug": "gagosian-marcel-duchamp",
+   "rank": 2,
+   "score": 0.992946,
+   "gate": null
+  },
+  {
+   "slug": "brice-marden-i-am-plane-image",
+   "rank": 3,
+   "score": 0.9924,
+   "gate": "not_open"
+  },
+  {
+   "slug": "deana-lawson-edge-control",
+   "rank": 4,
+   "score": 0.991614,
+   "gate": "not_open"
+  },
+  {
+   "slug": "scott-kahn-silent-night",
+   "rank": 6,
+   "score": 0.98055,
+   "gate": "not_open"
+  },
+  {
+   "slug": "torkwase-dyson-seeing-in-blue",
+   "rank": 7,
+   "score": 0.9577260000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lynda-benglis-knotting-tying-folding",
+   "rank": 8,
+   "score": 0.9576840000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "arlene-shechet-she-said",
+   "rank": 9,
+   "score": 0.957636,
+   "gate": "not_open"
+  },
+  {
+   "slug": "marian-goodman-tony-cragg",
+   "rank": 10,
+   "score": 0.946698,
+   "gate": "not_open"
+  },
+  {
+   "slug": "marian-goodman-edith-dekyndt",
+   "rank": 11,
+   "score": 0.94662,
+   "gate": "not_open"
+  },
+  {
+   "slug": "eric-n-mack-you-red",
+   "rank": 14,
+   "score": 0.924174,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tauba-auerbach-zephyr",
+   "rank": 15,
+   "score": 0.9238260000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "leidy-churchman-2026",
+   "rank": 16,
+   "score": 0.91281,
+   "gate": "not_open"
+  },
+  {
+   "slug": "gary-hume-2026",
+   "rank": 17,
+   "score": 0.912576,
+   "gate": "not_open"
+  },
+  {
+   "slug": "sean-kelly-anthony-mccall",
+   "rank": 22,
+   "score": 0.879378,
+   "gate": "not_open"
+  },
+  {
+   "slug": "sean-kelly-luke-agada",
+   "rank": 23,
+   "score": 0.878844,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lm-rana-begum",
+   "rank": 24,
+   "score": 0.869022,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lm-anna-park-house-rules",
+   "rank": 25,
+   "score": 0.86895,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tanya-merrill-land-animal-house-animal",
+   "rank": 26,
+   "score": 0.846594,
+   "gate": "not_open"
+  },
+  {
+   "slug": "whitecube-danh-vo",
+   "rank": 28,
+   "score": 0.822774,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tanya-bonakdar-vasquez-de-la-horra",
+   "rank": 29,
+   "score": 0.8127779999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "boesky-dora-jeridi-burnt-child",
+   "rank": 30,
+   "score": 0.801486,
+   "gate": "not_open"
+  },
+  {
+   "slug": "boesky-haas-brothers-mathemagical",
+   "rank": 31,
+   "score": 0.801282,
+   "gate": "not_open"
+  },
+  {
+   "slug": "cohan-savdie-soutine",
+   "rank": 32,
+   "score": 0.7892279999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "margot-bergman-on-the-other-hand",
+   "rank": 34,
+   "score": 0.77835,
+   "gate": "not_open"
+  },
+  {
+   "slug": "marcus-jahmal-booty",
+   "rank": 35,
+   "score": 0.778062,
+   "gate": "not_open"
+  },
+  {
+   "slug": "alessandro-pessoli-ny-window",
+   "rank": 36,
+   "score": 0.777804,
+   "gate": "not_open"
+  },
+  {
+   "slug": "karma-yvonne-jacquette-air",
+   "rank": 37,
+   "score": 0.7678860000000001,
+   "gate": null
+  },
+  {
+   "slug": "kuri-ana-segovia-office",
+   "rank": 38,
+   "score": 0.7554420000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ppow-hew-locke-wanderers",
+   "rank": 39,
+   "score": 0.74505,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ppow-michael-wilkinson-fluorochiaroscuro",
+   "rank": 40,
+   "score": 0.7448159999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "skarstedt-banban-jaque-mate",
+   "rank": 42,
+   "score": 0.733266,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bortolami-buren-kasten",
+   "rank": 43,
+   "score": 0.721698,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bortolami-safa-noces",
+   "rank": 44,
+   "score": 0.7212959999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bortolami-yuan-yuan",
+   "rank": 45,
+   "score": 0.72129,
+   "gate": "not_open"
+  },
+  {
+   "slug": "alfredo-jaar-logo-for-america",
+   "rank": 46,
+   "score": 0.7106159999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tina-kim-maia-ruth-lee",
+   "rank": 51,
+   "score": 0.6665939999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "miguel-abreu-eileen-quinlan-line-call",
+   "rank": 52,
+   "score": 0.6541980000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mendes-wood-in-between-kovarik",
+   "rank": 53,
+   "score": 0.644052,
+   "gate": "not_open"
+  },
+  {
+   "slug": "canada-scott-reeder-ideas",
+   "rank": 54,
+   "score": 0.6088260000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "canada-tyson-reeder-slurpee",
+   "rank": 55,
+   "score": 0.608742,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bureau-yackulic-as-it-happens",
+   "rank": 57,
+   "score": 0.586476,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bureau-rothfeld-world-not-enough",
+   "rank": 58,
+   "score": 0.586326,
+   "gate": "not_open"
+  },
+  {
+   "slug": "chapter-ny-alix-vernet",
+   "rank": 59,
+   "score": 0.574722,
+   "gate": "not_open"
+  },
+  {
+   "slug": "chapter-ny-giuseppe-francalanza",
+   "rank": 60,
+   "score": 0.574668,
+   "gate": "not_open"
+  },
+  {
+   "slug": "maia-cruz-palileo-world-tangled",
+   "rank": 61,
+   "score": 0.5645999999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "artistsspace-cha-multiple-offerings",
+   "rank": 64,
+   "score": 0.4971,
+   "gate": "not_open"
+  },
+  {
+   "slug": "derek-eller-julia-bland",
+   "rank": 65,
+   "score": 0.48604800000000004,
+   "gate": "not_open"
+  },
+  {
+   "slug": "derek-eller-antone-konst",
+   "rank": 66,
+   "score": 0.484968,
+   "gate": "not_open"
+  },
+  {
+   "slug": "garth-greenan-rosalyn-drexler",
+   "rank": 68,
+   "score": 0.46408800000000006,
+   "gate": "not_open"
+  },
+  {
+   "slug": "garth-greenan-cannupa-hanska-luger",
+   "rank": 69,
+   "score": 0.46402800000000005,
+   "gate": "not_open"
+  },
+  {
+   "slug": "david-nolan-valerio-adami",
+   "rank": 71,
+   "score": 0.44165400000000005,
+   "gate": "not_open"
+  },
+  {
+   "slug": "magenta-plains-10-year-anniversary",
+   "rank": 72,
+   "score": 0.4286939999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tomie-ohtake-ultimate-works",
+   "rank": 73,
+   "score": 0.41862599999999994,
+   "gate": "not_open"
+  },
+  {
+   "slug": "roy-dowell-evidence",
+   "rank": 74,
+   "score": 0.396018,
+   "gate": "not_open"
+  },
+  {
+   "slug": "isca-greenfield-sanders-flowers",
+   "rank": 75,
+   "score": 0.395976,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lucy-williams-beautiful-perfect-things",
+   "rank": 76,
+   "score": 0.39594,
+   "gate": "not_open"
+  },
+  {
+   "slug": "suzanne-caporael-fitting",
+   "rank": 77,
+   "score": 0.395928,
+   "gate": "not_open"
+  },
+  {
+   "slug": "anatebgi-netrabile-field-conditions",
+   "rank": 78,
+   "score": 0.362394,
+   "gate": "not_open"
+  },
+  {
+   "slug": "anatebgi-farrell-solastalgia",
+   "rank": 79,
+   "score": 0.361776,
+   "gate": "not_open"
+  },
+  {
+   "slug": "klaus-mcknight",
+   "rank": 81,
+   "score": 0.35046,
+   "gate": "not_open"
+  },
+  {
+   "slug": "fuentes-nightcrawling",
+   "rank": 82,
+   "score": 0.338982,
+   "gate": "not_open"
+  },
+  {
+   "slug": "yancey-richardson-alvarez-bravo",
+   "rank": 83,
+   "score": 0.32776800000000006,
+   "gate": "not_open"
+  },
+  {
+   "slug": "yancey-richardson-franco-klein",
+   "rank": 84,
+   "score": 0.32766000000000006,
+   "gate": "not_open"
+  },
+  {
+   "slug": "grimm-volker-huller",
+   "rank": 85,
+   "score": 0.31683000000000006,
+   "gate": "not_open"
+  },
+  {
+   "slug": "grimm-matthias-franz",
+   "rank": 86,
+   "score": 0.31671600000000005,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ginsberg-maier-notes-from-the-margins",
+   "rank": 87,
+   "score": 0.30874999999999997,
+   "gate": null
+  },
+  {
+   "slug": "edlin-conduits-unseen",
+   "rank": 89,
+   "score": 0.28420199999999995,
+   "gate": "not_open"
+  },
+  {
+   "slug": "half-stephenson-queen",
+   "rank": 90,
+   "score": 0.260328,
+   "gate": "not_open"
+  },
+  {
+   "slug": "susan-inglett-ryan-wallace",
+   "rank": 92,
+   "score": 0.22961600000000001,
+   "gate": null
+  },
+  {
+   "slug": "harpers-marc-dennis-sugar",
+   "rank": 93,
+   "score": 0.21564600000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "norman-lewis-jumping-jive",
+   "rank": 94,
+   "score": 0.20399400000000004,
+   "gate": "not_open"
+  },
+  {
+   "slug": "broadway-oswalt-primo-piano",
+   "rank": 95,
+   "score": 0.19258800000000006,
+   "gate": "not_open"
+  },
+  {
+   "slug": "marc-straus-otis-jones-continuum",
+   "rank": 96,
+   "score": 0.17308999999999997,
+   "gate": null
+  },
+  {
+   "slug": "marc-straus-out-of-the-blue",
+   "rank": 97,
+   "score": 0.17286799999999997,
+   "gate": null
+  },
+  {
+   "slug": "marc-straus-michael-brown-keep-on-truckin",
+   "rank": 98,
+   "score": 0.17125199999999996,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nathalie-karg-peter-barrickman",
+   "rank": 100,
+   "score": 0.16016999999999998,
+   "gate": "not_open"
+  },
+  {
+   "slug": "yossi-milo-pierre-knop",
+   "rank": 101,
+   "score": 0.14898,
+   "gate": null
+  },
+  {
+   "slug": "kelsey-isaacs-baby-mozarts-kiss",
+   "rank": 102,
+   "score": 0.12534,
+   "gate": "not_open"
+  },
+  {
+   "slug": "katia-santibanez-and-yet-again",
+   "rank": 104,
+   "score": 0.10353600000000002,
+   "gate": null
+  },
+  {
+   "slug": "on-in-off-the-grid",
+   "rank": 105,
+   "score": 0.10319400000000002,
+   "gate": null
+  },
+  {
+   "slug": "apexart-weaving-day-mourning-life",
+   "rank": 106,
+   "score": 0.08147400000000005,
+   "gate": "not_open"
+  },
+  {
+   "slug": "drawing-center-pope-l",
+   "rank": 107,
+   "score": 0.046607999999999955,
+   "gate": null
+  },
+  {
+   "slug": "drawing-center-student-exhibition",
+   "rank": 109,
+   "score": 0.046067999999999956,
+   "gate": null
+  },
+  {
+   "slug": "matta-clark-walls-paper",
+   "rank": 110,
+   "score": 0.03674999999999997,
+   "gate": "not_open"
+  },
+  {
+   "slug": "air-inevitable-inveterate",
+   "rank": 112,
+   "score": 0.01275599999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "air-la-cosecha",
+   "rank": 113,
+   "score": 0.01264199999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "air-between-skin-flesh",
+   "rank": 114,
+   "score": 0.01249799999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "doug-aitken-lightscape",
+   "rank": 115,
+   "score": 0.004964,
+   "gate": null
+  },
+  {
+   "slug": "whitney-biennial-2026",
+   "rank": 116,
+   "score": 0.00297,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "hole-opheim-cave",
+   "rank": 118,
+   "score": 0.0012480000000000002,
+   "gate": "not_open"
+  }
+ ]
+}

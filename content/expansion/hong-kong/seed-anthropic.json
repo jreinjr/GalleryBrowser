@@ -1,0 +1,715 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788550078,
+ "system": "You are an art-world editor compiling a gallery guide for Hong Kong, China. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Hong Kong itself (galleries whose home is\nelsewhere count only through a permanent Hong Kong space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Central/Soho, Sheung Wan/Sai Ying Pun, Wan Chai/Causeway Bay, Wong Chuk Hang/Aberdeen, Chai Wan/Eastern, Tsim Sha Tsui/Kowloon) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Hong Kong spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Hong Kong, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 60,
+  "output_tokens": 25507,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.643863,
+  "seconds": 327.1
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "7/F Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "note": "The first blue-chip mega-gallery to plant a flag in Hong Kong (2011), its Pedder Building space set the template for the city's international gallery scene and still stages museum-calibre shows."
+   },
+   {
+    "rank": 2,
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "5-6/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Anchor tenant of H Queen's since 2018, bringing Wolfgang Tillmans, Yayoi Kusama and Michaël Borremans to Asia and driving the market's centre of gravity toward Hong Kong."
+   },
+   {
+    "rank": 3,
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "15-16/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Two-floor flagship with an ambitious estates and historical programme (Louise Bourgeois, Philip Guston) plus strong Asian artist representation and education programming."
+   },
+   {
+    "rank": 4,
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "50 Connaught Road Central",
+    "kind": "gallery",
+    "note": "In Hong Kong since 2012; a street-level space that gave the city early exposure to the YBAs and now to Tracey Emin, Antony Gormley and Asian names such as Zhou Li."
+   },
+   {
+    "rank": 5,
+    "name": "Pace Gallery",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "12/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "A pioneer of the Asia market with deep Chinese contemporary ties (Zhang Xiaogang, Yoshitomo Nara) and a strong record with teamLab and light/technology art."
+   },
+   {
+    "rank": 6,
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Tsim Sha Tsui/Kowloon",
+    "address_hint": "K11 ATELIER Victoria Dockside, 18 Salisbury Road",
+    "kind": "gallery",
+    "note": "Opened 2012 and later moved across the harbour; a key conduit for Murakami, JR, Daniel Arsham and emerging Asian artists with strong fair presence."
+   },
+   {
+    "rank": 7,
+    "name": "Para Site",
+    "website": "https://www.para-site.art",
+    "neighborhood": "Quarry Bay",
+    "address_hint": "22/F Wing Wah Industrial Building, 677 King's Road",
+    "kind": "nonprofit",
+    "note": "Hong Kong's oldest and most internationally respected independent art space (founded 1996); its exhibitions, conferences and residencies shape curatorial discourse across Asia."
+   },
+   {
+    "rank": 8,
+    "name": "Tai Kwun Contemporary",
+    "website": "https://www.taikwun.hk",
+    "neighborhood": "Central/Soho",
+    "address_hint": "10 Hollywood Road",
+    "kind": "nonprofit",
+    "note": "Non-collecting kunsthalle inside the former Central Police Station compound; its large-scale thematic exhibitions and performance programme are the city's critical benchmark."
+   },
+   {
+    "rank": 9,
+    "name": "Lehmann Maupin",
+    "website": "https://www.lehmannmaupin.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Long-standing Asia presence championing Do Ho Suh, Lee Bul, Nari Ward and Tammy Nguyen; consistently strong institutional placements from Hong Kong."
+   },
+   {
+    "rank": 10,
+    "name": "Massimo De Carlo",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "3/F Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "note": "Rem Koolhaas-designed Pedder Building space since 2016, presenting European conceptual and painting positions alongside Asian debuts."
+   },
+   {
+    "rank": 11,
+    "name": "Blindspot Gallery",
+    "website": "https://www.blindspotgallery.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "15/F Po Chai Industrial Building, 28 Wong Chuk Hang Road",
+    "kind": "gallery",
+    "note": "The city's leading gallery for photography and lens-based work, with a rigorous Hong Kong and Chinese roster (South Ho, Trevor Yeung, Zhang Xiao) and strong institutional traction."
+   },
+   {
+    "rank": 12,
+    "name": "Kiang Malingue",
+    "website": "https://kiangmalingue.com",
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "address_hint": "10 Sik On Street",
+    "kind": "gallery",
+    "note": "Formerly Edouard Malingue; the most globally visible Hong Kong-founded gallery, representing Samson Young, Ho Tzu Nyen, Wong Ping and Tromarama with a biennial-heavy roster."
+   },
+   {
+    "rank": 13,
+    "name": "Hanart TZ Gallery",
+    "website": "https://www.hanart.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "401 Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "note": "Johnson Chang's gallery, founded 1983, effectively introduced Chinese contemporary art to the world through the 1993 'China's New Art, Post-1989' exhibition."
+   },
+   {
+    "rank": 14,
+    "name": "Empty Gallery",
+    "website": "https://www.emptygallery.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "18-19/F Grand Marine Center, 3 Yue Fung Street, Tin Wan",
+    "kind": "gallery",
+    "note": "Black-box gallery devoted to time-based, sound and moving-image practices; its research-driven programme (Takashi Makino, Tishan Hsu, Aki Onda) has outsized critical standing."
+   },
+   {
+    "rank": 15,
+    "name": "de Sarthe",
+    "website": "https://www.desarthe.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "20/F Global Trade Square, 21 Wong Chuk Hang Road",
+    "kind": "gallery",
+    "note": "Family gallery that shifted from modern masters to experimental young Chinese artists; a pioneer of the Wong Chuk Hang gallery cluster."
+   },
+   {
+    "rank": 16,
+    "name": "Tang Contemporary Art",
+    "website": "https://www.tangcontemporary.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "10/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Major Beijing-founded gallery whose Hong Kong space shows leading Chinese and Southeast Asian artists including Ai Weiwei, Wang Du and Zhao Zhao."
+   },
+   {
+    "rank": 17,
+    "name": "Ben Brown Fine Arts",
+    "website": "https://www.benbrownfinearts.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "301 Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "note": "Early arrival (2009) in the Pedder Building; blends postwar European masters with contemporary names such as Awol Erizku and Vik Muniz."
+   },
+   {
+    "rank": 18,
+    "name": "Pearl Lam Galleries",
+    "website": "https://www.pearllam.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "601-605 Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "note": "Influential cross-cultural programme linking Chinese abstraction, design and Western artists; a fixture of Hong Kong's fair and social art scene since 2012."
+   },
+   {
+    "rank": 19,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Asian outpost of the Paris/Brussels gallery, showing Picasso estate material alongside contemporary painters with strong regional collector demand."
+   },
+   {
+    "rank": 20,
+    "name": "Axel Vervoordt Gallery",
+    "website": "https://www.axel-vervoordt.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "21/F Coda Designer Centre, 62 Wong Chuk Hang Road",
+    "kind": "gallery",
+    "note": "Brings the Belgian dealer's Zero, Gutai and material-based sensibility to Asia; a major draw for the Wong Chuk Hang district."
+   },
+   {
+    "rank": 21,
+    "name": "Asia Art Archive",
+    "website": "https://aaa.org.hk",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "11/F Hollywood Centre, 233 Hollywood Road",
+    "kind": "nonprofit",
+    "note": "The region's essential research library and public programme platform; its displays, residencies and commissions underpin scholarship on Asian contemporary art."
+   },
+   {
+    "rank": 22,
+    "name": "Galerie Ora-Ora",
+    "website": "https://www.ora-ora.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "17/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Hong Kong-founded gallery known for ink-informed contemporary practice and paper-based work, active in fair leadership and gallery-association advocacy."
+   },
+   {
+    "rank": 23,
+    "name": "Rossi & Rossi",
+    "website": "https://www.rossirossi.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "3C Yally Industrial Building, 6 Yip Fat Street",
+    "kind": "gallery",
+    "note": "London-founded dealer of Himalayan and Asian art turned champion of contemporary Tibetan, Mongolian and South Asian artists."
+   },
+   {
+    "rank": 24,
+    "name": "10 Chancery Lane Gallery",
+    "website": "https://www.10chancerylanegallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "10 Chancery Lane",
+    "kind": "gallery",
+    "note": "Katie de Tilly's gallery, open since 2001, with a socially engaged programme spanning Cambodia, Vietnam and Hong Kong and a long-running Chai Wan project space history."
+   },
+   {
+    "rank": 25,
+    "name": "Gallery Exit",
+    "website": "https://www.galleryexit.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "3/F Blue Box Factory Building, 25 Hing Wo Street, Tin Wan",
+    "kind": "gallery",
+    "note": "Consistent supporter of Hong Kong painters and conceptual artists since 2008; a reliable barometer of local emerging practice."
+   },
+   {
+    "rank": 26,
+    "name": "Whitestone Gallery",
+    "website": "https://www.whitestone-gallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "7-8/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Tokyo gallery whose two-floor Hong Kong flagship anchors Gutai and postwar Japanese art in the city, alongside contemporary Asian names."
+   },
+   {
+    "rank": 27,
+    "name": "Osage Gallery",
+    "website": "https://www.osagegallery.com",
+    "neighborhood": "Kwun Tong",
+    "address_hint": "4/F Union Hing Yip Factory Building, 20 Hing Yip Street",
+    "kind": "gallery",
+    "note": "Large industrial-space gallery with a quasi-institutional, research-led programme on Asian contemporary art and an associated foundation."
+   },
+   {
+    "rank": 28,
+    "name": "Ota Fine Arts",
+    "website": "https://www.otafinearts.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "note": "Tokyo gallery known for Yayoi Kusama and Southeast Asian artists such as Tang Da Wu and Chim↑Pom; a key Japanese presence in Hong Kong."
+   },
+   {
+    "rank": 29,
+    "name": "Galerie du Monde",
+    "website": "https://www.galeriedumonde.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "108 Ruttonjee Centre, 11 Duddell Street",
+    "kind": "gallery",
+    "note": "One of Hong Kong's oldest galleries (1974), bridging Chinese modern ink masters and contemporary abstraction."
+   },
+   {
+    "rank": 30,
+    "name": "Kwai Fung Hin Art Gallery",
+    "website": "https://www.kwaifunghin.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "20 Ice House Street",
+    "kind": "gallery",
+    "note": "Long-established Central gallery pairing European modern names with Chinese contemporary artists such as Zhou Chunya and Ju Ming."
+   },
+   {
+    "rank": 31,
+    "name": "Alisan Fine Arts",
+    "website": "https://www.alisan.com.hk",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "Hing Wai Centre, 7 Tin Wan Praya Road",
+    "kind": "gallery",
+    "note": "Founded 1981 by Alice King; the pioneering dealer of the New Ink movement and Chinese-diaspora modernists, with a second Central space."
+   },
+   {
+    "rank": 32,
+    "name": "Contemporary by Angela Li",
+    "website": "https://www.cbal.com.hk",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "248 Hollywood Road",
+    "kind": "gallery",
+    "note": "Hollywood Road mainstay since 2008 showing Chinese and Hong Kong mid-career artists with a strong photography and painting mix."
+   },
+   {
+    "rank": 33,
+    "name": "Over the Influence",
+    "website": "https://overtheinfluence.com",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "159 Hollywood Road",
+    "kind": "gallery",
+    "note": "Multi-floor gallery driving the street-art-adjacent and figurative contemporary market in Asia, with a young international collector base."
+   },
+   {
+    "rank": 34,
+    "name": "WOAW Gallery",
+    "website": "https://woawgallery.com",
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "address_hint": "5 Sun Street",
+    "kind": "gallery",
+    "note": "Fast-growing homegrown gallery with several Hong Kong locations, known for pop-inflected and emerging international artists and sell-out fair booths."
+   },
+   {
+    "rank": 35,
+    "name": "Villepin",
+    "website": "https://www.villepinart.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "53-55 Hollywood Road",
+    "kind": "gallery",
+    "note": "Founded by Dominique and Arthur de Villepin; a collector-driven space with slow, single-artist exhibitions (Zao Wou-Ki, Fu Baoshi) and strong programming ambition."
+   },
+   {
+    "rank": 36,
+    "name": "PHD Group",
+    "website": null,
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young curatorially minded gallery co-founded by Willem Molesworth and Ysabelle Cheung; noted for experimental shows and its role in reviving discursive energy in the local scene."
+   },
+   {
+    "rank": 37,
+    "name": "Karin Weber Gallery",
+    "website": "https://www.karinwebergallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "20 Aberdeen Street",
+    "kind": "gallery",
+    "note": "Soho fixture since 2000 supporting Hong Kong and Southeast Asian emerging artists through residencies and long-term relationships."
+   },
+   {
+    "rank": 38,
+    "name": "Grotto Fine Art",
+    "website": "https://www.grottofineart.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Founded by Henry Au-yeung, the most consistent advocate for Hong Kong-born artists and local art history over more than two decades."
+   },
+   {
+    "rank": 39,
+    "name": "Hong Kong Arts Centre",
+    "website": "https://www.hkac.org.hk",
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "address_hint": "2 Harbour Road",
+    "kind": "nonprofit",
+    "note": "Since 1977 the city's central independent arts institution; the Pao Galleries and its film/media programmes have incubated generations of local artists."
+   },
+   {
+    "rank": 40,
+    "name": "Videotage",
+    "website": "https://www.videotage.org.hk",
+    "neighborhood": "To Kwa Wan",
+    "address_hint": "Unit 13, Cattle Depot Artist Village, 63 Ma Tau Kok Road",
+    "kind": "nonprofit",
+    "note": "Artist-run collective founded 1986; the definitive Hong Kong platform for video, media and now blockchain-related art."
+   },
+   {
+    "rank": 41,
+    "name": "1a space",
+    "website": "https://www.oneaspace.org.hk",
+    "neighborhood": "To Kwa Wan",
+    "address_hint": "Unit 14, Cattle Depot Artist Village, 63 Ma Tau Kok Road",
+    "kind": "nonprofit",
+    "note": "Artist-run non-profit since 1998 known for experimental, locally rooted and socially critical exhibitions at the Cattle Depot."
+   },
+   {
+    "rank": 42,
+    "name": "Oi!",
+    "website": null,
+    "neighborhood": "North Point/Fortress Hill",
+    "address_hint": "12 Oil Street",
+    "kind": "nonprofit",
+    "note": "Government-run heritage art space with a community and experimental focus; a key incubator for young Hong Kong artists and public-art projects."
+   },
+   {
+    "rank": 43,
+    "name": "CHAT (Centre for Heritage, Arts and Textile)",
+    "website": "https://www.mill6chat.org",
+    "neighborhood": "Tsuen Wan",
+    "address_hint": "The Mills, 45 Pak Tin Par Street",
+    "kind": "nonprofit",
+    "note": "Non-profit art centre in a converted cotton mill commissioning ambitious textile-related contemporary art and international collaborations."
+   },
+   {
+    "rank": 44,
+    "name": "Asia Society Hong Kong Center",
+    "website": "https://asiasociety.org/hong-kong",
+    "neighborhood": "Admiralty",
+    "address_hint": "9 Justice Drive",
+    "kind": "nonprofit",
+    "note": "Non-collecting gallery in a landmark Tadao Ando-adjacent heritage site, presenting scholarly exhibitions of Asian modern and contemporary art."
+   },
+   {
+    "rank": 45,
+    "name": "K11 Art Foundation",
+    "website": "https://www.k11artfoundation.org",
+    "neighborhood": "Tsim Sha Tsui/Kowloon",
+    "address_hint": "chi K11 art space, Victoria Dockside, 18 Salisbury Road",
+    "kind": "nonprofit",
+    "note": "Adrian Cheng's foundation and its public art spaces have funded major museum collaborations and given many Chinese artists their first large platforms."
+   },
+   {
+    "rank": 46,
+    "name": "Sin Sin Fine Art",
+    "website": "https://www.sinsin.com.hk",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "53-54 Sai Street",
+    "kind": "gallery",
+    "note": "Long-running gallery with a distinctive focus on Indonesian and Southeast Asian contemporary artists."
+   },
+   {
+    "rank": 47,
+    "name": "3812 Gallery",
+    "website": "https://www.3812gallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "26/F Wyndham Place, 40-44 Wyndham Street",
+    "kind": "gallery",
+    "note": "Hong Kong-founded gallery promoting 'Eastern Origin' contemporary Chinese art, with a London branch and steady fair presence."
+   },
+   {
+    "rank": 48,
+    "name": "Puerta Roja",
+    "website": "https://www.puerta-roja.com",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "The city's specialist in Latin American and Spanish contemporary art, an unusual and well-curated counterweight to the Asia-focused scene."
+   },
+   {
+    "rank": 49,
+    "name": "Soluna Fine Art",
+    "website": "https://www.solunafineart.com",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "52 Sai Street",
+    "kind": "gallery",
+    "note": "Focused on Nordic and Asian craft-based contemporary art, with a strong ceramics and material-culture programme."
+   },
+   {
+    "rank": 50,
+    "name": "Blue Lotus Gallery",
+    "website": "https://bluelotus-gallery.com",
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "address_hint": "28 Pound Lane",
+    "kind": "gallery",
+    "note": "Dedicated photography gallery documenting Hong Kong's urban identity, representing Fan Ho's estate and a new generation of local photographers."
+   },
+   {
+    "rank": 51,
+    "name": "AISHONANZUKA",
+    "website": "https://www.aishonanzuka.com",
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Hong Kong joint venture with Tokyo's NANZUKA, showing Japanese pop, manga-influenced and design-adjacent contemporary artists."
+   },
+   {
+    "rank": 52,
+    "name": "Double Q Gallery",
+    "website": "https://www.doubleqgallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Unusual programme connecting Central and Eastern European artists with Asian audiences through curated, research-led exhibitions."
+   },
+   {
+    "rank": 53,
+    "name": "MOU PROJECTS",
+    "website": "https://www.mouprojects.com",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young gallery with an international emerging roster and strong presence at Asian fairs since 2020."
+   },
+   {
+    "rank": 54,
+    "name": "JPS Gallery",
+    "website": "https://www.jpsgallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Tokyo-rooted gallery popular for contemporary pop, urban and figurative artists with a strong young collector following."
+   },
+   {
+    "rank": 55,
+    "name": "Opera Gallery",
+    "website": "https://www.operagallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "W Place, 52 Wyndham Street",
+    "kind": "gallery",
+    "note": "International chain gallery with a long-standing Hong Kong presence selling modern masters alongside blue-chip contemporary names."
+   },
+   {
+    "rank": 56,
+    "name": "Art Projects Gallery",
+    "website": null,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Boutique gallery in the Wong Chuk Hang cluster with an abstraction-leaning programme of Asian and European artists."
+   },
+   {
+    "rank": 57,
+    "name": "Galerie Koo",
+    "website": null,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "Kwai Bo Industrial Building, 40 Wong Chuk Hang Road",
+    "kind": "gallery",
+    "note": "Small gallery showing contemporary ink, painting and ceramics by Chinese and Hong Kong artists in the southside district."
+   },
+   {
+    "rank": 58,
+    "name": "Mine Project",
+    "website": null,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Emerging-artist gallery known for conceptually driven solo presentations by young Chinese and international artists."
+   },
+   {
+    "rank": 59,
+    "name": "f22 foto space",
+    "website": null,
+    "neighborhood": "Central/Soho",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Photography-dedicated space presenting international masters and Hong Kong photographers with well-produced exhibitions and books."
+   },
+   {
+    "rank": 60,
+    "name": "La Galerie Paris 1839",
+    "website": "https://www.lagalerie.hk",
+    "neighborhood": "Central/Soho",
+    "address_hint": "74 Hollywood Road",
+    "kind": "gallery",
+    "note": "French-founded photography gallery on Hollywood Road, a consistent venue for documentary and fine-art photography in the city."
+   },
+   {
+    "rank": 61,
+    "name": "Floating Projects",
+    "website": "https://www.floatingprojectscollective.net",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": "8/F Sing Teck Factory Building, 44 Wong Chuk Hang Road",
+    "kind": "project_space",
+    "note": "Artist-run collective space founded by Linda Lai; a laboratory for experimental media, sound and research-based practice."
+   },
+   {
+    "rank": 62,
+    "name": "Current Plans",
+    "website": null,
+    "neighborhood": "Sham Shui Po",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent, artist-led space in Sham Shui Po known for discursive programmes, sound events and support of very young practitioners."
+   },
+   {
+    "rank": 63,
+    "name": "C&G Artpartment",
+    "website": "https://www.candg-artpartment.com",
+    "neighborhood": "Prince Edward",
+    "address_hint": "3/F, 222 Sai Yeung Choi Street South",
+    "kind": "project_space",
+    "note": "Artist-run space by Clara Cheung and Gum Cheng, long a platform for socially and politically engaged Hong Kong art and art education."
+   },
+   {
+    "rank": 64,
+    "name": "Jockey Club Creative Arts Centre (JCCAC)",
+    "website": "https://www.jccac.org.hk",
+    "neighborhood": "Shek Kip Mei",
+    "address_hint": "30 Pak Tin Street",
+    "kind": "nonprofit",
+    "note": "Converted factory housing scores of artist studios and public galleries; the largest concentration of working artists in Hong Kong."
+   },
+   {
+    "rank": 65,
+    "name": "Hong Kong Visual Arts Centre",
+    "website": null,
+    "neighborhood": "Mid-Levels",
+    "address_hint": "7A Kennedy Road",
+    "kind": "nonprofit",
+    "note": "Government studio and exhibition facility in Hong Kong Park that has trained and shown generations of local sculptors, printmakers and ceramicists."
+   },
+   {
+    "rank": 66,
+    "name": "Lumenvisum",
+    "website": "https://www.lumenvisum.org",
+    "neighborhood": "Shek Kip Mei",
+    "address_hint": "L2-02, JCCAC, 30 Pak Tin Street",
+    "kind": "nonprofit",
+    "note": "Non-profit photography centre running exhibitions, courses and publications that sustain Hong Kong's photographic community."
+   },
+   {
+    "rank": 67,
+    "name": "Hong Kong Open Printshop",
+    "website": "https://www.open-printshop.org.hk",
+    "neighborhood": "Shek Kip Mei",
+    "address_hint": "L3-06, JCCAC, 30 Pak Tin Street",
+    "kind": "nonprofit",
+    "note": "Open-access print studio and gallery, the hub of contemporary printmaking and artist-book culture in the city."
+   },
+   {
+    "rank": 68,
+    "name": "The Shophouse",
+    "website": "https://theshophouse.hk",
+    "neighborhood": "Tai Hang",
+    "address_hint": "4 Second Lane",
+    "kind": "nonprofit",
+    "note": "Heritage tong lau converted into a multi-floor art space with a curated, community-minded programme of local and international shows."
+   },
+   {
+    "rank": 69,
+    "name": "Tomorrow Maybe",
+    "website": null,
+    "neighborhood": "Jordan",
+    "address_hint": "Eaton HK, 380 Nathan Road",
+    "kind": "project_space",
+    "note": "Hotel-hosted non-commercial space that gave many emerging Hong Kong artists and curators early exhibition opportunities."
+   },
+   {
+    "rank": 70,
+    "name": "Present Projects",
+    "website": null,
+    "neighborhood": "Sham Shui Po",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent Kowloon space focused on photography, publishing and cross-disciplinary projects by younger practitioners."
+   },
+   {
+    "rank": 71,
+    "name": "openground",
+    "website": "https://www.openground.hk",
+    "neighborhood": "Sham Shui Po",
+    "address_hint": "198 Tai Nan Street",
+    "kind": "project_space",
+    "note": "Design- and publishing-oriented space whose exhibitions and talks helped make Tai Nan Street a creative district."
+   },
+   {
+    "rank": 72,
+    "name": "Parallel Space",
+    "website": null,
+    "neighborhood": "Sham Shui Po",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Small independent venue for photography, zines and experimental shows within the Sham Shui Po creative cluster."
+   },
+   {
+    "rank": 73,
+    "name": "Hidden Space",
+    "website": null,
+    "neighborhood": "Kwai Chung",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-run industrial-building space supporting experimental installation and performance outside the commercial districts."
+   },
+   {
+    "rank": 74,
+    "name": "Wure Area",
+    "website": null,
+    "neighborhood": "Kwun Tong",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-run space in a Kowloon East factory building known for raw, low-budget experimental exhibitions and gatherings."
+   },
+   {
+    "rank": 75,
+    "name": "soundpocket",
+    "website": "https://www.soundpocket.org.hk",
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Sound-art organisation running residencies, listening projects and exhibitions that have shaped Hong Kong's sonic art discourse."
+   },
+   {
+    "rank": 76,
+    "name": "Rooftop Institute",
+    "website": "https://www.rooftopinstitute.org",
+    "neighborhood": "Kwun Tong",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Art-education non-profit connecting Hong Kong with Southeast and East Asian artists through exchange programmes and exhibitions."
+   },
+   {
+    "rank": 77,
+    "name": "Belowground",
+    "website": null,
+    "neighborhood": "Central/Soho",
+    "address_hint": "Basement, Landmark Atrium, 15 Queen's Road Central",
+    "kind": "project_space",
+    "note": "Retail-adjacent underground project space bringing experimental installations and street-culture-inflected art to a mass Central audience."
+   }
+  ]
+ }
+}

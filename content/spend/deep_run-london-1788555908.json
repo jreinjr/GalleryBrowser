@@ -1,0 +1,697 @@
+{
+  "city": "london",
+  "start_ts": 1788555908,
+  "zones": [
+    "Mayfair",
+    "East End",
+    "West End/Soho"
+  ],
+  "args": {
+    "city": "london",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/london/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559658,
+  "queue": {
+    "Mayfair": {
+      "zone": "Mayfair",
+      "order": 0,
+      "due": 7,
+      "sessions_run": 4,
+      "zero_progress": 1,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "East End": {
+      "zone": "East End",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "West End/Soho": {
+      "zone": "West End/Soho",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 4,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "alison-jacques"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "almine-rech"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "amanda-wilkinson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "annely-juda"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arcadia-missa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ben-brown"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bernard-jacobson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "camden-art-centre"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bold-tendencies"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cabinet"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cooke-latham"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "corvi-mora"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cubitt"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "edel-assanti"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "frith-street"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-1957"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "approach"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "auto-italia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "autograph"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "carlos-ishikawa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cell-project-space"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chisenhale"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "copperfield"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "drawing-room"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West End/Soho",
+      "session": 1,
+      "todo": 8,
+      "saved": 6,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-london-west-end-soho-1788555928",
+      "venue_ids": [
+        "bold-tendencies",
+        "cabinet",
+        "cooke-latham",
+        "corvi-mora",
+        "cubitt",
+        "edel-assanti",
+        "frith-street",
+        "gallery-1957"
+      ],
+      "started_ts": 1788555928,
+      "ended_ts": 1788556282
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gathering"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "goldsmiths-cca"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "greengrassi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hannah-barry"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hayward"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hollybush-gardens"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "huxley-parlour"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "institute-of-contemporary-arts-ica"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mayfair",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-london-mayfair-1788555908",
+      "venue_ids": [
+        "alison-jacques",
+        "almine-rech",
+        "amanda-wilkinson",
+        "annely-juda",
+        "arcadia-missa",
+        "ben-brown",
+        "bernard-jacobson",
+        "camden-art-centre"
+      ],
+      "started_ts": 1788555908,
+      "ended_ts": 1788556323
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cristea-roberts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "flowers"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gagosian-davies-street"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-max-hetzler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gazelli-art-house"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "goodman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "grimm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "harlesden-high-street"
+    },
+    {
+      "stage": "scrape",
+      "zone": "East End",
+      "session": 1,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-london-east-end-1788555951",
+      "venue_ids": [
+        "approach",
+        "auto-italia",
+        "autograph",
+        "carlos-ishikawa",
+        "cell-project-space",
+        "chisenhale",
+        "copperfield",
+        "drawing-room"
+      ],
+      "started_ts": 1788555951,
+      "ended_ts": 1788556423
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "emalin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ginny-on-frederick"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hales"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "herald-st"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kate-macgarry"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kristin-hjellegjerde"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mother-s-tankstation"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "peer"
+    },
+    {
+      "stage": "scrape",
+      "zone": "East End",
+      "session": 2,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-london-east-end-1788556423",
+      "venue_ids": [
+        "emalin",
+        "ginny-on-frederick",
+        "hales",
+        "herald-st",
+        "kate-macgarry",
+        "kristin-hjellegjerde",
+        "mother-s-tankstation",
+        "peer"
+      ],
+      "started_ts": 1788556423,
+      "ended_ts": 1788556847
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pi-artworks"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "public"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "raven-row"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rose-easton"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "seventeen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soft-opening"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "victoria-miro"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "whitechapel"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mayfair",
+      "session": 2,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-london-mayfair-1788556323",
+      "venue_ids": [
+        "cristea-roberts",
+        "flowers",
+        "gagosian-davies-street",
+        "galerie-max-hetzler",
+        "gazelli-art-house",
+        "goodman",
+        "grimm",
+        "harlesden-high-street"
+      ],
+      "started_ts": 1788556323,
+      "ended_ts": 1788556862
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hauser-and-wirth"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lehmann-maupin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "levy-gorvy-dayan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lisson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "massimo-de-carlo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "matt-s"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "modern-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "offer-waterman"
+    },
+    {
+      "stage": "scrape",
+      "zone": "East End",
+      "session": 3,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-london-east-end-1788556847",
+      "venue_ids": [
+        "pi-artworks",
+        "public",
+        "raven-row",
+        "rose-easton",
+        "seventeen",
+        "soft-opening",
+        "victoria-miro",
+        "whitechapel"
+      ],
+      "started_ts": 1788556847,
+      "ended_ts": 1788557397
+    },
+    {
+      "stage": "scrape",
+      "zone": "West End/Soho",
+      "session": 2,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-london-west-end-soho-1788556283",
+      "venue_ids": [
+        "gathering",
+        "goldsmiths-cca",
+        "greengrassi",
+        "hannah-barry",
+        "hayward",
+        "hollybush-gardens",
+        "huxley-parlour",
+        "institute-of-contemporary-arts-ica"
+      ],
+      "started_ts": 1788556283,
+      "ended_ts": 1788557425
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "josh-lilley"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "large-glass"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maximillian-william"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "october"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "photographers"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sadie-coles-hq"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "serpentine-south"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "showroom"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West End/Soho",
+      "session": 3,
+      "todo": 8,
+      "saved": 14,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-london-west-end-soho-1788557426",
+      "venue_ids": [
+        "josh-lilley",
+        "large-glass",
+        "maximillian-william",
+        "october",
+        "photographers",
+        "sadie-coles-hq",
+        "serpentine-south",
+        "showroom"
+      ],
+      "started_ts": 1788557426,
+      "ended_ts": 1788558260
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sid-motion"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "south-london"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "workplace"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West End/Soho",
+      "session": 4,
+      "todo": 3,
+      "saved": 3,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-london-west-end-soho-1788558260",
+      "venue_ids": [
+        "sid-motion",
+        "south-london",
+        "workplace"
+      ],
+      "started_ts": 1788558260,
+      "ended_ts": 1788558460
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mayfair",
+      "session": 3,
+      "todo": 8,
+      "saved": 14,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-london-mayfair-1788556862",
+      "venue_ids": [
+        "hauser-and-wirth",
+        "lehmann-maupin",
+        "levy-gorvy-dayan",
+        "lisson",
+        "massimo-de-carlo",
+        "matt-s",
+        "modern-art",
+        "offer-waterman"
+      ],
+      "started_ts": 1788556862,
+      "ended_ts": 1788559092
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ordovas"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pace"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "perrotin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pilar-corrias"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pippy-houldsworth"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "richard-saltoun"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "saatchi-yates"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sprovieri"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mayfair",
+      "session": 4,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-london-mayfair-1788559092",
+      "venue_ids": [
+        "ordovas",
+        "pace",
+        "perrotin",
+        "pilar-corrias",
+        "pippy-houldsworth",
+        "richard-saltoun",
+        "saatchi-yates",
+        "sprovieri"
+      ],
+      "started_ts": 1788559092,
+      "ended_ts": 1788559237
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-voltaire"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sunday-painter"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "thaddaeus-ropac"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "timothy-taylor"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vigo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "waddington-custot"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "white-cube"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mayfair",
+      "session": 5,
+      "todo": 7,
+      "saved": 11,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-london-mayfair-1788559237",
+      "venue_ids": [
+        "studio-voltaire",
+        "sunday-painter",
+        "thaddaeus-ropac",
+        "timothy-taylor",
+        "vigo",
+        "waddington-custot",
+        "white-cube"
+      ],
+      "started_ts": 1788559237,
+      "ended_ts": 1788559658
+    }
+  ]
+}

@@ -1,0 +1,1950 @@
+{
+ "city": "san-francisco",
+ "generated_at": "2026-09-04T23:04:20+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "san-francisco",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 82,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "lee-friedlander-maria",
+   "title": "Lee Friedlander: Maria",
+   "artist": "Lee Friedlander",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 4,
+   "desc_words": 217,
+   "venue": {
+    "name": "Fraenkel Gallery",
+    "id": "fraenkel",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "fraenkel"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8340000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0025020000000000003
+   },
+   "score": 0.992502,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 1,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 82)",
+    "quality 0.83 (4 images, 217 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "liam-everett-the-passenger",
+   "title": "the antml:parameter>the passenger",
+   "artist": "Liam Everett",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-29"
+   },
+   "n_images": 5,
+   "desc_words": 221,
+   "venue": {
+    "name": "Berggruen Gallery",
+    "id": "berggruen",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "berggruen"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.975609756097561,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.942
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9658536585365853,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002826
+   },
+   "score": 0.9686796585365853,
+   "days_since_open": -6,
+   "days_to_close": 55,
+   "rank": 2,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 3 of 82)",
+    "quality 0.94 (5 images, 221 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "defining-the-century-berggruen",
+   "title": "Defining the Century: Modern Visionaries from Picasso to Calder",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-22"
+   },
+   "n_images": 4,
+   "desc_words": 197,
+   "venue": {
+    "name": "Berggruen Gallery",
+    "id": "berggruen",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "berggruen"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.975609756097561,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.794
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9658536585365853,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002382
+   },
+   "score": 0.9682356585365853,
+   "days_since_open": -6,
+   "days_to_close": 48,
+   "rank": 3,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 3 of 82)",
+    "quality 0.79 (4 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "ccg-sandow-birk",
+   "title": "Sandow Birk: An Illustrated History of the Present",
+   "artist": "Sandow Birk",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-11-07"
+   },
+   "n_images": 5,
+   "desc_words": 291,
+   "venue": {
+    "name": "Catharine Clark Gallery",
+    "id": "catharine-clark",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "catharine clark"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9512195121951219,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9417073170731707,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.9447073170731707,
+   "days_since_open": 6,
+   "days_to_close": 64,
+   "rank": 4,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 5 of 82)",
+    "quality 1.00 (5 images, 291 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "tuttle-odita-crownpoint",
+   "title": "Richard Tuttle and Odili Donald Odita: Language and Pattern",
+   "artist": "Richard Tuttle & Odili Donald Odita",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-17",
+    "end": "2026-10-01"
+   },
+   "n_images": 5,
+   "desc_words": 186,
+   "venue": {
+    "name": "Crown Point Press",
+    "id": "crown-point-press",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "crown point press"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9390243902439024,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6597539553864471,
+    "closing_soon": 0.0,
+    "quality": 0.872
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9296341463414634,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002616
+   },
+   "score": 0.9322501463414633,
+   "days_since_open": 18,
+   "days_to_close": 27,
+   "rank": 5,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 6 of 82)",
+    "quality 0.87 (5 images, 186 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "wattis-the-tramp",
+   "title": "The Tramp",
+   "artist": "Caguiat Delacruz (Justin Caguiat and Rafael Delacruz)",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-10",
+    "end": "2026-11-21"
+   },
+   "n_images": 5,
+   "desc_words": 201,
+   "venue": {
+    "name": "CCA Wattis Institute for Contemporary Arts",
+    "id": "cca-wattis-institute-for-contemporary-arts",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "cca wattis institute for contemporary arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first institutional show",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9146341463414634,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.13710312246182824,
+    "closing_soon": 0.0,
+    "quality": 0.902
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9054878048780488,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002706
+   },
+   "score": 0.9081938048780488,
+   "days_since_open": 86,
+   "days_to_close": 78,
+   "rank": 6,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 8 of 82)",
+    "quality 0.90 (5 images, 201 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "wattis-redskyfalls",
+   "title": "RedSkyFalls",
+   "artist": "Alexandre Estrela",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-09",
+    "end": "2026-11-21"
+   },
+   "n_images": 3,
+   "desc_words": 188,
+   "venue": {
+    "name": "CCA Wattis Institute for Contemporary Arts",
+    "id": "cca-wattis-institute-for-contemporary-arts",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "cca wattis institute for contemporary arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9146341463414634,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.06545588267628918,
+    "closing_soon": 0.0,
+    "quality": 0.6759999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9054878048780488,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002028
+   },
+   "score": 0.9075158048780488,
+   "days_since_open": 118,
+   "days_to_close": 78,
+   "rank": 7,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 8 of 82)",
+    "quality 0.68 (3 images, 188 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "casemore-automata-sigils",
+   "title": "Automata Sigils",
+   "artist": "Billie Ocean, Kelley O'Leary, Sonya Rapoport, Ariella Robinson, Mia Weiner, and Carmen Winant",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-27",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 194,
+   "venue": {
+    "name": "Casemore Gallery",
+    "id": "casemore",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "casemore"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8902439024390244,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2030630990890589,
+    "closing_soon": 1.0,
+    "quality": 0.888
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8813414634146342,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002664
+   },
+   "score": 0.8860054634146342,
+   "days_since_open": 69,
+   "days_to_close": 8,
+   "rank": 8,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 10 of 82)",
+    "quality 0.89 (5 images, 194 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "casemore-lindsey-white",
+   "title": "New & Recent Signs!",
+   "artist": "Lindsey White",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-23",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 178,
+   "venue": {
+    "name": "Casemore Gallery",
+    "id": "casemore",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "casemore"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8902439024390244,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37027438807164104,
+    "closing_soon": 1.0,
+    "quality": 0.856
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8813414634146342,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002568
+   },
+   "score": 0.8859094634146342,
+   "days_since_open": 43,
+   "days_to_close": 8,
+   "rank": 9,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 10 of 82)",
+    "quality 0.86 (5 images, 178 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "etal-punctums",
+   "title": "Punctum(s)",
+   "artist": "John Bankston, Jobi Bicos, Rebekah Goldstein, Bec Imrich, Nagi Lee, Quintessa Matranga, Steuart Pittman",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-09"
+   },
+   "n_images": 1,
+   "desc_words": 227,
+   "venue": {
+    "name": "Et al.",
+    "id": "et-al",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "et al"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8536585365853658,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.554
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8451219512195122,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016620000000000003
+   },
+   "score": 0.8467839512195122,
+   "days_since_open": 0,
+   "days_to_close": 35,
+   "rank": 10,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 13 of 82)",
+    "quality 0.55 (1 images, 227 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "etal-open-net",
+   "title": "Open Net",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-09"
+   },
+   "n_images": 1,
+   "desc_words": 167,
+   "venue": {
+    "name": "Et al.",
+    "id": "et-al",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "et al"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8536585365853658,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.43400000000000005
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8451219512195122,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013020000000000002
+   },
+   "score": 0.8464239512195122,
+   "days_since_open": 0,
+   "days_to_close": 35,
+   "rank": 11,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 13 of 82)",
+    "quality 0.43 (1 images, 167 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "eleanor-harwood-20-years",
+   "title": "20 Years - Anniversary Exhibition",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 185,
+   "venue": {
+    "name": "Eleanor Harwood Gallery",
+    "id": "eleanor-harwood",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "eleanor harwood"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7804878048780488,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.87
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7726829268292683,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00261
+   },
+   "score": 0.7752929268292683,
+   "days_since_open": -8,
+   "days_to_close": 57,
+   "rank": 12,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 19 of 82)",
+    "quality 0.87 (5 images, 185 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "cult-reflections-of-mani",
+   "title": "Reflections of Mani",
+   "artist": "William Roper-Curzon",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 185,
+   "venue": {
+    "name": "CULT Aimee Friberg Exhibitions",
+    "id": "cult-aimee-friberg-exhibitions",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "cult aimee friberg exhibitions"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7682926829268293,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.47
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.760609756097561,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00141
+   },
+   "score": 0.762019756097561,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 13,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.77 (rank 20 of 82)",
+    "quality 0.47 (1 images, 185 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "janet-delaney-too-many-products",
+   "title": "Too Many Products",
+   "artist": "Janet Delaney",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": "2026-09-12"
+   },
+   "n_images": 6,
+   "desc_words": 202,
+   "venue": {
+    "name": "Euqinom Gallery",
+    "id": "euqinom",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "euqinom"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6951219512195121,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 1.0,
+    "quality": 0.904
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.688170731707317,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002712
+   },
+   "score": 0.6928827317073171,
+   "days_since_open": null,
+   "days_to_close": 8,
+   "rank": 14,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 26 of 82)",
+    "quality 0.90 (6 images, 202 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "ce-drawn-together",
+   "title": "Drawn Together",
+   "artist": "Kevin Diep, Christina Marie Fong, Daniel Green, Nina Krietzman, Andrew Li, Steven Liu, James Miles, Cristina Saavedra, Ka Wai Shiu, Kate Thompson",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-21"
+   },
+   "n_images": 6,
+   "desc_words": 208,
+   "venue": {
+    "name": "Creativity Explored",
+    "id": "creativity-explored",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "creativity explored"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6707317073170731,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9159999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6640243902439024,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002748
+   },
+   "score": 0.6667723902439023,
+   "days_since_open": -6,
+   "days_to_close": 78,
+   "rank": 15,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 28 of 82)",
+    "quality 0.92 (6 images, 208 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "anthony-meier-terri-friedman-overmuch",
+   "title": "Overmuch",
+   "artist": "Terri Friedman",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-16",
+    "end": "2026-09-18"
+   },
+   "n_images": 5,
+   "desc_words": 198,
+   "venue": {
+    "name": "Anthony Meier",
+    "id": "anthony-meier",
+    "tier": 2,
+    "rank": 33,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Chinatown/North Beach",
+    "norm": "anthony meier"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6097560975609756,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3149802624737183,
+    "closing_soon": 1.0,
+    "quality": 0.896
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6036585365853658,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0026880000000000003
+   },
+   "score": 0.6083465365853659,
+   "days_since_open": 50,
+   "days_to_close": 14,
+   "rank": 16,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.61 (rank 33 of 82)",
+    "quality 0.90 (5 images, 198 words)",
+    "closes in 14 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "anthony-meier-rob-reynolds-be-like-the-sun",
+   "title": "Be Like the Sun",
+   "artist": "Rob Reynolds",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-01",
+    "end": "2026-12-18"
+   },
+   "n_images": 1,
+   "desc_words": 120,
+   "venue": {
+    "name": "Anthony Meier",
+    "id": "anthony-meier",
+    "tier": 2,
+    "rank": 33,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Chinatown/North Beach",
+    "norm": "anthony meier"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6097560975609756,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.33999999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6036585365853658,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0010199999999999999
+   },
+   "score": 0.6046785365853659,
+   "days_since_open": -27,
+   "days_to_close": 105,
+   "rank": 17,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.61 (rank 33 of 82)",
+    "quality 0.34 (1 images, 120 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "500capp-trachtenberg-abstract-objects",
+   "title": "Abstract Objects of Devotion",
+   "artist": "Amy Trachtenberg",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-24",
+    "end": "2026-10-17"
+   },
+   "n_images": 1,
+   "desc_words": 232,
+   "venue": {
+    "name": "500 Capp Street Foundation (The David Ireland House)",
+    "id": "500-capp-street-foundation-the-david-ireland-house",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "500 capp street foundation the david ireland house"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5975609756097561,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37892914162759955,
+    "closing_soon": 0.0,
+    "quality": 0.5640000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5915853658536585,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016920000000000001
+   },
+   "score": 0.5932773658536585,
+   "days_since_open": 42,
+   "days_to_close": 43,
+   "rank": 18,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 34 of 82)",
+    "quality 0.56 (1 images, 232 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "500capp-vogt-ringing-in-my-eyes",
+   "title": "The Ringing in My Eyes",
+   "artist": "Andy Vogt",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-24",
+    "end": "2026-10-17"
+   },
+   "n_images": 1,
+   "desc_words": 209,
+   "venue": {
+    "name": "500 Capp Street Foundation (The David Ireland House)",
+    "id": "500-capp-street-foundation-the-david-ireland-house",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "500 capp street foundation the david ireland house"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5975609756097561,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37892914162759955,
+    "closing_soon": 0.0,
+    "quality": 0.518
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5915853658536585,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001554
+   },
+   "score": 0.5931393658536586,
+   "days_since_open": 42,
+   "days_to_close": 43,
+   "rank": 19,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 34 of 82)",
+    "quality 0.52 (1 images, 209 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "2-journeys-asg",
+   "title": "2 Journeys",
+   "artist": "Gugger Petter & John Torrey",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-05",
+    "end": "2026-09-10"
+   },
+   "n_images": 4,
+   "desc_words": 207,
+   "venue": {
+    "name": "Andrea Schwartz Gallery",
+    "id": "andrea-schwartz",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "andrea schwartz"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5853658536585367,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5,
+    "closing_soon": 1.0,
+    "quality": 0.8140000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5795121951219513,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002442
+   },
+   "score": 0.5839541951219512,
+   "days_since_open": 30,
+   "days_to_close": 6,
+   "rank": 20,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.59 (rank 35 of 82)",
+    "quality 0.81 (4 images, 207 words)",
+    "closes in 6 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "rising-tides-111minna",
+   "title": "Rising Tides",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": "2026-09-09"
+   },
+   "n_images": 5,
+   "desc_words": 182,
+   "venue": {
+    "name": "111 Minna Gallery",
+    "id": "111-minna",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "111 minna"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.41463414634146345,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 1.0,
+    "quality": 0.864
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4104878048780488,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002592
+   },
+   "score": 0.4150798048780488,
+   "days_since_open": null,
+   "days_to_close": 5,
+   "rank": 21,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.41 (rank 49 of 82)",
+    "quality 0.86 (5 images, 182 words)",
+    "closes in 5 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "chromatic-narratives-caldwellsnyder",
+   "title": "Bay Area Artists: Chromatic Narratives",
+   "artist": "Melissa Chandon, Matt Rogers, Deladier Almeida & Siddharth Parasnis",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-06",
+    "end": "2026-09-15"
+   },
+   "n_images": 4,
+   "desc_words": 193,
+   "venue": {
+    "name": "Caldwell Snyder Gallery",
+    "id": "caldwell-snyder",
+    "tier": 3,
+    "rank": 59,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Union Square/Downtown",
+    "norm": "caldwell snyder"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.29268292682926833,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5116869459983875,
+    "closing_soon": 1.0,
+    "quality": 0.786
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.28975609756097565,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0023580000000000003
+   },
+   "score": 0.2941140975609756,
+   "days_since_open": 29,
+   "days_to_close": 11,
+   "rank": 22,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.29 (rank 59 of 82)",
+    "quality 0.79 (4 images, 193 words)",
+    "closes in 11 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "city-art-september-group",
+   "title": "September Group Exhibition: Limbism",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-02",
+    "end": "2026-09-27"
+   },
+   "n_images": 2,
+   "desc_words": 154,
+   "venue": {
+    "name": "City Art Cooperative Gallery",
+    "id": "city-art-cooperative",
+    "tier": 3,
+    "rank": 62,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mission",
+    "norm": "city art cooperative"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.25609756097560976,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9548416039104165,
+    "closing_soon": 0.0,
+    "quality": 0.508
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.25353658536585366,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001524
+   },
+   "score": 0.2550605853658537,
+   "days_since_open": 2,
+   "days_to_close": 23,
+   "rank": 23,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.26 (rank 62 of 82)",
+    "quality 0.51 (2 images, 154 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "chung24-unending-path",
+   "title": "An Unending Path",
+   "artist": "Nicole White",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-12",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 192,
+   "venue": {
+    "name": "Chung 24 Gallery",
+    "id": "chung-24",
+    "tier": 3,
+    "rank": 68,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Dogpatch/Minnesota Street",
+    "norm": "chung 24"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.18292682926829273,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5877739531418044,
+    "closing_soon": 0.0,
+    "quality": 0.884
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1810975609756098,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0026520000000000003
+   },
+   "score": 0.1837495609756098,
+   "days_since_open": 23,
+   "days_to_close": 22,
+   "rank": 24,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.18 (rank 68 of 82)",
+    "quality 0.88 (5 images, 192 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788563059,
+   "run_id": "apply-san-francisco-1788563059",
+   "city": "san-francisco",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=9 reorder=True params=1bf50a2f92e1",
+   "params_hash": "1bf50a2f92e1"
+  },
+  {
+   "ts": 1788563060,
+   "run_id": "score-san-francisco-1788563060",
+   "city": "san-francisco",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=24 featured=0 snapshot=None params=1bf50a2f92e1",
+   "params_hash": "1bf50a2f92e1",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 19,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

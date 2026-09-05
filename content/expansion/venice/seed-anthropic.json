@@ -1,0 +1,472 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788558092,
+ "system": "You are an art-world editor compiling a gallery guide for Venice, . Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Venice itself (galleries whose home is\nelsewhere count only through a permanent Venice space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (San Marco, Dorsoduro, Cannaregio, Castello, Giudecca) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Venice spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Venice, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 57,
+  "output_tokens": 16845,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.426854,
+  "seconds": 220.1
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Victoria Miro Venice",
+    "website": "https://www.victoria-miro.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Il Capricorno, San Marco 1994, Calle Drio la Chiesa",
+    "kind": "gallery",
+    "note": "Venice outpost of the London mega-gallery, in the historic Il Capricorno space; shows Grayson Perry, Chris Ofili, Yayoi Kusama and others, and is the city's strongest international commercial programme."
+   },
+   {
+    "rank": 2,
+    "name": "Galleria Michela Rizzo",
+    "website": null,
+    "neighborhood": "Giudecca",
+    "address_hint": "Fondamenta San Biagio 800/o (ex Birreria Dreher)",
+    "kind": "gallery",
+    "note": "The most ambitious Venetian-owned contemporary gallery, with a large Giudecca warehouse space, a research-driven programme and consistent Italian art-fair presence."
+   },
+   {
+    "rank": 3,
+    "name": "Galleria Alberta Pane",
+    "website": "https://www.albertapane.com",
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Dorsoduro 2403/h, Calle dei Guardiani",
+    "kind": "gallery",
+    "note": "Paris–Venice gallery showing an international roster of conceptual and performance-based artists; regular at Artissima, Art Brussels and Paris fairs."
+   },
+   {
+    "rank": 4,
+    "name": "Marignana Arte",
+    "website": "https://www.marignanaarte.it",
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Rio Terà dei Catecumeni, Dorsoduro 141",
+    "kind": "gallery",
+    "note": "Rigorous programme bridging Italian post-war abstraction and younger conceptual practices; a fixture of Venice's Biennale-season calendar and of Italian fairs."
+   },
+   {
+    "rank": 5,
+    "name": "Ocean Space (TBA21–Academy)",
+    "website": "https://www.ocean-space.org",
+    "neighborhood": "Castello",
+    "address_hint": "Chiesa di San Lorenzo, Campo San Lorenzo, Castello 5069",
+    "kind": "nonprofit",
+    "note": "TBA21–Academy's commissioning platform in a deconsecrated church, pairing major artist commissions with ocean research; internationally the most-discussed non-Biennale venue in the city."
+   },
+   {
+    "rank": 6,
+    "name": "Fondazione Bevilacqua La Masa",
+    "website": "https://www.bevilacqualamasa.it",
+    "neighborhood": "San Marco",
+    "address_hint": "Piazza San Marco 71/c; Palazzetto Tito, Dorsoduro 2826",
+    "kind": "nonprofit",
+    "note": "Founded 1898, the city's historic incubator for emerging artists, with studios, an annual open call and two public exhibition spaces."
+   },
+   {
+    "rank": 7,
+    "name": "Alma Zevi",
+    "website": "https://www.almazevi.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Salizada Malipiero, San Marco 3357",
+    "kind": "gallery",
+    "note": "Curatorially sharp gallery mixing modern estates with young international artists; a key stop for the visiting art world during Biennale openings."
+   },
+   {
+    "rank": 8,
+    "name": "A plus A Gallery",
+    "website": "https://www.aplusa.it",
+    "neighborhood": "San Marco",
+    "address_hint": "Calle Malipiero, San Marco 3073",
+    "kind": "gallery",
+    "note": "Slovenian exhibition centre turned experimental gallery and school platform; long history of Central/Eastern European and emerging Italian shows."
+   },
+   {
+    "rank": 9,
+    "name": "Berggruen Arts & Culture – Palazzo Diedo",
+    "website": "https://www.berggruenarts.org",
+    "neighborhood": "Cannaregio",
+    "address_hint": "Palazzo Diedo, Fondamenta Diedo, Cannaregio 2386",
+    "kind": "nonprofit",
+    "note": "Restored palazzo opened 2024 with permanent site-specific commissions (Sterling Ruby, Urs Fischer, Lee Ufan) and a residency; instantly a major Venice venue."
+   },
+   {
+    "rank": 10,
+    "name": "Fondazione Emilio e Annabianca Vedova",
+    "website": "https://www.fondazionevedova.org",
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Magazzino del Sale 266, Zattere",
+    "kind": "nonprofit",
+    "note": "Artist's foundation in a Renzo Piano-adapted salt warehouse; exhibitions of Vedova alongside leading international contemporary artists."
+   },
+   {
+    "rank": 11,
+    "name": "Caterina Tognon Arte Contemporanea",
+    "website": "https://www.caterinatognon.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Corte Barozzi, San Marco 2158",
+    "kind": "gallery",
+    "note": "The reference gallery for contemporary art in glass, working with international artists and museums since 1992."
+   },
+   {
+    "rank": 12,
+    "name": "Berengo Studio / Fondazione Berengo",
+    "website": "https://www.berengo.com",
+    "neighborhood": "Murano",
+    "address_hint": "Fondamenta Vetrai 109/A and Campiello della Pescheria, Murano",
+    "kind": "gallery",
+    "note": "Furnace, gallery and foundation behind 'Glasstress', which has brought hundreds of major contemporary artists to work in Murano glass."
+   },
+   {
+    "rank": 13,
+    "name": "S.a.L.E. Docks",
+    "website": "https://www.saledocks.org",
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Magazzini del Sale, Dorsoduro 265, Zattere",
+    "kind": "nonprofit",
+    "note": "Independent, occupation-born collective space for politically engaged art, activism and experimental programming; a critical counter-voice to the Biennale economy."
+   },
+   {
+    "rank": 14,
+    "name": "Le Stanze del Vetro",
+    "website": "https://www.lestanzedelvetro.org",
+    "neighborhood": "Isola di San Giorgio Maggiore",
+    "address_hint": "Fondazione Giorgio Cini, Isola di San Giorgio Maggiore",
+    "kind": "nonprofit",
+    "note": "Free exhibition space devoted to 20th-century and contemporary glass, with scholarly, museum-quality shows and a permanent study centre."
+   },
+   {
+    "rank": 15,
+    "name": "Espace Louis Vuitton Venezia",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Calle del Ridotto 1353, San Marco",
+    "kind": "project_space",
+    "note": "Free corporate exhibition space presenting works from the Fondation Louis Vuitton collection and solo projects by internationally established artists."
+   },
+   {
+    "rank": 16,
+    "name": "Spazio Punch",
+    "website": "https://www.spaziopunch.com",
+    "neighborhood": "Giudecca",
+    "address_hint": "Fondamenta San Biagio 800/q, Giudecca",
+    "kind": "project_space",
+    "note": "Independent space in a former brewery known for design-adjacent, experimental and youth-driven exhibitions and collaborations."
+   },
+   {
+    "rank": 17,
+    "name": "Ikona Gallery",
+    "website": "https://www.ikonavenezia.com",
+    "neighborhood": "Cannaregio",
+    "address_hint": "Campo del Ghetto Nuovo 2909",
+    "kind": "gallery",
+    "note": "Long-running photography gallery in the Ghetto, run by Živa Kraus since 1979, with a strong documentary and Central European emphasis."
+   },
+   {
+    "rank": 18,
+    "name": "Jarach Gallery",
+    "website": "https://www.jarachgallery.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Campo San Fantin 1997",
+    "kind": "gallery",
+    "note": "Photography- and lens-based gallery next to La Fenice, showing international names and Venice-specific commissions."
+   },
+   {
+    "rank": 19,
+    "name": "Beatrice Burati Anderson Art Space & Gallery",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Curator-run gallery with a lively programme of emerging Italian and international artists and Biennale-season collateral projects."
+   },
+   {
+    "rank": 20,
+    "name": "Galleria d'Arte Contini",
+    "website": "https://www.continiarte.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Calle dello Spezier 2765 and San Marco 2288, Campo Santo Stefano",
+    "kind": "gallery",
+    "note": "The city's largest commercial operation, with modern masters and blue-chip contemporary names plus high-visibility public installations."
+   },
+   {
+    "rank": 21,
+    "name": "Bugno Art Gallery",
+    "website": "https://www.bugnoartgallery.it",
+    "neighborhood": "San Marco",
+    "address_hint": "Campo San Fantin 1996/d",
+    "kind": "gallery",
+    "note": "Established Venetian dealer of postwar and contemporary Italian art, active since the 1990s with a busy exhibition calendar."
+   },
+   {
+    "rank": 22,
+    "name": "Galleria Ravagnan",
+    "website": "https://www.ravagnangallery.com",
+    "neighborhood": "San Marco",
+    "address_hint": "Piazza San Marco 50/A",
+    "kind": "gallery",
+    "note": "Family gallery in Piazza San Marco since 1967, mixing historic Venetian modernism with contemporary sculpture and glass."
+   },
+   {
+    "rank": 23,
+    "name": "Galleria Il Traghetto",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Campo Santo Stefano 2543",
+    "kind": "gallery",
+    "note": "One of Venice's oldest continuously running contemporary galleries (since 1968), with deep roots in the Italian postwar scene."
+   },
+   {
+    "rank": 24,
+    "name": "Emily Harvey Foundation",
+    "website": "https://www.emilyharveyfoundation.org",
+    "neighborhood": "San Marco",
+    "address_hint": "San Marco 3852",
+    "kind": "nonprofit",
+    "note": "Fluxus-linked residency and exhibition space continuing the legacy of the New York dealer; small but internationally networked."
+   },
+   {
+    "rank": 25,
+    "name": "Microclima",
+    "website": "https://www.microclima.net",
+    "neighborhood": "Castello",
+    "address_hint": "Serra dei Giardini, Via Giuseppe Garibaldi 1254",
+    "kind": "nonprofit",
+    "note": "Curatorial platform in the Giardini's historic greenhouse, producing site-specific projects, talks and artist commissions year-round."
+   },
+   {
+    "rank": 26,
+    "name": "Zuecca Projects",
+    "website": null,
+    "neighborhood": "Giudecca",
+    "address_hint": "Complesso delle Zitelle, Giudecca 33",
+    "kind": "nonprofit",
+    "note": "Producer of architecture and art exhibitions and Biennale collateral events, with a project space on the Giudecca waterfront."
+   },
+   {
+    "rank": 27,
+    "name": "CREA Cantieri del Contemporaneo",
+    "website": null,
+    "neighborhood": "Giudecca",
+    "address_hint": "Giudecca 211, ex convento dei SS. Cosma e Damiano",
+    "kind": "nonprofit",
+    "note": "Studios, residencies and exhibition halls in a former convent; a hub for the Giudecca Art District and local artist community."
+   },
+   {
+    "rank": 28,
+    "name": "Nuova Icona",
+    "website": null,
+    "neighborhood": "Giudecca",
+    "address_hint": "Giudecca; also Oratorio di San Ludovico, Dorsoduro",
+    "kind": "nonprofit",
+    "note": "Artist-run association active since 1993, producing exhibitions and Biennale collateral projects in unusual sacred spaces."
+   },
+   {
+    "rank": 29,
+    "name": "Spazio Berlendis",
+    "website": null,
+    "neighborhood": "Castello",
+    "address_hint": "Calle Berlendis 6301, Castello",
+    "kind": "project_space",
+    "note": "Large independent hall near Fondamente Nove hosting national pavilions, collateral events and ambitious guest-curated shows."
+   },
+   {
+    "rank": 30,
+    "name": "Galerie Dorothea van der Koelen",
+    "website": "https://www.vanderkoelen.de",
+    "neighborhood": "San Marco",
+    "address_hint": "Campo San Maurizio 2566",
+    "kind": "gallery",
+    "note": "Mainz-based gallery's Venice space, showing concrete, minimal and light-based artists such as Mack, Morellet and Venet."
+   },
+   {
+    "rank": 31,
+    "name": "European Cultural Centre (Palazzo Mora / Palazzo Bembo)",
+    "website": "https://www.ecc-italy.eu",
+    "neighborhood": "Cannaregio",
+    "address_hint": "Palazzo Mora, Strada Nova 3659",
+    "kind": "nonprofit",
+    "note": "Runs the sprawling 'Personal Structures' exhibitions across two palazzi; hugely visible during Biennale years, if divisive critically."
+   },
+   {
+    "rank": 32,
+    "name": "Fondazione dell'Albero d'Oro – Palazzo Vendramin Grimani",
+    "website": null,
+    "neighborhood": "San Polo",
+    "address_hint": "Palazzo Vendramin Grimani, Campo San Polo 2033",
+    "kind": "nonprofit",
+    "note": "Restored palazzo staging carefully curated dialogues between contemporary artists and Venetian history."
+   },
+   {
+    "rank": 33,
+    "name": "Ca' Foscari Esposizioni / Spazio Ca' Foscari Zattere",
+    "website": null,
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Zattere, Dorsoduro 1392",
+    "kind": "university",
+    "note": "University exhibition spaces presenting research-based contemporary shows and Biennale collateral events open to the public."
+   },
+   {
+    "rank": 34,
+    "name": "Galleria del Cavallino",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Frezzeria 1725, San Marco",
+    "kind": "gallery",
+    "note": "Historic gallery and publishing house founded by Carlo Cardazzo in 1942 — central to Spatialism and Italian video art — still active with its archive and editions."
+   },
+   {
+    "rank": 35,
+    "name": "Venice Projects",
+    "website": null,
+    "neighborhood": "Dorsoduro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Marino Barovier's gallery for contemporary and historic studio glass and design, respected for its scholarship and museum collaborations."
+   },
+   {
+    "rank": 36,
+    "name": "Melori & Rosenberg Gallery",
+    "website": null,
+    "neighborhood": "Cannaregio",
+    "address_hint": "Campo del Ghetto Nuovo, Cannaregio 2919",
+    "kind": "gallery",
+    "note": "Ghetto gallery combining contemporary painting and Judaica-related programming; long-standing presence in Cannaregio."
+   },
+   {
+    "rank": 37,
+    "name": "Giudecca 795 Art Gallery",
+    "website": null,
+    "neighborhood": "Giudecca",
+    "address_hint": "Fondamenta San Biagio 795, Giudecca",
+    "kind": "gallery",
+    "note": "Small waterfront gallery central to the Giudecca Art District, showing emerging and mid-career Italian artists."
+   },
+   {
+    "rank": 38,
+    "name": "Officina delle Zattere",
+    "website": null,
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Fondamenta Nani 947, Dorsoduro",
+    "kind": "project_space",
+    "note": "Flexible exhibition venue on the Zattere used for independent contemporary shows and Biennale-period projects."
+   },
+   {
+    "rank": 39,
+    "name": "Spazio Thetis",
+    "website": "https://www.thetis.it",
+    "neighborhood": "Castello",
+    "address_hint": "Arsenale Novissimo, Castello 2737/f",
+    "kind": "project_space",
+    "note": "Industrial site inside the Arsenale hosting large-scale sculpture, national participations and collateral exhibitions since the 1990s."
+   },
+   {
+    "rank": 40,
+    "name": "Galleria d'Arte L'Occhio",
+    "website": null,
+    "neighborhood": "Dorsoduro",
+    "address_hint": "Dorsoduro 181, near Santa Maria della Salute",
+    "kind": "gallery",
+    "note": "Long-established gallery showing contemporary painting, sculpture and glass by Italian and international artists."
+   },
+   {
+    "rank": 41,
+    "name": "Holly Snapp Gallery",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Calle delle Botteghe 3133, San Marco",
+    "kind": "gallery",
+    "note": "Anglo-Venetian gallery of long standing, best known for the work of Geoffrey Humphries and figurative painters working in Venice."
+   },
+   {
+    "rank": 42,
+    "name": "SMAC – San Marco Art Centre",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Procuratie, Piazza San Marco",
+    "kind": "nonprofit",
+    "note": "Exhibition centre opened 2025 on the piano nobile above Piazza San Marco, programming international art and architecture shows."
+   },
+   {
+    "rank": 43,
+    "name": "Bel-Air Fine Art Venise",
+    "website": "https://www.belairfineart.com",
+    "neighborhood": "San Marco",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Venice branch of the Geneva-based chain; commercially prominent pop and urban-art programme in the San Marco tourist core."
+   },
+   {
+    "rank": 44,
+    "name": "Combo Venezia",
+    "website": null,
+    "neighborhood": "Cannaregio",
+    "address_hint": "Campo dei Gesuiti 4878, ex Convento dei Crociferi",
+    "kind": "project_space",
+    "note": "Cultural hub in a former convent whose gallery hosts free contemporary exhibitions, screenings and residencies aimed at younger audiences."
+   },
+   {
+    "rank": 45,
+    "name": "Fallani Venezia",
+    "website": "https://www.fallanivenezia.com",
+    "neighborhood": "Castello",
+    "address_hint": null,
+    "kind": "other",
+    "note": "Historic serigraphy workshop that doubles as an exhibition space, printing editions with international contemporary artists."
+   },
+   {
+    "rank": 46,
+    "name": "Marina Bastianello Gallery",
+    "website": null,
+    "neighborhood": "Mestre",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Mainland gallery with a young, digitally engaged programme and a solid Italian fair presence; part of the wider Venetian scene."
+   },
+   {
+    "rank": 47,
+    "name": "Galleria Massimo De Luca",
+    "website": null,
+    "neighborhood": "Mestre",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Research-minded mainland gallery supporting emerging Veneto artists with a curatorial, non-commercial-first approach."
+   },
+   {
+    "rank": 48,
+    "name": "Casa Sanlorenzo",
+    "website": null,
+    "neighborhood": "Cannaregio",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Corporate-backed art hub opened 2025 in a restored palazzo, offering exhibitions, a residency and public programming."
+   },
+   {
+    "rank": 49,
+    "name": "Galleria Santo Stefano",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Campo Santo Stefano, San Marco",
+    "kind": "gallery",
+    "note": "Veteran central gallery handling modern and contemporary Italian painting and sculpture with regular seasonal shows."
+   },
+   {
+    "rank": 50,
+    "name": "Galleria San Vidal",
+    "website": null,
+    "neighborhood": "San Marco",
+    "address_hint": "Campo San Vidal 2862, San Marco",
+    "kind": "gallery",
+    "note": "Established San Marco dealer combining 20th-century Italian art with contemporary figurative painting and glass."
+   }
+  ]
+ }
+}

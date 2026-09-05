@@ -1,0 +1,562 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788560914,
+ "system": "You are an art-world editor compiling a gallery guide for Miami, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Miami itself (galleries whose home is\nelsewhere count only through a permanent Miami space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Little Haiti/Little River, Allapattah, Wynwood, Design District, Downtown, Coral Gables, Miami Beach, Doral) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Miami spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Miami, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 57,
+  "output_tokens": 21769,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.550091,
+  "seconds": 289.5
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Fredric Snitzer Gallery",
+    "website": "https://www.fredricsnitzer.com",
+    "neighborhood": "Downtown",
+    "address_hint": "1540 NE Miami Court",
+    "kind": "gallery",
+    "note": "Miami's foundational contemporary dealer since the 1970s; launched Hernan Bas, Bert Rodriguez and the New World School generation, and an anchor exhibitor at Art Basel Miami Beach."
+   },
+   {
+    "rank": 2,
+    "name": "David Castillo Gallery",
+    "website": "https://www.davidcastillogallery.com",
+    "neighborhood": "Miami Beach",
+    "address_hint": "420 Lincoln Road",
+    "kind": "gallery",
+    "note": "Nationally respected programme centered on Black and Latinx artists (Xaviera Simmons, Sanford Biggers, Pepe Mar); regular at Art Basel, Frieze and Armory with strong museum placements."
+   },
+   {
+    "rank": 3,
+    "name": "Nina Johnson",
+    "website": "https://www.ninajohnson.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "6315 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Formerly Gallery Diet; a critically watched programme blending art, craft and design (Katie Stout, Emmett Moore, Jim Drain) in a landmark Little Haiti compound."
+   },
+   {
+    "rank": 4,
+    "name": "Locust Projects",
+    "website": "https://www.locustprojects.org",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "297 NE 67th Street",
+    "kind": "nonprofit",
+    "note": "Miami's most influential nonprofit since 1998, commissioning ambitious site-specific installations and incubating artists later shown by major museums."
+   },
+   {
+    "rank": 5,
+    "name": "Emerson Dorsch",
+    "website": "https://emersondorsch.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5900 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Operating since 1991, a pillar of the local scene with a research-driven roster of Florida-rooted conceptual and material practices."
+   },
+   {
+    "rank": 6,
+    "name": "Spinello Projects",
+    "website": "https://www.spinelloprojects.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "2930 NW 7th Avenue",
+    "kind": "gallery",
+    "note": "Anthony Spinello's risk-taking programme launched Typoe, Agustina Woodgate and Antonia Wright; a key link between Miami's alternative and commercial worlds."
+   },
+   {
+    "rank": 7,
+    "name": "Mindy Solomon Gallery",
+    "website": "https://www.mindysolomon.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "848 NW 22nd Street",
+    "kind": "gallery",
+    "note": "Ceramics-forward contemporary programme with a strong national fair presence and consistent museum acquisitions."
+   },
+   {
+    "rank": 8,
+    "name": "Central Fine",
+    "website": null,
+    "neighborhood": "Miami Beach",
+    "address_hint": "Lincoln Road",
+    "kind": "gallery",
+    "note": "Ibett Yanez's tightly curated Miami Beach space, known for sharp conceptual and minimalist exhibitions and collaborations with international artists."
+   },
+   {
+    "rank": 9,
+    "name": "Piero Atchugarry Gallery",
+    "website": "https://www.pieroatchugarry.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5520 NE 4th Avenue",
+    "kind": "gallery",
+    "note": "Uruguayan gallery whose large Little Haiti space brings Latin American and European artists to Miami with a serious international fair schedule."
+   },
+   {
+    "rank": 10,
+    "name": "Oolite Arts",
+    "website": "https://oolitearts.org",
+    "neighborhood": "Miami Beach",
+    "address_hint": "924 Lincoln Road",
+    "kind": "nonprofit",
+    "note": "Formerly ArtCenter/South Florida; the region's largest artist-support organization, with studios, grants and free public exhibitions (new Little River campus in development)."
+   },
+   {
+    "rank": 11,
+    "name": "Bakehouse Art Complex",
+    "website": "https://bacfl.org",
+    "neighborhood": "Wynwood",
+    "address_hint": "561 NW 32nd Street",
+    "kind": "nonprofit",
+    "note": "Since 1985 the city's largest artist studio complex and exhibition hall, a training ground for generations of Miami artists."
+   },
+   {
+    "rank": 12,
+    "name": "El Espacio 23",
+    "website": "https://elespacio23.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "2270 NW 23rd Street",
+    "kind": "nonprofit",
+    "note": "Jorge M. Pérez's free public exhibition space and residency, staging curated shows of global contemporary art that draw international critical attention."
+   },
+   {
+    "rank": 13,
+    "name": "The Margulies Collection at the Warehouse",
+    "website": "https://margulieswarehouse.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "591 NW 27th Street",
+    "kind": "nonprofit",
+    "note": "Martin Margulies's 45,000-sq-ft nonprofit exhibition space; monumental installations and photography that set a benchmark for Miami's collector-led spaces."
+   },
+   {
+    "rank": 14,
+    "name": "Primary",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7410 NW Miami Court",
+    "kind": "gallery",
+    "note": "Grew out of the artist-run Primary Projects; irreverent, design-savvy exhibitions and public projects that shaped Miami's post-graffiti generation."
+   },
+   {
+    "rank": 15,
+    "name": "Dimensions Variable",
+    "website": "https://dimensionsvariable.net",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "101 NW 79th Street",
+    "kind": "project_space",
+    "note": "Artist-run nonprofit with a rigorous, conceptually driven exhibition and residency programme respected far beyond Florida."
+   },
+   {
+    "rank": 16,
+    "name": "Pan American Art Projects",
+    "website": "https://www.panamericanart.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "274 NE 67th Street",
+    "kind": "gallery",
+    "note": "Long-running specialist in Cuban and Latin American modern and contemporary art, with a scholarly exhibition and publishing record."
+   },
+   {
+    "rank": 17,
+    "name": "Gary Nader Art Centre",
+    "website": "https://garynader.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "62 NE 27th Street",
+    "kind": "gallery",
+    "note": "Vast Latin American modern and contemporary showroom and sculpture park; a market power center for Botero, Lam and Matta in the Americas."
+   },
+   {
+    "rank": 18,
+    "name": "LnS Gallery",
+    "website": "https://www.lnsgallery.com",
+    "neighborhood": "Coconut Grove",
+    "address_hint": "2610 SW 28th Lane",
+    "kind": "gallery",
+    "note": "Sergio Cernuda and Luisa Lignarolo's polished programme of Cuban-American and Miami-based contemporary artists, with strong institutional ties."
+   },
+   {
+    "rank": 19,
+    "name": "Voloshyn Gallery",
+    "website": "https://voloshyngallery.art",
+    "neighborhood": "Wynwood",
+    "address_hint": "2320 N Miami Avenue",
+    "kind": "gallery",
+    "note": "Kyiv gallery with a permanent Miami outpost; internationally covered for sustaining Ukrainian contemporary art through the war."
+   },
+   {
+    "rank": 20,
+    "name": "Fountainhead Arts",
+    "website": "https://fountainheadarts.org",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Residency and studio complex that has hosted well over a thousand artists, connecting visiting practitioners with Miami collectors and curators."
+   },
+   {
+    "rank": 21,
+    "name": "Superblue Miami",
+    "website": "https://www.superblue.com",
+    "neighborhood": "Allapattah",
+    "address_hint": "1101 NW 23rd Street",
+    "kind": "other",
+    "note": "Experiential art destination founded with Pace, presenting large-scale immersive commissions by teamLab, Es Devlin and James Turrell."
+   },
+   {
+    "rank": 22,
+    "name": "Faena Art",
+    "website": "https://www.faenaart.org",
+    "neighborhood": "Miami Beach",
+    "address_hint": "3300–3400 Collins Avenue",
+    "kind": "nonprofit",
+    "note": "Commissions ambitious performance and installation projects in the Rem Koolhaas–designed Faena Forum, a fixture of Art Week programming."
+   },
+   {
+    "rank": 23,
+    "name": "YoungArts",
+    "website": "https://youngarts.org",
+    "neighborhood": "Edgewater",
+    "address_hint": "2100 Biscayne Boulevard",
+    "kind": "nonprofit",
+    "note": "National artist-development foundation whose Miami campus gallery and Jewel Box present exhibitions, performances and alumni projects free to the public."
+   },
+   {
+    "rank": 24,
+    "name": "Cernuda Arte",
+    "website": "https://www.cernudaarte.com",
+    "neighborhood": "Coral Gables",
+    "address_hint": "3155 Ponce de Leon Boulevard",
+    "kind": "gallery",
+    "note": "The leading authority on Cuban art from the colonial era to the present; catalogues and scholarship used by museums worldwide."
+   },
+   {
+    "rank": 25,
+    "name": "N'Namdi Contemporary",
+    "website": "https://www.nnamdicontemporary.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "177 NW 23rd Street",
+    "kind": "gallery",
+    "note": "Miami branch of the historic N'Namdi family galleries, a leading platform for African American abstraction and diaspora artists."
+   },
+   {
+    "rank": 26,
+    "name": "Dot Fiftyone Gallery",
+    "website": "https://dotfiftyone.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "7275 NE 4th Avenue",
+    "kind": "gallery",
+    "note": "Two-decade Miami presence showing emerging and mid-career Latin American and local artists; a Wynwood pioneer that moved north with the scene."
+   },
+   {
+    "rank": 27,
+    "name": "Diaspora Vibe Cultural Arts Incubator",
+    "website": "https://diasporavibe.org",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "191 NE 67th Street",
+    "kind": "nonprofit",
+    "note": "Since 1996 the key incubator for Caribbean and Latin American diaspora artists in Miami, with residencies, mentorship and exhibitions."
+   },
+   {
+    "rank": 28,
+    "name": "Little Haiti Cultural Complex",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "212 NE 59th Terrace",
+    "kind": "nonprofit",
+    "note": "City-run cultural center whose galleries are the primary public venue for Haitian and Haitian-American contemporary art in Miami."
+   },
+   {
+    "rank": 29,
+    "name": "Ascaso Gallery",
+    "website": "https://ascasogallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Venezuelan-founded gallery known for kinetic and geometric abstraction alongside contemporary Latin American painters."
+   },
+   {
+    "rank": 30,
+    "name": "KDR Miami",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Younger dealer (KDR305) with a sharp emerging-artist programme and an active satellite-fair presence during Miami Art Week."
+   },
+   {
+    "rank": 31,
+    "name": "Jupiter Contemporary",
+    "website": "https://www.jupitercontemporary.com",
+    "neighborhood": "Miami Beach",
+    "address_hint": "North Beach",
+    "kind": "gallery",
+    "note": "North Beach gallery showing emerging international painters and sculptors; a critically noted newcomer to the Miami dealer landscape."
+   },
+   {
+    "rank": 32,
+    "name": "Green Space Miami",
+    "website": "https://greenspacemiami.org",
+    "neighborhood": "Upper Eastside",
+    "address_hint": "7200 Biscayne Boulevard",
+    "kind": "nonprofit",
+    "note": "Free nonprofit gallery pairing social-issue exhibitions with community programming; a rising fixture on the Biscayne corridor."
+   },
+   {
+    "rank": 33,
+    "name": "Laundromat Art Space",
+    "website": "https://www.laundromatartspace.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": "5900 NE 2nd Avenue",
+    "kind": "project_space",
+    "note": "Artist-run studios and gallery in a former laundromat; a low-cost launchpad for emerging Miami artists and curators."
+   },
+   {
+    "rank": 34,
+    "name": "Bridge Red Studios",
+    "website": null,
+    "neighborhood": "North Miami",
+    "address_hint": "12425 NE 13th Avenue",
+    "kind": "project_space",
+    "note": "Artist-run North Miami space known for thoughtful, curator-driven group shows and support of veteran local artists."
+   },
+   {
+    "rank": 35,
+    "name": "Under the Bridge",
+    "website": null,
+    "neighborhood": "North Miami",
+    "address_hint": "12425 NE 13th Avenue",
+    "kind": "project_space",
+    "note": "Independent exhibition space in the same warehouse complex, giving experimental and mid-career artists room for unconventional projects."
+   },
+   {
+    "rank": 36,
+    "name": "Swampspace",
+    "website": null,
+    "neighborhood": "Design District",
+    "address_hint": "3940 N Miami Avenue",
+    "kind": "project_space",
+    "note": "Oliver Sanchez's long-running guerrilla-spirited storefront, a Design District holdout for unfiltered artist-run programming."
+   },
+   {
+    "rank": 37,
+    "name": "Cannonball",
+    "website": "https://cannonballmiami.org",
+    "neighborhood": "Downtown",
+    "address_hint": "1035 N Miami Avenue",
+    "kind": "nonprofit",
+    "note": "Formerly LegalArt; residencies, fellowships and the Fringe Projects public art commissions that put artists into the civic realm."
+   },
+   {
+    "rank": 38,
+    "name": "Edge Zones",
+    "website": "https://www.edgezones.org",
+    "neighborhood": "Allapattah",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Charo Oquet's long-running artist-run center for performance, experimental and Caribbean diaspora practices."
+   },
+   {
+    "rank": 39,
+    "name": "Durban Segnini Gallery",
+    "website": "https://www.durbansegnini.com",
+    "neighborhood": "Coral Way",
+    "address_hint": "3072 SW 38th Avenue",
+    "kind": "gallery",
+    "note": "Four decades of Latin American geometric abstraction and constructivism, with a deep secondary-market inventory."
+   },
+   {
+    "rank": 40,
+    "name": "Ideobox Artspace",
+    "website": "https://www.ideoboxartspace.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2417 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Wynwood mainstay presenting Latin American contemporary artists with a consistent, curatorially framed programme."
+   },
+   {
+    "rank": 41,
+    "name": "Robert Fontaine Gallery",
+    "website": "https://www.robertfontainegallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2349 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Established Wynwood dealer bridging pop, street-derived and blue-chip editions for Miami collectors."
+   },
+   {
+    "rank": 42,
+    "name": "Opera Gallery Miami",
+    "website": "https://www.operagallery.com",
+    "neighborhood": "Design District",
+    "address_hint": "151 NE 41st Street",
+    "kind": "gallery",
+    "note": "Miami branch of the international chain; high-traffic Design District showroom for modern masters and market-driven contemporary names."
+   },
+   {
+    "rank": 43,
+    "name": "Markowicz Fine Art",
+    "website": "https://markowiczfineart.com",
+    "neighborhood": "Design District",
+    "address_hint": "110 NE 39th Street",
+    "kind": "gallery",
+    "note": "Design District dealer in contemporary photography, pop and sculpture, with a visible role in the district's art retail scene."
+   },
+   {
+    "rank": 44,
+    "name": "Avant Gallery",
+    "website": "https://www.avantgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "485 Brickell Avenue (Icon Brickell)",
+    "kind": "gallery",
+    "note": "Brickell gallery introducing emerging contemporary painters and sculptors to Miami's condo-collector market."
+   },
+   {
+    "rank": 45,
+    "name": "Lelia Mordoch Gallery",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Paris gallery with a permanent Wynwood space, specializing in kinetic, optical and light-based art."
+   },
+   {
+    "rank": 46,
+    "name": "Kavachnina Contemporary",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": "46 NW 36th Street",
+    "kind": "gallery",
+    "note": "Longstanding Wynwood gallery showing Russian, European and Latin American contemporary artists in a large warehouse space."
+   },
+   {
+    "rank": 47,
+    "name": "Now Contemporary Art",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Wynwood gallery focused on emerging Latin American and Caribbean artists, with regular satellite-fair participation."
+   },
+   {
+    "rank": 48,
+    "name": "Harold Golen Gallery",
+    "website": "https://haroldgolengallery.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2294 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Miami's dedicated home for lowbrow, pop-surrealist and outsider-adjacent art; a Wynwood original."
+   },
+   {
+    "rank": 49,
+    "name": "Kendall Art Center",
+    "website": "https://www.kendallartcenter.org",
+    "neighborhood": "Kendall",
+    "address_hint": "12063 SW 131st Avenue",
+    "kind": "nonprofit",
+    "note": "Home of the Rodríguez Collection of Cuban art, with rotating exhibitions and programming for South Miami-Dade."
+   },
+   {
+    "rank": 50,
+    "name": "Aluna Art Foundation",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Curator-run nonprofit (Adriana Herrera and Willy Castellanos) producing scholarly exhibitions on Latin American conceptual practices."
+   },
+   {
+    "rank": 51,
+    "name": "Turn-Based Press",
+    "website": "https://www.turnbasedpress.com",
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Printmaking studio and gallery collaborating with local and visiting artists on editions and exhibitions."
+   },
+   {
+    "rank": 52,
+    "name": "The Center for Subtropical Affairs",
+    "website": null,
+    "neighborhood": "Little Haiti/Little River",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Artist-run compound blending ecology, food and exhibitions; a distinctive node in Miami's alternative-space network."
+   },
+   {
+    "rank": 53,
+    "name": "Sammer Gallery",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Veteran dealer in Latin American modernism and geometric abstraction, long active with Miami institutions and fairs."
+   },
+   {
+    "rank": 54,
+    "name": "Rudolf Budja Gallery",
+    "website": null,
+    "neighborhood": "Miami Beach",
+    "address_hint": "Lincoln Road area",
+    "kind": "gallery",
+    "note": "Austrian dealer's Miami Beach space handling Warhol, postwar editions and contemporary secondary-market work."
+   },
+   {
+    "rank": 55,
+    "name": "Zu Galeria Fine Arts",
+    "website": null,
+    "neighborhood": "Little Havana",
+    "address_hint": "2248 SW 8th Street",
+    "kind": "gallery",
+    "note": "Calle Ocho gallery central to Little Havana's Viernes Culturales, showing Cuban and Cuban-American artists."
+   },
+   {
+    "rank": 56,
+    "name": "Curator's Voice Art Projects",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": "2509 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Milagros Bello's curatorially framed Wynwood space, consistently thematic exhibitions of emerging Latin American artists."
+   },
+   {
+    "rank": 57,
+    "name": "Gregg Shienbaum Fine Art",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": "2239 NW 2nd Avenue",
+    "kind": "gallery",
+    "note": "Wynwood dealer in pop, street and postwar editions, a steady presence on the district's gallery walk."
+   },
+   {
+    "rank": 58,
+    "name": "Kelley Roy Gallery",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Wynwood gallery and event space showing contemporary painting and sculpture by Florida-based and international artists."
+   },
+   {
+    "rank": 59,
+    "name": "Wynwood Walls",
+    "website": "https://thewynwoodwalls.com",
+    "neighborhood": "Wynwood",
+    "address_hint": "2520 NW 2nd Avenue",
+    "kind": "other",
+    "note": "Tony Goldman's outdoor mural park with an indoor gallery; the single most visible driver of Wynwood's transformation into an arts district."
+   },
+   {
+    "rank": 60,
+    "name": "Etra Fine Art",
+    "website": null,
+    "neighborhood": "Wynwood",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Miami dealer in postwar and contemporary works on paper and editions, active with local collectors and Art Week programming."
+   }
+  ]
+ }
+}

@@ -1,0 +1,796 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788557027,
+ "system": "You are an art-world editor compiling a gallery guide for Milan, Italy. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Milan itself (galleries whose home is\nelsewhere count only through a permanent Milan space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Porta Venezia, Brera/Centro, Isola/Farini, Lambrate/Ventura, Tortona/Navigli, Città Studi/Bicocca) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Milan spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Milan, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 57,
+  "output_tokens": 37196,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.935816,
+  "seconds": 489.3
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Massimo De Carlo",
+    "website": "https://massimodecarlo.com",
+    "neighborhood": "Città Studi",
+    "address_hint": "Viale Lombardia 17 (Casa Corbellini-Wassermann); also Palazzo Belgioioso",
+    "kind": "gallery",
+    "note": "Italy's most internationally powerful gallery, with London/Hong Kong/Paris outposts; roster from Paola Pivi and Rudolf Stingel to Yan Pei-Ming, and a landmark Portaluppi-designed Milan space."
+   },
+   {
+    "rank": 2,
+    "name": "Galleria Lia Rumma",
+    "website": "https://www.liarumma.it",
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Stilicone 19",
+    "kind": "gallery",
+    "note": "Historic Arte Povera-era dealer (founded Naples 1971) whose Milan warehouse shows Kentridge, Kounellis, Marina Abramović, Anselm Kiefer; constant museum crossover."
+   },
+   {
+    "rank": 3,
+    "name": "kaufmann repetto",
+    "website": "https://kaufmannrepetto.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via di Porta Tenaglia 7",
+    "kind": "gallery",
+    "note": "Milan–New York gallery with a sharply feminist, research-driven programme (Pae White, Latifa Echakhch, Eva Rothschild, Nathalie Du Pasquier); fixture at Basel and Frieze."
+   },
+   {
+    "rank": 4,
+    "name": "Galleria Raffaella Cortese",
+    "website": "https://www.galleriaraffaellacortese.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Alessandro Stradella 7",
+    "kind": "gallery",
+    "note": "Multi-space gallery known for major women artists — Ana Mendieta estate, Barbara Bloom, Zoe Leonard, Marcello Maloberti — and for launching Milan's Via Stradella cluster."
+   },
+   {
+    "rank": 5,
+    "name": "Pirelli HangarBicocca",
+    "website": "https://pirellihangarbicocca.org",
+    "neighborhood": "Città Studi/Bicocca",
+    "address_hint": "Via Chiese 2",
+    "kind": "nonprofit",
+    "note": "Free-admission industrial kunsthalle housing Kiefer's 'Sette Palazzi Celesti'; its large-scale monographs set the international benchmark for Milan's contemporary scene."
+   },
+   {
+    "rank": 6,
+    "name": "Fondazione Prada",
+    "website": "https://www.fondazioneprada.org",
+    "neighborhood": "Porta Romana",
+    "address_hint": "Largo Isarco 2",
+    "kind": "nonprofit",
+    "note": "OMA-designed campus (plus Osservatorio in the Galleria) whose ambitious exhibitions and commissions made Milan a compulsory stop on the global art circuit."
+   },
+   {
+    "rank": 7,
+    "name": "Galleria Christian Stein",
+    "website": "https://www.galleriachristianstein.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Corso Monforte 23",
+    "kind": "gallery",
+    "note": "Founded 1966; the defining gallery of Arte Povera (Boetti, Merz, Pistoletto, Zorio) still pairing historic estates with younger Italians."
+   },
+   {
+    "rank": 8,
+    "name": "Gió Marconi",
+    "website": "https://www.giomarconi.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Alessandro Tadino 15",
+    "kind": "gallery",
+    "note": "Heir to Studio Marconi, with a design-inflected international programme (Nathalie Djurberg & Hans Berg, John Bock, Judith Hopf) and steady fair presence."
+   },
+   {
+    "rank": 9,
+    "name": "Francesca Minini",
+    "website": "https://www.francescaminini.it",
+    "neighborhood": "Lambrate/Ventura",
+    "address_hint": "Via Massimiano 25",
+    "kind": "gallery",
+    "note": "Anchor of the Ventura Lambrate district; conceptual and post-minimal programme (Riccardo Beretta, Christian Frosi, Esther Kläs) with strong critical following."
+   },
+   {
+    "rank": 10,
+    "name": "ZERO...",
+    "website": "https://www.galleriazero.it",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Viale Premuda 46",
+    "kind": "gallery",
+    "note": "Paolo Zani's gallery, a key exporter of a Milanese conceptual generation (Diego Perrone, Francesco Gennari, Alek O.) and a fixture of Art Basel Statements alumni."
+   },
+   {
+    "rank": 11,
+    "name": "Galleria Continua",
+    "website": "https://www.galleriacontinua.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Rovello 5",
+    "kind": "gallery",
+    "note": "Milan outpost of the San Gimignano-born global gallery; blue-chip international roster (Kapoor, JR, Ai Weiwei) in a central palazzo."
+   },
+   {
+    "rank": 12,
+    "name": "Studio Guenzani",
+    "website": "https://www.studioguenzani.it",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Eustachi 10",
+    "kind": "gallery",
+    "note": "Open since 1985, the gallery that brought Cindy Sherman, Nan Goldin, Vanessa Beecroft and Stefano Arienti to Milanese audiences."
+   },
+   {
+    "rank": 13,
+    "name": "Fondazione Nicola Trussardi",
+    "website": "https://www.fondazionenicolatrussardi.com",
+    "neighborhood": "citywide (nomadic)",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Massimiliano Gioni's roving foundation stages ambitious commissions in historic Milanese buildings; among Europe's most influential non-collecting institutions."
+   },
+   {
+    "rank": 14,
+    "name": "Monica De Cardenas",
+    "website": "https://www.monicadecardenas.com",
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Francesco Viganò 4",
+    "kind": "gallery",
+    "note": "Since 1992 a rigorous painting/photography programme (Alex Katz, Thomas Ruff, Stephan Balkenhol), with satellites in Zuoz and Lugano."
+   },
+   {
+    "rank": 15,
+    "name": "Ordet",
+    "website": null,
+    "neighborhood": "Porta Romana",
+    "address_hint": "Via Adige 17",
+    "kind": "nonprofit",
+    "note": "Edoardo Bonaspetti's non-profit space; curatorially precise shows and commissions that have become the critical barometer of young Milan."
+   },
+   {
+    "rank": 16,
+    "name": "Federico Vavassori",
+    "website": "https://www.federicovavassori.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Giorgio Giulini 5",
+    "kind": "gallery",
+    "note": "Small but internationally watched gallery of a new generation, showing artists such as Ha Chong-Hyun's peers and emerging figures picked up by museums abroad."
+   },
+   {
+    "rank": 17,
+    "name": "CLIMA",
+    "website": null,
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Matteo Consonni's gallery, a leading Milan discovery platform for young Italian and international artists; regular in emerging sections of major fairs."
+   },
+   {
+    "rank": 18,
+    "name": "ICA Milano",
+    "website": "https://icamilano.it",
+    "neighborhood": "Vigentino",
+    "address_hint": "Via Orobia 26",
+    "kind": "nonprofit",
+    "note": "Non-profit institute opened 2019 in a former factory; solo shows, residencies and publications that fill Milan's kunsthalle gap."
+   },
+   {
+    "rank": 19,
+    "name": "Fondazione Carriero",
+    "website": "https://www.fondazionecarriero.org",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Cino del Duca 4",
+    "kind": "nonprofit",
+    "note": "Exhibitions of exceptional scholarly quality in a 17th-century palazzo, pairing historic figures (Fontana, Melotti) with contemporary interventions."
+   },
+   {
+    "rank": 20,
+    "name": "FANTA-MLN",
+    "website": null,
+    "neighborhood": "Porta Romana",
+    "address_hint": "Via Merano 21",
+    "kind": "gallery",
+    "note": "Young gallery with an experimental, internationally networked programme; a regular presence in the emerging sections of Milan and European fairs."
+   },
+   {
+    "rank": 21,
+    "name": "Building",
+    "website": "https://www.building-gallery.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Monte di Pietà 23",
+    "kind": "gallery",
+    "note": "Multi-floor gallery with museum-standard installations and catalogues bridging postwar Italian masters and living artists."
+   },
+   {
+    "rank": 22,
+    "name": "Cardi Gallery",
+    "website": "https://cardigallery.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Corso di Porta Nuova 38",
+    "kind": "gallery",
+    "note": "Milan–London dealer of postwar and contemporary blue chip (Burri, Schifano, Kusama, Ryan Sullivan) with scholarly historical surveys."
+   },
+   {
+    "rank": 23,
+    "name": "Prometeo Gallery Ida Pisani",
+    "website": "https://www.prometeogallery.com",
+    "neighborhood": "Lambrate/Ventura",
+    "address_hint": "Via Giovanni Ventura",
+    "kind": "gallery",
+    "note": "Politically engaged programme (Regina José Galindo, Zhang Huan, Santiago Sierra) with strong biennial and institutional traction."
+   },
+   {
+    "rank": 24,
+    "name": "Renata Fabbri",
+    "website": "https://www.renatafabbri.it",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Antonio Stoppani 15/c",
+    "kind": "gallery",
+    "note": "Focused programme of emerging and mid-career artists, often women, with growing museum and fair visibility."
+   },
+   {
+    "rank": 25,
+    "name": "Galleria Poggiali",
+    "website": "https://www.galleriapoggiali.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Foro Buonaparte 52",
+    "kind": "gallery",
+    "note": "Florence-founded gallery whose Milan space mixes established Italians and international names in ambitious, well-produced shows."
+   },
+   {
+    "rank": 26,
+    "name": "Tommaso Calabro",
+    "website": "https://www.tommasocalabro.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Piazza San Sepolcro 2",
+    "kind": "gallery",
+    "note": "Apartment-style palazzo gallery praised for research shows on Italian modernism (Dalí, Melotti, Leonor Fini) alongside contemporary interventions."
+   },
+   {
+    "rank": 27,
+    "name": "Ciaccia Levi",
+    "website": null,
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Paris–Milan gallery formed by Alessandro Ciaccia and Antoine Levi; forward-looking international roster and consistent fair presence."
+   },
+   {
+    "rank": 28,
+    "name": "Vistamare",
+    "website": "https://www.vistamare.com",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Pescara-born gallery with a Milan space; refined conceptual programme (Marisa Merz legacy, Alessandro Piangiamore, international photography)."
+   },
+   {
+    "rank": 29,
+    "name": "Fondazione Mudima",
+    "website": "https://www.mudima.net",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Alessandro Tadino 26",
+    "kind": "nonprofit",
+    "note": "Founded 1989 by Gino Di Maggio; the key Italian home for Fluxus, Gutai and Nouveau Réalisme, with a vast archive and exhibition programme."
+   },
+   {
+    "rank": 30,
+    "name": "Galleria Milano",
+    "website": "https://www.galleriamilano.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Manin 13",
+    "kind": "gallery",
+    "note": "Active since 1928 and run by the Bonomo/Cardazzo lineage of Milanese dealing; historic conceptual archive plus contemporary shows."
+   },
+   {
+    "rank": 31,
+    "name": "A arte Invernizzi",
+    "website": "https://www.aarteinvernizzi.it",
+    "neighborhood": "Città Studi",
+    "address_hint": "Via Domenico Scarlatti 12",
+    "kind": "gallery",
+    "note": "Authority on analytical painting and European minimal-concrete art (Nicola Carrino, Rodolfo Aricò, Günter Umberg), with a serious publishing arm."
+   },
+   {
+    "rank": 32,
+    "name": "Eduardo Secci",
+    "website": "https://www.eduardosecci.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Florence-based gallery whose Milan space shows an international mid-career roster; active at Artissima, miart and Basel satellites."
+   },
+   {
+    "rank": 33,
+    "name": "Spazio Maiocchi",
+    "website": "https://spaziomaiocchi.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Achille Maiocchi 5",
+    "kind": "project_space",
+    "note": "Kaleidoscope-run venue where art, fashion and music converge; commissions and Milan Art Week events with a large international audience."
+   },
+   {
+    "rank": 34,
+    "name": "Marsèll Paradise",
+    "website": null,
+    "neighborhood": "Porta Romana",
+    "address_hint": "Via Privata Rezia 2",
+    "kind": "project_space",
+    "note": "Non-commercial space backed by the Marsèll label, offering carefully curated solo projects by emerging artists."
+   },
+   {
+    "rank": 35,
+    "name": "Fondazione Sozzani",
+    "website": "https://www.fondazionesozzani.org",
+    "neighborhood": "Porta Nuova/Corso Como",
+    "address_hint": "Corso Como 10",
+    "kind": "nonprofit",
+    "note": "Carla Sozzani's gallery-turned-foundation, a historic Milan address for photography and image culture since 1990."
+   },
+   {
+    "rank": 36,
+    "name": "Fondazione Adolfo Pini",
+    "website": "https://www.fondazionepini.net",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Corso Garibaldi 2",
+    "kind": "nonprofit",
+    "note": "Historic house-foundation with a sharp contemporary programme, residencies and curatorial commissions."
+   },
+   {
+    "rank": 37,
+    "name": "Fondazione Converso",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Piazza Sant'Eufemia",
+    "kind": "nonprofit",
+    "note": "Baroque deconsecrated church hosting site-specific projects by significant international artists; one of Milan's most atmospheric venues."
+   },
+   {
+    "rank": 38,
+    "name": "Fondazione Elpis",
+    "website": "https://www.fondazioneelpis.org",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Marina Nissim's foundation, opened 2022, supporting young artists through exhibitions, prizes and residency projects."
+   },
+   {
+    "rank": 39,
+    "name": "Careof",
+    "website": "https://www.careof.org",
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Fabbrica del Vapore, Via Giulio Cesare Procaccini 4",
+    "kind": "nonprofit",
+    "note": "Since 1987 a key non-profit for emerging Italian art, with a major video and documentation archive."
+   },
+   {
+    "rank": 40,
+    "name": "Viafarini",
+    "website": "https://www.viafarini.org",
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Fabbrica del Vapore, Via Giulio Cesare Procaccini 4",
+    "kind": "nonprofit",
+    "note": "Founded 1991; artist archive, open studios and residencies that have supported generations of Milanese artists."
+   },
+   {
+    "rank": 41,
+    "name": "Casa degli Artisti",
+    "website": "https://casadegliartisti.net",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Corso Garibaldi 89/A",
+    "kind": "nonprofit",
+    "note": "Legendary Brera artists' house relaunched in 2019 as a public residency and exhibition centre."
+   },
+   {
+    "rank": 42,
+    "name": "Assab One",
+    "website": "https://www.assab-one.org",
+    "neighborhood": "Turro/Bicocca",
+    "address_hint": "Via Privata Assab 1",
+    "kind": "nonprofit",
+    "note": "Former printing works run by Elena Quarestani; ambitious, free exhibitions and long-running support for site-responsive projects."
+   },
+   {
+    "rank": 43,
+    "name": "Fondazione Arnaldo Pomodoro",
+    "website": "https://www.fondazionearnaldopomodoro.it",
+    "neighborhood": "Tortona/Navigli",
+    "address_hint": "Via Vigevano 9",
+    "kind": "nonprofit",
+    "note": "Artist's foundation with sculpture-focused research exhibitions, a prize for young sculptors and a major archive."
+   },
+   {
+    "rank": 44,
+    "name": "Fondazione Stelline",
+    "website": "https://www.stelline.it",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Corso Magenta 61",
+    "kind": "nonprofit",
+    "note": "Central exhibition palazzo with a busy programme of contemporary art and photography surveys."
+   },
+   {
+    "rank": 45,
+    "name": "Galleria Fumagalli",
+    "website": "https://www.galleriafumagalli.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Bonaventura Cavalieri 6",
+    "kind": "gallery",
+    "note": "Founded in Bergamo in 1991 and Milan-based since 2015; conceptual and performance legacies (Chris Burden, Marina Abramović circle)."
+   },
+   {
+    "rank": 46,
+    "name": "Antonio Colombo Arte Contemporanea",
+    "website": "https://www.colomboarte.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Solferino 44",
+    "kind": "gallery",
+    "note": "Long-running gallery bridging figurative painting, illustration and pop-surrealism, with a strong Milanese following."
+   },
+   {
+    "rank": 47,
+    "name": "Galleria Bianconi",
+    "website": "https://www.galleriabianconi.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Lecco 20",
+    "kind": "gallery",
+    "note": "Painting-centred programme combining Italian postwar rediscoveries with contemporary artists."
+   },
+   {
+    "rank": 48,
+    "name": "Otto Zoo",
+    "website": "https://www.ottozoo.com",
+    "neighborhood": "Tortona/Navigli",
+    "address_hint": "Via Vigevano 8",
+    "kind": "gallery",
+    "note": "Independent-minded gallery with a photographic and conceptual bias; consistent quality since 2010."
+   },
+   {
+    "rank": 49,
+    "name": "Ribot",
+    "website": "https://www.ribotgallery.com",
+    "neighborhood": "Città Studi",
+    "address_hint": "Via Enrico Nöe 23",
+    "kind": "gallery",
+    "note": "International emerging-to-mid-career programme with a notable Nordic and German axis."
+   },
+   {
+    "rank": 50,
+    "name": "Ncontemporary",
+    "website": "https://www.ncontemporary.com",
+    "neighborhood": "Città Studi",
+    "address_hint": "Via Lulli 5",
+    "kind": "gallery",
+    "note": "Milan gallery (formerly with London space) supporting young international artists and photography-based practices."
+   },
+   {
+    "rank": 51,
+    "name": "Galleria Suzy Shammah",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via San Fermo",
+    "kind": "gallery",
+    "note": "Dealer with deep Milanese roots showing conceptual and photographic practices in tightly edited exhibitions."
+   },
+   {
+    "rank": 52,
+    "name": "Mimmo Scognamiglio Artecontemporanea",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Naples-born dealer active in Milan, mixing international mid-career names with Italian postwar material."
+   },
+   {
+    "rank": 53,
+    "name": "Cassina Projects",
+    "website": "https://www.cassinaprojects.com",
+    "neighborhood": "Mecenate",
+    "address_hint": "Via Mecenate 76",
+    "kind": "gallery",
+    "note": "Gallery with New York origins showing emerging international artists in a large industrial Milan space."
+   },
+   {
+    "rank": 54,
+    "name": "M77 Gallery",
+    "website": "https://www.m77gallery.com",
+    "neighborhood": "Mecenate",
+    "address_hint": "Via Mecenate 77",
+    "kind": "gallery",
+    "note": "Large multi-level gallery alternating historical surveys of Italian art with contemporary solo shows."
+   },
+   {
+    "rank": 55,
+    "name": "The Flat – Massimo Carasi",
+    "website": "https://www.theflat.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Via Frisi 3",
+    "kind": "gallery",
+    "note": "Long-standing gallery for young international figuration and sculpture, active on the fair circuit since 1997."
+   },
+   {
+    "rank": 56,
+    "name": "Galleria Giovanni Bonelli",
+    "website": "https://www.galleriagiovannibonelli.it",
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Porro Lambertenghi 6",
+    "kind": "gallery",
+    "note": "Painting-focused gallery bridging Italian postwar rediscoveries and contemporary artists; spaces also outside Milan."
+   },
+   {
+    "rank": 57,
+    "name": "Loom Gallery",
+    "website": "https://www.loomgallery.com",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Programme rooted in geometric abstraction and international minimal-conceptual traditions."
+   },
+   {
+    "rank": 58,
+    "name": "Dep Art Gallery",
+    "website": "https://www.depart.it",
+    "neighborhood": "Porta Romana",
+    "address_hint": "Via Comelico 40",
+    "kind": "gallery",
+    "note": "Specialist in kinetic, programmed and optical art (Alberto Biasi, Turi Simeti) with scholarly catalogues."
+   },
+   {
+    "rank": 59,
+    "name": "Galleria Gaburro",
+    "website": "https://www.galleriagaburro.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Cerva 25",
+    "kind": "gallery",
+    "note": "Verona-born gallery with a Milan space showing international painters and Italian mid-career artists."
+   },
+   {
+    "rank": 60,
+    "name": "Robilant+Voena",
+    "website": "https://www.robilantvoena.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "London–Milan–New York dealer combining old masters and modern with contemporary exhibitions of museum ambition."
+   },
+   {
+    "rank": 61,
+    "name": "Tornabuoni Arte",
+    "website": "https://www.tornabuoniarte.it",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Fatebenefratelli 36",
+    "kind": "gallery",
+    "note": "Major dealer in Italian postwar masters (Fontana, Burri, Boetti) with an international network and fair presence."
+   },
+   {
+    "rank": 62,
+    "name": "Cortesi Gallery",
+    "website": "https://www.cortesigallery.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Milan–Lugano gallery focused on ZERO, Spatialism and postwar abstraction, with well-researched thematic shows."
+   },
+   {
+    "rank": 63,
+    "name": "Galleria Blu",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Senato 18",
+    "kind": "gallery",
+    "note": "Founded 1957, one of Milan's historic avant-garde galleries; a living archive of Italian and European postwar art."
+   },
+   {
+    "rank": 64,
+    "name": "Lorenzelli Arte",
+    "website": "https://www.lorenzelliarte.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Corso Buenos Aires 2",
+    "kind": "gallery",
+    "note": "Family gallery active since the 1950s, specialising in abstraction and concrete art with occasional contemporary shows."
+   },
+   {
+    "rank": 65,
+    "name": "Galleria Tega",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Senato 20",
+    "kind": "gallery",
+    "note": "High-end dealer in modern and postwar Italian art staging polished exhibitions with contemporary counterpoints."
+   },
+   {
+    "rank": 66,
+    "name": "Pack",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Foro Buonaparte 60",
+    "kind": "gallery",
+    "note": "Central gallery with an eclectic contemporary programme of Italian and international artists."
+   },
+   {
+    "rank": 67,
+    "name": "Bianca Maria Rizzi & Matthias Ritter",
+    "website": null,
+    "neighborhood": "Tortona/Navigli",
+    "address_hint": "Via Cadolini 27",
+    "kind": "gallery",
+    "note": "Italo-German gallery with a rigorous programme of conceptual and photographic practices."
+   },
+   {
+    "rank": 68,
+    "name": "Antonio Battaglia Arte Contemporanea",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Ciovasso 5",
+    "kind": "gallery",
+    "note": "Small Brera gallery known for consistent support of Italian abstraction and younger painters."
+   },
+   {
+    "rank": 69,
+    "name": "Marcorossi artecontemporanea",
+    "website": "https://www.marcorossiartecontemporanea.com",
+    "neighborhood": "Porta Venezia",
+    "address_hint": "Corso Venezia 29",
+    "kind": "gallery",
+    "note": "Established gallery with spaces in several Italian cities, showing recognised Italian contemporary painters and sculptors."
+   },
+   {
+    "rank": 70,
+    "name": "Dimora Artica",
+    "website": "https://www.dimoraartica.com",
+    "neighborhood": "Città Studi",
+    "address_hint": "Via Matteo Maria Boiardo 11",
+    "kind": "project_space",
+    "note": "Artist-run apartment space with an inventive curatorial programme and a role in Milan's independent network."
+   },
+   {
+    "rank": 71,
+    "name": "The Open Box",
+    "website": null,
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Angelo della Pergola 5",
+    "kind": "project_space",
+    "note": "Independent space supporting experimental projects, publishing and performance in Isola."
+   },
+   {
+    "rank": 72,
+    "name": "Tile Project Space",
+    "website": null,
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Non-profit project space known for sound, performance and research-based exhibitions by young artists."
+   },
+   {
+    "rank": 73,
+    "name": "GLUCK50",
+    "website": null,
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Gluck 50",
+    "kind": "nonprofit",
+    "note": "Residency and exhibition space hosting international artists and curators for Milan-focused projects."
+   },
+   {
+    "rank": 74,
+    "name": "Isola Art Center",
+    "website": "https://isolartcenter.org",
+    "neighborhood": "Isola/Farini",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Emblematic activist art platform born from the Isola neighbourhood struggles; internationally cited model of art and urban politics."
+   },
+   {
+    "rank": 75,
+    "name": "FM Centro per l'Arte Contemporanea",
+    "website": null,
+    "neighborhood": "Porta Vittoria",
+    "address_hint": "Via Gaudenzio Ferrari / Via Piranesi 10 (Frigoriferi Milanesi)",
+    "kind": "nonprofit",
+    "note": "Exhibition centre known for large surveys of private collections and Italian contemporary art."
+   },
+   {
+    "rank": 76,
+    "name": "BASE Milano",
+    "website": "https://base.milano.it",
+    "neighborhood": "Tortona/Navigli",
+    "address_hint": "Via Bergognone 34",
+    "kind": "nonprofit",
+    "note": "Ex-Ansaldo cultural hub with residencies, exhibitions and a central role during Milan Art Week and Design Week."
+   },
+   {
+    "rank": 77,
+    "name": "Galleria San Fedele",
+    "website": null,
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Ulrico Hoepli 3/B",
+    "kind": "nonprofit",
+    "note": "Jesuit-run gallery whose long-standing prize and exhibitions have supported young Italian artists for decades."
+   },
+   {
+    "rank": 78,
+    "name": "Officine Saffi",
+    "website": "https://www.officinesaffi.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Aurelio Saffi 7",
+    "kind": "gallery",
+    "note": "Gallery, residency and award devoted to contemporary ceramics, with international recognition in the field."
+   },
+   {
+    "rank": 79,
+    "name": "29 Arts in Progress",
+    "website": "https://www.29artsinprogress.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via San Vittore 13",
+    "kind": "gallery",
+    "note": "Photography gallery handling major fashion and reportage names, active at photo fairs internationally."
+   },
+   {
+    "rank": 80,
+    "name": "MC2 Gallery",
+    "website": "https://www.mc2gallery.com",
+    "neighborhood": "Tortona/Navigli",
+    "address_hint": "Via Malaga 4",
+    "kind": "gallery",
+    "note": "Photography-focused gallery representing international documentary and staged photographers."
+   },
+   {
+    "rank": 81,
+    "name": "Podbielski Contemporary",
+    "website": "https://www.podbielskicontemporary.com",
+    "neighborhood": null,
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Berlin-born gallery now in Milan, showing photography and conceptual work with a strong female roster."
+   },
+   {
+    "rank": 82,
+    "name": "Wunderkammern",
+    "website": "https://www.wunderkammern.net",
+    "neighborhood": "Brera/Centro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Rome-founded gallery with a Milan space specialising in urban and post-graffiti art with international names."
+   },
+   {
+    "rank": 83,
+    "name": "Nuova Galleria Morone",
+    "website": "https://www.nuovagalleriamorone.com",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Nerino 3",
+    "kind": "gallery",
+    "note": "Central gallery with a programme of contemporary painting, sculpture and works on paper."
+   },
+   {
+    "rank": 84,
+    "name": "Ca' di Fra'",
+    "website": null,
+    "neighborhood": "Isola/Farini",
+    "address_hint": "Via Carlo Farini 2",
+    "kind": "gallery",
+    "note": "Long-established gallery combining Italian postwar figures with contemporary Italian artists."
+   },
+   {
+    "rank": 85,
+    "name": "Artopia Gallery",
+    "website": null,
+    "neighborhood": "Porta Romana",
+    "address_hint": "Via Lazzaro Papi 2",
+    "kind": "gallery",
+    "note": "Rita Urso's gallery, active for decades with a conceptual and politically aware Italian programme."
+   },
+   {
+    "rank": 86,
+    "name": "Fondazione Corrente",
+    "website": "https://www.fondazionecorrente.org",
+    "neighborhood": "Brera/Centro",
+    "address_hint": "Via Carlo Porta 5",
+    "kind": "nonprofit",
+    "note": "Ernesto Treccani's foundation, an archive and exhibition space linking Milan's 20th-century legacy to contemporary practice."
+   }
+  ]
+ }
+}

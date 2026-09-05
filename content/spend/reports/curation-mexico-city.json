@@ -1,0 +1,3182 @@
+{
+ "city": "mexico-city",
+ "generated_at": "2026-09-04T22:00:23+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "mexico-city",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 55,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "john-giorno-life-is-a-killer",
+   "title": "John Giorno: LIFE IS A KILLER",
+   "artist": "John Giorno",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 249,
+   "venue": {
+    "name": "kurimanzutto",
+    "id": "kurimanzutto",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "kurimanzutto"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.998
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002994
+   },
+   "score": 0.992994,
+   "days_since_open": 6,
+   "days_to_close": 50,
+   "rank": 1,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 55)",
+    "quality 1.00 (5 images, 249 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "apnea",
+   "title": "Apnea",
+   "artist": "Candela Capitán",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-19",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "LABOR",
+    "id": "labor",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "labor"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9818181818181818,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.972,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.973488,
+   "days_since_open": -15,
+   "days_to_close": 50,
+   "rank": 2,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 2 of 55)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "monclova-felguerez-evocaciones",
+   "title": "Sculptural Evocations",
+   "artist": "Manuel Felguérez",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 246,
+   "venue": {
+    "name": "Proyectos Monclova",
+    "id": "proyectos-monclova",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Polanco",
+    "norm": "proyectos monclova"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9636363636363636,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.992
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.954,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002976
+   },
+   "score": 0.9569759999999999,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 3 of 55)",
+    "quality 0.99 (5 images, 246 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "monclova-garcia-cruz-interrupted",
+   "title": "Interrupted Images",
+   "artist": "Guillermo García Cruz",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 191,
+   "venue": {
+    "name": "Proyectos Monclova",
+    "id": "proyectos-monclova",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Polanco",
+    "norm": "proyectos monclova"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9636363636363636,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.882
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.954,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002646
+   },
+   "score": 0.956646,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 4,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 3 of 55)",
+    "quality 0.88 (5 images, 191 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gaga-gurrola-mcdonald",
+   "title": "Dibujos en papel │ Esculturas (Works on Paper │ Sculptures)",
+   "artist": "Juan José Gurrola and Danny McDonald",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 4,
+   "desc_words": 192,
+   "venue": {
+    "name": "House of Gaga",
+    "id": "house-of-gaga",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "house of gaga"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9454545454545454,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.784
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9359999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002352
+   },
+   "score": 0.938352,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 5,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 4 of 55)",
+    "quality 0.78 (4 images, 192 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "nordenhake-no-es-un-poema",
+   "title": "No es un poema, aunque soñemos muchas cosas",
+   "artist": "Lagartijas Tiradas al Sol (curators), with Abril Ramos Xochiteotzin, Bagus Pandega, Dayanita Singh, Eduardo Pizarro, Isabel Yáñez, Jo Ractliffe, Luisa Pardo, Lázaro Gabino Rodríguez, Mario García Torres, Matthew Krishanu, Mirosław Bałka, Nereyda López, Nicolás Pereda, Olga de Amaral, Pedro Pizarro, Soumya Sankar Bose",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 3,
+   "desc_words": 243,
+   "venue": {
+    "name": "Galerie Nordenhake Mexico City",
+    "id": "galeria-nordenhake",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "galerie nordenhake mexico city"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9272727272727272,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.786
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9179999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0023580000000000003
+   },
+   "score": 0.9203579999999999,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 6,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.93 (rank 5 of 55)",
+    "quality 0.79 (3 images, 243 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "travesia-cuatro-molinos-gordo",
+   "title": "Asunción Molinos Gordo",
+   "artist": "Asunción Molinos Gordo",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 290,
+   "venue": {
+    "name": "Travesía Cuatro",
+    "id": "travesia-cuatro",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "travesia cuatro"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9090909090909091,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8999999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.9017999999999999,
+   "days_since_open": 1,
+   "days_to_close": null,
+   "rank": 7,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 6 of 55)",
+    "quality 0.60 (1 images, 290 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "peana-no-tenemos-caballos",
+   "title": "no tenemos caballos para cruzar este caudal",
+   "artist": "Mariana Paniagua Cortés",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-25",
+    "end": "2026-09-05"
+   },
+   "n_images": 6,
+   "desc_words": 187,
+   "venue": {
+    "name": "PEANA",
+    "id": "peana",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "peana"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8909090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19389309522921683,
+    "closing_soon": 1.0,
+    "quality": 0.874
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.882,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002622
+   },
+   "score": 0.886622,
+   "days_since_open": 71,
+   "days_to_close": 1,
+   "rank": 8,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 7 of 55)",
+    "quality 0.87 (6 images, 187 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "peana-musica-genetica",
+   "title": "Música genética",
+   "artist": "Alan Sierra",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-19",
+    "end": "2026-12-19"
+   },
+   "n_images": 1,
+   "desc_words": 146,
+   "venue": {
+    "name": "PEANA",
+    "id": "peana",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "peana"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8909090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.392
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.882,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001176
+   },
+   "score": 0.883176,
+   "days_since_open": -15,
+   "days_to_close": 106,
+   "rank": 9,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 7 of 55)",
+    "quality 0.39 (1 images, 146 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "abstract-stone",
+   "title": "Abstract Stone",
+   "artist": "César Paternosto",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 4,
+   "desc_words": 209,
+   "venue": {
+    "name": "Galería RGR",
+    "id": "galeria-rgr",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "galeria rgr"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8727272727272728,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.8180000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8640000000000001,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002454
+   },
+   "score": 0.8664540000000001,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 10,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 8 of 55)",
+    "quality 0.82 (4 images, 209 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "toledo-hendrix",
+   "title": "Toledo + Hendrix",
+   "artist": "Francisco Toledo and Jan Hendrix",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2027-01-15"
+   },
+   "n_images": 6,
+   "desc_words": 212,
+   "venue": {
+    "name": "Galería de Arte Mexicano (GAM)",
+    "id": "galeria-de-arte-mexicano-gam",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "galeria de arte mexicano gam"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8545454545454545,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.9239999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.846,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027719999999999997
+   },
+   "score": 0.848772,
+   "days_since_open": 1,
+   "days_to_close": 133,
+   "rank": 11,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 9 of 55)",
+    "quality 0.92 (6 images, 212 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "bruma-lactea",
+   "title": "Bruma Láctea",
+   "artist": "Michelle Sitton",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-11-06"
+   },
+   "n_images": 3,
+   "desc_words": 188,
+   "venue": {
+    "name": "Galería de Arte Mexicano (GAM)",
+    "id": "galeria-de-arte-mexicano-gam",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "galeria de arte mexicano gam"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8545454545454545,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.6759999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.846,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002028
+   },
+   "score": 0.848028,
+   "days_since_open": 1,
+   "days_to_close": 63,
+   "rank": 12,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 9 of 55)",
+    "quality 0.68 (3 images, 188 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "mariane-ibrahim-jose-gamarra",
+   "title": "Selva color del tiempo",
+   "artist": "José Gamarra",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-12-19"
+   },
+   "n_images": 5,
+   "desc_words": 266,
+   "venue": {
+    "name": "Mariane Ibrahim",
+    "id": "mariane-ibrahim",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "mariane ibrahim"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six decades",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8363636363636364,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8280000000000001,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8310000000000001,
+   "days_since_open": 1,
+   "days_to_close": 106,
+   "rank": 13,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 10 of 55)",
+    "quality 1.00 (5 images, 266 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "karen-huber-aguacero",
+   "title": "Aguacero",
+   "artist": "Andrew Holmquist",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 3,
+   "desc_words": 220,
+   "venue": {
+    "name": "Galería Karen Huber",
+    "id": "galeria-karen-huber",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "galeria karen huber"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8181818181818181,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.74
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8099999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00222
+   },
+   "score": 0.8122199999999999,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 14,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.82 (rank 11 of 55)",
+    "quality 0.74 (3 images, 220 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "karen-huber-ve-a-pintar",
+   "title": "¡Vé a pintar! (Go Paint!)",
+   "artist": "Cecilia Granara",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-24"
+   },
+   "n_images": 3,
+   "desc_words": 205,
+   "venue": {
+    "name": "Galería Karen Huber",
+    "id": "galeria-karen-huber",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "galeria karen huber"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8181818181818181,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.71
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8099999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00213
+   },
+   "score": 0.8121299999999999,
+   "days_since_open": 1,
+   "days_to_close": 50,
+   "rank": 15,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.82 (rank 11 of 55)",
+    "quality 0.71 (3 images, 205 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "mascota-el-motion",
+   "title": "el motion",
+   "artist": "Jihyoung Han, Miguel Calderón, Bárbara Sánchez-Kane, Empire Libre",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 268,
+   "venue": {
+    "name": "Galería Mascota",
+    "id": "galeria-mascota",
+    "tier": 1,
+    "rank": 12,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "galeria mascota"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.792,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.7938000000000001,
+   "days_since_open": 7,
+   "days_to_close": 36,
+   "rank": 16,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.80 (rank 12 of 55)",
+    "quality 0.60 (1 images, 268 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "lodos-isaac-de-reza-leaner-mind",
+   "title": "Leaner Mind",
+   "artist": "Isaac De Reza",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 177,
+   "venue": {
+    "name": "Lodos",
+    "id": "lodos",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "lodos"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7818181818181819,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.45399999999999996
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.774,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001362
+   },
+   "score": 0.775362,
+   "days_since_open": 1,
+   "days_to_close": null,
+   "rank": 17,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 13 of 55)",
+    "quality 0.45 (1 images, 177 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "pcg-hipervinculos-cartagena",
+   "title": "Hipervínculos: Alejandro Cartagena 2005-2026",
+   "artist": "Alejandro Cartagena",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2027-01-16"
+   },
+   "n_images": 1,
+   "desc_words": 216,
+   "venue": {
+    "name": "Patricia Conde Galería",
+    "id": "patricia-conde-galeria",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "patricia conde galeria"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7636363636363637,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.532
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.756,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015960000000000002
+   },
+   "score": 0.757596,
+   "days_since_open": 1,
+   "days_to_close": 134,
+   "rank": 18,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 14 of 55)",
+    "quality 0.53 (1 images, 216 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pequod-fatima-rodrigo",
+   "title": "¿Cuántas versiones más de mí tienen que morir?",
+   "artist": "Fátima Rodrigo",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 227,
+   "venue": {
+    "name": "Pequod Co.",
+    "id": "pequod-co",
+    "tier": 1,
+    "rank": 16,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "pequod co"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7272727272727273,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.554
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.72,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016620000000000003
+   },
+   "score": 0.721662,
+   "days_since_open": 7,
+   "days_to_close": null,
+   "rank": 19,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 16 of 55)",
+    "quality 0.55 (1 images, 227 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "saenger-quiet-emergence",
+   "title": "Quiet Emergence",
+   "artist": "Mio Yamato",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-11-07"
+   },
+   "n_images": 2,
+   "desc_words": 231,
+   "venue": {
+    "name": "Saenger Galería",
+    "id": "saenger-galeria",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "saenger galeria"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7090909090909091,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.662
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.702,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019860000000000004
+   },
+   "score": 0.703986,
+   "days_since_open": 1,
+   "days_to_close": 64,
+   "rank": 20,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.71 (rank 17 of 55)",
+    "quality 0.66 (2 images, 231 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "saenger-soplar-camacho",
+   "title": "Soplar una nube de polvo en la cara (Blowing a Cloud of Dust in the Face)",
+   "artist": "Temoc Camacho",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 211,
+   "venue": {
+    "name": "Saenger Galería",
+    "id": "saenger-galeria",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "saenger galeria"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7090909090909091,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.522
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.702,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015660000000000001
+   },
+   "score": 0.7035659999999999,
+   "days_since_open": 1,
+   "days_to_close": 64,
+   "rank": 21,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.71 (rank 17 of 55)",
+    "quality 0.52 (1 images, 211 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "yo-solia-ser-uno-de-ellos",
+   "title": "Yo Solía Ser Uno de Ellos",
+   "artist": "Tony Solis",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": null
+   },
+   "n_images": 4,
+   "desc_words": 172,
+   "venue": {
+    "name": "Galería Enrique Guerrero",
+    "id": "galeria-enrique-guerrero",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "galeria enrique guerrero"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6909090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.744
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.684,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002232
+   },
+   "score": 0.6862320000000001,
+   "days_since_open": 1,
+   "days_to_close": null,
+   "rank": 22,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.69 (rank 18 of 55)",
+    "quality 0.74 (4 images, 172 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "salon-silicon-pablo-bondi",
+   "title": "¡Que te ruegue quien te quiera!",
+   "artist": "Pablo Bondi",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 190,
+   "venue": {
+    "name": "Salón Silicón",
+    "id": "salon-silicon",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "salon silicon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6363636363636364,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.88
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.63,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00264
+   },
+   "score": 0.63264,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 23,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 21 of 55)",
+    "quality 0.88 (5 images, 190 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "salon-silicon-flora-intestinal",
+   "title": "Flora Intestinal",
+   "artist": "Marina Daiez",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 169,
+   "venue": {
+    "name": "Salón Silicón",
+    "id": "salon-silicon",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "salon silicon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6363636363636364,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.8380000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.63,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002514
+   },
+   "score": 0.632514,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 24,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 21 of 55)",
+    "quality 0.84 (6 images, 169 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "ago-junta-de-verano",
+   "title": "Junta de Verano",
+   "artist": "Pedro&Juana",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-15",
+    "end": "2026-12-15"
+   },
+   "n_images": 1,
+   "desc_words": 212,
+   "venue": {
+    "name": "AGO Projects",
+    "id": "ago-projects",
+    "tier": 2,
+    "rank": 22,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "ago projects"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6181818181818182,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6299605249474366,
+    "closing_soon": 0.0,
+    "quality": 0.524
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.612,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001572
+   },
+   "score": 0.613572,
+   "days_since_open": 20,
+   "days_to_close": 102,
+   "rank": 25,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 15,
+   "pinned": false,
+   "reasons": [
+    "venue 0.62 (rank 22 of 55)",
+    "quality 0.52 (1 images, 212 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "masa-ex-soup",
+   "title": "Ex Soup, Stirring the Broth: Recipes for Chewing and Digesting the City",
+   "artist": "Ex Soup",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-25",
+    "end": "2026-09-19"
+   },
+   "n_images": 5,
+   "desc_words": 207,
+   "venue": {
+    "name": "MASA",
+    "id": "masa",
+    "tier": 2,
+    "rank": 23,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "masa"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19389309522921683,
+    "closing_soon": 0.0,
+    "quality": 0.9139999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.594,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027419999999999996
+   },
+   "score": 0.596742,
+   "days_since_open": 71,
+   "days_to_close": 15,
+   "rank": 26,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 16,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 23 of 55)",
+    "quality 0.91 (5 images, 207 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "general-expenses-ni-mudo-ni-vacio",
+   "title": "Ni mudo ni vacío (Neither Mute Nor Empty)",
+   "artist": "Ulrik López Medel",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-10",
+    "end": "2026-09-15"
+   },
+   "n_images": 4,
+   "desc_words": 200,
+   "venue": {
+    "name": "General Expenses",
+    "id": "general-expenses",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "general expenses"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5636363636363637,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2742062449236565,
+    "closing_soon": 1.0,
+    "quality": 0.8
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.558,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0024000000000000002
+   },
+   "score": 0.5624,
+   "days_since_open": 56,
+   "days_to_close": 11,
+   "rank": 27,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 17,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 25 of 55)",
+    "quality 0.80 (4 images, 200 words)",
+    "closes in 11 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "tb-encontrar-se",
+   "title": "Encontrar se",
+   "artist": "Luisa Bordas, Ana Teresa Fierro, Alex Hochstrasser, Anette Kuhn, Aurora Noreña, ORLAN, Erandine de Saint Phalle, Elisabeth Strebel",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-09-06"
+   },
+   "n_images": 1,
+   "desc_words": 172,
+   "venue": {
+    "name": "Terreno Baldío Arte",
+    "id": "terreno-baldio-arte",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "terreno baldio arte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5454545454545454,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 1.0,
+    "quality": 0.44399999999999995
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5399999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0013319999999999999
+   },
+   "score": 0.5433319999999999,
+   "days_since_open": 1,
+   "days_to_close": 2,
+   "rank": 28,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 18,
+   "pinned": false,
+   "reasons": [
+    "venue 0.55 (rank 26 of 55)",
+    "closes in 2 d",
+    "quality 0.44 (1 images, 172 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "campeche-salvador-xharicata",
+   "title": "Mi bosque es el tianguis, estos injertos son mi lengua (My Forest Is the Tianguis, These Grafts Are My Tongue)",
+   "artist": "Salvador Xharicata",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-27",
+    "end": null
+   },
+   "n_images": 4,
+   "desc_words": 218,
+   "venue": {
+    "name": "Campeche",
+    "id": "campeche",
+    "tier": 2,
+    "rank": 27,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "campeche"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5272727272727273,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8312378961427878,
+    "closing_soon": 0.0,
+    "quality": 0.8360000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.522,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0025080000000000002
+   },
+   "score": 0.524508,
+   "days_since_open": 8,
+   "days_to_close": null,
+   "rank": 29,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.53 (rank 27 of 55)",
+    "quality 0.84 (4 images, 218 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "gestos-domesticos",
+   "title": "Gestos Domésticos",
+   "artist": "Marianna Dellekamp",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 135,
+   "venue": {
+    "name": "Le Laboratoire",
+    "id": "le-laboratoire",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "le laboratoire"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.509090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.37
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5039999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00111
+   },
+   "score": 0.50511,
+   "days_since_open": 6,
+   "days_to_close": 57,
+   "rank": 30,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 19,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 28 of 55)",
+    "quality 0.37 (1 images, 135 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "nexus",
+   "title": "Nexus",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-09-26"
+   },
+   "n_images": 1,
+   "desc_words": 121,
+   "venue": {
+    "name": "Le Laboratoire",
+    "id": "le-laboratoire",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "le laboratoire"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.509090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.34199999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5039999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001026
+   },
+   "score": 0.5050259999999999,
+   "days_since_open": 6,
+   "days_to_close": 22,
+   "rank": 31,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 20,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 28 of 55)",
+    "quality 0.34 (1 images, 121 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "oscar-roman-von-gunten",
+   "title": "Estados de Inocencia",
+   "artist": "Roger von Gunten",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 241,
+   "venue": {
+    "name": "Galería Oscar Román",
+    "id": "galeria-oscar-roman",
+    "tier": 2,
+    "rank": 30,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Polanco",
+    "norm": "galeria oscar roman"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six-decade",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4727272727272728,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.47094600000000003,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 32,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.47 (rank 30 of 55)",
+    "quality 0.98 (6 images, 241 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "ethra-el-tropico-de-jersey",
+   "title": "El Trópico de Jersey (The Tropic of Jersey)",
+   "artist": "Emi Winter",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-31"
+   },
+   "n_images": 3,
+   "desc_words": 255,
+   "venue": {
+    "name": "Galería Ethra",
+    "id": "ethra",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "galeria ethra"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38181818181818183,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.378,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024000000000000002
+   },
+   "score": 0.3804,
+   "days_since_open": 0,
+   "days_to_close": 57,
+   "rank": 33,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 21,
+   "pinned": false,
+   "reasons": [
+    "venue 0.38 (rank 35 of 55)",
+    "quality 0.80 (3 images, 255 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "aguafuerte-la-calle-tambien-se-enmarca",
+   "title": "La calle también se enmarca (The Street Also Gets Framed)",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-09-28"
+   },
+   "n_images": 2,
+   "desc_words": 211,
+   "venue": {
+    "name": "Aguafuerte Galería",
+    "id": "aguafuerte-galeria",
+    "tier": 2,
+    "rank": 40,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Roma/Condesa",
+    "norm": "aguafuerte galeria"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2909090909090909,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.622
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.288,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001866
+   },
+   "score": 0.28986599999999996,
+   "days_since_open": 1,
+   "days_to_close": 24,
+   "rank": 34,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 22,
+   "pinned": false,
+   "reasons": [
+    "venue 0.29 (rank 40 of 55)",
+    "quality 0.62 (2 images, 211 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hydra-territorios-inasibles",
+   "title": "Territorios Inasibles (Ungraspable Territories)",
+   "artist": "Group show: Lucía Serrano, Axell Guillén, Georgina Flores, and other emerging photographers",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 199,
+   "venue": {
+    "name": "Hydra + Fotografía",
+    "id": "galeria-hydra",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Colonia Juárez/Cuauhtémoc",
+    "norm": "hydra fotografia"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2727272727272727,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.898
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.26999999999999996,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002694
+   },
+   "score": 0.27269399999999994,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 35,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 41 of 55)",
+    "quality 0.90 (5 images, 199 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "una-obsesion-por-las-flores",
+   "title": "An Obsession with Flowers (Una Obsesión por las Flores)",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-11-29"
+   },
+   "n_images": 4,
+   "desc_words": 226,
+   "venue": {
+    "name": "LagoAlgo",
+    "id": "lagoalgo",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "lagoalgo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1636363636363637,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8520000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16200000000000006,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002556
+   },
+   "score": 0.16455600000000006,
+   "days_since_open": -1,
+   "days_to_close": 86,
+   "rank": 36,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.16 (rank 47 of 55)",
+    "quality 0.85 (4 images, 226 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "hacer-lugar",
+   "title": "Hacer Lugar",
+   "artist": "Studio Lenca",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-11-29"
+   },
+   "n_images": 3,
+   "desc_words": 199,
+   "venue": {
+    "name": "LagoAlgo",
+    "id": "lagoalgo",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "lagoalgo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1636363636363637,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.698
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16200000000000006,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002094
+   },
+   "score": 0.16409400000000007,
+   "days_since_open": -1,
+   "days_to_close": 86,
+   "rank": 37,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.16 (rank 47 of 55)",
+    "quality 0.70 (3 images, 199 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "tepito-en-la-cancha",
+   "title": "Tepito en la cancha",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-04",
+    "end": "2026-09-20"
+   },
+   "n_images": 2,
+   "desc_words": 188,
+   "venue": {
+    "name": "Galería José María Velasco",
+    "id": "galeria-jose-maria-velasco",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "norm": "galeria jose maria velasco"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12727272727272732,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.11935520048880205,
+    "closing_soon": 0.0,
+    "quality": 0.5760000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12600000000000003,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017280000000000002
+   },
+   "score": 0.12772800000000004,
+   "days_since_open": 92,
+   "days_to_close": 16,
+   "rank": 38,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 23,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 49 of 55)",
+    "quality 0.58 (2 images, 188 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "dinastia-duende-50-anos",
+   "title": "Encontrando el oro al final del arcoíris. Dinastía Duende 50 años",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-04",
+    "end": "2026-10-25"
+   },
+   "n_images": 2,
+   "desc_words": 158,
+   "venue": {
+    "name": "Galería José María Velasco",
+    "id": "galeria-jose-maria-velasco",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Rafael/Santa María la Ribera",
+    "norm": "galeria jose maria velasco"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12727272727272732,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.11935520048880205,
+    "closing_soon": 0.0,
+    "quality": 0.516
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12600000000000003,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015480000000000001
+   },
+   "score": 0.12754800000000002,
+   "days_since_open": 92,
+   "days_to_close": 51,
+   "rank": 39,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 24,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 49 of 55)",
+    "quality 0.52 (2 images, 158 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "germino-gemimos-germinamos",
+   "title": "Germino – Gemimos – Germinamos",
+   "artist": "Gabriela Novoa",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-30",
+    "end": "2026-10-04"
+   },
+   "n_images": 2,
+   "desc_words": 207,
+   "venue": {
+    "name": "Casa del Lago UNAM",
+    "id": "casa-del-lago-unam",
+    "tier": 3,
+    "rank": 51,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "San Miguel Chapultepec",
+    "norm": "casa del lago unam"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09090909090909094,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.10633339511885696,
+    "closing_soon": 0.0,
+    "quality": 0.614
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09000000000000002,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001842
+   },
+   "score": 0.09184200000000002,
+   "days_since_open": 97,
+   "days_to_close": 30,
+   "rank": 40,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.09 (rank 51 of 55)",
+    "quality 0.61 (2 images, 207 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788559222,
+   "run_id": "apply-mexico-city-1788559222",
+   "city": "mexico-city",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=25 reorder=True params=a19d996171f0",
+   "params_hash": "a19d996171f0"
+  },
+  {
+   "ts": 1788559223,
+   "run_id": "score-mexico-city-1788559223",
+   "city": "mexico-city",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=40 featured=24 snapshot=None params=a19d996171f0",
+   "params_hash": "a19d996171f0",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 35,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

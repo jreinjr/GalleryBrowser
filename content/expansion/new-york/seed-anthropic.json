@@ -1,0 +1,922 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788551768,
+ "system": "You are an art-world editor compiling a gallery guide for New York, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in New York itself (galleries whose home is\nelsewhere count only through a permanent New York space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Chelsea, Downtown, Uptown, Brooklyn/Queens, Hamptons) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several New York spaces once.",
+ "user": "What are the 100 most significant and influential galleries in New York, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 56,
+  "output_tokens": 21687,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.547905,
+  "seconds": 277.1
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "555 West 24th Street",
+    "kind": "gallery",
+    "note": "The world's largest gallery network, with multiple New York spaces; blue-chip estates, market-defining exhibitions and museum-scale shows."
+   },
+   {
+    "rank": 2,
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "537 West 20th Street",
+    "kind": "gallery",
+    "note": "Global mega-gallery with scholarly catalogues, major estates (Ruscha, Yayoi Kusama, Bourgeois) and a Chelsea campus plus uptown and Tribeca spaces."
+   },
+   {
+    "rank": 3,
+    "name": "Pace",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "540 West 25th Street",
+    "kind": "gallery",
+    "note": "Founded 1960; eight-storey flagship, deep postwar holdings and a strong technology/immersive art programme."
+   },
+   {
+    "rank": 4,
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "542 West 22nd Street",
+    "kind": "gallery",
+    "note": "Museum-quality historical surveys and estates (Guston, Nevelson, Bourgeois) alongside leading living artists."
+   },
+   {
+    "rank": 5,
+    "name": "Marian Goodman Gallery",
+    "website": "https://www.mariangoodman.com",
+    "neighborhood": "Downtown",
+    "address_hint": "385 Broadway, Tribeca",
+    "kind": "gallery",
+    "note": "Brought European conceptualism to New York since 1977; Gerhard Richter, Steve McQueen, William Kentridge, Tacita Dean."
+   },
+   {
+    "rank": 6,
+    "name": "Matthew Marks Gallery",
+    "website": "https://www.matthewmarks.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "522 West 22nd Street",
+    "kind": "gallery",
+    "note": "A pillar of Chelsea since the early 1990s; Nan Goldin, Robert Gober, Ellsworth Kelly estate."
+   },
+   {
+    "rank": 7,
+    "name": "Paula Cooper Gallery",
+    "website": "https://www.paulacoopergallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "524 West 26th Street",
+    "kind": "gallery",
+    "note": "SoHo's first gallery (1968) and a minimalism/conceptualism standard-bearer: Sol LeWitt, Carl Andre, Sherrie Levine."
+   },
+   {
+    "rank": 8,
+    "name": "Gladstone Gallery",
+    "website": "https://www.gladstonegallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "515 West 24th Street",
+    "kind": "gallery",
+    "note": "Rigorous conceptual and installation-based programme: Matthew Barney, Anicka Yi, Carrie Mae Weems; absorbed Gavin Brown's roster."
+   },
+   {
+    "rank": 9,
+    "name": "Luhring Augustine",
+    "website": "https://www.luhringaugustine.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "531 West 24th Street",
+    "kind": "gallery",
+    "note": "Since 1985; Rachel Whiteread, Christopher Wool, Ragnar Kjartansson, with Bushwick and Tribeca outposts."
+   },
+   {
+    "rank": 10,
+    "name": "Lisson Gallery",
+    "website": "https://www.lissongallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "504 West 24th Street",
+    "kind": "gallery",
+    "note": "London institution's New York flagship; conceptual and land-art legacies plus Ai Weiwei, Carmen Herrera estate."
+   },
+   {
+    "rank": 11,
+    "name": "Petzel Gallery",
+    "website": "https://www.petzel.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "520 West 25th Street",
+    "kind": "gallery",
+    "note": "Critically driven programme rooted in the Pictures generation and German conceptualism; Wade Guyton, Charline von Heyl."
+   },
+   {
+    "rank": 12,
+    "name": "Greene Naftali",
+    "website": "https://www.greenenaftaligallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "508 West 26th Street, 8th floor",
+    "kind": "gallery",
+    "note": "One of Chelsea's most consistently experimental programmes; Jacqueline Humphries, Paul Chan, Rachel Harrison."
+   },
+   {
+    "rank": 13,
+    "name": "303 Gallery",
+    "website": "https://www.303gallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "555 West 21st Street",
+    "kind": "gallery",
+    "note": "Lisa Spellman's gallery since 1984; Doug Aitken, Karen Kilimnik, Alicja Kwade, Stephen Shore."
+   },
+   {
+    "rank": 14,
+    "name": "Sean Kelly",
+    "website": "https://www.skny.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "475 Tenth Avenue",
+    "kind": "gallery",
+    "note": "Marina Abramović, Kehinde Wiley and Antony Gormley; strong institutional placement and performance history."
+   },
+   {
+    "rank": 15,
+    "name": "Casey Kaplan",
+    "website": "https://caseykaplangallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "121 West 27th Street",
+    "kind": "gallery",
+    "note": "Sharp mid-career programme: Jordan Casteel, Kevin Beasley, Sarah Crowner, Giorgio Griffa."
+   },
+   {
+    "rank": 16,
+    "name": "Andrew Kreps Gallery",
+    "website": "https://www.andrewkreps.com",
+    "neighborhood": "Downtown",
+    "address_hint": "22 Cortlandt Alley / 394 Broadway",
+    "kind": "gallery",
+    "note": "Influential Tribeca dealer with a research-driven roster and rediscoveries; Roe Ethridge, Camille Henrot, Corita Kent estate."
+   },
+   {
+    "rank": 17,
+    "name": "Anton Kern Gallery",
+    "website": "https://www.antonkerngallery.com",
+    "neighborhood": "Midtown",
+    "address_hint": "16 East 55th Street",
+    "kind": "gallery",
+    "note": "Townhouse gallery with a wry, painting-strong roster: Nicole Eisenman, Chris Martin, Wilhelm Sasnal."
+   },
+   {
+    "rank": 18,
+    "name": "Jack Shainman Gallery",
+    "website": "https://jackshainman.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "513 West 20th Street; The Clocktower, 46 Lafayette Street",
+    "kind": "gallery",
+    "note": "Decades of championing Black and diasporic artists: Kerry James Marshall, El Anatsui, Nick Cave, Carrie Mae Weems."
+   },
+   {
+    "rank": 19,
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Downtown",
+    "address_hint": "130 Orchard Street",
+    "kind": "gallery",
+    "note": "French global gallery's New York outposts; Takashi Murakami, JR, Daniel Arsham and a heavy fair presence."
+   },
+   {
+    "rank": 20,
+    "name": "Lehmann Maupin",
+    "website": "https://www.lehmannmaupin.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "501 West 24th Street",
+    "kind": "gallery",
+    "note": "Internationally minded roster: Do Ho Suh, Teresita Fernández, Nari Ward, Cecilia Vicuña."
+   },
+   {
+    "rank": 21,
+    "name": "Tanya Bonakdar Gallery",
+    "website": "https://www.tanyabonakdargallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "521 West 21st Street",
+    "kind": "gallery",
+    "note": "Olafur Eliasson, Mark Dion, Analia Saban; a bellwether for installation and ecological practice since 1994."
+   },
+   {
+    "rank": 22,
+    "name": "James Cohan",
+    "website": "https://www.jamescohan.com",
+    "neighborhood": "Downtown",
+    "address_hint": "48 Walker Street / 52 Walker Street area, Tribeca",
+    "kind": "gallery",
+    "note": "Global roster with strong Asian and diasporic representation; Firelei Báez, Trenton Doyle Hancock, Bill Viola estate."
+   },
+   {
+    "rank": 23,
+    "name": "Marianne Boesky Gallery",
+    "website": "https://www.marianneboeskygallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "509 West 24th Street",
+    "kind": "gallery",
+    "note": "Since 1996; Frank Stella, Donald Moffett, Sanford Biggers and the Ghada Amer market."
+   },
+   {
+    "rank": 24,
+    "name": "Sperone Westwater",
+    "website": "https://www.speronewestwater.com",
+    "neighborhood": "Downtown",
+    "address_hint": "257 Bowery",
+    "kind": "gallery",
+    "note": "Founded 1975 to bring Arte Povera and European postwar art to New York; Foster + Partners building on the Bowery."
+   },
+   {
+    "rank": 25,
+    "name": "Karma",
+    "website": "https://karmakarma.org",
+    "neighborhood": "Downtown",
+    "address_hint": "22 East 2nd Street",
+    "kind": "gallery",
+    "note": "Fast-rising East Village gallery and publisher; Reggie Burrows Hodges, Maja Ruznic, Gertrude Abercrombie estate."
+   },
+   {
+    "rank": 26,
+    "name": "Salon 94",
+    "website": "https://www.salon94.com",
+    "neighborhood": "Uptown",
+    "address_hint": "3 East 89th Street",
+    "kind": "gallery",
+    "note": "Jeanne Greenberg Rohatyn's genre-crossing programme of design, ceramics and contemporary art in a landmark mansion."
+   },
+   {
+    "rank": 27,
+    "name": "Bortolami",
+    "website": "https://www.bortolamigallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "39 Walker Street",
+    "kind": "gallery",
+    "note": "Tribeca anchor with the innovative Artist/City project; Daniel Buren, Barbara Kasten, Eric Wesley."
+   },
+   {
+    "rank": 28,
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Uptown",
+    "address_hint": "1002 Madison Avenue",
+    "kind": "gallery",
+    "note": "The influential London gallery's 2023 New York flagship, bringing Tracey Emin, Julie Mehretu and Theaster Gates uptown."
+   },
+   {
+    "rank": 29,
+    "name": "Galerie Buchholz",
+    "website": "https://www.galeriebuchholz.de",
+    "neighborhood": "Uptown",
+    "address_hint": "17 East 82nd Street",
+    "kind": "gallery",
+    "note": "Cologne/Berlin gallery's cerebral uptown space; Wolfgang Tillmans, Isa Genzken, Danh Vo."
+   },
+   {
+    "rank": 30,
+    "name": "kurimanzutto",
+    "website": "https://www.kurimanzutto.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "516 West 20th Street",
+    "kind": "gallery",
+    "note": "Mexico City's leading gallery in New York; Gabriel Orozco, Minerva Cuevas, Haegue Yang."
+   },
+   {
+    "rank": 31,
+    "name": "Skarstedt",
+    "website": "https://www.skarstedt.com",
+    "neighborhood": "Uptown",
+    "address_hint": "20 East 79th Street",
+    "kind": "gallery",
+    "note": "Secondary-market powerhouse for 1980s-90s American and European art; Condo, Prince, Sherman, Kippenberger."
+   },
+   {
+    "rank": 32,
+    "name": "Kasmin",
+    "website": "https://www.kasmingallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "509 West 27th Street",
+    "kind": "gallery",
+    "note": "Multiple Chelsea spaces plus a rooftop sculpture garden on the High Line; Lee Krasner and Robert Indiana estates."
+   },
+   {
+    "rank": 33,
+    "name": "Lévy Gorvy Dayan",
+    "website": "https://www.levygorvydayan.com",
+    "neighborhood": "Uptown",
+    "address_hint": "19 East 64th Street",
+    "kind": "gallery",
+    "note": "Scholarly secondary-market exhibitions in a Beaux-Arts townhouse; Bourgeois, Zao Wou-Ki, Günther Uecker."
+   },
+   {
+    "rank": 34,
+    "name": "Mnuchin Gallery",
+    "website": "https://www.mnuchingallery.com",
+    "neighborhood": "Uptown",
+    "address_hint": "45 East 78th Street",
+    "kind": "gallery",
+    "note": "Museum-grade postwar surveys (David Hammons, Agnes Martin) and a major secondary-market presence."
+   },
+   {
+    "rank": 35,
+    "name": "Acquavella Galleries",
+    "website": "https://www.acquavellagalleries.com",
+    "neighborhood": "Uptown",
+    "address_hint": "18 East 79th Street",
+    "kind": "gallery",
+    "note": "Three generations of dealing modern masters, now with contemporary shows by Damian Loeb, Wayne Thiebaud estate."
+   },
+   {
+    "rank": 36,
+    "name": "P·P·O·W",
+    "website": "https://www.ppowgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "390 Broadway, Tribeca",
+    "kind": "gallery",
+    "note": "Since 1983 a home for politically engaged and queer art: David Wojnarowicz estate, Martin Wong, Carolee Schneemann."
+   },
+   {
+    "rank": 37,
+    "name": "Sikkema Malloy Jenkins",
+    "website": "https://www.sikkemajenkinsco.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "530 West 22nd Street",
+    "kind": "gallery",
+    "note": "Kara Walker, Vik Muniz, Amy Sillman; consistently museum-facing programme over three decades."
+   },
+   {
+    "rank": 38,
+    "name": "Galerie Lelong & Co.",
+    "website": "https://www.galerielelong.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "528 West 26th Street",
+    "kind": "gallery",
+    "note": "International roster with strong Latin American and feminist holdings: Ana Mendieta estate, Zarina, Alfredo Jaar."
+   },
+   {
+    "rank": 39,
+    "name": "Alexander Gray Associates",
+    "website": "https://www.alexandergray.com",
+    "neighborhood": "Downtown",
+    "address_hint": "384 Broadway, Tribeca",
+    "kind": "gallery",
+    "note": "Rigorous focus on conceptual, feminist and social-practice legacies: Melvin Edwards, Lorraine O'Grady, Joan Semmel."
+   },
+   {
+    "rank": 40,
+    "name": "Miguel Abreu Gallery",
+    "website": "https://www.miguelabreugallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "88 Eldridge Street / 36 Orchard Street",
+    "kind": "gallery",
+    "note": "Theory-driven Lower East Side programme with publishing arm Sequence Press; R. H. Quaytman, Sam Lewitt."
+   },
+   {
+    "rank": 41,
+    "name": "Bridget Donahue",
+    "website": "https://bridgetdonahue.nyc",
+    "neighborhood": "Downtown",
+    "address_hint": "99 Bowery, 2nd floor",
+    "kind": "gallery",
+    "note": "Small space with outsized critical clout; Martine Syms, Susan Cianciolo, Lorraine O'Grady collaborations."
+   },
+   {
+    "rank": 42,
+    "name": "47 Canal",
+    "website": "https://47canal.us",
+    "neighborhood": "Downtown",
+    "address_hint": "291 Grand Street",
+    "kind": "gallery",
+    "note": "Defined a generation of post-internet and diasporic practice; Anicka Yi, Josh Kline, Michele Abeles."
+   },
+   {
+    "rank": 43,
+    "name": "Bureau",
+    "website": "https://www.bureau-inc.com",
+    "neighborhood": "Downtown",
+    "address_hint": "178 Norfolk Street",
+    "kind": "gallery",
+    "note": "Lower East Side gallery with a quietly influential roster and steady museum placements."
+   },
+   {
+    "rank": 44,
+    "name": "Company Gallery",
+    "website": "https://www.companygallery.us",
+    "neighborhood": "Downtown",
+    "address_hint": "145 Elizabeth Street",
+    "kind": "gallery",
+    "note": "Vital platform for queer and trans artists; Jesse Darling, Elle Pérez, Marilyn Minter collaborations."
+   },
+   {
+    "rank": 45,
+    "name": "Reena Spaulings Fine Art",
+    "website": "https://www.reenaspaulings.com",
+    "neighborhood": "Downtown",
+    "address_hint": "165 East Broadway",
+    "kind": "gallery",
+    "note": "Artist-run gallery-as-artwork since 2004; a conceptual node for the downtown scene and Bernadette Corporation circle."
+   },
+   {
+    "rank": 46,
+    "name": "CANADA",
+    "website": "https://www.canadanewyork.com",
+    "neighborhood": "Downtown",
+    "address_hint": "60 Lispenard Street",
+    "kind": "gallery",
+    "note": "Artist-founded, painting-forward and scene-defining since 1999; Katherine Bernhardt, Joe Bradley alumni."
+   },
+   {
+    "rank": 47,
+    "name": "Chapter NY",
+    "website": "https://www.chapter-ny.com",
+    "neighborhood": "Downtown",
+    "address_hint": "60 Walker Street",
+    "kind": "gallery",
+    "note": "Sharp emerging programme that has launched several now-major painters into institutional shows."
+   },
+   {
+    "rank": 48,
+    "name": "Gordon Robichaux",
+    "website": "https://www.gordonrobichaux.com",
+    "neighborhood": "Downtown",
+    "address_hint": "41 Union Square West",
+    "kind": "gallery",
+    "note": "Curatorially adventurous gallery mixing intergenerational, queer and outsider practices; frequent biennial picks."
+   },
+   {
+    "rank": 49,
+    "name": "CLEARING",
+    "website": "https://c-l-e-a-r-i-n-g.com",
+    "neighborhood": "Downtown",
+    "address_hint": "260 Bowery",
+    "kind": "gallery",
+    "note": "Brooklyn-born, now Bowery-based; incubator for Harold Ancart, Loie Hollowell, Calvin Marcus."
+   },
+   {
+    "rank": 50,
+    "name": "Maxwell Graham (Essex Street)",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": "55 Hester Street",
+    "kind": "gallery",
+    "note": "Fiercely conceptual programme and archival rediscoveries; a critics' favourite with strong museum traction."
+   },
+   {
+    "rank": 51,
+    "name": "Nicelle Beauchene Gallery",
+    "website": "https://www.nicellebeauchene.com",
+    "neighborhood": "Downtown",
+    "address_hint": "7 Franklin Place",
+    "kind": "gallery",
+    "note": "Consistent championing of women artists and craft-inflected practice since 2009."
+   },
+   {
+    "rank": 52,
+    "name": "Derek Eller Gallery",
+    "website": "https://www.derekeller.com",
+    "neighborhood": "Downtown",
+    "address_hint": "300 Broome Street",
+    "kind": "gallery",
+    "note": "Long-running downtown dealer known for idiosyncratic painting and self-taught rediscoveries."
+   },
+   {
+    "rank": 53,
+    "name": "kaufmann repetto",
+    "website": "https://www.kaufmannrepetto.com",
+    "neighborhood": "Downtown",
+    "address_hint": "55 Walker Street",
+    "kind": "gallery",
+    "note": "Milan gallery's New York space; Latifa Echakhch, Andrea Bowers, Judith Hopf."
+   },
+   {
+    "rank": 54,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Uptown",
+    "address_hint": "39 East 78th Street",
+    "kind": "gallery",
+    "note": "International gallery with a Picasso-linked history and a broad contemporary painting roster."
+   },
+   {
+    "rank": 55,
+    "name": "Massimo De Carlo",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "Downtown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Major Italian gallery's New York outpost; Rudolf Stingel, Carsten Höller, Sanya Kantarovsky."
+   },
+   {
+    "rank": 56,
+    "name": "Mendes Wood DM",
+    "website": "https://mendeswooddm.com",
+    "neighborhood": "Uptown",
+    "address_hint": "60 East 66th Street",
+    "kind": "gallery",
+    "note": "São Paulo gallery's townhouse space bringing Brazilian and global-south artists to New York."
+   },
+   {
+    "rank": 57,
+    "name": "52 Walker",
+    "website": "https://www.52walker.com",
+    "neighborhood": "Downtown",
+    "address_hint": "52 Walker Street",
+    "kind": "gallery",
+    "note": "Ebony L. Haynes's independently curated Tribeca space, among the most critically watched programmes in the city."
+   },
+   {
+    "rank": 58,
+    "name": "Jeffrey Deitch",
+    "website": "https://www.deitch.com",
+    "neighborhood": "Downtown",
+    "address_hint": "18 Wooster Street",
+    "kind": "gallery",
+    "note": "Spectacle-driven SoHo shows and street-art crossovers from a dealer who shaped the 1990s and 2000s."
+   },
+   {
+    "rank": 59,
+    "name": "Venus Over Manhattan",
+    "website": "https://www.venusovermanhattan.com",
+    "neighborhood": "Downtown",
+    "address_hint": "39 Great Jones Street",
+    "kind": "gallery",
+    "note": "Adam Lindemann's gallery for eccentric historical rediscoveries and buzzy contemporary pairings."
+   },
+   {
+    "rank": 60,
+    "name": "Nicola Vassell Gallery",
+    "website": "https://www.nicolavassell.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "138 Tenth Avenue",
+    "kind": "gallery",
+    "note": "Opened 2021 with an ambitious programme foregrounding Black artists and photography; rapid institutional uptake."
+   },
+   {
+    "rank": 61,
+    "name": "Tina Kim Gallery",
+    "website": "https://www.tinakimgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "525 West 21st Street",
+    "kind": "gallery",
+    "note": "Key conduit for Korean art in New York, including Dansaekhwa figures and Ghada Amer."
+   },
+   {
+    "rank": 62,
+    "name": "Michael Werner Gallery",
+    "website": "https://www.michaelwerner.com",
+    "neighborhood": "Uptown",
+    "address_hint": "4 East 77th Street",
+    "kind": "gallery",
+    "note": "Historic advocate of German postwar painting — Baselitz, Polke, Kirkeby — in an Upper East Side townhouse."
+   },
+   {
+    "rank": 63,
+    "name": "Yancey Richardson Gallery",
+    "website": "https://www.yanceyrichardson.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "525 West 22nd Street",
+    "kind": "gallery",
+    "note": "Leading contemporary photography dealer; Mickalene Thomas, Zanele Muholi, Andrew Moore."
+   },
+   {
+    "rank": 64,
+    "name": "Howard Greenberg Gallery",
+    "website": "https://www.howardgreenberg.com",
+    "neighborhood": "Midtown",
+    "address_hint": "41 East 57th Street",
+    "kind": "gallery",
+    "note": "The definitive New York address for classic and documentary photography, with strong museum ties."
+   },
+   {
+    "rank": 65,
+    "name": "Bruce Silverstein Gallery",
+    "website": "https://www.brucesilverstein.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "505 West 24th Street",
+    "kind": "gallery",
+    "note": "Photography-centred programme bridging modernist estates and contemporary lens-based practice."
+   },
+   {
+    "rank": 66,
+    "name": "Andrew Edlin Gallery",
+    "website": "https://www.edlingallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "212 Bowery",
+    "kind": "gallery",
+    "note": "Foremost dealer of self-taught and outsider art; founder of the Outsider Art Fair, with Henry Darger estate."
+   },
+   {
+    "rank": 67,
+    "name": "Ortuzar",
+    "website": "https://www.ortuzarprojects.com",
+    "neighborhood": "Downtown",
+    "address_hint": "9 White Street",
+    "kind": "gallery",
+    "note": "Historically minded Tribeca gallery reviving overlooked conceptual figures alongside contemporary artists."
+   },
+   {
+    "rank": 68,
+    "name": "Peter Freeman, Inc.",
+    "website": "https://www.peterfreemaninc.com",
+    "neighborhood": "Downtown",
+    "address_hint": "140 Grand Street",
+    "kind": "gallery",
+    "note": "Quietly authoritative programme spanning Mel Bochner, Thomas Schütte and drawing-focused historical shows."
+   },
+   {
+    "rank": 69,
+    "name": "David Nolan Gallery",
+    "website": "https://www.davidnolangallery.com",
+    "neighborhood": "Uptown",
+    "address_hint": "24 East 81st Street",
+    "kind": "gallery",
+    "note": "Drawing-centred connoisseurship; Barry Le Va, Jorinde Voigt, German postwar works on paper."
+   },
+   {
+    "rank": 70,
+    "name": "Craig F. Starr Gallery",
+    "website": "https://www.craigstarr.com",
+    "neighborhood": "Uptown",
+    "address_hint": "5 East 73rd Street",
+    "kind": "gallery",
+    "note": "Small, scholarly exhibitions of postwar American art that routinely earn outsized critical notice."
+   },
+   {
+    "rank": 71,
+    "name": "Susan Inglett Gallery",
+    "website": "https://www.inglettgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "522 West 24th Street",
+    "kind": "gallery",
+    "note": "Politically committed programme and editions expertise; Beverly Semmes, Guerrilla Girls projects."
+   },
+   {
+    "rank": 72,
+    "name": "Garth Greenan Gallery",
+    "website": "https://www.garthgreenan.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "545 West 20th Street",
+    "kind": "gallery",
+    "note": "Reappraisals of postwar American artists, notably Native American and women artists such as Jaune Quick-to-See Smith."
+   },
+   {
+    "rank": 73,
+    "name": "Magenta Plains",
+    "website": "https://www.magentaplains.com",
+    "neighborhood": "Downtown",
+    "address_hint": "149 Canal Street",
+    "kind": "gallery",
+    "note": "Intergenerational Lower East Side programme linking downtown veterans with younger conceptualists."
+   },
+   {
+    "rank": 74,
+    "name": "Rachel Uffner Gallery",
+    "website": "https://racheluffnergallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "170 Suffolk Street",
+    "kind": "gallery",
+    "note": "Lower East Side mainstay since 2008 with a strong record of launching women painters and ceramicists."
+   },
+   {
+    "rank": 75,
+    "name": "Jack Hanley Gallery",
+    "website": "https://www.jackhanley.com",
+    "neighborhood": "Downtown",
+    "address_hint": "177 Duane Street",
+    "kind": "gallery",
+    "note": "Bay Area transplant with a long history of spotting emerging talent early."
+   },
+   {
+    "rank": 76,
+    "name": "Klaus von Nichtssagend Gallery",
+    "website": "https://www.klausgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "87 Franklin Street",
+    "kind": "gallery",
+    "note": "Brooklyn-founded, artist-friendly gallery with a durable experimental programme."
+   },
+   {
+    "rank": 77,
+    "name": "Simone Subal Gallery",
+    "website": "https://www.simonesubal.com",
+    "neighborhood": "Downtown",
+    "address_hint": "131 Bowery",
+    "kind": "gallery",
+    "note": "European-inflected conceptual programme and rediscoveries of Austrian and feminist avant-gardes."
+   },
+   {
+    "rank": 78,
+    "name": "Broadway",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": "375 Broadway",
+    "kind": "gallery",
+    "note": "Tribeca gallery that has quickly become a fixture of the emerging-scene circuit and fair rosters."
+   },
+   {
+    "rank": 79,
+    "name": "Ramiken",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Nomadic, risk-taking gallery known for raw installations and cult artists such as Andra Ursuta alumni projects."
+   },
+   {
+    "rank": 80,
+    "name": "Downs & Ross",
+    "website": "https://www.downsandross.com",
+    "neighborhood": "Downtown",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Lower East Side gallery with an international, research-based emerging programme."
+   },
+   {
+    "rank": 81,
+    "name": "Lomex",
+    "website": "https://www.lomexgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "86 Walker Street",
+    "kind": "gallery",
+    "note": "Subcultural, art-historically curious programme influential among younger critics and curators."
+   },
+   {
+    "rank": 82,
+    "name": "Nathalie Karg Gallery",
+    "website": "https://www.nathaliekarg.com",
+    "neighborhood": "Downtown",
+    "address_hint": "127 Elizabeth Street",
+    "kind": "gallery",
+    "note": "Sculpture-strong downtown gallery run by a veteran dealer, with steady fair presence."
+   },
+   {
+    "rank": 83,
+    "name": "Timothy Taylor",
+    "website": "https://www.timothytaylor.com",
+    "neighborhood": "Downtown",
+    "address_hint": "74 Leonard Street",
+    "kind": "gallery",
+    "note": "London gallery's Tribeca space; transatlantic painting programme and estate representation."
+   },
+   {
+    "rank": 84,
+    "name": "Half Gallery",
+    "website": "https://www.halfgallery.com",
+    "neighborhood": "Uptown",
+    "address_hint": "43 East 78th Street",
+    "kind": "gallery",
+    "note": "Bill Powers's nimble gallery, an early stop for many now-prominent figurative painters."
+   },
+   {
+    "rank": 85,
+    "name": "Harper's",
+    "website": "https://harpersgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "512 West 22nd Street",
+    "kind": "gallery",
+    "note": "Fast-growing gallery with New York and Hamptons spaces and a widely watched emerging-painting programme."
+   },
+   {
+    "rank": 86,
+    "name": "Nahmad Contemporary",
+    "website": "https://www.nahmadcontemporary.com",
+    "neighborhood": "Uptown",
+    "address_hint": "980 Madison Avenue",
+    "kind": "gallery",
+    "note": "Ambitious curated historical exhibitions backed by one of the market's great modern collections."
+   },
+   {
+    "rank": 87,
+    "name": "Michael Rosenfeld Gallery",
+    "website": "https://www.michaelrosenfeldart.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "100 Eleventh Avenue",
+    "kind": "gallery",
+    "note": "Central to the reappraisal of twentieth-century African American artists; Norman Lewis and Beauford Delaney estates."
+   },
+   {
+    "rank": 88,
+    "name": "Fierman",
+    "website": "https://www.fiermangallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "127 Henry Street",
+    "kind": "gallery",
+    "note": "Small Lower East Side space with a queer, subversive programme and loyal critical following."
+   },
+   {
+    "rank": 89,
+    "name": "Theta",
+    "website": null,
+    "neighborhood": "Downtown",
+    "address_hint": "184 Franklin Street",
+    "kind": "gallery",
+    "note": "Young Tribeca gallery praised for tightly conceived shows by emerging conceptual artists."
+   },
+   {
+    "rank": 90,
+    "name": "The Journal Gallery",
+    "website": "https://www.thejournalgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "45 White Street",
+    "kind": "gallery",
+    "note": "Grew out of the artist-run magazine; Tribeca space with an influential, design-savvy programme."
+   },
+   {
+    "rank": 91,
+    "name": "Swiss Institute",
+    "website": "https://www.swissinstitute.net",
+    "neighborhood": "Downtown",
+    "address_hint": "38 St Marks Place",
+    "kind": "nonprofit",
+    "note": "Free-admission kunsthalle whose exhibitions and architecture commissions shape the downtown discourse."
+   },
+   {
+    "rank": 92,
+    "name": "Artists Space",
+    "website": "https://artistsspace.org",
+    "neighborhood": "Downtown",
+    "address_hint": "11 Cortlandt Alley",
+    "kind": "nonprofit",
+    "note": "Founded 1972; the alternative space that launched the Pictures generation and still sets the critical agenda."
+   },
+   {
+    "rank": 93,
+    "name": "White Columns",
+    "website": "https://www.whitecolumns.org",
+    "neighborhood": "Downtown",
+    "address_hint": "91 Horatio Street",
+    "kind": "nonprofit",
+    "note": "New York's oldest alternative space, with a curated artist registry that feeds the entire gallery ecosystem."
+   },
+   {
+    "rank": 94,
+    "name": "The Kitchen",
+    "website": "https://thekitchen.org",
+    "neighborhood": "Chelsea",
+    "address_hint": "512 West 19th Street",
+    "kind": "nonprofit",
+    "note": "Historic incubator for video, performance and experimental music since 1971."
+   },
+   {
+    "rank": 95,
+    "name": "SculptureCenter",
+    "website": "https://www.sculpture-center.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "44-19 Purves Street, Long Island City",
+    "kind": "nonprofit",
+    "note": "Maillart-converted trolley repair shop presenting career-making commissions by emerging sculptors."
+   },
+   {
+    "rank": 96,
+    "name": "The Drawing Center",
+    "website": "https://www.drawingcenter.org",
+    "neighborhood": "Downtown",
+    "address_hint": "35 Wooster Street",
+    "kind": "nonprofit",
+    "note": "The only US institution devoted to drawing; influential historical and contemporary exhibitions since 1977."
+   },
+   {
+    "rank": 97,
+    "name": "Pioneer Works",
+    "website": "https://pioneerworks.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "159 Pioneer Street, Red Hook",
+    "kind": "nonprofit",
+    "note": "Large-scale Brooklyn cultural centre combining exhibitions, residencies, science and music programming."
+   },
+   {
+    "rank": 98,
+    "name": "Participant Inc",
+    "website": "https://participantinc.org",
+    "neighborhood": "Downtown",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Lower East Side alternative space with a defining record in queer, performance and AIDS-era art histories."
+   },
+   {
+    "rank": 99,
+    "name": "Printed Matter",
+    "website": "https://www.printedmatter.org",
+    "neighborhood": "Chelsea",
+    "address_hint": "231 Eleventh Avenue",
+    "kind": "nonprofit",
+    "note": "The world's leading nonprofit for artists' books, with exhibitions and the NY Art Book Fair."
+   },
+   {
+    "rank": 100,
+    "name": "Amant",
+    "website": "https://www.amant.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "315 Maujer Street, East Williamsburg",
+    "kind": "nonprofit",
+    "note": "Ambitious, well-resourced Brooklyn art centre with residencies and internationally curated exhibitions."
+   }
+  ]
+ }
+}

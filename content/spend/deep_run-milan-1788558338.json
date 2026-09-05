@@ -1,0 +1,621 @@
+{
+  "city": "milan",
+  "start_ts": 1788558338,
+  "zones": [
+    "Porta Venezia",
+    "Brera/Centro",
+    "Isola/Farini",
+    "Lambrate/Ventura",
+    "Tortona/Navigli",
+    "Citt\u00e0 Studi/Bicocca"
+  ],
+  "args": {
+    "city": "milan",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/milan/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559812,
+  "queue": {
+    "Porta Venezia": {
+      "zone": "Porta Venezia",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Brera/Centro": {
+      "zone": "Brera/Centro",
+      "order": 1,
+      "due": 8,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Isola/Farini": {
+      "zone": "Isola/Farini",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Lambrate/Ventura": {
+      "zone": "Lambrate/Ventura",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Tortona/Navigli": {
+      "zone": "Tortona/Navigli",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Citt\u00e0 Studi/Bicocca": {
+      "zone": "Citt\u00e0 Studi/Bicocca",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "antonia-jannone-disegni-di-architettura"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "antonio-colombo-arte-contemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "building"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cadogan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-degli-artisti"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cortesi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "deodato-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fabbrica-eos"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "alessandro-albanese"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artopia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "clima"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dep-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-elpis"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-marconi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-mudima"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-christian-stein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "29-arts-in-progress"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "a-arte-invernizzi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "eastcontemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-suzy-shammah"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "massimo-de-carlo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ncontemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ordet"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ribot"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Citt\u00e0 Studi/Bicocca",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-citt-studi-bicocca-1788558381",
+      "venue_ids": [
+        "29-arts-in-progress",
+        "a-arte-invernizzi",
+        "eastcontemporary",
+        "galleria-suzy-shammah",
+        "massimo-de-carlo",
+        "ncontemporary",
+        "ordet",
+        "ribot"
+      ],
+      "started_ts": 1788558381,
+      "ended_ts": 1788558842
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ca-di-fra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chippendale-studio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-lia-rumma"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pirelli-hangarbicocca"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "podbielski-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "primo-marella"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-serra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "viafarini"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-porta-venezia-1788558361",
+      "venue_ids": [
+        "alessandro-albanese",
+        "artopia",
+        "clima",
+        "dep-art",
+        "fondazione-elpis",
+        "fondazione-marconi",
+        "fondazione-mudima",
+        "galleria-christian-stein"
+      ],
+      "started_ts": 1788558361,
+      "ended_ts": 1788558843
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "abc-arte-milano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "base-milano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-prada"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-giovanni-bonelli"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-patricia-armocida"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "officine-dell-immagine"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "progettoarte-elm"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-brera-centro-1788558338",
+      "venue_ids": [
+        "antonia-jannone-disegni-di-architettura",
+        "antonio-colombo-arte-contemporanea",
+        "building",
+        "cadogan",
+        "casa-degli-artisti",
+        "cortesi",
+        "deodato-arte",
+        "fabbrica-eos"
+      ],
+      "started_ts": 1788558338,
+      "ended_ts": 1788559078
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "assab-one"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "boccanera"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cassina-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "francesca-minini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "m77"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "prometeo-gallery-ida-pisani"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tortona/Navigli",
+      "session": 1,
+      "todo": 7,
+      "saved": 4,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-tortona-navigli-1788558844",
+      "venue_ids": [
+        "abc-arte-milano",
+        "base-milano",
+        "fondazione-prada",
+        "galleria-giovanni-bonelli",
+        "galleria-patricia-armocida",
+        "officine-dell-immagine",
+        "progettoarte-elm"
+      ],
+      "started_ts": 1788558844,
+      "ended_ts": 1788559164
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-corrente"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-antonio-battaglia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-clivio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-luisa-delle-piane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-poggiali"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-rubin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-san-fedele"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-tonelli"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Isola/Farini",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-isola-farini-1788558842",
+      "venue_ids": [
+        "ca-di-fra",
+        "chippendale-studio",
+        "galleria-lia-rumma",
+        "pirelli-hangarbicocca",
+        "podbielski-contemporary",
+        "primo-marella",
+        "spazio-serra",
+        "viafarini"
+      ],
+      "started_ts": 1788558842,
+      "ended_ts": 1788559177
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-gaburro"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-tega"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gio-marconi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marcorossi-artecontemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "piupiu"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "reading-room"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-gariboldi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-guenzani"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-brera-centro-1788559164",
+      "venue_ids": [
+        "fondazione-corrente",
+        "galleria-antonio-battaglia",
+        "galleria-clivio",
+        "galleria-luisa-delle-piane",
+        "galleria-poggiali",
+        "galleria-rubin",
+        "galleria-san-fedele",
+        "galleria-tonelli"
+      ],
+      "started_ts": 1788559164,
+      "ended_ts": 1788559236
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vistamare"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-porta-venezia-1788559177",
+      "venue_ids": [
+        "galleria-gaburro",
+        "galleria-tega",
+        "gio-marconi",
+        "marcorossi-artecontemporanea",
+        "piupiu",
+        "reading-room",
+        "studio-gariboldi",
+        "studio-guenzani"
+      ],
+      "started_ts": 1788559177,
+      "ended_ts": 1788559236
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kaufmann-repetto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maab"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mimmo-scognamiglio-artecontemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "monica-de-cardenas"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "montrasio-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nuova-galleria-morone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tornabuoni-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "viasaterna"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Lambrate/Ventura",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-lambrate-ventura-1788559078",
+      "venue_ids": [
+        "assab-one",
+        "boccanera",
+        "cassina-projects",
+        "francesca-minini",
+        "m77",
+        "prometeo-gallery-ida-pisani"
+      ],
+      "started_ts": 1788559078,
+      "ended_ts": 1788559244
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zero"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Citt\u00e0 Studi/Bicocca",
+      "session": 2,
+      "todo": 1,
+      "saved": 2,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-milan-citt-studi-bicocca-1788559236",
+      "venue_ids": [
+        "vistamare"
+      ],
+      "started_ts": 1788559236,
+      "ended_ts": 1788559398
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 3,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-milan-porta-venezia-1788559245",
+      "venue_ids": [
+        "zero"
+      ],
+      "started_ts": 1788559245,
+      "ended_ts": 1788559475
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 3,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-brera-centro-1788559236",
+      "venue_ids": [
+        "kaufmann-repetto",
+        "maab",
+        "mimmo-scognamiglio-artecontemporanea",
+        "monica-de-cardenas",
+        "montrasio-arte",
+        "nuova-galleria-morone",
+        "tornabuoni-arte",
+        "viasaterna"
+      ],
+      "started_ts": 1788559236,
+      "ended_ts": 1788559812
+    }
+  ]
+}

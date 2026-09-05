@@ -1,0 +1,590 @@
+{
+  "city": "brussels",
+  "start_ts": 1788558265,
+  "zones": [
+    "Ixelles/Louise",
+    "Sablon/Centre",
+    "Saint-Gilles/Forest",
+    "Dansaert/Canal",
+    "Uccle"
+  ],
+  "args": {
+    "city": "brussels",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/brussels/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559751,
+  "queue": {
+    "Ixelles/Louise": {
+      "zone": "Ixelles/Louise",
+      "order": 0,
+      "due": 7,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Sablon/Centre": {
+      "zone": "Sablon/Centre",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Saint-Gilles/Forest": {
+      "zone": "Saint-Gilles/Forest",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Dansaert/Canal": {
+      "zone": "Dansaert/Canal",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Uccle": {
+      "zone": "Uccle",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "almine-rech"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "box-galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "edji"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "felix-frachon"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondation-boghossian-villa-empain"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "frederic-mouraux"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-didier-devillez"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-nathalie-obadia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "archiraar"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bozar-centre-for"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "champaka"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "etablissement-d-en-face"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-dys"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-la-forest-divonne"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gladstone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "island"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "after-howl"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "argos-centre-for-audiovisual-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "beursschouwburg"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "botanique"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cloud-seven"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dependance"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-christophe-gaillard"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-greta-meert"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dansaert/Canal",
+      "session": 1,
+      "todo": 8,
+      "saved": 5,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-brussels-dansaert-canal-1788558307",
+      "venue_ids": [
+        "after-howl",
+        "argos-centre-for-audiovisual-arts",
+        "beursschouwburg",
+        "botanique",
+        "cloud-seven",
+        "dependance",
+        "galerie-christophe-gaillard",
+        "galerie-greta-meert"
+      ],
+      "started_ts": 1788558307,
+      "ended_ts": 1788558613
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bureau-des-realites"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondation-a-stichting"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-faider"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-odradek"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-pascal-polar"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-patinoire-royale-bach"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "le-salon-d-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rodolphe-janssen"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ixelles/Louise",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-brussels-ixelles-louise-1788558265",
+      "venue_ids": [
+        "almine-rech",
+        "box-galerie",
+        "edji",
+        "felix-frachon",
+        "fondation-boghossian-villa-empain",
+        "frederic-mouraux",
+        "galerie-didier-devillez",
+        "galerie-nathalie-obadia"
+      ],
+      "started_ts": 1788558265,
+      "ended_ts": 1788558613
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-martine-ehmer"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Uccle",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-brussels-uccle-1788558613",
+      "venue_ids": [
+        "galerie-martine-ehmer"
+      ],
+      "started_ts": 1788558613,
+      "ended_ts": 1788558683
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-pierre-marie-giraud"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-zedes"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-zwart-huis"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hopstreet"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "huberty-and-breyne"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "irene-laub"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-peau-de-l-ours"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lmno"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sablon/Centre",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-brussels-sablon-centre-1788558287",
+      "venue_ids": [
+        "archiraar",
+        "bozar-centre-for",
+        "champaka",
+        "etablissement-d-en-face",
+        "galerie-dys",
+        "galerie-la-forest-divonne",
+        "gladstone",
+        "island"
+      ],
+      "started_ts": 1788558287,
+      "ended_ts": 1788558852
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jan-mot"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-maison-de-rendez-vous"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-verriere-fondation-d-entreprise-hermes"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mendes-wood-dm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nino-mier"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nosbaum-reding"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rosa-brux"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Saint-Gilles/Forest",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-brussels-saint-gilles-forest-1788558613",
+      "venue_ids": [
+        "bureau-des-realites",
+        "fondation-a-stichting",
+        "galerie-faider",
+        "galerie-odradek",
+        "galerie-pascal-polar",
+        "la-patinoire-royale-bach",
+        "le-salon-d-art",
+        "rodolphe-janssen"
+      ],
+      "started_ts": 1788558613,
+      "ended_ts": 1788559106
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "imal"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "l-escaut"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maac-maison-d-art-actuel-des-chartreux"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "n0dine"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "recyclart"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zsenne-artlab"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sablon/Centre",
+      "session": 2,
+      "todo": 8,
+      "saved": 2,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-brussels-sablon-centre-1788558852",
+      "venue_ids": [
+        "jan-mot",
+        "kin",
+        "la-maison-de-rendez-vous",
+        "la-verriere-fondation-d-entreprise-hermes",
+        "mendes-wood-dm",
+        "nino-mier",
+        "nosbaum-reding",
+        "rosa-brux"
+      ],
+      "started_ts": 1788558852,
+      "ended_ts": 1788559171
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "wiels"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ixelles/Louise",
+      "session": 2,
+      "todo": 8,
+      "saved": 5,
+      "skipped": 4,
+      "exit": 1,
+      "label": "deep-brussels-ixelles-louise-1788558683",
+      "venue_ids": [
+        "galerie-pierre-marie-giraud",
+        "galerie-zedes",
+        "galerie-zwart-huis",
+        "hopstreet",
+        "huberty-and-breyne",
+        "irene-laub",
+        "la-peau-de-l-ours",
+        "lmno"
+      ],
+      "started_ts": 1788558683,
+      "ended_ts": 1788559235
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maruani-mercier"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "meessen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "michel-rein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pilar"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rossicontemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "super-dakota"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "xavier-hufkens"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dansaert/Canal",
+      "session": 2,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-brussels-dansaert-canal-1788559106",
+      "venue_ids": [
+        "imal",
+        "l-escaut",
+        "maac-maison-d-art-actuel-des-chartreux",
+        "n0dine",
+        "recyclart",
+        "zsenne-artlab"
+      ],
+      "started_ts": 1788559106,
+      "ended_ts": 1788559239
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sorry-we-re-closed"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "stems"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sterput"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tete"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Saint-Gilles/Forest",
+      "session": 2,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-brussels-saint-gilles-forest-1788559171",
+      "venue_ids": [
+        "wiels"
+      ],
+      "started_ts": 1788559171,
+      "ended_ts": 1788559242
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sablon/Centre",
+      "session": 3,
+      "todo": 4,
+      "saved": 2,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-brussels-sablon-centre-1788559239",
+      "venue_ids": [
+        "sorry-we-re-closed",
+        "stems",
+        "sterput",
+        "tete"
+      ],
+      "started_ts": 1788559240,
+      "ended_ts": 1788559458
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ixelles/Louise",
+      "session": 3,
+      "todo": 7,
+      "saved": 9,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-brussels-ixelles-louise-1788559236",
+      "venue_ids": [
+        "maruani-mercier",
+        "meessen",
+        "michel-rein",
+        "pilar",
+        "rossicontemporary",
+        "super-dakota",
+        "xavier-hufkens"
+      ],
+      "started_ts": 1788559236,
+      "ended_ts": 1788559751
+    }
+  ]
+}

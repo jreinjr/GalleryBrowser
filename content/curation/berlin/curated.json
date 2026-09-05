@@ -1,0 +1,665 @@
+{
+ "ts": 1788571550,
+ "city": "berlin",
+ "today": "2026-09-04",
+ "params_hash": "cabb1c058fe7",
+ "params": {
+  "version": 1,
+  "city": "berlin",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 77,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "hetzler-grace-weaver-parataxis",
+   "rank": 3,
+   "featured_rank": 1,
+   "score": 0.9800708571428571,
+   "editors_pick": true
+  },
+  {
+   "slug": "kw-kyiv-biennial",
+   "rank": 4,
+   "featured_rank": 2,
+   "score": 0.9691237142857143,
+   "editors_pick": true
+  },
+  {
+   "slug": "hua-nachleben",
+   "rank": 39,
+   "featured_rank": 3,
+   "score": 0.6070337142857143,
+   "editors_pick": true
+  },
+  {
+   "slug": "soycapitan-grace-weaver-parataxis",
+   "rank": 41,
+   "featured_rank": 4,
+   "score": 0.5803414285714286,
+   "editors_pick": true
+  },
+  {
+   "slug": "sexauer-kerim-seiler",
+   "rank": 42,
+   "featured_rank": 5,
+   "score": 0.5686722857142857,
+   "editors_pick": true
+  },
+  {
+   "slug": "haas-in-between-sommer-2026",
+   "rank": 43,
+   "featured_rank": 6,
+   "score": 0.557341142857143,
+   "editors_pick": false
+  },
+  {
+   "slug": "hausamwaldsee-veit-laurent-kurz",
+   "rank": 58,
+   "featured_rank": 7,
+   "score": 0.4011874285714286,
+   "editors_pick": false
+  },
+  {
+   "slug": "hausamwaldsee-wo-ich-wohne",
+   "rank": 59,
+   "featured_rank": 8,
+   "score": 0.4001254285714286,
+   "editors_pick": false
+  },
+  {
+   "slug": "hausamwaldsee-ayumi-paul-fischmond",
+   "rank": 60,
+   "featured_rank": 9,
+   "score": 0.39984342857142857,
+   "editors_pick": false
+  },
+  {
+   "slug": "eric-keller-hanglage",
+   "rank": 62,
+   "featured_rank": 10,
+   "score": 0.3758571428571429,
+   "editors_pick": false
+  },
+  {
+   "slug": "kunstraum-after-memory",
+   "rank": 64,
+   "featured_rank": 11,
+   "score": 0.3358397142857143,
+   "editors_pick": false
+  },
+  {
+   "slug": "mae-nan-guk-juk",
+   "rank": 71,
+   "featured_rank": 12,
+   "score": 0.24698571428571425,
+   "editors_pick": false
+  },
+  {
+   "slug": "jarmuschek-malwine-stauss",
+   "rank": 75,
+   "featured_rank": 13,
+   "score": 0.1945251428571428,
+   "editors_pick": false
+  },
+  {
+   "slug": "counterplay",
+   "rank": 76,
+   "featured_rank": 14,
+   "score": 0.16963285714285709,
+   "editors_pick": false
+  },
+  {
+   "slug": "setareh-genius-loci-xiii",
+   "rank": 79,
+   "featured_rank": 15,
+   "score": 0.1464285714285715,
+   "editors_pick": false
+  },
+  {
+   "slug": "mazzoli-binet-in-between",
+   "rank": 82,
+   "featured_rank": 16,
+   "score": 0.1075631428571429,
+   "editors_pick": false
+  },
+  {
+   "slug": "rosalux-diego-geppert",
+   "rank": 86,
+   "featured_rank": 17,
+   "score": 0.0682537142857143,
+   "editors_pick": false
+  },
+  {
+   "slug": "dialogue-collection-presentation",
+   "rank": 88,
+   "featured_rank": 18,
+   "score": 0.041565428571428586,
+   "editors_pick": false
+  },
+  {
+   "slug": "nach-bild",
+   "rank": 90,
+   "featured_rank": 19,
+   "score": 0.030402285714285725,
+   "editors_pick": false
+  },
+  {
+   "slug": "tine-steen-kochenden-affen",
+   "rank": 92,
+   "featured_rank": 20,
+   "score": 0.017059142857142863,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "david-claerbout-repose",
+   "rank": 1,
+   "score": 0.993,
+   "gate": "not_open"
+  },
+  {
+   "slug": "schipper-fire-sermon",
+   "rank": 2,
+   "score": 0.991788,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hetzler-grace-weaver-parataxis",
+   "rank": 3,
+   "score": 0.9800708571428571,
+   "gate": null
+  },
+  {
+   "slug": "kw-kyiv-biennial",
+   "rank": 4,
+   "score": 0.9691237142857143,
+   "gate": null
+  },
+  {
+   "slug": "konig-brodskis-last-ones-awake",
+   "rank": 9,
+   "score": 0.9538165714285713,
+   "gate": "not_open"
+  },
+  {
+   "slug": "konig-al-qadiri-archaeology-beasts",
+   "rank": 10,
+   "score": 0.9532705714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "konig-achenbach-echotropia",
+   "rank": 11,
+   "score": 0.9531445714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "cfa-ikemura",
+   "rank": 12,
+   "score": 0.9402454285714285,
+   "gate": "not_open"
+  },
+  {
+   "slug": "cfa-pichler",
+   "rank": 13,
+   "score": 0.9402274285714285,
+   "gate": "not_open"
+  },
+  {
+   "slug": "capitain-petzel-austin-martin-white",
+   "rank": 14,
+   "score": 0.9280482857142857,
+   "gate": "not_open"
+  },
+  {
+   "slug": "buchholz-roubaud",
+   "rank": 15,
+   "score": 0.9155571428571428,
+   "gate": "not_open"
+  },
+  {
+   "slug": "eigenart-stef-heidhues-hook-line-and-sinker",
+   "rank": 16,
+   "score": 0.9017999999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "galerie-neu-jeremy-shaw-half-life-of-grace",
+   "rank": 17,
+   "score": 0.8886308571428572,
+   "gate": "not_open"
+  },
+  {
+   "slug": "carliergebauer-animal-mirror",
+   "rank": 18,
+   "score": 0.8757737142857143,
+   "gate": "not_open"
+  },
+  {
+   "slug": "carliergebauer-lucia-koch-new-systems",
+   "rank": 19,
+   "score": 0.8757497142857142,
+   "gate": "not_open"
+  },
+  {
+   "slug": "schulte-david-l-johnson-nachtruhe",
+   "rank": 20,
+   "score": 0.8630485714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "schulte-katharina-sieverding-life-death",
+   "rank": 21,
+   "score": 0.8630125714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "schulte-kerstin-bratsch-die-sein",
+   "rank": 22,
+   "score": 0.8629465714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "barbara-wien-horizontal-fold",
+   "rank": 23,
+   "score": 0.8513614285714286,
+   "gate": "not_open"
+  },
+  {
+   "slug": "bortolozzi-wu-tsang",
+   "rank": 24,
+   "score": 0.8371362857142857,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nagel-draxler-gharem-the-image-is-a-public-menace",
+   "rank": 25,
+   "score": 0.8118,
+   "gate": "not_open"
+  },
+  {
+   "slug": "konradfischer-margiela-in-berlin",
+   "rank": 26,
+   "score": 0.7986668571428571,
+   "gate": "not_open"
+  },
+  {
+   "slug": "konradfischer-alan-charlton-circle",
+   "rank": 27,
+   "score": 0.7986488571428572,
+   "gate": "not_open"
+  },
+  {
+   "slug": "societe-sugarshack",
+   "rank": 28,
+   "score": 0.7858637142857142,
+   "gate": "not_open"
+  },
+  {
+   "slug": "buchmann-jim-butler-new-england-paintings",
+   "rank": 31,
+   "score": 0.7469322857142858,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tanya-leighton-rabbia-containing",
+   "rank": 32,
+   "score": 0.7357671428571428,
+   "gate": "not_open"
+  },
+  {
+   "slug": "wentrup-hildebrandt-park-by-poco",
+   "rank": 33,
+   "score": 0.7218,
+   "gate": "not_open"
+  },
+  {
+   "slug": "klemms-wachtel-return-to-content",
+   "rank": 34,
+   "score": 0.6958277142857143,
+   "gate": "not_open"
+  },
+  {
+   "slug": "klemms-tracks-taps",
+   "rank": 35,
+   "score": 0.6957197142857143,
+   "gate": "not_open"
+  },
+  {
+   "slug": "tanja-wagner-seed-tree-house",
+   "rank": 36,
+   "score": 0.6713914285714286,
+   "gate": "not_open"
+  },
+  {
+   "slug": "levy-sinta-werner-modul-im-modell",
+   "rank": 37,
+   "score": 0.63147,
+   "gate": "not_open"
+  },
+  {
+   "slug": "between-bridges-rachel-seidu-love-is-the-work",
+   "rank": 38,
+   "score": 0.6184628571428571,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hua-nachleben",
+   "rank": 39,
+   "score": 0.6070337142857143,
+   "gate": null
+  },
+  {
+   "slug": "michael-laube-take-five",
+   "rank": 40,
+   "score": 0.5933725714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "soycapitan-grace-weaver-parataxis",
+   "rank": 41,
+   "score": 0.5803414285714286,
+   "gate": null
+  },
+  {
+   "slug": "sexauer-kerim-seiler",
+   "rank": 42,
+   "score": 0.5686722857142857,
+   "gate": null
+  },
+  {
+   "slug": "haas-in-between-sommer-2026",
+   "rank": 43,
+   "score": 0.557341142857143,
+   "gate": null
+  },
+  {
+   "slug": "haas-strawalde-parade",
+   "rank": 44,
+   "score": 0.5555391428571429,
+   "gate": "not_open"
+  },
+  {
+   "slug": "baudach-second-echo",
+   "rank": 45,
+   "score": 0.5414699999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "camerawork-never-forget",
+   "rank": 46,
+   "score": 0.5298248571428572,
+   "gate": "not_open"
+  },
+  {
+   "slug": "plan-b-achraf-touloub-pleiades",
+   "rank": 48,
+   "score": 0.5026765714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nothelfer-follow-white-rabbit",
+   "rank": 49,
+   "score": 0.4912414285714286,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nothelfer-collection",
+   "rank": 50,
+   "score": 0.4909474285714286,
+   "gate": "not_open"
+  },
+  {
+   "slug": "trautwein-kate-mosher-hall",
+   "rank": 54,
+   "score": 0.4386128571428572,
+   "gate": "not_open"
+  },
+  {
+   "slug": "zilberman-koker-stolon",
+   "rank": 55,
+   "score": 0.4272857142857143,
+   "gate": "not_open"
+  },
+  {
+   "slug": "haverkampf-from-the-sleep-side",
+   "rank": 56,
+   "score": 0.4141045714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "haverkampf-souvenirs-de-vacances",
+   "rank": 57,
+   "score": 0.4134325714285715,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hausamwaldsee-veit-laurent-kurz",
+   "rank": 58,
+   "score": 0.4011874285714286,
+   "gate": null
+  },
+  {
+   "slug": "hausamwaldsee-wo-ich-wohne",
+   "rank": 59,
+   "score": 0.4001254285714286,
+   "gate": null
+  },
+  {
+   "slug": "hausamwaldsee-ayumi-paul-fischmond",
+   "rank": 60,
+   "score": 0.39984342857142857,
+   "gate": null
+  },
+  {
+   "slug": "deschler-handmade-by-part-ii",
+   "rank": 61,
+   "score": 0.38843828571428574,
+   "gate": "not_open"
+  },
+  {
+   "slug": "eric-keller-hanglage",
+   "rank": 62,
+   "score": 0.3758571428571429,
+   "gate": null
+  },
+  {
+   "slug": "kunstraum-after-memory",
+   "rank": 64,
+   "score": 0.3358397142857143,
+   "gate": null
+  },
+  {
+   "slug": "thomasfischer-shimmer",
+   "rank": 66,
+   "score": 0.3230845714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "janizewski-marie-schubert-exuvie",
+   "rank": 70,
+   "score": 0.25877485714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mae-nan-guk-juk",
+   "rank": 71,
+   "score": 0.24698571428571425,
+   "gate": null
+  },
+  {
+   "slug": "officeimpart-void-is-seductive",
+   "rank": 72,
+   "score": 0.2337205714285714,
+   "gate": "not_open"
+  },
+  {
+   "slug": "leon-kahane-kritik-und-selbstkritik",
+   "rank": 74,
+   "score": 0.20751428571428568,
+   "gate": "not_open"
+  },
+  {
+   "slug": "jarmuschek-malwine-stauss",
+   "rank": 75,
+   "score": 0.1945251428571428,
+   "gate": null
+  },
+  {
+   "slug": "counterplay",
+   "rank": 76,
+   "score": 0.16963285714285709,
+   "gate": null
+  },
+  {
+   "slug": "setareh-genius-loci-xiii",
+   "rank": 79,
+   "score": 0.1464285714285715,
+   "gate": null
+  },
+  {
+   "slug": "mazzoli-binet-in-between",
+   "rank": 82,
+   "score": 0.1075631428571429,
+   "gate": null
+  },
+  {
+   "slug": "embodying-space",
+   "rank": 84,
+   "score": 0.09205800000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "markus-linnenbrink-differentlevelsofbeing",
+   "rank": 85,
+   "score": 0.07894285714285716,
+   "gate": "not_open"
+  },
+  {
+   "slug": "rosalux-diego-geppert",
+   "rank": 86,
+   "score": 0.0682537142857143,
+   "gate": null
+  },
+  {
+   "slug": "dialogue-collection-presentation",
+   "rank": 88,
+   "score": 0.041565428571428586,
+   "gate": null
+  },
+  {
+   "slug": "hannah-hallermann-sewing",
+   "rank": 89,
+   "score": 0.03964542857142858,
+   "gate": "not_open"
+  },
+  {
+   "slug": "nach-bild",
+   "rank": 90,
+   "score": 0.030402285714285725,
+   "gate": null
+  },
+  {
+   "slug": "tine-steen-kochenden-affen",
+   "rank": 92,
+   "score": 0.017059142857142863,
+   "gate": null
+  },
+  {
+   "slug": "hbf-shilpa-gupta",
+   "rank": 93,
+   "score": 0.003,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "schinkel-projektionen-osten",
+   "rank": 94,
+   "score": 0.00282,
+   "gate": "not_open"
+  },
+  {
+   "slug": "crone-krauss-sediments",
+   "rank": 95,
+   "score": 0.002484,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kornfeld-murabito",
+   "rank": 96,
+   "score": 0.0023580000000000003,
+   "gate": "not_open"
+  },
+  {
+   "slug": "persons-rhizome",
+   "rank": 97,
+   "score": 0.0013499999999999999,
+   "gate": "not_open"
+  }
+ ]
+}

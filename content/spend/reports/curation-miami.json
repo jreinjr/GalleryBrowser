@@ -1,0 +1,2205 @@
+{
+ "city": "miami",
+ "generated_at": "2026-09-04T23:04:18+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "miami",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 49,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "snitzer-after-icarus",
+   "title": "After Icarus",
+   "artist": "Marielle Plaisir",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 166,
+   "venue": {
+    "name": "Fredric Snitzer Gallery",
+    "id": "fredric-snitzer",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "fredric snitzer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.43200000000000005
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012960000000000003
+   },
+   "score": 0.991296,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 1,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 49)",
+    "quality 0.43 (1 images, 166 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "david-castillo-adler-guerrier-small-oscillations",
+   "title": "Small Oscillations Among Everyday Forms",
+   "artist": "Adler Guerrier",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-01"
+   },
+   "n_images": 2,
+   "desc_words": 241,
+   "venue": {
+    "name": "David Castillo",
+    "id": "david-castillo",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Design District",
+    "norm": "david castillo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9795918367346939,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.6819999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9697959183673469,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002046
+   },
+   "score": 0.9718419183673469,
+   "days_since_open": 1,
+   "days_to_close": 27,
+   "rank": 2,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 2 of 49)",
+    "quality 0.68 (2 images, 241 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "david-castillo-jillian-mayer-placeholder-future",
+   "title": "Placeholder Future",
+   "artist": "Jillian Mayer",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-01"
+   },
+   "n_images": 1,
+   "desc_words": 218,
+   "venue": {
+    "name": "David Castillo",
+    "id": "david-castillo",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Design District",
+    "norm": "david castillo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new video",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9795918367346939,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.536
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9697959183673469,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001608
+   },
+   "score": 0.971403918367347,
+   "days_since_open": 1,
+   "days_to_close": 27,
+   "rank": 3,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 2 of 49)",
+    "quality 0.54 (1 images, 218 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "nina-johnson-ruhwald-sculptures-for-plants-and-people",
+   "title": "Sculptures for Plants and People",
+   "artist": "Anders Herwald Ruhwald",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-14"
+   },
+   "n_images": 2,
+   "desc_words": 239,
+   "venue": {
+    "name": "Nina Johnson",
+    "id": "nina-johnson",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "nina johnson"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9591836734693877,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6779999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9495918367346938,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002034
+   },
+   "score": 0.9516258367346938,
+   "days_since_open": -6,
+   "days_to_close": 71,
+   "rank": 4,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 3 of 49)",
+    "quality 0.68 (2 images, 239 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "nina-johnson-miguel-ferrando-off-the-shelf",
+   "title": "Off the Shelf",
+   "artist": "Miguel Ferrando",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-14"
+   },
+   "n_images": 2,
+   "desc_words": 235,
+   "venue": {
+    "name": "Nina Johnson",
+    "id": "nina-johnson",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "nina johnson"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9591836734693877,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6699999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9495918367346938,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0020099999999999996
+   },
+   "score": 0.9516018367346938,
+   "days_since_open": -6,
+   "days_to_close": 71,
+   "rank": 5,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 3 of 49)",
+    "quality 0.67 (2 images, 235 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "piero-atchugarry-laure-mary-interdum-mane",
+   "title": "Interdum Mane",
+   "artist": "Laure Mary",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-30"
+   },
+   "n_images": 5,
+   "desc_words": 214,
+   "venue": {
+    "name": "Piero Atchugarry Gallery",
+    "id": "piero-atchugarry",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "piero atchugarry"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8979591836734694,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9279999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8889795918367347,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002784
+   },
+   "score": 0.8917635918367347,
+   "days_since_open": -8,
+   "days_to_close": 56,
+   "rank": 6,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 6 of 49)",
+    "quality 0.93 (5 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "piero-atchugarry-jesse-zuo-photosynthesis",
+   "title": "Photosynthesis",
+   "artist": "Jesse Zuo",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-30"
+   },
+   "n_images": 5,
+   "desc_words": 200,
+   "venue": {
+    "name": "Piero Atchugarry Gallery",
+    "id": "piero-atchugarry",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "piero atchugarry"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8979591836734694,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8889795918367347,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.8916795918367347,
+   "days_since_open": -8,
+   "days_to_close": 56,
+   "rank": 7,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 6 of 49)",
+    "quality 0.90 (5 images, 200 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "msg-lee-kunin-electromagnetic",
+   "title": "Electromagnetic Signature",
+   "artist": "Kiwha Lee and Julia Kunin",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 222,
+   "venue": {
+    "name": "Mindy Solomon Gallery",
+    "id": "mindy-solomon",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "mindy solomon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8571428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.944
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8485714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002832
+   },
+   "score": 0.8514034285714286,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 8,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 8 of 49)",
+    "quality 0.94 (5 images, 222 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "msg-ernesto-garcia-sanchez-acoples",
+   "title": "Acoples (Couplings)",
+   "artist": "Ernesto Garcia Sanchez",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 4,
+   "desc_words": 224,
+   "venue": {
+    "name": "Mindy Solomon Gallery",
+    "id": "mindy-solomon",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "mindy solomon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8571428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8480000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8485714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0025440000000000003
+   },
+   "score": 0.8511154285714286,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 9,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 8 of 49)",
+    "quality 0.85 (4 images, 224 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "msg-matthew-phillips-falling-tide",
+   "title": "Falling Tide Can Turn",
+   "artist": "Matthew Phillips",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 4,
+   "desc_words": 212,
+   "venue": {
+    "name": "Mindy Solomon Gallery",
+    "id": "mindy-solomon",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "mindy solomon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8571428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8240000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8485714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024720000000000002
+   },
+   "score": 0.8510434285714287,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 10,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 8 of 49)",
+    "quality 0.82 (4 images, 212 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "sites-of-the-self",
+   "title": "Sites of the Self",
+   "artist": "Diego Gabaldon, Gonzalo Hernández, Sepideh Kalani, Shayla Marshall, Bex McCharen, Lucía Morales, Genesis Moreno, Ana Mosquera, Sheherazade Thénard, Pangea Kali Virga, Nadia Wolff, Ricardo E. Zulueta, José Delgado Zúñiga",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-08",
+    "end": "2026-10-04"
+   },
+   "n_images": 5,
+   "desc_words": 184,
+   "venue": {
+    "name": "Oolite Arts",
+    "id": "oolite-arts",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Miami Beach",
+    "norm": "oolite arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7959183673469388,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2618235307051567,
+    "closing_soon": 0.0,
+    "quality": 0.868
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7879591836734694,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002604
+   },
+   "score": 0.7905631836734694,
+   "days_since_open": 58,
+   "days_to_close": 30,
+   "rank": 11,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.80 (rank 11 of 49)",
+    "quality 0.87 (5 images, 184 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "from-within",
+   "title": "From Within",
+   "artist": "Ana Blanco, Noa Garcia, Emely Yanji, Melina Walsh, TJ Wright",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-08",
+    "end": "2026-10-04"
+   },
+   "n_images": 5,
+   "desc_words": 170,
+   "venue": {
+    "name": "Oolite Arts",
+    "id": "oolite-arts",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Miami Beach",
+    "norm": "oolite arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7959183673469388,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2618235307051567,
+    "closing_soon": 0.0,
+    "quality": 0.8400000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7879591836734694,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00252
+   },
+   "score": 0.7904791836734694,
+   "days_since_open": 58,
+   "days_to_close": 30,
+   "rank": 12,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.80 (rank 11 of 49)",
+    "quality 0.84 (5 images, 170 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "bakehouse-at-forty",
+   "title": "Bakehouse at Forty: Past, Present, Future",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2025-11-08",
+    "end": "2027-01-01"
+   },
+   "n_images": 6,
+   "desc_words": 268,
+   "venue": {
+    "name": "Bakehouse Art Complex",
+    "id": "bakehouse-art-complex",
+    "tier": 1,
+    "rank": 12,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "bakehouse art complex"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7755102040816326,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0009765625,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7677551020408163,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.7707551020408163,
+   "days_since_open": 300,
+   "days_to_close": 119,
+   "rank": 13,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 12 of 49)",
+    "quality 1.00 (6 images, 268 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "lns-scapes-territories",
+   "title": "SCAPES: Territories of the Seen and Unseen",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 189,
+   "venue": {
+    "name": "LnS Gallery",
+    "id": "lns",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "lns"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7551020408163265,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.878
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7475510204081632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002634
+   },
+   "score": 0.7501850204081633,
+   "days_since_open": 0,
+   "days_to_close": null,
+   "rank": 14,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 13 of 49)",
+    "quality 0.88 (6 images, 189 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "dot-fiftyone-david-rohn-crowded-conditions",
+   "title": "Crowded Conditions",
+   "artist": "David Rohn",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-01"
+   },
+   "n_images": 5,
+   "desc_words": 238,
+   "venue": {
+    "name": "Dot Fiftyone Gallery",
+    "id": "dot-fiftyone",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "dot fiftyone"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7346938775510203,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.976
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7273469387755102,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002928
+   },
+   "score": 0.7302749387755102,
+   "days_since_open": 7,
+   "days_to_close": 27,
+   "rank": 15,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 14 of 49)",
+    "quality 0.98 (5 images, 238 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "voloshyn-palm-trees",
+   "title": "Always Looking at Palm Trees - A Botanical Conversation",
+   "artist": "Mehdi-Georges Lahlou",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-30",
+    "end": "2026-09-05"
+   },
+   "n_images": 6,
+   "desc_words": 212,
+   "venue": {
+    "name": "Voloshyn Gallery",
+    "id": "voloshyn",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "voloshyn"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first U.S. presentation",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7142857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.10633339511885696,
+    "closing_soon": 1.0,
+    "quality": 0.9239999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7071428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0027719999999999997
+   },
+   "score": 0.7119148571428572,
+   "days_since_open": 97,
+   "days_to_close": 1,
+   "rank": 16,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.71 (rank 15 of 49)",
+    "quality 0.92 (6 images, 212 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "green-space-count-it-all-joy",
+   "title": "Count It All Joy!",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-16",
+    "end": "2026-09-16"
+   },
+   "n_images": 5,
+   "desc_words": 201,
+   "venue": {
+    "name": "Green Space Miami",
+    "id": "green-space-miami",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "green space miami"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.653061224489796,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3149802624737183,
+    "closing_soon": 1.0,
+    "quality": 0.902
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.646530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002706
+   },
+   "score": 0.651236612244898,
+   "days_since_open": 50,
+   "days_to_close": 12,
+   "rank": 17,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.65 (rank 18 of 49)",
+    "quality 0.90 (5 images, 201 words)",
+    "closes in 12 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "cernuda-gina-pellon-centennial",
+   "title": "Gina Pellón: Centennial (1926-2026)",
+   "artist": "Gina Pellón",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 196,
+   "venue": {
+    "name": "Cernuda Arte",
+    "id": "cernuda-arte",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "cernuda arte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6326530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.892
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.626326530612245,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002676
+   },
+   "score": 0.629002530612245,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 18,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 19 of 49)",
+    "quality 0.89 (5 images, 196 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "cernuda-diago-selections",
+   "title": "Juan Roberto Diago: Selections from 1998-2019",
+   "artist": "Juan Roberto Diago",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 195,
+   "venue": {
+    "name": "Cernuda Arte",
+    "id": "cernuda-arte",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "cernuda arte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6326530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.89
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.626326530612245,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00267
+   },
+   "score": 0.6289965306122449,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 19,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 19 of 49)",
+    "quality 0.89 (5 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "cernuda-wifredo-lam-around-galleries",
+   "title": "Wifredo Lam: Around the Galleries",
+   "artist": "Wifredo Lam",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 192,
+   "venue": {
+    "name": "Cernuda Arte",
+    "id": "cernuda-arte",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "cernuda arte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "five decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6326530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.884
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.626326530612245,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0026520000000000003
+   },
+   "score": 0.628978530612245,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 20,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 19 of 49)",
+    "quality 0.88 (6 images, 192 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "cernuda-tomas-sanchez-selection",
+   "title": "Tomás Sánchez: A Selection of Artworks from the 1970s to the 2000s",
+   "artist": "Tomás Sánchez",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 189,
+   "venue": {
+    "name": "Cernuda Arte",
+    "id": "cernuda-arte",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "cernuda arte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6326530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.878
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.626326530612245,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002634
+   },
+   "score": 0.628960530612245,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 21,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 19 of 49)",
+    "quality 0.88 (5 images, 189 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "ascaso-a-smaller-death",
+   "title": "A Smaller Death",
+   "artist": "Leo Park",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-25",
+    "end": "2026-09-05"
+   },
+   "n_images": 6,
+   "desc_words": 226,
+   "venue": {
+    "name": "Ascaso Gallery",
+    "id": "ascaso",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Downtown",
+    "norm": "ascaso"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6122448979591837,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19389309522921683,
+    "closing_soon": 1.0,
+    "quality": 0.952
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6061224489795919,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002856
+   },
+   "score": 0.6109784489795919,
+   "days_since_open": 71,
+   "days_to_close": 1,
+   "rank": 22,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.61 (rank 20 of 49)",
+    "quality 0.95 (6 images, 226 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "kdr-common-skin-fantasy",
+   "title": "Common Skin Fantasy",
+   "artist": "Alicia Bilbao & Alejandra Moros",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 211,
+   "venue": {
+    "name": "KDR305",
+    "id": "kdr",
+    "tier": 2,
+    "rank": 22,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wynwood",
+    "norm": "kdr305"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5714285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.522
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5657142857142857,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015660000000000001
+   },
+   "score": 0.5672802857142857,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 23,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 22 of 49)",
+    "quality 0.52 (1 images, 211 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "durban-segnini-ines-silva",
+   "title": "Ines Silva: Rhythms of Geometry",
+   "artist": "Ines Silva",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-22",
+    "end": "2026-10-30"
+   },
+   "n_images": 1,
+   "desc_words": 168,
+   "venue": {
+    "name": "Durban Segnini Gallery",
+    "id": "durban-segnini",
+    "tier": 2,
+    "rank": 23,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "durban segnini"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5510204081632653,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7405487761432821,
+    "closing_soon": 0.0,
+    "quality": 0.43600000000000005
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5455102040816326,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013080000000000001
+   },
+   "score": 0.5468182040816326,
+   "days_since_open": 13,
+   "days_to_close": 56,
+   "rank": 24,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.55 (rank 23 of 49)",
+    "quality 0.44 (1 images, 168 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "el-apartamento-orestes-hernandez-in-depth",
+   "title": "In Depth",
+   "artist": "Orestes Hernández",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 5,
+   "desc_words": 155,
+   "venue": {
+    "name": "El Apartamento",
+    "id": "el-apartamento",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Coral Gables",
+    "norm": "el apartamento"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5102040816326531,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.81
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5051020408163266,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024300000000000003
+   },
+   "score": 0.5075320408163266,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 25,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 25 of 49)",
+    "quality 0.81 (5 images, 155 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "diana-lowenstein-dirk-salz-dissolving-boundaries",
+   "title": "Dissolving Boundaries",
+   "artist": "Dirk Salz",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 194,
+   "venue": {
+    "name": "Diana Lowenstein Gallery",
+    "id": "diana-lowenstein",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Design District",
+    "norm": "diana lowenstein"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.44897959183673475,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.488
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4444897959183674,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001464
+   },
+   "score": 0.4459537959183674,
+   "days_since_open": -8,
+   "days_to_close": 64,
+   "rank": 26,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.45 (rank 28 of 49)",
+    "quality 0.49 (1 images, 194 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "lhcc-sanctuary-our-sacred-place",
+   "title": "Sanctuary: Our Sacred Place",
+   "artist": "Woosler Delisfort",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-20",
+    "end": "2026-09-05"
+   },
+   "n_images": 1,
+   "desc_words": 210,
+   "venue": {
+    "name": "Little Haiti Cultural Complex",
+    "id": "little-haiti-cultural-complex",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Little Haiti/Little River",
+    "norm": "little haiti cultural complex"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.326530612244898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.17273910999597203,
+    "closing_soon": 1.0,
+    "quality": 0.52
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.323265306122449,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0015600000000000002
+   },
+   "score": 0.32682530612244903,
+   "days_since_open": 76,
+   "days_to_close": 1,
+   "rank": 27,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.33 (rank 34 of 49)",
+    "closes in 1 d",
+    "quality 0.52 (1 images, 210 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788563056,
+   "run_id": "apply-miami-1788563056",
+   "city": "miami",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=10 reorder=True params=969cc1a277f6",
+   "params_hash": "969cc1a277f6"
+  },
+  {
+   "ts": 1788563058,
+   "run_id": "score-miami-1788563057",
+   "city": "miami",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=27 featured=0 snapshot=None params=969cc1a277f6",
+   "params_hash": "969cc1a277f6",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 24,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

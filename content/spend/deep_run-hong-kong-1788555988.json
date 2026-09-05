@@ -1,0 +1,497 @@
+{
+  "city": "hong-kong",
+  "start_ts": 1788555988,
+  "zones": [
+    "Central/Soho",
+    "Sheung Wan/Sai Ying Pun",
+    "Wan Chai/Causeway Bay",
+    "Wong Chuk Hang/Aberdeen",
+    "Tsim Sha Tsui/Kowloon"
+  ],
+  "args": {
+    "city": "hong-kong",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/hong-kong/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788557575,
+  "queue": {
+    "Central/Soho": {
+      "zone": "Central/Soho",
+      "order": 0,
+      "due": 3,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Sheung Wan/Sai Ying Pun": {
+      "zone": "Sheung Wan/Sai Ying Pun",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Wan Chai/Causeway Bay": {
+      "zone": "Wan Chai/Causeway Bay",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Wong Chuk Hang/Aberdeen": {
+      "zone": "Wong Chuk Hang/Aberdeen",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Tsim Sha Tsui/Kowloon": {
+      "zone": "Tsim Sha Tsui/Kowloon",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "10-chancery-lane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "3812"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "amanda-wei"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "asia-society-hong-kong-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "belowground"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-zwirner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gagosian"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-du-monde"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "alisan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "axel-vervoordt"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ben-brown"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "blindspot"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "de-sarthe"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "empty"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-exit"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lucie-chang"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "asia-art-archive"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "blue-lotus"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chat-centre-for-heritage-arts-and-textile"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "contemporary-by-angela-li"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "double-q"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "leo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "square-street"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sheung Wan/Sai Ying Pun",
+      "session": 1,
+      "todo": 7,
+      "saved": 5,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-hong-kong-sheung-wan-sai-ying-pun-1788556031",
+      "venue_ids": [
+        "asia-art-archive",
+        "blue-lotus",
+        "chat-centre-for-heritage-arts-and-textile",
+        "contemporary-by-angela-li",
+        "double-q",
+        "leo",
+        "square-street"
+      ],
+      "started_ts": 1788556031,
+      "ended_ts": 1788556393
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "1a-space"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "c-and-g-artpartment"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hanart-tz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jockey-club-creative-arts-centre-jccac"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tomorrow-maybe"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "videotage"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Central/Soho",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-hong-kong-central-soho-1788555988",
+      "venue_ids": [
+        "10-chancery-lane",
+        "3812",
+        "amanda-wei",
+        "asia-society-hong-kong-center",
+        "belowground",
+        "david-zwirner",
+        "gagosian",
+        "galerie-du-monde"
+      ],
+      "started_ts": 1788555988,
+      "ended_ts": 1788556411
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "oi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "osage"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Wong Chuk Hang/Aberdeen",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-hong-kong-wong-chuk-hang-aberdeen-1788556011",
+      "venue_ids": [
+        "alisan",
+        "axel-vervoordt",
+        "ben-brown",
+        "blindspot",
+        "de-sarthe",
+        "empty",
+        "gallery-exit",
+        "lucie-chang"
+      ],
+      "started_ts": 1788556011,
+      "ended_ts": 1788556563
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-ora-ora"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-by-soil"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "grotto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hauser-and-wirth"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hong-kong-arts-centre"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jps"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kiang-malingue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kwai-fung-hin-art"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Wan Chai/Causeway Bay",
+      "session": 1,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-hong-kong-wan-chai-causeway-bay-1788556411",
+      "venue_ids": [
+        "oi",
+        "osage"
+      ],
+      "started_ts": 1788556411,
+      "ended_ts": 1788556621
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "podium"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rossi-and-rossi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sin-sin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "whitestone"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tsim Sha Tsui/Kowloon",
+      "session": 1,
+      "todo": 6,
+      "saved": 1,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-hong-kong-tsim-sha-tsui-kowloon-1788556393",
+      "venue_ids": [
+        "1a-space",
+        "c-and-g-artpartment",
+        "hanart-tz",
+        "jockey-club-creative-arts-centre-jccac",
+        "tomorrow-maybe",
+        "videotage"
+      ],
+      "started_ts": 1788556393,
+      "ended_ts": 1788556648
+    },
+    {
+      "stage": "scrape",
+      "zone": "Wong Chuk Hang/Aberdeen",
+      "session": 2,
+      "todo": 4,
+      "saved": 4,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-hong-kong-wong-chuk-hang-aberdeen-1788556621",
+      "venue_ids": [
+        "podium",
+        "rossi-and-rossi",
+        "sin-sin",
+        "whitestone"
+      ],
+      "started_ts": 1788556621,
+      "ended_ts": 1788556917
+    },
+    {
+      "stage": "scrape",
+      "zone": "Central/Soho",
+      "session": 2,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-hong-kong-central-soho-1788556564",
+      "venue_ids": [
+        "galerie-ora-ora",
+        "gallery-by-soil",
+        "grotto",
+        "hauser-and-wirth",
+        "hong-kong-arts-centre",
+        "jps",
+        "kiang-malingue",
+        "kwai-fung-hin-art"
+      ],
+      "started_ts": 1788556564,
+      "ended_ts": 1788556986
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "massimo-de-carlo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "novalis-art-design"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "opera"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "over-the-influence"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pearl-lam"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "shout-art-hub-and"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tang-contemporary-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "touch"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Central/Soho",
+      "session": 3,
+      "todo": 8,
+      "saved": 2,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-hong-kong-central-soho-1788556987",
+      "venue_ids": [
+        "massimo-de-carlo",
+        "novalis-art-design",
+        "opera",
+        "over-the-influence",
+        "pearl-lam",
+        "shout-art-hub-and",
+        "tang-contemporary-art",
+        "touch"
+      ],
+      "started_ts": 1788556987,
+      "ended_ts": 1788557379
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "villepin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "white-cube"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "young-soy"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Central/Soho",
+      "session": 4,
+      "todo": 3,
+      "saved": 3,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-hong-kong-central-soho-1788557379",
+      "venue_ids": [
+        "villepin",
+        "white-cube",
+        "young-soy"
+      ],
+      "started_ts": 1788557379,
+      "ended_ts": 1788557575
+    }
+  ]
+}

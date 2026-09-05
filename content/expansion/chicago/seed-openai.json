@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788561332,
+ "system": "You are an art-world editor compiling a gallery guide for Chicago, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Chicago itself (galleries whose home is\nelsewhere count only through a permanent Chicago space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (West Town/West Loop, River North, Pilsen/Bridgeport, Logan Square/Wicker Park, Garfield Park, Hyde Park) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Chicago spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Chicago, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 413,
+  "output_tokens": 19676,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.395172,
+  "seconds": 328.4
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "GRAY",
+    "website": "https://www.graygallery.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2044 W Carroll Ave",
+    "kind": "gallery",
+    "note": "Chicago’s leading blue-chip gallery, with a formidable postwar and contemporary roster and sustained international fair and museum visibility."
+   },
+   {
+    "rank": 2,
+    "name": "Kavi Gupta",
+    "website": "https://www.kavigupta.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "835 W Washington Blvd",
+    "kind": "gallery",
+    "note": "Globally active gallery known for ambitious exhibitions, major art-fair participation and an influential multicultural programme."
+   },
+   {
+    "rank": 3,
+    "name": "Mariane Ibrahim",
+    "website": "https://www.marianeibrahim.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "437 N Paulina St",
+    "kind": "gallery",
+    "note": "Internationally prominent gallery championing artists of Africa and its diaspora, with spaces in Chicago, Paris and Mexico City."
+   },
+   {
+    "rank": 4,
+    "name": "The Renaissance Society",
+    "website": "https://www.renaissancesociety.org",
+    "neighborhood": "Hyde Park",
+    "address_hint": "5811 S Ellis Ave",
+    "kind": "nonprofit",
+    "note": "Historic non-collecting contemporary institution whose commissioned exhibitions and publications exert exceptional critical influence."
+   },
+   {
+    "rank": 5,
+    "name": "Corbett vs. Dempsey",
+    "website": "https://www.corbettvsdempsey.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2156 W Fulton St",
+    "kind": "gallery",
+    "note": "Internationally respected for rigorous contemporary art, Chicago modernism, artist estates, experimental music and scholarship."
+   },
+   {
+    "rank": 6,
+    "name": "moniquemeloche",
+    "website": "https://www.moniquemeloche.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "451 N Paulina St",
+    "kind": "gallery",
+    "note": "A major incubator of emerging and mid-career artists, with strong museum placements and international fair exposure."
+   },
+   {
+    "rank": 7,
+    "name": "PATRON",
+    "website": "https://www.patrongallery.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1612 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Highly regarded contemporary programme with a diverse roster and a visible presence at leading international fairs."
+   },
+   {
+    "rank": 8,
+    "name": "DOCUMENT",
+    "website": "https://www.documentspace.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1709 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Conceptually focused gallery and publisher whose artists receive growing international institutional and critical attention."
+   },
+   {
+    "rank": 9,
+    "name": "The Arts Club of Chicago",
+    "website": "https://www.artsclubchicago.org",
+    "neighborhood": "River North",
+    "address_hint": "201 E Ontario St",
+    "kind": "nonprofit",
+    "note": "Centuries-spanning membership institution with a distinguished record of presenting adventurous contemporary exhibitions and commissions."
+   },
+   {
+    "rank": 10,
+    "name": "Hyde Park Art Center",
+    "website": "https://www.hydeparkart.org",
+    "neighborhood": "Hyde Park",
+    "address_hint": "5020 S Cornell Ave",
+    "kind": "nonprofit",
+    "note": "A foundational Chicago art center supporting experimentation, exhibitions, residencies and artist development across generations."
+   },
+   {
+    "rank": 11,
+    "name": "Anthony Gallery",
+    "website": "https://www.anthonygallery.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Fast-rising gallery with a culturally resonant programme spanning contemporary art, design, music and Black creative communities."
+   },
+   {
+    "rank": 12,
+    "name": "Chicago Artists Coalition",
+    "website": "https://chicagoartistscoalition.org",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2130 W Fulton St",
+    "kind": "nonprofit",
+    "note": "Crucial artist-development institution whose residencies and exhibitions have launched numerous important Chicago careers."
+   },
+   {
+    "rank": 13,
+    "name": "Western Exhibitions",
+    "website": "https://www.westernexhibitions.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1709 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Long-running gallery recognized for idiosyncratic, materially inventive artists and a particularly strong commitment to works on paper."
+   },
+   {
+    "rank": 14,
+    "name": "Volume Gallery",
+    "website": "https://volume.gallery",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1709 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Internationally influential platform at the intersection of contemporary art, collectible design, architecture and material experimentation."
+   },
+   {
+    "rank": 15,
+    "name": "Andrew Rafacz",
+    "website": "https://www.andrewrafacz.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1749 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Established contemporary gallery known for developing emerging artists and maintaining a consistent national fair presence."
+   },
+   {
+    "rank": 16,
+    "name": "Catherine Edelman Gallery",
+    "website": "https://www.catherineedelman.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1637 W Chicago Ave",
+    "kind": "gallery",
+    "note": "One of Chicago’s most important photography galleries, with decades of fair participation and institutional placements."
+   },
+   {
+    "rank": 17,
+    "name": "Graham Foundation",
+    "website": "https://www.grahamfoundation.org",
+    "neighborhood": "Gold Coast",
+    "address_hint": "4 W Burton Pl",
+    "kind": "nonprofit",
+    "note": "Globally influential architecture and visual-culture foundation presenting research-driven exhibitions, commissions and publications."
+   },
+   {
+    "rank": 18,
+    "name": "Goldfinch",
+    "website": "https://www.goldfinchgallery.org",
+    "neighborhood": "Garfield Park",
+    "address_hint": "319 N Albany Ave",
+    "kind": "gallery",
+    "note": "Artist-founded gallery with a critically regarded programme linking Chicago practices to broader national conversations."
+   },
+   {
+    "rank": 19,
+    "name": "Wrightwood 659",
+    "website": "https://wrightwood659.org",
+    "neighborhood": "Lincoln Park",
+    "address_hint": "659 W Wrightwood Ave",
+    "kind": "nonprofit",
+    "note": "Tadao Ando-designed exhibition space presenting ambitious art, architecture and socially engaged thematic projects."
+   },
+   {
+    "rank": 20,
+    "name": "Neubauer Collegium for Culture and Society",
+    "website": "https://neubauercollegium.uchicago.edu",
+    "neighborhood": "Hyde Park",
+    "address_hint": "5701 S Woodlawn Ave",
+    "kind": "university",
+    "note": "Research institute with a sophisticated exhibition programme built around major artists, scholars and original commissions."
+   },
+   {
+    "rank": 21,
+    "name": "Zolla/Lieberman Gallery",
+    "website": "https://www.zollaliebermangallery.com",
+    "neighborhood": "River North",
+    "address_hint": "325 W Huron St",
+    "kind": "gallery",
+    "note": "A durable River North gallery with a broad contemporary roster and more than four decades of Chicago influence."
+   },
+   {
+    "rank": 22,
+    "name": "Stony Island Arts Bank",
+    "website": "https://www.rebuild-foundation.org",
+    "neighborhood": "South Shore",
+    "address_hint": "6760 S Stony Island Ave",
+    "kind": "nonprofit",
+    "note": "Theaster Gates’s landmark Rebuild Foundation venue combines contemporary exhibitions, archives, performances and community cultural work."
+   },
+   {
+    "rank": 23,
+    "name": "Center for Native Futures",
+    "website": "https://www.centerfornativefutures.com",
+    "neighborhood": "Loop",
+    "address_hint": "56 W Adams St",
+    "kind": "nonprofit",
+    "note": "Native-led contemporary art center creating essential exhibition, research and professional opportunities for Indigenous artists."
+   },
+   {
+    "rank": 24,
+    "name": "Chicago Cultural Center",
+    "website": "https://www.chicago.gov/city/en/depts/dca/supp_info/chicago_culturalcenter.html",
+    "neighborhood": "Loop",
+    "address_hint": "78 E Washington St",
+    "kind": "other",
+    "note": "The city’s principal civic exhibition venue, mounting substantial free shows by Chicago and international contemporary artists."
+   },
+   {
+    "rank": 25,
+    "name": "Gallery 400",
+    "website": "https://gallery400.uic.edu",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "400 S Peoria St",
+    "kind": "university",
+    "note": "UIC’s critically engaged gallery, known for experimental exhibitions addressing social justice, politics and underrepresented histories."
+   },
+   {
+    "rank": 26,
+    "name": "Arts Incubator",
+    "website": "https://artsandpubliclife.org",
+    "neighborhood": "Washington Park",
+    "address_hint": "301 E Garfield Blvd",
+    "kind": "university",
+    "note": "University of Chicago Arts + Public Life hub supporting South Side artists through exhibitions, residencies and community programmes."
+   },
+   {
+    "rank": 27,
+    "name": "Thomas McCormick Gallery",
+    "website": "https://www.thomasmccormick.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "835 W Washington Blvd",
+    "kind": "gallery",
+    "note": "Veteran gallery combining contemporary artists with significant postwar Chicago material and artist estates."
+   },
+   {
+    "rank": 28,
+    "name": "Co-Prosperity",
+    "website": "https://coprosperity.org",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "3219 S Morgan St",
+    "kind": "nonprofit",
+    "note": "Public Media Institute’s influential experimental venue for exhibitions, publishing, performance and artist-organized cultural projects."
+   },
+   {
+    "rank": 29,
+    "name": "South Side Community Art Center",
+    "website": "https://www.sscartcenter.org",
+    "neighborhood": "Bronzeville",
+    "address_hint": "3831 S Michigan Ave",
+    "kind": "nonprofit",
+    "note": "Historic Black arts institution with an enduring role in contemporary exhibitions, education and Chicago cultural life."
+   },
+   {
+    "rank": 30,
+    "name": "Shane Campbell Gallery",
+    "website": "https://www.shanecampbellgallery.com",
+    "neighborhood": "South Loop",
+    "address_hint": "2021 S Wabash Ave",
+    "kind": "gallery",
+    "note": "Longstanding contemporary programme recognized for conceptually ambitious artists and sustained national critical attention."
+   },
+   {
+    "rank": 31,
+    "name": "FLXST Contemporary",
+    "website": null,
+    "neighborhood": "Bronzeville",
+    "address_hint": "2251 S Michigan Ave",
+    "kind": "gallery",
+    "note": "Artist-run gallery foregrounding immigrant, diasporic and cross-cultural practices through exhibitions and curatorial collaborations."
+   },
+   {
+    "rank": 32,
+    "name": "Filter Photo",
+    "website": "https://www.filterphoto.org",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1821 W Hubbard St",
+    "kind": "nonprofit",
+    "note": "Important photography nonprofit presenting juried exhibitions, festivals, lectures and professional opportunities for lens-based artists."
+   },
+   {
+    "rank": 33,
+    "name": "ENGAGE Projects",
+    "website": "https://www.engage-projects.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "864 N Ashland Ave",
+    "kind": "gallery",
+    "note": "Contemporary gallery emphasizing sustained artist relationships, thoughtful curation and accessible engagement with new work."
+   },
+   {
+    "rank": 34,
+    "name": "Devening Projects",
+    "website": "https://www.deveningprojects.com",
+    "neighborhood": "Garfield Park",
+    "address_hint": "3039 W Carroll Ave",
+    "kind": "gallery",
+    "note": "Artist-led gallery and editions programme with a rigorous history of presenting Chicago, European and international practices."
+   },
+   {
+    "rank": 35,
+    "name": "M. LeBlanc",
+    "website": "https://www.mleblancchicago.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "3514 W Fullerton Ave",
+    "kind": "gallery",
+    "note": "Closely watched emerging gallery noted for focused installations and a younger generation of conceptually driven artists."
+   },
+   {
+    "rank": 36,
+    "name": "Ruschman",
+    "website": null,
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2100 W Carroll Ave",
+    "kind": "gallery",
+    "note": "Independent contemporary programme connecting Chicago artists with national and international collectors and curators."
+   },
+   {
+    "rank": 37,
+    "name": "Stephen Daiter Gallery",
+    "website": "https://www.stephendaitergallery.com",
+    "neighborhood": "River North",
+    "address_hint": "230 W Superior St",
+    "kind": "gallery",
+    "note": "Respected specialist in modern and contemporary photography, particularly documentary, experimental and Chicago-centered work."
+   },
+   {
+    "rank": 38,
+    "name": "Regards",
+    "website": "https://www.regardschicago.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2216 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Artist-oriented contemporary gallery recognized for spare, challenging presentations and an adventurous emerging programme."
+   },
+   {
+    "rank": 39,
+    "name": "Mickey",
+    "website": "https://mickey.gallery",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1635 W Grand Ave",
+    "kind": "gallery",
+    "note": "Intimate gallery with a distinctive artist-driven programme and growing visibility beyond Chicago."
+   },
+   {
+    "rank": 40,
+    "name": "Sarai",
+    "website": null,
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1910 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Contemporary gallery building dialogue among Chicago-based and international artists through polished thematic and solo exhibitions."
+   },
+   {
+    "rank": 41,
+    "name": "Roman Susan",
+    "website": "https://romansusan.org",
+    "neighborhood": "Rogers Park",
+    "address_hint": "1224 W Loyola Ave",
+    "kind": "nonprofit",
+    "note": "Artist-run nonprofit supporting experimental exhibitions, public projects and neighborhood-rooted cultural exchange."
+   },
+   {
+    "rank": 42,
+    "name": "Roots & Culture",
+    "website": "https://rootsandculturecac.org",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "1034 N Milwaukee Ave",
+    "kind": "nonprofit",
+    "note": "Influential artist-run space that has introduced many emerging Chicago artists through exhibitions and residency programmes."
+   },
+   {
+    "rank": 43,
+    "name": "Heaven Gallery",
+    "website": "https://www.heavengallery.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "1550 N Milwaukee Ave",
+    "kind": "nonprofit",
+    "note": "Long-lived artist-run gallery central to Wicker Park’s independent art history and interdisciplinary creative community."
+   },
+   {
+    "rank": 44,
+    "name": "Tiger Strikes Asteroid Chicago",
+    "website": "https://www.tigerstrikesasteroid.com/chicago",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2644 N Milwaukee Ave",
+    "kind": "nonprofit",
+    "note": "Chicago branch of the national artist-run network, facilitating exchanges and experimental group and solo exhibitions."
+   },
+   {
+    "rank": 45,
+    "name": "Woman Made Gallery",
+    "website": "https://womanmade.org",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1332 S Halsted St",
+    "kind": "nonprofit",
+    "note": "Longstanding feminist nonprofit dedicated to women and nonbinary artists through exhibitions, advocacy and public programmes."
+   },
+   {
+    "rank": 46,
+    "name": "6018North",
+    "website": "https://6018north.org",
+    "neighborhood": "Edgewater",
+    "address_hint": "6018 N Kenmore Ave",
+    "kind": "nonprofit",
+    "note": "Socially engaged arts center presenting interdisciplinary exhibitions, performances and projects focused on civic dialogue."
+   },
+   {
+    "rank": 47,
+    "name": "Julius Caesar",
+    "website": null,
+    "neighborhood": "Garfield Park",
+    "address_hint": "3311 W Carroll Ave",
+    "kind": "project_space",
+    "note": "Influential artist-run gallery known for emerging practices, collaborative experimentation and its role in Chicago’s alternative ecosystem."
+   },
+   {
+    "rank": 48,
+    "name": "Prairie",
+    "website": "https://prairie.website",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "2055 W Cermak Rd",
+    "kind": "project_space",
+    "note": "Closely watched artist-run space presenting concise, experimental exhibitions by local and visiting artists."
+   },
+   {
+    "rank": 49,
+    "name": "Good Weather",
+    "website": "https://www.goodweathergallery.com",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1524 S Western Ave",
+    "kind": "project_space",
+    "note": "Permanent Chicago outpost of the artist-run project, bringing an inventive interstate network into the local scene."
+   },
+   {
+    "rank": 50,
+    "name": "Weatherproof",
+    "website": null,
+    "neighborhood": "North Lawndale",
+    "address_hint": "1326 S Spaulding Ave",
+    "kind": "project_space",
+    "note": "Independent exhibition space valued for experimental presentations and strong connections to younger artist communities."
+   },
+   {
+    "rank": 51,
+    "name": "Boundary",
+    "website": null,
+    "neighborhood": "West Ridge",
+    "address_hint": "2334 W Granville Ave",
+    "kind": "project_space",
+    "note": "Storefront artist-run space presenting focused contemporary exhibitions in a neighborhood far from the main gallery districts."
+   },
+   {
+    "rank": 52,
+    "name": "LVL3",
+    "website": "https://lvl3official.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "1542 N Milwaukee Ave",
+    "kind": "project_space",
+    "note": "Artist-run platform with a long record of pairing emerging Chicago artists with national and international peers."
+   },
+   {
+    "rank": 53,
+    "name": "ARC Gallery",
+    "website": "https://www.arcgallery.org",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1463 W Chicago Ave",
+    "kind": "nonprofit",
+    "note": "Pioneering women-founded cooperative gallery providing sustained exhibition opportunities and an enduring feminist legacy."
+   },
+   {
+    "rank": 54,
+    "name": "Vertical Gallery",
+    "website": "https://verticalgallery.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1016 N Western Ave",
+    "kind": "gallery",
+    "note": "Chicago’s leading commercial venue for urban, street-influenced and contemporary graphic art."
+   },
+   {
+    "rank": 55,
+    "name": "Blanc Gallery",
+    "website": "https://www.blancchicago.com",
+    "neighborhood": "Bronzeville",
+    "address_hint": "4445 S Martin Luther King Dr",
+    "kind": "gallery",
+    "note": "Bronzeville venue presenting contemporary Black art, culturally focused exhibitions and community programming."
+   },
+   {
+    "rank": 56,
+    "name": "Gallery Guichard",
+    "website": "https://www.galleryguichard.com",
+    "neighborhood": "Bronzeville",
+    "address_hint": "436 E 47th St",
+    "kind": "gallery",
+    "note": "Longstanding gallery specializing in art of the African diaspora and supporting Bronzeville’s cultural infrastructure."
+   },
+   {
+    "rank": 57,
+    "name": "Alan Koppel Gallery",
+    "website": "https://www.alankoppel.com",
+    "neighborhood": "River North",
+    "address_hint": "210 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Established dealer presenting blue-chip modern and contemporary art alongside selected emerging and mid-career work."
+   },
+   {
+    "rank": 58,
+    "name": "Addington Gallery",
+    "website": "https://www.addingtongallery.com",
+    "neighborhood": "River North",
+    "address_hint": "704 N Wells St",
+    "kind": "gallery",
+    "note": "Durable River North gallery known for contemporary painting, sculpture and technically accomplished material practices."
+   },
+   {
+    "rank": 59,
+    "name": "Gruen Galleries",
+    "website": "https://www.gruengalleries.com",
+    "neighborhood": "River North",
+    "address_hint": "226 W Superior St",
+    "kind": "gallery",
+    "note": "Long-running family gallery presenting contemporary American and international painting and sculpture."
+   },
+   {
+    "rank": 60,
+    "name": "Jean Albano Gallery",
+    "website": "https://www.jeanalbanogallery.com",
+    "neighborhood": "River North",
+    "address_hint": "215 W Superior St",
+    "kind": "gallery",
+    "note": "Veteran Chicago gallery with an eclectic contemporary roster and longstanding ties to local collectors and artists."
+   },
+   {
+    "rank": 61,
+    "name": "Bert Green Fine Art",
+    "website": "https://www.bertgreenfineart.com",
+    "neighborhood": "Loop",
+    "address_hint": "8 S Michigan Ave",
+    "kind": "gallery",
+    "note": "Independent gallery and publisher presenting contemporary artists, works on paper and politically attentive projects."
+   },
+   {
+    "rank": 62,
+    "name": "Gallery Victor",
+    "website": "https://galleryvictor.com",
+    "neighborhood": "River North",
+    "address_hint": "300 W Superior St",
+    "kind": "gallery",
+    "note": "Contemporary gallery with a broad programme spanning painting, photography, sculpture and internationally sourced work."
+   },
+   {
+    "rank": 63,
+    "name": "Povos",
+    "website": "https://www.povosgallery.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1541 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Emerging commercial gallery supporting accessible collecting and a diverse roster of younger contemporary artists."
+   },
+   {
+    "rank": 64,
+    "name": "Blue Gallery",
+    "website": "https://www.bluegallerychicago.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "1389 N Milwaukee Ave",
+    "kind": "gallery",
+    "note": "Wicker Park gallery presenting contemporary painting, sculpture and multimedia work by Chicago and visiting artists."
+   },
+   {
+    "rank": 65,
+    "name": "Bendixen Contemporary",
+    "website": null,
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "2226 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Independent gallery developing an international-leaning programme of emerging and established contemporary artists."
+   },
+   {
+    "rank": 66,
+    "name": "Galerie F",
+    "website": "https://galerief.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2116 N Milwaukee Ave",
+    "kind": "gallery",
+    "note": "Prominent local platform for street art, printmaking, illustration and Chicago’s urban contemporary scene."
+   },
+   {
+    "rank": 67,
+    "name": "Chicago Truborn",
+    "website": "https://www.chicagotruborn.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1741 W Chicago Ave",
+    "kind": "gallery",
+    "note": "Street-art-focused gallery providing sustained visibility for muralists, illustrators and self-taught contemporary artists."
+   },
+   {
+    "rank": 68,
+    "name": "ACRE Projects",
+    "website": "https://www.acreresidency.org",
+    "neighborhood": "Lakeview",
+    "address_hint": "2921 N Clark St",
+    "kind": "nonprofit",
+    "note": "Exhibition arm of ACRE’s artist residency, historically important for introducing experimental early-career work in Chicago."
+   },
+   {
+    "rank": 69,
+    "name": "Comfort Station",
+    "website": "https://comfortstationlogansquare.org",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2579 N Milwaukee Ave",
+    "kind": "nonprofit",
+    "note": "Tiny historic building transformed into a lively multidisciplinary venue for installations, screenings, sound and performance."
+   },
+   {
+    "rank": 70,
+    "name": "Elastic Arts",
+    "website": "https://elasticarts.org",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "3429 W Diversey Ave",
+    "kind": "nonprofit",
+    "note": "Artist-run interdisciplinary organization pairing visual exhibitions with one of Chicago’s strongest experimental music programmes."
+   },
+   {
+    "rank": 71,
+    "name": "Agitator Gallery",
+    "website": "https://www.agitatorgallery.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "3851 W Fullerton Ave",
+    "kind": "nonprofit",
+    "note": "Cooperative gallery emphasizing politically engaged art, community debate and opportunities for underrepresented artists."
+   },
+   {
+    "rank": 72,
+    "name": "Spudnik Press Cooperative",
+    "website": "https://www.spudnikpress.org",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "1821 W Hubbard St",
+    "kind": "nonprofit",
+    "note": "Major community printmaking center with a public gallery devoted to contemporary print, book and paper practices."
+   },
+   {
+    "rank": 73,
+    "name": "Chicago Printmakers Collaborative",
+    "website": "https://www.chicagoprintmakers.com",
+    "neighborhood": "Lincoln Square",
+    "address_hint": "4912 N Western Ave",
+    "kind": "gallery",
+    "note": "Long-established print studio and gallery exhibiting accomplished contemporary printmakers from Chicago and beyond."
+   },
+   {
+    "rank": 74,
+    "name": "Perspective Gallery",
+    "website": "https://www.perspectivegallery.org",
+    "neighborhood": "Uptown",
+    "address_hint": "1310 W Wilson Ave",
+    "kind": "nonprofit",
+    "note": "Photography cooperative with a consistent exhibition programme supporting fine-art and documentary image makers."
+   },
+   {
+    "rank": 75,
+    "name": "Circle Contemporary",
+    "website": "https://www.circlecontemporary.org",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2020 N Oakley Ave",
+    "kind": "nonprofit",
+    "note": "Nonprofit gallery presenting Illinois artists and building links between contemporary practice and regional art history."
+   },
+   {
+    "rank": 76,
+    "name": "4th Ward Project Space",
+    "website": "https://www.4thwardprojectspace.com",
+    "neighborhood": "Hyde Park",
+    "address_hint": "5338 S Kimbark Ave",
+    "kind": "project_space",
+    "note": "Intimate artist-run venue contributing an independent experimental programme to the Hyde Park art community."
+   },
+   {
+    "rank": 77,
+    "name": "Slow",
+    "website": null,
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "2153 W 21st St",
+    "kind": "project_space",
+    "note": "Long-running domestic project space known for modestly scaled, thoughtful exhibitions and artist-led conversation."
+   },
+   {
+    "rank": 78,
+    "name": "Chicago Art Department",
+    "website": "https://www.chicagoartdepartment.org",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1926 S Halsted St",
+    "kind": "nonprofit",
+    "note": "Community-oriented arts organization offering galleries, studios and experimental programming in Pilsen."
+   },
+   {
+    "rank": 79,
+    "name": "Mana Contemporary Chicago",
+    "website": "https://www.manacontemporary.com",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "2233 S Throop St",
+    "kind": "other",
+    "note": "Large arts complex housing studios, collections and rotating contemporary exhibitions under one roof."
+   },
+   {
+    "rank": 80,
+    "name": "Zhou B Art Center",
+    "website": "https://www.zhoubartcenter.com",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1029 W 35th St",
+    "kind": "other",
+    "note": "Major Bridgeport arts complex hosting exhibitions, studios and public events with strong local and international connections."
+   },
+   {
+    "rank": 81,
+    "name": "Bridgeport Art Center",
+    "website": "https://www.bridgeportart.com",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1200 W 35th St",
+    "kind": "other",
+    "note": "Large studio building whose public galleries provide regular juried, regional and thematic contemporary exhibitions."
+   },
+   {
+    "rank": 82,
+    "name": "Logan Center Exhibitions",
+    "website": "https://arts.uchicago.edu/logan-center",
+    "neighborhood": "Hyde Park",
+    "address_hint": "915 E 60th St",
+    "kind": "university",
+    "note": "University of Chicago exhibition programme presenting contemporary artists in dialogue with performance, film and scholarship."
+   },
+   {
+    "rank": 83,
+    "name": "Gray Center for Arts and Inquiry",
+    "website": "https://graycenter.uchicago.edu",
+    "neighborhood": "Hyde Park",
+    "address_hint": "929 E 60th St",
+    "kind": "university",
+    "note": "Interdisciplinary University of Chicago center producing artist-scholar collaborations, installations and experimental public projects."
+   },
+   {
+    "rank": 84,
+    "name": "PO Box Collective",
+    "website": "https://www.poboxcollective.org",
+    "neighborhood": "Rogers Park",
+    "address_hint": "6900 N Glenwood Ave",
+    "kind": "nonprofit",
+    "note": "Community-based artist collective presenting exhibitions, workshops and socially engaged programming in Rogers Park."
+   },
+   {
+    "rank": 85,
+    "name": "Iceberg Projects",
+    "website": null,
+    "neighborhood": "Rogers Park",
+    "address_hint": "7714 N Sheridan Rd",
+    "kind": "project_space",
+    "note": "Independent space recognized for exhibitions by queer artists and projects connecting contemporary work with overlooked histories."
+   },
+   {
+    "rank": 86,
+    "name": "The Franklin",
+    "website": null,
+    "neighborhood": "Garfield Park",
+    "address_hint": "3522 W Franklin Blvd",
+    "kind": "project_space",
+    "note": "Artist-built backyard pavilion with a longstanding experimental programme and an influential do-it-yourself ethos."
+   },
+   {
+    "rank": 87,
+    "name": "Four A.M.",
+    "website": null,
+    "neighborhood": "Garfield Park",
+    "address_hint": "321 N Albany Ave",
+    "kind": "project_space",
+    "note": "Independent project space presenting emerging artists through intimate, risk-taking exhibitions and events."
+   },
+   {
+    "rank": 88,
+    "name": "No Nation Art Lab",
+    "website": "https://www.nonationartlab.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "1542 N Milwaukee Ave",
+    "kind": "project_space",
+    "note": "Experimental venue for performance, installation, sound and other practices that cross conventional gallery boundaries."
+   },
+   {
+    "rank": 89,
+    "name": "Color Club",
+    "website": "https://www.colorclubchi.com",
+    "neighborhood": "Irving Park",
+    "address_hint": "4146 N Elston Ave",
+    "kind": "project_space",
+    "note": "Multidisciplinary artist-run venue hosting exhibitions, performances and gatherings in a flexible neighborhood space."
+   },
+   {
+    "rank": 90,
+    "name": "Rotofugi Gallery",
+    "website": "https://rotofugi.com/pages/gallery",
+    "neighborhood": "Lincoln Park",
+    "address_hint": "2780 N Lincoln Ave",
+    "kind": "gallery",
+    "note": "Dedicated exhibition room influential in designer-toy, illustration, pop-surrealist and graphic contemporary art communities."
+   },
+   {
+    "rank": 91,
+    "name": "Gallery19",
+    "website": "https://www.gallery19.org",
+    "neighborhood": "Ravenswood",
+    "address_hint": "4839 N Damen Ave",
+    "kind": "gallery",
+    "note": "Photography-focused gallery presenting contemporary fine-art image makers through solo and thematic exhibitions."
+   },
+   {
+    "rank": 92,
+    "name": "Elephant Room Gallery",
+    "website": "https://www.elephantroomgallery.com",
+    "neighborhood": "South Loop",
+    "address_hint": "704 S Wabash Ave",
+    "kind": "gallery",
+    "note": "Compact street-level gallery supporting emerging Chicago artists and approachable contemporary collecting."
+   },
+   {
+    "rank": 93,
+    "name": "Oliva Gallery",
+    "website": "https://www.olivagallery.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "3816 W Armitage Ave",
+    "kind": "gallery",
+    "note": "Neighborhood contemporary gallery with a varied programme of painting, sculpture, installation and community events."
+   },
+   {
+    "rank": 94,
+    "name": "The Martin",
+    "website": "https://www.themartinchicago.com",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2500 W Chicago Ave",
+    "kind": "project_space",
+    "note": "Artist-centered venue presenting exhibitions, performances and pop-up projects in an informal domestic-scale setting."
+   },
+   {
+    "rank": 95,
+    "name": "Pilsen Arts & Community House",
+    "website": "https://www.pachchicago.org",
+    "neighborhood": "Pilsen/Bridgeport",
+    "address_hint": "1637 W 18th St",
+    "kind": "nonprofit",
+    "note": "Community cultural space giving artists and neighborhood groups an accessible platform for exhibitions and public programmes."
+   },
+   {
+    "rank": 96,
+    "name": "Belong Gallery",
+    "website": null,
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "3416 W Diversey Ave",
+    "kind": "nonprofit",
+    "note": "Community-minded gallery emphasizing inclusion, collaboration and accessible opportunities for emerging artists."
+   },
+   {
+    "rank": 97,
+    "name": "Epiphany Center for the Arts",
+    "website": "https://epiphanychi.com",
+    "neighborhood": "West Town/West Loop",
+    "address_hint": "201 S Ashland Ave",
+    "kind": "other",
+    "note": "Restored cultural complex whose visual-art programme complements extensive music, performance and interdisciplinary offerings."
+   },
+   {
+    "rank": 98,
+    "name": "Hairpin Arts Center",
+    "website": "https://hairpinartscenter.org",
+    "neighborhood": "Logan Square/Wicker Park",
+    "address_hint": "2810 N Milwaukee Ave",
+    "kind": "nonprofit",
+    "note": "Community arts venue hosting rotating exhibitions, installations, workshops and multidisciplinary cultural events."
+   },
+   {
+    "rank": 99,
+    "name": "Segundo Ruiz Belvis Cultural Center",
+    "website": "https://ruizbelvis.org",
+    "neighborhood": "Hermosa",
+    "address_hint": "4048 W Armitage Ave",
+    "kind": "nonprofit",
+    "note": "Longstanding Puerto Rican cultural center incorporating contemporary visual exhibitions into a broader interdisciplinary programme."
+   },
+   {
+    "rank": 100,
+    "name": "Soccer Club Club",
+    "website": null,
+    "neighborhood": "Belmont Cragin",
+    "address_hint": "2923 N Cicero Ave",
+    "kind": "project_space",
+    "note": "Idiosyncratic artist-run room associated with Chicago’s independent music community and known for experimental exhibitions."
+   }
+  ]
+ }
+}

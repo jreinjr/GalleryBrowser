@@ -1,0 +1,718 @@
+{
+  "city": "san-francisco",
+  "start_ts": 1788562315,
+  "zones": [
+    "Dogpatch/Minnesota Street",
+    "Potrero/SoMa",
+    "Union Square/Downtown",
+    "Mission",
+    "Chinatown/North Beach",
+    "Oakland/Berkeley"
+  ],
+  "args": {
+    "city": "san-francisco",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/san-francisco/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788562896,
+  "queue": {
+    "Dogpatch/Minnesota Street": {
+      "zone": "Dogpatch/Minnesota Street",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 2,
+      "exhausted": true,
+      "active": false,
+      "why": "zero_progress"
+    },
+    "Potrero/SoMa": {
+      "zone": "Potrero/SoMa",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Union Square/Downtown": {
+      "zone": "Union Square/Downtown",
+      "order": 2,
+      "due": 2,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Mission": {
+      "zone": "Mission",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 2,
+      "exhausted": true,
+      "active": false,
+      "why": "zero_progress"
+    },
+    "Chinatown/North Beach": {
+      "zone": "Chinatown/North Beach",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Oakland/Berkeley": {
+      "zone": "Oakland/Berkeley",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 2,
+      "exhausted": true,
+      "active": false,
+      "why": "zero_progress"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "500-capp-street-foundation-the-david-ireland-house"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "adobe-books-backroom"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artists-television-access"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "capital"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "catharine-clark"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "city-art-cooperative"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "creativity-explored"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "et-al"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "anglim-trimble"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bass-and-reiner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casemore"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cca-wattis-institute-for-contemporary-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chung-24"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cult-aimee-friberg-exhibitions"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "eleanor-harwood"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ever-gold-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "111-minna"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "andrea-schwartz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "berggruen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "caldwell-snyder"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "crown-point-press"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dolby-chadwick"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "euqinom"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fraenkel"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mission",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-san-francisco-mission-1788562316",
+      "venue_ids": [
+        "500-capp-street-foundation-the-david-ireland-house",
+        "adobe-books-backroom",
+        "artists-television-access",
+        "capital",
+        "catharine-clark",
+        "city-art-cooperative",
+        "creativity-explored",
+        "et-al"
+      ],
+      "started_ts": 1788562316,
+      "ended_ts": 1788562635
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "anthony-meier"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arion-press"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fort-mason-center-for-arts-and-culture-gallery-308"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-wendi-norris"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "haines"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "paul-thiebaud"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rebecca-camacho-presents"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "san-francisco-camerawork"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dogpatch/Minnesota Street",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-san-francisco-dogpatch-minnesota-street-1788562336",
+      "venue_ids": [
+        "anglim-trimble",
+        "bass-and-reiner",
+        "casemore",
+        "cca-wattis-institute-for-contemporary-arts",
+        "chung-24",
+        "cult-aimee-friberg-exhibitions",
+        "eleanor-harwood",
+        "ever-gold-projects"
+      ],
+      "started_ts": 1788562336,
+      "ended_ts": 1788562685
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "berkeley-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "compound"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "creative-growth-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kala-art-institute"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mercury-20"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "niad-art-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "paulson-fontaine-press"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "slate-contemporary"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Union Square/Downtown",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-san-francisco-union-square-downtown-1788562358",
+      "venue_ids": [
+        "111-minna",
+        "andrea-schwartz",
+        "berggruen",
+        "caldwell-snyder",
+        "crown-point-press",
+        "dolby-chadwick",
+        "euqinom",
+        "fraenkel"
+      ],
+      "started_ts": 1788562358,
+      "ended_ts": 1788562788
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "african-american-art-and-culture-complex"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "park-life"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "root-division"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Potrero/SoMa",
+      "session": 1,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-potrero-soma-1788562788",
+      "venue_ids": [
+        "african-american-art-and-culture-complex",
+        "arc",
+        "park-life",
+        "root-division"
+      ],
+      "started_ts": 1788562788,
+      "ended_ts": 1788562852
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "far-out"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fine-arts-gallery-san-francisco-state-university"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-de-la-raza"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gray-area"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hosfelt"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "incline"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "juan-r-fuentes-gallery-at-accion-latina"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marrow"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/North Beach",
+      "session": 1,
+      "todo": 8,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 1,
+      "label": "deep-san-francisco-chinatown-north-beach-1788562635",
+      "venue_ids": [
+        "anthony-meier",
+        "arion-press",
+        "fort-mason-center-for-arts-and-culture-gallery-308",
+        "gallery-wendi-norris",
+        "haines",
+        "paul-thiebaud",
+        "rebecca-camacho-presents",
+        "san-francisco-camerawork"
+      ],
+      "started_ts": 1788562635,
+      "ended_ts": 1788562853
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hashimoto-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jack-fischer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jenkins-johnson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "minnesota-street-project"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "municipal-bonds"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nancy-toomey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "qualia-contemporary-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "recology-artist-in-residence-program"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Oakland/Berkeley",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-oakland-berkeley-1788562685",
+      "venue_ids": [
+        "berkeley-art-center",
+        "compound",
+        "creative-growth-art-center",
+        "kala-art-institute",
+        "mercury-20",
+        "niad-art-center",
+        "paulson-fontaine-press",
+        "slate-contemporary"
+      ],
+      "started_ts": 1788562685,
+      "ended_ts": 1788562855
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "glass-rice"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jessica-silverman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maybaum"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "meyerovich"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "micki-meng"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mirus"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "modern-eden"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "modernism-inc"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mission",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-mission-1788562852",
+      "venue_ids": [
+        "far-out",
+        "fine-arts-gallery-san-francisco-state-university",
+        "galeria-de-la-raza",
+        "gray-area",
+        "hosfelt",
+        "incline",
+        "juan-r-fuentes-gallery-at-accion-latina",
+        "marrow"
+      ],
+      "started_ts": 1788562852,
+      "ended_ts": 1788562864
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "scott-nichols"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "scott-richards-contemporary-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dogpatch/Minnesota Street",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-dogpatch-minnesota-street-1788562853",
+      "venue_ids": [
+        "hashimoto-contemporary",
+        "jack-fischer",
+        "jenkins-johnson",
+        "minnesota-street-project",
+        "municipal-bonds",
+        "nancy-toomey",
+        "qualia-contemporary-art",
+        "recology-artist-in-residence-program"
+      ],
+      "started_ts": 1788562853,
+      "ended_ts": 1788562866
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "transmission"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Union Square/Downtown",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-union-square-downtown-1788562855",
+      "venue_ids": [
+        "glass-rice",
+        "jessica-silverman",
+        "maybaum",
+        "meyerovich",
+        "micki-meng",
+        "mirus",
+        "modern-eden",
+        "modernism-inc"
+      ],
+      "started_ts": 1788562855,
+      "ended_ts": 1788562872
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "queer-arts-featured"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ruth-s-table"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "san-francisco-women-artists"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "southern-exposure"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "thacher-gallery-university-of-san-francisco"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/North Beach",
+      "session": 2,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-chinatown-north-beach-1788562864",
+      "venue_ids": [
+        "scott-nichols",
+        "scott-richards-contemporary-art",
+        "studio"
+      ],
+      "started_ts": 1788562864,
+      "ended_ts": 1788562877
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "san-francisco-center-for-the-book"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "slash-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "themes-projects"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Oakland/Berkeley",
+      "session": 2,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-oakland-berkeley-1788562866",
+      "venue_ids": [
+        "transmission"
+      ],
+      "started_ts": 1788562866,
+      "ended_ts": 1788562882
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "robert-koch"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "yerba-buena-center-for-the-arts"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mission",
+      "session": 3,
+      "todo": 5,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-mission-1788562872",
+      "venue_ids": [
+        "queer-arts-featured",
+        "ruth-s-table",
+        "san-francisco-women-artists",
+        "southern-exposure",
+        "thacher-gallery-university-of-san-francisco"
+      ],
+      "started_ts": 1788562872,
+      "ended_ts": 1788562885
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dogpatch/Minnesota Street",
+      "session": 3,
+      "todo": 3,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-dogpatch-minnesota-street-1788562877",
+      "venue_ids": [
+        "san-francisco-center-for-the-book",
+        "slash-art",
+        "themes-projects"
+      ],
+      "started_ts": 1788562877,
+      "ended_ts": 1788562889
+    },
+    {
+      "stage": "scrape",
+      "zone": "Union Square/Downtown",
+      "session": 3,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-san-francisco-union-square-downtown-1788562882",
+      "venue_ids": [
+        "robert-koch",
+        "yerba-buena-center-for-the-arts"
+      ],
+      "started_ts": 1788562882,
+      "ended_ts": 1788562896
+    }
+  ]
+}

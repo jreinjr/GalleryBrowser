@@ -1,0 +1,756 @@
+{
+  "city": "paris",
+  "start_ts": 1788555912,
+  "zones": [
+    "Marais",
+    "Saint-Germain",
+    "Avenue Matignon/8th",
+    "Belleville/Pantin"
+  ],
+  "args": {
+    "city": "paris",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/paris/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788560204,
+  "queue": {
+    "Marais": {
+      "zone": "Marais",
+      "order": 0,
+      "due": 2,
+      "sessions_run": 8,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Saint-Germain": {
+      "zone": "Saint-Germain",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Avenue Matignon/8th": {
+      "zone": "Avenue Matignon/8th",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Belleville/Pantin": {
+      "zone": "Belleville/Pantin",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "193"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "afikaris"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "art-concept"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "backslash"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "balice-hertling"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bendana-pinel-art-contemporain"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "betonsalon-centre-d-art-et-de-recherche"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "campoli-presti"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "esther-schipper"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gagosian"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-lelong-and-co"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-mitterrand"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-vu"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hauser-and-wirth"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "le-bal"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mariane-ibrahim"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "drawing-lab"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-claude-bernard"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-georges-philippe-and-nathalie-vallois"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-imane-fares"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-maeght"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-natalie-seroussi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ketabi-bourdet"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "loeve-and-co"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 1,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-paris-marais-1788555912",
+      "venue_ids": [
+        "193",
+        "afikaris",
+        "art-concept",
+        "backslash",
+        "balice-hertling",
+        "bendana-pinel-art-contemporain",
+        "betonsalon-centre-d-art-et-de-recherche",
+        "campoli-presti"
+      ],
+      "started_ts": 1788555912,
+      "ended_ts": 1788556399
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "doc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondation-fiminco"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "in-situ-fabienne-leclerc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "le-centquatre-paris"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "thaddaeus-ropac-paris-pantin"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Saint-Germain",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-paris-saint-germain-1788555955",
+      "venue_ids": [
+        "drawing-lab",
+        "galerie-claude-bernard",
+        "galerie-georges-philippe-and-nathalie-vallois",
+        "galerie-imane-fares",
+        "galerie-maeght",
+        "galerie-natalie-seroussi",
+        "ketabi-bourdet",
+        "loeve-and-co"
+      ],
+      "started_ts": 1788555955,
+      "ended_ts": 1788556438
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ceysson-and-benetiere"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ciaccia-levi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cite-internationale-des-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "danysz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "david-zwirner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "double-v"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "edouard-montassut"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "florence-loewy"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Belleville/Pantin",
+      "session": 1,
+      "todo": 5,
+      "saved": 2,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-paris-belleville-pantin-1788556399",
+      "venue_ids": [
+        "doc",
+        "fondation-fiminco",
+        "in-situ-fabienne-leclerc",
+        "le-centquatre-paris",
+        "thaddaeus-ropac-paris-pantin"
+      ],
+      "started_ts": 1788556399,
+      "ended_ts": 1788556641
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "loevenbruck"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "meyer-riegger"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "peter-freeman-inc"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Avenue Matignon/8th",
+      "session": 1,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-paris-avenue-matignon-8th-1788555935",
+      "venue_ids": [
+        "esther-schipper",
+        "gagosian",
+        "galerie-lelong-and-co",
+        "galerie-mitterrand",
+        "galerie-vu",
+        "hauser-and-wirth",
+        "le-bal",
+        "mariane-ibrahim"
+      ],
+      "started_ts": 1788555935,
+      "ended_ts": 1788556807
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "palais-de-tokyo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "skarstedt"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tornabuoni-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "white-cube"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Saint-Germain",
+      "session": 2,
+      "todo": 3,
+      "saved": 4,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-paris-saint-germain-1788556641",
+      "venue_ids": [
+        "loevenbruck",
+        "meyer-riegger",
+        "peter-freeman-inc"
+      ],
+      "started_ts": 1788556641,
+      "ended_ts": 1788556897
+    },
+    {
+      "stage": "scrape",
+      "zone": "Avenue Matignon/8th",
+      "session": 2,
+      "todo": 4,
+      "saved": 5,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-paris-avenue-matignon-8th-1788556807",
+      "venue_ids": [
+        "palais-de-tokyo",
+        "skarstedt",
+        "tornabuoni-art",
+        "white-cube"
+      ],
+      "started_ts": 1788556807,
+      "ended_ts": 1788557135
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 2,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-paris-marais-1788556438",
+      "venue_ids": [
+        "ceysson-and-benetiere",
+        "ciaccia-levi",
+        "cite-internationale-des-arts",
+        "danysz",
+        "david-zwirner",
+        "double-v",
+        "edouard-montassut",
+        "florence-loewy"
+      ],
+      "started_ts": 1788556438,
+      "ended_ts": 1788557518
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-alberta-pane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-allen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-anne-barrault"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-anne-de-villepoix"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-anne-sarah-benichou"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-binome"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-chantal-crousel"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-christophe-gaillard"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 3,
+      "todo": 8,
+      "saved": 10,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-paris-marais-1788557518",
+      "venue_ids": [
+        "galerie-alberta-pane",
+        "galerie-allen",
+        "galerie-anne-barrault",
+        "galerie-anne-de-villepoix",
+        "galerie-anne-sarah-benichou",
+        "galerie-binome",
+        "galerie-chantal-crousel",
+        "galerie-christophe-gaillard"
+      ],
+      "started_ts": 1788557518,
+      "ended_ts": 1788558179
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-claire-gastaud"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-clementine-de-la-feronniere"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-derouillon"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-dix9-helene-lacharmoise"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-dohyang-lee"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-dominique-fiat"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-eric-dupont"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-frank-elbaz"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 4,
+      "todo": 8,
+      "saved": 5,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-paris-marais-1788558179",
+      "venue_ids": [
+        "galerie-claire-gastaud",
+        "galerie-clementine-de-la-feronniere",
+        "galerie-derouillon",
+        "galerie-dix9-helene-lacharmoise",
+        "galerie-dohyang-lee",
+        "galerie-dominique-fiat",
+        "galerie-eric-dupont",
+        "galerie-frank-elbaz"
+      ],
+      "started_ts": 1788558179,
+      "ended_ts": 1788558519
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-hussenot"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-karsten-greve"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-les-filles-du-calvaire"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-maubert"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-max-hetzler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-michel-rein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-nathalie-obadia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-papillon"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 5,
+      "todo": 8,
+      "saved": 13,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-paris-marais-1788558519",
+      "venue_ids": [
+        "galerie-hussenot",
+        "galerie-karsten-greve",
+        "galerie-les-filles-du-calvaire",
+        "galerie-maubert",
+        "galerie-max-hetzler",
+        "galerie-michel-rein",
+        "galerie-nathalie-obadia",
+        "galerie-papillon"
+      ],
+      "started_ts": 1788558519,
+      "ended_ts": 1788559219
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-perrotin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-poggi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-suzanne-tarasieve"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-xii"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-continua"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jeanne-bucher-jaeger"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jousse-entreprise"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-generale"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 6,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-paris-marais-1788559219",
+      "venue_ids": [
+        "galerie-perrotin",
+        "galerie-poggi",
+        "galerie-suzanne-tarasieve",
+        "galerie-xii",
+        "galleria-continua",
+        "jeanne-bucher-jaeger",
+        "jousse-entreprise",
+        "la-generale"
+      ],
+      "started_ts": 1788559219,
+      "ended_ts": 1788559239
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lafayette-anticipations"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "les-douches-la-galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "magnin-a"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marcelle-alix"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marian-goodman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "massimo-de-carlo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mendes-wood-dm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mfc-michele-didier"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 7,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-paris-marais-1788559239",
+      "venue_ids": [
+        "lafayette-anticipations",
+        "les-douches-la-galerie",
+        "magnin-a",
+        "marcelle-alix",
+        "marian-goodman",
+        "massimo-de-carlo",
+        "mendes-wood-dm",
+        "mfc-michele-didier"
+      ],
+      "started_ts": 1788559239,
+      "ended_ts": 1788559553
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mor-charpentier"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pact"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "point-ephemere"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "polka-galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rabouan-moussion"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "romero-paprocki"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rx-and-slag"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "semiose"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 8,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-paris-marais-1788559553",
+      "venue_ids": [
+        "mor-charpentier",
+        "pact",
+        "point-ephemere",
+        "polka-galerie",
+        "rabouan-moussion",
+        "romero-paprocki",
+        "rx-and-slag",
+        "semiose"
+      ],
+      "started_ts": 1788559553,
+      "ended_ts": 1788560084
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "treize"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "xippas"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Marais",
+      "session": 9,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-paris-marais-1788560084",
+      "venue_ids": [
+        "treize",
+        "xippas"
+      ],
+      "started_ts": 1788560084,
+      "ended_ts": 1788560204
+    }
+  ]
+}

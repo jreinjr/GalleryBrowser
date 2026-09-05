@@ -1,0 +1,216 @@
+{
+ "ts": 1788559761,
+ "city": "venice",
+ "today": "2026-09-04",
+ "params_hash": "01db044f743d",
+ "params": {
+  "version": 1,
+  "city": "venice",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 30,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "oceanspace-tide-of-returns",
+   "rank": 2,
+   "featured_rank": 1,
+   "score": 0.8603339999999999,
+   "editors_pick": true
+  },
+  {
+   "slug": "darkness-visible",
+   "rank": 3,
+   "featured_rank": 2,
+   "score": 0.7283220000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "berlendis-guatemala-pavilion",
+   "rank": 4,
+   "featured_rank": 3,
+   "score": 0.5962919999999999,
+   "editors_pick": true
+  },
+  {
+   "slug": "berlendis-grenada-pavilion",
+   "rank": 5,
+   "featured_rank": 4,
+   "score": 0.596016,
+   "editors_pick": true
+  },
+  {
+   "slug": "smac-lee-ufan",
+   "rank": 6,
+   "featured_rank": 5,
+   "score": 0.563874,
+   "editors_pick": true
+  },
+  {
+   "slug": "smac-boetti",
+   "rank": 7,
+   "featured_rank": 6,
+   "score": 0.5635319999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "castello925-sharing-legacy",
+   "rank": 8,
+   "featured_rank": 7,
+   "score": 0.36484200000000006,
+   "editors_pick": false
+  },
+  {
+   "slug": "castello925-future-light",
+   "rank": 9,
+   "featured_rank": 8,
+   "score": 0.36462600000000006,
+   "editors_pick": false
+  },
+  {
+   "slug": "leo-frontini-yields-of-fray",
+   "rank": 11,
+   "featured_rank": 9,
+   "score": 0.334826,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "oceanspace-tide-of-returns",
+   "rank": 2,
+   "score": 0.8603339999999999,
+   "gate": null
+  },
+  {
+   "slug": "darkness-visible",
+   "rank": 3,
+   "score": 0.7283220000000001,
+   "gate": null
+  },
+  {
+   "slug": "berlendis-guatemala-pavilion",
+   "rank": 4,
+   "score": 0.5962919999999999,
+   "gate": null
+  },
+  {
+   "slug": "berlendis-grenada-pavilion",
+   "rank": 5,
+   "score": 0.596016,
+   "gate": null
+  },
+  {
+   "slug": "smac-lee-ufan",
+   "rank": 6,
+   "score": 0.563874,
+   "gate": null
+  },
+  {
+   "slug": "smac-boetti",
+   "rank": 7,
+   "score": 0.5635319999999999,
+   "gate": null
+  },
+  {
+   "slug": "castello925-sharing-legacy",
+   "rank": 8,
+   "score": 0.36484200000000006,
+   "gate": null
+  },
+  {
+   "slug": "castello925-future-light",
+   "rank": 9,
+   "score": 0.36462600000000006,
+   "gate": null
+  },
+  {
+   "slug": "leo-frontini-yields-of-fray",
+   "rank": 11,
+   "score": 0.334826,
+   "gate": null
+  },
+  {
+   "slug": "armitage-promise-of-change",
+   "rank": 12,
+   "score": 0.003,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "lorna-simpson-third-person",
+   "rank": 13,
+   "score": 0.003,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "peggy-guggenheim-in-london",
+   "rank": 14,
+   "score": 0.002862,
+   "gate": "exclude_museums"
+  }
+ ]
+}

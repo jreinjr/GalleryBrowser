@@ -1,0 +1,851 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: Pioneer Square=13, Downtown=14, Capitol Hill=1, Ballard/Fremont=4, Georgetown=7, University District=4
+[downtown] session 1: 8 TODO venues -> deep-seattle-downtown-1788558739.log
+[downtown]   ['arte-noir', 'common-area-maintenance', 'gallery-mack', 'ghost', 'harris-harvey', 'hedreen', 'onyx-fine-arts-collective', 'orcas-paley']
+[pioneer-square] session 1: 8 TODO venues -> deep-seattle-pioneer-square-1788558759.log
+[pioneer-square]   ['artx-contemporary', 'center-on-contemporary-art-coca', 'core', 'foster-white', 'gallery-b612', 'gallery110', 'gray-sky', 'inscape-arts']
+[georgetown] session 1: 7 TODO venues -> deep-seattle-georgetown-1788558782.log
+[georgetown]   ['artswest', 'columbia-city', 'fogue', 'mini-mart-city-park', 'nepantla-cultural-arts', 'studio-e', 'youngstown-cultural-arts-center']
+[downtown] session 1 done: +4 saved, +6 skipped (exit 0)
+[ballard-fremont] session 1: 4 TODO venues -> deep-seattle-ballard-fremont-1788559149.log
+[ballard-fremont]   ['phinney-center', 'push-pull', 'vestibule', 'vetri-glass']
+[georgetown] session 1 done: +7 saved, +5 skipped (exit 0)
+[university-district] session 1: 4 TODO venues -> deep-seattle-university-district-1788559181.log
+[university-district]   ['howard-house', 'interstitial', 'jack-straw-new-media', 'jacob-lawrence']
+[pioneer-square] session 1 done: +11 saved, +0 skipped (exit 1)
+[capitol-hill] session 1: 1 TODO venues -> deep-seattle-capitol-hill-1788559235.log
+[capitol-hill]   ['amce-creative-arts']
+[ballard-fremont] session 1 done: +0 saved, +0 skipped (exit 1)
+[downtown] session 2: 6 TODO venues -> deep-seattle-downtown-1788559237.log
+[downtown]   ['photographic-center-northwest', 'roq-la-rue', 'slip', 'steinbrueck-native', 'vera-project', 'woodside-braseth']
+[university-district] session 1 done: +0 saved, +0 skipped (exit 1)
+[pioneer-square] session 2: 5 TODO venues -> deep-seattle-pioneer-square-1788559240.log
+[pioneer-square]   ['kobo-at-higo', 'lynn-hanson', 'method', 'shift', 'soil']
+[capitol-hill] session 1 done: +3 saved, +0 skipped (exit 0)
+[capitol-hill] TODO empty after 1 session(s)
+[capitol-hill] zone done: todo_empty after 1 session(s)
+[ballard-fremont] TODO empty after 1 session(s)
+[ballard-fremont] zone done: todo_empty after 1 session(s)
+[georgetown] TODO empty after 1 session(s)
+[georgetown] zone done: todo_empty after 1 session(s)
+[university-district] TODO empty after 1 session(s)
+[university-district] zone done: todo_empty after 1 session(s)
+[downtown] session 2 done: +7 saved, +2 skipped (exit 0)
+[downtown] TODO empty after 2 session(s)
+[downtown] zone done: todo_empty after 2 session(s)
+[pioneer-square] session 2 done: +9 saved, +1 skipped (exit 0)
+[pioneer-square] TODO empty after 2 session(s)
+[pioneer-square] zone done: todo_empty after 2 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  seattle/frye-lotus-kang: ok
+  seattle/henry-eric-paul-riege: ok
+  seattle/saam-kondo-family: ok
+  seattle/kucera-kentridge: ok
+  seattle/stonington-hib-sabin: ok
+  seattle/winston-wachter-schultheis: ok
+  seattle/traver-wambaugh: ok
+  seattle/rinehart-as-seen-in: ok
+  seattle/rovzar-kellie-talbot: ok
+  seattle/arte-noir-colored-girls-for-colored-girls: ok
+  seattle/harris-harvey-daphne-minkoff-edges-of-unmaking: ok
+  seattle/gallery-mack-luminous-forms-mikey-cozza: ok
+  seattle/ghost-gallery-this-is-a-show-about-grief: ok
+  seattle/artx-whats-the-story: ok
+  seattle/coca-between-us: ok
+  seattle/core-awe-and-wonder: ok
+  seattle/core-heart-murmurs: ok
+  seattle/fw-ilana-zweschi: ok
+  seattle/fw-allison-collins: ok
+  seattle/ccg-unwavering-hope: ok
+  seattle/ccg-timeless-euphoria: ok
+  seattle/ccg-shifting-horizons: ok
+  seattle/fogue-marci-carlson: ok
+  seattle/mmcp-hank-reavis: ok
+  seattle/studioe-wilcoxon: ok
+  seattle/studioe-yamahira: ok
+  seattle/b612-fauna-aquatica: ok
+  seattle/b612-korean-rhapsody: ok
+  seattle/g110-amara-eke: ok
+  seattle/g110-bonnie-hopper: ok
+  seattle/g110-rebecca-woodhouse: ok
+  seattle/kobo-living-with-glass-2026: ok
+  seattle/lynn-hanson-things-we-call-things: ok
+  seattle/self-reflexive: ok
+  seattle/i-have-eyes-for-you: ok
+  seattle/in-between-cross-hardgrave: ok
+  seattle/lynn-hanson-lisa-snow-lady: ok
+  seattle/pcnw-filter-benefit-preview: ok
+  seattle/roqlarue-carles-gomila-holy-purry-order: ok
+  seattle/slip-in-rotation-hannah-delaney: ok
+  seattle/slip-fountain-of-milk: ok
+  seattle/slip-cut-the-red-tape: ok
+  seattle/steinbrueck-shifting-forms: ok
+  seattle/woodside-braseth-masters-of-modern-northwest: ok
+  seattle/method-gallery-tender: ok
+  seattle/shift-dodi-fredericks-intention: ok
+  seattle/shift-sue-springer-world-on-fire: ok
+  seattle/shift-sky-of-the-mind: ok
+  seattle/soil-shape-shift: ok
+  seattle/soil-julia-monte-interchange: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (50 shows, 34 venue lookups); flags: none
+=== agent verification pass ===
+[verify seattle/Pioneer Square] 20 shows
+[verify seattle/Downtown] 11 shows
+  [seattle #0] server:web_fetch {"url": "https://artxcontemporary.com/show/artx-contemporary-whats-the-story-contemporary-narratives-of-home-identity-connection"}
+  [seattle #0] server:web_fetch {"url": "https://www.cocaseattle.org/2026/betweenus"}
+  [seattle #0] server:web_fetch {"url": "https://www.coregallery.org"}
+  [seattle #0] server:web_fetch {"url": "https://fosterwhite.com/collections/ilana-zweschi"}
+  [seattle #0] server:web_fetch {"url": "https://fosterwhite.com/collections/allison-collins"}
+  [seattle #0] server:web_fetch {"url": "https://artxcontemporary.com/show/artx-contemporary-whats-the-story-contemporary-narratives-of-home-identity-connection"}
+  [seattle #0] server:web_search {"query": "ArtX Contemporary \"What's the Story\" Seattle exhibition"}
+  [seattle #0] server:web_fetch {"url": "https://artxchange.blog/whats-the-story-contemporary-narratives-of-home-identity-and-connection/"}
+  [seattle #0] server:web_fetch {"url": "https://www.seattleartdealers.com/"}
+  [seattle #0] server:web_search {"query": "artxcontemporary.com \"What's the Story\" exhibition dates August September 2026"}
+  [seattle #0] server:web_search {"query": "\"artxcontemporary.com/exhibitions\""}
+  [seattle #0] tool:render_fetch {"url": "https://artxcontemporary.com/show/artx-contemporary-whats-the-story-contemporary-narratives-of-home-identity-connection"}
+[verify seattle/Capitol Hill] 3 shows
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "artx-whats-the-story", "status": "corrected", "reason": "Venue's own blog page gives no explicit run dates (onl
+  [seattle #0] server:web_fetch {"url": "https://www.artenoir.org/gallery"}
+  [seattle #0] server:web_fetch {"url": "https://www.harrisharveygallery.com/daphneminkoff-edgesofunmaking"}
+  [seattle #0] server:web_fetch {"url": "https://www.gallerymack.com/exhibitions/luminous-forms"}
+  [seattle #0] server:web_fetch {"url": "https://ghostgallery.org/blogs/news/call-for-art-this-is-a-show-about-grief"}
+  [seattle #0] server:web_fetch {"url": "https://pcnw.org/benefit/filter-pcnw-benefit-auction-preview-exhibition/"}
+  [seattle #0] server:web_fetch {"url": "https://www.artenoir.org/gallery"}
+  [seattle #0] server:web_search {"query": "ARTE NOIR Seattle Colored Girls for Colored Girls exhibition"}
+  [seattle #0] server:web_fetch {"url": "https://www.artenoir.org/"}
+  [seattle #0] server:web_fetch {"url": "https://www.artenoir.org/gallery"}
+  [seattle #0] server:web_fetch {"url": "https://www.harrisharveygallery.com/daphneminkoff-edgesofunmaking"}
+  [seattle #0] server:web_fetch {"url": "https://www.gallerymack.com/exhibitions/luminous-forms"}
+  [seattle #0] server:web_fetch {"url": "https://ghostgallery.org/blogs/news/call-for-art-this-is-a-show-about-grief"}
+  [seattle #0] server:web_fetch {"url": "https://pcnw.org/benefit/filter-pcnw-benefit-auction-preview-exhibition/"}
+  [seattle #0] server:web_fetch {"url": "https://www.harrisharveygallery.com/daphneminkoff-edgesofunmaking"}
+  [seattle #0] server:web_search {"query": "Harris Harvey Gallery Daphne Minkoff Edges of Unmaking"}
+  [seattle #0] Confirmed via Seattle Art Dealers Association (independent second source): dates September 3-26, 2026, matching saved dates. Venue's own site confirms the show description. Verified.
+  [seattle #0] tool:confirm_show {"city": "seattle", "slug": "arte-noir-colored-girls-for-colored-girls", "status": "verified", "reason": null, "corrections": null}
+  [seattle #0] tool:confirm_show {"city": "seattle", "slug": "harris-harvey-daphne-minkoff-edges-of-unmaking", "status": "verified", "reason": "Confirmed on venue site and i
+[verify seattle/Georgetown] 7 shows
+  [seattle #1] Now let's check Gallery Mack, Ghost Gallery, and PCNW.
+  [seattle #1] server:web_search {"query": "Gallery Mack Seattle \"Luminous Forms\" Mikey Cozza"}
+  [seattle #1] server:web_search {"query": "Ghost Gallery Seattle \"this is a show about grief\""}
+  [seattle #1] server:web_search {"query": "Photographic Center Northwest \"Filter\" benefit auction preview exhibition 2026"}
+  [seattle #1] server:web_search {"query": "\"Gallery Mack\" \"Luminous Forms\" Cozza September November 2026 exhibition dates"}
+  [seattle #1] server:web_search {"query": "Ghost Gallery \"this is a show about grief\" October closing date exact"}
+  [seattle #1] server:web_fetch {"url": "https://www.gallerymack.com/exhibitions/luminous-forms"}
+  [seattle #1] server:web_fetch {"url": "https://www.gallerymack.com/exhibitions"}
+  [seattle #1] server:web_fetch {"url": "https://www.gallerymack.com/"}
+  [seattle #1] Confirmed: Gallery Mack's own site lists "LUMINOUS FORMS: NEW WORK by MIKEY COZZA" running Sep 11, 2026 – Nov 11, 2026, matching saved dates exactly. The Refract Oct 15-18 dates are just the festival 
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "gallery-mack-luminous-forms-mikey-cozza", "status": "verified", "reason": "Venue site confirms Sep 11\u2013Nov 
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "ghost-gallery-this-is-a-show-about-grief", "status": "verified", "reason": "venue site still lists no closing d
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "pcnw-filter-benefit-preview", "status": "verified", "reason": "Venue site confirms Sept 14 \u2013 Oct 11, 2026 
+  [seattle #0] server:code_execution {"code": "\nimport asyncio, json\n\nurls = [\n    \"https://columbiacitygallery.com/event/18th-annual-juried-exhibit/\",\n    \"https://colu
+  [seattle #0] server:web_fetch {"url": "https://columbiacitygallery.com/event/18th-annual-juried-exhibit/"}
+  [seattle #0] server:web_fetch {"url": "https://columbiacitygallery.com/event/timeless-euphoria/"}
+  [seattle #0] server:web_fetch {"url": "https://columbiacitygallery.com/event/shifting-horizons/"}
+  [seattle #0] server:web_fetch {"url": "https://foguestudios.com/2026-show-schedule"}
+  [seattle #0] server:web_fetch {"url": "https://foguestudios.com/explore-the-art/ols/categories/september---light-and-horizon-marci-carlson"}
+  [seattle #0] server:web_fetch {"url": "https://www.minimartcitypark.com/currentlyonview"}
+  [seattle #0] server:web_fetch {"url": "https://studioegallery.net/exhibitions"}
+  [seattle #0] server:web_fetch {"url": "https://studioegallery.net/Heather-Wilcoxon"}
+  [seattle #0] server:web_fetch {"url": "https://studioegallery.net/Ko-Kirk-Yamahira"}
+  [seattle #0] server:code_execution {"code": "\nfor u, r in results.items():\n    print(\"=\"*80)\n    print(u)\n    if isinstance(r, dict) and r.get(\"type\") == \"web_fetch_t
+  [seattle #0] tool:render_fetch {"url": "https://columbiacitygallery.com/event/18th-annual-juried-exhibit/"}
+  [seattle #0] tool:render_fetch {"url": "https://columbiacitygallery.com/event/timeless-euphoria/"}
+  [seattle #0] tool:render_fetch {"url": "https://columbiacitygallery.com/event/shifting-horizons/"}
+  [seattle #0] tool:render_fetch {"url": "https://foguestudios.com/2026-show-schedule"}
+  [seattle #0] tool:render_fetch {"url": "https://www.minimartcitypark.com/currentlyonview"}
+  [seattle #0] tool:render_fetch {"url": "https://studioegallery.net/exhibitions"}
+  [seattle #2] Now let's check CoCA and CORE Gallery shows.
+  [seattle #2] server:web_search {"query": "CoCA Seattle \"Between Us\" Afro-Diasporic Conversation exhibition dates"}
+  [seattle #2] server:web_search {"query": "coregallery.org \"AWE + WONDER\" Uyen Tran-Gjerde"}
+  [seattle #2] server:web_fetch {"url": "https://www.cocaseattle.org/2026/betweenus"}
+  [seattle #2] server:web_fetch {"url": "https://www.cocaseattle.org/exhibitions"}
+  [seattle #2] server:web_fetch {"url": "https://www.coregallery.org"}
+  [seattle #2] server:web_fetch {"url": "https://www.cocaseattle.org/2026/betweenus"}
+  [seattle #2] server:web_fetch {"url": "https://artxchange.blog/whats-the-story-contemporary-narratives-of-home-identity-and-connection/"}
+  [seattle #2] server:web_search {"query": "site:cocaseattle.org betweenus"}
+  [seattle #2] server:web_search {"query": "site:coregallery.org"}
+  [seattle #2] server:web_fetch {"url": "https://www.coregallery.org/"}
+  [seattle #2] server:web_fetch {"url": "https://www.coregallery.org/about"}
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "core-awe-and-wonder", "status": "verified", "reason": null, "corrections": null}
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "core-heart-murmurs", "status": "verified", "reason": null, "corrections": null}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/project/self-reflexive/"}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/project/mary-anne-carter-x-wishbone-industrial-arts/"}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/project/robert-hardgrave/"}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/exhibitions/"}
+  [seattle #0] server:web_search {"query": "AMcE Creative Arts Self. Reflexive exhibition"}
+  [seattle #0] server:web_search {"query": "AMcE Creative Arts \"I Have Eyes for You\" exhibition"}
+  [seattle #0] server:web_search {"query": "AMcE Creative Arts Robert Hardgrave \"In Between\""}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/exhibitions/"}
+  [seattle #0] server:web_fetch {"url": "https://amcecreativearts.com/project/robert-hardgrave/"}
+  [seattle #0] server:web_search {"query": "\"In Between\" Cross Hardgrave AMcE October 2026 Koplin Del Rio"}
+  [seattle #0] server:web_search {"query": "\"I Have Eyes for You\" AMcE Niche Market Carter Gilmore Hagedorn"}
+  [seattle #0] server:web_search {"query": "AMcE Creative Arts \"Cross and a Hardgrave\" OR \"Cross and Hardgrave\" 2026"}
+  [seattle #0] tool:confirm_show {"city": "seattle", "slug": "self-reflexive", "status": "verified", "reason": "Venue's Exhibitions page lists \"Self. Reflexive.\" as the Cu
+  [seattle #0] tool:confirm_show {"city": "seattle", "slug": "i-have-eyes-for-you", "status": "verified", "reason": "Venue's Exhibitions page confirms \"I Have Eyes for You\
+  [seattle #0] tool:confirm_show {"city": "seattle", "slug": "in-between-cross-hardgrave", "status": "verified", "reason": "Venue's Future Exhibitions listing still shows th
+  [seattle #2] Now let's check Roq La Rue, Slip Gallery shows (3), Steinbrueck, and Woodside/Braseth.
+  [seattle #2] server:web_search {"query": "Roq La Rue Gallery Carles Gomila \"Holy Purry Order\" Seattle"}
+  [seattle #2] server:web_search {"query": "Slip Gallery Seattle Hannah Delaney \"IN | ROTATION\""}
+  [seattle #2] server:web_search {"query": "Slip Gallery Seattle \"Fountain of Milk\""}
+  [seattle #2] server:web_search {"query": "Slip Gallery Seattle Rodney King \"Cut the Red Tape\""}
+  [seattle #2] server:web_fetch {"url": "https://www.slipgallery.com/exhibitsandevents"}
+  [seattle #2] server:web_fetch {"url": "https://www.roqlarue.com/carles-gomila-holy-purry-order"}
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "roqlarue-carles-gomila-holy-purry-order", "status": "verified", "reason": "Venue site confirms Aug 15\u2013Sept
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "slip-in-rotation-hannah-delaney", "status": "verified", "reason": "Venue site confirms Aug 14 \u2013 Sept 5, 20
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "slip-fountain-of-milk", "status": "verified", "reason": "Venue site confirms Sept 10 \u2013 Oct 3, 2026 run; re
+  [seattle #2] tool:confirm_show {"city": "seattle", "slug": "slip-cut-the-red-tape", "status": "verified", "reason": "Venue site confirms Sept 11 \u2013 Oct 3, 2026 run; re
+  [seattle #1] Audit complete: **3 verified / 0 corrected / 0 unverified**.
+
+- **self-reflexive** — verified against AMcE's own Exhibitions page (Aug 15–Sep 27, 2026, current), corroborated by a Stranger review and 
+[verify seattle/Capitol Hill] done $0.38
+  [seattle #3] server:web_search {"query": "\"cocaseattle.org/2026/betweenus\""}
+  [seattle #3] server:web_search {"query": "CoCA Seattle \"Between Us\" Layomi Akinrinade exhibition September 27"}
+  [seattle #3] tool:confirm_show {"city": "seattle", "slug": "coca-between-us", "status": "verified", "reason": null, "corrections": null}
+  [seattle #4] server:web_search {"query": "fosterwhite.com Ilana Zweschi \"Look Upon This Body As A Machine\""}
+  [seattle #4] server:web_search {"query": "fosterwhite.com Allison Collins \"Warp, Weft and Landlines\""}
+  [seattle #4] Both confirmed directly on Foster/White's own site: Ilana Zweschi Sept 3–19, Allison Collins Oct 1–24. Second sources (The Stranger, Pioneer Square, SADA) corroborate.
+  [seattle #4] tool:confirm_show {"city": "seattle", "slug": "fw-ilana-zweschi", "status": "verified", "reason": null, "corrections": null}
+  [seattle #4] tool:confirm_show {"city": "seattle", "slug": "fw-allison-collins", "status": "verified", "reason": null, "corrections": null}
+  [seattle #5] Now let's check Gallery B612 shows.
+  [seattle #5] server:web_search {"query": "galleryb612.com \"Fauna Aquatica\" On Fluid Existence exhibition dates"}
+  [seattle #5] server:web_search {"query": "galleryb612.com \"Korean Rhapsody\" Sijo exhibition dates"}
+  [seattle #5] server:web_search {"query": "galleryb612.com/exhibitions-1/fauna-aquatica"}
+  [seattle #5] server:web_search {"query": "galleryb612.com/exhibitions-1/korean-rhapsody-sijo-galleryb612"}
+  [seattle #5] server:web_fetch {"url": "https://www.galleryb612.com/exhibitions"}
+  [seattle #5] server:web_fetch {"url": "https://www.galleryb612.com/exhibitions-1"}
+  [seattle #5] tool:confirm_show {"city": "seattle", "slug": "b612-fauna-aquatica", "status": "verified", "reason": null, "corrections": null}
+  [seattle #5] tool:confirm_show {"city": "seattle", "slug": "b612-korean-rhapsody", "status": "verified", "reason": null, "corrections": null}
+  [seattle #3] Now let's check the last two: Steinbrueck Native Gallery and Woodside/Braseth Gallery.
+  [seattle #3] server:web_search {"query": "Steinbrueck Native Gallery \"Shifting Forms\" masks Seattle"}
+  [seattle #3] server:web_search {"query": "Woodside/Braseth Gallery \"Masters of the Modern Northwest\" 65th anniversary Seattle"}
+  [seattle #3] server:web_fetch {"url": "https://woodsidebrasethgallery.com/exhibitions/masters-of-the-modern-northwest/"}
+  [seattle #3] server:web_fetch {"url": "https://steinbruecknativegallery.com/shifting-forms-mask-feature-summer-2026/"}
+  [seattle #3] server:web_search {"query": "\"Masters of the Modern Northwest\" Woodside Braseth \"March 6\" OR \"September 13\" 2026"}
+  [seattle #3] server:web_search {"query": "Steinbrueck Native Gallery \"Shifting Forms\" masks feature 2026"}
+  [seattle #3] server:web_fetch {"url": "https://steinbruecknativegallery.com/contentment/"}
+  [seattle #3] server:web_fetch {"url": "https://steinbruecknativegallery.com/shifting-forms-mask-feature-summer-2026/"}
+  [seattle #3] server:web_search {"query": "steinbruecknativegallery.com \"shifting-forms-mask-feature-summer-2026\""}
+  [seattle #3] server:web_fetch {"url": "https://steinbruecknativegallery.com/"}
+  [seattle #3] server:code_execution {"code": "import asyncio\nresult = asyncio.run(render_fetch({\"url\": \"https://steinbruecknativegallery.com/shifting-forms-mask-feature-sum
+  [seattle #3] tool:render_fetch {"url": "https://steinbruecknativegallery.com/shifting-forms-mask-feature-summer-2026/"}
+  [seattle #4] server:web_fetch {"url": "https://steinbruecknativegallery.com/shifting-forms-mask-feature-summer-2026/"}
+  [seattle #4] Confirmed: this is currently the featured gallery show ("Shifting Forms // Masks of Today"), still linked from the homepage banner, but the page itself gives no exact opening or closing date — matchin
+  [seattle #4] tool:confirm_show {"city": "seattle", "slug": "steinbrueck-shifting-forms", "status": "verified", "reason": "venue site still lists no opening/closing date; h
+  [seattle #4] tool:confirm_show {"city": "seattle", "slug": "woodside-braseth-masters-of-modern-northwest", "status": "verified", "reason": "Venue's exhibitions page confir
+  [seattle #5] All 11 Seattle shows have been audited.
+
+**Summary: 11 verified / 0 corrected / 0 unverified**
+[verify seattle/Downtown] done $2.56
+  [seattle #6] Now let's check Gallery110 shows.
+  [seattle #6] server:web_search {"query": "gallery110.com \"Amara Eke\" \"Everyday I'm Shuffling\""}
+  [seattle #6] server:web_search {"query": "gallery110.com \"Bonnie Hopper\" \"A Royal Flush in a Full House\""}
+  [seattle #6] server:web_search {"query": "gallery110.com \"Rebecca Woodhouse\" Intwined OR \"Abstract Connections\""}
+  [seattle #6] server:web_search {"query": "\"gallery110.com/exhibitions/rebecca-woodhouse-abstract-connections\""}
+  [seattle #6] server:web_search {"query": "Gallery 110 \"Rebecca Woodhouse\" \"Abstract Connections\" October 2026"}
+  [seattle #6] server:web_search {"query": "\"Rebecca Woodhouse\" \"Abstract Connections\" gallery110 site:gallery110.com"}
+  [seattle #6] tool:confirm_show {"city": "seattle", "slug": "g110-amara-eke", "status": "verified", "reason": null, "corrections": null}
+  [seattle #6] tool:confirm_show {"city": "seattle", "slug": "g110-bonnie-hopper", "status": "verified", "reason": null, "corrections": null}
+  [seattle #6] tool:confirm_show {"city": "seattle", "slug": "g110-rebecca-woodhouse", "status": "unverified", "reason": "Venue's own site lists the Oct 1-31, 2026 Rebecca W
+  [seattle #7] Now let's check KOBO at Higo, Lynn Hanson Gallery, Method Gallery.
+  [seattle #7] server:web_search {"query": "koboseattle.com \"Living With Glass\" 2026 exhibition dates"}
+  [seattle #7] server:web_search {"query": "lynnhansongallery.com \"The Things We Call Things\" Grader McConnell"}
+  [seattle #7] server:web_search {"query": "lynnhansongallery.com \"Lisa Snow Lady\" \"Dwelling In the Light\" October 2026"}
+  [seattle #7] server:web_fetch {"url": "https://www.lynnhansongallery.com/"}
+  [seattle #7] server:web_fetch {"url": "https://www.lynnhansongallery.com/the-things-we-call-things-bill-grader-and-andy-mcconnell.html"}
+  [seattle #7] server:web_fetch {"url": "https://www.lynnhansongallery.com/lisa-snow-lady.html"}
+  [seattle #7] tool:confirm_show {"city": "seattle", "slug": "kobo-living-with-glass-2026", "status": "verified", "reason": null, "corrections": null}
+  [seattle #7] tool:confirm_show {"city": "seattle", "slug": "lynn-hanson-things-we-call-things", "status": "verified", "reason": null, "corrections": null}
+  [seattle #7] tool:confirm_show {"city": "seattle", "slug": "lynn-hanson-lisa-snow-lady", "status": "verified", "reason": "Venue homepage still lists only \"Coming in Octob
+  [seattle #8] Now let's check Method Gallery, Shift Gallery shows, and SOIL Gallery shows.
+  [seattle #8] server:web_search {"query": "methodgallery.com \"Tender\" Kristin Tollefson exhibition"}
+  [seattle #8] server:web_search {"query": "shiftgallery.org \"Dodi Fredericks\" \"Intention and Happenstance\""}
+  [seattle #8] server:web_search {"query": "shiftgallery.org \"Sue Springer\" \"The World is On Fire\""}
+  [seattle #8] server:web_search {"query": "\"shiftgallery.org/2026/dodi-fredericks-intention-and-happenstance\""}
+  [seattle #8] server:web_search {"query": "\"shiftgallery.org/2026/sue-springer-the-world-is-on-fire\""}
+  [seattle #8] server:web_search {"query": "\"shiftgallery.org/2026/karey-kessler-soo-hong-kalina-winska-teresa-getty-sky-of-the-mind\""}
+  [seattle #8] server:web_search {"query": "shiftgallery.org current exhibitions September 2026 Dodi Fredericks Sue Springer"}
+  [seattle #8] server:web_search {"query": "shiftgallery.org \"Intention and Happenstance\""}
+  [seattle #8] server:web_fetch {"url": "https://shiftgallery.org/exhibitions-2/"}
+  [seattle #8] server:web_fetch {"url": "https://shiftgallery.org/upcoming-exhibitions"}
+  [seattle] registry attached:shift from https://shiftgallery.org/exhibitions-2/
+  [seattle #8] All three Shift Gallery shows confirmed directly on the venue's current/upcoming exhibitions pages with exact matching dates.
+  [seattle #8] tool:confirm_show {"city": "seattle", "slug": "method-gallery-tender", "status": "verified", "reason": null, "corrections": null}
+  [seattle #8] tool:confirm_show {"city": "seattle", "slug": "shift-dodi-fredericks-intention", "status": "verified", "reason": null, "corrections": null}
+  [seattle #8] tool:confirm_show {"city": "seattle", "slug": "shift-sue-springer-world-on-fire", "status": "verified", "reason": null, "corrections": null}
+  [seattle #8] tool:confirm_show {"city": "seattle", "slug": "shift-sky-of-the-mind", "status": "verified", "reason": null, "corrections": null}
+  [seattle #1] server:code_execution {"code": "\nr = await web_fetch({\"url\": \"https://columbiacitygallery.com/event/18th-annual-juried-exhibit/\"})\nprint(type(r))\nprint(str
+  [seattle #1] server:web_fetch {"url": "https://columbiacitygallery.com/event/18th-annual-juried-exhibit/"}
+  [seattle #1] server:code_execution {"code": "\nr = await web_search({\"query\": \"Columbia City Gallery 18th Annual Juried Exhibit Unwavering Hope\"})\nfor x in r[:5]:\n    pr
+  [seattle #1] server:web_search {"query": "Columbia City Gallery 18th Annual Juried Exhibit Unwavering Hope"}
+  [seattle #1] server:code_execution {"code": "\nprint(type(r))\nprint(r[:2000])\n"}
+  [seattle #1] server:code_execution {"code": "\nimport json\nr = await web_search({\"query\": \"site:columbiacitygallery.com event\"})\ndata = json.loads(r)\nfor x in data[:10]
+  [seattle #1] server:web_search {"query": "site:columbiacitygallery.com event"}
+  [seattle #1] Now that "Timeless Euphoria" URL is in context, let me fetch it and search for the others.
+  [seattle #1] server:code_execution {"code": "\nr = await web_fetch({\"url\": \"https://columbiacitygallery.com/event/timeless-euphoria/\"})\ndata = json.loads(r) if isinstance
+  [seattle #1] server:web_fetch {"url": "https://columbiacitygallery.com/event/timeless-euphoria/"}
+  [seattle #1] server:code_execution {"code": "\ncontent = data['content']['source']['data']\n# find date-related text\nimport re\nidx = content.find(\"October\")\nprint(content
+  [seattle #1] server:code_execution {"code": "\nr2 = await web_fetch({\"url\": \"https://columbiacitygallery.com/event/shifting-horizons/\"})\ndata2 = json.loads(r2) if isinsta
+  [seattle #1] server:web_fetch {"url": "https://columbiacitygallery.com/event/shifting-horizons/"}
+  [seattle #1] Confirmed Shifting Horizons: Oct 7 - Nov 15 2026, matches saved dates. Now fetch the Unwavering Hope page.
+  [seattle #1] server:code_execution {"code": "\nr3 = await web_search({\"query\": \"columbiacitygallery.com 18th-annual-juried-exhibit unwavering hope\"})\nd3 = json.loads(r3)\
+  [seattle #1] server:web_search {"query": "columbiacitygallery.com 18th-annual-juried-exhibit unwavering hope"}
+  [seattle #1] server:code_execution {"code": "\nr4 = await web_fetch({\"url\": \"https://columbiacitygallery.com/events/\"})\nd4 = json.loads(r4) if isinstance(r4,str) else r4\
+  [seattle #1] server:web_fetch {"url": "https://columbiacitygallery.com/events/"}
+  [seattle #1] Confirmed: Unwavering Hope Aug 26 - Oct 4, 2026 matches saved dates exactly. All three Columbia City Gallery shows verified. Now let's check Fogue Studios, Mini Mart City Park, and studio e.
+  [seattle #1] server:code_execution {"code": "\nr5 = await web_search({\"query\": \"foguestudios.com 2026 show schedule Marci Carlson Light and Horizon\"})\nd5 = json.loads(r5)
+  [seattle #1] server:web_search {"query": "foguestudios.com 2026 show schedule Marci Carlson Light and Horizon"}
+  [seattle #1] server:code_execution {"code": "\nr6 = await web_fetch({\"url\": \"https://foguestudios.com/2026-show-schedule\"})\nd6 = json.loads(r6) if isinstance(r6,str) else
+  [seattle #1] server:web_fetch {"url": "https://foguestudios.com/2026-show-schedule"}
+  [seattle #1] server:code_execution {"code": "\nr7 = await web_fetch({\"url\": \"https://foguestudios.com/explore-the-art/ols/categories/september---light-and-horizon-marci-car
+  [seattle #1] server:web_fetch {"url": "https://foguestudios.com/explore-the-art/ols/categories/september---light-and-horizon-marci-carlson"}
+  [seattle #1] Confirmed on both venue pages: Marci Carlson "Light and Horizon" is on view Sept 5-26, 2026. Now Mini Mart City Park.
+  [seattle #1] server:code_execution {"code": "\nr8 = await web_search({\"query\": \"minimartcitypark.com currently on view Hank Reavis I Can See It From Here\"})\nd8 = json.loa
+  [seattle #1] server:web_search {"query": "minimartcitypark.com currently on view Hank Reavis I Can See It From Here"}
+  [seattle #1] server:code_execution {"code": "\nr9 = await web_fetch({\"url\": \"https://www.minimartcitypark.com/currently-on-view\"})\nd9 = json.loads(r9) if isinstance(r9,st
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/currently-on-view"}
+  [seattle #1] server:code_execution {"code": "\nprint(len(c9))\nprint(c9[:3000])\n"}
+  [seattle #1] server:code_execution {"code": "\nr10 = await web_search({\"query\": \"minimartcitypark.com/currentlyonview\"})\nd10 = json.loads(r10)\nfor x in d10[:8]:\n    pri
+  [seattle #1] server:web_search {"query": "minimartcitypark.com/currentlyonview"}
+  [seattle #1] server:code_execution {"code": "\nfor u in [\"https://www.minimartcitypark.com/currentlyonview\", \"https://www.minimartcitypark.com/currenty-on-view\"]:\n    try
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/currentlyonview"}
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/currenty-on-view"}
+  [seattle #1] server:code_execution {"code": "\nr11 = await web_fetch({\"url\": \"https://www.minimartcitypark.com/calendar/i-can-see-it-from-here-celebratory-recepiton\"})\nd1
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/calendar/i-can-see-it-from-here-celebratory-recepiton"}
+  [seattle #1] server:code_execution {"code": "\nidx = c11.find(\"2026\")\nprint(c11[max(0,idx-800):idx+2000])\n"}
+  [seattle #1] server:code_execution {"code": "\nfor kw in [\"September\", \"Sept\", \"Reception\", \"5:00\", \"6:00\", \"PM\", \"2026-09\"]:\n    idx = c11.find(kw)\n    print(
+  [seattle #1] server:code_execution {"code": "\nprint(c11[7600:8200])\n"}
+  [seattle #1] server:code_execution {"code": "\nr12 = await web_search({\"query\": \"\\\"minimartcitypark.com\\\" \\\"currentlyonview\\\" Reavis\"})\nd12 = json.loads(r12)\nfor
+  [seattle #1] server:web_search {"query": "\"minimartcitypark.com\" \"currentlyonview\" Reavis"}
+  [seattle #1] server:code_execution {"code": "\nr13 = await web_fetch({\"url\": \"https://www.minimartcitypark.com/\"})\nd13 = json.loads(r13) if isinstance(r13,str) else r13\n
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/"}
+  [seattle #1] server:code_execution {"code": "\nr14 = await web_fetch({\"url\": \"https://www.minimartcitypark.com/exhibitions\"})\nd14 = json.loads(r14) if isinstance(r14,str)
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/exhibitions"}
+  [seattle #1] server:code_execution {"code": "\nr15 = await web_fetch({\"url\": \"https://www.minimartcitypark.com/currentlyonview\"})\nd15 = json.loads(r15) if isinstance(r15,
+  [seattle #1] server:web_fetch {"url": "https://www.minimartcitypark.com/currentlyonview"}
+  [seattle #1] server:code_execution {"code": "\nr16 = await web_search({\"query\": \"studioegallery.net exhibitions Heather Wilcoxon Ko Kirk Yamahira\"})\nd16 = json.loads(r16)
+  [seattle #1] server:web_search {"query": "studioegallery.net exhibitions Heather Wilcoxon Ko Kirk Yamahira"}
+  [seattle #1] server:code_execution {"code": "\nr17 = await web_fetch({\"url\": \"https://studioegallery.net/exhibitions\"})\nd17 = json.loads(r17) if isinstance(r17,str) else 
+  [seattle #1] server:web_fetch {"url": "https://studioegallery.net/exhibitions"}
+  [seattle #1] Confirmed both current shows: Yamahira Sep 12 - Oct 10, 2026 and Wilcoxon Sep 3 - Oct 3 (gallery annex). Both match saved dates exactly. Let me check the individual pages too for a second confirmation
+  [seattle #1] server:code_execution {"code": "\nr18 = await web_fetch({\"url\": \"https://studioegallery.net/Heather-Wilcoxon\"})\nd18 = json.loads(r18) if isinstance(r18,str) 
+  [seattle #1] server:web_fetch {"url": "https://studioegallery.net/Heather-Wilcoxon"}
+  [seattle #1] server:web_fetch {"url": "https://studioegallery.net/Ko-Kirk-Yamahira"}
+  [seattle #1] All shows check out. Now recording verdicts.
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "ccg-unwavering-hope", "status": "verified", "reason": "Confirmed on venue's own event page and events listing: 
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "ccg-timeless-euphoria", "status": "verified", "reason": "Confirmed on venue's own event page: \"Timeless Euphor
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "ccg-shifting-horizons", "status": "verified", "reason": "Confirmed on venue's own event page: \"Shifting Horizo
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "fogue-marci-carlson", "status": "verified", "reason": "Confirmed on venue's 2026 show schedule page and the sho
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "mmcp-hank-reavis", "status": "verified", "reason": "Confirmed on venue's own \"Currently on view\" page: Hank R
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "studioe-wilcoxon", "status": "verified", "reason": "Confirmed on venue's exhibitions page: Heather Wilcoxon rec
+  [seattle #1] tool:confirm_show {"city": "seattle", "slug": "studioe-yamahira", "status": "verified", "reason": "Confirmed on venue's exhibitions page: Ko Kirk Yamahira \"T
+  [seattle #2] Audit complete: **7 verified / 0 corrected / 0 unverified**.
+
+All 7 Seattle shows were confirmed directly on the venue's own site with matching dates:
+- Columbia City Gallery: Unwavering Hope, Timeles
+[verify seattle/Georgetown] done $0.42
+  [seattle #9] Now let's check the two SOIL Gallery shows.
+  [seattle #9] server:web_search {"query": "soilart.org \"Shape|Shift\" September 2026 Jordan Hogan Zoe Potter"}
+  [seattle #9] server:web_search {"query": "soilart.org \"Julia Mont\u00e9\" \"Interchange\" September 2026"}
+  [seattle #9] server:web_fetch {"url": "https://soilart.org/"}
+  [seattle #9] server:web_search {"query": "\"soilart.org/2026-exhibitions/september-2026-shape-shift\""}
+  [seattle #9] server:web_fetch {"url": "https://soilart.org/2026-exhibitions"}
+  [seattle #9] Both confirmed on the current 2026 exhibitions listing: "Sept 2026 / Shape|Shift" and "September 2026 / Julia Monté" are the current shows, matching the saved slugs and September 2026 timeframe.
+  [seattle #9] tool:confirm_show {"city": "seattle", "slug": "soil-shape-shift", "status": "verified", "reason": null, "corrections": null}
+  [seattle #9] tool:confirm_show {"city": "seattle", "slug": "soil-julia-monte-interchange", "status": "verified", "reason": null, "corrections": null}
+  [seattle #10] All 20 shows have been audited.
+
+**Summary: 17 verified / 1 corrected / 2 unverified**
+
+- **Corrected (1):** artx-whats-the-story (dates corrected to Aug 6–Sep 19, 2026 per SADA guide, since venue sit
+[verify seattle/Pioneer Square] done $2.80
+{
+  "city": "seattle",
+  "zones": [
+    "Pioneer Square",
+    "Downtown",
+    "Capitol Hill",
+    "Ballard/Fremont",
+    "Georgetown",
+    "University District"
+  ],
+  "run_spend_usd": 8.0748,
+  "shows_total": 50,
+  "remaining_todo": {
+    "Pioneer Square": 2,
+    "Downtown": 0,
+    "Capitol Hill": 0,
+    "Ballard/Fremont": 4,
+    "Georgetown": 0,
+    "University District": 4
+  },
+  "queue": {
+    "Pioneer Square": {
+      "zone": "Pioneer Square",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Downtown": {
+      "zone": "Downtown",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Capitol Hill": {
+      "zone": "Capitol Hill",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ballard/Fremont": {
+      "zone": "Ballard/Fremont",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Georgetown": {
+      "zone": "Georgetown",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "University District": {
+      "zone": "University District",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "arte-noir"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "common-area-maintenance"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-mack"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ghost"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "harris-harvey"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hedreen"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "onyx-fine-arts-collective"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "orcas-paley"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artx-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "center-on-contemporary-art-coca"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "core"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "foster-white"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-b612"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery110"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gray-sky"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "inscape-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artswest"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "columbia-city"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fogue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mini-mart-city-park"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nepantla-cultural-arts"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-e"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "youngstown-cultural-arts-center"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-seattle-downtown-1788558739",
+      "venue_ids": [
+        "arte-noir",
+        "common-area-maintenance",
+        "gallery-mack",
+        "ghost",
+        "harris-harvey",
+        "hedreen",
+        "onyx-fine-arts-collective",
+        "orcas-paley"
+      ],
+      "started_ts": 1788558739,
+      "ended_ts": 1788559149
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "phinney-center"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "push-pull"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vestibule"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vetri-glass"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Georgetown",
+      "session": 1,
+      "todo": 7,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-seattle-georgetown-1788558782",
+      "venue_ids": [
+        "artswest",
+        "columbia-city",
+        "fogue",
+        "mini-mart-city-park",
+        "nepantla-cultural-arts",
+        "studio-e",
+        "youngstown-cultural-arts-center"
+      ],
+      "started_ts": 1788558782,
+      "ended_ts": 1788559181
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "howard-house"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "interstitial"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jack-straw-new-media"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jacob-lawrence"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pioneer Square",
+      "session": 1,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-pioneer-square-1788558759",
+      "venue_ids": [
+        "artx-contemporary",
+        "center-on-contemporary-art-coca",
+        "core",
+        "foster-white",
+        "gallery-b612",
+        "gallery110",
+        "gray-sky",
+        "inscape-arts"
+      ],
+      "started_ts": 1788558759,
+      "ended_ts": 1788559235
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "amce-creative-arts"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ballard/Fremont",
+      "session": 1,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-ballard-fremont-1788559149",
+      "venue_ids": [
+        "phinney-center",
+        "push-pull",
+        "vestibule",
+        "vetri-glass"
+      ],
+      "started_ts": 1788559149,
+      "ended_ts": 1788559237
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "photographic-center-northwest"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "roq-la-rue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "slip"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "steinbrueck-native"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vera-project"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "woodside-braseth"
+    },
+    {
+      "stage": "scrape",
+      "zone": "University District",
+      "session": 1,
+      "todo": 4,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-seattle-university-district-1788559181",
+      "venue_ids": [
+        "howard-house",
+        "interstitial",
+        "jack-straw-new-media",
+        "jacob-lawrence"
+      ],
+      "started_ts": 1788559181,
+      "ended_ts": 1788559240
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kobo-at-higo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lynn-hanson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "method"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "shift"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soil"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Capitol Hill",
+      "session": 1,
+      "todo": 1,
+      "saved": 3,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-seattle-capitol-hill-1788559235",
+      "venue_ids": [
+        "amce-creative-arts"
+      ],
+      "started_ts": 1788559235,
+      "ended_ts": 1788559407
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown",
+      "session": 2,
+      "todo": 6,
+      "saved": 7,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-seattle-downtown-1788559237",
+      "venue_ids": [
+        "photographic-center-northwest",
+        "roq-la-rue",
+        "slip",
+        "steinbrueck-native",
+        "vera-project",
+        "woodside-braseth"
+      ],
+      "started_ts": 1788559237,
+      "ended_ts": 1788559560
+    },
+    {
+      "stage": "scrape",
+      "zone": "Pioneer Square",
+      "session": 2,
+      "todo": 5,
+      "saved": 9,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-seattle-pioneer-square-1788559240",
+      "venue_ids": [
+        "kobo-at-higo",
+        "lynn-hanson",
+        "method",
+        "shift",
+        "soil"
+      ],
+      "started_ts": 1788559240,
+      "ended_ts": 1788559684
+    }
+  ],
+  "verification": {
+    "seattle": {
+      "verified": 39,
+      "corrected": 1,
+      "unverified": 1,
+      "unchecked": [],
+      "published": 39,
+      "pending": [
+        {
+          "slug": "ghost-gallery-this-is-a-show-about-grief",
+          "venue": "Ghost Gallery",
+          "reason": "venue site still lists no closing date beyond \"early October\"; no second source with exact date found"
+        },
+        {
+          "slug": "fw-allison-collins",
+          "venue": "Foster/White Gallery",
+          "reason": null
+        },
+        {
+          "slug": "ccg-timeless-euphoria",
+          "venue": "Columbia City Gallery",
+          "reason": "Confirmed on venue's own event page: \"Timeless Euphoria\" runs October 7 – November 15, 2026, matching saved dates. Also listed on gallery's events archive page."
+        },
+        {
+          "slug": "ccg-shifting-horizons",
+          "venue": "Columbia City Gallery",
+          "reason": "Confirmed on venue's own event page: \"Shifting Horizons\" runs October 7 – November 15, 2026, matching saved dates. Also listed on gallery's events archive page."
+        },
+        {
+          "slug": "studioe-yamahira",
+          "venue": "studio e",
+          "reason": "Confirmed on venue's exhibitions page: Ko Kirk Yamahira \"The Threshold of Thought and Appearance\" runs September 12 – October 10, 2026, matching saved dates; also listed on Artforum's Artguide as a second source."
+        },
+        {
+          "slug": "g110-rebecca-woodhouse",
+          "venue": "Gallery110",
+          "reason": "Venue's own site lists the Oct 1-31, 2026 Rebecca Woodhouse solo show as \"Abstract Connections\" (matching the saved source URL slug), not \"Intwined\" as titled in our record; cannot confirm the saved title is the correct current show."
+        },
+        {
+          "slug": "in-between-cross-hardgrave",
+          "venue": "AMcE Creative Arts",
+          "reason": "Venue's Future Exhibitions listing still shows this show as upcoming with reception dates Sat Oct 10 / Sun Oct 11, which only align with 2026 (the printed \"2025\" year is evidently a typo); Robert Hardgrave's own AMcE artist page also lists the forthcoming two-person show with Tim Cross. No independent third-party listing found yet, so this rests on the venue's own site alone."
+        },
+        {
+          "slug": "lynn-hanson-lisa-snow-lady",
+          "venue": "Lynn Hanson Gallery",
+          "reason": "Venue homepage still lists only \"Coming in October\" for this show with no exact opening/closing date published yet."
+        },
+        {
+          "slug": "pcnw-filter-benefit-preview",
+          "venue": "Photographic Center Northwest",
+          "reason": "Venue site confirms Sept 14 – Oct 11, 2026 exhibition dates; independently listed on Eventbrite"
+        },
+        {
+          "slug": "steinbrueck-shifting-forms",
+          "venue": "Steinbrueck Native Gallery",
+          "reason": "venue site still lists no opening/closing date; homepage banner still links directly to this feature as the current show"
+        },
+        {
+          "slug": "shift-sky-of-the-mind",
+          "venue": "Shift Gallery",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-seattle-1788558739.json"
+}
+seattle: 50 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+  skip greg-kucera: scraped in the last week (pass --rescrape)
+  skip traver: scraped in the last week (pass --rescrape)
+  skip winston-wachter: scraped in the last week (pass --rescrape)
+  skip j-rinehart: scraped in the last week (pass --rescrape)
+  skip stonington: scraped in the last week (pass --rescrape)
+  skip patricia-rovzar: scraped in the last week (pass --rescrape)
+  skip seattle-asian-art-museum: scraped in the last week (pass --rescrape)
+seattle: 43 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city seattle --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/seattle/shows-ids.txt --force-due --total-budget 60.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

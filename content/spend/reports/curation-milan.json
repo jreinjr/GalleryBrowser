@@ -1,0 +1,2468 @@
+{
+ "city": "milan",
+ "generated_at": "2026-09-04T22:16:00+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "milan",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 71,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "mdc-lawrence-weiner",
+   "title": "& Una certa massa alla base di tutto | & Determined Mass at the Base of it All",
+   "artist": "Lawrence Weiner",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 2,
+   "desc_words": 204,
+   "venue": {
+    "name": "Massimo De Carlo",
+    "id": "massimo-de-carlo",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "massimo de carlo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.608
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001824
+   },
+   "score": 0.991824,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 1,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 71)",
+    "quality 0.61 (2 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "liarumma-kiefer-autumn-moonlight",
+   "title": "I wish to die in autumn moonlight even in darkness not to be lost",
+   "artist": "Anselm Kiefer",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-17",
+    "end": "2026-10-09"
+   },
+   "n_images": 4,
+   "desc_words": 260,
+   "venue": {
+    "name": "Galleria Lia Rumma",
+    "id": "galleria-lia-rumma",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Isola/Farini",
+    "norm": "galleria lia rumma"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commission",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9859154929577465,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.03937253280921478,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.976056338028169,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.9787563380281691,
+   "days_since_open": 140,
+   "days_to_close": 35,
+   "rank": 2,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 0.99 (rank 2 of 71)",
+    "quality 0.90 (4 images, 260 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "kaufmann-repetto-ppp-pinkypussypunk",
+   "title": "PPP pinkypussypunk",
+   "artist": "Atelier dell'Errore",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-27",
+    "end": "2026-09-10"
+   },
+   "n_images": 6,
+   "desc_words": 267,
+   "venue": {
+    "name": "kaufmann repetto",
+    "id": "kaufmann-repetto",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "kaufmann repetto"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.971830985915493,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.09921256574801246,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9621126760563381,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.9671126760563381,
+   "days_since_open": 100,
+   "days_to_close": 6,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 71)",
+    "quality 1.00 (6 images, 267 words)",
+    "closes in 6 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "kaufmann-repetto-piante-vagabonde",
+   "title": "Piante Vagabonde",
+   "artist": "Clarissa Tossin",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-15",
+    "end": "2026-10-30"
+   },
+   "n_images": 5,
+   "desc_words": 226,
+   "venue": {
+    "name": "kaufmann repetto",
+    "id": "kaufmann-repetto",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "kaufmann repetto"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.971830985915493,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.952
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9621126760563381,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002856
+   },
+   "score": 0.9649686760563381,
+   "days_since_open": -11,
+   "days_to_close": 56,
+   "rank": 4,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 71)",
+    "quality 0.95 (5 images, 226 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "kaufmann-repetto-tenki-hiramatsu",
+   "title": "Tenki Hiramatsu",
+   "artist": "Tenki Hiramatsu",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-15",
+    "end": "2026-10-30"
+   },
+   "n_images": 1,
+   "desc_words": 160,
+   "venue": {
+    "name": "kaufmann repetto",
+    "id": "kaufmann-repetto",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "kaufmann repetto"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo outing",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.971830985915493,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.42000000000000004
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9621126760563381,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00126
+   },
+   "score": 0.9633726760563381,
+   "days_since_open": -11,
+   "days_to_close": 56,
+   "rank": 5,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 71)",
+    "quality 0.42 (1 images, 160 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "zero-houseago-gravita-e-grazia",
+   "title": "Gravità e Grazia",
+   "artist": "Thomas Houseago",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-03"
+   },
+   "n_images": 6,
+   "desc_words": 289,
+   "venue": {
+    "name": "ZERO... (at Chiesa di San Vittore e Quaranta Martiri)",
+    "id": "zero",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Porta Venezia",
+    "norm": "zero at chiesa di san vittore e quaranta martiri"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9295774647887324,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.920281690140845,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.923281690140845,
+   "days_since_open": 1,
+   "days_to_close": 29,
+   "rank": 6,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.93 (rank 6 of 71)",
+    "quality 1.00 (6 images, 289 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "mdc-the-human-stain",
+   "title": "The Human Stain",
+   "artist": "Michael Ajerman, Emilio Gola, Erin Lawlor, Christopher Orr, Alessandro Pessoli, Gideon Rubin, Ivan Seal, Guy Yanai",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-14",
+    "end": "2026-09-19"
+   },
+   "n_images": 6,
+   "desc_words": 232,
+   "venue": {
+    "name": "Monica De Cardenas",
+    "id": "monica-de-cardenas",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "monica de cardenas"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9154929577464789,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.07347174414272555,
+    "closing_soon": 0.0,
+    "quality": 0.964
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9063380281690141,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002892
+   },
+   "score": 0.9092300281690141,
+   "days_since_open": 113,
+   "days_to_close": 15,
+   "rank": 7,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.92 (rank 7 of 71)",
+    "quality 0.96 (6 images, 232 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "mdc-uwe-wittwer-controcorrente",
+   "title": "Controcorrente",
+   "artist": "Uwe Wittwer",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-24",
+    "end": "2026-11-21"
+   },
+   "n_images": 4,
+   "desc_words": 253,
+   "venue": {
+    "name": "Monica De Cardenas",
+    "id": "monica-de-cardenas",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "monica de cardenas"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9154929577464789,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9063380281690141,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.9090380281690141,
+   "days_since_open": -20,
+   "days_to_close": 78,
+   "rank": 8,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.92 (rank 7 of 71)",
+    "quality 0.90 (4 images, 253 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "christian-stein-paolini",
+   "title": "In Studio (Ora Come Allora)",
+   "artist": "Giulio Paolini",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-04",
+    "end": "2026-10-24"
+   },
+   "n_images": 6,
+   "desc_words": 281,
+   "venue": {
+    "name": "Galleria Christian Stein",
+    "id": "galleria-christian-stein",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Porta Venezia",
+    "norm": "galleria christian stein"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9014084507042254,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.11935520048880205,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8923943661971832,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8953943661971832,
+   "days_since_open": 92,
+   "days_to_close": 50,
+   "rank": 9,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 8 of 71)",
+    "quality 1.00 (6 images, 281 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "building-castella-archaeology",
+   "title": "Vincenzo Castella. Timeless Archaeology",
+   "artist": "Vincenzo Castella",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-05",
+    "end": "2026-10-03"
+   },
+   "n_images": 4,
+   "desc_words": 207,
+   "venue": {
+    "name": "Building (Building Gallery)",
+    "id": "building",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "building building"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "career-spanning",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8873239436619719,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.12214499605428075,
+    "closing_soon": 0.0,
+    "quality": 0.8140000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8784507042253521,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002442
+   },
+   "score": 0.8808927042253522,
+   "days_since_open": 91,
+   "days_to_close": 29,
+   "rank": 10,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 9 of 71)",
+    "quality 0.81 (4 images, 207 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "building-sissi-nidi",
+   "title": "Per filo e per segno – 9/12. Sissi: Nidi",
+   "artist": "Sissi (Daniela Olivieri)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-02",
+    "end": "2026-09-30"
+   },
+   "n_images": 3,
+   "desc_words": 213,
+   "venue": {
+    "name": "Building (Building Box)",
+    "id": "building",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "building building box"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8873239436619719,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9548416039104165,
+    "closing_soon": 0.0,
+    "quality": 0.726
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8784507042253521,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002178
+   },
+   "score": 0.8806287042253521,
+   "days_since_open": 2,
+   "days_to_close": 26,
+   "rank": 11,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 9 of 71)",
+    "quality 0.73 (3 images, 213 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "building-gambirasio-chasing-rainbows",
+   "title": "Chiara Gambirasio. Chasing Rainbows",
+   "artist": "Chiara Gambirasio",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 3,
+   "desc_words": 187,
+   "venue": {
+    "name": "Building (Building Terzo Piano)",
+    "id": "building",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "building building terzo piano"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8873239436619719,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6739999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8784507042253521,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002022
+   },
+   "score": 0.8804727042253521,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 12,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 9 of 71)",
+    "quality 0.67 (3 images, 187 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "clima-dana-lok",
+   "title": "A Body for Your Thoughts",
+   "artist": "Dana Lok",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-10",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 255,
+   "venue": {
+    "name": "CLIMA",
+    "id": "clima",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Porta Venezia",
+    "norm": "clima"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8732394366197183,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.13710312246182824,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.864507042253521,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.869507042253521,
+   "days_since_open": 86,
+   "days_to_close": 8,
+   "rank": 13,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 10 of 71)",
+    "quality 1.00 (5 images, 255 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "vistamare-bignardi-spettacolo-immagini",
+   "title": "Lo spettacolo delle immagini",
+   "artist": "Umberto Bignardi",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-30",
+    "end": "2026-09-19"
+   },
+   "n_images": 6,
+   "desc_words": 330,
+   "venue": {
+    "name": "Vistamare",
+    "id": "vistamare",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "vistamare"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8591549295774648,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.217637640824031,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8505633802816901,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8535633802816901,
+   "days_since_open": 66,
+   "days_to_close": 15,
+   "rank": 14,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 11 of 71)",
+    "quality 1.00 (6 images, 330 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "vistamare-jodice-immagini-del-vuoto",
+   "title": "Immagini del vuoto: dalla camera oscura alla camera chiara",
+   "artist": "Mimmo Jodice",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-30",
+    "end": "2026-11-13"
+   },
+   "n_images": 2,
+   "desc_words": 281,
+   "venue": {
+    "name": "Vistamare",
+    "id": "vistamare",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "vistamare"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8591549295774648,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.7
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8505633802816901,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0021
+   },
+   "score": 0.8526633802816901,
+   "days_since_open": -26,
+   "days_to_close": 70,
+   "rank": 15,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 11 of 71)",
+    "quality 0.70 (2 images, 281 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "dep-art-20-anni",
+   "title": "Dep Art Gallery | 20 Anni (2006–2026)",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-24",
+    "end": "2026-09-19"
+   },
+   "n_images": 5,
+   "desc_words": 274,
+   "venue": {
+    "name": "Dep Art Gallery",
+    "id": "dep-art",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Porta Venezia",
+    "norm": "dep art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7605633802816901,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.18946457081379978,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7529577464788733,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.7559577464788733,
+   "days_since_open": 72,
+   "days_to_close": 15,
+   "rank": 16,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 18 of 71)",
+    "quality 1.00 (5 images, 274 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "elpis-true-reality",
+   "title": "True Reality",
+   "artist": "Benjamin Jones",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2026-10-18"
+   },
+   "n_images": 1,
+   "desc_words": 217,
+   "venue": {
+    "name": "Fondazione Elpis",
+    "id": "fondazione-elpis",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Porta Venezia",
+    "norm": "fondazione elpis"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first institutional show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7323943661971831,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.534
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7250704225352113,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016020000000000001
+   },
+   "score": 0.7266724225352112,
+   "days_since_open": -13,
+   "days_to_close": 44,
+   "rank": 17,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 20 of 71)",
+    "quality 0.53 (1 images, 217 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "ribot-felix-schramm-skin-of-time",
+   "title": "The Skin of Time",
+   "artist": "Felix Schramm",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-30",
+    "end": "2026-11-07"
+   },
+   "n_images": 4,
+   "desc_words": 273,
+   "venue": {
+    "name": "RIBOT",
+    "id": "ribot",
+    "tier": 2,
+    "rank": 23,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "ribot"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6901408450704225,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6832394366197183,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.6859394366197183,
+   "days_since_open": -26,
+   "days_to_close": 64,
+   "rank": 18,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.69 (rank 23 of 71)",
+    "quality 0.90 (4 images, 273 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "hangarbicocca-luciano-fabro-abitare",
+   "title": "Abitare lo spazio (Inhabiting Space)",
+   "artist": "Luciano Fabro",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-08",
+    "end": "2027-02-21"
+   },
+   "n_images": 6,
+   "desc_words": 258,
+   "venue": {
+    "name": "Pirelli HangarBicocca",
+    "id": "pirelli-hangarbicocca",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Isola/Farini",
+    "norm": "pirelli hangarbicocca"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.647887323943662,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6414084507042254,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.6444084507042254,
+   "days_since_open": -34,
+   "days_to_close": 170,
+   "rank": 19,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.65 (rank 26 of 71)",
+    "quality 1.00 (6 images, 258 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "hangarbicocca-aki-sasamoto-xyz",
+   "title": "XYZ",
+   "artist": "Aki Sasamoto",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2027-01-17"
+   },
+   "n_images": 6,
+   "desc_words": 242,
+   "venue": {
+    "name": "Pirelli HangarBicocca",
+    "id": "pirelli-hangarbicocca",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Isola/Farini",
+    "norm": "pirelli hangarbicocca"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first institutional show",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.647887323943662,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.984
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6414084507042254,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002952
+   },
+   "score": 0.6443604507042253,
+   "days_since_open": -13,
+   "days_to_close": 135,
+   "rank": 20,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.65 (rank 26 of 71)",
+    "quality 0.98 (6 images, 242 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "prada-cao-fei-dash",
+   "title": "Dash",
+   "artist": "Cao Fei",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-09",
+    "end": "2026-09-28"
+   },
+   "n_images": 5,
+   "desc_words": 197,
+   "venue": {
+    "name": "Fondazione Prada",
+    "id": "fondazione-prada",
+    "tier": 2,
+    "rank": 27,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Tortona/Navigli",
+    "norm": "fondazione prada"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6338028169014085,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.03272794133814458,
+    "closing_soon": 0.0,
+    "quality": 0.894
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6274647887323944,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002682
+   },
+   "score": 0.6301467887323944,
+   "days_since_open": 148,
+   "days_to_close": 24,
+   "rank": 21,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 27 of 71)",
+    "quality 0.89 (5 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "prada-mona-hatoum-over-under",
+   "title": "Over, Under and In Between",
+   "artist": "Mona Hatoum",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-01-29",
+    "end": "2026-11-09"
+   },
+   "n_images": 4,
+   "desc_words": 238,
+   "venue": {
+    "name": "Fondazione Prada",
+    "id": "fondazione-prada",
+    "tier": 2,
+    "rank": 27,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Tortona/Navigli",
+    "norm": "fondazione prada"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6338028169014085,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.006494046063615529,
+    "closing_soon": 0.0,
+    "quality": 0.876
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6274647887323944,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002628
+   },
+   "score": 0.6300927887323944,
+   "days_since_open": 218,
+   "days_to_close": 66,
+   "rank": 22,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 27 of 71)",
+    "quality 0.88 (4 images, 238 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "viasaterna-laltro-che-abito",
+   "title": "L'altro che abito",
+   "artist": "Marion Baruch, Elisabetta Catalano, Martina Ferrari, Teresa Giannico, Guido Guidi, Camilla Gurgone, Luca Massaro",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-08",
+    "end": "2026-09-25"
+   },
+   "n_images": 6,
+   "desc_words": 195,
+   "venue": {
+    "name": "Viasaterna",
+    "id": "viasaterna",
+    "tier": 2,
+    "rank": 29,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "viasaterna"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6056338028169015,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.13091176535257837,
+    "closing_soon": 0.0,
+    "quality": 0.89
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5995774647887324,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00267
+   },
+   "score": 0.6022474647887324,
+   "days_since_open": 88,
+   "days_to_close": 21,
+   "rank": 23,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.61 (rank 29 of 71)",
+    "quality 0.89 (6 images, 195 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "cadogan-nuria-maria-blues-rouge",
+   "title": "Nuria Maria: Blues Rouge",
+   "artist": "Nuria Maria",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2026-10-17"
+   },
+   "n_images": 4,
+   "desc_words": 188,
+   "venue": {
+    "name": "Cadogan Gallery",
+    "id": "cadogan",
+    "tier": 2,
+    "rank": 31,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "cadogan"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5774647887323944,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.776
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5716901408450704,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002328
+   },
+   "score": 0.5740181408450704,
+   "days_since_open": -13,
+   "days_to_close": 43,
+   "rank": 24,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.58 (rank 31 of 71)",
+    "quality 0.78 (4 images, 188 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "primo-marella-alternative-practices-2",
+   "title": "Alternative Practices and Unbound Forms: African Artists Across Recent Biennales – Part II",
+   "artist": "El Anatsui, Joël Andrianomearisoa, Hako Hankson, Abdoulaye Konaté, Tegene Kunbi, Esther Mahlangu, Troy Makaza, Samuel Nnorom, Moffat Takadiwa",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-09",
+    "end": "2026-09-18"
+   },
+   "n_images": 5,
+   "desc_words": 273,
+   "venue": {
+    "name": "Primo Marella Gallery",
+    "id": "primo-marella",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Isola/Farini",
+    "norm": "primo marella"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "biennial",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5633802816901409,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2679433656340733,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5577464788732395,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.5627464788732395,
+   "days_since_open": 57,
+   "days_to_close": 14,
+   "rank": 25,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 32 of 71)",
+    "quality 1.00 (5 images, 273 words)",
+    "closes in 14 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "east-eliska-konecna",
+   "title": "You were never promised a happy life",
+   "artist": "Eliška Konečná",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-15",
+    "end": "2026-09-30"
+   },
+   "n_images": 5,
+   "desc_words": 233,
+   "venue": {
+    "name": "eastcontemporary",
+    "id": "eastcontemporary",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "eastcontemporary"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5352112676056338,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.037594532377566145,
+    "closing_soon": 0.0,
+    "quality": 0.966
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5298591549295774,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002898
+   },
+   "score": 0.5327571549295773,
+   "days_since_open": 142,
+   "days_to_close": 26,
+   "rank": 26,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.54 (rank 34 of 71)",
+    "quality 0.97 (5 images, 233 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "nc-la-generazione-felice",
+   "title": "La generazione felice (The Happy Generation)",
+   "artist": "Nazar Strelyaev-Nazarko",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 223,
+   "venue": {
+    "name": "Ncontemporary",
+    "id": "ncontemporary",
+    "tier": 2,
+    "rank": 36,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Città Studi/Bicocca",
+    "norm": "ncontemporary"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5070422535211268,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.946
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5019718309859155,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002838
+   },
+   "score": 0.5048098309859155,
+   "days_since_open": null,
+   "days_to_close": 29,
+   "rank": 27,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 36 of 71)",
+    "quality 0.95 (5 images, 223 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "abc-arte-gastone-biggi-tempo-continuo",
+   "title": "Tempo Continuo",
+   "artist": "Gastone Biggi",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-04",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 259,
+   "venue": {
+    "name": "ABC-ARTE ONE OF",
+    "id": "abc-arte-milano",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Tortona/Navigli",
+    "norm": "abc arte one of"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.46478873239436624,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.11935520048880205,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4601408450704226,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.4651408450704226,
+   "days_since_open": 92,
+   "days_to_close": 8,
+   "rank": 28,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.46 (rank 39 of 71)",
+    "quality 1.00 (5 images, 259 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "abc-arte-jorrit-tornquist-idea-del-colore",
+   "title": "L'idea del colore",
+   "artist": "Jorrit Tornquist",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-16",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 193,
+   "venue": {
+    "name": "ABC-ARTE ONE OF",
+    "id": "abc-arte-milano",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Tortona/Navigli",
+    "norm": "abc arte one of"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.46478873239436624,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.886
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4601408450704226,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002658
+   },
+   "score": 0.46279884507042257,
+   "days_since_open": -12,
+   "days_to_close": 57,
+   "rank": 29,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.46 (rank 39 of 71)",
+    "quality 0.89 (5 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "morone-vincvlvm",
+   "title": "VINCVLVM",
+   "artist": "Cveto Maršič",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-24",
+    "end": "2026-11-13"
+   },
+   "n_images": 2,
+   "desc_words": 193,
+   "venue": {
+    "name": "Nuova Galleria Morone",
+    "id": "nuova-galleria-morone",
+    "tier": 2,
+    "rank": 42,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Brera/Centro",
+    "norm": "nuova galleria morone"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4225352112676056,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5860000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4183098591549296,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017580000000000002
+   },
+   "score": 0.42006785915492956,
+   "days_since_open": -20,
+   "days_to_close": 70,
+   "rank": 30,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.42 (rank 42 of 71)",
+    "quality 0.59 (2 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788560159,
+   "run_id": "apply-milan-1788560159",
+   "city": "milan",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=16 reorder=True params=4b091c332196",
+   "params_hash": "4b091c332196"
+  },
+  {
+   "ts": 1788560160,
+   "run_id": "score-milan-1788560160",
+   "city": "milan",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=30 featured=14 snapshot=None params=4b091c332196",
+   "params_hash": "4b091c332196",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 29,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

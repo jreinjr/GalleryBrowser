@@ -1,0 +1,922 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788568660,
+ "system": "You are an art-world editor compiling a gallery guide for Tokyo, Japan. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Tokyo itself (galleries whose home is\nelsewhere count only through a permanent Tokyo space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Roppongi, Ginza/Kyobashi, Nihonbashi/Bakurocho, Shibuya/Omotesando, Shinjuku/Kagurazaka, Ebisu/Meguro, Kiyosumi-Shirakawa, Tennozu, Ueno/Yanaka, Setagaya/West Tokyo) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Tokyo spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Tokyo, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 59,
+  "output_tokens": 34172,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.860645,
+  "seconds": 435.7
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "SCAI THE BATHHOUSE",
+    "website": "https://www.scaithebathhouse.com",
+    "neighborhood": "Ueno/Yanaka",
+    "address_hint": "6-1-23 Yanaka, Taito-ku (Kashiwayu-ato)",
+    "kind": "gallery",
+    "note": "Converted 200-year-old bathhouse; since 1993 the key bridge between Japanese postwar masters (Kusama, Lee Ufan, Miyajima) and the international scene."
+   },
+   {
+    "rank": 2,
+    "name": "Taka Ishii Gallery",
+    "website": "https://www.takaishiigallery.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-5-24 Roppongi (complex665, 3F)",
+    "kind": "gallery",
+    "note": "Global-facing programme in photography and contemporary art, with Maebashi/NY/LA history and a heavy fair presence; anchor of the complex665 building."
+   },
+   {
+    "rank": 3,
+    "name": "Ota Fine Arts",
+    "website": "https://www.otafinearts.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-5-24 Roppongi (complex665, 3F)",
+    "kind": "gallery",
+    "note": "Yayoi Kusama's long-time Tokyo dealer, with Singapore and Shanghai outposts and a strong pan-Asian conceptual roster."
+   },
+   {
+    "rank": 4,
+    "name": "ShugoArts",
+    "website": "https://shugoarts.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-5-24 Roppongi (complex665, 3F)",
+    "kind": "gallery",
+    "note": "Rigorous programme of Japanese artists (Yasumasa Morimura, Tomoko Yoneda, Shimabuku) with consistent museum placements."
+   },
+   {
+    "rank": 5,
+    "name": "Tomio Koyama Gallery",
+    "website": "https://tomiokoyamagallery.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building)",
+    "kind": "gallery",
+    "note": "Founded 1996; helped launch Nara, Murakami and Kusama internationally and remains one of Tokyo's most fair-active dealers."
+   },
+   {
+    "rank": 6,
+    "name": "Take Ninagawa",
+    "website": "https://www.takeninagawa.com",
+    "neighborhood": "Higashi-Azabu",
+    "address_hint": "2-12-4 Higashi-Azabu, Minato-ku",
+    "kind": "gallery",
+    "note": "Critically respected programme linking Mono-ha and Gutai legacies to younger international artists; regular at Art Basel and Frieze."
+   },
+   {
+    "rank": 7,
+    "name": "Mizuma Art Gallery",
+    "website": "https://mizuma-art.co.jp",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "2-4-16 Ichigayatamachi, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Since 1994 the platform for Aida Makoto, Yamaguchi Akira and 'Neo-Nihonga'; strong Asian network with Singapore and Beijing ties."
+   },
+   {
+    "rank": 8,
+    "name": "Perrotin Tokyo",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building, 1F)",
+    "kind": "gallery",
+    "note": "Tokyo branch of the French mega-gallery; high-profile shows of Murakami, JR, Sophie Calle and Japanese debuts of blue-chip names."
+   },
+   {
+    "rank": 9,
+    "name": "Pace Gallery Tokyo",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Azabudai Hills Garden Plaza A",
+    "kind": "gallery",
+    "note": "Pace's permanent Tokyo space (2024) in Azabudai Hills, bringing international blue-chip programming to central Tokyo."
+   },
+   {
+    "rank": 10,
+    "name": "Gagosian Tokyo",
+    "website": "https://gagosian.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building, 4F)",
+    "kind": "gallery",
+    "note": "Longest-standing international mega-gallery outpost in Tokyo, presenting museum-grade shows of its global roster."
+   },
+   {
+    "rank": 11,
+    "name": "BLUM",
+    "website": "https://www.blumgallery.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "1-14-34 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "The LA gallery's Tokyo space; historically decisive for Superflat and for reintroducing postwar Japanese art to the West."
+   },
+   {
+    "rank": 12,
+    "name": "Kaikai Kiki Gallery",
+    "website": "https://gallery-kaikaikiki.com",
+    "neighborhood": "Motoazabu",
+    "address_hint": "2-3-30 Motoazabu, Minato-ku (B1)",
+    "kind": "gallery",
+    "note": "Takashi Murakami's gallery arm, incubator for a generation of younger Japanese artists and a global-facing brand."
+   },
+   {
+    "rank": 13,
+    "name": "Tokyo Gallery + BTAP",
+    "website": "https://www.tokyo-gallery.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "8-10-5 Ginza, Chuo-ku",
+    "kind": "gallery",
+    "note": "Japan's first contemporary gallery (1950); historic for Mono-ha and for opening Beijing's 798 with BTAP."
+   },
+   {
+    "rank": 14,
+    "name": "Gallery Koyanagi",
+    "website": "https://www.gallerykoyanagi.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "1-7-5 Ginza, Chuo-ku (8F)",
+    "kind": "gallery",
+    "note": "Elegant Ginza mainstay showing Sugimoto, Rinko Kawauchi, Olafur Eliasson and other international names since 1995."
+   },
+   {
+    "rank": 15,
+    "name": "NANZUKA UNDERGROUND",
+    "website": "https://nanzuka.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "3-30-10 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Defined the pop/illustration-to-fine-art crossover (Hajime Sorayama, Keiichi Tanaami, Haroshi); multiple Tokyo venues and heavy fair presence."
+   },
+   {
+    "rank": 16,
+    "name": "Taro Nasu",
+    "website": "https://www.taronasugallery.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building, 3F)",
+    "kind": "gallery",
+    "note": "Conceptually driven programme (Ryan Gander, Simon Fujiwara, Koki Tanaka) with strong European connections."
+   },
+   {
+    "rank": 17,
+    "name": "Misako & Rosen",
+    "website": "https://www.misakoandrosen.jp",
+    "neighborhood": "Kita-Otsuka",
+    "address_hint": "3-27-6 Kita-Otsuka, Toshima-ku",
+    "kind": "gallery",
+    "note": "Small but internationally influential; a fixture of Basel/Liste-type discourse and a model for artist-led curatorial exchange."
+   },
+   {
+    "rank": 18,
+    "name": "Yutaka Kikutake Gallery",
+    "website": "https://ykg-tokyo.jp",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-5-24 Roppongi (complex665, 2F)",
+    "kind": "gallery",
+    "note": "Sharp younger-generation programme; consistent presence at Art Basel Hong Kong and Frieze."
+   },
+   {
+    "rank": 19,
+    "name": "KOSAKU KANECHIKA",
+    "website": "https://kosakukanechika.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "1-33-10 Higashi-Shinagawa (TERRADA ART COMPLEX)",
+    "kind": "gallery",
+    "note": "Museum-quality installations by Mika Ninagawa, Yuko Mohri and Sanya Kantarovsky; a driver of Tennozu's rise."
+   },
+   {
+    "rank": 20,
+    "name": "ANOMALY",
+    "website": "https://anomalytokyo.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "2-6-10 Higashi-Shinagawa, Shinagawa-ku",
+    "kind": "gallery",
+    "note": "Large-scale space formed by the merger of three veteran dealers; ambitious shows of Chim↑Pom, Ei Arakawa and others."
+   },
+   {
+    "rank": 21,
+    "name": "KOTARO NUKAGA",
+    "website": "https://kotaronukaga.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "2-6-10 Higashi-Shinagawa, Shinagawa-ku",
+    "kind": "gallery",
+    "note": "Fast-rising gallery with Tennozu and Roppongi spaces, mixing international emerging names with Japanese mid-career artists."
+   },
+   {
+    "rank": 22,
+    "name": "Maho Kubota Gallery",
+    "website": "https://mahokubota.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "2-4-7 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Thoughtful programme (Yuki Onodera, Kenji Yanobe collaborations, international photography) with growing fair visibility."
+   },
+   {
+    "rank": 23,
+    "name": "Fergus McCaffrey Tokyo",
+    "website": "https://www.fergusmccaffrey.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "3-5-9 Kita-Aoyama, Minato-ku",
+    "kind": "gallery",
+    "note": "New York gallery's Tokyo space; scholarly presentations of Gutai and postwar Japanese avant-garde alongside Western artists."
+   },
+   {
+    "rank": 24,
+    "name": "MAKI Gallery",
+    "website": "https://makigallery.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "2-6-10 Higashi-Shinagawa, Shinagawa-ku",
+    "kind": "gallery",
+    "note": "Multiple Tokyo spaces bringing internationally trending painters to Japan and supporting Japanese artists abroad."
+   },
+   {
+    "rank": 25,
+    "name": "Shiseido Gallery",
+    "website": null,
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "8-8-3 Ginza, Chuo-ku (B1)",
+    "kind": "nonprofit",
+    "note": "Corporate gallery operating since 1919 — Japan's oldest continuously running exhibition space, with a genuinely experimental free programme."
+   },
+   {
+    "rank": 26,
+    "name": "Yumiko Chiba Associates",
+    "website": "https://ycassociates.co.jp",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "3-18-2 Nishi-Shinjuku, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Custodian of key postwar photography and conceptual estates (Kishin Shinoyama, Ei-Q) plus contemporary artists."
+   },
+   {
+    "rank": 27,
+    "name": "Aoyama Meguro",
+    "website": "https://aoyamameguro.com",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Kami-Meguro, Meguro-ku",
+    "kind": "gallery",
+    "note": "Curatorially austere space run by Naoya Aoyama; a critics' favourite for conceptual and post-Mono-ha positions."
+   },
+   {
+    "rank": 28,
+    "name": "Kayokoyuki",
+    "website": "https://kayokoyuki.com",
+    "neighborhood": "Komagome",
+    "address_hint": "2-14-9 Komagome, Toshima-ku (B1)",
+    "kind": "gallery",
+    "note": "Influential young gallery in the Komagome cluster, exporting emerging Japanese painters to Liste and Art Basel."
+   },
+   {
+    "rank": 29,
+    "name": "Misa Shin Gallery",
+    "website": "https://misashin.com",
+    "neighborhood": "Higashi-Azabu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Handles the Nobuo Sekine and On Kawara-adjacent legacies and politically engaged international artists; strong institutional ties."
+   },
+   {
+    "rank": 30,
+    "name": "Ginza Maison Hermès Le Forum",
+    "website": "https://www.maisonhermes.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "5-4-1 Ginza, Chuo-ku (8F, Renzo Piano building)",
+    "kind": "nonprofit",
+    "note": "Free corporate kunsthalle with an internationally respected curatorial programme in Renzo Piano's glass-block tower."
+   },
+   {
+    "rank": 31,
+    "name": "Whitestone Gallery",
+    "website": "https://www.whitestone-gallery.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Azabudai Hills; also Ginza",
+    "kind": "gallery",
+    "note": "Large commercial operation with Hong Kong, Taipei, Singapore and Seoul branches; major secondary market in Gutai and postwar Japan."
+   },
+   {
+    "rank": 32,
+    "name": "Kenji Taki Gallery",
+    "website": "https://www.kenjitaki.com",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "3-18-2 Nishi-Shinjuku, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Nagoya-rooted gallery whose Tokyo space shows rigorous abstraction and European conceptualists; long track record."
+   },
+   {
+    "rank": 33,
+    "name": "Art Front Gallery",
+    "website": "https://www.artfrontgallery.com",
+    "neighborhood": "Daikanyama",
+    "address_hint": "30-7-2 Sarugakucho, Shibuya-ku (Hillside Terrace)",
+    "kind": "gallery",
+    "note": "Founded 1970s; organiser behind the Echigo-Tsumari and Setouchi triennales, uniquely influential on Japan's art-festival model."
+   },
+   {
+    "rank": 34,
+    "name": "MEM",
+    "website": "https://mem-inc.jp",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "1-18-4 Ebisu, Shibuya-ku (NADiff A/P/A/R/T 3F)",
+    "kind": "gallery",
+    "note": "Scholarly programme rediscovering Japanese photography and outsider/queer histories (Toshio Matsumoto, Nobuyoshi Araki archives)."
+   },
+   {
+    "rank": 35,
+    "name": "XYZ collective",
+    "website": "https://xyzcollective.org",
+    "neighborhood": "Setagaya/West Tokyo",
+    "address_hint": "2-30-20 Kamiuma, Setagaya-ku",
+    "kind": "project_space",
+    "note": "Artist-run space that became a node in the international young-gallery network; launched many careers now shown worldwide."
+   },
+   {
+    "rank": 36,
+    "name": "PARCEL",
+    "website": "https://parceltokyo.jp",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "2-2-1 Nihonbashi-Bakurocho (DDD Hotel, 1F)",
+    "kind": "gallery",
+    "note": "Design-conscious space that made Bakurocho a destination; agile programme of emerging Japanese and overseas artists."
+   },
+   {
+    "rank": 37,
+    "name": "WAITINGROOM",
+    "website": "https://waitingroom.jp",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young gallery with an incisive eye for emerging artists and a growing presence at Asian fairs."
+   },
+   {
+    "rank": 38,
+    "name": "KEN NAKAHASHI",
+    "website": null,
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "3-1-32 Shinjuku, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Shinjuku gallery known for queer, performance and body-based practices, including Genesis P-Orridge and Tetsumi Kudo-adjacent lineages."
+   },
+   {
+    "rank": 39,
+    "name": "Hagiwara Projects",
+    "website": "https://hagiwaraprojects.com",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Lean, artist-focused programme of contemporary painting and sculpture; a regular at Liste and Asian fairs."
+   },
+   {
+    "rank": 40,
+    "name": "MUJIN-TO Production",
+    "website": "https://mujin-to.com",
+    "neighborhood": "Kiyosumi-Shirakawa",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Politically engaged gallery, home of Chim↑Pom-era activism and post-3.11 art; punches far above its size critically."
+   },
+   {
+    "rank": 41,
+    "name": "Satoko Oe Contemporary",
+    "website": "https://satokooe.com",
+    "neighborhood": "Kiyosumi-Shirakawa",
+    "address_hint": "Kiba, Koto-ku",
+    "kind": "gallery",
+    "note": "Curator-run gallery with a quiet, research-based programme and consistent international fair participation."
+   },
+   {
+    "rank": 42,
+    "name": "Kana Kawanishi Gallery",
+    "website": "https://www.kanakawanishi.com",
+    "neighborhood": "Kiyosumi-Shirakawa",
+    "address_hint": "Shirakawa, Koto-ku",
+    "kind": "gallery",
+    "note": "Photography and new-media focused; active in international exchange and prize-winning young artists."
+   },
+   {
+    "rank": 43,
+    "name": "URANO",
+    "website": "https://urano.tokyo",
+    "neighborhood": "Tennozu",
+    "address_hint": "Higashi-Shinagawa, Shinagawa-ku",
+    "kind": "gallery",
+    "note": "Successor to ARATANIURANO; conceptual and media-art programme with long-standing critical credibility."
+   },
+   {
+    "rank": 44,
+    "name": "Yuka Tsuruno Gallery",
+    "website": "https://yukatsuruno.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "TERRADA ART COMPLEX, Higashi-Shinagawa",
+    "kind": "gallery",
+    "note": "Photography-leaning contemporary programme; among the first movers into the Tennozu art district."
+   },
+   {
+    "rank": 45,
+    "name": "Kodama Gallery",
+    "website": "https://www.kodamagallery.com",
+    "neighborhood": "Tennozu",
+    "address_hint": "TERRADA ART COMPLEX, Higashi-Shinagawa",
+    "kind": "gallery",
+    "note": "Kansai-founded gallery with a long record in conceptual and sculptural practices, now anchored in Tokyo."
+   },
+   {
+    "rank": 46,
+    "name": "Zen Foto Gallery",
+    "website": "https://zen-foto.jp",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building, 2F)",
+    "kind": "gallery",
+    "note": "Specialist in Japanese and Chinese photography with a serious publishing arm; key to the international photobook scene."
+   },
+   {
+    "rank": 47,
+    "name": "PGI",
+    "website": "https://www.pgi.ac",
+    "neighborhood": "Tennozu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Photo Gallery International, founded 1979 — Japan's pioneering fine-art photography dealer and print workshop."
+   },
+   {
+    "rank": 48,
+    "name": "AKIO NAGASAWA Gallery",
+    "website": "https://www.akionagasawa.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Ginza, Chuo-ku",
+    "kind": "gallery",
+    "note": "Publisher-gallerist central to Daido Moriyama and Nobuyoshi Araki's global market; multiple Ginza spaces."
+   },
+   {
+    "rank": 49,
+    "name": "THE CLUB",
+    "website": "https://theclub.tokyo",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "6-10-1 Ginza (GINZA SIX, 6F)",
+    "kind": "gallery",
+    "note": "Curatorially ambitious Ginza Six gallery pairing international contemporary names with Japanese historical material."
+   },
+   {
+    "rank": 50,
+    "name": "Nichido Contemporary Art",
+    "website": "https://www.nca-g.com",
+    "neighborhood": "Hatchobori",
+    "address_hint": "Hatchobori, Chuo-ku",
+    "kind": "gallery",
+    "note": "Contemporary arm of the venerable Galerie Nichido; consistent programme of mid-career Japanese and Asian artists."
+   },
+   {
+    "rank": 51,
+    "name": "Gallery MoMo",
+    "website": "https://www.gallery-momo.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Roppongi and Ryogoku spaces",
+    "kind": "gallery",
+    "note": "Two-venue gallery supporting figurative painting and sculpture by emerging and mid-career Japanese artists since 2004."
+   },
+   {
+    "rank": 52,
+    "name": "4649",
+    "website": null,
+    "neighborhood": "Kita-ku",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-run space with an international exchange model; a key node for Tokyo's youngest experimental scene."
+   },
+   {
+    "rank": 53,
+    "name": "The 5th Floor",
+    "website": null,
+    "neighborhood": "Yushima",
+    "address_hint": "Yushima, Bunkyo-ku",
+    "kind": "project_space",
+    "note": "Curator-run experimental venue and residency-linked platform for the post-2020 generation of Tokyo artists."
+   },
+   {
+    "rank": 54,
+    "name": "WHITEHOUSE",
+    "website": null,
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "Kabukicho, Shinjuku-ku",
+    "kind": "project_space",
+    "note": "Revived 1950s avant-garde building run by the Chim↑Pom circle; a hub for performance and countercultural programming."
+   },
+   {
+    "rank": 55,
+    "name": "Tokyo Arts and Space (TOKAS) Hongo",
+    "website": "https://www.tokyoartsandspace.jp",
+    "neighborhood": "Hongo",
+    "address_hint": "2-4-16 Hongo, Bunkyo-ku",
+    "kind": "nonprofit",
+    "note": "City-funded institution (formerly Tokyo Wonder Site) whose exhibitions and residencies have launched many careers."
+   },
+   {
+    "rank": 56,
+    "name": "gallery αM",
+    "website": "https://gallery-alpham.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Higashi-Kanda, Chiyoda-ku",
+    "kind": "university",
+    "note": "Musashino Art University's free experimental space; annual guest-curated series are closely watched by critics."
+   },
+   {
+    "rank": 57,
+    "name": "Art Center Ongoing",
+    "website": "https://www.ongoing.jp",
+    "neighborhood": "Setagaya/West Tokyo",
+    "address_hint": "1-8-7 Kichijoji-honcho, Musashino-shi",
+    "kind": "nonprofit",
+    "note": "Artist-run centre, cafe and archive in Kichijoji; a long-running incubator for Tokyo's alternative scene."
+   },
+   {
+    "rank": 58,
+    "name": "Youkobo Art Space",
+    "website": "https://www.youkobo.co.jp",
+    "neighborhood": "Setagaya/West Tokyo",
+    "address_hint": "3-2-10 Zenpukuji, Suginami-ku",
+    "kind": "nonprofit",
+    "note": "Pioneering micro-residency and gallery, connecting Tokyo to international residency networks for over two decades."
+   },
+   {
+    "rank": 59,
+    "name": "Arts Initiative Tokyo (AIT)",
+    "website": "https://www.a-i-t.net",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Daikanyama, Shibuya-ku",
+    "kind": "nonprofit",
+    "note": "Curatorial nonprofit running residencies, the MAD education programme and exhibitions since 2001."
+   },
+   {
+    "rank": 60,
+    "name": "Spiral / Spiral Garden",
+    "website": "https://www.spiral.co.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "5-6-23 Minami-Aoyama, Minato-ku",
+    "kind": "nonprofit",
+    "note": "Fumihiko Maki-designed cultural complex whose atrium and gallery have hosted landmark art and design shows since 1985."
+   },
+   {
+    "rank": 61,
+    "name": "Espace Louis Vuitton Tokyo",
+    "website": null,
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "5-7-5 Jingumae, Shibuya-ku (7F)",
+    "kind": "nonprofit",
+    "note": "Free foundation space showing Fondation Louis Vuitton collection works and commissions in Omotesando."
+   },
+   {
+    "rank": 62,
+    "name": "Ginza Graphic Gallery (ggg)",
+    "website": "https://www.dnp.co.jp/gallery/ggg/",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "7-7-2 Ginza, Chuo-ku",
+    "kind": "nonprofit",
+    "note": "DNP's graphic-design gallery since 1986; internationally the most important venue for Japanese design exhibitions."
+   },
+   {
+    "rank": 63,
+    "name": "POLA Museum Annex",
+    "website": null,
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "1-7-7 Ginza, Chuo-ku (3F)",
+    "kind": "nonprofit",
+    "note": "Free corporate space in Ginza with a well-regarded programme of emerging and mid-career Japanese artists."
+   },
+   {
+    "rank": 64,
+    "name": "Chanel Nexus Hall",
+    "website": null,
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "3-5-3 Ginza, Chuo-ku (4F)",
+    "kind": "nonprofit",
+    "note": "Corporate cultural hall known for photography exhibitions and cross-disciplinary programming."
+   },
+   {
+    "rank": 65,
+    "name": "Taguchi Fine Art",
+    "website": "https://www.taguchifineart.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Higashi-Nihonbashi, Chuo-ku",
+    "kind": "gallery",
+    "note": "Long-running dealer of drawing, print and conceptual work with an idiosyncratic international roster."
+   },
+   {
+    "rank": 66,
+    "name": "Koki Arts",
+    "website": "https://www.kokiarts.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Higashi-Kanda, Chiyoda-ku",
+    "kind": "gallery",
+    "note": "Photography-centred gallery in the Bakurocho cluster, active in international photo fairs."
+   },
+   {
+    "rank": 67,
+    "name": "Roentgenwerke AG",
+    "website": "https://www.roentgenwerke.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Nihonbashi-Bakurocho, Chuo-ku",
+    "kind": "gallery",
+    "note": "Descendant of the legendary 1990s Roentgen Kunst Institut that first showed Murakami and Nara."
+   },
+   {
+    "rank": 68,
+    "name": "Ando Gallery",
+    "website": "https://www.andogallery.co.jp",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Veteran dealer in minimal and conceptual art, publishing editions with Japanese and European artists since the 1980s."
+   },
+   {
+    "rank": 69,
+    "name": "Base Gallery",
+    "website": "https://basegallery.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Nihonbashi, Chuo-ku",
+    "kind": "gallery",
+    "note": "Long-established gallery showing painting and sculpture by mid-career Japanese artists."
+   },
+   {
+    "rank": 70,
+    "name": "√K Contemporary",
+    "website": "https://root-k.jp",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "Kagurazaka, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Three-storey space combining contemporary shows with postwar Japanese art scholarship and publishing."
+   },
+   {
+    "rank": 71,
+    "name": "eitoeiko",
+    "website": "https://eitoeiko.com",
+    "neighborhood": "Shinjuku/Kagurazaka",
+    "address_hint": "32 Yaraicho, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Small Kagurazaka gallery with a socially and politically engaged programme and strong Asian exchange."
+   },
+   {
+    "rank": 72,
+    "name": "TALION GALLERY",
+    "website": "https://taliongallery.com",
+    "neighborhood": "Mejiro",
+    "address_hint": "Mejiro, Toshima-ku",
+    "kind": "gallery",
+    "note": "Quiet, conceptually focused gallery respected for tightly argued solo exhibitions."
+   },
+   {
+    "rank": 73,
+    "name": "EUKARYOTE",
+    "website": "https://eukaryote.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "3-3-7 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Three-floor Jingumae space presenting a young, cross-genre roster with strong exhibition design."
+   },
+   {
+    "rank": 74,
+    "name": "The Mass",
+    "website": "https://themass.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "5-11-1 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Harajuku venue bridging street/pop culture and contemporary art with frequent international collaborations."
+   },
+   {
+    "rank": 75,
+    "name": "Gallery Common",
+    "website": "https://gallery-common.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Compact Jingumae gallery with a sharp eye for young painters and illustration-adjacent practices."
+   },
+   {
+    "rank": 76,
+    "name": "VOILLD",
+    "website": "https://voilld.com",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Higashiyama, Meguro-ku",
+    "kind": "gallery",
+    "note": "Programme spanning contemporary art, craft and design culture; influential among younger collectors."
+   },
+   {
+    "rank": 77,
+    "name": "CALM & PUNK GALLERY",
+    "website": "https://calmandpunk.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Nishi-Azabu, Minato-ku",
+    "kind": "gallery",
+    "note": "Long-running space at the intersection of art, music and street culture, with strong international guest shows."
+   },
+   {
+    "rank": 78,
+    "name": "POETIC SCAPE",
+    "website": "https://poetic-scape.com",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Nakameguro, Meguro-ku",
+    "kind": "gallery",
+    "note": "Photography gallery with a distinctive editorial sensibility and a steady stream of first solo shows."
+   },
+   {
+    "rank": 79,
+    "name": "G/P gallery",
+    "website": "https://www.gptokyo.jp",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Ebisu, Shibuya-ku",
+    "kind": "gallery",
+    "note": "Contemporary photography specialist that helped define the post-2000 Japanese photo scene."
+   },
+   {
+    "rank": 80,
+    "name": "Nishimura Gallery",
+    "website": "https://www.nishimura-gallery.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Kyobashi/Ginza, Chuo-ku",
+    "kind": "gallery",
+    "note": "Founded 1964; brought Hockney, Kitaj and British art to Japan and represents senior Japanese painters."
+   },
+   {
+    "rank": 81,
+    "name": "Shirota Gallery",
+    "website": "https://www.shirotagallery.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "7-10-8 Ginza, Chuo-ku",
+    "kind": "gallery",
+    "note": "Historic Ginza gallery (est. 1966) central to Japanese printmaking and to Yoko Ono/Fluxus-era exhibitions."
+   },
+   {
+    "rank": 82,
+    "name": "Galerie Tokyo Humanité",
+    "website": "https://www.humanite.co.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Kyobashi, Chuo-ku",
+    "kind": "gallery",
+    "note": "Kyobashi gallery of long standing with a serious abstraction and print programme plus an annex for younger artists."
+   },
+   {
+    "rank": 83,
+    "name": "Megumi Ogita Gallery",
+    "website": "https://www.megumiogita.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Ginza, Chuo-ku",
+    "kind": "gallery",
+    "note": "Known for launching young Japanese artists via its Odyssey competition and for consistent fair participation."
+   },
+   {
+    "rank": 84,
+    "name": "Gallery Tsubaki",
+    "website": "https://gallery-tsubaki.net",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Kyobashi, Chuo-ku",
+    "kind": "gallery",
+    "note": "Operating since 1974 with an annex space; a durable supporter of contemporary Japanese painting."
+   },
+   {
+    "rank": 85,
+    "name": "SEIZAN Gallery",
+    "website": "https://www.seizangallery.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Tokyo–New York gallery promoting Japanese artists internationally with a contemporary-meets-tradition programme."
+   },
+   {
+    "rank": 86,
+    "name": "Shibunkaku Tokyo",
+    "website": "https://www.shibunkaku.co.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Kyoto house founded 1937; its Tokyo space stages scholarly shows linking classical Japanese art with contemporary practice."
+   },
+   {
+    "rank": 87,
+    "name": "A Lighthouse called Kanata",
+    "website": "https://kanata-jp.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Nishi-Azabu, Minato-ku",
+    "kind": "gallery",
+    "note": "Gallery pairing contemporary art with Japanese antiquities and craft, with an international collector base."
+   },
+   {
+    "rank": 88,
+    "name": "SNOW Contemporary",
+    "website": "https://snowcontemporary.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "Nishi-Azabu, Minato-ku",
+    "kind": "gallery",
+    "note": "Curator-founded gallery known for conceptual and socially engaged Japanese artists and off-site projects."
+   },
+   {
+    "rank": 89,
+    "name": "Kanda & Oliveira",
+    "website": "https://kandaoliveira.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Higashi-Kanda, Chiyoda-ku",
+    "kind": "gallery",
+    "note": "Japanese–Brazilian gallery bringing Latin American and diaspora practices into the Tokyo conversation."
+   },
+   {
+    "rank": 90,
+    "name": "Gallery 360°",
+    "website": "https://www.360.co.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "Minami-Aoyama, Minato-ku",
+    "kind": "gallery",
+    "note": "Fluxus and multiples specialist since 1981; an archive-like resource for conceptual editions and artists' books."
+   },
+   {
+    "rank": 91,
+    "name": "Yukiko Koide Presents",
+    "website": "https://www.koidepresents.com",
+    "neighborhood": "Kiyosumi-Shirakawa",
+    "address_hint": "Kiyosumi, Koto-ku",
+    "kind": "gallery",
+    "note": "Leading Japanese venue for art brut and outsider art, with strong international exhibition partnerships."
+   },
+   {
+    "rank": 92,
+    "name": "Hidari Zingaro",
+    "website": "https://hidari-zingaro.jp",
+    "neighborhood": "Nakano",
+    "address_hint": "Nakano Broadway, Nakano-ku",
+    "kind": "gallery",
+    "note": "Murakami-founded Nakano Broadway venue that turned otaku-adjacent subculture into a serious exhibition platform."
+   },
+   {
+    "rank": 93,
+    "name": "Komagome SOKO",
+    "website": null,
+    "neighborhood": "Komagome",
+    "address_hint": "Komagome, Toshima-ku",
+    "kind": "project_space",
+    "note": "Warehouse project space anchoring the Komagome cluster; large-scale installations by emerging artists."
+   },
+   {
+    "rank": 94,
+    "name": "TAV GALLERY",
+    "website": "https://tavgallery.com",
+    "neighborhood": "Setagaya/West Tokyo",
+    "address_hint": "Asagaya, Suginami-ku",
+    "kind": "gallery",
+    "note": "West Tokyo gallery with a distinctive, criticism-driven programme for the youngest generation."
+   },
+   {
+    "rank": 95,
+    "name": "void+",
+    "website": "https://www.voidplus.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "Minami-Aoyama, Minato-ku",
+    "kind": "project_space",
+    "note": "Compact Aoyama project space with a consistently experimental, non-commercial curatorial line."
+   },
+   {
+    "rank": 96,
+    "name": "CADAN Yurakucho",
+    "website": "https://cadan.org",
+    "neighborhood": "Yurakucho",
+    "address_hint": "Yurakucho, Chiyoda-ku (Tokyo Kotsu Kaikan)",
+    "kind": "nonprofit",
+    "note": "Shared exhibition space of the Contemporary Art Dealers Association of Nippon; a rotating window on the whole gallery scene."
+   },
+   {
+    "rank": 97,
+    "name": "OIL by Bijutsutecho Gallery",
+    "website": "https://oil.bijutsutecho.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "15-1 Udagawacho (Shibuya PARCO, 2F)",
+    "kind": "gallery",
+    "note": "Gallery arm of Japan's leading art magazine; accessible programming that reaches a wide public audience."
+   },
+   {
+    "rank": 98,
+    "name": "HARMAS GALLERY",
+    "website": "https://harmasgallery.com",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Nakameguro, Meguro-ku",
+    "kind": "gallery",
+    "note": "Small Nakameguro gallery with a considered programme of emerging painters and sculptors."
+   },
+   {
+    "rank": 99,
+    "name": "MASATAKA CONTEMPORARY",
+    "website": "https://masatakacontemporary.com",
+    "neighborhood": "Ryogoku",
+    "address_hint": "Ryogoku, Sumida-ku",
+    "kind": "gallery",
+    "note": "East Tokyo gallery supporting mid-career and emerging artists, part of the Sumida/Ryogoku art cluster."
+   },
+   {
+    "rank": 100,
+    "name": "Sprout Curation",
+    "website": null,
+    "neighborhood": "Yotsuya",
+    "address_hint": "Yotsuya, Shinjuku-ku",
+    "kind": "gallery",
+    "note": "Curator-run gallery known for research-led solo presentations and support of experimental younger practices."
+   }
+  ]
+ }
+}

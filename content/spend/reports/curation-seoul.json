@@ -1,0 +1,4158 @@
+{
+ "city": "seoul",
+ "generated_at": "2026-09-04T21:59:49+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "seoul",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 76,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "kukje-park-seo-bo-changing-unchanging",
+   "title": "Changing Unchanging (변하는 변하지 않는)",
+   "artist": "Park Seo-Bo",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-24",
+    "end": "2026-10-18"
+   },
+   "n_images": 4,
+   "desc_words": 276,
+   "venue": {
+    "name": "Kukje Gallery",
+    "id": "kukje",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "kukje"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7755723809168673,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.9927,
+   "days_since_open": 11,
+   "days_to_close": 44,
+   "rank": 1,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 76)",
+    "quality 0.90 (4 images, 276 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "kukje-seeun-kim-pictos-pitwall",
+   "title": "Pictos and Pitwall (핏월과 픽토)",
+   "artist": "Seeun Kim",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-24",
+    "end": "2026-10-18"
+   },
+   "n_images": 4,
+   "desc_words": 219,
+   "venue": {
+    "name": "Kukje Gallery",
+    "id": "kukje",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "kukje"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7755723809168673,
+    "closing_soon": 0.0,
+    "quality": 0.8380000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002514
+   },
+   "score": 0.992514,
+   "days_since_open": 11,
+   "days_to_close": 44,
+   "rank": 2,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 76)",
+    "quality 0.84 (4 images, 219 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pkm-reimagine-yun-hyong-keun",
+   "title": "reimagine Yun Hyong-keun",
+   "artist": "Yun Hyong-keun",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-10-03"
+   },
+   "n_images": 6,
+   "desc_words": 292,
+   "venue": {
+    "name": "PKM Gallery",
+    "id": "pkm",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "pkm"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "acquired",
+     "label": "acquired by a museum / collection",
+     "weight": 0.6,
+     "term": "permanent collections of",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9736842105263158,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9639473684210527,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.9669473684210527,
+   "days_since_open": 9,
+   "days_to_close": 29,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 76)",
+    "quality 1.00 (6 images, 292 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pace-kunath-nearest-faraway-place",
+   "title": "The Nearest Faraway Place",
+   "artist": "Friedrich Kunath",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-10-24"
+   },
+   "n_images": 2,
+   "desc_words": 226,
+   "venue": {
+    "name": "Pace Gallery Seoul",
+    "id": "pace-gallery-seoul",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "pace gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9605263157894737,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 0.652
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9509210526315789,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019560000000000003
+   },
+   "score": 0.9528770526315788,
+   "days_since_open": 3,
+   "days_to_close": 50,
+   "rank": 4,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 4 of 76)",
+    "quality 0.65 (2 images, 226 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "lehmann-maupin-kader-attia-irreparable-repairs",
+   "title": "Irreparable Repairs",
+   "artist": "Kader Attia",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-17"
+   },
+   "n_images": 6,
+   "desc_words": 249,
+   "venue": {
+    "name": "Lehmann Maupin Seoul",
+    "id": "lehmann-maupin-seoul",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "lehmann maupin seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9473684210526316,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.998
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9378947368421053,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002994
+   },
+   "score": 0.9408887368421054,
+   "days_since_open": 7,
+   "days_to_close": 43,
+   "rank": 5,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 5 of 76)",
+    "quality 1.00 (6 images, 249 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "ropac-baselitz-per-mano",
+   "title": "Per Mano",
+   "artist": "Georg Baselitz",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-11-14"
+   },
+   "n_images": 5,
+   "desc_words": 261,
+   "venue": {
+    "name": "Thaddaeus Ropac Seoul",
+    "id": "thaddaeus-ropac-seoul",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "thaddaeus ropac seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9342105263157895,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9248684210526316,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.9278684210526316,
+   "days_since_open": 3,
+   "days_to_close": 71,
+   "rank": 6,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.93 (rank 6 of 76)",
+    "quality 1.00 (5 images, 261 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hakgojae-kang-yo-bae",
+   "title": "Little Things, Delightful Greetings (소소, 반색)",
+   "artist": "Kang Yo-Bae",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-12",
+    "end": "2026-09-12"
+   },
+   "n_images": 4,
+   "desc_words": 237,
+   "venue": {
+    "name": "Hakgojae Gallery",
+    "id": "hakgojae",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "hakgojae"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9210526315789473,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5877739531418044,
+    "closing_soon": 1.0,
+    "quality": 0.874
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9118421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002622
+   },
+   "score": 0.9164641052631579,
+   "days_since_open": 23,
+   "days_to_close": 8,
+   "rank": 7,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.92 (rank 7 of 76)",
+    "quality 0.87 (4 images, 237 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hakgojae-solo-solo-solo",
+   "title": "Solo Solo Solo (개인전개인전개인전)",
+   "artist": "GOODMORNINGTOWN, JOO Jaebum, SOON Yiji",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-20",
+    "end": "2026-09-12"
+   },
+   "n_images": 4,
+   "desc_words": 212,
+   "venue": {
+    "name": "Hakgojae Gallery",
+    "id": "hakgojae",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "hakgojae"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9210526315789473,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7071067811865476,
+    "closing_soon": 1.0,
+    "quality": 0.8240000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9118421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0024720000000000002
+   },
+   "score": 0.9163141052631579,
+   "days_since_open": 15,
+   "days_to_close": 8,
+   "rank": 8,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.92 (rank 7 of 76)",
+    "quality 0.82 (4 images, 212 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "perrotin-mr-threshold-tomorrow",
+   "title": "Mr.: On the Threshold of Tomorrow",
+   "artist": "Mr.",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-10-24"
+   },
+   "n_images": 2,
+   "desc_words": 233,
+   "venue": {
+    "name": "Perrotin Seoul",
+    "id": "perrotin-seoul",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "perrotin seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9078947368421053,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 0.666
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8988157894736842,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001998
+   },
+   "score": 0.9008137894736843,
+   "days_since_open": 3,
+   "days_to_close": 50,
+   "rank": 9,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 8 of 76)",
+    "quality 0.67 (2 images, 233 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "asjc-ham-yang-ah-panorama",
+   "title": "Undefined Panorama",
+   "artist": "Yang Ah Ham",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-31",
+    "end": "2026-10-04"
+   },
+   "n_images": 2,
+   "desc_words": 263,
+   "venue": {
+    "name": "Art Sonje Center",
+    "id": "art-sonje-center",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "art sonje center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    },
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new video",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8947368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.44544935907016964,
+    "closing_soon": 0.0,
+    "quality": 0.7
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8857894736842106,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0021
+   },
+   "score": 0.8878894736842106,
+   "days_since_open": 35,
+   "days_to_close": 30,
+   "rank": 10,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 9 of 76)",
+    "quality 0.70 (2 images, 263 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "asjc-muyeong-kim-pig",
+   "title": "Pig",
+   "artist": "Muyeong Kim",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-04"
+   },
+   "n_images": 2,
+   "desc_words": 239,
+   "venue": {
+    "name": "Art Sonje Center",
+    "id": "art-sonje-center",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "art sonje center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first museum solo show",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new photographs",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8947368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.6779999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8857894736842106,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002034
+   },
+   "score": 0.8878234736842106,
+   "days_since_open": 7,
+   "days_to_close": 30,
+   "rank": 11,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 9 of 76)",
+    "quality 0.68 (2 images, 239 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gladstone-ed-atkins-1-day-in-space",
+   "title": "1 day in space",
+   "artist": "Ed Atkins",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-31",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 245,
+   "venue": {
+    "name": "Gladstone Gallery Seoul",
+    "id": "gladstone-gallery-seoul",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "gladstone gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new video",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.881578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9117224885582168,
+    "closing_soon": 0.0,
+    "quality": 0.99
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8727631578947368,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00297
+   },
+   "score": 0.8757331578947368,
+   "days_since_open": 4,
+   "days_to_close": 57,
+   "rank": 12,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.88 (rank 10 of 76)",
+    "quality 0.99 (5 images, 245 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "fujiwara-who-lived-happily-ever-after",
+   "title": "Who Lived Happily Ever After?",
+   "artist": "Simon Fujiwara",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-02",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 258,
+   "venue": {
+    "name": "Esther Schipper, Seoul",
+    "id": "esther-schipper-seoul",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "esther schipper seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.868421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9548416039104165,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8597368421052631,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8627368421052631,
+   "days_since_open": 2,
+   "days_to_close": 57,
+   "rank": 13,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 11 of 76)",
+    "quality 1.00 (5 images, 258 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gallery-baton-grace",
+   "title": "GRACE",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 241,
+   "venue": {
+    "name": "Gallery Baton",
+    "id": "gallery-baton",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "gallery baton"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8421052631578947,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8336842105263157,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.8366302105263157,
+   "days_since_open": 3,
+   "days_to_close": 36,
+   "rank": 14,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 13 of 76)",
+    "quality 0.98 (5 images, 241 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "jasonhaam-mike-lee-idyll-by-the-tide",
+   "title": "Idyll by the Tide",
+   "artist": "Mike Lee",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-11-01"
+   },
+   "n_images": 5,
+   "desc_words": 204,
+   "venue": {
+    "name": "Jason Haam",
+    "id": "jason-haam",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "jason haam"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8289473684210527,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.9079999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8206578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002724
+   },
+   "score": 0.8233818947368421,
+   "days_since_open": 6,
+   "days_to_close": 58,
+   "rank": 15,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.83 (rank 14 of 76)",
+    "quality 0.91 (5 images, 204 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "tang-andrea-galvani",
+   "title": "The Lost Garden of Heaven",
+   "artist": "Andrea Galvani",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-10"
+   },
+   "n_images": 6,
+   "desc_words": 271,
+   "venue": {
+    "name": "Tang Contemporary Art Seoul",
+    "id": "tang-contemporary-art-seoul",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "tang contemporary art seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8157894736842105,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8076315789473684,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8106315789473684,
+   "days_since_open": 6,
+   "days_to_close": 36,
+   "rank": 16,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 15,
+   "pinned": false,
+   "reasons": [
+    "venue 0.82 (rank 15 of 76)",
+    "quality 1.00 (6 images, 271 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "doosan-yeoreum-jeong-the-plural",
+   "title": "The Plural",
+   "artist": "Yeoreum Jeong",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-10-17"
+   },
+   "n_images": 6,
+   "desc_words": 279,
+   "venue": {
+    "name": "DOOSAN Gallery Seoul",
+    "id": "doosan-gallery-seoul",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "doosan gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7894736842105263,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.781578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.784578947368421,
+   "days_since_open": 9,
+   "days_to_close": 43,
+   "rank": 17,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 16,
+   "pinned": false,
+   "reasons": [
+    "venue 0.79 (rank 17 of 76)",
+    "quality 1.00 (6 images, 279 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gallery2-double-skin-suyeon-kim",
+   "title": "Double Skin",
+   "artist": "Suyeon Kim",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-27",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 201,
+   "venue": {
+    "name": "Gallery2",
+    "id": "gallery2",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "gallery2"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7763157894736842,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8312378961427878,
+    "closing_soon": 0.0,
+    "quality": 0.902
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7685526315789474,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002706
+   },
+   "score": 0.7712586315789474,
+   "days_since_open": 8,
+   "days_to_close": 29,
+   "rank": 18,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 17,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 18 of 76)",
+    "quality 0.90 (5 images, 201 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "leeahn-umar-rashid",
+   "title": "The Epoch of Totalitarianism IV: The Slow Motion Chaos of Bread and Circuses",
+   "artist": "Umar Rashid",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-31",
+    "end": "2026-10-17"
+   },
+   "n_images": 1,
+   "desc_words": 219,
+   "venue": {
+    "name": "Leeahn Gallery Seoul",
+    "id": "leeahn-gallery-seoul",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "leeahn gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7631578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9117224885582168,
+    "closing_soon": 0.0,
+    "quality": 0.538
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7555263157894737,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016140000000000002
+   },
+   "score": 0.7571403157894737,
+   "days_since_open": 4,
+   "days_to_close": 43,
+   "rank": 19,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 18,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 19 of 76)",
+    "quality 0.54 (1 images, 219 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "bbm-alex-dodge-dream-weaver",
+   "title": "Dream Weaver",
+   "artist": "Alex Dodge",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-22",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 225,
+   "venue": {
+    "name": "BB&M",
+    "id": "bb-and-m",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "bb and m"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.75,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7405487761432821,
+    "closing_soon": 0.0,
+    "quality": 0.95
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7424999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00285
+   },
+   "score": 0.74535,
+   "days_since_open": 13,
+   "days_to_close": 29,
+   "rank": 20,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 19,
+   "pinned": false,
+   "reasons": [
+    "venue 0.75 (rank 20 of 76)",
+    "quality 0.95 (5 images, 225 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "loop-vivi-zhu-untrustworthy-hearts",
+   "title": "(Un)Trustworthy Hearts",
+   "artist": "Vivi Zhu",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-14",
+    "end": "2026-09-12"
+   },
+   "n_images": 6,
+   "desc_words": 242,
+   "venue": {
+    "name": "Alternative Space LOOP",
+    "id": "alternative-space-loop",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "alternative space loop"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.736842105263158,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6155722066724582,
+    "closing_soon": 1.0,
+    "quality": 0.984
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7294736842105264,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002952
+   },
+   "score": 0.7344256842105263,
+   "days_since_open": 21,
+   "days_to_close": 8,
+   "rank": 21,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 20,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 21 of 76)",
+    "quality 0.98 (6 images, 242 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "wnd-son-jihyeong-at-the-point",
+   "title": "at the point",
+   "artist": "Son Jihyeong",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-09-23"
+   },
+   "n_images": 5,
+   "desc_words": 196,
+   "venue": {
+    "name": "Space Willing N Dealing",
+    "id": "space-willing-n-dealing",
+    "tier": 2,
+    "rank": 24,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "space willing n dealing"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6973684210526316,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.892
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6903947368421053,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002676
+   },
+   "score": 0.6930707368421053,
+   "days_since_open": 6,
+   "days_to_close": 19,
+   "rank": 22,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 21,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 24 of 76)",
+    "quality 0.89 (5 images, 196 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "chapterii-2026-residency",
+   "title": "Chapter II 2026 Residency Exhibition",
+   "artist": "Park Ji Won, Byun Chae Young, Choi Mo Min",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-02",
+    "end": "2026-10-23"
+   },
+   "n_images": 5,
+   "desc_words": 203,
+   "venue": {
+    "name": "Chapter II",
+    "id": "chapter-ii",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Yeonhui/Mapo",
+    "norm": "chapter ii"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6842105263157895,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9548416039104165,
+    "closing_soon": 0.0,
+    "quality": 0.906
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6773684210526316,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002718
+   },
+   "score": 0.6800864210526316,
+   "days_since_open": 2,
+   "days_to_close": 49,
+   "rank": 23,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 22,
+   "pinned": false,
+   "reasons": [
+    "venue 0.68 (rank 25 of 76)",
+    "quality 0.91 (5 images, 203 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "spacek-kaws-friends-neighbors",
+   "title": "KAWS: Friends and Neighbors",
+   "artist": "KAWS (Brian Donnelly)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-23",
+    "end": "2026-12-27"
+   },
+   "n_images": 5,
+   "desc_words": 264,
+   "venue": {
+    "name": "Space K Seoul",
+    "id": "space-k-seoul",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Yeonhui/Mapo",
+    "norm": "space k seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo museum exhibition",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6710526315789473,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37027438807164104,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6643421052631578,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.6673421052631578,
+   "days_since_open": 43,
+   "days_to_close": 114,
+   "rank": 24,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 23,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 26 of 76)",
+    "quality 1.00 (5 images, 264 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "whitestone-soonik-kwon",
+   "title": "Mountains as Mountains, Waters as Waters",
+   "artist": "Soonik Kwon",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-11"
+   },
+   "n_images": 3,
+   "desc_words": 253,
+   "venue": {
+    "name": "Whitestone Gallery Seoul",
+    "id": "whitestone-gallery-seoul",
+    "tier": 2,
+    "rank": 27,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "whitestone gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four-decade",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6578947368421053,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.8
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6513157894736843,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024000000000000002
+   },
+   "score": 0.6537157894736843,
+   "days_since_open": 6,
+   "days_to_close": 37,
+   "rank": 25,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 24,
+   "pinned": false,
+   "reasons": [
+    "venue 0.66 (rank 27 of 76)",
+    "quality 0.80 (3 images, 253 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "whitecube-marina-rheingantz",
+   "title": "Míope",
+   "artist": "Marina Rheingantz",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 282,
+   "venue": {
+    "name": "White Cube Seoul",
+    "id": "white-cube-seoul",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "white cube seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6447368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6382894736842105,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.6412894736842105,
+   "days_since_open": 3,
+   "days_to_close": 50,
+   "rank": 26,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 25,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 28 of 76)",
+    "quality 1.00 (5 images, 282 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "whitecube-theaster-gates",
+   "title": "Theaster Gates: Seoul (2026)",
+   "artist": "Theaster Gates",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-11-04",
+    "end": "2026-12-18"
+   },
+   "n_images": 1,
+   "desc_words": 182,
+   "venue": {
+    "name": "White Cube Seoul",
+    "id": "white-cube-seoul",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "white cube seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6447368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.46399999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6382894736842105,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001392
+   },
+   "score": 0.6396814736842105,
+   "days_since_open": -61,
+   "days_to_close": 105,
+   "rank": 27,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 28 of 76)",
+    "quality 0.46 (1 images, 182 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "na-claires-camera",
+   "title": "Claire's Camera",
+   "artist": "Nicolas Bermeo, Bailey Connolly, Isaiah Davis, Audrey Gair, Jiyoon Chung, Sangwoo Kim, Nandi Loaf, Isabelle Frances McGuire, Sveta Mordovskaya, Sunwoo, Kira Scerbin, Joe Speier, Michelle Uckotter, Elis &amp; Parker von Sternberg",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-31",
+    "end": "2026-10-18"
+   },
+   "n_images": 2,
+   "desc_words": 225,
+   "venue": {
+    "name": "N/A",
+    "id": "n-a",
+    "tier": 2,
+    "rank": 29,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "n a"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.631578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9117224885582168,
+    "closing_soon": 0.0,
+    "quality": 0.65
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6252631578947369,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019500000000000001
+   },
+   "score": 0.6272131578947369,
+   "days_since_open": 4,
+   "days_to_close": 44,
+   "rank": 28,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 26,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 29 of 76)",
+    "quality 0.65 (2 images, 225 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gallery-simon-becoming-with",
+   "title": "Becoming With",
+   "artist": "Joohyun Kim, MeeNa Park, Yo-E Ryou",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-15"
+   },
+   "n_images": 1,
+   "desc_words": 237,
+   "venue": {
+    "name": "Gallery Simon",
+    "id": "gallery-simon",
+    "tier": 2,
+    "rank": 30,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "gallery simon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.618421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.574
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6122368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001722
+   },
+   "score": 0.6139588421052632,
+   "days_since_open": 1,
+   "days_to_close": 41,
+   "rank": 29,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 27,
+   "pinned": false,
+   "reasons": [
+    "venue 0.62 (rank 30 of 76)",
+    "quality 0.57 (1 images, 237 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "tw-room-ostranenie",
+   "title": "Ostranenie",
+   "artist": "Jina Park, Julius Hofmann, Lucas Kaiser, Tilo Baumgärtel",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-10-02"
+   },
+   "n_images": 6,
+   "desc_words": 222,
+   "venue": {
+    "name": "ThisWeekendRoom",
+    "id": "thisweekendroom",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "thisweekendroom"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5921052631578947,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 0.944
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5861842105263158,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002832
+   },
+   "score": 0.5890162105263157,
+   "days_since_open": 9,
+   "days_to_close": 28,
+   "rank": 30,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 28,
+   "pinned": false,
+   "reasons": [
+    "venue 0.59 (rank 32 of 76)",
+    "quality 0.94 (6 images, 222 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "bhak-white-noise",
+   "title": "White Noise",
+   "artist": "Nam June Paik & Kim Ryu",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-20",
+    "end": "2026-09-23"
+   },
+   "n_images": 5,
+   "desc_words": 282,
+   "venue": {
+    "name": "Gallery Bhak (BHAK)",
+    "id": "gallery-bhak",
+    "tier": 2,
+    "rank": 33,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "gallery bhak bhak"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5789473684210527,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7071067811865476,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5731578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.5761578947368421,
+   "days_since_open": 15,
+   "days_to_close": 19,
+   "rank": 31,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 29,
+   "pinned": false,
+   "reasons": [
+    "venue 0.58 (rank 33 of 76)",
+    "quality 1.00 (5 images, 282 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "primary-practice-art-of-loving",
+   "title": "The Art of Loving",
+   "artist": "An Chorong, Noh Songhee, Lee Kangseung",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-25",
+    "end": "2026-09-19"
+   },
+   "n_images": 2,
+   "desc_words": 239,
+   "venue": {
+    "name": "Primary Practice",
+    "id": "primary-practice",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "primary practice"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5263157894736843,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.38778619045843365,
+    "closing_soon": 0.0,
+    "quality": 0.6779999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5210526315789474,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002034
+   },
+   "score": 0.5230866315789474,
+   "days_since_open": 41,
+   "days_to_close": 15,
+   "rank": 32,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 30,
+   "pinned": false,
+   "reasons": [
+    "venue 0.53 (rank 37 of 76)",
+    "quality 0.68 (2 images, 239 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pibi-jazoo-yang",
+   "title": "All that will remain, something that will never disappear",
+   "artist": "Jazoo Yang",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-12",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 288,
+   "venue": {
+    "name": "PIBI Gallery",
+    "id": "pibi",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "pibi"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new series",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4736842105263158,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5877739531418044,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.46894736842105267,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.47194736842105267,
+   "days_since_open": 23,
+   "days_to_close": 29,
+   "rank": 33,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 31,
+   "pinned": false,
+   "reasons": [
+    "venue 0.47 (rank 41 of 76)",
+    "quality 1.00 (5 images, 288 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "keumsan-in-scale",
+   "title": "IN SCALE",
+   "artist": "Lee Jae-hyung, Jung Jung-ju, Park Geun-ho, Han Seung-gu",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-31",
+    "end": "2026-09-30"
+   },
+   "n_images": 2,
+   "desc_words": 168,
+   "venue": {
+    "name": "Keumsan Gallery",
+    "id": "keumsan",
+    "tier": 2,
+    "rank": 42,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "keumsan"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4605263157894737,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9117224885582168,
+    "closing_soon": 0.0,
+    "quality": 0.536
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.45592105263157895,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001608
+   },
+   "score": 0.45752905263157895,
+   "days_since_open": 4,
+   "days_to_close": 26,
+   "rank": 34,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 32,
+   "pinned": false,
+   "reasons": [
+    "venue 0.46 (rank 42 of 76)",
+    "quality 0.54 (2 images, 168 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "up-against-the-walls",
+   "title": "Up Against the Walls!",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 254,
+   "venue": {
+    "name": "The Page Gallery",
+    "id": "page",
+    "tier": 2,
+    "rank": 43,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seongsu",
+    "norm": "page"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4473684210526315,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.44289473684210523,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.44469473684210525,
+   "days_since_open": 9,
+   "days_to_close": 36,
+   "rank": 35,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 33,
+   "pinned": false,
+   "reasons": [
+    "venue 0.45 (rank 43 of 76)",
+    "quality 0.60 (1 images, 254 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "museumhead-eunme-ahn-sculpture-show",
+   "title": "Eun-Me Ahn's Sculpture Show",
+   "artist": "Eun-Me Ahn",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-03"
+   },
+   "n_images": 1,
+   "desc_words": 189,
+   "venue": {
+    "name": "museumhead",
+    "id": "museumhead",
+    "tier": 2,
+    "rank": 45,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "museumhead"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.42105263157894735,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.478
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.41684210526315785,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001434
+   },
+   "score": 0.41827610526315784,
+   "days_since_open": 6,
+   "days_to_close": 29,
+   "rank": 36,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 34,
+   "pinned": false,
+   "reasons": [
+    "venue 0.42 (rank 45 of 76)",
+    "quality 0.48 (1 images, 189 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "drawingroom-rigorous-hands",
+   "title": "Rigorous Hands",
+   "artist": "Jinsik Yoo, Sungoo Im, Sooji Lee, Sanoh Lee, Donghoon Rhee, Leebinsoyeon, Miyeon Yi, Yoo Jung Ellie Choi",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-27",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 228,
+   "venue": {
+    "name": "drawingRoom",
+    "id": "drawingroom",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "drawingroom"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.39473684210526316,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8312378961427878,
+    "closing_soon": 1.0,
+    "quality": 0.956
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3907894736842105,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002868
+   },
+   "score": 0.3956574736842105,
+   "days_since_open": 8,
+   "days_to_close": 8,
+   "rank": 37,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 35,
+   "pinned": false,
+   "reasons": [
+    "venue 0.39 (rank 47 of 76)",
+    "quality 0.96 (5 images, 228 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gallery-sp-chris-ro-once-upon-now",
+   "title": "Once Upon Now",
+   "artist": "Chris Ro",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-20",
+    "end": "2026-09-30"
+   },
+   "n_images": 5,
+   "desc_words": 236,
+   "venue": {
+    "name": "Gallery SP",
+    "id": "gallery-sp",
+    "tier": 2,
+    "rank": 48,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "gallery sp"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.381578947368421,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7071067811865476,
+    "closing_soon": 0.0,
+    "quality": 0.972
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3777631578947368,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002916
+   },
+   "score": 0.3806791578947368,
+   "days_since_open": 15,
+   "days_to_close": 26,
+   "rank": 38,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 36,
+   "pinned": false,
+   "reasons": [
+    "venue 0.38 (rank 48 of 76)",
+    "quality 0.97 (5 images, 236 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "sun-gallery-panvital-transcendentalism",
+   "title": "Panvital Transcendentalism (범생명적 초월주의)",
+   "artist": "Hoon Kwak, Jaekwon Kim, Manyoung Han, Sukju Lee, Doobin Im, Jonghae Park, Jindu Kim, Kwangho Cho, Youngjin Kim, Sunwang Qwon, Eunsook Shin, Youngwon Kim",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-09-29"
+   },
+   "n_images": 7,
+   "desc_words": 266,
+   "venue": {
+    "name": "Sun Gallery",
+    "id": "sun",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "sun"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.368421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3647368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.3677368421052632,
+   "days_since_open": 9,
+   "days_to_close": 25,
+   "rank": 39,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 37,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 49 of 76)",
+    "quality 1.00 (7 images, 266 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "sun-gallery-the-cycle-incipit-obvious",
+   "title": "The Cycle: Incipit — The Promise of Becoming",
+   "artist": "Obvious",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-02"
+   },
+   "n_images": 2,
+   "desc_words": 224,
+   "venue": {
+    "name": "Sun Gallery",
+    "id": "sun",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "sun"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.368421052631579,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.648
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3647368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019440000000000002
+   },
+   "score": 0.3666808421052632,
+   "days_since_open": 1,
+   "days_to_close": 28,
+   "rank": 40,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 38,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 49 of 76)",
+    "quality 0.65 (2 images, 224 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "cha-minyoung-whiffling",
+   "title": "Whiffling",
+   "artist": "Cha Minyoung",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-22",
+    "end": "2026-09-22"
+   },
+   "n_images": 2,
+   "desc_words": 224,
+   "venue": {
+    "name": "PYO Gallery",
+    "id": "pyo",
+    "tier": 2,
+    "rank": 50,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "pyo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.35526315789473684,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7405487761432821,
+    "closing_soon": 0.0,
+    "quality": 0.648
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3517105263157895,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019440000000000002
+   },
+   "score": 0.3536545263157895,
+   "days_since_open": 13,
+   "days_to_close": 18,
+   "rank": 41,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 39,
+   "pinned": false,
+   "reasons": [
+    "venue 0.36 (rank 50 of 76)",
+    "quality 0.65 (2 images, 224 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "choiandchoi-future-elegy",
+   "title": "Future Elegy For a New Life",
+   "artist": "Gijeong Goo, Hyunjin Park, Soeun Bae",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-09-30"
+   },
+   "n_images": 5,
+   "desc_words": 229,
+   "venue": {
+    "name": "CHOI&CHOI Gallery",
+    "id": "choi-and-choi",
+    "tier": 3,
+    "rank": 53,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Yeonhui/Mapo",
+    "norm": "choi and choi"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3157894736842105,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 0.0,
+    "quality": 0.958
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3126315789473684,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002874
+   },
+   "score": 0.3155055789473684,
+   "days_since_open": 3,
+   "days_to_close": 26,
+   "rank": 42,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 40,
+   "pinned": false,
+   "reasons": [
+    "venue 0.32 (rank 53 of 76)",
+    "quality 0.96 (5 images, 229 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "em-on-paper",
+   "title": "On Paper",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-27",
+    "end": "2026-10-11"
+   },
+   "n_images": 6,
+   "desc_words": 221,
+   "venue": {
+    "name": "Everyday Mooonday",
+    "id": "everyday-mooonday",
+    "tier": 3,
+    "rank": 55,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "everyday mooonday"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2894736842105263,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8312378961427878,
+    "closing_soon": 0.0,
+    "quality": 0.942
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.28657894736842104,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002826
+   },
+   "score": 0.28940494736842104,
+   "days_since_open": 8,
+   "days_to_close": 37,
+   "rank": 43,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 41,
+   "pinned": false,
+   "reasons": [
+    "venue 0.29 (rank 55 of 76)",
+    "quality 0.94 (6 images, 221 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "ilwoo-nam-hwayeon-nap",
+   "title": "Nap",
+   "artist": "Nam Hwayeon",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-18",
+    "end": "2026-09-30"
+   },
+   "n_images": 7,
+   "desc_words": 234,
+   "venue": {
+    "name": "Ilwoo Space",
+    "id": "ilwoo-space",
+    "tier": 3,
+    "rank": 57,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "ilwoo space"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new video",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.26315789473684215,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.675174973084095,
+    "closing_soon": 0.0,
+    "quality": 0.968
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2605263157894737,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002904
+   },
+   "score": 0.26343031578947373,
+   "days_since_open": 17,
+   "days_to_close": 26,
+   "rank": 44,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 42,
+   "pinned": false,
+   "reasons": [
+    "venue 0.26 (rank 57 of 76)",
+    "quality 0.97 (7 images, 234 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "arko-art-school",
+   "title": "Art School: When We Become Each Other's School",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-07",
+    "end": "2026-09-27"
+   },
+   "n_images": 3,
+   "desc_words": 245,
+   "venue": {
+    "name": "Arko Art Center",
+    "id": "arko-art-center",
+    "tier": 3,
+    "rank": 58,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "arko art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.25,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5236470614103134,
+    "closing_soon": 0.0,
+    "quality": 0.79
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2475,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00237
+   },
+   "score": 0.24987,
+   "days_since_open": 28,
+   "days_to_close": 23,
+   "rank": 45,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.25 (rank 58 of 76)",
+    "quality 0.79 (3 images, 245 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "galleryjj-kim-younghun-proxima",
+   "title": "Proxima",
+   "artist": "Kim Young-Hun",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-19",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 257,
+   "venue": {
+    "name": "Gallery JJ",
+    "id": "gallery-jj",
+    "tier": 3,
+    "rank": 62,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "gallery jj"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.19736842105263153,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.690956439983888,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1953947368421052,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.1983947368421052,
+   "days_since_open": 16,
+   "days_to_close": 29,
+   "rank": 46,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 43,
+   "pinned": false,
+   "reasons": [
+    "venue 0.20 (rank 62 of 76)",
+    "quality 1.00 (5 images, 257 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "artside-kim-hodeuk-subtracting",
+   "title": "Subtracting and Subtracting Again",
+   "artist": "Kim Hodeuk",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-17"
+   },
+   "n_images": 5,
+   "desc_words": 231,
+   "venue": {
+    "name": "Artside Gallery",
+    "id": "artside",
+    "tier": 3,
+    "rank": 65,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "artside"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1578947368421053,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.962
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.15631578947368427,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002886
+   },
+   "score": 0.15920178947368427,
+   "days_since_open": 7,
+   "days_to_close": 43,
+   "rank": 47,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.16 (rank 65 of 76)",
+    "quality 0.96 (5 images, 231 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "dear-collectors-yes-you",
+   "title": "Dear Collectors, Yes, You",
+   "artist": "Choi Seong-im, Kang Juri, Oh Yeonjin",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-06",
+    "end": "2026-09-05"
+   },
+   "n_images": 5,
+   "desc_words": 233,
+   "venue": {
+    "name": "The Reference",
+    "id": "reference",
+    "tier": 3,
+    "rank": 67,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Seochon/Tongui",
+    "norm": "reference"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.13157894736842102,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5116869459983875,
+    "closing_soon": 1.0,
+    "quality": 0.966
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1302631578947368,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002898
+   },
+   "score": 0.13516115789473682,
+   "days_since_open": 29,
+   "days_to_close": 1,
+   "rank": 48,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 44,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 67 of 76)",
+    "quality 0.97 (5 images, 233 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "futura-seoul-es-devlin-3rd-poem",
+   "title": "3rd Poem: Es Devlin, Come Home Again",
+   "artist": "Es Devlin",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-20",
+    "end": "2027-01-17"
+   },
+   "n_images": 5,
+   "desc_words": 309,
+   "venue": {
+    "name": "Futura Seoul",
+    "id": "futura-seoul",
+    "tier": 3,
+    "rank": 68,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Samcheong/Bukchon",
+    "norm": "futura seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.11842105263157898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7071067811865476,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1172368421052632,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.1202368421052632,
+   "days_since_open": 15,
+   "days_to_close": 135,
+   "rank": 49,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 45,
+   "pinned": false,
+   "reasons": [
+    "venue 0.12 (rank 68 of 76)",
+    "quality 1.00 (5 images, 309 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "opera-xevi-sola-one-year",
+   "title": "One Year – Scenes in Time",
+   "artist": "Xevi Solà",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-10",
+    "end": "2026-10-20"
+   },
+   "n_images": 6,
+   "desc_words": 201,
+   "venue": {
+    "name": "Opera Gallery Seoul",
+    "id": "opera-gallery-seoul",
+    "tier": 3,
+    "rank": 69,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "opera gallery seoul"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first major outing",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.10526315789473684,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2742062449236565,
+    "closing_soon": 0.0,
+    "quality": 0.902
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.10421052631578946,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002706
+   },
+   "score": 0.10691652631578946,
+   "days_since_open": 56,
+   "days_to_close": 46,
+   "rank": 50,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 46,
+   "pinned": false,
+   "reasons": [
+    "venue 0.11 (rank 69 of 76)",
+    "quality 0.90 (6 images, 201 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "piknic-company-world-affair",
+   "title": "World Affair",
+   "artist": "COMPANY (Aamu Song &amp; Johan Olin)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-03",
+    "end": "2026-09-06"
+   },
+   "n_images": 5,
+   "desc_words": 250,
+   "venue": {
+    "name": "Piknic",
+    "id": "piknic",
+    "tier": 3,
+    "rank": 71,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Euljiro/Jung-gu",
+    "norm": "piknic"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.07894736842105265,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.028491327767444268,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.07815789473684213,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.08315789473684214,
+   "days_since_open": 154,
+   "days_to_close": 2,
+   "rank": 51,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 47,
+   "pinned": false,
+   "reasons": [
+    "venue 0.08 (rank 71 of 76)",
+    "quality 1.00 (5 images, 250 words)",
+    "closes in 2 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "space22-time-of-photo",
+   "title": "Time of Photo 1: Digital, Vintage, AI",
+   "artist": "Kang Hong-goo",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-19",
+    "end": "2026-09-07"
+   },
+   "n_images": 5,
+   "desc_words": 263,
+   "venue": {
+    "name": "Space22",
+    "id": "space22",
+    "tier": 3,
+    "rank": 73,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "norm": "space22"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three-decade",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.052631578947368474,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.690956439983888,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.052105263157894786,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.057105263157894784,
+   "days_since_open": 16,
+   "days_to_close": 3,
+   "rank": 52,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 48,
+   "pinned": false,
+   "reasons": [
+    "venue 0.05 (rank 73 of 76)",
+    "quality 1.00 (5 images, 263 words)",
+    "closes in 3 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "joeun-cloud-9",
+   "title": "Cloud 9",
+   "artist": "Seong Ryul",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-20",
+    "end": "2026-09-19"
+   },
+   "n_images": 2,
+   "desc_words": 254,
+   "venue": {
+    "name": "Gallery Joeun",
+    "id": "gallery-joeun",
+    "tier": 3,
+    "rank": 75,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Hannam/Itaewon",
+    "norm": "gallery joeun"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.02631578947368418,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7071067811865476,
+    "closing_soon": 0.0,
+    "quality": 0.7
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.026052631578947338,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0021
+   },
+   "score": 0.02815263157894734,
+   "days_since_open": 15,
+   "days_to_close": 15,
+   "rank": 53,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 49,
+   "pinned": false,
+   "reasons": [
+    "venue 0.03 (rank 75 of 76)",
+    "quality 0.70 (2 images, 254 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788559188,
+   "run_id": "apply-seoul-1788559188",
+   "city": "seoul",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=40 reorder=True params=bb09b654c2d1",
+   "params_hash": "bb09b654c2d1"
+  },
+  {
+   "ts": 1788559189,
+   "run_id": "score-seoul-1788559189",
+   "city": "seoul",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.13,
+   "notes": "n_shows=53 featured=49 snapshot=None params=bb09b654c2d1",
+   "params_hash": "bb09b654c2d1",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 49,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

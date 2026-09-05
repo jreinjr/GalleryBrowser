@@ -1,0 +1,516 @@
+{
+  "city": "mexico-city",
+  "start_ts": 1788557333,
+  "zones": [
+    "Colonia Ju\u00e1rez/Cuauht\u00e9moc",
+    "San Miguel Chapultepec",
+    "Roma/Condesa",
+    "Polanco",
+    "San Rafael/Santa Mar\u00eda la Ribera"
+  ],
+  "args": {
+    "city": "mexico-city",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/mexico-city/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788558422,
+  "queue": {
+    "Colonia Ju\u00e1rez/Cuauht\u00e9moc": {
+      "zone": "Colonia Ju\u00e1rez/Cuauht\u00e9moc",
+      "order": 0,
+      "due": 1,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "San Miguel Chapultepec": {
+      "zone": "San Miguel Chapultepec",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Roma/Condesa": {
+      "zone": "Roma/Condesa",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Polanco": {
+      "zone": "Polanco",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "San Rafael/Santa Mar\u00eda la Ribera": {
+      "zone": "San Rafael/Santa Mar\u00eda la Ribera",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "ago-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ethra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fundacion-alumnos47"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-arvil"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-hydra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-karen-huber"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-mascota"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-metropolitana-uam"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-del-lago-unam"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-de-arte-mexicano-gam"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-enrique-guerrero"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-rgr"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kurimanzutto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "labor"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lagoalgo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "le-laboratoire"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "aguafuerte-galeria"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "atea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "campeche"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-lamm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "general-expenses"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "house-of-gaga"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "liga-espacio-para-arquitectura"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "masa-galeria"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Colonia Ju\u00e1rez/Cuauht\u00e9moc",
+      "session": 1,
+      "todo": 8,
+      "saved": 6,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-mexico-city-colonia-ju-rez-cuauht-moc-1788557333",
+      "venue_ids": [
+        "ago-projects",
+        "ethra",
+        "fundacion-alumnos47",
+        "galeria-arvil",
+        "galeria-hydra",
+        "galeria-karen-huber",
+        "galeria-mascota",
+        "galeria-metropolitana-uam"
+      ],
+      "started_ts": 1788557333,
+      "ended_ts": 1788557711
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "aeromoto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-de-el-hijo-del-ahuizote"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-gallina"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fundacion-casa-wabi-sabino"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-del-ifal"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-jose-maria-velasco"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "guadalajara-90210"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "josegarcia-mx"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roma/Condesa",
+      "session": 1,
+      "todo": 8,
+      "saved": 5,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-mexico-city-roma-condesa-1788557375",
+      "venue_ids": [
+        "aguafuerte-galeria",
+        "atea",
+        "campeche",
+        "casa-lamm",
+        "general-expenses",
+        "house-of-gaga",
+        "liga-espacio-para-arquitectura",
+        "masa-galeria"
+      ],
+      "started_ts": 1788557375,
+      "ended_ts": 1788557751
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "biquini-wax-eps"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-lopez-quiroga"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-oscar-roman"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ls-galeria"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "proyectos-monclova"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Miguel Chapultepec",
+      "session": 1,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-mexico-city-san-miguel-chapultepec-1788557353",
+      "venue_ids": [
+        "casa-del-lago-unam",
+        "galeria-de-arte-mexicano-gam",
+        "galeria-enrique-guerrero",
+        "galeria-rgr",
+        "kurimanzutto",
+        "labor",
+        "lagoalgo",
+        "le-laboratoire"
+      ],
+      "started_ts": 1788557353,
+      "ended_ts": 1788557828
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-nordenhake"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jo-hs"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "la-cometa-mexico"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "llano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lodos"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mariane-ibrahim"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pequod-co"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "praxis-mexico"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Rafael/Santa Mar\u00eda la Ribera",
+      "session": 1,
+      "todo": 8,
+      "saved": 2,
+      "skipped": 7,
+      "exit": 0,
+      "label": "deep-mexico-city-san-rafael-santa-mar-a-la-ribera-1788557711",
+      "venue_ids": [
+        "aeromoto",
+        "casa-de-el-hijo-del-ahuizote",
+        "casa-gallina",
+        "fundacion-casa-wabi-sabino",
+        "galeria-del-ifal",
+        "galeria-jose-maria-velasco",
+        "guadalajara-90210",
+        "josegarcia-mx"
+      ],
+      "started_ts": 1788557711,
+      "ended_ts": 1788557958
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "masa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "patricia-conde-galeria"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "saenger-galeria"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soma"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Polanco",
+      "session": 1,
+      "todo": 5,
+      "saved": 3,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-mexico-city-polanco-1788557751",
+      "venue_ids": [
+        "biquini-wax-eps",
+        "galeria-lopez-quiroga",
+        "galeria-oscar-roman",
+        "ls-galeria",
+        "proyectos-monclova"
+      ],
+      "started_ts": 1788557751,
+      "ended_ts": 1788558011
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "peana"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "salon-silicon"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "terreno-baldio-arte"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Colonia Ju\u00e1rez/Cuauht\u00e9moc",
+      "session": 2,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-mexico-city-colonia-ju-rez-cuauht-moc-1788557828",
+      "venue_ids": [
+        "galeria-nordenhake",
+        "jo-hs",
+        "la-cometa-mexico",
+        "llano",
+        "lodos",
+        "mariane-ibrahim",
+        "pequod-co",
+        "praxis-mexico"
+      ],
+      "started_ts": 1788557828,
+      "ended_ts": 1788558153
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "proyector"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "relaciones-publicas"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roma/Condesa",
+      "session": 2,
+      "todo": 3,
+      "saved": 4,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-mexico-city-roma-condesa-1788558011",
+      "venue_ids": [
+        "peana",
+        "salon-silicon",
+        "terreno-baldio-arte"
+      ],
+      "started_ts": 1788558011,
+      "ended_ts": 1788558220
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "travesia-cuatro"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Miguel Chapultepec",
+      "session": 2,
+      "todo": 4,
+      "saved": 4,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-mexico-city-san-miguel-chapultepec-1788557958",
+      "venue_ids": [
+        "masa",
+        "patricia-conde-galeria",
+        "saenger-galeria",
+        "soma"
+      ],
+      "started_ts": 1788557958,
+      "ended_ts": 1788558223
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Rafael/Santa Mar\u00eda la Ribera",
+      "session": 2,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-mexico-city-san-rafael-santa-mar-a-la-ribera-1788558153",
+      "venue_ids": [
+        "proyector",
+        "relaciones-publicas"
+      ],
+      "started_ts": 1788558153,
+      "ended_ts": 1788558291
+    },
+    {
+      "stage": "scrape",
+      "zone": "Colonia Ju\u00e1rez/Cuauht\u00e9moc",
+      "session": 3,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-mexico-city-colonia-ju-rez-cuauht-moc-1788558220",
+      "venue_ids": [
+        "travesia-cuatro"
+      ],
+      "started_ts": 1788558220,
+      "ended_ts": 1788558422
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "city": "berlin",
+  "start_ts": 1788556432,
+  "zones": [
+    "Mitte",
+    "Kreuzberg",
+    "Charlottenburg",
+    "Sch\u00f6neberg"
+  ],
+  "args": {
+    "city": "berlin",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 70.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/berlin/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788558456,
+  "queue": {
+    "Mitte": {
+      "zone": "Mitte",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Kreuzberg": {
+      "zone": "Kreuzberg",
+      "order": 1,
+      "due": 8,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Charlottenburg": {
+      "zone": "Charlottenburg",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Sch\u00f6neberg": {
+      "zone": "Sch\u00f6neberg",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "alexander-levy"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "capitain-petzel"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galeria-plan-b"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-anton-janizewski"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-deschler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-eigen-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-nagel-draxler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-neu"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "aurel-scheibler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "barbara-wien"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dorothee-nilsson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "esther-schipper"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-friese"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-georg-nothelfer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-guido-w-baudach"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-isabella-bortolozzi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "c-o-berlin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "camera-work"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-berinson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-buchholz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-crone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-kajetan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-kornfeld"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mitte",
+      "session": 1,
+      "todo": 8,
+      "saved": 8,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-berlin-mitte-1788556432",
+      "venue_ids": [
+        "alexander-levy",
+        "capitain-petzel",
+        "galeria-plan-b",
+        "galerie-anton-janizewski",
+        "galerie-deschler",
+        "galerie-eigen-art",
+        "galerie-nagel-draxler",
+        "galerie-neu"
+      ],
+      "started_ts": 1788556432,
+      "ended_ts": 1788556761
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "between-bridges"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "buchmann-galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "carlier-gebauer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "daadgalerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ebensperger"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-barbara-thumm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-thomas-schulte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "julia-stoschek-foundation-berlin"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sch\u00f6neberg",
+      "session": 1,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-berlin-sch-neberg-1788556454",
+      "venue_ids": [
+        "aurel-scheibler",
+        "barbara-wien",
+        "dorothee-nilsson",
+        "esther-schipper",
+        "galerie-friese",
+        "galerie-georg-nothelfer",
+        "galerie-guido-w-baudach",
+        "galerie-isabella-bortolozzi"
+      ],
+      "started_ts": 1788556454,
+      "ended_ts": 1788557017
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-nord-kunstverein-tiergarten"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-poll"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-thomas-fischer"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-wedding-raum-fur-zeitgenossische-kunst"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kuckei-kuckei"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kunstverein-am-rosa-luxemburg-platz"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kw-institute-for-contemporary-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ngbk-neue-gesellschaft-fur-bildende-kunst"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Kreuzberg",
+      "session": 1,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-berlin-kreuzberg-1788556761",
+      "venue_ids": [
+        "between-bridges",
+        "buchmann-galerie",
+        "carlier-gebauer",
+        "daadgalerie",
+        "ebensperger",
+        "galerie-barbara-thumm",
+        "galerie-thomas-schulte",
+        "julia-stoschek-foundation-berlin"
+      ],
+      "started_ts": 1788556761,
+      "ended_ts": 1788557194
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-tanja-wagner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hua-international"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "jarmuschek-partner"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kow"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "meyer-riegger"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "noah-klink"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "psm"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "reiter"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Charlottenburg",
+      "session": 1,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 8,
+      "exit": 0,
+      "label": "deep-berlin-charlottenburg-1788556474",
+      "venue_ids": [
+        "c-o-berlin",
+        "camera-work",
+        "contemporary",
+        "galerie-berinson",
+        "galerie-buchholz",
+        "galerie-crone",
+        "galerie-kajetan",
+        "galerie-kornfeld"
+      ],
+      "started_ts": 1788556474,
+      "ended_ts": 1788557195
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-max-hetzler"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-michael-haas"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-springer-berlin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-volker-diehl"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "haus-am-waldsee"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "haverkampf-leistenschneider"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "robert-grunenberg"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "societe"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mitte",
+      "session": 2,
+      "todo": 8,
+      "saved": 9,
+      "skipped": 4,
+      "exit": 0,
+      "label": "deep-berlin-mitte-1788557017",
+      "venue_ids": [
+        "galerie-nord-kunstverein-tiergarten",
+        "galerie-poll",
+        "galerie-thomas-fischer",
+        "galerie-wedding-raum-fur-zeitgenossische-kunst",
+        "kuckei-kuckei",
+        "kunstverein-am-rosa-luxemburg-platz",
+        "kw-institute-for-contemporary-art",
+        "ngbk-neue-gesellschaft-fur-bildende-kunst"
+      ],
+      "started_ts": 1788557017,
+      "ended_ts": 1788557593
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "klemm-s"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "konig-galerie-st-agnes"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "konrad-fischer-galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kunstlerhaus-bethanien"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kunstraum-kreuzberg-bethanien"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "persons-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "soy-capitan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "trautwein-herleth"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sch\u00f6neberg",
+      "session": 2,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-berlin-sch-neberg-1788557194",
+      "venue_ids": [
+        "galerie-tanja-wagner",
+        "hua-international",
+        "jarmuschek-partner",
+        "kow",
+        "meyer-riegger",
+        "noah-klink",
+        "psm",
+        "reiter"
+      ],
+      "started_ts": 1788557195,
+      "ended_ts": 1788557766
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "office-impart"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sammlung-boros"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "schinkel-pavillon"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sexauer"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Charlottenburg",
+      "session": 2,
+      "todo": 8,
+      "saved": 11,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-berlin-charlottenburg-1788557195",
+      "venue_ids": [
+        "galerie-max-hetzler",
+        "galerie-michael-haas",
+        "galerie-springer-berlin",
+        "galerie-volker-diehl",
+        "haus-am-waldsee",
+        "haverkampf-leistenschneider",
+        "robert-grunenberg",
+        "societe"
+      ],
+      "started_ts": 1788557195,
+      "ended_ts": 1788558102
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sandy-brown"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "schiefe-zahne"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "setareh"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tanya-leighton"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mitte",
+      "session": 3,
+      "todo": 4,
+      "saved": 4,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-berlin-mitte-1788557767",
+      "venue_ids": [
+        "office-impart",
+        "sammlung-boros",
+        "schinkel-pavillon",
+        "sexauer"
+      ],
+      "started_ts": 1788557767,
+      "ended_ts": 1788558150
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "wentrup"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zilberman"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Charlottenburg",
+      "session": 3,
+      "todo": 2,
+      "saved": 2,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-berlin-charlottenburg-1788558150",
+      "venue_ids": [
+        "wentrup",
+        "zilberman"
+      ],
+      "started_ts": 1788558150,
+      "ended_ts": 1788558293
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sch\u00f6neberg",
+      "session": 3,
+      "todo": 4,
+      "saved": 3,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-berlin-sch-neberg-1788558102",
+      "venue_ids": [
+        "sandy-brown",
+        "schiefe-zahne",
+        "setareh",
+        "tanya-leighton"
+      ],
+      "started_ts": 1788558102,
+      "ended_ts": 1788558406
+    },
+    {
+      "stage": "scrape",
+      "zone": "Kreuzberg",
+      "session": 2,
+      "todo": 8,
+      "saved": 12,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-berlin-kreuzberg-1788557593",
+      "venue_ids": [
+        "klemm-s",
+        "konig-galerie-st-agnes",
+        "konrad-fischer-galerie",
+        "kunstlerhaus-bethanien",
+        "kunstraum-kreuzberg-bethanien",
+        "persons-projects",
+        "soy-capitan",
+        "trautwein-herleth"
+      ],
+      "started_ts": 1788557593,
+      "ended_ts": 1788558456
+    }
+  ]
+}

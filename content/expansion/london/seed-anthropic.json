@@ -1,0 +1,922 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788552342,
+ "system": "You are an art-world editor compiling a gallery guide for London, United Kingdom. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in London itself (galleries whose home is\nelsewhere count only through a permanent London space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Mayfair, East End, South London, West End/Soho) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several London spaces once.",
+ "user": "What are the 100 most significant and influential galleries in London, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 55,
+  "output_tokens": 25202,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.635687,
+  "seconds": 318.9
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "King's Cross",
+    "address_hint": "6–24 Britannia Street (also 20 Grosvenor Hill and 17–19 Davies Street, Mayfair)",
+    "kind": "gallery",
+    "note": "The largest global mega-gallery's London operation, with museum-scale exhibitions of blue-chip and estate artists since 2000."
+   },
+   {
+    "rank": 2,
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "23 Savile Row",
+    "kind": "gallery",
+    "note": "Scholarly, curator-led programme of major estates (Bourgeois, Guston) and leading living artists; a benchmark for gallery publishing and research."
+   },
+   {
+    "rank": 3,
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Bermondsey",
+    "address_hint": "144–152 Bermondsey Street (also 25–26 Mason's Yard)",
+    "kind": "gallery",
+    "note": "Jay Jopling's gallery defined the YBA era and remains one of Britain's most powerful dealerships, with vast Bermondsey exhibition halls."
+   },
+   {
+    "rank": 4,
+    "name": "Serpentine",
+    "website": "https://www.serpentinegalleries.org",
+    "neighborhood": "Kensington Gardens",
+    "address_hint": "Kensington Gardens, W2",
+    "kind": "nonprofit",
+    "note": "Free non-collecting kunsthalle whose exhibitions, annual Pavilion commission and marathons set the international agenda for contemporary art."
+   },
+   {
+    "rank": 5,
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "24 Grafton Street",
+    "kind": "gallery",
+    "note": "London outpost of the New York powerhouse, known for historically rigorous shows and a roster spanning Doig, Ruscha and Yayoi Kusama."
+   },
+   {
+    "rank": 6,
+    "name": "Lisson Gallery",
+    "website": "https://www.lissongallery.com",
+    "neighborhood": "Marylebone",
+    "address_hint": "27 & 67 Lisson Street / Bell Street, NW1",
+    "kind": "gallery",
+    "note": "Founded 1967; the historic home of British conceptualism and minimalism, still central with Ai Weiwei, Anish Kapoor and Marina Abramović."
+   },
+   {
+    "rank": 7,
+    "name": "Pace",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "5 Hanover Square",
+    "kind": "gallery",
+    "note": "Global gallery with a strong technology-and-art programme and major postwar estates; a fixture of the Mayfair scene since 2012."
+   },
+   {
+    "rank": 8,
+    "name": "Whitechapel Gallery",
+    "website": "https://www.whitechapelgallery.org",
+    "neighborhood": "East End",
+    "address_hint": "77–82 Whitechapel High Street",
+    "kind": "nonprofit",
+    "note": "Founded 1901; the East End's landmark non-collecting institution, famed for introducing Picasso's Guernica and generations of new art to London."
+   },
+   {
+    "rank": 9,
+    "name": "Sadie Coles HQ",
+    "website": "https://www.sadiecoles.com",
+    "neighborhood": "West End/Soho",
+    "address_hint": "62 Kingly Street (also 1 Davies Street)",
+    "kind": "gallery",
+    "note": "Since 1997 a defining London dealer, representing Urs Fischer, Sarah Lucas, Elizabeth Peyton and Jordan Wolfson."
+   },
+   {
+    "rank": 10,
+    "name": "Victoria Miro",
+    "website": "https://www.victoria-miro.com",
+    "neighborhood": "Islington",
+    "address_hint": "16 Wharf Road, N1",
+    "kind": "gallery",
+    "note": "Canalside warehouse gallery with a formidable roster including Yayoi Kusama, Chris Ofili, Grayson Perry and Njideka Akunyili Crosby."
+   },
+   {
+    "rank": 11,
+    "name": "Thomas Dane Gallery",
+    "website": "https://www.thomasdanegallery.com",
+    "neighborhood": "St James's",
+    "address_hint": "3 & 11 Duke Street, St James's",
+    "kind": "gallery",
+    "note": "Critically admired programme (Steve McQueen, Lynette Yiadom-Boakye, Hurvin Anderson) balancing museum-quality shows with market clout."
+   },
+   {
+    "rank": 12,
+    "name": "Hayward Gallery",
+    "website": "https://www.southbankcentre.co.uk/venues/hayward-gallery",
+    "neighborhood": "South Bank",
+    "address_hint": "Southbank Centre, Belvedere Road",
+    "kind": "nonprofit",
+    "note": "Brutalist non-collecting gallery whose ambitious survey exhibitions have shaped British understanding of contemporary art since 1968."
+   },
+   {
+    "rank": 13,
+    "name": "Sprüth Magers",
+    "website": "https://spruethmagers.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "7A Grafton Street",
+    "kind": "gallery",
+    "note": "Cologne/Berlin gallery whose London space champions conceptual and feminist positions: Barbara Kruger, Cindy Sherman, Rosemarie Trockel."
+   },
+   {
+    "rank": 14,
+    "name": "Thaddaeus Ropac",
+    "website": "https://ropac.net",
+    "neighborhood": "Mayfair",
+    "address_hint": "Ely House, 37 Dover Street",
+    "kind": "gallery",
+    "note": "Grand Georgian townhouse hosting museum-calibre shows of Baselitz, Kiefer, Rauschenberg and a strong younger programme."
+   },
+   {
+    "rank": 15,
+    "name": "Institute of Contemporary Arts (ICA)",
+    "website": "https://www.ica.art",
+    "neighborhood": "St James's",
+    "address_hint": "The Mall, SW1",
+    "kind": "nonprofit",
+    "note": "Since 1946 the crucible of British experimental art, film and performance; still a key early platform for emerging artists."
+   },
+   {
+    "rank": 16,
+    "name": "Marian Goodman Gallery",
+    "website": "https://www.mariangoodman.com",
+    "neighborhood": "West End/Soho",
+    "address_hint": "Golden Square area, W1",
+    "kind": "gallery",
+    "note": "Legendary dealer of conceptual and film-based artists — Gerhard Richter, Steve McQueen, Tacita Dean, William Kentridge."
+   },
+   {
+    "rank": 17,
+    "name": "Maureen Paley",
+    "website": "https://www.maureenpaley.com",
+    "neighborhood": "East End",
+    "address_hint": "60 Three Colts Lane, Bethnal Green (and 21 Herald Street)",
+    "kind": "gallery",
+    "note": "Opened 1984 in her own house; the pioneer of East End galleries and long-time dealer for Wolfgang Tillmans and Gillian Wearing."
+   },
+   {
+    "rank": 18,
+    "name": "Chisenhale Gallery",
+    "website": "https://chisenhale.org.uk",
+    "neighborhood": "East End",
+    "address_hint": "64 Chisenhale Road, Bow",
+    "kind": "nonprofit",
+    "note": "Commissioning space with an unrivalled record of first solo shows by artists who later win the Turner Prize."
+   },
+   {
+    "rank": 19,
+    "name": "Stephen Friedman Gallery",
+    "website": "https://www.stephenfriedman.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "5–6 Cork Street",
+    "kind": "gallery",
+    "note": "Since 1995 a globally minded roster (Yinka Shonibare, Kehinde Wiley, Mamma Andersson) with a strong fair and institutional presence."
+   },
+   {
+    "rank": 20,
+    "name": "Modern Art",
+    "website": "https://www.modernart.net",
+    "neighborhood": "Clerkenwell",
+    "address_hint": "4–8 Helmet Row, EC1 (also 7 Bury Street, St James's)",
+    "kind": "gallery",
+    "note": "Stuart Shave's gallery, a consistently sharp barometer of contemporary painting and sculpture since 1998."
+   },
+   {
+    "rank": 21,
+    "name": "South London Gallery",
+    "website": "https://www.southlondongallery.org",
+    "neighborhood": "South London",
+    "address_hint": "65–67 Peckham Road, Camberwell",
+    "kind": "nonprofit",
+    "note": "Historic Victorian gallery reinvented as a leading commissioning venue with strong community and education programmes."
+   },
+   {
+    "rank": 22,
+    "name": "Camden Art Centre",
+    "website": "https://camdenartcentre.org",
+    "neighborhood": "Hampstead",
+    "address_hint": "Arkwright Road, NW3",
+    "kind": "nonprofit",
+    "note": "Beloved non-collecting space known for launching international artists into UK institutional recognition, plus ceramics and residencies."
+   },
+   {
+    "rank": 23,
+    "name": "Pilar Corrias",
+    "website": "https://www.pilarcorrias.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "2 Savile Row (also 51 Conduit Street)",
+    "kind": "gallery",
+    "note": "Influential dealer of internationally acclaimed artists including Tala Madani, Rirkrit Tiravanija and Sophie von Hellermann."
+   },
+   {
+    "rank": 24,
+    "name": "Massimo De Carlo",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "55 South Audley Street",
+    "kind": "gallery",
+    "note": "Milanese gallery's London home in a Grade II listed townhouse, showing Cattelan, Yan Pei-Ming and leading Italian positions."
+   },
+   {
+    "rank": 25,
+    "name": "Herald St",
+    "website": "https://www.heraldst.com",
+    "neighborhood": "East End",
+    "address_hint": "2 Herald Street, Bethnal Green",
+    "kind": "gallery",
+    "note": "Critically respected gallery representing Nicole Eisenman, Michael Dean and Cornelia Baltes; a mainstay of the East End since 2005."
+   },
+   {
+    "rank": 26,
+    "name": "Carlos/Ishikawa",
+    "website": "https://www.carlosishikawa.com",
+    "neighborhood": "East End",
+    "address_hint": "Unit 4, 88 Mile End Road",
+    "kind": "gallery",
+    "note": "Vanguard gallery that launched Oscar Murillo, Ed Atkins and Issy Wood; hugely influential on younger London taste."
+   },
+   {
+    "rank": 27,
+    "name": "The Approach",
+    "website": "https://theapproach.co.uk",
+    "neighborhood": "East End",
+    "address_hint": "1st floor, 47 Approach Road, Bethnal Green",
+    "kind": "gallery",
+    "note": "Above-the-pub gallery since 1997 with a curatorially adventurous programme and consistent international fair presence."
+   },
+   {
+    "rank": 28,
+    "name": "greengrassi",
+    "website": "https://www.greengrassi.com",
+    "neighborhood": "South London",
+    "address_hint": "1a Kempsford Road, Kennington",
+    "kind": "gallery",
+    "note": "Cornelia Grassi's quietly authoritative gallery representing Tomma Abts, Jennifer Packer and Aliza Nisenbaum."
+   },
+   {
+    "rank": 29,
+    "name": "Corvi-Mora",
+    "website": "https://www.corvi-mora.com",
+    "neighborhood": "South London",
+    "address_hint": "1a Kempsford Road, Kennington",
+    "kind": "gallery",
+    "note": "Tommaso Corvi-Mora's long-running programme, key to the careers of Roger Hiorns, Rachel Feinstein and Liz Larner in the UK."
+   },
+   {
+    "rank": 30,
+    "name": "Kate MacGarry",
+    "website": "https://www.katemacgarry.com",
+    "neighborhood": "East End",
+    "address_hint": "27 Old Nichol Street",
+    "kind": "gallery",
+    "note": "Since 2002 a tastemaking East End gallery showing Goshka Macuga, Francis Upritchard and Matt Stokes."
+   },
+   {
+    "rank": 31,
+    "name": "Emalin",
+    "website": "https://www.emalin.co.uk",
+    "neighborhood": "Shoreditch",
+    "address_hint": "Holywell Lane / Clifton House, EC2",
+    "kind": "gallery",
+    "note": "One of the most watched younger galleries, with acclaimed international artists and standout Basel and Frieze presentations."
+   },
+   {
+    "rank": 32,
+    "name": "Studio Voltaire",
+    "website": "https://studiovoltaire.org",
+    "neighborhood": "South London",
+    "address_hint": "1a Nelsons Row, Clapham",
+    "kind": "nonprofit",
+    "note": "Artist studios plus a former chapel gallery known for ambitious commissions and long-overdue rediscoveries."
+   },
+   {
+    "rank": 33,
+    "name": "Gasworks",
+    "website": "https://www.gasworks.org.uk",
+    "neighborhood": "South London",
+    "address_hint": "155 Vauxhall Street",
+    "kind": "nonprofit",
+    "note": "International residency programme and gallery giving many artists their first UK institutional show."
+   },
+   {
+    "rank": 34,
+    "name": "Frith Street Gallery",
+    "website": "https://www.frithstreetgallery.com",
+    "neighborhood": "West End/Soho",
+    "address_hint": "17–18 Golden Square",
+    "kind": "gallery",
+    "note": "Jane Hamlyn's gallery, home to Cornelia Parker, Tacita Dean, Fiona Tan and Bridget Smith since 1989."
+   },
+   {
+    "rank": 35,
+    "name": "Alison Jacques",
+    "website": "https://alisonjacques.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "22 Cork Street",
+    "kind": "gallery",
+    "note": "Stewards key estates (Robert Mapplethorpe, Lygia Clark, Birgit Jürgenssen) alongside a strong contemporary roster."
+   },
+   {
+    "rank": 36,
+    "name": "Timothy Taylor",
+    "website": "https://www.timothytaylor.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "15 Carlos Place",
+    "kind": "gallery",
+    "note": "Transatlantic gallery with a refined programme of painting, from Alex Katz to Antonio Calderara and Honor Titus."
+   },
+   {
+    "rank": 37,
+    "name": "Cabinet",
+    "website": "https://cabinet.uk.com",
+    "neighborhood": "Vauxhall",
+    "address_hint": "132 Tyers Street, Vauxhall",
+    "kind": "gallery",
+    "note": "Andrew Wheatley and Martin McGeown's fiercely independent gallery, historically important for Lucy McKenzie, Marc Camille Chaimowicz and Ed Atkins."
+   },
+   {
+    "rank": 38,
+    "name": "Hollybush Gardens",
+    "website": "https://www.hollybushgardens.co.uk",
+    "neighborhood": "Clerkenwell",
+    "address_hint": "1–2 Warner Yard, EC1",
+    "kind": "gallery",
+    "note": "Politically engaged programme including Lubaina Himid and Andrea Büttner; several Turner Prize winners among its artists."
+   },
+   {
+    "rank": 39,
+    "name": "Raven Row",
+    "website": "https://www.ravenrow.org",
+    "neighborhood": "East End",
+    "address_hint": "56 Artillery Lane, Spitalfields",
+    "kind": "nonprofit",
+    "note": "Free exhibition centre in restored Georgian silk-merchant houses, celebrated for rigorous historical and archival exhibitions."
+   },
+   {
+    "rank": 40,
+    "name": "Goldsmiths CCA",
+    "website": "https://goldsmithscca.art",
+    "neighborhood": "New Cross",
+    "address_hint": "St James's, New Cross, SE14",
+    "kind": "university",
+    "note": "Assemble-designed public gallery attached to Goldsmiths, presenting research-driven shows by emerging international artists."
+   },
+   {
+    "rank": 41,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "Grosvenor Hill, Broadbent House",
+    "kind": "gallery",
+    "note": "International gallery bridging modern estates and market-leading contemporary painters across its London space."
+   },
+   {
+    "rank": 42,
+    "name": "Skarstedt",
+    "website": "https://www.skarstedt.com",
+    "neighborhood": "St James's",
+    "address_hint": "8 Bennet Street",
+    "kind": "gallery",
+    "note": "Blue-chip specialist in 1980s–90s American art — Prince, Sherman, Condo — with museum-quality secondary market shows."
+   },
+   {
+    "rank": 43,
+    "name": "Goodman Gallery",
+    "website": "https://www.goodman-gallery.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "26 Cork Street",
+    "kind": "gallery",
+    "note": "Historic South African gallery whose London space is a leading platform for African and diaspora artists including William Kentridge."
+   },
+   {
+    "rank": 44,
+    "name": "Matt's Gallery",
+    "website": "https://mattsgallery.org",
+    "neighborhood": "South London",
+    "address_hint": "92 Webster Road, Bermondsey",
+    "kind": "nonprofit",
+    "note": "Robin Klassnik's legendary production-led space since 1979, famous for major commissions by Willie Doherty and Mike Nelson."
+   },
+   {
+    "rank": 45,
+    "name": "Auto Italia",
+    "website": "https://autoitaliasoutheast.org",
+    "neighborhood": "East End",
+    "address_hint": "Bethnal Green, E2",
+    "kind": "nonprofit",
+    "note": "Artist-run organisation producing collaborative, queer and digitally engaged projects that shape the younger London scene."
+   },
+   {
+    "rank": 46,
+    "name": "The Photographers' Gallery",
+    "website": "https://thephotographersgallery.org.uk",
+    "neighborhood": "West End/Soho",
+    "address_hint": "16–18 Ramillies Street",
+    "kind": "nonprofit",
+    "note": "Europe's first public gallery devoted to photography; home of the Deutsche Börse Prize and central to lens-based discourse."
+   },
+   {
+    "rank": 47,
+    "name": "Waddington Custot",
+    "website": "https://www.waddingtoncustot.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "11 Cork Street",
+    "kind": "gallery",
+    "note": "Cork Street institution since 1957, dealing in postwar modern masters alongside contemporary sculpture."
+   },
+   {
+    "rank": 48,
+    "name": "Annely Juda Fine Art",
+    "website": "https://www.annelyjudafineart.co.uk",
+    "neighborhood": "Mayfair",
+    "address_hint": "23 Dering Street",
+    "kind": "gallery",
+    "note": "Distinguished gallery for constructivism and its legacies, representing David Hockney's prints, Anthony Caro and Yuko Shiraishi."
+   },
+   {
+    "rank": 49,
+    "name": "Richard Saltoun",
+    "website": "https://www.richardsaltoun.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "41 Dover Street",
+    "kind": "gallery",
+    "note": "Recovers overlooked feminist, conceptual and performance practices; a research-heavy programme with strong institutional placements."
+   },
+   {
+    "rank": 50,
+    "name": "Pippy Houldsworth Gallery",
+    "website": "https://www.houldsworth.co.uk",
+    "neighborhood": "Mayfair",
+    "address_hint": "6 Heddon Street",
+    "kind": "gallery",
+    "note": "Long-running gallery with a notably strong roster of women artists and an active fair and publishing programme."
+   },
+   {
+    "rank": 51,
+    "name": "Arcadia Missa",
+    "website": "https://arcadiamissa.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "35 Duke Street",
+    "kind": "gallery",
+    "note": "Grew from a Peckham project space into an influential dealer of post-internet and feminist practices, publishing critical texts."
+   },
+   {
+    "rank": 52,
+    "name": "Soft Opening",
+    "website": "https://softopening.london",
+    "neighborhood": "East End",
+    "address_hint": "6 Minerva Street, Bethnal Green (plus Piccadilly Circus vitrine)",
+    "kind": "gallery",
+    "note": "Antonia Marsh's gallery, an incubator of buzzy young international artists, known for its Underground station vitrine."
+   },
+   {
+    "rank": 53,
+    "name": "Union Pacific",
+    "website": "https://unionpacific.co.uk",
+    "neighborhood": "East End",
+    "address_hint": "17 Goulston Street, Whitechapel",
+    "kind": "gallery",
+    "note": "Sharp emerging-artist programme with consistent presence at Liste and other discovery-driven fairs."
+   },
+   {
+    "rank": 54,
+    "name": "Rodeo",
+    "website": "https://www.rodeo-gallery.com",
+    "neighborhood": "St James's",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Sylvia Kouvali's Istanbul-born gallery, critically esteemed for artists such as Duncan Campbell, Ian Law and Banu Cennetoğlu."
+   },
+   {
+    "rank": 55,
+    "name": "Project Native Informant",
+    "website": "https://projectnativeinformant.com",
+    "neighborhood": "Holborn",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Pioneering platform for technologically and politically charged practices, including DIS, Juliana Huxtable and Rachel Rose."
+   },
+   {
+    "rank": 56,
+    "name": "Ginny on Frederick",
+    "website": "https://ginnyonfrederick.com",
+    "neighborhood": "Clerkenwell",
+    "address_hint": "Central Street, EC1",
+    "kind": "gallery",
+    "note": "Micro-gallery in a former sandwich shop that has become one of London's most talked-about launchpads for new artists."
+   },
+   {
+    "rank": 57,
+    "name": "Southard Reid",
+    "website": "https://www.southardreid.com",
+    "neighborhood": "West End/Soho",
+    "address_hint": "Royalty Mews, Soho",
+    "kind": "gallery",
+    "note": "Small Soho gallery with an exacting programme of painting and sculpture and a loyal curatorial following."
+   },
+   {
+    "rank": 58,
+    "name": "Hales",
+    "website": "https://www.halesgallery.com",
+    "neighborhood": "East End",
+    "address_hint": "7 Bethnal Green Road",
+    "kind": "gallery",
+    "note": "Since 1992 a champion of underrecognised figures such as Frank Bowling and Hew Locke, with a New York outpost."
+   },
+   {
+    "rank": 59,
+    "name": "Josh Lilley",
+    "website": "https://www.joshlilleygallery.com",
+    "neighborhood": "Fitzrovia",
+    "address_hint": "44–46 Riding House Street",
+    "kind": "gallery",
+    "note": "Fitzrovia gallery with a strong transatlantic painting programme and steady art-fair visibility."
+   },
+   {
+    "rank": 60,
+    "name": "Edel Assanti",
+    "website": "https://www.edelassanti.com",
+    "neighborhood": "Fitzrovia",
+    "address_hint": "74a Newman Street",
+    "kind": "gallery",
+    "note": "Ambitious mid-size gallery known for socially engaged and research-based practices from across the globe."
+   },
+   {
+    "rank": 61,
+    "name": "Seventeen",
+    "website": "https://www.seventeengallery.com",
+    "neighborhood": "East End",
+    "address_hint": "Hoxton/Kingsland Road area",
+    "kind": "gallery",
+    "note": "Early supporter of digital and post-internet art in London; consistently ahead of institutional taste."
+   },
+   {
+    "rank": 62,
+    "name": "Vitrine",
+    "website": "https://www.vitrinegallery.com",
+    "neighborhood": "Bermondsey",
+    "address_hint": "183 Bermondsey Street",
+    "kind": "gallery",
+    "note": "Pioneer of the 24-hour public window gallery format, pairing free public art with a serious emerging programme."
+   },
+   {
+    "rank": 63,
+    "name": "Flowers Gallery",
+    "website": "https://www.flowersgallery.com",
+    "neighborhood": "East End",
+    "address_hint": "82 Kingsland Road (also 21 Cork Street)",
+    "kind": "gallery",
+    "note": "Family-run since 1970, with a broad figurative and photographic programme across two London spaces and New York."
+   },
+   {
+    "rank": 64,
+    "name": "Ben Brown Fine Arts",
+    "website": "https://www.benbrownfinearts.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "12 Brook's Mews",
+    "kind": "gallery",
+    "note": "Mayfair dealer bridging European modernism, Boetti and contemporary names, with a Hong Kong branch."
+   },
+   {
+    "rank": 65,
+    "name": "Ordovas",
+    "website": "https://www.ordovasart.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "25 Savile Row",
+    "kind": "gallery",
+    "note": "Pilar Ordovas stages tightly curated, essay-like exhibitions pairing modern masters with contemporary artists."
+   },
+   {
+    "rank": 66,
+    "name": "Offer Waterman",
+    "website": "https://www.waterman.co.uk",
+    "neighborhood": "Mayfair",
+    "address_hint": "17 St George Street",
+    "kind": "gallery",
+    "note": "Leading dealer in modern British art who also mounts contemporary shows and estate presentations."
+   },
+   {
+    "rank": 67,
+    "name": "Cristea Roberts Gallery",
+    "website": "https://cristearoberts.com",
+    "neighborhood": "St James's",
+    "address_hint": "43 Pall Mall",
+    "kind": "gallery",
+    "note": "Foremost UK gallery for original prints and editions, working with Hockney, Riley, Gormley and Rego's estate."
+   },
+   {
+    "rank": 68,
+    "name": "Bernard Jacobson Gallery",
+    "website": "https://www.jacobsongallery.com",
+    "neighborhood": "St James's",
+    "address_hint": "28 Duke Street, St James's",
+    "kind": "gallery",
+    "note": "Veteran dealer since 1969 with deep holdings in British modernism and abstraction, notably Robert Motherwell."
+   },
+   {
+    "rank": 69,
+    "name": "Sprovieri",
+    "website": "https://www.sprovieri.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "23 Heddon Street",
+    "kind": "gallery",
+    "note": "Italian-rooted gallery with strong Arte Povera connections and a conceptual contemporary programme."
+   },
+   {
+    "rank": 70,
+    "name": "Mazzoleni",
+    "website": "https://www.mazzoleniart.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "27 Albemarle Street",
+    "kind": "gallery",
+    "note": "Turin gallery's London home for postwar Italian art — Fontana, Burri, Castellani — alongside contemporary artists."
+   },
+   {
+    "rank": 71,
+    "name": "Cardi Gallery",
+    "website": "https://cardigallery.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "22 Grafton Street",
+    "kind": "gallery",
+    "note": "Milan-based gallery presenting museum-quality Italian postwar surveys and international contemporary artists in London."
+   },
+   {
+    "rank": 72,
+    "name": "Tornabuoni Art",
+    "website": "https://www.tornabuoniart.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "46 Albemarle Street",
+    "kind": "gallery",
+    "note": "Major dealer in twentieth-century Italian art with a scholarly exhibition programme and strong fair presence."
+   },
+   {
+    "rank": 73,
+    "name": "Galleria Continua",
+    "website": "https://www.galleriacontinua.com",
+    "neighborhood": "Mayfair",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "San Gimignano-founded international gallery whose London space shows Kapoor, Ai Weiwei, JR and Cuban and Chinese artists."
+   },
+   {
+    "rank": 74,
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Mayfair",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Paris-based global gallery whose London space brings Murakami, Kusama editions and pop-inflected international names."
+   },
+   {
+    "rank": 75,
+    "name": "Gathering",
+    "website": "https://gathering.london",
+    "neighborhood": "West End/Soho",
+    "address_hint": "Warwick Street, W1",
+    "kind": "gallery",
+    "note": "Ambitious younger gallery with a strongly curated programme and rapid institutional recognition for its artists."
+   },
+   {
+    "rank": 76,
+    "name": "Public Gallery",
+    "website": "https://publicgallery.co.uk",
+    "neighborhood": "East End",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "East London gallery with an internationally minded emerging roster and strong presence at discovery fairs."
+   },
+   {
+    "rank": 77,
+    "name": "Rose Easton",
+    "website": "https://roseeaston.com",
+    "neighborhood": "East End",
+    "address_hint": "Cambridge Heath Road, E2",
+    "kind": "gallery",
+    "note": "Recently founded gallery quickly praised for conceptually rigorous shows by emerging international artists."
+   },
+   {
+    "rank": 78,
+    "name": "The Sunday Painter",
+    "website": "https://www.thesundaypainter.co.uk",
+    "neighborhood": "South London",
+    "address_hint": "117 South Lambeth Road, Vauxhall",
+    "kind": "gallery",
+    "note": "Peckham-born gallery that has grown into a respected supporter of young British and international artists."
+   },
+   {
+    "rank": 79,
+    "name": "Hannah Barry Gallery",
+    "website": "https://hannahbarry.com",
+    "neighborhood": "South London",
+    "address_hint": "4 Holly Grove, Peckham",
+    "kind": "gallery",
+    "note": "Central to Peckham's emergence as an art district and co-founder of the Bold Tendencies rooftop project."
+   },
+   {
+    "rank": 80,
+    "name": "Tiwani Contemporary",
+    "website": "https://tiwani.co.uk",
+    "neighborhood": "Fitzrovia",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Key London platform for contemporary African and diaspora artists, with a partner space in Lagos."
+   },
+   {
+    "rank": 81,
+    "name": "October Gallery",
+    "website": "https://www.octobergallery.co.uk",
+    "neighborhood": "Bloomsbury",
+    "address_hint": "24 Old Gloucester Street",
+    "kind": "gallery",
+    "note": "Since 1979 a pioneer of the 'transvangarde', showing El Anatsui, Romuald Hazoumè and other global artists long before the market caught up."
+   },
+   {
+    "rank": 82,
+    "name": "Gallery 1957",
+    "website": "https://gallery1957.com",
+    "neighborhood": "Mayfair",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Accra-founded gallery whose London space showcases leading Ghanaian and West African contemporary artists."
+   },
+   {
+    "rank": 83,
+    "name": "Kristin Hjellegjerde Gallery",
+    "website": "https://kristinhjellegjerde.com",
+    "neighborhood": "Wandsworth",
+    "address_hint": "533 Old York Road (also Berlin and Schloss branches)",
+    "kind": "gallery",
+    "note": "Globally networked gallery known for championing artists from Africa, the Middle East and Scandinavia."
+   },
+   {
+    "rank": 84,
+    "name": "Copperfield",
+    "website": "https://copperfieldgallery.com",
+    "neighborhood": "South London",
+    "address_hint": "6 Copperfield Street, Southwark",
+    "kind": "gallery",
+    "note": "Research-driven programme addressing ecology, politics and history, with strong curatorial collaborations."
+   },
+   {
+    "rank": 85,
+    "name": "Niru Ratnam",
+    "website": "https://niruratnam.com",
+    "neighborhood": "Fitzrovia",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Critic-turned-dealer's gallery, noted for smart shows foregrounding artists of colour and global perspectives."
+   },
+   {
+    "rank": 86,
+    "name": "Cooke Latham Gallery",
+    "website": "https://www.cookelathamgallery.com",
+    "neighborhood": "Battersea",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young gallery with a considered programme of emerging painters and sculptors and growing fair visibility."
+   },
+   {
+    "rank": 87,
+    "name": "Sid Motion Gallery",
+    "website": null,
+    "neighborhood": "South London",
+    "address_hint": "Bermondsey, SE1",
+    "kind": "gallery",
+    "note": "Independent gallery supporting early-career British artists, with a strong record of first solo exhibitions."
+   },
+   {
+    "rank": 88,
+    "name": "Amanda Wilkinson Gallery",
+    "website": "https://amandawilkinsongallery.com",
+    "neighborhood": "West End/Soho",
+    "address_hint": "Soho, W1",
+    "kind": "gallery",
+    "note": "Represents cult figures including the David Robilliard estate and artists working across queer histories and painting."
+   },
+   {
+    "rank": 89,
+    "name": "Guts Gallery",
+    "website": "https://gutsgallery.co.uk",
+    "neighborhood": "East End",
+    "address_hint": "Hackney, E8",
+    "kind": "gallery",
+    "note": "Founded to dismantle art-world gatekeeping; a prominent advocate for working-class and underrepresented artists."
+   },
+   {
+    "rank": 90,
+    "name": "Annka Kultys Gallery",
+    "website": "https://www.annkakultys.com",
+    "neighborhood": "East End",
+    "address_hint": "472 Hackney Road",
+    "kind": "gallery",
+    "note": "Specialist in digital, screen-based and post-internet practices, with pioneering online-exhibition experiments."
+   },
+   {
+    "rank": 91,
+    "name": "Hot Wheels",
+    "website": null,
+    "neighborhood": "East End",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Athens-founded gallery whose London space has drawn critical attention for edgy, conceptually driven programming."
+   },
+   {
+    "rank": 92,
+    "name": "TJ Boulting",
+    "website": "https://tjboulting.com",
+    "neighborhood": "Fitzrovia",
+    "address_hint": "59 Riding House Street",
+    "kind": "gallery",
+    "note": "Photography-leaning gallery in a listed former plumbers' showroom, known for feminist and lens-based programming."
+   },
+   {
+    "rank": 93,
+    "name": "Huxley-Parlour",
+    "website": "https://huxleyparlour.com",
+    "neighborhood": "Mayfair",
+    "address_hint": "3–5 Swallow Street (also 45 Maddox Street)",
+    "kind": "gallery",
+    "note": "Blends historic photography with a growing contemporary programme across two West End spaces."
+   },
+   {
+    "rank": 94,
+    "name": "The Showroom",
+    "website": "https://www.theshowroom.org",
+    "neighborhood": "Marylebone",
+    "address_hint": "63 Penfold Street, NW8",
+    "kind": "nonprofit",
+    "note": "Long-established commissioning space with a strong collaborative, locally rooted and internationally connected programme."
+   },
+   {
+    "rank": 95,
+    "name": "Delfina Foundation",
+    "website": "https://www.delfinafoundation.com",
+    "neighborhood": "Victoria",
+    "address_hint": "29/31 Catherine Place, SW1",
+    "kind": "nonprofit",
+    "note": "Residency-based organisation with public exhibitions and thematic seasons, hugely important for artists from the Middle East and beyond."
+   },
+   {
+    "rank": 96,
+    "name": "Drawing Room",
+    "website": "https://drawingroom.org.uk",
+    "neighborhood": "South London",
+    "address_hint": "1–27 Rodney Place, Elephant and Castle",
+    "kind": "nonprofit",
+    "note": "The UK's only non-profit dedicated to drawing, with a public research library and inventive commissions."
+   },
+   {
+    "rank": 97,
+    "name": "Peer",
+    "website": "https://peeruk.org",
+    "neighborhood": "East End",
+    "address_hint": "97–99 Hoxton Street",
+    "kind": "nonprofit",
+    "note": "Small Hoxton gallery with an outsized reputation for artist-led public realm projects and thoughtful solo shows."
+   },
+   {
+    "rank": 98,
+    "name": "Cell Project Space",
+    "website": "https://www.cellprojects.org",
+    "neighborhood": "East End",
+    "address_hint": "258 Cambridge Heath Road",
+    "kind": "nonprofit",
+    "note": "Artist-run studios and gallery, a durable incubator for experimental practices in Bethnal Green since the 1990s."
+   },
+   {
+    "rank": 99,
+    "name": "Autograph",
+    "website": "https://autograph.org.uk",
+    "neighborhood": "East End",
+    "address_hint": "Rivington Place, EC2",
+    "kind": "nonprofit",
+    "note": "Champions photography exploring race, identity and human rights; holds a vital archive and a landmark Adjaye-designed building."
+   },
+   {
+    "rank": 100,
+    "name": "Bold Tendencies",
+    "website": "https://www.boldtendencies.com",
+    "neighborhood": "South London",
+    "address_hint": "Multi-storey car park, 7–9 Rye Lane, Peckham",
+    "kind": "nonprofit",
+    "note": "Seasonal rooftop commissioning platform that transformed Peckham's cultural profile with large-scale public sculpture and performance."
+   }
+  ]
+ }
+}

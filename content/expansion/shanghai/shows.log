@@ -1,0 +1,58 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: West Bund/Xuhui=1
+[west-bund-xuhui] session 1: 1 TODO venues -> deep-shanghai-west-bund-xuhui-1788558114.log
+[west-bund-xuhui]   ['don']
+[west-bund-xuhui] session 1 done: +0 saved, +1 skipped (exit 0)
+[west-bund-xuhui] TODO empty after 1 session(s)
+[west-bund-xuhui] zone done: todo_empty after 1 session(s)
+=== STAGE 3: verify (pending pool) ===
+nothing to verify (pending pool empty or only awaiting its publication window)
+{
+  "city": "shanghai",
+  "zones": [
+    "West Bund/Xuhui"
+  ],
+  "run_spend_usd": 0.2531,
+  "shows_total": 0,
+  "remaining_todo": {
+    "West Bund/Xuhui": 0
+  },
+  "queue": {
+    "West Bund/Xuhui": {
+      "zone": "West Bund/Xuhui",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "don"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Bund/Xuhui",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-shanghai-west-bund-xuhui-1788558114",
+      "venue_ids": [
+        "don"
+      ],
+      "started_ts": 1788558114,
+      "ended_ts": 1788558170
+    }
+  ],
+  "verification": {},
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-shanghai-1788558114.json"
+}
+shanghai: 0 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+shanghai: 1 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city shanghai --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/shanghai/shows-ids.txt --force-due --total-budget 10.0 --session-budget 4.5 --session-todo 8 --workers 1 --no-report

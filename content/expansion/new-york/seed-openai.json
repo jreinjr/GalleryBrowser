@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788552009,
+ "system": "You are an art-world editor compiling a gallery guide for New York, United States. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in New York itself (galleries whose home is\nelsewhere count only through a permanent New York space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Chelsea, Downtown, Uptown, Brooklyn/Queens, Hamptons) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several New York spaces once.",
+ "user": "What are the 100 most significant and influential galleries in New York, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 406,
+  "output_tokens": 16203,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.325684,
+  "seconds": 240.1
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "555 W 24th Street",
+    "kind": "gallery",
+    "note": "The benchmark global mega-gallery, with an unmatched blue-chip roster, extensive publishing operation and commanding fair and institutional presence."
+   },
+   {
+    "rank": 2,
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "525 W 19th Street",
+    "kind": "gallery",
+    "note": "A globally dominant gallery known for museum-caliber exhibitions, major estates, influential publications and sustained artist development."
+   },
+   {
+    "rank": 3,
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "542 W 22nd Street",
+    "kind": "gallery",
+    "note": "A multinational powerhouse combining major living artists and estates with ambitious exhibitions, research, publishing and institutional partnerships."
+   },
+   {
+    "rank": 4,
+    "name": "Pace Gallery",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "540 W 25th Street",
+    "kind": "gallery",
+    "note": "One of the longest-standing international leaders in postwar and contemporary art, with particular strength in abstraction, technology and experiential work."
+   },
+   {
+    "rank": 5,
+    "name": "Marian Goodman Gallery",
+    "website": "https://www.mariangoodman.com",
+    "neighborhood": "Downtown",
+    "address_hint": "385 Broadway",
+    "kind": "gallery",
+    "note": "A foundational conduit between European and American conceptual art, distinguished by an exceptionally rigorous, institutionally acclaimed program."
+   },
+   {
+    "rank": 6,
+    "name": "Gladstone Gallery",
+    "website": "https://www.gladstonegallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "515 W 24th Street",
+    "kind": "gallery",
+    "note": "A highly influential gallery representing major figures across installation, film, sculpture and painting, with strong museum and biennial visibility."
+   },
+   {
+    "rank": 7,
+    "name": "Paula Cooper Gallery",
+    "website": "https://www.paulacoopergallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "534 W 21st Street",
+    "kind": "gallery",
+    "note": "A pioneering SoHo gallery whose enduring program helped define Minimalism, Conceptualism, performance and politically engaged contemporary art."
+   },
+   {
+    "rank": 8,
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Uptown",
+    "address_hint": "1002 Madison Avenue",
+    "kind": "gallery",
+    "note": "The influential London-born gallery has a major New York base and a formidable international roster spanning YBA history and global contemporary art."
+   },
+   {
+    "rank": 9,
+    "name": "Lisson Gallery",
+    "website": "https://www.lissongallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "504 W 24th Street",
+    "kind": "gallery",
+    "note": "A central force in Minimal, Conceptual and international contemporary art, backed by decades of influential artist relationships."
+   },
+   {
+    "rank": 10,
+    "name": "Matthew Marks Gallery",
+    "website": "https://www.matthewmarks.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "522 W 22nd Street",
+    "kind": "gallery",
+    "note": "A selective, museum-oriented program uniting canonical postwar figures with critically important contemporary artists."
+   },
+   {
+    "rank": 11,
+    "name": "Lehmann Maupin",
+    "website": "https://www.lehmannmaupin.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "501 W 24th Street",
+    "kind": "gallery",
+    "note": "A major international gallery with longstanding strength in globally diverse, multidisciplinary and institutionally visible practices."
+   },
+   {
+    "rank": 12,
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Downtown",
+    "address_hint": "130 Orchard Street",
+    "kind": "gallery",
+    "note": "A high-profile global gallery whose expansive program bridges critically recognized contemporary art, popular culture and younger markets."
+   },
+   {
+    "rank": 13,
+    "name": "Jack Shainman Gallery",
+    "website": "https://www.jackshainman.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "513 W 20th Street",
+    "kind": "gallery",
+    "note": "Long influential for championing Black, African and diasporic artists and supporting practices addressing race, history and social justice."
+   },
+   {
+    "rank": 14,
+    "name": "Luhring Augustine",
+    "website": "https://www.luhringaugustine.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "531 W 24th Street",
+    "kind": "gallery",
+    "note": "A durable, critically respected gallery with a multigenerational roster and important roles in film, installation, sculpture and painting."
+   },
+   {
+    "rank": 15,
+    "name": "Sean Kelly",
+    "website": "https://www.skny.com",
+    "neighborhood": "Hudson Yards",
+    "address_hint": "475 Tenth Avenue",
+    "kind": "gallery",
+    "note": "An internationally prominent program centered on conceptually rigorous artists, ambitious installations and strong institutional careers."
+   },
+   {
+    "rank": 16,
+    "name": "Sprüth Magers",
+    "website": "https://www.spruethmagers.com",
+    "neighborhood": "Uptown",
+    "address_hint": "22 E 80th Street",
+    "kind": "gallery",
+    "note": "A historically important European gallery with deep commitments to feminist, conceptual, photographic and media-based practices."
+   },
+   {
+    "rank": 17,
+    "name": "Petzel",
+    "website": "https://www.petzel.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "520 W 25th Street",
+    "kind": "gallery",
+    "note": "A leading transatlantic gallery known for intellectually ambitious exhibitions and major artists from Europe and the United States."
+   },
+   {
+    "rank": 18,
+    "name": "303 Gallery",
+    "website": "https://www.303gallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "555 W 21st Street",
+    "kind": "gallery",
+    "note": "A defining New York gallery since the 1980s, associated with influential developments in photography, video, installation and conceptual art."
+   },
+   {
+    "rank": 19,
+    "name": "Marianne Boesky Gallery",
+    "website": "https://www.marianneboeskygallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "507 W 24th Street",
+    "kind": "gallery",
+    "note": "A major Chelsea gallery with a broad multigenerational program and a strong record of developing artists into institutional careers."
+   },
+   {
+    "rank": 20,
+    "name": "Tanya Bonakdar Gallery",
+    "website": "https://www.tanyabonakdargallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "521 W 21st Street",
+    "kind": "gallery",
+    "note": "Known for ambitious conceptual, installation, architectural and environmental practices with sustained museum and biennial recognition."
+   },
+   {
+    "rank": 21,
+    "name": "David Kordansky Gallery",
+    "website": "https://www.davidkordanskygallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "520 W 20th Street",
+    "kind": "gallery",
+    "note": "The influential Los Angeles gallery's permanent New York space presents a prominent roster of painters, sculptors and interdisciplinary artists."
+   },
+   {
+    "rank": 22,
+    "name": "Greene Naftali",
+    "website": "https://www.greenenaftaligallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "508 W 26th Street",
+    "kind": "gallery",
+    "note": "An intellectually exacting gallery closely identified with experimental, conceptually driven and critically influential contemporary art."
+   },
+   {
+    "rank": 23,
+    "name": "James Cohan",
+    "website": "https://www.jamescohan.com",
+    "neighborhood": "Downtown",
+    "address_hint": "48 Walker Street",
+    "kind": "gallery",
+    "note": "A substantial international program connecting established and emerging artists across painting, installation and socially engaged practices."
+   },
+   {
+    "rank": 24,
+    "name": "Karma",
+    "website": "https://karmakarma.org",
+    "neighborhood": "Downtown",
+    "address_hint": "188 E 2nd Street",
+    "kind": "gallery",
+    "note": "A highly influential gallery and publisher whose scholarship and exhibitions have helped reshape contemporary and postwar canons."
+   },
+   {
+    "rank": 25,
+    "name": "kurimanzutto",
+    "website": "https://www.kurimanzutto.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "516 W 20th Street",
+    "kind": "gallery",
+    "note": "The Mexico City-founded gallery brings one of Latin America's most influential artist rosters and curatorial sensibilities to New York."
+   },
+   {
+    "rank": 26,
+    "name": "P·P·O·W",
+    "website": "https://www.ppowgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "392 Broadway",
+    "kind": "gallery",
+    "note": "A longstanding leader in politically engaged, feminist and queer art, with important stewardship of major artists and estates."
+   },
+   {
+    "rank": 27,
+    "name": "Andrew Kreps Gallery",
+    "website": "https://www.andrewkreps.com",
+    "neighborhood": "Downtown",
+    "address_hint": "22 Cortlandt Alley",
+    "kind": "gallery",
+    "note": "A critically respected gallery combining incisive emerging practices with historically important artists and estates."
+   },
+   {
+    "rank": 28,
+    "name": "Sikkema Malloy Jenkins",
+    "website": "https://www.sikkemajenkinsco.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "530 W 22nd Street",
+    "kind": "gallery",
+    "note": "A deeply respected multigenerational program with particular strength in photography, painting and artists addressing identity and history."
+   },
+   {
+    "rank": 29,
+    "name": "Almine Rech",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "Downtown",
+    "address_hint": "361 Broadway",
+    "kind": "gallery",
+    "note": "A major international gallery pairing prominent contemporary painters and sculptors with historically significant postwar artists."
+   },
+   {
+    "rank": 30,
+    "name": "Anton Kern Gallery",
+    "website": "https://www.antonkerngallery.com",
+    "neighborhood": "Midtown",
+    "address_hint": "16 E 55th Street",
+    "kind": "gallery",
+    "note": "A tastemaking New York gallery with a strong record of building distinctive contemporary artists' careers over several decades."
+   },
+   {
+    "rank": 31,
+    "name": "Skarstedt",
+    "website": "https://www.skarstedt.com",
+    "neighborhood": "Uptown",
+    "address_hint": "20 E 79th Street",
+    "kind": "gallery",
+    "note": "A powerful primary- and secondary-market gallery specializing in canonical postwar and contemporary artists and tightly curated exhibitions."
+   },
+   {
+    "rank": 32,
+    "name": "Kasmin",
+    "website": "https://www.kasmingallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "509 W 27th Street",
+    "kind": "gallery",
+    "note": "A prominent Chelsea gallery combining contemporary representation, major estates, public sculpture and strong postwar scholarship."
+   },
+   {
+    "rank": 33,
+    "name": "Galerie Lelong & Co.",
+    "website": "https://www.galerielelong.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "528 W 26th Street",
+    "kind": "gallery",
+    "note": "A long-established gallery with notable commitments to women, Latin American artists and socially and environmentally engaged practices."
+   },
+   {
+    "rank": 34,
+    "name": "Tina Kim Gallery",
+    "website": "https://www.tinakimgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "525 W 21st Street",
+    "kind": "gallery",
+    "note": "An important international platform for Korean and diasporic artists, with strong scholarship and growing institutional influence."
+   },
+   {
+    "rank": 35,
+    "name": "Alexander Gray Associates",
+    "website": "https://www.alexandergray.com",
+    "neighborhood": "Downtown",
+    "address_hint": "384 Broadway",
+    "kind": "gallery",
+    "note": "Known for rigorous historical recovery and advocacy for artists engaging politics, identity, feminism and social justice."
+   },
+   {
+    "rank": 36,
+    "name": "Bortolami",
+    "website": "https://www.bortolamigallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "39 Walker Street",
+    "kind": "gallery",
+    "note": "A critically regarded gallery recognized for adventurous programming, long-term artist support and influential off-site initiatives."
+   },
+   {
+    "rank": 37,
+    "name": "White Columns",
+    "website": "https://www.whitecolumns.org",
+    "neighborhood": "Downtown",
+    "address_hint": "91 Horatio Street",
+    "kind": "nonprofit",
+    "note": "New York's oldest alternative art space remains a crucial launchpad for emerging and underrecognized artists."
+   },
+   {
+    "rank": 38,
+    "name": "Artists Space",
+    "website": "https://artistsspace.org",
+    "neighborhood": "Downtown",
+    "address_hint": "11 Cortlandt Alley",
+    "kind": "nonprofit",
+    "note": "A foundational alternative institution whose experimental exhibitions, commissions and debates have shaped New York art since 1972."
+   },
+   {
+    "rank": 39,
+    "name": "Salon 94",
+    "website": "https://www.salon94.com",
+    "neighborhood": "Uptown",
+    "address_hint": "3 E 89th Street",
+    "kind": "gallery",
+    "note": "A distinctive townhouse gallery known for close artist relationships and influential intersections among contemporary art, design and material culture."
+   },
+   {
+    "rank": 40,
+    "name": "Sperone Westwater",
+    "website": "https://www.speronewestwater.com",
+    "neighborhood": "Downtown",
+    "address_hint": "257 Bowery",
+    "kind": "gallery",
+    "note": "A historically important transatlantic gallery with deep roots in Conceptualism, Arte Povera and major contemporary painting and sculpture."
+   },
+   {
+    "rank": 41,
+    "name": "Lévy Gorvy Dayan",
+    "website": "https://www.levygorvydayan.com",
+    "neighborhood": "Uptown",
+    "address_hint": "19 E 64th Street",
+    "kind": "gallery",
+    "note": "A high-level postwar and contemporary gallery distinguished by scholarly exhibitions, private-market reach and major institutional relationships."
+   },
+   {
+    "rank": 42,
+    "name": "Galerie Eva Presenhuber",
+    "website": "https://www.presenhuber.com",
+    "neighborhood": "Downtown",
+    "address_hint": "39 Great Jones Street",
+    "kind": "gallery",
+    "note": "A highly regarded European gallery with a New York program built around critically influential international artists."
+   },
+   {
+    "rank": 43,
+    "name": "Mariane Ibrahim",
+    "website": "https://www.marianeibrahim.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "520 W 25th Street",
+    "kind": "gallery",
+    "note": "A fast-rising international gallery central to the market and institutional recognition of artists from Africa and its diaspora."
+   },
+   {
+    "rank": 44,
+    "name": "Mendes Wood DM",
+    "website": "https://www.mendeswooddm.com",
+    "neighborhood": "Downtown",
+    "address_hint": "47 Walker Street",
+    "kind": "gallery",
+    "note": "An influential Brazilian-founded gallery presenting a globally minded program with particular strength in Latin American art."
+   },
+   {
+    "rank": 45,
+    "name": "MASSIMODECARLO",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "Downtown",
+    "address_hint": "55 Walker Street",
+    "kind": "gallery",
+    "note": "A major international gallery whose New York space extends a prominent roster spanning established figures and market-leading younger artists."
+   },
+   {
+    "rank": 46,
+    "name": "Nara Roesler",
+    "website": "https://nararoesler.art",
+    "neighborhood": "Chelsea",
+    "address_hint": "511 W 21st Street",
+    "kind": "gallery",
+    "note": "One of Brazil's leading galleries, with significant strength in Latin American modern, conceptual and contemporary art."
+   },
+   {
+    "rank": 47,
+    "name": "Miles McEnery Gallery",
+    "website": "https://www.milesmcenery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "525 W 22nd Street",
+    "kind": "gallery",
+    "note": "A substantial Chelsea operation with a broad painting-centered program, major estates and consistent art-fair visibility."
+   },
+   {
+    "rank": 48,
+    "name": "Pilar Corrias",
+    "website": "https://www.pilarcorrias.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "511 W 27th Street",
+    "kind": "gallery",
+    "note": "The London gallery's New York space presents an acclaimed international roster, with particular strength among women and moving-image artists."
+   },
+   {
+    "rank": 49,
+    "name": "Timothy Taylor",
+    "website": "https://www.timothytaylor.com",
+    "neighborhood": "Downtown",
+    "address_hint": "74 Leonard Street",
+    "kind": "gallery",
+    "note": "A respected transatlantic gallery pairing established postwar artists with critically and institutionally visible contemporary practices."
+   },
+   {
+    "rank": 50,
+    "name": "Galerie Buchholz",
+    "website": "https://www.galeriebuchholz.de",
+    "neighborhood": "Uptown",
+    "address_hint": "17 E 82nd Street",
+    "kind": "gallery",
+    "note": "A highly influential, intellectually driven program associated with major conceptual, queer and interdisciplinary artists."
+   },
+   {
+    "rank": 51,
+    "name": "SculptureCenter",
+    "website": "https://www.sculpture-center.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "44-19 Purves Street",
+    "kind": "nonprofit",
+    "note": "A leading commissioning institution for experimental sculpture and installation, with an exceptional record of identifying consequential artists early."
+   },
+   {
+    "rank": 52,
+    "name": "Swiss Institute",
+    "website": "https://www.swissinstitute.net",
+    "neighborhood": "Downtown",
+    "address_hint": "38 St Marks Place",
+    "kind": "nonprofit",
+    "note": "A globally oriented nonprofit presenting adventurous exhibitions, commissions and public programs by emerging and established artists."
+   },
+   {
+    "rank": 53,
+    "name": "The Kitchen",
+    "website": "https://thekitchen.org",
+    "neighborhood": "Downtown",
+    "address_hint": "163B Bank Street",
+    "kind": "nonprofit",
+    "note": "A foundational experimental venue whose interdisciplinary program has transformed performance, video, sound and visual art since 1971."
+   },
+   {
+    "rank": 54,
+    "name": "Anat Ebgi",
+    "website": "https://www.anatebgi.com",
+    "neighborhood": "Downtown",
+    "address_hint": "372 Broadway",
+    "kind": "gallery",
+    "note": "An ascendant Los Angeles-founded gallery whose permanent New York space supports critically visible emerging and midcareer artists."
+   },
+   {
+    "rank": 55,
+    "name": "Miguel Abreu Gallery",
+    "website": "https://www.miguelabreugallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "88 Eldridge Street",
+    "kind": "gallery",
+    "note": "A rigorous Lower East Side gallery and publishing enterprise associated with theory-driven art, film and intellectually demanding exhibitions."
+   },
+   {
+    "rank": 56,
+    "name": "Canada",
+    "website": "https://www.canadanewyork.com",
+    "neighborhood": "Downtown",
+    "address_hint": "60 Lispenard Street",
+    "kind": "gallery",
+    "note": "A defining artist-founded gallery whose irreverent, community-based program helped shape downtown painting and sculpture."
+   },
+   {
+    "rank": 57,
+    "name": "Reena Spaulings Fine Art",
+    "website": "https://www.reenaspaulings.com",
+    "neighborhood": "Downtown",
+    "address_hint": "165 E Broadway",
+    "kind": "gallery",
+    "note": "An artist-run, conceptually agile gallery that has exerted unusual critical influence on downtown art and exhibition making."
+   },
+   {
+    "rank": 58,
+    "name": "47 Canal",
+    "website": "https://47canal.us",
+    "neighborhood": "Downtown",
+    "address_hint": "59 Walker Street",
+    "kind": "gallery",
+    "note": "A tastemaking gallery known for introducing experimental artists working across technology, identity, installation and global cultural exchange."
+   },
+   {
+    "rank": 59,
+    "name": "Bridget Donahue",
+    "website": "https://www.bridgetdonahue.nyc",
+    "neighborhood": "Downtown",
+    "address_hint": "99 Bowery",
+    "kind": "gallery",
+    "note": "A critically admired gallery presenting formally adventurous, feminist and interdisciplinary work in focused exhibitions."
+   },
+   {
+    "rank": 60,
+    "name": "James Fuentes",
+    "website": "https://www.jamesfuentes.com",
+    "neighborhood": "Downtown",
+    "address_hint": "52 White Street",
+    "kind": "gallery",
+    "note": "An influential downtown gallery known for artist discovery, historical rediscovery and strong links to New York's cultural communities."
+   },
+   {
+    "rank": 61,
+    "name": "Garth Greenan Gallery",
+    "website": "https://www.garthgreenan.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "545 W 20th Street",
+    "kind": "gallery",
+    "note": "A scholarly gallery that has helped secure overdue recognition for important women, Indigenous artists and overlooked postwar figures."
+   },
+   {
+    "rank": 62,
+    "name": "Ortuzar Projects",
+    "website": "https://www.ortuzarprojects.com",
+    "neighborhood": "Downtown",
+    "address_hint": "9 White Street",
+    "kind": "gallery",
+    "note": "A curatorial and research-led gallery acclaimed for historically incisive exhibitions and renewed attention to underrecognized artists."
+   },
+   {
+    "rank": 63,
+    "name": "Galerie Max Hetzler",
+    "website": "https://www.maxhetzler.com",
+    "neighborhood": "Downtown",
+    "address_hint": "74 Wooster Street",
+    "kind": "gallery",
+    "note": "One of Europe's most influential contemporary galleries, bringing a deep international roster and decades of market authority to New York."
+   },
+   {
+    "rank": 64,
+    "name": "GRIMM",
+    "website": "https://www.grimmgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "54 White Street",
+    "kind": "gallery",
+    "note": "An international gallery with a strong record of advancing younger painters and sculptors into museum and art-fair prominence."
+   },
+   {
+    "rank": 65,
+    "name": "Hales",
+    "website": "https://halesgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "547 W 20th Street",
+    "kind": "gallery",
+    "note": "A respected London-founded gallery with notable commitments to Black British art, interdisciplinary practices and important rediscoveries."
+   },
+   {
+    "rank": 66,
+    "name": "mor charpentier",
+    "website": "https://www.mor-charpentier.com",
+    "neighborhood": "Uptown",
+    "address_hint": "22 E 78th Street",
+    "kind": "gallery",
+    "note": "An internationally minded gallery emphasizing politically engaged practices and artists from Latin America, Europe and the Middle East."
+   },
+   {
+    "rank": 67,
+    "name": "Acquavella Galleries",
+    "website": "https://www.acquavellagalleries.com",
+    "neighborhood": "Uptown",
+    "address_hint": "18 E 79th Street",
+    "kind": "gallery",
+    "note": "A venerable family gallery with exceptional secondary-market influence and selective representation of prominent contemporary artists."
+   },
+   {
+    "rank": 68,
+    "name": "Nahmad Contemporary",
+    "website": "https://www.nahmadcontemporary.com",
+    "neighborhood": "Uptown",
+    "address_hint": "980 Madison Avenue",
+    "kind": "gallery",
+    "note": "A powerful postwar and contemporary gallery known for ambitious historical juxtapositions and access to exceptional blue-chip material."
+   },
+   {
+    "rank": 69,
+    "name": "Venus Over Manhattan",
+    "website": "https://www.venusovermanhattan.com",
+    "neighborhood": "Downtown",
+    "address_hint": "55 Great Jones Street",
+    "kind": "gallery",
+    "note": "Known for idiosyncratic, revisionist exhibitions that connect contemporary art with overlooked movements, vernacular culture and postwar history."
+   },
+   {
+    "rank": 70,
+    "name": "Luxembourg + Co.",
+    "website": "https://www.luxembourgco.com",
+    "neighborhood": "Downtown",
+    "address_hint": "200 Lafayette Street",
+    "kind": "gallery",
+    "note": "A research-intensive gallery presenting museum-quality modern and contemporary exhibitions, often reconsidering established art-historical narratives."
+   },
+   {
+    "rank": 71,
+    "name": "kaufmann repetto",
+    "website": "https://www.kaufmannrepetto.com",
+    "neighborhood": "Downtown",
+    "address_hint": "55 Walker Street",
+    "kind": "gallery",
+    "note": "A respected Milan-founded gallery with an internationally diverse program and longstanding support for feminist and conceptually oriented practices."
+   },
+   {
+    "rank": 72,
+    "name": "Chapter NY",
+    "website": "https://chapter-ny.com",
+    "neighborhood": "Downtown",
+    "address_hint": "60 Walker Street",
+    "kind": "gallery",
+    "note": "A closely watched gallery with a concise emerging program and a strong record of placing artists into institutional exhibitions."
+   },
+   {
+    "rank": 73,
+    "name": "Magenta Plains",
+    "website": "https://www.magentaplains.com",
+    "neighborhood": "Downtown",
+    "address_hint": "149 Canal Street",
+    "kind": "gallery",
+    "note": "A prominent downtown gallery combining emerging voices, midcareer development and productive reconsiderations of older artists."
+   },
+   {
+    "rank": 74,
+    "name": "Bureau",
+    "website": "https://www.bureau-inc.com",
+    "neighborhood": "Downtown",
+    "address_hint": "112 Duane Street",
+    "kind": "gallery",
+    "note": "A critically influential gallery devoted to conceptually sharp, materially experimental and often institutionally ambitious practices."
+   },
+   {
+    "rank": 75,
+    "name": "Maxwell Graham",
+    "website": "https://maxwellgraham.biz",
+    "neighborhood": "Downtown",
+    "address_hint": "55 Hester Street",
+    "kind": "gallery",
+    "note": "The successor to Essex Street maintains a highly regarded program of intellectually rigorous contemporary and historical exhibitions."
+   },
+   {
+    "rank": 76,
+    "name": "David Nolan Gallery",
+    "website": "https://www.davidnolangallery.com",
+    "neighborhood": "Uptown",
+    "address_hint": "24 E 81st Street",
+    "kind": "gallery",
+    "note": "A longstanding gallery valued for serious drawing, European postwar art and thoughtful contemporary representation."
+   },
+   {
+    "rank": 77,
+    "name": "Rachel Uffner Gallery",
+    "website": "https://www.racheluffnergallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "170 Suffolk Street",
+    "kind": "gallery",
+    "note": "A key Lower East Side gallery with a strong record of nurturing painters, sculptors and ceramic artists into wider recognition."
+   },
+   {
+    "rank": 78,
+    "name": "Nicelle Beauchene Gallery",
+    "website": "https://www.nicellebeauchene.com",
+    "neighborhood": "Downtown",
+    "address_hint": "7 Franklin Place",
+    "kind": "gallery",
+    "note": "A respected emerging and midcareer program known for measured artist development and materially inventive exhibitions."
+   },
+   {
+    "rank": 79,
+    "name": "Derek Eller Gallery",
+    "website": "https://www.derekeller.com",
+    "neighborhood": "Downtown",
+    "address_hint": "300 Broome Street",
+    "kind": "gallery",
+    "note": "A durable downtown gallery with an independent sensibility and a strong multigenerational roster across drawing, painting and sculpture."
+   },
+   {
+    "rank": 80,
+    "name": "Klaus von Nichtssagend Gallery",
+    "website": "https://www.klausgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "87 Franklin Street",
+    "kind": "gallery",
+    "note": "A longstanding artist-centered gallery whose understated program has launched and sustained numerous critically respected careers."
+   },
+   {
+    "rank": 81,
+    "name": "Marc Straus",
+    "website": "https://www.marcstraus.com",
+    "neighborhood": "Downtown",
+    "address_hint": "299 Grand Street",
+    "kind": "gallery",
+    "note": "An expansive Lower East Side gallery presenting an international, multigenerational roster with particular strength in painting and sculpture."
+   },
+   {
+    "rank": 82,
+    "name": "Yossi Milo",
+    "website": "https://www.yossimilo.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "245 Tenth Avenue",
+    "kind": "gallery",
+    "note": "An influential photography-centered gallery that has broadened into painting, sculpture and artists exploring identity and representation."
+   },
+   {
+    "rank": 83,
+    "name": "Company Gallery",
+    "website": "https://www.companygallery.us",
+    "neighborhood": "Downtown",
+    "address_hint": "145 Elizabeth Street",
+    "kind": "gallery",
+    "note": "A progressive downtown gallery particularly influential for queer, trans, digital and performance-oriented contemporary practices."
+   },
+   {
+    "rank": 84,
+    "name": "Lomex",
+    "website": "https://www.lomex.gallery",
+    "neighborhood": "Downtown",
+    "address_hint": "86 Walker Street",
+    "kind": "gallery",
+    "note": "A small but highly watched gallery known for unconventional exhibitions and artists circulating through New York's experimental scene."
+   },
+   {
+    "rank": 85,
+    "name": "Gordon Robichaux",
+    "website": "https://www.gordonrobichaux.com",
+    "neighborhood": "Downtown",
+    "address_hint": "41 Union Square W",
+    "kind": "gallery",
+    "note": "An artist-run gallery acclaimed for intimate, research-rich exhibitions and advocacy for overlooked or unconventional practices."
+   },
+   {
+    "rank": 86,
+    "name": "Half Gallery",
+    "website": "https://www.halfgallery.com",
+    "neighborhood": "Downtown",
+    "address_hint": "235 E 4th Street",
+    "kind": "gallery",
+    "note": "A compact but market-influential gallery recognized for identifying sought-after painters and staging energetic cross-generational exhibitions."
+   },
+   {
+    "rank": 87,
+    "name": "The Hole",
+    "website": "https://theholenyc.com",
+    "neighborhood": "Downtown",
+    "address_hint": "312 Bowery",
+    "kind": "gallery",
+    "note": "A high-energy downtown gallery with substantial visibility for emerging painting, new media and art shaped by popular and internet culture."
+   },
+   {
+    "rank": 88,
+    "name": "Harper's",
+    "website": "https://www.harpersgallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "512 W 22nd Street",
+    "kind": "gallery",
+    "note": "A rapidly expanded gallery with strong contemporary painting, publishing roots and an influential presence in both New York and the Hamptons."
+   },
+   {
+    "rank": 89,
+    "name": "Jeffrey Deitch",
+    "website": "https://deitch.com",
+    "neighborhood": "Downtown",
+    "address_hint": "18 Wooster Street",
+    "kind": "gallery",
+    "note": "A veteran dealer and curator whose public-facing exhibitions connect contemporary art with street culture, fashion, performance and spectacle."
+   },
+   {
+    "rank": 90,
+    "name": "Michael Rosenfeld Gallery",
+    "website": "https://www.michaelrosenfeldart.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "100 Eleventh Avenue",
+    "kind": "gallery",
+    "note": "An important scholarly gallery recognized for expanding the postwar canon and supporting major Black artists and estates."
+   },
+   {
+    "rank": 91,
+    "name": "Fergus McCaffrey",
+    "website": "https://www.fergusmccaffrey.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "514 W 26th Street",
+    "kind": "gallery",
+    "note": "A research-oriented gallery with notable expertise in postwar Japanese art and materially radical American and European practices."
+   },
+   {
+    "rank": 92,
+    "name": "DC Moore Gallery",
+    "website": "https://www.dcmooregallery.com",
+    "neighborhood": "Chelsea",
+    "address_hint": "535 W 22nd Street",
+    "kind": "gallery",
+    "note": "A longstanding American gallery with strong commitments to figurative art, abstraction, feminist histories and socially engaged practices."
+   },
+   {
+    "rank": 93,
+    "name": "Storefront for Art and Architecture",
+    "website": "https://storefrontnews.org",
+    "neighborhood": "Downtown",
+    "address_hint": "97 Kenmare Street",
+    "kind": "nonprofit",
+    "note": "A globally influential experimental space commissioning exhibitions and projects at the intersection of contemporary art, architecture and public life."
+   },
+   {
+    "rank": 94,
+    "name": "apexart",
+    "website": "https://apexart.org",
+    "neighborhood": "Downtown",
+    "address_hint": "291 Church Street",
+    "kind": "nonprofit",
+    "note": "A distinctive nonprofit known for open-call exhibitions, unconventional curatorial models and internationally networked public programming."
+   },
+   {
+    "rank": 95,
+    "name": "Participant Inc",
+    "website": "https://participantinc.org",
+    "neighborhood": "Downtown",
+    "address_hint": "116 Elizabeth Street",
+    "kind": "nonprofit",
+    "note": "A vital nonprofit platform for queer, feminist and politically challenging work that often falls outside commercial and institutional norms."
+   },
+   {
+    "rank": 96,
+    "name": "Smack Mellon",
+    "website": "https://smackmellon.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "92 Plymouth Street",
+    "kind": "nonprofit",
+    "note": "A major Brooklyn nonprofit offering ambitious exhibitions, commissions, studios and sustained support for underrepresented artists."
+   },
+   {
+    "rank": 97,
+    "name": "Amant",
+    "website": "https://www.amant.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "315 Maujer Street",
+    "kind": "nonprofit",
+    "note": "A well-resourced international arts organization presenting residencies, commissions, exhibitions and research across a substantial Brooklyn campus."
+   },
+   {
+    "rank": 98,
+    "name": "Pioneer Works",
+    "website": "https://pioneerworks.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "159 Pioneer Street",
+    "kind": "nonprofit",
+    "note": "A prominent interdisciplinary nonprofit combining contemporary exhibitions with residencies, science, music, performance and publishing."
+   },
+   {
+    "rank": 99,
+    "name": "Recess",
+    "website": "https://www.recessart.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "46 Washington Avenue",
+    "kind": "nonprofit",
+    "note": "An artist-centered nonprofit recognized for process-based commissions, public engagement and the influential Assembly diversion program."
+   },
+   {
+    "rank": 100,
+    "name": "A.I.R. Gallery",
+    "website": "https://www.airgallery.org",
+    "neighborhood": "Brooklyn/Queens",
+    "address_hint": "155 Plymouth Street",
+    "kind": "nonprofit",
+    "note": "A pioneering feminist, artist-run nonprofit founded in 1972, with enduring importance for women and nonbinary artists."
+   }
+  ]
+ }
+}

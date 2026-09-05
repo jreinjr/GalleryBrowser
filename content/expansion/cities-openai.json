@@ -1,0 +1,779 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788549277,
+ "system": "You are an art-world editor compiling a gallery guide. Answer with the JSON object the\nschema describes and nothing else. Rank cities by the quantity, influence and activity of their\ncontemporary art galleries (commercial galleries, nonprofit and artist-run spaces), not by museums or\nbiennials. For every city give: the common English name; the country; a URL slug (lowercase, hyphens,\ne.g. \"mexico-city\", \"hong-kong\"); the coordinates of the centre of its gallery activity; a map span in\ndegrees that frames the gallery districts (0.15 for a compact city, up to 0.6 for a sprawling one); the\nIANA timezone; six to twelve gallery districts as short labels — combine adjacent districts with a\nslash (\"Chelsea/Tribeca\") and never use a comma in a label — ordered from the busiest; two to four\nmetro_tokens: short strings that appear in a postal address inside the metro area (state or prefecture\nabbreviation with surrounding punctuation like \", NY \", the city name, a postcode prefix); and one\nsentence saying why the city ranks where it does.",
+ "user": "What are the 25 cities with the most significant and influential art galleries worldwide, ranked by the quantity, influence and activity of their galleries?",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 405,
+  "output_tokens": 9105,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.18372,
+  "seconds": 152.1
+ },
+ "data": {
+  "cities": [
+   {
+    "rank": 1,
+    "name": "New York",
+    "country": "United States",
+    "slug": "new-york",
+    "center": {
+     "lat": 40.735,
+     "lng": -74.002
+    },
+    "map_span_deg": 0.45,
+    "timezone": "America/New_York",
+    "neighborhoods": [
+     "Chelsea/Tribeca",
+     "Lower East Side/Bowery",
+     "Upper East Side",
+     "SoHo/NoHo",
+     "Greenpoint/Williamsburg",
+     "Bushwick",
+     "Midtown",
+     "Harlem"
+    ],
+    "metro_tokens": [
+     ", NY ",
+     "New York",
+     "Brooklyn",
+     "100"
+    ],
+    "why": "New York ranks first for its unmatched concentration of market-making dealers, blue-chip flagships and experimental spaces operating at a relentless pace."
+   },
+   {
+    "rank": 2,
+    "name": "London",
+    "country": "United Kingdom",
+    "slug": "london",
+    "center": {
+     "lat": 51.513,
+     "lng": -0.126
+    },
+    "map_span_deg": 0.45,
+    "timezone": "Europe/London",
+    "neighborhoods": [
+     "Mayfair/St James's",
+     "Fitzrovia/Soho",
+     "Shoreditch/Bethnal Green",
+     "Bloomsbury",
+     "Southwark/Bermondsey",
+     "Peckham",
+     "Camden/Kentish Town",
+     "Notting Hill",
+     "Vauxhall"
+    ],
+    "metro_tokens": [
+     "London",
+     "W1",
+     "E2",
+     "SE1"
+    ],
+    "why": "London ranks second because its deep primary and secondary markets support a vast mix of international galleries and influential nonprofit spaces."
+   },
+   {
+    "rank": 3,
+    "name": "Paris",
+    "country": "France",
+    "slug": "paris",
+    "center": {
+     "lat": 48.864,
+     "lng": 2.351
+    },
+    "map_span_deg": 0.35,
+    "timezone": "Europe/Paris",
+    "neighborhoods": [
+     "Marais/Haut Marais",
+     "Matignon/Champs-Élysées",
+     "Saint-Germain-des-Prés",
+     "Belleville",
+     "Romainville/Pantin",
+     "Bastille",
+     "Ménilmontant",
+     "Montmartre",
+     "Place de Clichy"
+    ],
+    "metro_tokens": [
+     "Paris",
+     "75003",
+     "75008",
+     "75020"
+    ],
+    "why": "Paris ranks third after a major expansion of global dealerships reinforced its already exceptional density of historic and emerging galleries."
+   },
+   {
+    "rank": 4,
+    "name": "Los Angeles",
+    "country": "United States",
+    "slug": "los-angeles",
+    "center": {
+     "lat": 34.064,
+     "lng": -118.3
+    },
+    "map_span_deg": 0.6,
+    "timezone": "America/Los_Angeles",
+    "neighborhoods": [
+     "Hollywood/West Hollywood",
+     "Downtown Arts District",
+     "Culver City",
+     "Mid-Wilshire",
+     "Beverly Hills",
+     "Boyle Heights",
+     "Silver Lake",
+     "Frogtown",
+     "Santa Monica/Venice",
+     "San Pedro"
+    ],
+    "metro_tokens": [
+     "Los Angeles",
+     ", CA ",
+     "900",
+     "West Hollywood"
+    ],
+    "why": "Los Angeles ranks fourth for its large artist base, influential homegrown dealers and continuing influx of major international galleries across a sprawling geography."
+   },
+   {
+    "rank": 5,
+    "name": "Berlin",
+    "country": "Germany",
+    "slug": "berlin",
+    "center": {
+     "lat": 52.509,
+     "lng": 13.39
+    },
+    "map_span_deg": 0.4,
+    "timezone": "Europe/Berlin",
+    "neighborhoods": [
+     "Mitte",
+     "Kreuzberg",
+     "Charlottenburg",
+     "Schöneberg",
+     "Tiergarten",
+     "Neukölln",
+     "Wedding",
+     "Prenzlauer Berg",
+     "Moabit",
+     "Lichtenberg"
+    ],
+    "metro_tokens": [
+     "Berlin",
+     "10117",
+     "10969",
+     "10785"
+    ],
+    "why": "Berlin ranks fifth because its unusually broad ecosystem of commercial galleries and artist-run spaces remains globally influential despite a smaller collector market than the leaders."
+   },
+   {
+    "rank": 6,
+    "name": "Hong Kong",
+    "country": "China",
+    "slug": "hong-kong",
+    "center": {
+     "lat": 22.286,
+     "lng": 114.153
+    },
+    "map_span_deg": 0.4,
+    "timezone": "Asia/Hong_Kong",
+    "neighborhoods": [
+     "Central",
+     "Wong Chuk Hang",
+     "Sheung Wan",
+     "Sai Ying Pun",
+     "Aberdeen",
+     "Wan Chai",
+     "Causeway Bay",
+     "Chai Wan",
+     "Kowloon Bay",
+     "Tsim Sha Tsui"
+    ],
+    "metro_tokens": [
+     "Hong Kong",
+     "Central",
+     "Wong Chuk Hang",
+     "Sheung Wan"
+    ],
+    "why": "Hong Kong ranks sixth as Asia's strongest high-value gallery marketplace with dense international flagships and an active network of regional dealers."
+   },
+   {
+    "rank": 7,
+    "name": "Seoul",
+    "country": "South Korea",
+    "slug": "seoul",
+    "center": {
+     "lat": 37.548,
+     "lng": 126.99
+    },
+    "map_span_deg": 0.5,
+    "timezone": "Asia/Seoul",
+    "neighborhoods": [
+     "Hannam-dong",
+     "Cheongdam-dong",
+     "Samcheong-dong",
+     "Seongsu-dong",
+     "Itaewon",
+     "Gangnam",
+     "Jongno",
+     "Euljiro",
+     "Yeonhui-dong",
+     "Pyeongchang-dong"
+    ],
+    "metro_tokens": [
+     "Seoul",
+     "Yongsan-gu",
+     "Gangnam-gu",
+     "Jongno-gu"
+    ],
+    "why": "Seoul ranks seventh for its dense domestic gallery culture and rapid expansion by internationally prominent dealers serving a sophisticated collector base."
+   },
+   {
+    "rank": 8,
+    "name": "Tokyo",
+    "country": "Japan",
+    "slug": "tokyo",
+    "center": {
+     "lat": 35.675,
+     "lng": 139.75
+    },
+    "map_span_deg": 0.5,
+    "timezone": "Asia/Tokyo",
+    "neighborhoods": [
+     "Roppongi",
+     "Ginza",
+     "Tennoz",
+     "Kiyosumi-Shirakawa",
+     "Omotesando/Aoyama",
+     "Shibuya",
+     "Shinjuku",
+     "Bakurocho",
+     "Yanaka",
+     "Meguro"
+    ],
+    "metro_tokens": [
+     "Tokyo",
+     "Minato-ku",
+     "Chuo-ku",
+     "Shibuya-ku"
+    ],
+    "why": "Tokyo ranks eighth because its immense but geographically fragmented scene combines globally respected dealers with numerous specialized and artist-led spaces."
+   },
+   {
+    "rank": 9,
+    "name": "Mexico City",
+    "country": "Mexico",
+    "slug": "mexico-city",
+    "center": {
+     "lat": 19.417,
+     "lng": -99.16
+    },
+    "map_span_deg": 0.45,
+    "timezone": "America/Mexico_City",
+    "neighborhoods": [
+     "Roma/Condesa",
+     "Polanco",
+     "San Miguel Chapultepec",
+     "Juárez",
+     "Centro Histórico",
+     "Santa María la Ribera",
+     "San Rafael",
+     "Escandón",
+     "Tacubaya",
+     "Pedregal"
+    ],
+    "metro_tokens": [
+     "Ciudad de México",
+     "CDMX",
+     "06700",
+     "11560"
+    ],
+    "why": "Mexico City ranks ninth as Latin America's most internationally connected gallery hub with a particularly strong balance of established dealers and experimental spaces."
+   },
+   {
+    "rank": 10,
+    "name": "Shanghai",
+    "country": "China",
+    "slug": "shanghai",
+    "center": {
+     "lat": 31.218,
+     "lng": 121.466
+    },
+    "map_span_deg": 0.5,
+    "timezone": "Asia/Shanghai",
+    "neighborhoods": [
+     "West Bund",
+     "M50",
+     "Former French Concession",
+     "The Bund",
+     "Jing'an",
+     "Xuhui",
+     "Pudong",
+     "Hongkou",
+     "Yangpu",
+     "Changning"
+    ],
+    "metro_tokens": [
+     "Shanghai",
+     "上海市",
+     "2000"
+    ],
+    "why": "Shanghai ranks tenth as mainland China's leading commercial gallery center with major local programs and the country's strongest concentration of international outposts."
+   },
+   {
+    "rank": 11,
+    "name": "Brussels",
+    "country": "Belgium",
+    "slug": "brussels",
+    "center": {
+     "lat": 50.84,
+     "lng": 4.35
+    },
+    "map_span_deg": 0.25,
+    "timezone": "Europe/Brussels",
+    "neighborhoods": [
+     "Sablon",
+     "Louise/Ixelles",
+     "Dansaert/Sainte-Catherine",
+     "Saint-Gilles",
+     "Marolles",
+     "Forest",
+     "Molenbeek",
+     "Anderlecht",
+     "Schaerbeek"
+    ],
+    "metro_tokens": [
+     "Brussels",
+     "Bruxelles",
+     "B-1000",
+     "1050"
+    ],
+    "why": "Brussels ranks eleventh for its extraordinary dealer density, international collector traffic and experimental programming relative to its compact size."
+   },
+   {
+    "rank": 12,
+    "name": "Beijing",
+    "country": "China",
+    "slug": "beijing",
+    "center": {
+     "lat": 39.956,
+     "lng": 116.455
+    },
+    "map_span_deg": 0.6,
+    "timezone": "Asia/Shanghai",
+    "neighborhoods": [
+     "798 Art District",
+     "Caochangdi",
+     "Shunyi",
+     "Jiuchang",
+     "Songzhuang",
+     "Dongcheng",
+     "Qianmen",
+     "Chaoyang Park",
+     "Sanlitun"
+    ],
+    "metro_tokens": [
+     "Beijing",
+     "北京市",
+     "1000",
+     "Chaoyang District"
+    ],
+    "why": "Beijing ranks twelfth because it retains a large concentration of China's most important galleries and artist-oriented spaces despite market and regulatory pressures."
+   },
+   {
+    "rank": 13,
+    "name": "Milan",
+    "country": "Italy",
+    "slug": "milan",
+    "center": {
+     "lat": 45.465,
+     "lng": 9.19
+    },
+    "map_span_deg": 0.25,
+    "timezone": "Europe/Rome",
+    "neighborhoods": [
+     "Brera",
+     "Porta Venezia",
+     "Navigli/Tortona",
+     "Porta Romana",
+     "Isola",
+     "Chinatown/Sarpi",
+     "Città Studi",
+     "Lambrate",
+     "Cinque Vie",
+     "NoLo"
+    ],
+    "metro_tokens": [
+     "Milano",
+     "Milan",
+     "20121",
+     "20154"
+    ],
+    "why": "Milan ranks thirteenth for its substantial roster of internationally influential Italian dealers and a growing field of younger spaces spread across the city."
+   },
+   {
+    "rank": 14,
+    "name": "São Paulo",
+    "country": "Brazil",
+    "slug": "sao-paulo",
+    "center": {
+     "lat": -23.557,
+     "lng": -46.672
+    },
+    "map_span_deg": 0.5,
+    "timezone": "America/Sao_Paulo",
+    "neighborhoods": [
+     "Jardins",
+     "Vila Madalena",
+     "Pinheiros",
+     "Itaim Bibi",
+     "Higienópolis",
+     "Centro",
+     "Barra Funda",
+     "Vila Mariana",
+     "Morumbi",
+     "Lapa"
+    ],
+    "metro_tokens": [
+     "São Paulo - SP",
+     "São Paulo",
+     "014",
+     "045"
+    ],
+    "why": "São Paulo ranks fourteenth as South America's largest gallery ecosystem with powerful regional dealers and sustained international reach."
+   },
+   {
+    "rank": 15,
+    "name": "Zurich",
+    "country": "Switzerland",
+    "slug": "zurich",
+    "center": {
+     "lat": 47.376,
+     "lng": 8.53
+    },
+    "map_span_deg": 0.2,
+    "timezone": "Europe/Zurich",
+    "neighborhoods": [
+     "Löwenbräu/Escher Wyss",
+     "Altstadt",
+     "Enge",
+     "Langstrasse",
+     "Wiedikon",
+     "Seefeld",
+     "Oerlikon",
+     "Albisrieden"
+    ],
+    "metro_tokens": [
+     "Zürich",
+     "Zurich",
+     "8005",
+     "8001"
+    ],
+    "why": "Zurich ranks fifteenth because its compact scene has exceptional collector wealth and a disproportionate number of globally important galleries."
+   },
+   {
+    "rank": 16,
+    "name": "Madrid",
+    "country": "Spain",
+    "slug": "madrid",
+    "center": {
+     "lat": 40.414,
+     "lng": -3.7
+    },
+    "map_span_deg": 0.3,
+    "timezone": "Europe/Madrid",
+    "neighborhoods": [
+     "Lavapiés/Embajadores",
+     "Salesas/Chueca",
+     "Salamanca",
+     "Carabanchel",
+     "Centro",
+     "Huertas",
+     "Arganzuela",
+     "Usera",
+     "Chamberí"
+    ],
+    "metro_tokens": [
+     "Madrid",
+     "28004",
+     "28012",
+     "28045"
+    ],
+    "why": "Madrid ranks sixteenth for its broad Spanish gallery base and increasingly active clusters of ambitious young dealers alongside established programs."
+   },
+   {
+    "rank": 17,
+    "name": "Vienna",
+    "country": "Austria",
+    "slug": "vienna",
+    "center": {
+     "lat": 48.203,
+     "lng": 16.365
+    },
+    "map_span_deg": 0.3,
+    "timezone": "Europe/Vienna",
+    "neighborhoods": [
+     "Innere Stadt",
+     "Schleifmühlgasse/Freihaus",
+     "Neubau",
+     "Mariahilf",
+     "Leopoldstadt",
+     "Alsergrund",
+     "Wieden",
+     "Ottakring",
+     "Favoriten"
+    ],
+    "metro_tokens": [
+     "Wien",
+     "Vienna",
+     "1010",
+     "1070"
+    ],
+    "why": "Vienna ranks seventeenth for a rigorous gallery culture that combines internationally established programs with an active generation of experimental spaces."
+   },
+   {
+    "rank": 18,
+    "name": "Cologne",
+    "country": "Germany",
+    "slug": "cologne",
+    "center": {
+     "lat": 50.938,
+     "lng": 6.951
+    },
+    "map_span_deg": 0.25,
+    "timezone": "Europe/Berlin",
+    "neighborhoods": [
+     "Altstadt",
+     "Belgisches Viertel",
+     "Friesenviertel",
+     "Südstadt",
+     "Ehrenfeld",
+     "Deutz",
+     "Mülheim",
+     "Nippes",
+     "Kalk"
+    ],
+    "metro_tokens": [
+     "Köln",
+     "Cologne",
+     "50667",
+     "50672"
+    ],
+    "why": "Cologne ranks eighteenth because its historically pivotal dealer community remains influential and active even after some of Germany's market energy shifted to Berlin."
+   },
+   {
+    "rank": 19,
+    "name": "Taipei",
+    "country": "Taiwan",
+    "slug": "taipei",
+    "center": {
+     "lat": 25.048,
+     "lng": 121.54
+    },
+    "map_span_deg": 0.4,
+    "timezone": "Asia/Taipei",
+    "neighborhoods": [
+     "Zhongshan",
+     "Da'an",
+     "Neihu",
+     "Xinyi",
+     "Datong",
+     "Songshan",
+     "Wanhua",
+     "Shilin",
+     "Beitou"
+    ],
+    "metro_tokens": [
+     "Taipei City",
+     "台北市",
+     "104",
+     "106"
+    ],
+    "why": "Taipei ranks nineteenth for its substantial network of established East Asian galleries and an active collector market supporting newer programs."
+   },
+   {
+    "rank": 20,
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "slug": "amsterdam",
+    "center": {
+     "lat": 52.367,
+     "lng": 4.89
+    },
+    "map_span_deg": 0.25,
+    "timezone": "Europe/Amsterdam",
+    "neighborhoods": [
+     "Jordaan",
+     "Centrum",
+     "De Pijp",
+     "Oud-West",
+     "Amsterdam-Noord",
+     "Oost",
+     "Westerpark",
+     "Zuidas",
+     "De Wallen"
+    ],
+    "metro_tokens": [
+     "Amsterdam",
+     "1015",
+     "1072",
+     "1031"
+    ],
+    "why": "Amsterdam ranks twentieth for its durable concentration of respected contemporary dealers and nonprofit spaces despite a relatively small domestic market."
+   },
+   {
+    "rank": 21,
+    "name": "Singapore",
+    "country": "Singapore",
+    "slug": "singapore",
+    "center": {
+     "lat": 1.296,
+     "lng": 103.837
+    },
+    "map_span_deg": 0.35,
+    "timezone": "Asia/Singapore",
+    "neighborhoods": [
+     "Gillman Barracks",
+     "Tanjong Pagar",
+     "Bras Basah/Bugis",
+     "Orchard",
+     "Little India",
+     "Chinatown",
+     "Dempsey Hill",
+     "Robertson Quay",
+     "Joo Chiat",
+     "Kallang"
+    ],
+    "metro_tokens": [
+     "Singapore",
+     "Singapore 189",
+     "Singapore 238",
+     "Singapore 159"
+    ],
+    "why": "Singapore ranks twenty-first as Southeast Asia's best-connected gallery marketplace although its dealer population remains smaller and more changeable than higher-ranked Asian hubs."
+   },
+   {
+    "rank": 22,
+    "name": "Miami",
+    "country": "United States",
+    "slug": "miami",
+    "center": {
+     "lat": 25.795,
+     "lng": -80.203
+    },
+    "map_span_deg": 0.5,
+    "timezone": "America/New_York",
+    "neighborhoods": [
+     "Design District/Wynwood",
+     "Allapattah",
+     "Little Haiti/Little River",
+     "Downtown/Brickell",
+     "Miami Beach",
+     "Coral Gables",
+     "Coconut Grove",
+     "Hialeah"
+    ],
+    "metro_tokens": [
+     "Miami",
+     ", FL ",
+     "331",
+     "Miami Beach"
+    ],
+    "why": "Miami ranks twenty-second for its growing year-round dealer community and strong collector access though gallery activity remains notably seasonal."
+   },
+   {
+    "rank": 23,
+    "name": "Lisbon",
+    "country": "Portugal",
+    "slug": "lisbon",
+    "center": {
+     "lat": 38.721,
+     "lng": -9.145
+    },
+    "map_span_deg": 0.3,
+    "timezone": "Europe/Lisbon",
+    "neighborhoods": [
+     "Chiado/Bairro Alto",
+     "Alvalade",
+     "Marvila",
+     "Estrela",
+     "Mouraria",
+     "Santos",
+     "Belém",
+     "Graça",
+     "Intendente/Anjos",
+     "Alcântara"
+    ],
+    "metro_tokens": [
+     "Lisboa",
+     "Lisbon",
+     "1200",
+     "1100"
+    ],
+    "why": "Lisbon ranks twenty-third for a fast-growing and internationally visible gallery scene strengthened by affordable space and an influx of artists and dealers."
+   },
+   {
+    "rank": 24,
+    "name": "Dubai",
+    "country": "United Arab Emirates",
+    "slug": "dubai",
+    "center": {
+     "lat": 25.192,
+     "lng": 55.264
+    },
+    "map_span_deg": 0.5,
+    "timezone": "Asia/Dubai",
+    "neighborhoods": [
+     "Al Quoz",
+     "DIFC",
+     "Al Fahidi/Bur Dubai",
+     "Jumeirah",
+     "Downtown Dubai",
+     "Dubai Design District",
+     "Business Bay",
+     "Deira",
+     "Dubai Marina"
+    ],
+    "metro_tokens": [
+     "Dubai",
+     "Al Quoz",
+     "DIFC",
+     "United Arab Emirates"
+    ],
+    "why": "Dubai ranks twenty-fourth as the leading commercial gallery hub for the Gulf with strong regional programs and selective international expansion concentrated in a few districts."
+   },
+   {
+    "rank": 25,
+    "name": "Mumbai",
+    "country": "India",
+    "slug": "mumbai",
+    "center": {
+     "lat": 19.025,
+     "lng": 72.85
+    },
+    "map_span_deg": 0.6,
+    "timezone": "Asia/Kolkata",
+    "neighborhoods": [
+     "Colaba/Fort",
+     "Lower Parel",
+     "Bandra",
+     "Worli",
+     "Byculla",
+     "Tardeo",
+     "Santacruz",
+     "Juhu",
+     "Andheri"
+    ],
+    "metro_tokens": [
+     "Mumbai",
+     "Maharashtra",
+     "400001",
+     "400013"
+    ],
+    "why": "Mumbai ranks twenty-fifth for its influential Indian galleries and rapidly strengthening contemporary market though the active dealer network remains comparatively compact."
+   }
+  ]
+ }
+}

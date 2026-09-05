@@ -1,0 +1,937 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: Porta Venezia=17, Brera/Centro=24, Isola/Farini=8, Lambrate/Ventura=6, Tortona/Navigli=7, Città Studi/Bicocca=9
+[brera-centro] session 1: 8 TODO venues -> deep-milan-brera-centro-1788558338.log
+[brera-centro]   ['antonia-jannone-disegni-di-architettura', 'antonio-colombo-arte-contemporanea', 'building', 'cadogan', 'casa-degli-artisti', 'cortesi', 'deodato-arte', 'fabbrica-eos']
+[porta-venezia] session 1: 8 TODO venues -> deep-milan-porta-venezia-1788558361.log
+[porta-venezia]   ['alessandro-albanese', 'artopia', 'clima', 'dep-art', 'fondazione-elpis', 'fondazione-marconi', 'fondazione-mudima', 'galleria-christian-stein']
+[citt-studi-bicocca] session 1: 8 TODO venues -> deep-milan-citt-studi-bicocca-1788558381.log
+[citt-studi-bicocca]   ['29-arts-in-progress', 'a-arte-invernizzi', 'eastcontemporary', 'galleria-suzy-shammah', 'massimo-de-carlo', 'ncontemporary', 'ordet', 'ribot']
+[citt-studi-bicocca] session 1 done: +4 saved, +6 skipped (exit 0)
+[isola-farini] session 1: 8 TODO venues -> deep-milan-isola-farini-1788558842.log
+[isola-farini]   ['ca-di-fra', 'chippendale-studio', 'galleria-lia-rumma', 'pirelli-hangarbicocca', 'podbielski-contemporary', 'primo-marella', 'spazio-serra', 'viafarini']
+[porta-venezia] session 1 done: +4 saved, +5 skipped (exit 0)
+[tortona-navigli] session 1: 7 TODO venues -> deep-milan-tortona-navigli-1788558844.log
+[tortona-navigli]   ['abc-arte-milano', 'base-milano', 'fondazione-prada', 'galleria-giovanni-bonelli', 'galleria-patricia-armocida', 'officine-dell-immagine', 'progettoarte-elm']
+[brera-centro] session 1 done: +4 saved, +6 skipped (exit 0)
+[lambrate-ventura] session 1: 6 TODO venues -> deep-milan-lambrate-ventura-1788559078.log
+[lambrate-ventura]   ['assab-one', 'boccanera', 'cassina-projects', 'francesca-minini', 'm77', 'prometeo-gallery-ida-pisani']
+[tortona-navigli] session 1 done: +4 saved, +5 skipped (exit 0)
+[brera-centro] session 2: 8 TODO venues -> deep-milan-brera-centro-1788559164.log
+[brera-centro]   ['fondazione-corrente', 'galleria-antonio-battaglia', 'galleria-clivio', 'galleria-luisa-delle-piane', 'galleria-poggiali', 'galleria-rubin', 'galleria-san-fedele', 'galleria-tonelli']
+[isola-farini] session 1 done: +4 saved, +6 skipped (exit 0)
+[porta-venezia] session 2: 8 TODO venues -> deep-milan-porta-venezia-1788559177.log
+[porta-venezia]   ['galleria-gaburro', 'galleria-tega', 'gio-marconi', 'marcorossi-artecontemporanea', 'piupiu', 'reading-room', 'studio-gariboldi', 'studio-guenzani']
+[brera-centro] session 2 done: +0 saved, +0 skipped (exit 1)
+[citt-studi-bicocca] session 2: 1 TODO venues -> deep-milan-citt-studi-bicocca-1788559236.log
+[citt-studi-bicocca]   ['vistamare']
+[porta-venezia] session 2 done: +0 saved, +0 skipped (exit 1)
+[isola-farini] TODO empty after 1 session(s)
+[isola-farini] zone done: todo_empty after 1 session(s)
+[tortona-navigli] TODO empty after 1 session(s)
+[tortona-navigli] zone done: todo_empty after 1 session(s)
+[brera-centro] session 3: 8 TODO venues -> deep-milan-brera-centro-1788559236.log
+[brera-centro]   ['kaufmann-repetto', 'maab', 'mimmo-scognamiglio-artecontemporanea', 'monica-de-cardenas', 'montrasio-arte', 'nuova-galleria-morone', 'tornabuoni-arte', 'viasaterna']
+[lambrate-ventura] session 1 done: +0 saved, +0 skipped (exit 1)
+[lambrate-ventura] TODO empty after 1 session(s)
+[lambrate-ventura] zone done: todo_empty after 1 session(s)
+[porta-venezia] session 3: 1 TODO venues -> deep-milan-porta-venezia-1788559245.log
+[porta-venezia]   ['zero']
+[citt-studi-bicocca] session 2 done: +2 saved, +0 skipped (exit 0)
+[citt-studi-bicocca] TODO empty after 2 session(s)
+[citt-studi-bicocca] zone done: todo_empty after 2 session(s)
+[porta-venezia] session 3 done: +1 saved, +0 skipped (exit 0)
+[porta-venezia] TODO empty after 3 session(s)
+[porta-venezia] zone done: todo_empty after 3 session(s)
+[brera-centro] session 3 done: +7 saved, +5 skipped (exit 0)
+[brera-centro] TODO empty after 3 session(s)
+[brera-centro] zone done: todo_empty after 3 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  milan/building-sissi-nidi: ok
+  milan/building-castella-archaeology: ok
+  milan/building-gambirasio-chasing-rainbows: ok
+  milan/clima-dana-lok: ok
+  milan/christian-stein-paolini: ok
+  milan/east-eliska-konecna: ok
+  milan/cadogan-nuria-maria-blues-rouge: ok
+  milan/dep-art-20-anni: ok
+  milan/nc-la-generazione-felice: ok
+  milan/mdc-lawrence-weiner: ok
+  milan/ribot-felix-schramm-skin-of-time: ok
+  milan/elpis-true-reality: ok
+  milan/abc-arte-gastone-biggi-tempo-continuo: ok
+  milan/abc-arte-jorrit-tornquist-idea-del-colore: ok
+  milan/prada-cao-fei-dash: ok
+  milan/prada-mona-hatoum-over-under: ok
+  milan/liarumma-kiefer-autumn-moonlight: ok
+  milan/hangarbicocca-aki-sasamoto-xyz: ok
+  milan/hangarbicocca-luciano-fabro-abitare: ok
+  milan/primo-marella-alternative-practices-2: ok
+  milan/vistamare-bignardi-spettacolo-immagini: ok
+  milan/vistamare-jodice-immagini-del-vuoto: ok
+  milan/zero-houseago-gravita-e-grazia: ok
+  milan/kaufmann-repetto-ppp-pinkypussypunk: ok
+  milan/kaufmann-repetto-piante-vagabonde: ok
+  milan/kaufmann-repetto-tenki-hiramatsu: ok
+  milan/mdc-the-human-stain: ok
+  milan/mdc-uwe-wittwer-controcorrente: ok
+  milan/viasaterna-laltro-che-abito: ok
+  milan/morone-vincvlvm: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (30 shows, 24 venue lookups); flags: none
+=== agent verification pass ===
+[verify milan/Porta Venezia] 5 shows
+[verify milan/Brera/Centro] 11 shows
+[verify milan/Isola/Farini] 4 shows
+  [milan #0] server:web_fetch {"url": "https://www.climagallery.com/exhibition/a-body-for-your-thoughts/"}
+  [milan #0] server:web_fetch {"url": "https://www.galleriachristianstein.it/giulio-paolini-2026"}
+  [milan #0] server:web_fetch {"url": "https://www.depart.it/it/mostra-di-DEP-ART-GALLERY-20-ANNI-2006-2026-177.htm"}
+  [milan #0] server:web_fetch {"url": "https://fondazioneelpis.org/exhibitions/true-reality-benjamin-jones"}
+  [milan #0] server:web_fetch {"url": "http://galleriazero.it/"}
+  [milan #0] server:web_fetch {"url": "https://www.climagallery.com/exhibition/a-body-for-your-thoughts/"}
+  [milan #0] server:web_search {"query": "CLIMA gallery Milan Dana Lok \"A Body for Your Thoughts\""}
+  [milan #0] server:web_search {"query": "Galleria Christian Stein Giulio Paolini \"In Studio\" 2026"}
+  [milan #0] server:web_search {"query": "Dep Art Gallery Milano \"20 anni\" 2006-2026 mostra"}
+  [milan #0] server:web_search {"query": "Fondazione Elpis Benjamin Jones \"True Reality\""}
+  [milan #0] server:web_search {"query": "ZERO... Milano Thomas Houseago \"Gravit\u00e0 e Grazia\""}
+  [milan #0] server:web_fetch {"url": "https://www.depart.it/it/mostra-di-DEP-ART-GALLERY-20-ANNI-2006-2026-177.htm"}
+  [milan #0] server:web_fetch {"url": "https://fondazioneelpis.org/exhibitions/true-reality-benjamin-jones"}
+  [milan #0] tool:render_fetch {"url": "https://www.depart.it/it/mostra-di-DEP-ART-GALLERY-20-ANNI-2006-2026-177.htm"}
+  [milan #0] server:web_search {"query": "fondazioneelpis.org \"True Reality\" Benjamin Jones exhibitions"}
+[verify milan/Tortona/Navigli] 4 shows
+[verify milan/Città Studi/Bicocca] 6 shows
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/per-filo-e-per-segno-9-12-sissi/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/vincenzo-castella-timeless-archaeology/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/chiara-gambirasio-chasing-rainbows/"}
+  [milan #0] server:web_fetch {"url": "https://cadogangallery.com/exhibitions/149-nuria-maria-blues-rouge/"}
+  [milan #0] server:web_fetch {"url": "https://kaufmannrepetto.com/exhibition/ppp-pinkypussypunk/"}
+  [milan #0] server:web_fetch {"url": "https://kaufmannrepetto.com/upcoming-exhibitions/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/per-filo-e-per-segno-9-12-sissi/"}
+  [milan #0] server:web_search {"query": "building-gallery.com Sissi Per filo e per segno Nidi"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/per-filo-e-per-segno-4-12-antonio-marras/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/en/exhibitions/per-filo-e-per-segno-percorsi-di-arte-tessile-in-italia/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/per-filo-e-per-segno-9-12-sissi/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/exhibitions/vincenzo-castella-timeless-archaeology/"}
+  [milan #0] server:web_fetch {"url": "https://building-gallery.com/mostre/"}
+  [milan #0] server:web_fetch {"url": "https://cadogangallery.com/exhibitions/149-nuria-maria-blues-rouge/"}
+  [milan #0] server:web_fetch {"url": "https://cadogangallery.com/artists/102-nuria-maria/"}
+  [milan #0] server:web_search {"query": "Cadogan Gallery Milano Nuria Maria Blues Rouge"}
+  [milan #0] server:web_search {"query": "kaufmann repetto \"PPP pinkypussypunk\" Atelier dell'Errore"}
+  [milan #0] server:web_fetch {"url": "https://kaufmannrepetto.com/"}
+  [milan #0] server:web_search {"query": "kaufmann repetto Clarissa Tossin \"Piante Vagabonde\""}
+  [milan #0] server:web_search {"query": "kaufmann repetto Tenki Hiramatsu exhibition Milan"}
+  [milan #0] server:web_fetch {"url": "https://kaufmannrepetto.com/upcoming-exhibitions/"}
+  [milan #0] server:web_fetch {"url": "https://kaufmannrepetto.com/artist/clarissa-tossin/"}
+  [milan #0] server:web_search {"query": "Monica De Cardenas Milano \"The Human Stain\" exhibition"}
+  [milan #0] server:web_search {"query": "Monica De Cardenas \"Uwe Wittwer\" \"Controcorrente\""}
+  [milan #0] server:web_fetch {"url": "https://www.abc-arte.com/exhibitions/86-gastone-biggi.-tempo-continuo-a-cura-di-flaminio-gualdoni/overview/"}
+  [milan #0] server:web_fetch {"url": "https://www.abc-arte.com/exhibitions/87-jorrit-tornquist-lidea-del-colore-a-cura-di-flaminio-gualdoni/overview/"}
+  [milan #0] server:web_fetch {"url": "https://www.fondazioneprada.org/project/cao-fei-dash/"}
+  [milan #0] server:web_fetch {"url": "https://www.fondazioneprada.org/project/exhibition-mona-hatoum-over-under-and-in-between/"}
+  [milan #0] server:web_fetch {"url": "https://www.abc-arte.com/exhibitions/86-gastone-biggi.-tempo-continuo-a-cura-di-flaminio-gualdoni/overview/"}
+  [milan #0] server:web_search {"query": "ABC-ARTE Gastone Biggi Tempo Continuo"}
+  [milan #0] server:web_search {"query": "ABC-ARTE Jorrit Tornquist L'idea del colore"}
+  [milan #0] server:web_search {"query": "Fondazione Prada Cao Fei Dash exhibition"}
+  [milan #0] server:web_search {"query": "Fondazione Prada Mona Hatoum Over, Under and In Between"}
+  [milan #0] All four shows checked against venue/primary sources. Findings:
+
+1. **Gastone Biggi "Tempo Continuo"** (ABC-ARTE): Venue's own listing page
+  [milan #0] confirms the exhibition runs "4 Jun - 12 Sep 2026" in Milano
+  [milan #0] , and this is corroborated by independent sources
+  [milan #0] stating the show is "aperta dal 4 giugno al 12 settembre" 2026
+  [milan #0] . The saved end date (09-06) is wrong — correct end date is 2026-09-12.
+
+2. **Jorrit Tornquist "L'idea del colore"** (ABC-ARTE): Venue page confirms
+  [milan #0] "16 Sep - 31 Oct 2026 Milano ABC-ARTE presents The idea of colour... dedicated to Jorrit Tornquist, curated by Flaminio Gualdoni"
+  [milan #0] — matches saved dates exactly. Verified.
+
+3. **Cao Fei "Dash"** (Fondazione Prada): Venue's own e-flux announcement confirms
+  [milan #0] "Fondazione Prada will present Dash, a new multimedia project devised by Chinese artist Cao Fei for its Milan headquarters, from 9 April to 28 September 2026"
+  [milan #0] , matching saved dates. Verified.
+
+4. **Mona Hatoum "Over, Under and In Between"** (Fondazione Prada): Venue's own press release confirms
+  [milan #0] "from 29 January to 9 November 2026 (Press Preview on Wednesday 28 January)"
+  [milan #0] , matching saved dates. Verified.
+
+Now recording verdicts.
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "abc-arte-gastone-biggi-tempo-continuo", "status": "corrected", "reason": "Venue's own exhibitions page (abc-arte.
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "abc-arte-jorrit-tornquist-idea-del-colore", "status": "verified", "reason": null, "corrections": null}
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "prada-cao-fei-dash", "status": "verified", "reason": null, "corrections": null}
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "prada-mona-hatoum-over-under", "status": "verified", "reason": null, "corrections": null}
+  [milan #0] server:web_fetch {"url": "https://www.liarumma.it/mostre/i-wish-to-die-in-autumn-moonlight-even-in-darkness-not-to-be-lost"}
+  [milan #0] server:web_fetch {"url": "https://pirellihangarbicocca.org/mostra/aki-sasamoto/"}
+  [milan #0] server:web_fetch {"url": "https://pirellihangarbicocca.org/mostra/luciano-fabro/"}
+  [milan #0] server:web_fetch {"url": "https://www.primomarellagallery.com/exhibitions/130-alternative-practices-and-unbound-forms-part-ii-african-artists-across-recent-b
+  [milan #0] server:web_fetch {"url": "https://www.liarumma.it/mostre/i-wish-to-die-in-autumn-moonlight-even-in-darkness-not-to-be-lost"}
+  [milan #0] server:web_search {"query": "Anselm Kiefer \"I wish to die in autumn moonlight\" Lia Rumma"}
+  [milan #0] server:web_search {"query": "Aki Sasamoto XYZ Pirelli HangarBicocca"}
+  [milan #0] server:web_search {"query": "Luciano Fabro Abitare lo spazio Pirelli HangarBicocca"}
+  [milan #0] server:web_search {"query": "Primo Marella Gallery Alternative Practices and Unbound Forms Part II"}
+  [milan #0] server:web_fetch {"url": "https://liarumma.com/exhibitions/i-wish-to-die-in-autumn-moonlight-even-in-darkness-not-to-be-lost"}
+  [milan #0] server:web_fetch {"url": "https://pirellihangarbicocca.org/en/exhibition/aki-sasamoto/"}
+  [milan #0] server:web_fetch {"url": "https://pirellihangarbicocca.org/en/exhibition/luciano-fabro/"}
+  [milan #0] server:web_fetch {"url": "https://www.primomarellagallery.com/exhibitions/128-alternative-practices-and-unbound-forms-african-artists-across-recent-biennales
+  [milan #0] server:web_fetch {"url": "https://www.primomarellagallery.com/exhibitions/130-alternative-practices-and-unbound-forms-part-ii-african-artists-across-recent-b
+  [milan #0] server:web_fetch {"url": "https://www.primomarellagallery.com/exhibitions/current/"}
+  [milan #0] All four shows checked against venue's own current pages. Findings:
+
+1. **Lia Rumma – Kiefer**: Venue's own page confirms "17 aprile – 9 ottobre" (17 Apr–9 Oct 2026), matching saved dates exactly.
+2. 
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "liarumma-kiefer-autumn-moonlight", "status": "verified", "reason": "Venue's own exhibition page (liarumma.com) li
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "hangarbicocca-aki-sasamoto-xyz", "status": "verified", "reason": "Venue's own exhibition page confirms \"XYZ\" ru
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "hangarbicocca-luciano-fabro-abitare", "status": "verified", "reason": "Venue's own exhibition page confirms \"Abi
+  [milan #0] tool:confirm_show {"city": "milan", "slug": "primo-marella-alternative-practices-2", "status": "verified", "reason": "Venue's own \"Current\" exhibitions page
+  [milan #1] 3 verified / 1 corrected / 0 unverified
+[verify milan/Tortona/Navigli] done $0.22
+  [milan #1] server:web_search {"query": "site:fondazioneelpis.org true reality benjamin jones"}
+  [milan #1] server:web_fetch {"url": "https://fondazioneelpis.org/exhibitions/true-reality-benjamin-jones"}
+  [milan #1] server:web_fetch {"url": "https://www.climagallery.com/exhibition/a-body-for-your-thoughts/"}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "clima-dana-lok", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "christian-stein-paolini", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "dep-art-20-anni", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "elpis-true-reality", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "zero-houseago-gravita-e-grazia", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] All 4 Milan shows audited: 4 verified / 0 corrected / 0 unverified.
+[verify milan/Isola/Farini] done $0.38
+  [milan #2] All 5 Milan shows audited: 5 verified / 0 corrected / 0 unverified.
+[verify milan/Porta Venezia] done $0.52
+  [milan #0] server:web_fetch {"url": "https://www.east-contemporary.org/4-1-exhibition-single-page/you-were-never-promised-a-happy-life"}
+  [milan #0] server:web_fetch {"url": "https://ncontemporary.com/exhibitions/"}
+  [milan #0] server:web_fetch {"url": "https://massimodecarlo.com/exhibitions/amp-una-certa-massa-alla-base-di-tutto-amp-determined-mass-at-the-base-of-it-all"}
+  [milan #0] server:web_fetch {"url": "https://www.ribotgallery.com/the-skin-of-time/"}
+  [milan #0] server:web_fetch {"url": "https://vistamare.com/exhibitions/lo-spettacolo-delle-immagini-a-cura-di-lorenzo-madaro"}
+  [milan #0] server:web_fetch {"url": "https://vistamare.com/exhibitions/immagini-del-vuoto-dalla-camera-oscura-alla-camera-chiara"}
+  [milan #0] server:web_fetch {"url": "https://www.east-contemporary.org/4-1-exhibition-single-page/you-were-never-promised-a-happy-life"}
+  [milan #0] server:web_search {"query": "eastcontemporary Eli\u0161ka Kone\u010dn\u00e1 \"You were never promised a happy life\""}
+  [milan #0] server:web_search {"query": "Ncontemporary Milan Nazar Strelyaev-Nazarko \"La generazione felice\""}
+  [milan #0] server:web_search {"query": "Massimo De Carlo Lawrence Weiner \"Determined Mass at the Base of it All\""}
+  [milan #0] server:web_search {"query": "RIBOT gallery Milan Felix Schramm \"The Skin of Time\""}
+  [milan #0] server:web_search {"query": "Vistamare Umberto Bignardi \"Lo spettacolo delle immagini\""}
+  [milan #0] server:web_search {"query": "Vistamare Mimmo Jodice \"Immagini del vuoto\""}
+  [milan #0] server:web_fetch {"url": "https://www.east-contemporary.org/4-1-exhibition-single-page/you-were-never-promised-a-happy-life"}
+  [milan #0] server:web_fetch {"url": "https://ncontemporary.com/exhibitions/"}
+  [milan #0] server:web_fetch {"url": "https://www.nazarstrelyaevnazarko.com/"}
+  [milan #0] server:web_search {"query": "\"La generazione felice\" Nazarko Ncontemporary opening June 2026"}
+  [milan #0] tool:render_fetch {"url": "https://ncontemporary.com/exhibitions/"}
+  [milan #1] server:web_fetch {"url": "https://monicadecardenas.com/uwe-wittwer-controcorrente/"}
+  [milan #1] server:web_fetch {"url": "https://monicadecardenas.com/milano/"}
+  [milan #1] server:web_search {"query": "monicadecardenas.com \"uwe-wittwer-controcorrente\""}
+  [milan #1] server:web_search {"query": "Monica De Cardenas Milano Controcorrente Wittwer settembre 2026 novembre"}
+  [milan #1] server:web_fetch {"url": "https://monicadecardenas.com/exhibitions/"}
+  [milan #1] server:web_fetch {"url": "https://monicadecardenas.com/uwe-wittwer-controcorrente/"}
+  [milan #1] server:web_search {"query": "Viasaterna \"L'altro che abito\" Marion Baruch Elisabetta Catalano"}
+  [milan #1] server:web_search {"query": "Nuova Galleria Morone VINCVLVM Cveto Mar\u0161i\u010d"}
+  [milan #1] server:web_search {"query": "viasaterna.com \"L-altro-che-abito\""}
+  [milan #1] server:web_search {"query": "\"VINCVLVM\" Marsic nuovagalleriamorone.com"}
+  [milan #1] server:web_search {"query": "\"nuovagalleriamorone.com\" mostre settembre 2026"}
+  [milan #1] tool:render_fetch {"url": "http://www.nuovagalleriamorone.com/portfolio-item/vincvlvm-cveto-marsic/"}
+  [milan #2] server:web_fetch {"url": "http://www.nuovagalleriamorone.com/portfolio-item/vincvlvm-cveto-marsic/"}
+  [milan #2] server:web_fetch {"url": "http://www.nuovagalleriamorone.com/mostre/?lang=en"}
+  [milan #2] server:web_fetch {"url": "http://www.nuovagalleriamorone.com/portfolio-item/vincvlvm-cveto-marsic/?lang=en"}
+  [milan #2] server:web_search {"query": "\"Cveto Mar\u0161i\u010d\" OR \"Cveto Marsic\" VINCVLVM Milano 2026 mostra"}
+  [milan #2] server:web_fetch {"url": "https://viasaterna.com/"}
+  [milan #2] server:web_fetch {"url": "https://viasaterna.com/L-altro-che-abito"}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "building-sissi-nidi", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "building-castella-archaeology", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "building-gambirasio-chasing-rainbows", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "cadogan-nuria-maria-blues-rouge", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "kaufmann-repetto-ppp-pinkypussypunk", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "kaufmann-repetto-piante-vagabonde", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "kaufmann-repetto-tenki-hiramatsu", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "mdc-the-human-stain", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "mdc-uwe-wittwer-controcorrente", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "viasaterna-laltro-che-abito", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] tool:confirm_show {"city": "milan", "slug": "morone-vincvlvm", "status": "verified", "reason": null, "corrections": null}
+  [milan #3] All 11 Milan shows audited: **11 verified / 0 corrected / 0 unverified**.
+
+Summary:
+- **Building (3 shows)** — Sissi "Nidi", Castella "Timeless Archaeology", Gambirasio "Chasing Rainbows": all confirm
+[verify milan/Brera/Centro] done $1.50
+  [milan #1] server:web_search {"query": "Ncontemporary \"La generazione felice\" vernissage OR opening date giugno 2026"}
+  [milan #1] server:web_search {"query": "\"Lawrence Weiner\" \"Massimo De Carlo\" Milano settembre 2026 mostra artribune OR exibart OR atpdiary"}
+  [milan #1] server:web_fetch {"url": "https://www.ribotgallery.com/category/exhibitions-en/"}
+  [milan #1] server:web_fetch {"url": "https://vistamare.com/exhibitions/immagini-del-vuoto-dalla-camera-oscura-alla-camera-chiara"}
+  [milan #1] server:web_search {"query": "vistamare.com \"immagini del vuoto\" Jodice date settembre novembre 2026"}
+  [milan #1] server:web_search {"query": "ribotgallery.com \"The Skin of Time\" Schramm 30 settembre 7 novembre"}
+  [milan #1] server:web_fetch {"url": "https://vistamare.com/en"}
+  [milan #1] server:web_fetch {"url": "https://vistamare.com/en/exhibitions/lo-spettacolo-delle-immagini-curated-by-lorenzo-madaro"}
+  [milan #1] server:web_fetch {"url": "https://vistamare.com/en/exhibitions/immagini-del-vuoto-dalla-camera-oscura-alla-camera-chiara"}
+  [milan #1] server:web_fetch {"url": "https://vistamare.com/exhibitions/lo-spettacolo-delle-immagini-a-cura-di-lorenzo-madaro"}
+  [milan #1] Based on my research, I've verified all 6 Milan shows against their venue sites and secondary sources. Here are my findings:
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "east-eliska-konecna", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "nc-la-generazione-felice", "status": "verified", "reason": "Venue page confirms closing \"Until 3 October\" match
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "mdc-lawrence-weiner", "status": "verified", "reason": "Dates (10.09.2026-10.10.2026) confirmed identically on two
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "ribot-felix-schramm-skin-of-time", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "vistamare-bignardi-spettacolo-immagini", "status": "verified", "reason": null, "corrections": null}
+  [milan #1] tool:confirm_show {"city": "milan", "slug": "vistamare-jodice-immagini-del-vuoto", "status": "verified", "reason": null, "corrections": null}
+  [milan #2] All 6 Milan shows have been audited against their venue sites. Summary: **6 verified / 0 corrected / 0 unverified**
+[verify milan/Città Studi/Bicocca] done $1.05
+{
+  "city": "milan",
+  "zones": [
+    "Porta Venezia",
+    "Brera/Centro",
+    "Isola/Farini",
+    "Lambrate/Ventura",
+    "Tortona/Navigli",
+    "Città Studi/Bicocca"
+  ],
+  "run_spend_usd": 16.1585,
+  "shows_total": 30,
+  "remaining_todo": {
+    "Porta Venezia": 8,
+    "Brera/Centro": 9,
+    "Isola/Farini": 0,
+    "Lambrate/Ventura": 6,
+    "Tortona/Navigli": 0,
+    "Città Studi/Bicocca": 0
+  },
+  "queue": {
+    "Porta Venezia": {
+      "zone": "Porta Venezia",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Brera/Centro": {
+      "zone": "Brera/Centro",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 3,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Isola/Farini": {
+      "zone": "Isola/Farini",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Lambrate/Ventura": {
+      "zone": "Lambrate/Ventura",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Tortona/Navigli": {
+      "zone": "Tortona/Navigli",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Città Studi/Bicocca": {
+      "zone": "Città Studi/Bicocca",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "antonia-jannone-disegni-di-architettura"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "antonio-colombo-arte-contemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "building"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cadogan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-degli-artisti"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cortesi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "deodato-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fabbrica-eos"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "alessandro-albanese"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "artopia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "clima"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "dep-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-elpis"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-marconi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-mudima"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-christian-stein"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "29-arts-in-progress"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "a-arte-invernizzi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "eastcontemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-suzy-shammah"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "massimo-de-carlo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ncontemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ordet"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ribot"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Città Studi/Bicocca",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-citt-studi-bicocca-1788558381",
+      "venue_ids": [
+        "29-arts-in-progress",
+        "a-arte-invernizzi",
+        "eastcontemporary",
+        "galleria-suzy-shammah",
+        "massimo-de-carlo",
+        "ncontemporary",
+        "ordet",
+        "ribot"
+      ],
+      "started_ts": 1788558381,
+      "ended_ts": 1788558842
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ca-di-fra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "chippendale-studio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-lia-rumma"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pirelli-hangarbicocca"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "podbielski-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "primo-marella"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-serra"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "viafarini"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-porta-venezia-1788558361",
+      "venue_ids": [
+        "alessandro-albanese",
+        "artopia",
+        "clima",
+        "dep-art",
+        "fondazione-elpis",
+        "fondazione-marconi",
+        "fondazione-mudima",
+        "galleria-christian-stein"
+      ],
+      "started_ts": 1788558361,
+      "ended_ts": 1788558843
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "abc-arte-milano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "base-milano"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-prada"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-giovanni-bonelli"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-patricia-armocida"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "officine-dell-immagine"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "progettoarte-elm"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-brera-centro-1788558338",
+      "venue_ids": [
+        "antonia-jannone-disegni-di-architettura",
+        "antonio-colombo-arte-contemporanea",
+        "building",
+        "cadogan",
+        "casa-degli-artisti",
+        "cortesi",
+        "deodato-arte",
+        "fabbrica-eos"
+      ],
+      "started_ts": 1788558338,
+      "ended_ts": 1788559078
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "assab-one"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "boccanera"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cassina-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "francesca-minini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "m77"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "prometeo-gallery-ida-pisani"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tortona/Navigli",
+      "session": 1,
+      "todo": 7,
+      "saved": 4,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-tortona-navigli-1788558844",
+      "venue_ids": [
+        "abc-arte-milano",
+        "base-milano",
+        "fondazione-prada",
+        "galleria-giovanni-bonelli",
+        "galleria-patricia-armocida",
+        "officine-dell-immagine",
+        "progettoarte-elm"
+      ],
+      "started_ts": 1788558844,
+      "ended_ts": 1788559164
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-corrente"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-antonio-battaglia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-clivio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-luisa-delle-piane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-poggiali"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-rubin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-san-fedele"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-tonelli"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Isola/Farini",
+      "session": 1,
+      "todo": 8,
+      "saved": 4,
+      "skipped": 6,
+      "exit": 0,
+      "label": "deep-milan-isola-farini-1788558842",
+      "venue_ids": [
+        "ca-di-fra",
+        "chippendale-studio",
+        "galleria-lia-rumma",
+        "pirelli-hangarbicocca",
+        "podbielski-contemporary",
+        "primo-marella",
+        "spazio-serra",
+        "viafarini"
+      ],
+      "started_ts": 1788558842,
+      "ended_ts": 1788559177
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-gaburro"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-tega"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gio-marconi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marcorossi-artecontemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "piupiu"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "reading-room"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-gariboldi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "studio-guenzani"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-brera-centro-1788559164",
+      "venue_ids": [
+        "fondazione-corrente",
+        "galleria-antonio-battaglia",
+        "galleria-clivio",
+        "galleria-luisa-delle-piane",
+        "galleria-poggiali",
+        "galleria-rubin",
+        "galleria-san-fedele",
+        "galleria-tonelli"
+      ],
+      "started_ts": 1788559164,
+      "ended_ts": 1788559236
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "vistamare"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 2,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-porta-venezia-1788559177",
+      "venue_ids": [
+        "galleria-gaburro",
+        "galleria-tega",
+        "gio-marconi",
+        "marcorossi-artecontemporanea",
+        "piupiu",
+        "reading-room",
+        "studio-gariboldi",
+        "studio-guenzani"
+      ],
+      "started_ts": 1788559177,
+      "ended_ts": 1788559236
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "kaufmann-repetto"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "maab"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mimmo-scognamiglio-artecontemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "monica-de-cardenas"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "montrasio-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "nuova-galleria-morone"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "tornabuoni-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "viasaterna"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Lambrate/Ventura",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-milan-lambrate-ventura-1788559078",
+      "venue_ids": [
+        "assab-one",
+        "boccanera",
+        "cassina-projects",
+        "francesca-minini",
+        "m77",
+        "prometeo-gallery-ida-pisani"
+      ],
+      "started_ts": 1788559078,
+      "ended_ts": 1788559244
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "zero"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Città Studi/Bicocca",
+      "session": 2,
+      "todo": 1,
+      "saved": 2,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-milan-citt-studi-bicocca-1788559236",
+      "venue_ids": [
+        "vistamare"
+      ],
+      "started_ts": 1788559236,
+      "ended_ts": 1788559398
+    },
+    {
+      "stage": "scrape",
+      "zone": "Porta Venezia",
+      "session": 3,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-milan-porta-venezia-1788559245",
+      "venue_ids": [
+        "zero"
+      ],
+      "started_ts": 1788559245,
+      "ended_ts": 1788559475
+    },
+    {
+      "stage": "scrape",
+      "zone": "Brera/Centro",
+      "session": 3,
+      "todo": 8,
+      "saved": 7,
+      "skipped": 5,
+      "exit": 0,
+      "label": "deep-milan-brera-centro-1788559236",
+      "venue_ids": [
+        "kaufmann-repetto",
+        "maab",
+        "mimmo-scognamiglio-artecontemporanea",
+        "monica-de-cardenas",
+        "montrasio-arte",
+        "nuova-galleria-morone",
+        "tornabuoni-arte",
+        "viasaterna"
+      ],
+      "started_ts": 1788559236,
+      "ended_ts": 1788559812
+    }
+  ],
+  "verification": {
+    "milan": {
+      "verified": 29,
+      "corrected": 1,
+      "unverified": 0,
+      "unchecked": [],
+      "published": 18,
+      "pending": [
+        {
+          "slug": "cadogan-nuria-maria-blues-rouge",
+          "venue": "Cadogan Gallery",
+          "reason": null
+        },
+        {
+          "slug": "nc-la-generazione-felice",
+          "venue": "Ncontemporary",
+          "reason": "Venue page confirms closing \"Until 3 October\" matching saved end_date; exact opening day still not published by venue (artist's own site gives only \"June 2026\"), so start date remains unknown/held as before"
+        },
+        {
+          "slug": "ribot-felix-schramm-skin-of-time",
+          "venue": "RIBOT",
+          "reason": null
+        },
+        {
+          "slug": "elpis-true-reality",
+          "venue": "Fondazione Elpis",
+          "reason": null
+        },
+        {
+          "slug": "abc-arte-jorrit-tornquist-idea-del-colore",
+          "venue": "ABC-ARTE ONE OF",
+          "reason": null
+        },
+        {
+          "slug": "hangarbicocca-aki-sasamoto-xyz",
+          "venue": "Pirelli HangarBicocca",
+          "reason": "Venue's own exhibition page confirms \"XYZ\" runs 17.09.2026–17.01.2027, matching saved dates exactly; corroborated by Artribune as second source."
+        },
+        {
+          "slug": "hangarbicocca-luciano-fabro-abitare",
+          "venue": "Pirelli HangarBicocca",
+          "reason": "Venue's own exhibition page confirms \"Abitare lo spazio\" runs 08.10.2026–21.02.2027, matching saved dates exactly; corroborated by Artribune and Exibart as second sources."
+        },
+        {
+          "slug": "vistamare-jodice-immagini-del-vuoto",
+          "venue": "Vistamare",
+          "reason": null
+        },
+        {
+          "slug": "kaufmann-repetto-piante-vagabonde",
+          "venue": "kaufmann repetto",
+          "reason": null
+        },
+        {
+          "slug": "kaufmann-repetto-tenki-hiramatsu",
+          "venue": "kaufmann repetto",
+          "reason": null
+        },
+        {
+          "slug": "mdc-uwe-wittwer-controcorrente",
+          "venue": "Monica De Cardenas",
+          "reason": null
+        },
+        {
+          "slug": "morone-vincvlvm",
+          "venue": "Nuova Galleria Morone",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-milan-1788558338.json"
+}
+milan: 30 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+milan: 71 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city milan --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/milan/shows-ids.txt --force-due --total-budget 70.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

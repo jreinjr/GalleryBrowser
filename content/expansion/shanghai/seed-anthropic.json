@@ -1,0 +1,463 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788555511,
+ "system": "You are an art-world editor compiling a gallery guide for Shanghai, China. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Shanghai itself (galleries whose home is\nelsewhere count only through a permanent Shanghai space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (West Bund/Xuhui, M50/Moganshan Road, The Bund/Rockbund, Jing'an, Former French Concession, Putuo, Pudong) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Shanghai spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Shanghai, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 59,
+  "output_tokens": 23312,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.588758,
+  "seconds": 312.4
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "ShanghART Gallery",
+    "website": "https://www.shanghartgallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "Building 10, 2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Founded 1996 by Lorenz Helbling, the pioneering Chinese contemporary gallery; represents Zhang Enli, Ding Yi, Yang Fudong, Geng Jianyi, Xu Zhen and Liang Shaoji, with Beijing and Singapore spaces and a constant presence at Basel and Frieze."
+   },
+   {
+    "rank": 2,
+    "name": "Antenna Space",
+    "website": "https://www.antenna-space.com",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Room 202, Building 17, 50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Simon Wang's gallery is the key launchpad for a younger international generation — Guan Xiao, Li Ming, Yu Honglei, Cui Jie — and among the most critically watched Chinese galleries at Basel, Frieze and biennials."
+   },
+   {
+    "rank": 3,
+    "name": "BANK / MABSOCIETY",
+    "website": "https://www.bank-mabsociety.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "298 Anfu Road",
+    "kind": "gallery",
+    "note": "Mathieu Borysevicz's curator-led gallery, known for sharp, research-driven exhibitions and for rediscovering overlooked Chinese artists alongside international emerging names."
+   },
+   {
+    "rank": 4,
+    "name": "Perrotin Shanghai",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "note": "The French mega-gallery's mainland flagship; blue-chip international programme (Murakami, JR, Kusama, Sophie Calle) that helped make the Huqiu Road building the Bund's gallery hub."
+   },
+   {
+    "rank": 5,
+    "name": "Lisson Gallery Shanghai",
+    "website": "https://www.lissongallery.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "note": "London gallery's mainland outpost, bringing Ai Weiwei, Anish Kapoor, Carmen Herrera and Marina Abramović-calibre programming to Shanghai audiences."
+   },
+   {
+    "rank": 6,
+    "name": "Don Gallery",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Founded 2008 by Cynthia Wang; a consistently rigorous programme of Chinese conceptual and painting practices (Chen Wei, Ma Qiusha, Li Shan, Tang Dixin) with strong fair and institutional traction."
+   },
+   {
+    "rank": 7,
+    "name": "MadeIn Gallery",
+    "website": "https://www.madeingallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Xu Zhen's artist-founded gallery, an incubator for experimental Chinese practices and a platform that blurs corporate, curatorial and artistic production."
+   },
+   {
+    "rank": 8,
+    "name": "Massimo De Carlo Shanghai",
+    "website": "https://www.massimodecarlo.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "Yuanmingyuan Road, Rockbund",
+    "kind": "gallery",
+    "note": "Milan gallery's Shanghai space, showing Maurizio Cattelan, Rudolf Stingel, Yan Pei-Ming and younger internationals in a landmark Bund heritage building."
+   },
+   {
+    "rank": 9,
+    "name": "AIKE",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Formerly Aike-Dellarco; a serious cross-cultural programme pairing Chinese abstraction and conceptual art with Italian and international figures, long-standing at Art Basel Hong Kong."
+   },
+   {
+    "rank": 10,
+    "name": "Capsule Shanghai",
+    "website": "https://www.capsuleshanghai.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "Building 16, Lane 275 Anfu Road",
+    "kind": "gallery",
+    "note": "Enrico Polato's garden-lane gallery is one of the city's best barometers of emerging Asian art, with a growing international fair profile and a Venice outpost."
+   },
+   {
+    "rank": 11,
+    "name": "Vanguard Gallery",
+    "website": "https://www.vanguardgallery.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Lise Li's gallery, founded 2004 at M50; early champion of Chinese video, photography and installation (Chen Zhe, Liu Chuang, Hu Weiyi)."
+   },
+   {
+    "rank": 12,
+    "name": "Almine Rech Shanghai",
+    "website": "https://www.alminerech.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "27 Huqiu Road, Amber Building",
+    "kind": "gallery",
+    "note": "Global gallery's Shanghai space (opened 2022), presenting its roster of international painters and postwar estates to mainland collectors."
+   },
+   {
+    "rank": 13,
+    "name": "Gallery Vacancy",
+    "website": "https://www.galleryvacancy.com",
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Young, internationally minded gallery with a tightly curated roster of emerging painters and sculptors; a regular at Frieze, Basel Hong Kong and Liste-type platforms."
+   },
+   {
+    "rank": 14,
+    "name": "Pearl Lam Galleries",
+    "website": "https://www.pearllam.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "181 Middle Jiangxi Road",
+    "kind": "gallery",
+    "note": "Long-running Hong Kong–Shanghai operation mixing Chinese abstraction, international contemporary art and design; a fixture of the city's collecting scene."
+   },
+   {
+    "rank": 15,
+    "name": "LINSEED",
+    "website": null,
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Founded 2021, one of the most talked-about young Shanghai galleries, showing emerging Chinese and diasporic artists and quickly building a fair and institutional profile."
+   },
+   {
+    "rank": 16,
+    "name": "Ota Fine Arts Shanghai",
+    "website": "https://www.otafinearts.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555 Longteng Avenue",
+    "kind": "gallery",
+    "note": "Tokyo/Singapore gallery's West Bund space; brings Yayoi Kusama, Tomoko Kashiki and pan-Asian conceptual practices into dialogue with Chinese artists."
+   },
+   {
+    "rank": 17,
+    "name": "Shanghai Gallery of Art",
+    "website": null,
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "Three on the Bund, 3 Zhongshan Dong Yi Road",
+    "kind": "gallery",
+    "note": "Opened 2004 in the Three on the Bund building; an early exhibition-driven space that hosted major curated shows and remains a Bund landmark for contemporary art."
+   },
+   {
+    "rank": 18,
+    "name": "Leo Gallery",
+    "website": "https://www.leogallery.com.cn",
+    "neighborhood": "Former French Concession",
+    "address_hint": "376 Wukang Road, Ferguson Lane",
+    "kind": "gallery",
+    "note": "Established Shanghai–Hong Kong gallery with a broad Chinese and international programme and one of the most visited addresses in the Concession."
+   },
+   {
+    "rank": 19,
+    "name": "Chronus Art Center (CAC)",
+    "website": "https://www.chronusartcenter.org",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 18, 50 Moganshan Road",
+    "kind": "nonprofit",
+    "note": "China's leading nonprofit dedicated to media art — research, residencies and exhibitions on art, technology and computation."
+   },
+   {
+    "rank": 20,
+    "name": "OCAT Shanghai",
+    "website": "https://www.ocatshanghai.com",
+    "neighborhood": "Putuo",
+    "address_hint": "1016 Wuning Road",
+    "kind": "nonprofit",
+    "note": "Shanghai node of the OCAT network, focused on media art, curatorial research and exhibitions supporting experimental Chinese practices."
+   },
+   {
+    "rank": 21,
+    "name": "Eastlink Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "5F, Building 6, 50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Founded 1999 by Li Liang, one of Shanghai's oldest private galleries and an early supporter of edgy performance and installation art in the city."
+   },
+   {
+    "rank": 22,
+    "name": "Shanghai Center of Photography (SCôP)",
+    "website": "https://www.scopphoto.com",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "2555-1 Longteng Avenue",
+    "kind": "nonprofit",
+    "note": "Founded by Liu Heung Shing; the city's dedicated nonprofit photography exhibition space, anchoring the West Bund cluster."
+   },
+   {
+    "rank": 23,
+    "name": "Qiao Space",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": "1817 Longteng Avenue",
+    "kind": "project_space",
+    "note": "Collector Qiao Zhibing's exhibition space, which staged ambitious curated shows and helped seed the West Bund art district before TANK Shanghai."
+   },
+   {
+    "rank": 24,
+    "name": "Longlati Foundation",
+    "website": null,
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Collection-based nonprofit with a research and exhibition programme focused on women artists and emerging contemporary practices."
+   },
+   {
+    "rank": 25,
+    "name": "Hive Contemporary Art Center, Shanghai",
+    "website": "https://www.hiveart.cn",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Shanghai space of the influential Beijing gallery, known for a strong painting programme and consistent art-fair presence."
+   },
+   {
+    "rank": 26,
+    "name": "A+ Contemporary (Asia Contemporary Art Space)",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 7, 50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Taipei-linked space at M50 promoting young Asian artists through exhibitions, prizes and cross-strait exchange projects."
+   },
+   {
+    "rank": 27,
+    "name": "Aura Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Long-established gallery with Taipei roots, historically important for photography and contemporary Chinese art at M50."
+   },
+   {
+    "rank": 28,
+    "name": "OFOTO Gallery",
+    "website": "https://www.ofoto-gallery.com",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "2F, Building 13, 50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Founded 2005, a specialist photography and image-based gallery that has shaped the reception of Chinese contemporary photography."
+   },
+   {
+    "rank": 29,
+    "name": "m97 Gallery",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": "363 Changping Road",
+    "kind": "gallery",
+    "note": "Shanghai's best-known dedicated photography dealer since 2006, showing Chinese and international photographers and vintage material."
+   },
+   {
+    "rank": 30,
+    "name": "Danysz Gallery Shanghai",
+    "website": "https://www.magda-gallery.com",
+    "neighborhood": "Yangpu",
+    "address_hint": "188 Linqing Road",
+    "kind": "gallery",
+    "note": "Magda Danysz's Shanghai space, notable for urban/street art, Obey- and JR-adjacent figures and large-scale mural projects in the city."
+   },
+   {
+    "rank": 31,
+    "name": "Art Labor Gallery",
+    "website": "https://www.artlaborgallery.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": "Lane 570 Yongjia Road",
+    "kind": "gallery",
+    "note": "Independent gallery with a long record of showing emerging Chinese and expatriate artists in the Concession."
+   },
+   {
+    "rank": 32,
+    "name": "Asia Art Center Shanghai",
+    "website": "https://www.asiaartcenter.org",
+    "neighborhood": "West Bund/Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Taipei-founded gallery's Shanghai branch, presenting modern Chinese masters alongside contemporary abstraction and sculpture."
+   },
+   {
+    "rank": 33,
+    "name": "Art+ Shanghai Gallery",
+    "website": "https://www.artplusshanghai.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "191 South Suzhou Road",
+    "kind": "gallery",
+    "note": "Bund-side gallery with a bilingual programme championing mid-career and emerging Chinese artists and ink-adjacent practices."
+   },
+   {
+    "rank": 34,
+    "name": "island6 Arts Center",
+    "website": "https://www.island6.org",
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 6, 120 Moganshan Road",
+    "kind": "nonprofit",
+    "note": "Artist collective (Liu Dao) and nonprofit space producing LED and new-media works; a long-standing fixture of the M50 scene."
+   },
+   {
+    "rank": 35,
+    "name": "M Art Center",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "Building 7, 97 Moganshan Road",
+    "kind": "gallery",
+    "note": "Veteran M50 gallery showing established and mid-career Chinese painters and photographers."
+   },
+   {
+    "rank": 36,
+    "name": "Yibo Gallery",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "gallery",
+    "note": "Long-running M50 gallery with a focus on contemporary Chinese painting and abstraction."
+   },
+   {
+    "rank": 37,
+    "name": "AroundSpace Gallery",
+    "website": null,
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "71 Nanjing East Road",
+    "kind": "gallery",
+    "note": "Bund-area gallery presenting emerging Chinese and Japanese artists, with an emphasis on drawing, painting and small-scale works."
+   },
+   {
+    "rank": 38,
+    "name": "MAO Space",
+    "website": null,
+    "neighborhood": "Huangpu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary gallery known for concept-led solo presentations by younger Chinese artists and design-crossover projects."
+   },
+   {
+    "rank": 39,
+    "name": "Gallery Func",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Design-conscious gallery pairing contemporary art with collectible design and craft, active at Shanghai's fairs."
+   },
+   {
+    "rank": 40,
+    "name": "Modern Art Base",
+    "website": null,
+    "neighborhood": "Xuhui",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent exhibition base linked to the ZiWU creative platform, hosting experimental exhibitions and photography projects."
+   },
+   {
+    "rank": 41,
+    "name": "Galerie Dumonteil",
+    "website": "https://www.dumonteil.com",
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Paris/New York/Shanghai gallery specialising in modern and contemporary sculpture and animalier traditions; a durable Concession presence."
+   },
+   {
+    "rank": 42,
+    "name": "Matthew Liu Fine Arts",
+    "website": null,
+    "neighborhood": "Huangpu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Dealer-run gallery with an internationalist programme spanning Chinese contemporary art and Western modern works on paper."
+   },
+   {
+    "rank": 43,
+    "name": "Basement 6 Collective",
+    "website": null,
+    "neighborhood": "Hongkou",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-run underground collective known for experimental, performance and sound programming outside the commercial circuit."
+   },
+   {
+    "rank": 44,
+    "name": "Swatch Art Peace Hotel",
+    "website": "https://www.swatch-artpeacehotel.com",
+    "neighborhood": "The Bund/Rockbund",
+    "address_hint": "23 East Nanjing Road",
+    "kind": "other",
+    "note": "Artist residency on the Bund with public exhibition galleries; an unusual long-term platform for international artists working in Shanghai."
+   },
+   {
+    "rank": 45,
+    "name": "Ren Space",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Villa-based independent art space presenting cross-disciplinary exhibitions bridging traditional aesthetics and contemporary practice."
+   },
+   {
+    "rank": 46,
+    "name": "V Art Center",
+    "website": null,
+    "neighborhood": "M50/Moganshan Road",
+    "address_hint": "50 Moganshan Road",
+    "kind": "nonprofit",
+    "note": "Nonprofit exhibition space at M50 supporting young artists and curatorial experiments."
+   },
+   {
+    "rank": 47,
+    "name": "Other Gallery",
+    "website": null,
+    "neighborhood": "Xuhui",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Shanghai space of the Beijing-founded gallery, with a programme of conceptual and installation-based Chinese artists."
+   },
+   {
+    "rank": 48,
+    "name": "FQ Projects",
+    "website": null,
+    "neighborhood": "Former French Concession",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Small independent gallery focused on emerging Asian artists and intimate solo presentations."
+   },
+   {
+    "rank": 49,
+    "name": "AM Art Space",
+    "website": null,
+    "neighborhood": "Jing'an",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Compact Concession-edge gallery with a consistent programme of contemporary ink, photography and young Shanghai artists."
+   }
+  ]
+ }
+}

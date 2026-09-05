@@ -1,0 +1,7532 @@
+{
+ "city": "berlin",
+ "generated_at": "2026-09-05T01:25:51+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "berlin",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 77,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "david-claerbout-repose",
+   "title": "Repose",
+   "artist": "David Claerbout",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 6,
+   "desc_words": 337,
+   "venue": {
+    "name": "Esther Schipper",
+    "id": "esther-schipper",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "esther schipper"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.993,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 1,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 77)",
+    "quality 1.00 (6 images, 337 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "schipper-fire-sermon",
+   "title": "Fire Sermon",
+   "artist": "Tuan Andrew Nguyen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 2,
+   "desc_words": 198,
+   "venue": {
+    "name": "Esther Schipper",
+    "id": "esther-schipper",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "esther schipper"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new sculptures",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5960000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017880000000000003
+   },
+   "score": 0.991788,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 2,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 77)",
+    "quality 0.60 (2 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "hetzler-grace-weaver-parataxis",
+   "title": "Parataxis",
+   "artist": "Grace Weaver",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 238,
+   "venue": {
+    "name": "Galerie Max Hetzler",
+    "id": "galerie-max-hetzler",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie max hetzler"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.987012987012987,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.976
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9771428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002928
+   },
+   "score": 0.9800708571428571,
+   "days_since_open": 0,
+   "days_to_close": 50,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 0.99 (rank 2 of 77)",
+    "quality 0.98 (5 images, 238 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "kw-kyiv-biennial",
+   "title": "Kyiv Biennial: A Bird That Cannot Land",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-11",
+    "end": "2026-09-13"
+   },
+   "n_images": 6,
+   "desc_words": 223,
+   "venue": {
+    "name": "KW Institute for Contemporary Art",
+    "id": "kw-institute-for-contemporary-art",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kw institute for contemporary art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennial",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.974025974025974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.1403077560386716,
+    "closing_soon": 1.0,
+    "quality": 0.946
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9642857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002838
+   },
+   "score": 0.9691237142857143,
+   "days_since_open": 85,
+   "days_to_close": 9,
+   "rank": 4,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 77)",
+    "quality 0.95 (6 images, 223 words)",
+    "closes in 9 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "susan-hiller-bad-dreams",
+   "title": "Bad Dreams",
+   "artist": "Susan Hiller",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-17",
+    "end": "2027-01-10"
+   },
+   "n_images": 1,
+   "desc_words": 240,
+   "venue": {
+    "name": "KW Institute for Contemporary Art",
+    "id": "kw-institute-for-contemporary-art",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kw institute for contemporary art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "survey of her",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.974025974025974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.58
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9642857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00174
+   },
+   "score": 0.9660257142857143,
+   "days_since_open": -43,
+   "days_to_close": 128,
+   "rank": 5,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 77)",
+    "quality 0.58 (1 images, 240 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "koo-jeong-a-ousssean",
+   "title": "OUSSSEAN",
+   "artist": "KOO JEONG A",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-17",
+    "end": "2027-01-10"
+   },
+   "n_images": 1,
+   "desc_words": 233,
+   "venue": {
+    "name": "KW Institute for Contemporary Art",
+    "id": "kw-institute-for-contemporary-art",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kw institute for contemporary art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first major solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.974025974025974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5660000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9642857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016980000000000003
+   },
+   "score": 0.9659837142857143,
+   "days_since_open": -43,
+   "days_to_close": 128,
+   "rank": 6,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 77)",
+    "quality 0.57 (1 images, 233 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "rafik-greiss-the-city-and-the-city",
+   "title": "The City and the City",
+   "artist": "Rafik Greiss",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-17",
+    "end": "2027-01-10"
+   },
+   "n_images": 1,
+   "desc_words": 199,
+   "venue": {
+    "name": "KW Institute for Contemporary Art",
+    "id": "kw-institute-for-contemporary-art",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kw institute for contemporary art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first institutional solo show",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.974025974025974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.498
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9642857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001494
+   },
+   "score": 0.9657797142857143,
+   "days_since_open": -43,
+   "days_to_close": 128,
+   "rank": 7,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 3 of 77)",
+    "quality 0.50 (1 images, 199 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "konig-jordy-kerwick",
+   "title": "This Time Tomorrow",
+   "artist": "Jordy Kerwick",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-07-17",
+    "end": "2026-09-02"
+   },
+   "n_images": 6,
+   "desc_words": 214,
+   "venue": {
+    "name": "König Galerie (St. Agnes)",
+    "id": "konig-galerie-st-agnes",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konig galerie st agnes"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.961038961038961,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3223425771098948,
+    "closing_soon": 0.0,
+    "quality": 0.9279999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9514285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002784
+   },
+   "score": 0.9542125714285714,
+   "days_since_open": 49,
+   "days_to_close": -2,
+   "rank": 8,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 4 of 77)",
+    "quality 0.93 (6 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "konig-brodskis-last-ones-awake",
+   "title": "The Last Ones Awake",
+   "artist": "Rebecca Brodskis",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-11-08"
+   },
+   "n_images": 4,
+   "desc_words": 198,
+   "venue": {
+    "name": "König Galerie",
+    "id": "konig-galerie-st-agnes",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konig galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.961038961038961,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.796
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9514285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0023880000000000004
+   },
+   "score": 0.9538165714285713,
+   "days_since_open": -5,
+   "days_to_close": 65,
+   "rank": 9,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 4 of 77)",
+    "quality 0.80 (4 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "konig-al-qadiri-archaeology-beasts",
+   "title": "The Archaeology of Beasts",
+   "artist": "Monira Al Qadiri",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-11-08"
+   },
+   "n_images": 2,
+   "desc_words": 207,
+   "venue": {
+    "name": "König Galerie",
+    "id": "konig-galerie-st-agnes",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konig galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.961038961038961,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.614
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9514285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001842
+   },
+   "score": 0.9532705714285714,
+   "days_since_open": -5,
+   "days_to_close": 65,
+   "rank": 10,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 4 of 77)",
+    "quality 0.61 (2 images, 207 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "konig-achenbach-echotropia",
+   "title": "Echotropia",
+   "artist": "Christian Achenbach",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-11-08"
+   },
+   "n_images": 2,
+   "desc_words": 186,
+   "venue": {
+    "name": "König Galerie",
+    "id": "konig-galerie-st-agnes",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konig galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.961038961038961,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5720000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9514285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017160000000000003
+   },
+   "score": 0.9531445714285715,
+   "days_since_open": -5,
+   "days_to_close": 65,
+   "rank": 11,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 4 of 77)",
+    "quality 0.57 (2 images, 186 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "cfa-ikemura",
+   "title": "de sensu",
+   "artist": "Leiko Ikemura",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 229,
+   "venue": {
+    "name": "Contemporary Fine Arts",
+    "id": "contemporary",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "contemporary"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.948051948051948,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.558
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9385714285714285,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016740000000000001
+   },
+   "score": 0.9402454285714285,
+   "days_since_open": -7,
+   "days_to_close": 50,
+   "rank": 12,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 5 of 77)",
+    "quality 0.56 (1 images, 229 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "cfa-pichler",
+   "title": "Ausstellung realisiert durch seine Tochter Anna Tripamer",
+   "artist": "Walter Pichler",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 226,
+   "venue": {
+    "name": "Contemporary Fine Arts",
+    "id": "contemporary",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "contemporary"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.948051948051948,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.552
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9385714285714285,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016560000000000001
+   },
+   "score": 0.9402274285714285,
+   "days_since_open": -7,
+   "days_to_close": 50,
+   "rank": 13,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 5 of 77)",
+    "quality 0.55 (1 images, 226 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "capitain-petzel-austin-martin-white",
+   "title": "The lie, the larp and the lusophile",
+   "artist": "Austin Martin White",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-17"
+   },
+   "n_images": 3,
+   "desc_words": 239,
+   "venue": {
+    "name": "Capitain Petzel",
+    "id": "capitain-petzel",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "capitain petzel"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.935064935064935,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.778
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9257142857142857,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002334
+   },
+   "score": 0.9280482857142857,
+   "days_since_open": -6,
+   "days_to_close": 43,
+   "rank": 14,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 6 of 77)",
+    "quality 0.78 (3 images, 239 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "buchholz-roubaud",
+   "title": "Si quelque chose noir",
+   "artist": "Alix Cléo Roubaud",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 280,
+   "venue": {
+    "name": "Galerie Buchholz",
+    "id": "galerie-buchholz",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie buchholz"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.922077922077922,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9128571428571428,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.9155571428571428,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 15,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.92 (rank 7 of 77)",
+    "quality 0.90 (4 images, 280 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "eigenart-stef-heidhues-hook-line-and-sinker",
+   "title": "hook, line and sinker",
+   "artist": "Stef Heidhues",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 252,
+   "venue": {
+    "name": "Galerie EIGEN + ART",
+    "id": "galerie-eigen-art",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie eigen art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9090909090909091,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8999999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.9017999999999999,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 16,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 8 of 77)",
+    "quality 0.60 (1 images, 252 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "galerie-neu-jeremy-shaw-half-life-of-grace",
+   "title": "Half-Life of Grace",
+   "artist": "Jeremy Shaw",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "Galerie Neu",
+    "id": "galerie-neu",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie neu"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8961038961038961,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8871428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.8886308571428572,
+   "days_since_open": -7,
+   "days_to_close": 64,
+   "rank": 17,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 9 of 77)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "carliergebauer-animal-mirror",
+   "title": "Animal Mirror",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "carlier | gebauer",
+    "id": "carlier-gebauer",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "carlier gebauer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8831168831168831,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8742857142857142,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.8757737142857143,
+   "days_since_open": -6,
+   "days_to_close": 71,
+   "rank": 18,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.88 (rank 10 of 77)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "carliergebauer-lucia-koch-new-systems",
+   "title": "New Systems (For Relationships)",
+   "artist": "Lúcia Koch",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-28"
+   },
+   "n_images": 1,
+   "desc_words": 194,
+   "venue": {
+    "name": "carlier | gebauer",
+    "id": "carlier-gebauer",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "carlier gebauer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8831168831168831,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.488
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8742857142857142,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001464
+   },
+   "score": 0.8757497142857142,
+   "days_since_open": -6,
+   "days_to_close": 54,
+   "rank": 19,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.88 (rank 10 of 77)",
+    "quality 0.49 (1 images, 194 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "schulte-david-l-johnson-nachtruhe",
+   "title": "Nachtruhe",
+   "artist": "David L. Johnson",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 220,
+   "venue": {
+    "name": "Galerie Thomas Schulte",
+    "id": "galerie-thomas-schulte",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie thomas schulte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8701298701298701,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.54
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8614285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016200000000000001
+   },
+   "score": 0.8630485714285714,
+   "days_since_open": -7,
+   "days_to_close": 64,
+   "rank": 20,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 11 of 77)",
+    "quality 0.54 (1 images, 220 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "schulte-katharina-sieverding-life-death",
+   "title": "Life–Death",
+   "artist": "Katharina Sieverding",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 214,
+   "venue": {
+    "name": "Galerie Thomas Schulte",
+    "id": "galerie-thomas-schulte",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie thomas schulte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "documenta",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8701298701298701,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.528
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8614285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015840000000000001
+   },
+   "score": 0.8630125714285715,
+   "days_since_open": -7,
+   "days_to_close": 64,
+   "rank": 21,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 11 of 77)",
+    "quality 0.53 (1 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "schulte-kerstin-bratsch-die-sein",
+   "title": "Die Sein: Para Psychics Expanded (Excerpt)",
+   "artist": "Kerstin Brätsch",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 203,
+   "venue": {
+    "name": "Galerie Thomas Schulte",
+    "id": "galerie-thomas-schulte",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie thomas schulte"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8701298701298701,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.506
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8614285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001518
+   },
+   "score": 0.8629465714285715,
+   "days_since_open": -7,
+   "days_to_close": 64,
+   "rank": 22,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 11 of 77)",
+    "quality 0.51 (1 images, 203 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "barbara-wien-horizontal-fold",
+   "title": "Horizontal Fold",
+   "artist": "Andreas Eriksson",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-12-24"
+   },
+   "n_images": 6,
+   "desc_words": 215,
+   "venue": {
+    "name": "Barbara Wien",
+    "id": "barbara-wien",
+    "tier": 1,
+    "rank": 12,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "barbara wien"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8571428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9299999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8485714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00279
+   },
+   "score": 0.8513614285714286,
+   "days_since_open": -7,
+   "days_to_close": 111,
+   "rank": 23,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 12 of 77)",
+    "quality 0.93 (6 images, 215 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "bortolozzi-wu-tsang",
+   "title": "Μέτοικε",
+   "artist": "Wu Tsang",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 187,
+   "venue": {
+    "name": "Galerie Isabella Bortolozzi",
+    "id": "galerie-isabella-bortolozzi",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie isabella bortolozzi"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8441558441558441,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.474
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8357142857142856,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0014219999999999999
+   },
+   "score": 0.8371362857142857,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 24,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 13 of 77)",
+    "quality 0.47 (1 images, 187 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "nagel-draxler-gharem-the-image-is-a-public-menace",
+   "title": "The Image Is a Public Menace",
+   "artist": "Abdulnasser Gharem",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 251,
+   "venue": {
+    "name": "Galerie Nagel Draxler",
+    "id": "galerie-nagel-draxler",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie nagel draxler"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8181818181818181,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8099999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.8118,
+   "days_since_open": -7,
+   "days_to_close": 71,
+   "rank": 25,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.82 (rank 15 of 77)",
+    "quality 0.60 (1 images, 251 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "konradfischer-margiela-in-berlin",
+   "title": "Martin Margiela in Berlin",
+   "artist": "Martin Margiela",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-12-19"
+   },
+   "n_images": 1,
+   "desc_words": 204,
+   "venue": {
+    "name": "Konrad Fischer Galerie",
+    "id": "konrad-fischer-galerie",
+    "tier": 1,
+    "rank": 16,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konrad fischer galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8051948051948052,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.508
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7971428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001524
+   },
+   "score": 0.7986668571428571,
+   "days_since_open": -6,
+   "days_to_close": 106,
+   "rank": 26,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.81 (rank 16 of 77)",
+    "quality 0.51 (1 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "konradfischer-alan-charlton-circle",
+   "title": "Circle Paintings",
+   "artist": "Alan Charlton",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-12-19"
+   },
+   "n_images": 1,
+   "desc_words": 201,
+   "venue": {
+    "name": "Konrad Fischer Galerie",
+    "id": "konrad-fischer-galerie",
+    "tier": 1,
+    "rank": 16,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "konrad fischer galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8051948051948052,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.502
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7971428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001506
+   },
+   "score": 0.7986488571428572,
+   "days_since_open": -6,
+   "days_to_close": 106,
+   "rank": 27,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.81 (rank 16 of 77)",
+    "quality 0.50 (1 images, 201 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "societe-sugarshack",
+   "title": "Sugarshack",
+   "artist": "Salim Green",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 213,
+   "venue": {
+    "name": "Societe",
+    "id": "societe",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "societe"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7922077922077921,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.526
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7842857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015780000000000002
+   },
+   "score": 0.7858637142857142,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 28,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.79 (rank 17 of 77)",
+    "quality 0.53 (1 images, 213 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "bthumm-carrie-mae-weems",
+   "title": "Carrie Mae Weems",
+   "artist": "Carrie Mae Weems",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 228,
+   "venue": {
+    "name": "Galerie Barbara Thumm",
+    "id": "galerie-barbara-thumm",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie barbara thumm"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7792207792207793,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.556
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7714285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016680000000000002
+   },
+   "score": 0.7730965714285715,
+   "days_since_open": -8,
+   "days_to_close": 57,
+   "rank": 29,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 18 of 77)",
+    "quality 0.56 (1 images, 228 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "bthumm-fiona-banner-poems-for-helicopter-blades",
+   "title": "Poems for Helicopter Blades",
+   "artist": "Fiona Banner aka The Vanity Press",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 218,
+   "venue": {
+    "name": "Galerie Barbara Thumm",
+    "id": "galerie-barbara-thumm",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie barbara thumm"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new film",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7792207792207793,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.536
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7714285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001608
+   },
+   "score": 0.7730365714285715,
+   "days_since_open": -8,
+   "days_to_close": 57,
+   "rank": 30,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.78 (rank 18 of 77)",
+    "quality 0.54 (1 images, 218 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "buchmann-jim-butler-new-england-paintings",
+   "title": "The New England Paintings",
+   "artist": "Jim Butler",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 153,
+   "venue": {
+    "name": "Buchmann Galerie",
+    "id": "buchmann-galerie",
+    "tier": 2,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "buchmann galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7532467532467533,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.406
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7457142857142858,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012180000000000001
+   },
+   "score": 0.7469322857142858,
+   "days_since_open": -7,
+   "days_to_close": 57,
+   "rank": 31,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.75 (rank 20 of 77)",
+    "quality 0.41 (1 images, 153 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "tanya-leighton-rabbia-containing",
+   "title": "Containing the Container",
+   "artist": "Luisa Rabbia",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 235,
+   "venue": {
+    "name": "Tanya Leighton",
+    "id": "tanya-leighton",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "tanya leighton"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7402597402597403,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.97
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7328571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00291
+   },
+   "score": 0.7357671428571428,
+   "days_since_open": -5,
+   "days_to_close": 36,
+   "rank": 32,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 21 of 77)",
+    "quality 0.97 (5 images, 235 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "wentrup-hildebrandt-park-by-poco",
+   "title": "Park by POCO",
+   "artist": "Gregor Hildebrandt",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-09"
+   },
+   "n_images": 1,
+   "desc_words": 270,
+   "venue": {
+    "name": "Wentrup",
+    "id": "wentrup",
+    "tier": 2,
+    "rank": 22,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "wentrup"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7272727272727273,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.72,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.7218,
+   "days_since_open": -6,
+   "days_to_close": 35,
+   "rank": 33,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 22 of 77)",
+    "quality 0.60 (1 images, 270 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "klemms-wachtel-return-to-content",
+   "title": "Return to Content a/b",
+   "artist": "Julia Wachtel",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 207,
+   "venue": {
+    "name": "Klemm's",
+    "id": "klemm-s",
+    "tier": 2,
+    "rank": 24,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "klemm s"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7012987012987013,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.514
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6942857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001542
+   },
+   "score": 0.6958277142857143,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 34,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 24 of 77)",
+    "quality 0.51 (1 images, 207 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "klemms-tracks-taps",
+   "title": "tracks, taps",
+   "artist": "Mia Gap & Freja Sofie Kirk",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 189,
+   "venue": {
+    "name": "Klemm's",
+    "id": "klemm-s",
+    "tier": 2,
+    "rank": 24,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "klemm s"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7012987012987013,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.478
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6942857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001434
+   },
+   "score": 0.6957197142857143,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 35,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 24 of 77)",
+    "quality 0.48 (1 images, 189 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "tanja-wagner-seed-tree-house",
+   "title": "The Seed Is the Tree Is the House",
+   "artist": "Šejla Kamerić, Verena Melgarejo Weinandt, Grit Richter, Cielo Saucedo, Anna Steinert & Angelika J. Trojnarski",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 6,
+   "desc_words": 220,
+   "venue": {
+    "name": "Galerie Tanja Wagner",
+    "id": "galerie-tanja-wagner",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie tanja wagner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6753246753246753,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.94
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6685714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00282
+   },
+   "score": 0.6713914285714286,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 36,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.68 (rank 26 of 77)",
+    "quality 0.94 (6 images, 220 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "levy-sinta-werner-modul-im-modell",
+   "title": "Modul im Modell",
+   "artist": "Sinta Werner",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-17"
+   },
+   "n_images": 1,
+   "desc_words": 195,
+   "venue": {
+    "name": "alexander levy",
+    "id": "alexander-levy",
+    "tier": 2,
+    "rank": 29,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "alexander levy"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6363636363636364,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.49
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.63,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00147
+   },
+   "score": 0.63147,
+   "days_since_open": -7,
+   "days_to_close": 43,
+   "rank": 37,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 29 of 77)",
+    "quality 0.49 (1 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "between-bridges-rachel-seidu-love-is-the-work",
+   "title": "Love is the work",
+   "artist": "Rachel Seidu",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-25"
+   },
+   "n_images": 1,
+   "desc_words": 170,
+   "venue": {
+    "name": "Between Bridges",
+    "id": "between-bridges",
+    "tier": 2,
+    "rank": 30,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "between bridges"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6233766233766234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.44000000000000006
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6171428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013200000000000002
+   },
+   "score": 0.6184628571428571,
+   "days_since_open": -6,
+   "days_to_close": 51,
+   "rank": 38,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.62 (rank 30 of 77)",
+    "quality 0.44 (1 images, 170 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "hua-nachleben",
+   "title": "Nachleben",
+   "artist": "Prinz Gholam, Hélène Delprat, Alma Feldhandler, Christa Joo Hyun D'Angelo, Jonas Weichsel, Rafael Domenech",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-03"
+   },
+   "n_images": 6,
+   "desc_words": 208,
+   "venue": {
+    "name": "HUA International",
+    "id": "hua-international",
+    "tier": 2,
+    "rank": 31,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "hua international"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6103896103896104,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.9159999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6042857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002748
+   },
+   "score": 0.6070337142857143,
+   "days_since_open": 6,
+   "days_to_close": 29,
+   "rank": 39,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.61 (rank 31 of 77)",
+    "quality 0.92 (6 images, 208 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "michael-laube-take-five",
+   "title": "Take Five",
+   "artist": "Michael Laube",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 3,
+   "desc_words": 174,
+   "venue": {
+    "name": "Kuckei + Kuckei",
+    "id": "kuckei-kuckei",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kuckei kuckei"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5974025974025974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6479999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5914285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019439999999999998
+   },
+   "score": 0.5933725714285714,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 40,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 32 of 77)",
+    "quality 0.65 (3 images, 174 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "soycapitan-grace-weaver-parataxis",
+   "title": "Parataxis",
+   "artist": "Grace Weaver",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 245,
+   "venue": {
+    "name": "Soy Capitán",
+    "id": "soy-capitan",
+    "tier": 2,
+    "rank": 33,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "soy capitan"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5844155844155844,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.59
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5785714285714285,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017699999999999999
+   },
+   "score": 0.5803414285714286,
+   "days_since_open": 0,
+   "days_to_close": 50,
+   "rank": 41,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.58 (rank 33 of 77)",
+    "quality 0.59 (1 images, 245 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "sexauer-kerim-seiler",
+   "title": "Der Titel kommt zuletzt (The Title Comes Last)",
+   "artist": "Kerim Seiler",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 243,
+   "venue": {
+    "name": "Sexauer Gallery",
+    "id": "sexauer",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "sexauer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5714285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.986
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5657142857142857,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002958
+   },
+   "score": 0.5686722857142857,
+   "days_since_open": 6,
+   "days_to_close": 57,
+   "rank": 42,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 34 of 77)",
+    "quality 0.99 (5 images, 243 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "haas-in-between-sommer-2026",
+   "title": "in between Sommer 2026",
+   "artist": "Arnulf Rainer, Hans Uhlmann, Heimrad Prem, Horst Antes, Ida Kerkovius, Konrad Klapheck, Marwan, Michael Langer, Ursula (Schultze-Bluhm), Uwe Lausen, Werner Heldt",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-17",
+    "end": "2026-09-04"
+   },
+   "n_images": 5,
+   "desc_words": 164,
+   "venue": {
+    "name": "Galerie Michael Haas",
+    "id": "galerie-michael-haas",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie michael haas"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "survey show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5584415584415585,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6597539553864471,
+    "closing_soon": 1.0,
+    "quality": 0.8280000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5528571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002484
+   },
+   "score": 0.557341142857143,
+   "days_since_open": 18,
+   "days_to_close": 0,
+   "rank": 43,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 35 of 77)",
+    "quality 0.83 (5 images, 164 words)",
+    "closes in 0 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "haas-strawalde-parade",
+   "title": "Strawalde. Parade",
+   "artist": "Strawalde",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-23"
+   },
+   "n_images": 5,
+   "desc_words": 197,
+   "venue": {
+    "name": "Galerie Michael Haas",
+    "id": "galerie-michael-haas",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie michael haas"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5584415584415585,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.894
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5528571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002682
+   },
+   "score": 0.5555391428571429,
+   "days_since_open": -6,
+   "days_to_close": 49,
+   "rank": 44,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 35 of 77)",
+    "quality 0.89 (5 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "baudach-second-echo",
+   "title": "Second Echo",
+   "artist": "Andy Hope 1930",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 195,
+   "venue": {
+    "name": "Galerie Guido W. Baudach",
+    "id": "galerie-guido-w-baudach",
+    "tier": 2,
+    "rank": 36,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie guido w baudach"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5454545454545454,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.49
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5399999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00147
+   },
+   "score": 0.5414699999999999,
+   "days_since_open": -7,
+   "days_to_close": 50,
+   "rank": 45,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.55 (rank 36 of 77)",
+    "quality 0.49 (1 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "camerawork-never-forget",
+   "title": "Never Forget: September 11, 2001",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-02"
+   },
+   "n_images": 5,
+   "desc_words": 197,
+   "venue": {
+    "name": "CAMERA WORK",
+    "id": "camera-work",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "camera work"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5324675324675325,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.894
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5271428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002682
+   },
+   "score": 0.5298248571428572,
+   "days_since_open": -1,
+   "days_to_close": 28,
+   "rank": 46,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.53 (rank 37 of 77)",
+    "quality 0.89 (5 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "boros-collection-4",
+   "title": "Collection #4",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 217,
+   "venue": {
+    "name": "Sammlung Boros (Boros Collection)",
+    "id": "sammlung-boros",
+    "tier": 2,
+    "rank": 38,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "sammlung boros boros collection"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5194805194805194,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.9339999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5142857142857142,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002802
+   },
+   "score": 0.5170877142857142,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 47,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.52 (rank 38 of 77)",
+    "quality 0.93 (6 images, 217 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "plan-b-achraf-touloub-pleiades",
+   "title": "Pleiades",
+   "artist": "Achraf Touloub",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 158,
+   "venue": {
+    "name": "Galeria Plan B",
+    "id": "galeria-plan-b",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galeria plan b"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5064935064935066,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.41600000000000004
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5014285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012480000000000002
+   },
+   "score": 0.5026765714285715,
+   "days_since_open": -6,
+   "days_to_close": 71,
+   "rank": 48,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 39 of 77)",
+    "quality 0.42 (1 images, 158 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "nothelfer-follow-white-rabbit",
+   "title": "Follow the White Rabbit",
+   "artist": "Heike Buchfelder, MK Kaehne, Gisbert Pöppler, K.R.H. Sonderborg, Walter Stöhrer",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 6,
+   "desc_words": 195,
+   "venue": {
+    "name": "Galerie Georg Nothelfer",
+    "id": "galerie-georg-nothelfer",
+    "tier": 2,
+    "rank": 40,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie georg nothelfer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.49350649350649356,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.89
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4885714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00267
+   },
+   "score": 0.4912414285714286,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 49,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.49 (rank 40 of 77)",
+    "quality 0.89 (6 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "nothelfer-collection",
+   "title": "Collection Nothelfer: Selection of Works from the 1960s to the Present",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-30"
+   },
+   "n_images": 5,
+   "desc_words": 146,
+   "venue": {
+    "name": "Galerie Georg Nothelfer",
+    "id": "galerie-georg-nothelfer",
+    "tier": 2,
+    "rank": 40,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie georg nothelfer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.49350649350649356,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.792
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4885714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002376
+   },
+   "score": 0.4909474285714286,
+   "days_since_open": -1,
+   "days_to_close": 56,
+   "rank": 50,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.49 (rank 40 of 77)",
+    "quality 0.79 (5 images, 146 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "co-berlin-carrie-mae-weems",
+   "title": "The Heart of the Matter",
+   "artist": "Carrie Mae Weems",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2027-02-03"
+   },
+   "n_images": 5,
+   "desc_words": 225,
+   "venue": {
+    "name": "C/O Berlin",
+    "id": "c-o-berlin",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "c o berlin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.48051948051948057,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.95
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.47571428571428576,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00285
+   },
+   "score": 0.4785642857142858,
+   "days_since_open": -8,
+   "days_to_close": 152,
+   "rank": 51,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.48 (rank 41 of 77)",
+    "quality 0.95 (5 images, 225 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "co-berlin-kallinikou",
+   "title": "Cliffs Among Dreams",
+   "artist": "Stelios Kallinikou",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2027-01-20"
+   },
+   "n_images": 4,
+   "desc_words": 156,
+   "venue": {
+    "name": "C/O Berlin",
+    "id": "c-o-berlin",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "c o berlin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.48051948051948057,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.712
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.47571428571428576,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002136
+   },
+   "score": 0.4778502857142858,
+   "days_since_open": -8,
+   "days_to_close": 138,
+   "rank": 52,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.48 (rank 41 of 77)",
+    "quality 0.71 (4 images, 156 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "co-berlin-kriemann",
+   "title": "Butterflies Flutter in the Fever of the Sun",
+   "artist": "Susanne Kriemann",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2027-01-20"
+   },
+   "n_images": 4,
+   "desc_words": 144,
+   "venue": {
+    "name": "C/O Berlin",
+    "id": "c-o-berlin",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "c o berlin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.48051948051948057,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.688
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.47571428571428576,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002064
+   },
+   "score": 0.47777828571428577,
+   "days_since_open": -8,
+   "days_to_close": 138,
+   "rank": 53,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.48 (rank 41 of 77)",
+    "quality 0.69 (4 images, 144 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "trautwein-kate-mosher-hall",
+   "title": "Hollywood Forever",
+   "artist": "Kate Mosher Hall",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 195,
+   "venue": {
+    "name": "Trautwein Herleth",
+    "id": "trautwein-herleth",
+    "tier": 2,
+    "rank": 44,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "trautwein herleth"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4415584415584416,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.49
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.43714285714285717,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00147
+   },
+   "score": 0.4386128571428572,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 54,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.44 (rank 44 of 77)",
+    "quality 0.49 (1 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "zilberman-koker-stolon",
+   "title": "Stolon",
+   "artist": "Azade Köker",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-08",
+    "end": "2026-11-14"
+   },
+   "n_images": 5,
+   "desc_words": 327,
+   "venue": {
+    "name": "Zilberman",
+    "id": "zilberman",
+    "tier": 2,
+    "rank": 45,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "zilberman"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "five decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4285714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4242857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.4272857142857143,
+   "days_since_open": -4,
+   "days_to_close": 71,
+   "rank": 55,
+   "gate": "not_open",
+   "gate_detail": "opens in 4 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.43 (rank 45 of 77)",
+    "quality 1.00 (5 images, 327 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 4 d"
+   ]
+  },
+  {
+   "slug": "haverkampf-from-the-sleep-side",
+   "title": "From the Sleep Side",
+   "artist": "Aubrey Levinthal, Biala, Tal R",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 196,
+   "venue": {
+    "name": "Haverkampf Leistenschneider",
+    "id": "haverkampf-leistenschneider",
+    "tier": 2,
+    "rank": 46,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "haverkampf leistenschneider"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4155844155844156,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.892
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4114285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002676
+   },
+   "score": 0.4141045714285715,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 56,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.42 (rank 46 of 77)",
+    "quality 0.89 (5 images, 196 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "haverkampf-souvenirs-de-vacances",
+   "title": "\"Souvenirs de vacances\" | Gallery Cabinet",
+   "artist": "Katherine Bradford, Daniel Hauptmann, Maximilian Kirmse, Heidrun Rathgeb",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 4,
+   "desc_words": 134,
+   "venue": {
+    "name": "Haverkampf Leistenschneider",
+    "id": "haverkampf-leistenschneider",
+    "tier": 2,
+    "rank": 46,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "haverkampf leistenschneider"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4155844155844156,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.668
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4114285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002004
+   },
+   "score": 0.4134325714285715,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 57,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.42 (rank 46 of 77)",
+    "quality 0.67 (4 images, 134 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "hausamwaldsee-veit-laurent-kurz",
+   "title": "Green Sanctuary (C.O.T.B)",
+   "artist": "Veit Laurent Kurz",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-14",
+    "end": "2026-09-27"
+   },
+   "n_images": 5,
+   "desc_words": 186,
+   "venue": {
+    "name": "Haus am Waldsee",
+    "id": "haus-am-waldsee",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "haus am waldsee"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4025974025974026,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.15037812951026458,
+    "closing_soon": 0.0,
+    "quality": 0.872
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3985714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002616
+   },
+   "score": 0.4011874285714286,
+   "days_since_open": 82,
+   "days_to_close": 23,
+   "rank": 58,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 47 of 77)",
+    "quality 0.87 (5 images, 186 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hausamwaldsee-wo-ich-wohne",
+   "title": "Wo ich wohne",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-14",
+    "end": "2026-09-27"
+   },
+   "n_images": 1,
+   "desc_words": 209,
+   "venue": {
+    "name": "Haus am Waldsee",
+    "id": "haus-am-waldsee",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "haus am waldsee"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4025974025974026,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.15037812951026458,
+    "closing_soon": 0.0,
+    "quality": 0.518
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3985714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001554
+   },
+   "score": 0.4001254285714286,
+   "days_since_open": 82,
+   "days_to_close": 23,
+   "rank": 59,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 47 of 77)",
+    "quality 0.52 (1 images, 209 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hausamwaldsee-ayumi-paul-fischmond",
+   "title": "Fischmond am Waldsee",
+   "artist": "Ayumi Paul",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-14",
+    "end": "2027-05-23"
+   },
+   "n_images": 1,
+   "desc_words": 162,
+   "venue": {
+    "name": "Haus am Waldsee",
+    "id": "haus-am-waldsee",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "haus am waldsee"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4025974025974026,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.15037812951026458,
+    "closing_soon": 0.0,
+    "quality": 0.42400000000000004
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3985714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012720000000000001
+   },
+   "score": 0.39984342857142857,
+   "days_since_open": 82,
+   "days_to_close": 261,
+   "rank": 60,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 47 of 77)",
+    "quality 0.42 (1 images, 162 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "deschler-handmade-by-part-ii",
+   "title": "Handmade by—Part II",
+   "artist": "Georg Haberler, Seet van Hout, Bouthayna Al Muftah, Sergio Roger, Magda Sayeg, Yukiko Terada, Joana Vasconcelos, Gerhard Kehl, Patricia Waller",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-24"
+   },
+   "n_images": 7,
+   "desc_words": 204,
+   "venue": {
+    "name": "Galerie Deschler",
+    "id": "galerie-deschler",
+    "tier": 3,
+    "rank": 48,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie deschler"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38961038961038963,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9079999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38571428571428573,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002724
+   },
+   "score": 0.38843828571428574,
+   "days_since_open": -6,
+   "days_to_close": 50,
+   "rank": 61,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.39 (rank 48 of 77)",
+    "quality 0.91 (7 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "eric-keller-hanglage",
+   "title": "Hanglage",
+   "artist": "Eric Keller",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 259,
+   "venue": {
+    "name": "Galerie Poll",
+    "id": "galerie-poll",
+    "tier": 3,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie poll"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first institutional outing",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.37662337662337664,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3728571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.3758571428571429,
+   "days_since_open": 0,
+   "days_to_close": 50,
+   "rank": 62,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.38 (rank 49 of 77)",
+    "quality 1.00 (5 images, 259 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "springer-animals",
+   "title": "Animals",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-15",
+    "end": "2026-11-14"
+   },
+   "n_images": 5,
+   "desc_words": 135,
+   "venue": {
+    "name": "Galerie Springer Berlin",
+    "id": "galerie-springer-berlin",
+    "tier": 3,
+    "rank": 50,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie springer berlin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36363636363636365,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.77
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00231
+   },
+   "score": 0.36230999999999997,
+   "days_since_open": -11,
+   "days_to_close": 71,
+   "rank": 63,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.36 (rank 50 of 77)",
+    "quality 0.77 (5 images, 135 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "kunstraum-after-memory",
+   "title": "After Memory. Echoes in the Future Perfect Tense",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-11",
+    "end": "2026-10-11"
+   },
+   "n_images": 1,
+   "desc_words": 209,
+   "venue": {
+    "name": "Kunstraum Kreuzberg/Bethanien",
+    "id": "kunstraum-kreuzberg-bethanien",
+    "tier": 3,
+    "rank": 52,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "kunstraum kreuzberg bethanien"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33766233766233766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.28061551207734325,
+    "closing_soon": 0.0,
+    "quality": 0.518
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3342857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001554
+   },
+   "score": 0.3358397142857143,
+   "days_since_open": 55,
+   "days_to_close": 37,
+   "rank": 64,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.34 (rank 52 of 77)",
+    "quality 0.52 (1 images, 209 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "kunstraum-tanja-ostojic-encounters",
+   "title": "ENCOUNTERS — On Bodies, Borders, Resistance",
+   "artist": "Tanja Ostojić",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-24",
+    "end": "2027-02-14"
+   },
+   "n_images": 1,
+   "desc_words": 187,
+   "venue": {
+    "name": "Kunstraum Kreuzberg/Bethanien",
+    "id": "kunstraum-kreuzberg-bethanien",
+    "tier": 3,
+    "rank": 52,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "kunstraum kreuzberg bethanien"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33766233766233766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.474
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3342857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0014219999999999999
+   },
+   "score": 0.3357077142857143,
+   "days_since_open": -50,
+   "days_to_close": 163,
+   "rank": 65,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.34 (rank 52 of 77)",
+    "quality 0.47 (1 images, 187 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "thomasfischer-shimmer",
+   "title": "Shimmer",
+   "artist": "Noémi Barbaglia, Noi Fuhrer, Rosa Lüders",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 226,
+   "venue": {
+    "name": "Galerie Thomas Fischer",
+    "id": "galerie-thomas-fischer",
+    "tier": 3,
+    "rank": 53,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie thomas fischer"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3246753246753247,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.552
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3214285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016560000000000001
+   },
+   "score": 0.3230845714285714,
+   "days_since_open": -1,
+   "days_to_close": 50,
+   "rank": 66,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.32 (rank 53 of 77)",
+    "quality 0.55 (1 images, 226 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "berinson-brassai",
+   "title": "Brassaï (1899–1984) Retrospektive",
+   "artist": "Brassaï",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2027-01-12"
+   },
+   "n_images": 5,
+   "desc_words": 242,
+   "venue": {
+    "name": "Galerie Berinson",
+    "id": "galerie-berinson",
+    "tier": 3,
+    "rank": 54,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie berinson"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3116883116883117,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.984
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.30857142857142855,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002952
+   },
+   "score": 0.31152342857142856,
+   "days_since_open": -8,
+   "days_to_close": 130,
+   "rank": 67,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.31 (rank 54 of 77)",
+    "quality 0.98 (5 images, 242 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "diehl-hal-busse-werk-und-wirken",
+   "title": "Hal Busse. Werk und Wirken",
+   "artist": "Hal Busse",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-16"
+   },
+   "n_images": 5,
+   "desc_words": 199,
+   "venue": {
+    "name": "Galerie Volker Diehl",
+    "id": "galerie-volker-diehl",
+    "tier": 3,
+    "rank": 55,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie volker diehl"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2987012987012987,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.898
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2957142857142857,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002694
+   },
+   "score": 0.2984082857142857,
+   "days_since_open": -8,
+   "days_to_close": 42,
+   "rank": 68,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.30 (rank 55 of 77)",
+    "quality 0.90 (5 images, 199 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "schiefe-zaehne-this",
+   "title": "This!",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-17"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "Schiefe Zähne",
+    "id": "schiefe-zahne",
+    "tier": 3,
+    "rank": 57,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "schiefe zahne"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2727272727272727,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.26999999999999996,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.27148799999999995,
+   "days_since_open": -8,
+   "days_to_close": 43,
+   "rank": 69,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 57 of 77)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "janizewski-marie-schubert-exuvie",
+   "title": "Exuvie",
+   "artist": "Marie Schubert",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 222,
+   "venue": {
+    "name": "Galerie Anton Janizewski",
+    "id": "galerie-anton-janizewski",
+    "tier": 3,
+    "rank": 58,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie anton janizewski"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2597402597402597,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.544
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2571428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016320000000000002
+   },
+   "score": 0.25877485714285714,
+   "days_since_open": -7,
+   "days_to_close": 57,
+   "rank": 70,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.26 (rank 58 of 77)",
+    "quality 0.54 (1 images, 222 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "mae-nan-guk-juk",
+   "title": "매난국죽 Mae Nan Guk Juk: Diasporic Memories Formed in Clay",
+   "artist": "Frank Jimin Hopp",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-21",
+    "end": "2026-11-01"
+   },
+   "n_images": 4,
+   "desc_words": 273,
+   "venue": {
+    "name": "Galerie Wedding – Raum für zeitgenössische Kunst",
+    "id": "galerie-wedding-raum-fur-zeitgenossische-kunst",
+    "tier": 3,
+    "rank": 59,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie wedding raum fur zeitgenossische kunst"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.24675324675324672,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7236346187201891,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.24428571428571424,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.24698571428571425,
+   "days_since_open": 14,
+   "days_to_close": 58,
+   "rank": 71,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.25 (rank 59 of 77)",
+    "quality 0.90 (4 images, 273 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "officeimpart-void-is-seductive",
+   "title": "Void is Seductive",
+   "artist": "Salomé Chatriot",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-30"
+   },
+   "n_images": 4,
+   "desc_words": 182,
+   "venue": {
+    "name": "Office Impart",
+    "id": "office-impart",
+    "tier": 3,
+    "rank": 60,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "office impart"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.23376623376623373,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.764
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2314285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002292
+   },
+   "score": 0.2337205714285714,
+   "days_since_open": -6,
+   "days_to_close": 56,
+   "rank": 72,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.23 (rank 60 of 77)",
+    "quality 0.76 (4 images, 182 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "nilsson-stromberg-now-and-then",
+   "title": "the now and then",
+   "artist": "Henrik Strömberg",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 187,
+   "venue": {
+    "name": "Dorothée Nilsson Gallery",
+    "id": "dorothee-nilsson",
+    "tier": 3,
+    "rank": 61,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "dorothee nilsson"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.22077922077922074,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.474
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.21857142857142853,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0014219999999999999
+   },
+   "score": 0.21999342857142853,
+   "days_since_open": -6,
+   "days_to_close": null,
+   "rank": 73,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.22 (rank 61 of 77)",
+    "quality 0.47 (1 images, 187 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "leon-kahane-kritik-und-selbstkritik",
+   "title": "Kritik und Selbstkritik in der freien Zeit | Criticism and Self-Criticism in Free Time",
+   "artist": "Leon Kahane",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 284,
+   "venue": {
+    "name": "Kunstverein am Rosa-Luxemburg-Platz",
+    "id": "kunstverein-am-rosa-luxemburg-platz",
+    "tier": 3,
+    "rank": 62,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "kunstverein am rosa luxemburg platz"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commission",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.20779220779220775,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.20571428571428568,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.20751428571428568,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 74,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.21 (rank 62 of 77)",
+    "quality 0.60 (1 images, 284 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "jarmuschek-malwine-stauss",
+   "title": "Materie unter Materie (Matter Beneath Matter)",
+   "artist": "Malwine Stauss",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-02"
+   },
+   "n_images": 2,
+   "desc_words": 178,
+   "venue": {
+    "name": "Jarmuschek + Partner",
+    "id": "jarmuschek-partner",
+    "tier": 3,
+    "rank": 63,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "jarmuschek partner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.19480519480519476,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.556
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1928571428571428,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016680000000000002
+   },
+   "score": 0.1945251428571428,
+   "days_since_open": 6,
+   "days_to_close": 28,
+   "rank": 75,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.19 (rank 63 of 77)",
+    "quality 0.56 (2 images, 178 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "counterplay",
+   "title": "Counterplay",
+   "artist": "Alicja Rogalska",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-24",
+    "end": "2026-09-20"
+   },
+   "n_images": 4,
+   "desc_words": 215,
+   "venue": {
+    "name": "Galerie Nord / Kunstverein Tiergarten",
+    "id": "galerie-nord-kunstverein-tiergarten",
+    "tier": 3,
+    "rank": 65,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie nord kunstverein tiergarten"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16883116883116878,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37892914162759955,
+    "closing_soon": 0.0,
+    "quality": 0.8300000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1671428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024900000000000005
+   },
+   "score": 0.16963285714285709,
+   "days_since_open": 42,
+   "days_to_close": 16,
+   "rank": 76,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.17 (rank 65 of 77)",
+    "quality 0.83 (4 images, 215 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "ebensperger-bonnie-camplin-archive",
+   "title": "Bonnie Camplin Archive (BCA)",
+   "artist": "Bonnie Camplin",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-13",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 176,
+   "venue": {
+    "name": "Ebensperger",
+    "id": "ebensperger",
+    "tier": 3,
+    "rank": 66,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "ebensperger"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "major_award",
+     "label": "MacArthur / Turner / Hugo Boss",
+     "weight": 0.8,
+     "term": "Turner Prize",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1558441558441559,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.45199999999999996
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.15428571428571433,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001356
+   },
+   "score": 0.15564171428571433,
+   "days_since_open": -9,
+   "days_to_close": null,
+   "rank": 77,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.16 (rank 66 of 77)",
+    "quality 0.45 (1 images, 176 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "ebensperger-chicks-on-speed",
+   "title": "the Mobilisation / Poprade",
+   "artist": "Chicks on Speed",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 168,
+   "venue": {
+    "name": "Ebensperger",
+    "id": "ebensperger",
+    "tier": 3,
+    "rank": 66,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "ebensperger"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1558441558441559,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.43600000000000005
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.15428571428571433,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013080000000000001
+   },
+   "score": 0.15559371428571434,
+   "days_since_open": -6,
+   "days_to_close": null,
+   "rank": 78,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.16 (rank 66 of 77)",
+    "quality 0.44 (1 images, 168 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "setareh-genius-loci-xiii",
+   "title": "Genius Loci XIII",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-04",
+    "end": "2026-09-13"
+   },
+   "n_images": 6,
+   "desc_words": 285,
+   "venue": {
+    "name": "SETAREH",
+    "id": "setareh",
+    "tier": 3,
+    "rank": 67,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "setareh"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1428571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2387104009776041,
+    "closing_soon": 1.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1414285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.003
+   },
+   "score": 0.1464285714285715,
+   "days_since_open": 62,
+   "days_to_close": 9,
+   "rank": 79,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 15,
+   "pinned": false,
+   "reasons": [
+    "venue 0.14 (rank 67 of 77)",
+    "quality 1.00 (6 images, 285 words)",
+    "closes in 9 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "reiter-be-real",
+   "title": "Be Real.",
+   "artist": "Hans Aichinger",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 4,
+   "desc_words": 161,
+   "venue": {
+    "name": "REITER",
+    "id": "reiter",
+    "tier": 3,
+    "rank": 68,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "reiter"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1298701298701299,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.722
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12857142857142861,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002166
+   },
+   "score": 0.13073742857142862,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 80,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 68 of 77)",
+    "quality 0.72 (4 images, 161 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "kajetan-redjaian-transit",
+   "title": "Transit",
+   "artist": "Haleh Redjaian",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 164,
+   "venue": {
+    "name": "Galerie kajetan",
+    "id": "galerie-kajetan",
+    "tier": 3,
+    "rank": 69,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie kajetan"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.11688311688311692,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.42800000000000005
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.11571428571428576,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012840000000000002
+   },
+   "score": 0.11699828571428575,
+   "days_since_open": -8,
+   "days_to_close": 71,
+   "rank": 81,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.12 (rank 69 of 77)",
+    "quality 0.43 (1 images, 164 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "mazzoli-binet-in-between",
+   "title": "In Between",
+   "artist": "Jonathan Binet",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-26",
+    "end": "2026-09-05"
+   },
+   "n_images": 5,
+   "desc_words": 201,
+   "venue": {
+    "name": "Galerie Mazzoli",
+    "id": "galerie-mazzoli",
+    "tier": 3,
+    "rank": 70,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "galerie mazzoli"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.10389610389610393,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19842513149602492,
+    "closing_soon": 1.0,
+    "quality": 0.902
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1028571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002706
+   },
+   "score": 0.1075631428571429,
+   "days_since_open": 70,
+   "days_to_close": 1,
+   "rank": 82,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 16,
+   "pinned": false,
+   "reasons": [
+    "venue 0.10 (rank 70 of 77)",
+    "quality 0.90 (5 images, 201 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "ab-van-hanegem-solo",
+   "title": "Solo Show",
+   "artist": "Ab van Hanegem",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-31",
+    "end": "2026-12-04"
+   },
+   "n_images": 4,
+   "desc_words": 169,
+   "venue": {
+    "name": "Galerie Gilla Lörcher",
+    "id": "galerie-gilla-lorcher",
+    "tier": 3,
+    "rank": 71,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie gilla lorcher"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09090909090909094,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.738
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09000000000000002,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002214
+   },
+   "score": 0.09221400000000002,
+   "days_since_open": -57,
+   "days_to_close": 91,
+   "rank": 83,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.09 (rank 71 of 77)",
+    "quality 0.74 (4 images, 169 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "embodying-space",
+   "title": "Embodying Space",
+   "artist": "Quentin Lefranc, Rainer Splitt",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-16"
+   },
+   "n_images": 3,
+   "desc_words": 193,
+   "venue": {
+    "name": "Galerie Gilla Lörcher",
+    "id": "galerie-gilla-lorcher",
+    "tier": 3,
+    "rank": 71,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "galerie gilla lorcher"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09090909090909094,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6859999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09000000000000002,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002058
+   },
+   "score": 0.09205800000000003,
+   "days_since_open": -7,
+   "days_to_close": 42,
+   "rank": 84,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.09 (rank 71 of 77)",
+    "quality 0.69 (3 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "markus-linnenbrink-differentlevelsofbeing",
+   "title": "DIFFERENTLEVELSOFBEING",
+   "artist": "Markus Linnenbrink",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 282,
+   "venue": {
+    "name": "Taubert Contemporary",
+    "id": "taubert-contemporary",
+    "tier": 3,
+    "rank": 72,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "taubert contemporary"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.07792207792207795,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.07714285714285717,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018
+   },
+   "score": 0.07894285714285716,
+   "days_since_open": -6,
+   "days_to_close": 71,
+   "rank": 85,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.08 (rank 72 of 77)",
+    "quality 0.60 (1 images, 282 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "rosalux-diego-geppert",
+   "title": "How Can Language Be Found in the Body?",
+   "artist": "Francisco Diego & Stella Geppert",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-21",
+    "end": "2026-09-12"
+   },
+   "n_images": 2,
+   "desc_words": 228,
+   "venue": {
+    "name": "rosalux",
+    "id": "rosalux",
+    "tier": 3,
+    "rank": 73,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "rosalux"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.06493506493506496,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7236346187201891,
+    "closing_soon": 1.0,
+    "quality": 0.656
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.06428571428571431,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.001968
+   },
+   "score": 0.0682537142857143,
+   "days_since_open": 14,
+   "days_to_close": 8,
+   "rank": 86,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 17,
+   "pinned": false,
+   "reasons": [
+    "venue 0.06 (rank 73 of 77)",
+    "closes in 8 d",
+    "quality 0.66 (2 images, 228 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "dropping-in-and-out",
+   "title": "Dropping In and Out – A Response to Uncertainty",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-19",
+    "end": "2026-10-30"
+   },
+   "n_images": 1,
+   "desc_words": 249,
+   "venue": {
+    "name": "alpha nova & galerie futura",
+    "id": "alpha-nova-and-galerie-futura",
+    "tier": 3,
+    "rank": 74,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "alpha nova and galerie futura"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.051948051948051965,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.598
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.05142857142857145,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001794
+   },
+   "score": 0.053222571428571445,
+   "days_since_open": -15,
+   "days_to_close": 56,
+   "rank": 87,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.05 (rank 74 of 77)",
+    "quality 0.60 (1 images, 249 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "dialogue-collection-presentation",
+   "title": "DIALOGUE – Collection Presentation",
+   "artist": "Leiko Ikemura, Lee Ufan, Lee Bae, Leena Luostarinen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-01",
+    "end": "2026-12-31"
+   },
+   "n_images": 5,
+   "desc_words": 249,
+   "venue": {
+    "name": "Miettinen Collection (Salon Dahlmann)",
+    "id": "salon-dahlmann",
+    "tier": 3,
+    "rank": 75,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "miettinen collection salon dahlmann"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.038961038961038974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.05440941020600775,
+    "closing_soon": 0.0,
+    "quality": 0.998
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.03857142857142858,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002994
+   },
+   "score": 0.041565428571428586,
+   "days_since_open": 126,
+   "days_to_close": 118,
+   "rank": 88,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 18,
+   "pinned": false,
+   "reasons": [
+    "venue 0.04 (rank 75 of 77)",
+    "quality 1.00 (5 images, 249 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hannah-hallermann-sewing",
+   "title": "SEWING",
+   "artist": "Hannah Hallermann",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 129,
+   "venue": {
+    "name": "Miettinen Collection (Salon Dahlmann)",
+    "id": "salon-dahlmann",
+    "tier": 3,
+    "rank": 75,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Schöneberg",
+    "norm": "miettinen collection salon dahlmann"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.038961038961038974,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.358
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.03857142857142858,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001074
+   },
+   "score": 0.03964542857142858,
+   "days_since_open": -5,
+   "days_to_close": 57,
+   "rank": 89,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.04 (rank 75 of 77)",
+    "quality 0.36 (1 images, 129 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "nach-bild",
+   "title": "Nach Bild (Under Stimulation)",
+   "artist": "Vinzenz Aubry",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-11",
+    "end": "2026-09-06"
+   },
+   "n_images": 6,
+   "desc_words": 198,
+   "venue": {
+    "name": "Galerie im Saalbau",
+    "id": "galerie-im-saalbau",
+    "tier": 3,
+    "rank": 76,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie im saalbau"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.025974025974025983,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.28061551207734325,
+    "closing_soon": 1.0,
+    "quality": 0.896
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.025714285714285724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0026880000000000003
+   },
+   "score": 0.030402285714285725,
+   "days_since_open": 55,
+   "days_to_close": 2,
+   "rank": 90,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 19,
+   "pinned": false,
+   "reasons": [
+    "venue 0.03 (rank 76 of 77)",
+    "quality 0.90 (6 images, 198 words)",
+    "closes in 2 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "bittersweet-symphony",
+   "title": "Bittersweet Symphony",
+   "artist": "Stefanie Moshammer and Eric Meier",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-11-22"
+   },
+   "n_images": 2,
+   "desc_words": 191,
+   "venue": {
+    "name": "Galerie im Saalbau",
+    "id": "galerie-im-saalbau",
+    "tier": 3,
+    "rank": 76,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "galerie im saalbau"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.025974025974025983,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5820000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.025714285714285724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017460000000000002
+   },
+   "score": 0.027460285714285725,
+   "days_since_open": -8,
+   "days_to_close": 79,
+   "rank": 91,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.03 (rank 76 of 77)",
+    "quality 0.58 (2 images, 191 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "tine-steen-kochenden-affen",
+   "title": "Die kochenden Affen (The Cooking Apes)",
+   "artist": "Tine Steen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-09-05"
+   },
+   "n_images": 3,
+   "desc_words": 217,
+   "venue": {
+    "name": "SomoS Art House",
+    "id": "somos-art-house",
+    "tier": 3,
+    "rank": 77,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "somos art house"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.012987012987012991,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 1.0,
+    "quality": 0.734
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.012857142857142862,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002202
+   },
+   "score": 0.017059142857142863,
+   "days_since_open": 0,
+   "days_to_close": 1,
+   "rank": 92,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 20,
+   "pinned": false,
+   "reasons": [
+    "venue 0.01 (rank 77 of 77)",
+    "quality 0.73 (3 images, 217 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hbf-shilpa-gupta",
+   "title": "What Still Holds",
+   "artist": "Shilpa Gupta",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-27",
+    "end": "2027-01-03"
+   },
+   "n_images": 5,
+   "desc_words": 288,
+   "venue": {
+    "name": "Hamburger Bahnhof – Nationalgalerie der Gegenwart",
+    "id": "hamburger-bahnhof-nationalgalerie-der-gegenwart",
+    "tier": null,
+    "rank": 128,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Mitte",
+    "norm": "hamburger bahnhof nationalgalerie der gegenwart"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three-decade",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.02423663690365211,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.003,
+   "days_since_open": 161,
+   "days_to_close": 121,
+   "rank": 93,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 1.00 (5 images, 288 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "schinkel-projektionen-osten",
+   "title": "Projektionen auf den Osten (Projections onto the East)",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-08"
+   },
+   "n_images": 5,
+   "desc_words": 220,
+   "venue": {
+    "name": "Schinkel Pavillon",
+    "id": "schinkel-pavillon",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Mitte",
+    "norm": "schinkel pavillon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.94
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00282
+   },
+   "score": 0.00282,
+   "days_since_open": -6,
+   "days_to_close": 65,
+   "rank": 94,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 0.94 (5 images, 220 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "crone-krauss-sediments",
+   "title": "Sediments",
+   "artist": "Clemens Krauss",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 214,
+   "venue": {
+    "name": "Galerie Crone",
+    "id": "galerie-crone",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "galerie crone"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8280000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002484
+   },
+   "score": 0.002484,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 95,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 0.83 (4 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "kornfeld-murabito",
+   "title": "Lockruf der Sirenen. Visionen eines Seemanns",
+   "artist": "Valentina Murabito",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-22"
+   },
+   "n_images": 4,
+   "desc_words": 193,
+   "venue": {
+    "name": "KORNFELD Galerie",
+    "id": "kornfeld-galerie",
+    "tier": null,
+    "rank": 85,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Charlottenburg",
+    "norm": "kornfeld galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.786
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0023580000000000003
+   },
+   "score": 0.0023580000000000003,
+   "days_since_open": -6,
+   "days_to_close": 48,
+   "rank": 96,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 0.79 (4 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "persons-rhizome",
+   "title": "Rhizome",
+   "artist": "Paweł Książek",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 175,
+   "venue": {
+    "name": "Persons Projects",
+    "id": "persons-projects",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Kreuzberg",
+    "norm": "persons projects"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.44999999999999996
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013499999999999999
+   },
+   "score": 0.0013499999999999999,
+   "days_since_open": -7,
+   "days_to_close": 57,
+   "rank": 97,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "quality 0.45 (1 images, 175 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788560332,
+   "run_id": "apply-berlin-1788560332",
+   "city": "berlin",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=52 reorder=True params=be2b0ef7374d",
+   "params_hash": "be2b0ef7374d"
+  },
+  {
+   "ts": 1788560335,
+   "run_id": "score-berlin-1788560335",
+   "city": "berlin",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.13,
+   "notes": "n_shows=97 featured=20 snapshot=None params=be2b0ef7374d",
+   "params_hash": "be2b0ef7374d",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  },
+  {
+   "ts": 1788571550,
+   "run_id": "apply-berlin-1788571550",
+   "city": "berlin",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=0 reorder=True params=cabb1c058fe7",
+   "params_hash": "cabb1c058fe7"
+  },
+  {
+   "ts": 1788571551,
+   "run_id": "score-berlin-1788571551",
+   "city": "berlin",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.14,
+   "notes": "n_shows=97 featured=20 snapshot=None params=cabb1c058fe7",
+   "params_hash": "cabb1c058fe7",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 85,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

@@ -1,0 +1,751 @@
+{
+ "ts": 1788561121,
+ "city": "paris",
+ "today": "2026-09-04",
+ "params_hash": "f81b83da35ba",
+ "params": {
+  "version": 1,
+  "city": "paris",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 94,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "kiefer-nymphaeum",
+   "rank": 2,
+   "featured_rank": 1,
+   "score": 0.9824680851063831,
+   "editors_pick": true
+  },
+  {
+   "slug": "gagosian-sterling-ruby",
+   "rank": 3,
+   "featured_rank": 2,
+   "score": 0.9715821702127659,
+   "editors_pick": true
+  },
+  {
+   "slug": "annette-messager-histoires-des-oreillers",
+   "rank": 6,
+   "featured_rank": 3,
+   "score": 0.9508183404255319,
+   "editors_pick": true
+  },
+  {
+   "slug": "hw-charles-gaines",
+   "rank": 7,
+   "featured_rank": 4,
+   "score": 0.9401424255319148,
+   "editors_pick": true
+  },
+  {
+   "slug": "hw-invites-arthur-gillet",
+   "rank": 8,
+   "featured_rank": 5,
+   "score": 0.9401244255319149,
+   "editors_pick": true
+  },
+  {
+   "slug": "es-pays-reve-pays-reel",
+   "rank": 19,
+   "featured_rank": 6,
+   "score": 0.8662090212765958,
+   "editors_pick": false
+  },
+  {
+   "slug": "balicehertling-mercedes-llanos-entresuenos",
+   "rank": 21,
+   "featured_rank": 7,
+   "score": 0.8471571914893617,
+   "editors_pick": false
+  },
+  {
+   "slug": "xiao-guo-hui-rat-a-hum-tat-tat",
+   "rank": 23,
+   "featured_rank": 8,
+   "score": 0.8366132765957448,
+   "editors_pick": false
+  },
+  {
+   "slug": "skarstedt-petits-formats",
+   "rank": 25,
+   "featured_rank": 9,
+   "score": 0.8137294468085107,
+   "editors_pick": false
+  },
+  {
+   "slug": "karsten-greve-fontana",
+   "rank": 29,
+   "featured_rank": 10,
+   "score": 0.7841757021276595,
+   "editors_pick": false
+  },
+  {
+   "slug": "semiose-cherkit-tendrement",
+   "rank": 35,
+   "featured_rank": 11,
+   "score": 0.7292221276595744,
+   "editors_pick": false
+  },
+  {
+   "slug": "allen-jason-dodge",
+   "rank": 38,
+   "featured_rank": 12,
+   "score": 0.6872384680851064,
+   "editors_pick": false
+  },
+  {
+   "slug": "pdt-joseph-grigely",
+   "rank": 40,
+   "featured_rank": 13,
+   "score": 0.6681026382978724,
+   "editors_pick": false
+  },
+  {
+   "slug": "pdt-jesse-darling",
+   "rank": 41,
+   "featured_rank": 14,
+   "score": 0.6678086382978724,
+   "editors_pick": false
+  },
+  {
+   "slug": "tornabuoni-moving-colors",
+   "rank": 43,
+   "featured_rank": 15,
+   "score": 0.6452608085106383,
+   "editors_pick": false
+  },
+  {
+   "slug": "papillon-mes-annees-80",
+   "rank": 45,
+   "featured_rank": 16,
+   "score": 0.6231409787234042,
+   "editors_pick": false
+  },
+  {
+   "slug": "artconcept-pierre-bellot-vallee-fm",
+   "rank": 48,
+   "featured_rank": 17,
+   "score": 0.5924092340425532,
+   "editors_pick": false
+  },
+  {
+   "slug": "michelrein-hugo-ruyant",
+   "rank": 51,
+   "featured_rank": 18,
+   "score": 0.5609814893617021,
+   "editors_pick": false
+  },
+  {
+   "slug": "campoli-summer-break",
+   "rank": 52,
+   "featured_rank": 19,
+   "score": 0.5508475744680851,
+   "editors_pick": false
+  },
+  {
+   "slug": "emmanuel-beguinot-always-again",
+   "rank": 53,
+   "featured_rank": 20,
+   "score": 0.5398456595744682,
+   "editors_pick": false
+  },
+  {
+   "slug": "mariane-ibrahim-intersections",
+   "rank": 56,
+   "featured_rank": 21,
+   "score": 0.486922085106383,
+   "editors_pick": false
+  },
+  {
+   "slug": "ceysson-benetiere-breleur",
+   "rank": 57,
+   "featured_rank": 22,
+   "score": 0.4765761702127659,
+   "editors_pick": false
+  },
+  {
+   "slug": "lebal-espace-entre-nous",
+   "rank": 62,
+   "featured_rank": 23,
+   "score": 0.4234485957446808,
+   "editors_pick": false
+  },
+  {
+   "slug": "polka-nathaniel-aron-interior-lift",
+   "rank": 64,
+   "featured_rank": 24,
+   "score": 0.40322676595744683,
+   "editors_pick": false
+  },
+  {
+   "slug": "hussenot-portraiture-vol2",
+   "rank": 66,
+   "featured_rank": 25,
+   "score": 0.3732390212765958,
+   "editors_pick": false
+  },
+  {
+   "slug": "hussenot-tendre-brute",
+   "rank": 67,
+   "featured_rank": 26,
+   "score": 0.3725670212765958,
+   "editors_pick": false
+  },
+  {
+   "slug": "vincent-lemaire-lumiere",
+   "rank": 69,
+   "featured_rank": 27,
+   "score": 0.3502471914893617,
+   "editors_pick": false
+  },
+  {
+   "slug": "pact-kinsbergen-after-the-procession",
+   "rank": 76,
+   "featured_rank": 28,
+   "score": 0.24502404255319143,
+   "editors_pick": false
+  },
+  {
+   "slug": "binome-laporte-cursus-corpus",
+   "rank": 82,
+   "featured_rank": 29,
+   "score": 0.17095263829787236,
+   "editors_pick": false
+  },
+  {
+   "slug": "robert-frank-john-cohen",
+   "rank": 85,
+   "featured_rank": 30,
+   "score": 0.09769723404255316,
+   "editors_pick": false
+  },
+  {
+   "slug": "romero-paprocki-poemes-graphiques",
+   "rank": 87,
+   "featured_rank": 31,
+   "score": 0.0751514042553192,
+   "editors_pick": false
+  },
+  {
+   "slug": "point-ephemere-almageste",
+   "rank": 88,
+   "featured_rank": 32,
+   "score": 0.056021574468085124,
+   "editors_pick": false
+  },
+  {
+   "slug": "cite-arts-sakura-momma",
+   "rank": 89,
+   "featured_rank": 33,
+   "score": 0.04672565957446803,
+   "editors_pick": false
+  },
+  {
+   "slug": "drawinglab-fenetre-temps",
+   "rank": 91,
+   "featured_rank": 34,
+   "score": 0.025925829787234074,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "chiens-de-pavlov",
+   "rank": 1,
+   "score": 0.99282,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kiefer-nymphaeum",
+   "rank": 2,
+   "score": 0.9824680851063831,
+   "gate": null
+  },
+  {
+   "slug": "gagosian-sterling-ruby",
+   "rank": 3,
+   "score": 0.9715821702127659,
+   "gate": null
+  },
+  {
+   "slug": "zwirner-108-shared-legacy",
+   "rank": 4,
+   "score": 0.961404255319149,
+   "gate": "not_open"
+  },
+  {
+   "slug": "annette-messager-histoires-des-oreillers",
+   "rank": 6,
+   "score": 0.9508183404255319,
+   "gate": null
+  },
+  {
+   "slug": "hw-charles-gaines",
+   "rank": 7,
+   "score": 0.9401424255319148,
+   "gate": null
+  },
+  {
+   "slug": "hw-invites-arthur-gillet",
+   "rank": 8,
+   "score": 0.9401244255319149,
+   "gate": null
+  },
+  {
+   "slug": "crousel-tillmans-glade-clairiere",
+   "rank": 9,
+   "score": 0.9292445106382978,
+   "gate": "not_open"
+  },
+  {
+   "slug": "whitecube-marclay",
+   "rank": 12,
+   "score": 0.9178365957446808,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hetzler-kononov-memoires",
+   "rank": 14,
+   "score": 0.9077486808510639,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lelong-david-nash",
+   "rank": 15,
+   "score": 0.8979427659574468,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lelong-fabienne-verdier",
+   "rank": 16,
+   "score": 0.8979367659574468,
+   "gate": "not_open"
+  },
+  {
+   "slug": "obadia-cogitore",
+   "rank": 17,
+   "score": 0.8870628510638298,
+   "gate": "not_open"
+  },
+  {
+   "slug": "obadia-kushner",
+   "rank": 18,
+   "score": 0.8870628510638298,
+   "gate": "not_open"
+  },
+  {
+   "slug": "es-pays-reve-pays-reel",
+   "rank": 19,
+   "score": 0.8662090212765958,
+   "gate": null
+  },
+  {
+   "slug": "vie-des-formes",
+   "rank": 20,
+   "score": 0.8565551063829786,
+   "gate": "not_open"
+  },
+  {
+   "slug": "balicehertling-mercedes-llanos-entresuenos",
+   "rank": 21,
+   "score": 0.8471571914893617,
+   "gate": null
+  },
+  {
+   "slug": "balicehertling-morgan-courtois-essence",
+   "rank": 22,
+   "score": 0.8437651914893617,
+   "gate": "not_open"
+  },
+  {
+   "slug": "xiao-guo-hui-rat-a-hum-tat-tat",
+   "rank": 23,
+   "score": 0.8366132765957448,
+   "gate": null
+  },
+  {
+   "slug": "la-soustraite",
+   "rank": 24,
+   "score": 0.8237213617021276,
+   "gate": "not_open"
+  },
+  {
+   "slug": "skarstedt-petits-formats",
+   "rank": 25,
+   "score": 0.8137294468085107,
+   "gate": null
+  },
+  {
+   "slug": "patricia-leite-travessia",
+   "rank": 26,
+   "score": 0.8019375319148936,
+   "gate": "not_open"
+  },
+  {
+   "slug": "vallois-le-flaneur",
+   "rank": 27,
+   "score": 0.7928396170212766,
+   "gate": "not_open"
+  },
+  {
+   "slug": "vallois-trafic-stampfli",
+   "rank": 28,
+   "score": 0.7925576170212766,
+   "gate": "not_open"
+  },
+  {
+   "slug": "karsten-greve-fontana",
+   "rank": 29,
+   "score": 0.7841757021276595,
+   "gate": null
+  },
+  {
+   "slug": "yasuko-hirano-anthem",
+   "rank": 31,
+   "score": 0.7503939574468085,
+   "gate": "not_open"
+  },
+  {
+   "slug": "semiose-cherkit-tendrement",
+   "rank": 35,
+   "score": 0.7292221276595744,
+   "gate": null
+  },
+  {
+   "slug": "gaillard-les-objecteurs",
+   "rank": 36,
+   "score": 0.7188702127659574,
+   "gate": "not_open"
+  },
+  {
+   "slug": "allen-jason-dodge",
+   "rank": 38,
+   "score": 0.6872384680851064,
+   "gate": null
+  },
+  {
+   "slug": "virgin-turns",
+   "rank": 39,
+   "score": 0.6684746382978723,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "pdt-joseph-grigely",
+   "rank": 40,
+   "score": 0.6681026382978724,
+   "gate": null
+  },
+  {
+   "slug": "pdt-jesse-darling",
+   "rank": 41,
+   "score": 0.6678086382978724,
+   "gate": null
+  },
+  {
+   "slug": "tornabuoni-moving-colors",
+   "rank": 43,
+   "score": 0.6452608085106383,
+   "gate": null
+  },
+  {
+   "slug": "barrault-losier-arriere-train",
+   "rank": 44,
+   "score": 0.6339968936170214,
+   "gate": "not_open"
+  },
+  {
+   "slug": "papillon-mes-annees-80",
+   "rank": 45,
+   "score": 0.6231409787234042,
+   "gate": null
+  },
+  {
+   "slug": "fdc-sungi-mlengeya",
+   "rank": 46,
+   "score": 0.6130170638297873,
+   "gate": "not_open"
+  },
+  {
+   "slug": "fdc-qi-zhuo",
+   "rank": 47,
+   "score": 0.6126930638297873,
+   "gate": "not_open"
+  },
+  {
+   "slug": "artconcept-pierre-bellot-vallee-fm",
+   "rank": 48,
+   "score": 0.5924092340425532,
+   "gate": null
+  },
+  {
+   "slug": "benichou-discrit-pluie-fossile",
+   "rank": 49,
+   "score": 0.5818893191489362,
+   "gate": "not_open"
+  },
+  {
+   "slug": "michelrein-hugo-ruyant",
+   "rank": 51,
+   "score": 0.5609814893617021,
+   "gate": null
+  },
+  {
+   "slug": "campoli-summer-break",
+   "rank": 52,
+   "score": 0.5508475744680851,
+   "gate": null
+  },
+  {
+   "slug": "emmanuel-beguinot-always-again",
+   "rank": 53,
+   "score": 0.5398456595744682,
+   "gate": null
+  },
+  {
+   "slug": "mariane-ibrahim-intersections",
+   "rank": 56,
+   "score": 0.486922085106383,
+   "gate": null
+  },
+  {
+   "slug": "ceysson-benetiere-breleur",
+   "rank": 57,
+   "score": 0.4765761702127659,
+   "gate": null
+  },
+  {
+   "slug": "pf-filliou",
+   "rank": 58,
+   "score": 0.4662782553191489,
+   "gate": "not_open"
+  },
+  {
+   "slug": "alberta-pane-vilhena-predizione",
+   "rank": 59,
+   "score": 0.454264340425532,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mitterrand-wallen-mapondera",
+   "rank": 60,
+   "score": 0.44404442553191487,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ketabibourdet-au-fil-de-leau",
+   "rank": 61,
+   "score": 0.4342685106382979,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lebal-espace-entre-nous",
+   "rank": 62,
+   "score": 0.4234485957446808,
+   "gate": null
+  },
+  {
+   "slug": "imanefares-tessa-mars-la-mue",
+   "rank": 63,
+   "score": 0.4121426808510638,
+   "gate": "not_open"
+  },
+  {
+   "slug": "polka-nathaniel-aron-interior-lift",
+   "rank": 64,
+   "score": 0.40322676595744683,
+   "gate": null
+  },
+  {
+   "slug": "polka-claude-nori-dolce-vista",
+   "rank": 65,
+   "score": 0.40128676595744683,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hussenot-portraiture-vol2",
+   "rank": 66,
+   "score": 0.3732390212765958,
+   "gate": null
+  },
+  {
+   "slug": "hussenot-tendre-brute",
+   "rank": 67,
+   "score": 0.3725670212765958,
+   "gate": null
+  },
+  {
+   "slug": "vincent-lemaire-lumiere",
+   "rank": 69,
+   "score": 0.3502471914893617,
+   "gate": null
+  },
+  {
+   "slug": "maubert-loureiro",
+   "rank": 72,
+   "score": 0.2972756170212766,
+   "gate": "not_open"
+  },
+  {
+   "slug": "rxslag-kim-guiline-abstraction",
+   "rank": 73,
+   "score": 0.26570987234042553,
+   "gate": "not_open"
+  },
+  {
+   "slug": "rxslag-joanne-boyer-carnets",
+   "rank": 74,
+   "score": 0.2648698723404255,
+   "gate": "not_open"
+  },
+  {
+   "slug": "backslash-pauline-bazignan-sfondo",
+   "rank": 75,
+   "score": 0.2545899574468085,
+   "gate": "not_open"
+  },
+  {
+   "slug": "pact-kinsbergen-after-the-procession",
+   "rank": 76,
+   "score": 0.24502404255319143,
+   "gate": null
+  },
+  {
+   "slug": "double-v-bonduelle",
+   "rank": 78,
+   "score": 0.2238942127659575,
+   "gate": "not_open"
+  },
+  {
+   "slug": "193-memoire-materielle",
+   "rank": 79,
+   "score": 0.2135842978723404,
+   "gate": "not_open"
+  },
+  {
+   "slug": "afikaris-nos-geographies-intimes",
+   "rank": 80,
+   "score": 0.2027643829787234,
+   "gate": "not_open"
+  },
+  {
+   "slug": "danysz-i-am-fine",
+   "rank": 81,
+   "score": 0.19257446808510645,
+   "gate": "not_open"
+  },
+  {
+   "slug": "binome-laporte-cursus-corpus",
+   "rank": 82,
+   "score": 0.17095263829787236,
+   "gate": null
+  },
+  {
+   "slug": "galerie-vu-mp06",
+   "rank": 84,
+   "score": 0.12897497872340422,
+   "gate": "not_open"
+  },
+  {
+   "slug": "robert-frank-john-cohen",
+   "rank": 85,
+   "score": 0.09769723404255316,
+   "gate": null
+  },
+  {
+   "slug": "loewy-sarah-tritz",
+   "rank": 86,
+   "score": 0.08602531914893617,
+   "gate": "not_open"
+  },
+  {
+   "slug": "romero-paprocki-poemes-graphiques",
+   "rank": 87,
+   "score": 0.0751514042553192,
+   "gate": null
+  },
+  {
+   "slug": "point-ephemere-almageste",
+   "rank": 88,
+   "score": 0.056021574468085124,
+   "gate": null
+  },
+  {
+   "slug": "cite-arts-sakura-momma",
+   "rank": 89,
+   "score": 0.04672565957446803,
+   "gate": null
+  },
+  {
+   "slug": "drawinglab-fenetre-temps",
+   "rank": 91,
+   "score": 0.025925829787234074,
+   "gate": null
+  }
+ ]
+}

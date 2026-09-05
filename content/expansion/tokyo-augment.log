@@ -1,0 +1,680 @@
+  anthropic (claude-opus-5): 100 entries, $0.861, 436s
+  openai (gpt-5.6-sol): 100 entries, $0.326, 246s
+
+tokyo: 100 claude + 100 openai -> 128 galleries (71 on both lists)
+    1. SCAI THE BATHHOUSE                   blended   1.0  c#1   o#1  
+    2. Taka Ishii Gallery                   blended   2.0  c#2   o#2  
+    3. Ota Fine Arts                        blended   3.0  c#3   o#3  
+    4. ShugoArts                            blended   4.5  c#4   o#5  
+    5. Tomio Koyama Gallery                 blended   4.5  c#5   o#4  
+    6. Mizuma Art Gallery                   blended   6.5  c#7   o#6  
+    7. Perrotin Tokyo                       blended   7.5  c#8   o#7  
+    8. Pace Gallery Tokyo                   blended   8.5  c#9   o#8  
+    9. Take Ninagawa                        blended   9.0  c#6   o#12 
+   10. Kaikai Kiki Gallery                  blended  11.5  c#12  o#11 
+   11. NANZUKA UNDERGROUND                  blended  12.5  c#15  o#10 
+   12. Gallery Koyanagi                     blended  14.5  c#14  o#15 
+   13. Misako & Rosen                       blended  15.5  c#17  o#14 
+   14. Yutaka Kikutake Gallery              blended  17.5  c#18  o#17 
+   15. ANOMALY                              blended  18.0  c#20  o#16 
+
+tokyo: 128 names from the two models, 103 already in the registry, 25 new
+  +  31. THE CLUB                             c#49  o#28  https://theclub.tokyo
+  +  45. PGI                                  c#47  o#61  https://www.pgi.ac
+  +  46. Hauser & Wirth Tokyo                 c#-   o#9   https://www.hauserwirth.com/
+  +  47. Gagosian Tokyo                       c#10  o#-   https://gagosian.com
+  +  49. BLUM                                 c#11  o#-   https://www.blumgallery.com
+  +  53. Gallery Common                       c#75  o#42  https://gallery-common.com
+  +  59. Art Center Ongoing                   c#57  o#69  https://www.ongoing.jp
+  +  76. The Mass                             c#74  o#76  https://themass.jp
+  +  82. CLEAR GALLERY TOKYO                  c#-   o#57  
+  +  84. Arts Initiative Tokyo (AIT)          c#59  o#-   https://www.a-i-t.net
+  +  89. Roentgenwerke AG                     c#67  o#-   https://www.roentgenwerke.com
+  +  96. VOILLD                               c#76  o#-   https://voilld.com
+  +  97. OIL by Bijutsutecho Gallery          c#97  o#81  https://oil.bijutsutecho.com
+  + 103. Shirota Gallery                      c#81  o#-   https://www.shirotagallery.jp
+  + 108. SEIZAN Gallery                       c#85  o#-   https://www.seizangallery.com
+  + 111. Shibunkaku Tokyo                     c#86  o#-   https://www.shibunkaku.co.jp
+  + 114. Kanda & Oliveira                     c#89  o#-   https://kandaoliveira.com
+  + 117. Yukiko Koide Presents                c#91  o#-   https://www.koidepresents.com
+  + 119. Hidari Zingaro                       c#92  o#-   https://hidari-zingaro.jp
+  + 120. Komagome SOKO                        c#93  o#-   
+  + 122. Yamaki Fine Art                      c#-   o#95  
+  + 124. Toki-no-Wasuremono                   c#-   o#97  https://www.toki-no-wasuremono.com/
+  + 125. Gallery Naruyama                     c#-   o#98  https://gallery-naruyama.com/
+  + 126. 104GALERIE                           c#-   o#99  https://www.104galerie.com/
+  + 127. MASATAKA CONTEMPORARY                c#99  o#-   https://masatakacontemporary.com
+   53. Gallery Common                       unverified places_mismatch,site_dead                                    Shibuya/Omotesando
+   46. Hauser & Wirth Tokyo                 unverified places_mismatch,site_blocked                                 Ginza/Kyobashi
+   45. PGI                                  verified                                                                Roppongi
+   49. BLUM                                 unverified places_mismatch,site_not_vouched,stale                       Shibuya/Omotesando
+   76. The Mass                             verified                                                                Shibuya/Omotesando
+   59. Art Center Ongoing                   verified                                                                Setagaya/West Tokyo
+   47. Gagosian Tokyo                       verified                                                                Roppongi
+   31. THE CLUB                             unverified site_not_vouched                                             Ginza/Kyobashi
+   82. CLEAR GALLERY TOKYO                  verified                                                                Roppongi
+   96. VOILLD                               verified                                                                Tennozu
+   97. OIL by Bijutsutecho Gallery          verified                                                                Shibuya/Omotesando
+  103. Shirota Gallery                      verified                                                                Ginza/Kyobashi
+  117. Yukiko Koide Presents                unverified no_hours,site_dead                                           Nihonbashi/Bakurocho
+   89. Roentgenwerke AG                     unverified site_not_vouched                                             Ginza/Kyobashi
+   84. Arts Initiative Tokyo (AIT)          verified                                                                Ebisu/Meguro
+  122. Yamaki Fine Art                      unverified places_mismatch,no_website                                   Ginza/Kyobashi
+  108. SEIZAN Gallery                       verified                                                                Ginza/Kyobashi
+  111. Shibunkaku Tokyo                     verified                                                                Ginza/Kyobashi
+  114. Kanda & Oliveira                     unverified places_mismatch                                              Nihonbashi/Bakurocho
+  127. MASATAKA CONTEMPORARY                unverified places_closed,no_hours,site_dead                             Nihonbashi/Bakurocho
+  120. Komagome SOKO                        unverified stale                                                        Ueno/Yanaka
+  119. Hidari Zingaro                       verified                                                                Setagaya/West Tokyo
+  125. Gallery Naruyama                     verified                                                                Shinjuku/Kagurazaka
+  124. Toki-no-Wasuremono                   verified                                                                Ueno/Yanaka
+  126. 104GALERIE                           verified                                                                Ebisu/Meguro
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: Roppongi=2, Ginza/Kyobashi=3, Shibuya/Omotesando=2, Shinjuku/Kagurazaka=1, Ebisu/Meguro=2, Tennozu=1, Ueno/Yanaka=1, Setagaya/West Tokyo=2
+[ginza-kyobashi] session 1: 3 TODO venues -> deep-tokyo-ginza-kyobashi-1788569091.log
+[ginza-kyobashi]   ['seizan', 'shibunkaku-tokyo', 'shirota']
+[roppongi] session 1: 2 TODO venues -> deep-tokyo-roppongi-1788569115.log
+[roppongi]   ['clear-gallery-tokyo-clear-edition-inc', 'pgi']
+[shibuya-omotesando] session 1: 2 TODO venues -> deep-tokyo-shibuya-omotesando-1788569138.log
+[shibuya-omotesando]   ['mass', 'oil-by-bijutsutecho']
+[shibuya-omotesando] session 1 done: +2 saved, +1 skipped (exit 0)
+[ebisu-meguro] session 1: 2 TODO venues -> deep-tokyo-ebisu-meguro-1788569278.log
+[ebisu-meguro]   ['104galerie', 'arts-initiative-tokyo-ait']
+[ebisu-meguro] session 1 done: +0 saved, +2 skipped (exit 0)
+[setagaya-west-tokyo] session 1: 2 TODO venues -> deep-tokyo-setagaya-west-tokyo-1788569352.log
+[setagaya-west-tokyo]   ['art-center-ongoing', 'hidari-zingaro']
+[roppongi] session 1 done: +1 saved, +1 skipped (exit 0)
+[shinjuku-kagurazaka] session 1: 1 TODO venues -> deep-tokyo-shinjuku-kagurazaka-1788569379.log
+[shinjuku-kagurazaka]   ['gallery-naruyama']
+[shinjuku-kagurazaka] session 1 done: +0 saved, +1 skipped (exit 0)
+[tennozu] session 1: 1 TODO venues -> deep-tokyo-tennozu-1788569414.log
+[tennozu]   ['voilld']
+[ginza-kyobashi] session 1 done: +3 saved, +1 skipped (exit 0)
+[ueno-yanaka] session 1: 1 TODO venues -> deep-tokyo-ueno-yanaka-1788569432.log
+[ueno-yanaka]   ['toki-no-wasuremono']
+[setagaya-west-tokyo] session 1 done: +2 saved, +1 skipped (exit 0)
+[roppongi] TODO empty after 1 session(s)
+[roppongi] zone done: todo_empty after 1 session(s)
+[ginza-kyobashi] TODO empty after 1 session(s)
+[ginza-kyobashi] zone done: todo_empty after 1 session(s)
+[shibuya-omotesando] TODO empty after 1 session(s)
+[shibuya-omotesando] zone done: todo_empty after 1 session(s)
+[shinjuku-kagurazaka] TODO empty after 1 session(s)
+[shinjuku-kagurazaka] zone done: todo_empty after 1 session(s)
+[ebisu-meguro] TODO empty after 1 session(s)
+[ebisu-meguro] zone done: todo_empty after 1 session(s)
+[setagaya-west-tokyo] TODO empty after 1 session(s)
+[setagaya-west-tokyo] zone done: todo_empty after 1 session(s)
+[tennozu] session 1 done: +0 saved, +1 skipped (exit 0)
+[tennozu] TODO empty after 1 session(s)
+[tennozu] zone done: todo_empty after 1 session(s)
+[ueno-yanaka] session 1 done: +4 saved, +0 skipped (exit 0)
+[ueno-yanaka] TODO empty after 1 session(s)
+[ueno-yanaka] zone done: todo_empty after 1 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  tokyo/tsca-as-one-draws: COORDS_OFF_OSM_736m
+  tokyo/tsca-yamanaka-lambri-hosokura: COORDS_OFF_OSM_736m
+  tokyo/sekine-gate-boxcar: COORDS_OFF_OSM_517m
+  tokyo/tkg-sakamoto-painting-unknown: ok
+  tokyo/shirota-lacuna-or-extension: ok
+  tokyo/majima-chimimoryo-here: ok
+  tokyo/shugoarts-maruyama-mishima-yasuda: ok
+  tokyo/takeninagawa-man-ray: ok
+  tokyo/takeninagawa-on-kawara: ok
+  tokyo/group-show-4-artists-kosaku: ok
+  tokyo/scai-lee-ufan: ok
+  tokyo/nukaga-original-copy: ok
+  tokyo/kaikaikiki-social-media: ok
+  tokyo/pace-nigel-cooke-night-ruins: COORDS_OFF_OSM_546m
+  tokyo/ykg-spirituality-in-sculpture: ok
+  tokyo/hogalee-liminal-kana-kawanishi: ok
+  tokyo/eukaryote-spilling-body: ok
+  tokyo/aisho-kitajima-axial-tilt: ok
+  tokyo/teru-noji-before-the-pointing: ok
+  tokyo/sugimoto-seascapes-koyanagi: ok
+  tokyo/kto-onishi-layers: COORDS_OFF_GOOGLE_779m
+  tokyo/kanamori-hito-no-ibasho: ok
+  tokyo/canon-ui-ankoraci: COORDS_OFF_OSM_1064m
+  tokyo/momo-konoike-summer-school: ok
+  tokyo/spaceun-ritual: ok
+  tokyo/heis-sakurai-liberta: ok
+  tokyo/mujinto-downtimes-skin: ok
+  tokyo/fujimoto-even-if-i-were-to-climb: COORDS_OFF_OSM_1217m
+  tokyo/galerie-a-mujigokujo: ok
+  tokyo/rina-banerjee-espace-lv: ok
+  tokyo/smah-onepiece-scroll2: ok
+  tokyo/tanaka-archive-achieve: ok
+  tokyo/nanzuka-zigsen-liu: ok
+  tokyo/ron-mueck-mori: ok
+  tokyo/picasso-paul-smith-nact: ok
+  tokyo/nam-june-paik-watarium: ok
+  tokyo/sottsass-artizon: ok
+  tokyo/kei-takemura-taka-ishii: ok
+  tokyo/perrotin-hernan-bas-2026: ok
+  tokyo/tomio-koyama-tennoz-contemporary: COORDS_OFF_GOOGLE_4921m, COORDS_OFF_OSM_736m
+  tokyo/yukikomizutani-tale-of-blessings: COORDS_OFF_OSM_681m
+  tokyo/yod-gallery-unconditional: COORDS_OFF_OSM_681m
+  tokyo/whitestone-watabiki-path-traced-by-light: ok
+  tokyo/biscuit-matsumoto-remain-still: ok
+  tokyo/awase-goyoung-hidden-realm: ok
+  tokyo/tanada-to-see-love: ok
+  tokyo/anomaly-makino-constellation: COORDS_OFF_OSM_736m
+  tokyo/kakinuma-chicken-sapiens-2: ok
+  tokyo/momo-yoshida-fresh-fossils: ok
+  tokyo/here-there-now: ok
+  tokyo/ota-umeda-sign: ok
+  tokyo/nukaga-points-of-entry: ok
+  tokyo/kayokoyuki-ayako-ohno-todays-seasoning: ok
+  tokyo/leesaya-yamametan: ok
+  tokyo/kanata-shin-rise: ok
+  tokyo/nanzuka-tanaami-do-not-bomb: COORDS_OFF_GOOGLE_1530m
+  tokyo/rootk-horie-counting-myself2: ok
+  tokyo/rootk-park-sobin-birth-of-mir: ok
+  tokyo/mizoe-itozono: ok
+  tokyo/naoco-kato-horses: ok
+  tokyo/mass-myriads: ok
+  tokyo/oil-nothing-to-prove: ok
+  tokyo/pgi-kenro-izu-india: ok
+  tokyo/seizan-aiba-strange: ok
+  tokyo/shibunkaku-gcr013: ok
+  tokyo/shirota-cosmos: ok
+  tokyo/idetsu-same-story: ok
+  tokyo/coleman-by-chance: ok
+  tokyo/uda-yoshihisa: ok
+  tokyo/ikeda-masuo-cinderella-boy: ok
+  tokyo/tomura-shigeki-trees: ok
+  tokyo/kusama-memorial: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (72 shows, 62 venue lookups); flags: {'COORDS_OFF_OSM_736m': 4, 'COORDS_OFF_OSM_517m': 1, 'COORDS_OFF_OSM_546m': 1, 'COORDS_OFF_GOOGLE_779m': 1, 'COORDS_OFF_OSM_1064m': 1, 'COORDS_OFF_OSM_1217m': 1, 'COORDS_OFF_GOOGLE_4921m': 1, 'COORDS_OFF_OSM_681m': 2, 'COORDS_OFF_GOOGLE_1530m': 1}
+=== agent verification pass ===
+[verify tokyo] 12 shows
+  [tokyo #0] server:web_fetch {"url": "http://themass.jp/en/"}
+  [tokyo #0] server:web_fetch {"url": "https://tokyowise.jp/clipping/vivianesassen_myriads.html"}
+  [tokyo #0] server:web_fetch {"url": "https://oil-gallery.bijutsutecho.com/exhibition/nothing-to-prove/"}
+  [tokyo #0] server:web_fetch {"url": "https://oil-gallery.bijutsutecho.com/exhibition"}
+  [tokyo #0] server:web_fetch {"url": "https://www.pgi.ac/en/"}
+  [tokyo #0] server:web_fetch {"url": "https://kenroizu.com/news/"}
+  [tokyo #0] server:web_fetch {"url": "http://themass.jp/en/"}
+  [tokyo #0] server:web_search {"query": "The Mass Viviane Sassen Myriads themass.jp"}
+  [tokyo #0] Confirmed: The Mass site itself lists "Myriads 5 Sep – 8 Nov 2026" matching saved dates, with second source (tokyowise.jp, WWD, fashionsnap) confirming.
+  [tokyo #0] tool:confirm_show {"city": "tokyo", "slug": "mass-myriads", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #1] server:web_search {"query": "OIL by Bijutsutecho Gallery snAwk \"Nothing to Prove\""}
+  [tokyo #1] server:web_search {"query": "PGI Kenro Izu \"India, Where Prayer Echoes\" exhibition"}
+  [tokyo #1] server:web_search {"query": "site:oil-gallery.bijutsutecho.com nothing to prove snAwk"}
+  [tokyo #1] server:web_search {"query": "pgi.ac Kenro Izu India Where Prayer Echoes 2026"}
+  [tokyo #1] server:web_search {"query": "pgi.ac exhibitions Kenro Izu \"\u7948\u308a\u306e\u3053\u3060\u307e\u3059\u308b\u5730\" OR \"Where Prayer Echoes\" 2026"}
+  [tokyo #1] server:web_search {"query": "\"oil-gallery.bijutsutecho.com\" snAwk NOTHING TO PROVE \u4f1a\u671f"}
+  [tokyo #1] server:web_fetch {"url": "https://oil-gallery.bijutsutecho.com/exhibition/"}
+  [tokyo #1] server:web_fetch {"url": "https://www.pgi.ac/exhibitions/11324"}
+  [tokyo #1] OIL gallery's own exhibition list confirms:
+  [tokyo #1] snAwk NOTHING TO PROVE 2026.9.2～ 2026.9.27
+  [tokyo #1] — matches saved dates exactly. Good, both shows confirmed.
+  [tokyo #1] tool:confirm_show {"city": "tokyo", "slug": "oil-nothing-to-prove", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #1] tool:confirm_show {"city": "tokyo", "slug": "pgi-kenro-izu-india", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #2] Now let's check the SEIZAN Gallery show and Shirota Gallery show.
+  [tokyo #2] server:web_search {"query": "art-japan.jp SEIZAN Gallery Aiba Ruiji Strange 2026"}
+  [tokyo #2] server:web_search {"query": "Shirota Gallery Cosmos exhibition 2026 September"}
+  [tokyo #2] server:web_search {"query": "art-japan.jp 11741 Ruiji Aiba Strange"}
+  [tokyo #2] server:web_search {"query": "\"Ruiji Aiba\" \"Strange\" SEIZAN Gallery 2026 September exhibition"}
+  [tokyo #2] server:web_fetch {"url": "https://art-japan.jp/en/exhibitions/"}
+  [tokyo #2] server:web_fetch {"url": "https://art-japan.jp/en/artists/145/"}
+  [tokyo #2] server:web_fetch {"url": "https://art-japan.jp/exhibitions/11741/"}
+  [tokyo #2] server:web_fetch {"url": "https://art-japan.jp/en/exhibitions/11741/"}
+  [tokyo #2] server:web_search {"query": "art-japan.jp/exhibitions/11741"}
+  [tokyo #2] server:web_search {"query": "\u76f8\u5834\u308b\u3044\u5150 SEIZAN Gallery Strange 2026\u5e749\u6708"}
+  [tokyo #2] Confirmed via SEIZAN Gallery's own Japanese-language site (art-japan.jp) and a second independent source (m-show.jp): 「相場るい児 －Strange－」2026年9月4日(金) – 2026年9月13日(日) — exactly matching saved dates. Veri
+  [tokyo #2] tool:confirm_show {"city": "tokyo", "slug": "seizan-aiba-strange", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #2] tool:confirm_show {"city": "tokyo", "slug": "shirota-cosmos", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #3] Now let's check Shibunkaku Ginza show (needs full verification since not "VENUE FACTS VERIFIED").
+  [tokyo #3] server:web_search {"query": "gcr.shibunkaku.co.jp exhibition 013 Ginza Curator's Room Kong-k\u00edng Taiwanese Art"}
+  [tokyo #3] server:web_search {"query": "shibunkaku.co.jp English exhibition list ginza-curators-room-013"}
+  [tokyo #3] server:web_search {"query": "\"Ginza Curator's Room\" \"#013\" 2026\u5e748\u670828\u65e5 9\u670817\u65e5 \u4f1a\u671f"}
+  [tokyo #3] server:web_fetch {"url": "https://gcr.shibunkaku.co.jp/en/exhibition/013/"}
+  [tokyo #3] server:web_fetch {"url": "https://www.shibunkaku.co.jp/exhibition/list/ginza-curators-room-013/"}
+  [tokyo #3] Confirmed on venue's own site: dates 2026.08.28–2026.09.17, hours 10:00-18:00, Sunday closed, address 〒104-0061 東京都中央区銀座5丁目3番12号 壹番館ビルディング — all matching saved data exactly. Second source (gcr.shibunk
+  [tokyo #3] tool:confirm_show {"city": "tokyo", "slug": "shibunkaku-gcr013", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #4] Now let's check the Art Center Ongoing shows and the Toki-no-Wasuremono shows.
+  [tokyo #4] server:web_search {"query": "ongoing.jp Kyoko Idetsu \"Same Story\" \u540c\u3058\u8a71 exhibition"}
+  [tokyo #4] server:web_search {"query": "ongoing.jp Benedict Coleman \"By Chance\" upcoming exhibition"}
+  [tokyo #4] server:web_fetch {"url": "https://www.ongoing.jp/exhibition/current/"}
+  [tokyo #4] server:web_fetch {"url": "https://www.ongoing.jp/en/exhibition/"}
+  [tokyo #4] Excellent — both confirmed directly on venue's own site: "same story" by Kyoko Idetsu 2026.8.19–2026.9.6 (matches saved dates), and "By Chance" by Benedict Coleman 2026.9.9–2026.9.13 (matches saved da
+  [tokyo #4] tool:confirm_show {"city": "tokyo", "slug": "idetsu-same-story", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #4] tool:confirm_show {"city": "tokyo", "slug": "coleman-by-chance", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #5] Now let's check the four Toki-no-Wasuremono shows.
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/exhibitions/ex20260826/"}
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/exhibitions/cinderellaboy-masuoikeda/"}
+  [tokyo #5] server:web_search {"query": "tokinowasuremono.com exhibitions ex20260826 Yoshihisa Uda"}
+  [tokyo #5] server:web_search {"query": "tokinowasuremono.com cinderellaboy-masuoikeda Masuo Ikeda"}
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/en/exhibitions/ex2026000/"}
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/en/exhibitions/ex20260400/"}
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/schedule/"}
+  [tokyo #5] server:web_fetch {"url": "https://www.tokinowasuremono.com/exhibitions/"}
+  [tokyo #5] All four Toki-no-Wasuremono shows are confirmed directly on the venue's own exhibitions page with exact matching dates:
+- Uda Yoshihisa: 2026年8月26日～9月5日 (matches)
+- Cinderella Boy/Masuo Ikeda: 2026年9月
+  [tokyo #5] tool:confirm_show {"city": "tokyo", "slug": "uda-yoshihisa", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #5] tool:confirm_show {"city": "tokyo", "slug": "ikeda-masuo-cinderella-boy", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #5] tool:confirm_show {"city": "tokyo", "slug": "tomura-shigeki-trees", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #5] tool:confirm_show {"city": "tokyo", "slug": "kusama-memorial", "status": "verified", "reason": null, "corrections": null}
+  [tokyo #6] All 12 shows have been audited. Summary:
+
+**12 verified / 0 corrected / 0 unverified**
+
+Every saved Tokyo show was confirmed as real and current against its venue's own website (with second-source cor
+[verify tokyo] done $1.69
+{
+  "city": "tokyo",
+  "zones": [
+    "Roppongi",
+    "Ginza/Kyobashi",
+    "Shibuya/Omotesando",
+    "Shinjuku/Kagurazaka",
+    "Ebisu/Meguro",
+    "Tennozu",
+    "Ueno/Yanaka",
+    "Setagaya/West Tokyo"
+  ],
+  "run_spend_usd": 4.875,
+  "shows_total": 72,
+  "remaining_todo": {
+    "Roppongi": 0,
+    "Ginza/Kyobashi": 1,
+    "Shibuya/Omotesando": 0,
+    "Shinjuku/Kagurazaka": 0,
+    "Ebisu/Meguro": 0,
+    "Tennozu": 0,
+    "Ueno/Yanaka": 0,
+    "Setagaya/West Tokyo": 0
+  },
+  "queue": {
+    "Roppongi": {
+      "zone": "Roppongi",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ginza/Kyobashi": {
+      "zone": "Ginza/Kyobashi",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Shibuya/Omotesando": {
+      "zone": "Shibuya/Omotesando",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Shinjuku/Kagurazaka": {
+      "zone": "Shinjuku/Kagurazaka",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ebisu/Meguro": {
+      "zone": "Ebisu/Meguro",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Tennozu": {
+      "zone": "Tennozu",
+      "order": 5,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Ueno/Yanaka": {
+      "zone": "Ueno/Yanaka",
+      "order": 6,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Setagaya/West Tokyo": {
+      "zone": "Setagaya/West Tokyo",
+      "order": 7,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "seizan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "shibunkaku-tokyo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "shirota"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "clear-gallery-tokyo-clear-edition-inc"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "pgi"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mass"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "oil-by-bijutsutecho"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shibuya/Omotesando",
+      "session": 1,
+      "todo": 2,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-shibuya-omotesando-1788569138",
+      "venue_ids": [
+        "mass",
+        "oil-by-bijutsutecho"
+      ],
+      "started_ts": 1788569138,
+      "ended_ts": 1788569278
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "104galerie"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "arts-initiative-tokyo-ait"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ebisu/Meguro",
+      "session": 1,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-tokyo-ebisu-meguro-1788569278",
+      "venue_ids": [
+        "104galerie",
+        "arts-initiative-tokyo-ait"
+      ],
+      "started_ts": 1788569278,
+      "ended_ts": 1788569352
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "art-center-ongoing"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hidari-zingaro"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Roppongi",
+      "session": 1,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-roppongi-1788569115",
+      "venue_ids": [
+        "clear-gallery-tokyo-clear-edition-inc",
+        "pgi"
+      ],
+      "started_ts": 1788569115,
+      "ended_ts": 1788569379
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "gallery-naruyama"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Shinjuku/Kagurazaka",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-shinjuku-kagurazaka-1788569379",
+      "venue_ids": [
+        "gallery-naruyama"
+      ],
+      "started_ts": 1788569379,
+      "ended_ts": 1788569414
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "voilld"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ginza/Kyobashi",
+      "session": 1,
+      "todo": 3,
+      "saved": 3,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-ginza-kyobashi-1788569091",
+      "venue_ids": [
+        "seizan",
+        "shibunkaku-tokyo",
+        "shirota"
+      ],
+      "started_ts": 1788569091,
+      "ended_ts": 1788569432
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "toki-no-wasuremono"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Setagaya/West Tokyo",
+      "session": 1,
+      "todo": 2,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-setagaya-west-tokyo-1788569352",
+      "venue_ids": [
+        "art-center-ongoing",
+        "hidari-zingaro"
+      ],
+      "started_ts": 1788569352,
+      "ended_ts": 1788569500
+    },
+    {
+      "stage": "scrape",
+      "zone": "Tennozu",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-tokyo-tennozu-1788569414",
+      "venue_ids": [
+        "voilld"
+      ],
+      "started_ts": 1788569414,
+      "ended_ts": 1788569569
+    },
+    {
+      "stage": "scrape",
+      "zone": "Ueno/Yanaka",
+      "session": 1,
+      "todo": 1,
+      "saved": 4,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-tokyo-ueno-yanaka-1788569432",
+      "venue_ids": [
+        "toki-no-wasuremono"
+      ],
+      "started_ts": 1788569432,
+      "ended_ts": 1788569697
+    }
+  ],
+  "verification": {
+    "tokyo": {
+      "verified": 12,
+      "corrected": 0,
+      "unverified": 0,
+      "unchecked": [],
+      "published": 54,
+      "pending": [
+        {
+          "slug": "tanada-to-see-love",
+          "venue": "Mizuma Art Gallery",
+          "reason": null
+        },
+        {
+          "slug": "anomaly-makino-constellation",
+          "venue": "ANOMALY",
+          "reason": null
+        },
+        {
+          "slug": "kakinuma-chicken-sapiens-2",
+          "venue": "Shukado Gallery",
+          "reason": null
+        },
+        {
+          "slug": "momo-yoshida-fresh-fossils",
+          "venue": "GALLERY MoMo Ryogoku",
+          "reason": null
+        },
+        {
+          "slug": "here-there-now",
+          "venue": "TARO NASU",
+          "reason": null
+        },
+        {
+          "slug": "ota-umeda-sign",
+          "venue": "Ota Fine Arts",
+          "reason": null
+        },
+        {
+          "slug": "nukaga-points-of-entry",
+          "venue": "Kotaro Nukaga",
+          "reason": null
+        },
+        {
+          "slug": "kayokoyuki-ayako-ohno-todays-seasoning",
+          "venue": "KAYOKOYUKI",
+          "reason": null
+        },
+        {
+          "slug": "leesaya-yamametan",
+          "venue": "LEESAYA",
+          "reason": null
+        },
+        {
+          "slug": "kanata-shin-rise",
+          "venue": "A Lighthouse called Kanata",
+          "reason": null
+        },
+        {
+          "slug": "nanzuka-tanaami-do-not-bomb",
+          "venue": "NANZUKA",
+          "reason": null
+        },
+        {
+          "slug": "rootk-horie-counting-myself2",
+          "venue": "√K Contemporary",
+          "reason": null
+        },
+        {
+          "slug": "rootk-park-sobin-birth-of-mir",
+          "venue": "√K Contemporary",
+          "reason": null
+        },
+        {
+          "slug": "mizoe-itozono",
+          "venue": "Mizoe Art Gallery",
+          "reason": null
+        },
+        {
+          "slug": "naoco-kato-horses",
+          "venue": "Fuji Photo Gallery Ginza",
+          "reason": null
+        },
+        {
+          "slug": "ikeda-masuo-cinderella-boy",
+          "venue": "Toki-no-Wasuremono",
+          "reason": null
+        },
+        {
+          "slug": "tomura-shigeki-trees",
+          "venue": "Toki-no-Wasuremono",
+          "reason": null
+        },
+        {
+          "slug": "kusama-memorial",
+          "venue": "Toki-no-Wasuremono",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-tokyo-1788569090.json"
+}
+tokyo: 72 shows, 45 with a published blurb, 2 venue objects updated, 0 without venue_id
+registry: 23 created, 2 updated
+  merge ippodo-gallery-tokyo               -> gallery-ippodo
+  merge shugo-arts                         -> shugoarts
+  merge shugoarts-studio                   -> shugoarts
+  merge whitestone-ginza-new               -> whitestone
+  merge yukiko-mizutani                    -> yukikomizutani
+  review 7chome-ota                        vs ota  (branch or rebrand: decide by hand)
+  review complex665-tomio-koyama           vs tomio-koyama  (branch or rebrand: decide by hand)
+  review galerie-nichido-tokyo             vs galerie-nichido-nichido  (branch or rebrand: decide by hand)
+  review ginza-graphic                     vs ginza-graphic-gallery-ggg  (branch or rebrand: decide by hand)
+  review root-k-contemporary               vs k-contemporary  (branch or rebrand: decide by hand)
+  review kotaro-nukaga-tennoz              vs kotaro-nukaga  (branch or rebrand: decide by hand)
+  review mizuma-art-gallery-ichigaya       vs mizuma-art  (branch or rebrand: decide by hand)
+  review nanzuka-underground               vs nanzuka  (branch or rebrand: decide by hand)
+  review scai-park                         vs scai-the-bathhouse  (branch or rebrand: decide by hand)
+  review take-ninagawa-tennoz              vs take-ninagawa  (branch or rebrand: decide by hand)
+  10 same-domain pair(s) to review by hand (venues.py dedupe --city tokyo)
+  skip gagosian-tokyo: not in registry
+tokyo: 14 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city tokyo --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/tokyo/augment-shows-ids.txt --force-due --total-budget 40.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

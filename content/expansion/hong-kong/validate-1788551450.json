@@ -1,0 +1,840 @@
+{
+ "session": "quick-validate-hong-kong-1788551183",
+ "city": "hong-kong",
+ "ts": 1788551450,
+ "n": 8,
+ "counts": {
+  "verified": 4,
+  "unverified": 4
+ },
+ "reasons": {
+  "places_closed": 3,
+  "no_hours": 3,
+  "site_not_vouched": 2,
+  "places_mismatch": 1,
+  "site_blocked": 1
+ },
+ "spend": {
+  "places_requests": 22,
+  "cost_usd": 0.572,
+  "fetches": 9,
+  "renders": 2
+ },
+ "rows": [
+  {
+   "rank": 1,
+   "name": "Gagosian",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "7/F Pedder Building, 12 Pedder Street",
+    "website": "https://gagosian.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.281833,
+    "lng": 114.156997,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Gagosian",
+    "status": "OPERATIONAL",
+    "address": "7/F, Pedder Building, 12 Pedder St, Central, Hong Kong Island, Hong Kong",
+    "website": "https://gagosian.com/",
+    "phone": "2151 0555",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 22.281833,
+    "lng": 114.156997,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://gagosian.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://gagosian.com/exhibitions/",
+    "js_only": false,
+    "final_url": "https://gagosian.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://gagosian.com/exhibitions/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://gagosian.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://gagosian.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Gagosian",
+    "website": "https://gagosian.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "7/F Pedder Building, 12 Pedder Street",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "The first blue-chip mega-gallery to plant a flag in Hong Kong (2011), its Pedder Building space set the template for the city's international gallery scene and still stages museum-calibre shows.",
+     "openai": "The Hong Kong branch of the global powerhouse, with museum-calibre exhibitions and unmatched blue-chip reach."
+    },
+    "ranks": {
+     "anthropic": 1,
+     "openai": 1
+    },
+    "names": {
+     "anthropic": "Gagosian",
+     "openai": "Gagosian"
+    },
+    "rank_claude": 1,
+    "rank_openai": 1,
+    "blended": 1.0,
+    "best": 1,
+    "both": true,
+    "rank": 1
+   }
+  },
+  {
+   "rank": 2,
+   "name": "David Zwirner",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "5-6/F H Queen's, 80 Queen's Road Central",
+    "website": "https://www.davidzwirner.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.283054,
+    "lng": 114.1553411,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "David Zwirner",
+    "status": "OPERATIONAL",
+    "address": "5-6/F, H Queen’s, 80 Queen’s Road Central, Central, Hong Kong Island, Hong Kong",
+    "website": "https://www.davidzwirner.com/hongkong",
+    "phone": "2119 5900",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 22.283054,
+    "lng": 114.1553411,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.davidzwirner.com/hongkong",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.davidzwirner.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.davidzwirner.com/hongkong",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.davidzwirner.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.davidzwirner.com/hongkong",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "David Zwirner",
+    "website": "https://www.davidzwirner.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "5-6/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Anchor tenant of H Queen's since 2018, bringing Wolfgang Tillmans, Yayoi Kusama and Michaël Borremans to Asia and driving the market's centre of gravity toward Hong Kong.",
+     "openai": "An exceptionally influential international gallery with a strong programme of canonical and mid-career artists."
+    },
+    "ranks": {
+     "anthropic": 2,
+     "openai": 3
+    },
+    "names": {
+     "anthropic": "David Zwirner",
+     "openai": "David Zwirner"
+    },
+    "rank_claude": 2,
+    "rank_openai": 3,
+    "blended": 2.5,
+    "best": 2,
+    "both": true,
+    "rank": 2
+   }
+  },
+  {
+   "rank": 3,
+   "name": "Hauser & Wirth",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "15-16/F H Queen's, 80 Queen's Road Central",
+    "website": "https://www.hauserwirth.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.2801117,
+    "lng": 114.157614,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Hauser & Wirth",
+    "status": "OPERATIONAL",
+    "address": "G/F, 8 Queen's Road Central, Central, Hong Kong Island, Hong Kong",
+    "website": "https://www.hauserwirth.com/",
+    "phone": "3958 7188",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 22.2801117,
+    "lng": 114.157614,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.hauserwirth.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "http_429"
+   },
+   "coverage": {},
+   "notes": [
+    "site_blocked:http_429"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Hauser & Wirth",
+    "website": "https://www.hauserwirth.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "15-16/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Two-floor flagship with an ambitious estates and historical programme (Louise Bourgeois, Philip Guston) plus strong Asian artist representation and education programming.",
+     "openai": "A major international gallery whose ambitious Hong Kong programme connects leading global and Asian artists."
+    },
+    "ranks": {
+     "anthropic": 3,
+     "openai": 2
+    },
+    "names": {
+     "anthropic": "Hauser & Wirth",
+     "openai": "Hauser & Wirth"
+    },
+    "rank_claude": 3,
+    "rank_openai": 2,
+    "blended": 2.5,
+    "best": 2,
+    "both": true,
+    "rank": 3
+   }
+  },
+  {
+   "rank": 4,
+   "name": "White Cube",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "50 Connaught Road Central",
+    "website": "https://www.whitecube.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.2850863,
+    "lng": 114.1557708,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "White Cube Hong Kong",
+    "status": "OPERATIONAL",
+    "address": "50 Connaught Rd Central, Central, Hong Kong Island, Hong Kong",
+    "website": "https://whitecube.com/",
+    "phone": "2592 2000",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 22.2850863,
+    "lng": 114.1557708,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://whitecube.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.whitecube.com/exhibitions/london",
+    "js_only": false,
+    "final_url": "https://www.whitecube.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.whitecube.com/exhibitions/london",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.whitecube.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.whitecube.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "White Cube",
+    "website": "https://www.whitecube.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "50 Connaught Road Central",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "In Hong Kong since 2012; a street-level space that gave the city early exposure to the YBAs and now to Tracey Emin, Antony Gormley and Asian names such as Zhou Li.",
+     "openai": "A longstanding Hong Kong presence presenting major international artists in institutionally scaled exhibitions."
+    },
+    "ranks": {
+     "anthropic": 4,
+     "openai": 4
+    },
+    "names": {
+     "anthropic": "White Cube",
+     "openai": "White Cube"
+    },
+    "rank_claude": 4,
+    "rank_openai": 4,
+    "blended": 4.0,
+    "best": 4,
+    "both": true,
+    "rank": 4
+   }
+  },
+  {
+   "rank": 5,
+   "name": "Pace Gallery",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "12/F H Queen's, 80 Queen's Road Central",
+    "website": "https://www.pacegallery.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "Places: permanently closed, but its own site is live with an exhibitions page — check by hand (moved?)"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.283037,
+    "lng": 114.1553153,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Pace Gallery",
+    "status": "CLOSED_PERMANENTLY",
+    "address": "80, H Queen's, 12/F Queen's Road Central, Central, Hong Kong Island, Hong Kong",
+    "website": "http://www.pacegallery.com/",
+    "phone": "2608 5065",
+    "hours": null,
+    "lat": 22.283037,
+    "lng": 114.1553153,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.pacegallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.pacegallery.com/exhibitions/",
+    "js_only": false,
+    "final_url": "https://www.pacegallery.com/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.pacegallery.com/exhibitions/",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.pacegallery.com/exhibitions",
+       "latest_year": 2027,
+       "online": false
+      },
+      {
+       "url": "https://www.pacegallery.com",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_closed",
+    "no_hours"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Pace Gallery",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Central/Soho",
+    "address_hint": "12/F H Queen's, 80 Queen's Road Central",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "A pioneer of the Asia market with deep Chinese contemporary ties (Zhang Xiaogang, Yoshitomo Nara) and a strong record with teamLab and light/technology art.",
+     "openai": "A leading global gallery with deep modern and contemporary holdings and a substantial art-fair presence."
+    },
+    "ranks": {
+     "anthropic": 5,
+     "openai": 6
+    },
+    "names": {
+     "anthropic": "Pace Gallery",
+     "openai": "Pace Gallery"
+    },
+    "rank_claude": 5,
+    "rank_openai": 6,
+    "blended": 5.5,
+    "best": 5,
+    "both": true,
+    "rank": 5
+   }
+  },
+  {
+   "rank": 6,
+   "name": "Para Site",
+   "neighborhood": "Quarry Bay",
+   "note": null,
+   "hints": {
+    "address": "22/F Wing Wah Industrial Building, 677 King's Road",
+    "website": "https://www.para-site.art"
+   },
+   "verdict": "unverified",
+   "why": [
+    "Places: closed_temporarily",
+    "site does not read as an art venue"
+   ],
+   "zone": "Wan Chai/Causeway Bay",
+   "geo": {
+    "lat": 22.2913275,
+    "lng": 114.208766,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Para Site",
+    "status": "CLOSED_TEMPORARILY",
+    "address": "22/F, 677 King's Rd, Quarry Bay, Hong Kong Island, Hong Kong",
+    "website": "http://www.para-site.art/",
+    "phone": "2517 4620",
+    "hours": null,
+    "lat": 22.2913275,
+    "lng": 114.208766,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.para-site.art/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "http://www.para-site.art/exhibitions/",
+    "js_only": false,
+    "final_url": "http://www.para-site.art/",
+    "dated": {
+     "latest_year": 2027,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "http://www.para-site.art/exhibitions/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "http://www.para-site.art/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "http://www.para-site.art/current",
+       "latest_year": 2001,
+       "online": false
+      },
+      {
+       "url": "http://www.para-site.art",
+       "latest_year": 2027,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_closed",
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Para Site",
+    "website": "https://www.para-site.art",
+    "neighborhood": "Quarry Bay",
+    "address_hint": "22/F Wing Wah Industrial Building, 677 King's Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Hong Kong's oldest and most internationally respected independent art space (founded 1996); its exhibitions, conferences and residencies shape curatorial discourse across Asia.",
+     "openai": "Hong Kong's most internationally influential independent art institution, known for research-led exhibitions and regional networks."
+    },
+    "ranks": {
+     "anthropic": 7,
+     "openai": 5
+    },
+    "names": {
+     "anthropic": "Para Site",
+     "openai": "Para Site"
+    },
+    "rank_claude": 7,
+    "rank_openai": 5,
+    "blended": 6.0,
+    "best": 5,
+    "both": true,
+    "rank": 6
+   }
+  },
+  {
+   "rank": 7,
+   "name": "Perrotin",
+   "neighborhood": "Tsim Sha Tsui/Kowloon",
+   "note": null,
+   "hints": {
+    "address": "K11 ATELIER Victoria Dockside, 18 Salisbury Road",
+    "website": "https://www.perrotin.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "Places: closed_temporarily",
+    "site does not read as an art venue"
+   ],
+   "zone": "Tsim Sha Tsui/Kowloon",
+   "geo": {
+    "lat": 22.2949305,
+    "lng": 114.1755312,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "PERROTIN HONG KONG",
+    "status": "CLOSED_TEMPORARILY",
+    "address": "K11, Atelier, 18 Salisbury Rd, Tsim Sha Tsui, Kowloon, Hong Kong",
+    "website": "http://www.perrotin.com/",
+    "phone": "3758 2180",
+    "hours": null,
+    "lat": 22.2949305,
+    "lng": 114.1755312,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.perrotin.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://www.perrotin.com/en",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_closed",
+    "no_hours",
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Perrotin",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Tsim Sha Tsui/Kowloon",
+    "address_hint": "K11 ATELIER Victoria Dockside, 18 Salisbury Road",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Opened 2012 and later moved across the harbour; a key conduit for Murakami, JR, Daniel Arsham and emerging Asian artists with strong fair presence.",
+     "openai": "A globally visible gallery combining major contemporary names with influential Asian and emerging practices."
+    },
+    "ranks": {
+     "anthropic": 6,
+     "openai": 9
+    },
+    "names": {
+     "anthropic": "Perrotin",
+     "openai": "Perrotin"
+    },
+    "rank_claude": 6,
+    "rank_openai": 9,
+    "blended": 7.5,
+    "best": 6,
+    "both": true,
+    "rank": 7
+   }
+  },
+  {
+   "rank": 8,
+   "name": "Tai Kwun Contemporary",
+   "neighborhood": "Central/Soho",
+   "note": null,
+   "hints": {
+    "address": "10 Hollywood Road",
+    "website": "https://www.taikwun.hk"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'JC Contemporary'"
+   ],
+   "zone": "Central/Soho",
+   "geo": {
+    "lat": 22.2811892,
+    "lng": 114.1544422,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "JC Contemporary",
+    "address_seen": "Tai Kwun, 10 Hollywood Rd, Central, Hong Kong Island, Hong Kong",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.taikwun.hk",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "robots_disallow"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_blocked"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Tai Kwun Contemporary",
+    "website": "https://www.taikwun.hk",
+    "neighborhood": "Central/Soho",
+    "address_hint": "10 Hollywood Road",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Non-collecting kunsthalle inside the former Central Police Station compound; its large-scale thematic exhibitions and performance programme are the city's critical benchmark.",
+     "openai": "Hong Kong's principal large-scale contemporary-art centre, commissioning major exhibitions and public programmes."
+    },
+    "ranks": {
+     "anthropic": 8,
+     "openai": 7
+    },
+    "names": {
+     "anthropic": "Tai Kwun Contemporary",
+     "openai": "Tai Kwun Contemporary"
+    },
+    "rank_claude": 8,
+    "rank_openai": 7,
+    "blended": 7.5,
+    "best": 7,
+    "both": true,
+    "rank": 8
+   }
+  }
+ ]
+}

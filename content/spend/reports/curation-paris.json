@@ -1,0 +1,7167 @@
+{
+ "city": "paris",
+ "generated_at": "2026-09-04T22:32:02+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "paris",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 94,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "chiens-de-pavlov",
+   "title": "Les Chiens de Pavlov (Pavlov's Dogs)",
+   "artist": "Johan Creten",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 6,
+   "desc_words": 220,
+   "venue": {
+    "name": "Galerie Perrotin",
+    "id": "galerie-perrotin",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie perrotin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.94
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00282
+   },
+   "score": 0.99282,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 1,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 94)",
+    "quality 0.94 (6 images, 220 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "kiefer-nymphaeum",
+   "title": "Nymphäum",
+   "artist": "Anselm Kiefer",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-25",
+    "end": "2026-10-25"
+   },
+   "n_images": 6,
+   "desc_words": 256,
+   "venue": {
+    "name": "Thaddaeus Ropac Paris Pantin",
+    "id": "thaddaeus-ropac-paris-pantin",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Belleville/Pantin",
+    "norm": "thaddaeus ropac paris pantin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "five decades",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9893617021276596,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.04736614270344993,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9794680851063831,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.9824680851063831,
+   "days_since_open": 132,
+   "days_to_close": 51,
+   "rank": 2,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 0.99 (rank 2 of 94)",
+    "quality 1.00 (6 images, 256 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gagosian-sterling-ruby",
+   "title": "TILL DEATH DO US PART",
+   "artist": "Sterling Ruby",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-12",
+    "end": "2026-10-03"
+   },
+   "n_images": 6,
+   "desc_words": 191,
+   "venue": {
+    "name": "Gagosian",
+    "id": "gagosian",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "gagosian"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9787234042553191,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.1435872943746294,
+    "closing_soon": 0.0,
+    "quality": 0.882
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9689361702127659,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002646
+   },
+   "score": 0.9715821702127659,
+   "days_since_open": 84,
+   "days_to_close": 29,
+   "rank": 3,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 3 of 94)",
+    "quality 0.88 (6 images, 191 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "zwirner-108-shared-legacy",
+   "title": "Au 108 rue Vieille du Temple: A Shared Legacy with Galerie Yvon Lambert",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-08",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 250,
+   "venue": {
+    "name": "David Zwirner",
+    "id": "david-zwirner",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "david zwirner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9680851063829787,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.958404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.961404255319149,
+   "days_since_open": -4,
+   "days_to_close": 36,
+   "rank": 4,
+   "gate": "not_open",
+   "gate_detail": "opens in 4 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 4 of 94)",
+    "quality 1.00 (5 images, 250 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 4 d"
+   ]
+  },
+  {
+   "slug": "zwirner-murillo",
+   "title": "Unfinished thinking: Paintings and Social Maps",
+   "artist": "Oscar Murillo",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-19",
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 214,
+   "venue": {
+    "name": "David Zwirner",
+    "id": "david-zwirner",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "david zwirner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9680851063829787,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.528
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.958404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015840000000000001
+   },
+   "score": 0.959988255319149,
+   "days_since_open": -45,
+   "days_to_close": null,
+   "rank": 5,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.97 (rank 4 of 94)",
+    "quality 0.53 (1 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "annette-messager-histoires-des-oreillers",
+   "title": "Annette Messager: Histoires des oreillers",
+   "artist": "Annette Messager",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-03",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 241,
+   "venue": {
+    "name": "Marian Goodman Gallery",
+    "id": "marian-goodman",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "marian goodman"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "major_award",
+     "label": "MacArthur / Turner / Hugo Boss",
+     "weight": 0.8,
+     "term": "Golden Lion",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9574468085106383,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.23325824788420185,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9478723404255319,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.9508183404255319,
+   "days_since_open": 63,
+   "days_to_close": 22,
+   "rank": 6,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 5 of 94)",
+    "quality 0.98 (5 images, 241 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hw-charles-gaines",
+   "title": "Ciphering African Acacias and Supreme Court Decisions",
+   "artist": "Charles Gaines",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-10",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 217,
+   "venue": {
+    "name": "Hauser and Wirth",
+    "id": "hauser-and-wirth",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "hauser and wirth"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9468085106382979,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.13710312246182824,
+    "closing_soon": 0.0,
+    "quality": 0.9339999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9373404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002802
+   },
+   "score": 0.9401424255319148,
+   "days_since_open": 86,
+   "days_to_close": 22,
+   "rank": 7,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 6 of 94)",
+    "quality 0.93 (5 images, 217 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hw-invites-arthur-gillet",
+   "title": "Hauser and Wirth Invite(s): Arthur Gillet",
+   "artist": "Arthur Gillet",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 214,
+   "venue": {
+    "name": "Hauser and Wirth",
+    "id": "hauser-and-wirth",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "hauser and wirth"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9468085106382979,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.9279999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9373404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002784
+   },
+   "score": 0.9401244255319149,
+   "days_since_open": 1,
+   "days_to_close": 22,
+   "rank": 8,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.95 (rank 6 of 94)",
+    "quality 0.93 (5 images, 214 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "crousel-tillmans-glade-clairiere",
+   "title": "Glade / Clairière",
+   "artist": "Wolfgang Tillmans",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 4,
+   "desc_words": 206,
+   "venue": {
+    "name": "Galerie Chantal Crousel",
+    "id": "galerie-chantal-crousel",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie chantal crousel"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "major_award",
+     "label": "MacArthur / Turner / Hugo Boss",
+     "weight": 0.8,
+     "term": "Turner Prize",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9361702127659575,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.812
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9268085106382978,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024360000000000002
+   },
+   "score": 0.9292445106382978,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 9,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 7 of 94)",
+    "quality 0.81 (4 images, 206 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "crousel-koether-oeuvres-recentes",
+   "title": "ŒuVreS réCEnteS (Recent Works)",
+   "artist": "Jutta Koether",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-19",
+    "end": "2026-11-21"
+   },
+   "n_images": 3,
+   "desc_words": 193,
+   "venue": {
+    "name": "Galerie Chantal Crousel",
+    "id": "galerie-chantal-crousel",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie chantal crousel"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9361702127659575,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6859999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9268085106382978,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002058
+   },
+   "score": 0.9288665106382978,
+   "days_since_open": -45,
+   "days_to_close": 78,
+   "rank": 10,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 7 of 94)",
+    "quality 0.69 (3 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "crousel-nick-mauss",
+   "title": "Nick Mauss",
+   "artist": "Nick Mauss",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-19",
+    "end": "2026-11-21"
+   },
+   "n_images": 3,
+   "desc_words": 183,
+   "venue": {
+    "name": "Galerie Chantal Crousel",
+    "id": "galerie-chantal-crousel",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie chantal crousel"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9361702127659575,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6659999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9268085106382978,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0019979999999999998
+   },
+   "score": 0.9288065106382979,
+   "days_since_open": -45,
+   "days_to_close": 78,
+   "rank": 11,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 7 of 94)",
+    "quality 0.67 (3 images, 183 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "whitecube-marclay",
+   "title": "Christian Marclay",
+   "artist": "Christian Marclay",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 210,
+   "venue": {
+    "name": "White Cube",
+    "id": "white-cube",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "white cube"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.925531914893617,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.52
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9162765957446808,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015600000000000002
+   },
+   "score": 0.9178365957446808,
+   "days_since_open": -5,
+   "days_to_close": 36,
+   "rank": 12,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.93 (rank 8 of 94)",
+    "quality 0.52 (1 images, 210 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "hetzler-elmgreen-dragset",
+   "title": "Les Fous d'En Face",
+   "artist": "Elmgreen & Dragset",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-19",
+    "end": "2026-12-16"
+   },
+   "n_images": 3,
+   "desc_words": 195,
+   "venue": {
+    "name": "Galerie Max Hetzler",
+    "id": "galerie-max-hetzler",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie max hetzler"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9148936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.69
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9057446808510639,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00207
+   },
+   "score": 0.9078146808510639,
+   "days_since_open": -45,
+   "days_to_close": 103,
+   "rank": 13,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 9 of 94)",
+    "quality 0.69 (3 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "hetzler-kononov-memoires",
+   "title": "Mémoires",
+   "artist": "Sergey Kononov",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 3,
+   "desc_words": 184,
+   "venue": {
+    "name": "Galerie Max Hetzler",
+    "id": "galerie-max-hetzler",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie max hetzler"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9148936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6679999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9057446808510639,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0020039999999999997
+   },
+   "score": 0.9077486808510639,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 14,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 9 of 94)",
+    "quality 0.67 (3 images, 184 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "lelong-david-nash",
+   "title": "Catching Forms. Wood to Bronze",
+   "artist": "David Nash",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 205,
+   "venue": {
+    "name": "Galerie Lelong & Co.",
+    "id": "galerie-lelong-and-co",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "galerie lelong and co"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "five decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9042553191489362,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9099999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8952127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00273
+   },
+   "score": 0.8979427659574468,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 15,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 10 of 94)",
+    "quality 0.91 (5 images, 205 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "lelong-fabienne-verdier",
+   "title": "Pineta",
+   "artist": "Fabienne Verdier",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 204,
+   "venue": {
+    "name": "Galerie Lelong & Co.",
+    "id": "galerie-lelong-and-co",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "galerie lelong and co"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9042553191489362,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9079999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8952127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002724
+   },
+   "score": 0.8979367659574468,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 16,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.90 (rank 10 of 94)",
+    "quality 0.91 (5 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "obadia-cogitore",
+   "title": "Ferdinandea",
+   "artist": "Clément Cogitore",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 197,
+   "venue": {
+    "name": "Galerie Nathalie Obadia",
+    "id": "galerie-nathalie-obadia",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie nathalie obadia"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8936170212765957,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.794
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8846808510638298,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002382
+   },
+   "score": 0.8870628510638298,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 17,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 11 of 94)",
+    "quality 0.79 (4 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "obadia-kushner",
+   "title": "Summer Sun: Open my Heart",
+   "artist": "Robert Kushner",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 197,
+   "venue": {
+    "name": "Galerie Nathalie Obadia",
+    "id": "galerie-nathalie-obadia",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie nathalie obadia"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8936170212765957,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.794
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8846808510638298,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002382
+   },
+   "score": 0.8870628510638298,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 18,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 11 of 94)",
+    "quality 0.79 (4 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "es-pays-reve-pays-reel",
+   "title": "Pays rêvé, pays réel",
+   "artist": "Merikokeb Berhanu, Sanford Biggers, Julien Creuzet, Jamal Cyrus, Leslie Hewitt, Jason Moran, Thomias Radin",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-25",
+    "end": "2026-09-25"
+   },
+   "n_images": 6,
+   "desc_words": 182,
+   "venue": {
+    "name": "Esther Schipper",
+    "id": "esther-schipper",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "esther schipper"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8723404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7937005259840998,
+    "closing_soon": 0.0,
+    "quality": 0.864
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8636170212765958,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002592
+   },
+   "score": 0.8662090212765958,
+   "days_since_open": 10,
+   "days_to_close": 21,
+   "rank": 19,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 13 of 94)",
+    "quality 0.86 (6 images, 182 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "vie-des-formes",
+   "title": "Vie des Formes",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-08",
+    "end": "2026-09-13"
+   },
+   "n_images": 1,
+   "desc_words": 195,
+   "venue": {
+    "name": "Lafayette Anticipations",
+    "id": "lafayette-anticipations",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "lafayette anticipations"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8617021276595744,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 1.0,
+    "quality": 0.49
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8530851063829786,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.00147
+   },
+   "score": 0.8565551063829786,
+   "days_since_open": -4,
+   "days_to_close": 9,
+   "rank": 20,
+   "gate": "not_open",
+   "gate_detail": "opens in 4 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 14 of 94)",
+    "closes in 9 d",
+    "quality 0.49 (1 images, 195 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 4 d"
+   ]
+  },
+  {
+   "slug": "balicehertling-mercedes-llanos-entresuenos",
+   "title": "Entresueños",
+   "artist": "Mercedes Llanos",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-12",
+    "end": "2026-09-05"
+   },
+   "n_images": 5,
+   "desc_words": 184,
+   "venue": {
+    "name": "Galerie Balice Hertling",
+    "id": "balice-hertling",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie balice hertling"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.851063829787234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.1435872943746294,
+    "closing_soon": 1.0,
+    "quality": 0.868
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8425531914893617,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002604
+   },
+   "score": 0.8471571914893617,
+   "days_since_open": 84,
+   "days_to_close": 1,
+   "rank": 21,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 15 of 94)",
+    "quality 0.87 (5 images, 184 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "balicehertling-morgan-courtois-essence",
+   "title": "Essence",
+   "artist": "Morgan Courtois",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 152,
+   "venue": {
+    "name": "Galerie Balice Hertling",
+    "id": "balice-hertling",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie balice hertling"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.851063829787234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.404
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8425531914893617,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012120000000000002
+   },
+   "score": 0.8437651914893617,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 22,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 15 of 94)",
+    "quality 0.40 (1 images, 152 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "xiao-guo-hui-rat-a-hum-tat-tat",
+   "title": "Rat-A-Hum-Tat-Tat-Rat-A-Hum-Tat-Tat",
+   "artist": "Xiao Guo Hui",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-09-12"
+   },
+   "n_images": 4,
+   "desc_words": 232,
+   "venue": {
+    "name": "MASSIMODECARLO Pièce Unique",
+    "id": "massimo-de-carlo",
+    "tier": 1,
+    "rank": 16,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "massimodecarlo piece unique"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "survey show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8404255319148937,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 1.0,
+    "quality": 0.8640000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8320212765957448,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0025920000000000006
+   },
+   "score": 0.8366132765957448,
+   "days_since_open": 3,
+   "days_to_close": 8,
+   "rank": 23,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 16 of 94)",
+    "quality 0.86 (4 images, 232 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "la-soustraite",
+   "title": "la soustraite",
+   "artist": "Gyan Panchal",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 3,
+   "desc_words": 222,
+   "venue": {
+    "name": "Marcelle Alix",
+    "id": "marcelle-alix",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "marcelle alix"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8297872340425532,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.744
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8214893617021276,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002232
+   },
+   "score": 0.8237213617021276,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 24,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.83 (rank 17 of 94)",
+    "quality 0.74 (3 images, 222 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "skarstedt-petits-formats",
+   "title": "Petits Formats",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-25",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 212,
+   "venue": {
+    "name": "Skarstedt",
+    "id": "skarstedt",
+    "tier": 1,
+    "rank": 18,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "skarstedt"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8191489361702128,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19389309522921683,
+    "closing_soon": 0.0,
+    "quality": 0.9239999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8109574468085107,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027719999999999997
+   },
+   "score": 0.8137294468085107,
+   "days_since_open": 71,
+   "days_to_close": 36,
+   "rank": 25,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.82 (rank 18 of 94)",
+    "quality 0.92 (5 images, 212 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "patricia-leite-travessia",
+   "title": "Travessia",
+   "artist": "Patricia Leite",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 1,
+   "desc_words": 202,
+   "venue": {
+    "name": "Mendes Wood DM",
+    "id": "mendes-wood-dm",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "mendes wood dm"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8085106382978724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.504
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8004255319148936,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001512
+   },
+   "score": 0.8019375319148936,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 26,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.81 (rank 19 of 94)",
+    "quality 0.50 (1 images, 202 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "vallois-le-flaneur",
+   "title": "le flâneur",
+   "artist": "Jacques Villeglé",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 241,
+   "venue": {
+    "name": "Galerie Georges-Philippe & Nathalie Vallois",
+    "id": "galerie-georges-philippe-and-nathalie-vallois",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie georges philippe and nathalie vallois"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7978723404255319,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7898936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.7928396170212766,
+   "days_since_open": -7,
+   "days_to_close": 57,
+   "rank": 27,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.80 (rank 20 of 94)",
+    "quality 0.98 (5 images, 241 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "vallois-trafic-stampfli",
+   "title": "Trafic – Hommage à Peter Stämpfli",
+   "artist": "Eulàlia Grau, Peter Halley, Emanuel Proweller, Daniel Spoerri, Peter Stämpfli, Jacques Villeglé",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 194,
+   "venue": {
+    "name": "Galerie Georges-Philippe & Nathalie Vallois",
+    "id": "galerie-georges-philippe-and-nathalie-vallois",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie georges philippe and nathalie vallois"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7978723404255319,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.888
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7898936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002664
+   },
+   "score": 0.7925576170212766,
+   "days_since_open": -7,
+   "days_to_close": 57,
+   "rank": 28,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.80 (rank 20 of 94)",
+    "quality 0.89 (5 images, 194 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "karsten-greve-fontana",
+   "title": "Lucio Fontana: Ceramics",
+   "artist": "Lucio Fontana",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-24",
+    "end": "2026-09-05"
+   },
+   "n_images": 5,
+   "desc_words": 219,
+   "venue": {
+    "name": "Galerie Karsten Greve",
+    "id": "galerie-karsten-greve",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie karsten greve"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7872340425531915,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.04628429850895512,
+    "closing_soon": 1.0,
+    "quality": 0.938
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7793617021276595,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002814
+   },
+   "score": 0.7841757021276595,
+   "days_since_open": 133,
+   "days_to_close": 1,
+   "rank": 29,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.79 (rank 21 of 94)",
+    "quality 0.94 (5 images, 219 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "karsten-greve-twombly",
+   "title": "Cy Twombly: Sperlonga 1959",
+   "artist": "Cy Twombly",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-11-10"
+   },
+   "n_images": 2,
+   "desc_words": 242,
+   "venue": {
+    "name": "Galerie Karsten Greve",
+    "id": "galerie-karsten-greve",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie karsten greve"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7872340425531915,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6839999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7793617021276595,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002052
+   },
+   "score": 0.7814137021276596,
+   "days_since_open": -8,
+   "days_to_close": 67,
+   "rank": 30,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.79 (rank 21 of 94)",
+    "quality 0.68 (2 images, 242 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "yasuko-hirano-anthem",
+   "title": "Anthem",
+   "artist": "Yasuko Hirano",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 6,
+   "desc_words": 188,
+   "venue": {
+    "name": "galerie frank elbaz",
+    "id": "galerie-frank-elbaz",
+    "tier": 2,
+    "rank": 24,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie frank elbaz"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7553191489361702,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.876
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7477659574468085,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002628
+   },
+   "score": 0.7503939574468085,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 31,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 24 of 94)",
+    "quality 0.88 (6 images, 188 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "loevenbruck-mes-dalton",
+   "title": "Mes Dalton",
+   "artist": "Pierre Ardouvin, Pierre Besson, Michel Blazy, Lilian Bourgeat, Anne Brégeaut, Céline Cléron, François Curlet, Michael Dans, François Dufeil, Sammy Engramer, Makiko Furuichi, Michel Gouéry, Sébastien Gouju, Laurent Le Deunff, Jacques Lizène, Vincent Mauger, Anita Molinero, Daniel Nadaud, Bruno Peinado, David Posth-Kohler, Céleste Richard-Zimmermann, Elsa Sahal, Michaela Sanson-Braun, Christophe Terlinden, Didier Trénet, Clémence van Lunen, Stéphane Vigny",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-10-10"
+   },
+   "n_images": 7,
+   "desc_words": 238,
+   "venue": {
+    "name": "Galerie Loevenbruck",
+    "id": "loevenbruck",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie loevenbruck"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7446808510638299,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.976
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7372340425531916,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002928
+   },
+   "score": 0.7401620425531916,
+   "days_since_open": -14,
+   "days_to_close": 36,
+   "rank": 32,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 25 of 94)",
+    "quality 0.98 (7 images, 238 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "loevenbruck-petrol-mother",
+   "title": "Petrol M*other Paris",
+   "artist": "Ashley Hans Scheirl",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-23",
+    "end": "2026-12-05"
+   },
+   "n_images": 1,
+   "desc_words": 221,
+   "venue": {
+    "name": "Galerie Loevenbruck",
+    "id": "loevenbruck",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie loevenbruck"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7446808510638299,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.542
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7372340425531916,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001626
+   },
+   "score": 0.7388600425531916,
+   "days_since_open": -49,
+   "days_to_close": 92,
+   "rank": 33,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 25 of 94)",
+    "quality 0.54 (1 images, 221 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "loevenbruck-waiting-thunder",
+   "title": "Waiting for the Sound of Thunder",
+   "artist": "Jakob Lena Knebl",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-23",
+    "end": "2026-12-05"
+   },
+   "n_images": 1,
+   "desc_words": 193,
+   "venue": {
+    "name": "Galerie Loevenbruck",
+    "id": "loevenbruck",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie loevenbruck"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7446808510638299,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.486
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7372340425531916,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001458
+   },
+   "score": 0.7386920425531915,
+   "days_since_open": -49,
+   "days_to_close": 92,
+   "rank": 34,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 25 of 94)",
+    "quality 0.49 (1 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "semiose-cherkit-tendrement",
+   "title": "Tendrement",
+   "artist": "Mathieu Cherkit",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 170,
+   "venue": {
+    "name": "Semiose",
+    "id": "semiose",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "semiose"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7340425531914894,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.8400000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7267021276595744,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00252
+   },
+   "score": 0.7292221276595744,
+   "days_since_open": 6,
+   "days_to_close": 57,
+   "rank": 35,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.73 (rank 26 of 94)",
+    "quality 0.84 (5 images, 170 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "gaillard-les-objecteurs",
+   "title": "Les objecteurs (The Objectors)",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-26"
+   },
+   "n_images": 4,
+   "desc_words": 254,
+   "venue": {
+    "name": "Galerie Christophe Gaillard",
+    "id": "galerie-christophe-gaillard",
+    "tier": 2,
+    "rank": 27,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie christophe gaillard"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7234042553191489,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7161702127659574,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.7188702127659574,
+   "days_since_open": -1,
+   "days_to_close": 22,
+   "rank": 36,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.72 (rank 27 of 94)",
+    "quality 0.90 (4 images, 254 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "betonsalon-magnanrama",
+   "title": "Magnanrama: Media, Technologies, Identities, Networks Around Nathalie Magnan",
+   "artist": "Nathalie Magnan, with No Anger, Shu Lea Cheang, Cindy Coutant, Chloé Desmoineaux with Bobby Brim and Ada LaNerd, Guerrilla Girls, Barbara Hammer, Old Boys Network, Paper Tiger Television, Julia Scher, VNS Matrix",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-25",
+    "end": "2026-12-12"
+   },
+   "n_images": 5,
+   "desc_words": 242,
+   "venue": {
+    "name": "Bétonsalon – Centre d'art et de recherche",
+    "id": "betonsalon-centre-d-art-et-de-recherche",
+    "tier": 2,
+    "rank": 29,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "betonsalon centre d art et de recherche"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "three decades",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissions",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7021276595744681,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.984
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6951063829787234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002952
+   },
+   "score": 0.6980583829787234,
+   "days_since_open": -21,
+   "days_to_close": 99,
+   "rank": 37,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 29 of 94)",
+    "quality 0.98 (5 images, 242 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "allen-jason-dodge",
+   "title": "Jason Dodge",
+   "artist": "Jason Dodge",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 194,
+   "venue": {
+    "name": "Galerie Allen",
+    "id": "galerie-allen",
+    "tier": 2,
+    "rank": 30,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie allen"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6914893617021276,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.888
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6845744680851064,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002664
+   },
+   "score": 0.6872384680851064,
+   "days_since_open": 1,
+   "days_to_close": 22,
+   "rank": 38,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.69 (rank 30 of 94)",
+    "quality 0.89 (5 images, 194 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "virgin-turns",
+   "title": "Virgin Turns (Virages Vierges)",
+   "artist": "Pauline Curnier Jardin",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-03",
+    "end": "2026-09-13"
+   },
+   "n_images": 6,
+   "desc_words": 244,
+   "venue": {
+    "name": "Palais de Tokyo",
+    "id": "palais-de-tokyo",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "palais de tokyo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new video",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6702127659574468,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.028491327767444268,
+    "closing_soon": 1.0,
+    "quality": 0.988
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6635106382978724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002964
+   },
+   "score": 0.6684746382978723,
+   "days_since_open": 154,
+   "days_to_close": 9,
+   "rank": 39,
+   "gate": "exclude_museums",
+   "gate_detail": "museums excluded",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 32 of 94)",
+    "quality 0.99 (6 images, 244 words)",
+    "closes in 9 d",
+    "no judge verdict",
+    "no signals",
+    "gated: museums excluded"
+   ]
+  },
+  {
+   "slug": "pdt-joseph-grigely",
+   "title": "This Is Where We Are (Nous en sommes là)",
+   "artist": "Joseph Grigely",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-03",
+    "end": "2026-09-13"
+   },
+   "n_images": 4,
+   "desc_words": 232,
+   "venue": {
+    "name": "Palais de Tokyo",
+    "id": "palais-de-tokyo",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "palais de tokyo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6702127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.028491327767444268,
+    "closing_soon": 1.0,
+    "quality": 0.8640000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6635106382978724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0025920000000000006
+   },
+   "score": 0.6681026382978724,
+   "days_since_open": 154,
+   "days_to_close": 9,
+   "rank": 40,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 32 of 94)",
+    "quality 0.86 (4 images, 232 words)",
+    "closes in 9 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pdt-jesse-darling",
+   "title": "Les Ambassadeurs",
+   "artist": "Jesse Darling",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-03",
+    "end": "2026-09-13"
+   },
+   "n_images": 3,
+   "desc_words": 233,
+   "venue": {
+    "name": "Palais de Tokyo",
+    "id": "palais-de-tokyo",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "palais de tokyo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "major_award",
+     "label": "MacArthur / Turner / Hugo Boss",
+     "weight": 0.8,
+     "term": "Turner Prize",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "Site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6702127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.028491327767444268,
+    "closing_soon": 1.0,
+    "quality": 0.766
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6635106382978724,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002298
+   },
+   "score": 0.6678086382978724,
+   "days_since_open": 154,
+   "days_to_close": 9,
+   "rank": 41,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 32 of 94)",
+    "quality 0.77 (3 images, 233 words)",
+    "closes in 9 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "tolika-mtoliki",
+   "title": "Tolika Mtoliki",
+   "artist": "Nicholas Hlobo, Bulumko Mbete, Kagiso Patrick Mautloa, Mankebe Seakgoe, Frans Thoka, Benjamin Stanwix & Xhanti Zwelendaba",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-16",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 227,
+   "venue": {
+    "name": "MAGNIN-A",
+    "id": "magnin-a",
+    "tier": 2,
+    "rank": 33,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "magnin a"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6595744680851063,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.954
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6529787234042552,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002862
+   },
+   "score": 0.6558407234042553,
+   "days_since_open": -12,
+   "days_to_close": 57,
+   "rank": 42,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.66 (rank 33 of 94)",
+    "quality 0.95 (5 images, 227 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "tornabuoni-moving-colors",
+   "title": "Moving Colors",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-02",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 219,
+   "venue": {
+    "name": "Tornabuoni Art",
+    "id": "tornabuoni-art",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "tornabuoni art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.648936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2279306221395542,
+    "closing_soon": 0.0,
+    "quality": 0.938
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6424468085106383,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002814
+   },
+   "score": 0.6452608085106383,
+   "days_since_open": 64,
+   "days_to_close": 29,
+   "rank": 43,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 15,
+   "pinned": false,
+   "reasons": [
+    "venue 0.65 (rank 34 of 94)",
+    "quality 0.94 (5 images, 219 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "barrault-losier-arriere-train",
+   "title": "Arrière-train fantôme (Ghost Rump)",
+   "artist": "Marie Losier",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 3,
+   "desc_words": 197,
+   "venue": {
+    "name": "Galerie Anne Barrault",
+    "id": "galerie-anne-barrault",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie anne barrault"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6382978723404256,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.694
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6319148936170214,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002082
+   },
+   "score": 0.6339968936170214,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 44,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.64 (rank 35 of 94)",
+    "quality 0.69 (3 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "papillon-mes-annees-80",
+   "title": "Mes années 80",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-04",
+    "end": "2026-09-26"
+   },
+   "n_images": 2,
+   "desc_words": 193,
+   "venue": {
+    "name": "Galerie Papillon",
+    "id": "galerie-papillon",
+    "tier": 2,
+    "rank": 36,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie papillon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6276595744680851,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2387104009776041,
+    "closing_soon": 0.0,
+    "quality": 0.5860000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6213829787234042,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017580000000000002
+   },
+   "score": 0.6231409787234042,
+   "days_since_open": 62,
+   "days_to_close": 22,
+   "rank": 45,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 16,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 36 of 94)",
+    "quality 0.59 (2 images, 193 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "fdc-sungi-mlengeya",
+   "title": "Earth and Sky",
+   "artist": "Sungi Mlengeya",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-24"
+   },
+   "n_images": 4,
+   "desc_words": 161,
+   "venue": {
+    "name": "Galerie Les Filles du Calvaire",
+    "id": "galerie-les-filles-du-calvaire",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie les filles du calvaire"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6170212765957447,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.722
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6108510638297873,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002166
+   },
+   "score": 0.6130170638297873,
+   "days_since_open": -1,
+   "days_to_close": 50,
+   "rank": 46,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.62 (rank 37 of 94)",
+    "quality 0.72 (4 images, 161 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "fdc-qi-zhuo",
+   "title": "We Cannot Stop the Birds of Misfortune From Flying Over Our Heads, But Perhaps We Can Stop Them From Nesting There",
+   "artist": "Qi Zhuo",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-24"
+   },
+   "n_images": 3,
+   "desc_words": 157,
+   "venue": {
+    "name": "Galerie Les Filles du Calvaire (Chapon annex)",
+    "id": "galerie-les-filles-du-calvaire",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie les filles du calvaire chapon annex"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6170212765957447,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.614
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6108510638297873,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001842
+   },
+   "score": 0.6126930638297873,
+   "days_since_open": -1,
+   "days_to_close": 50,
+   "rank": 47,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.62 (rank 37 of 94)",
+    "quality 0.61 (3 images, 157 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "artconcept-pierre-bellot-vallee-fm",
+   "title": "Vallée FM",
+   "artist": "Pierre Bellot",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 187,
+   "venue": {
+    "name": "Galerie Art : Concept",
+    "id": "art-concept",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie art concept"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5957446808510638,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.874
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5897872340425532,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002622
+   },
+   "score": 0.5924092340425532,
+   "days_since_open": 1,
+   "days_to_close": 22,
+   "rank": 48,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 17,
+   "pinned": false,
+   "reasons": [
+    "venue 0.60 (rank 39 of 94)",
+    "quality 0.87 (5 images, 187 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "benichou-discrit-pluie-fossile",
+   "title": "Pluie Fossile",
+   "artist": "Julien Discrit",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 239,
+   "venue": {
+    "name": "Galerie Anne-Sarah Bénichou",
+    "id": "galerie-anne-sarah-benichou",
+    "tier": 2,
+    "rank": 40,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie anne sarah benichou"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5851063829787234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.878
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5792553191489361,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002634
+   },
+   "score": 0.5818893191489362,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 49,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.59 (rank 40 of 94)",
+    "quality 0.88 (4 images, 239 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "xippas-leandro-erlich-entre-temps",
+   "title": "Entre temps",
+   "artist": "Leandro Erlich",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-11-14"
+   },
+   "n_images": 5,
+   "desc_words": 259,
+   "venue": {
+    "name": "Xippas",
+    "id": "xippas",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "xippas"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.574468085106383,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5687234042553192,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.5717234042553192,
+   "days_since_open": -8,
+   "days_to_close": 71,
+   "rank": 50,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 41 of 94)",
+    "quality 1.00 (5 images, 259 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "michelrein-hugo-ruyant",
+   "title": "Pastoral Melody",
+   "artist": "Hugo Ruyant",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 215,
+   "venue": {
+    "name": "Michel Rein",
+    "id": "galerie-michel-rein",
+    "tier": 2,
+    "rank": 42,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "michel rein"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5638297872340425,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9299999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5581914893617022,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00279
+   },
+   "score": 0.5609814893617021,
+   "days_since_open": 0,
+   "days_to_close": 36,
+   "rank": 51,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 18,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 42 of 94)",
+    "quality 0.93 (5 images, 215 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "campoli-summer-break",
+   "title": "Summer Break",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-24",
+    "end": "2026-09-07"
+   },
+   "n_images": 1,
+   "desc_words": 148,
+   "venue": {
+    "name": "Emanuela Campoli (formerly Campoli Presti)",
+    "id": "campoli-presti",
+    "tier": 2,
+    "rank": 43,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "emanuela campoli formerly campoli presti"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5531914893617021,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37892914162759955,
+    "closing_soon": 1.0,
+    "quality": 0.396
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5476595744680851,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.001188
+   },
+   "score": 0.5508475744680851,
+   "days_since_open": 42,
+   "days_to_close": 3,
+   "rank": 52,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 19,
+   "pinned": false,
+   "reasons": [
+    "venue 0.55 (rank 43 of 94)",
+    "closes in 3 d",
+    "quality 0.40 (1 images, 148 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "emmanuel-beguinot-always-again",
+   "title": "Always Again",
+   "artist": "Emmanuel Béguinot",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-03"
+   },
+   "n_images": 6,
+   "desc_words": 203,
+   "venue": {
+    "name": "Galerie Derouillon",
+    "id": "galerie-derouillon",
+    "tier": 2,
+    "rank": 44,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie derouillon"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5425531914893618,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.906
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5371276595744682,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002718
+   },
+   "score": 0.5398456595744682,
+   "days_since_open": 1,
+   "days_to_close": 29,
+   "rank": 53,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 20,
+   "pinned": false,
+   "reasons": [
+    "venue 0.54 (rank 44 of 94)",
+    "quality 0.91 (6 images, 203 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "insitu-ergriffenheit",
+   "title": "L'Ergriffenheit (A State of Being Seized)",
+   "artist": "Patrick Van Caeckenbergh",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-13",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "In Situ - fabienne leclerc",
+    "id": "in-situ-fabienne-leclerc",
+    "tier": 2,
+    "rank": 45,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Belleville/Pantin",
+    "norm": "in situ fabienne leclerc"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5319148936170213,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.526595744680851,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.5280837446808511,
+   "days_since_open": -9,
+   "days_to_close": 57,
+   "rank": 54,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.53 (rank 45 of 94)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "villepoix-kan-demande-poussiere",
+   "title": "Demande à la poussière (Ask the Dust): TETHYS",
+   "artist": "Ségolène Kan",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-16",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 262,
+   "venue": {
+    "name": "Galerie Anne de Villepoix",
+    "id": "galerie-anne-de-villepoix",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie anne de villepoix"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5106382978723405,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.505531914893617,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.508531914893617,
+   "days_since_open": -12,
+   "days_to_close": 57,
+   "rank": 55,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.51 (rank 47 of 94)",
+    "quality 1.00 (5 images, 262 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "mariane-ibrahim-intersections",
+   "title": "Intersections",
+   "artist": "Elsa-Louise Manceaux and Hilda Palafox",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 159,
+   "venue": {
+    "name": "Mariane Ibrahim",
+    "id": "mariane-ibrahim",
+    "tier": 2,
+    "rank": 49,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "mariane ibrahim"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4893617021276596,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.8180000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.484468085106383,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002454
+   },
+   "score": 0.486922085106383,
+   "days_since_open": 1,
+   "days_to_close": 29,
+   "rank": 56,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 21,
+   "pinned": false,
+   "reasons": [
+    "venue 0.49 (rank 49 of 94)",
+    "quality 0.82 (5 images, 159 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "ceysson-benetiere-breleur",
+   "title": "Ernest Breleur",
+   "artist": "Ernest Breleur",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 190,
+   "venue": {
+    "name": "Ceysson & Bénétière",
+    "id": "ceysson-and-benetiere",
+    "tier": 2,
+    "rank": 50,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "ceysson and benetiere"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "survey of the artist",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new body of work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4787234042553191,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.88
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4739361702127659,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00264
+   },
+   "score": 0.4765761702127659,
+   "days_since_open": 1,
+   "days_to_close": 36,
+   "rank": 57,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 22,
+   "pinned": false,
+   "reasons": [
+    "venue 0.48 (rank 50 of 94)",
+    "quality 0.88 (5 images, 190 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "pf-filliou",
+   "title": "Robert Filliou: Une histoire chuchotée de l'art",
+   "artist": "Robert Filliou",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-07"
+   },
+   "n_images": 5,
+   "desc_words": 229,
+   "venue": {
+    "name": "Peter Freeman, Inc.",
+    "id": "peter-freeman-inc",
+    "tier": 3,
+    "rank": 51,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "peter freeman inc"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.46808510638297873,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.958
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4634042553191489,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002874
+   },
+   "score": 0.4662782553191489,
+   "days_since_open": -6,
+   "days_to_close": 64,
+   "rank": 58,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.47 (rank 51 of 94)",
+    "quality 0.96 (5 images, 229 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "alberta-pane-vilhena-predizione",
+   "title": "Predizione Perdizione",
+   "artist": "João Vilhena",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-30"
+   },
+   "n_images": 1,
+   "desc_words": 182,
+   "venue": {
+    "name": "Galleria Alberta Pane",
+    "id": "galerie-alberta-pane",
+    "tier": 3,
+    "rank": 52,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galleria alberta pane"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.45744680851063835,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.46399999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.452872340425532,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001392
+   },
+   "score": 0.454264340425532,
+   "days_since_open": -1,
+   "days_to_close": 26,
+   "rank": 59,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.46 (rank 52 of 94)",
+    "quality 0.46 (1 images, 182 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "mitterrand-wallen-mapondera",
+   "title": "How Do You Even Sleep At Night?",
+   "artist": "Wallen Mapondera",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 2,
+   "desc_words": 184,
+   "venue": {
+    "name": "Galerie Mitterrand",
+    "id": "galerie-mitterrand",
+    "tier": 3,
+    "rank": 53,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "galerie mitterrand"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.44680851063829785,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.5680000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4423404255319149,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017040000000000002
+   },
+   "score": 0.44404442553191487,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 60,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.45 (rank 53 of 94)",
+    "quality 0.57 (2 images, 184 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "ketabibourdet-au-fil-de-leau",
+   "title": "Au fil de l'eau",
+   "artist": "Elizabeth Garouste",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-10"
+   },
+   "n_images": 4,
+   "desc_words": 210,
+   "venue": {
+    "name": "Ketabi Bourdet",
+    "id": "ketabi-bourdet",
+    "tier": 3,
+    "rank": 54,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "ketabi bourdet"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.43617021276595747,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8200000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4318085106382979,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024600000000000004
+   },
+   "score": 0.4342685106382979,
+   "days_since_open": -6,
+   "days_to_close": 36,
+   "rank": 61,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.44 (rank 54 of 94)",
+    "quality 0.82 (4 images, 210 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "lebal-espace-entre-nous",
+   "title": "L'Espace entre nous",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-19",
+    "end": "2027-01-03"
+   },
+   "n_images": 3,
+   "desc_words": 212,
+   "venue": {
+    "name": "Le BAL",
+    "id": "le-bal",
+    "tier": 3,
+    "rank": 55,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "le bal"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "five decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.42553191489361697,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.16879374327102373,
+    "closing_soon": 0.0,
+    "quality": 0.724
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4212765957446808,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002172
+   },
+   "score": 0.4234485957446808,
+   "days_since_open": 77,
+   "days_to_close": 121,
+   "rank": 62,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 23,
+   "pinned": false,
+   "reasons": [
+    "venue 0.43 (rank 55 of 94)",
+    "quality 0.72 (3 images, 212 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "imanefares-tessa-mars-la-mue",
+   "title": "La Mue",
+   "artist": "Tessa Mars",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-27"
+   },
+   "n_images": 1,
+   "desc_words": 183,
+   "venue": {
+    "name": "Galerie Imane Farès",
+    "id": "galerie-imane-fares",
+    "tier": 3,
+    "rank": 56,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie imane fares"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo outing",
+     "where": "description"
+    },
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "biennial",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4148936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.46599999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4107446808510638,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001398
+   },
+   "score": 0.4121426808510638,
+   "days_since_open": -1,
+   "days_to_close": 53,
+   "rank": 63,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.41 (rank 56 of 94)",
+    "quality 0.47 (1 images, 183 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "polka-nathaniel-aron-interior-lift",
+   "title": "Interior Lift 90s",
+   "artist": "Nathaniel Aron",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-01",
+    "end": "2026-09-05"
+   },
+   "n_images": 1,
+   "desc_words": 119,
+   "venue": {
+    "name": "Polka Galerie",
+    "id": "polka-galerie",
+    "tier": 3,
+    "rank": 57,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "polka galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4042553191489362,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9330329915368074,
+    "closing_soon": 1.0,
+    "quality": 0.33799999999999997
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4002127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.001014
+   },
+   "score": 0.40322676595744683,
+   "days_since_open": 3,
+   "days_to_close": 1,
+   "rank": 64,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 24,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 57 of 94)",
+    "closes in 1 d",
+    "quality 0.34 (1 images, 119 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "polka-claude-nori-dolce-vista",
+   "title": "La Dolce Vista",
+   "artist": "Claude Nori",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 1,
+   "desc_words": 129,
+   "venue": {
+    "name": "Polka Galerie",
+    "id": "polka-galerie",
+    "tier": 3,
+    "rank": 57,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "polka galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4042553191489362,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.358
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4002127659574468,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001074
+   },
+   "score": 0.40128676595744683,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 65,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 57 of 94)",
+    "quality 0.36 (1 images, 129 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "hussenot-portraiture-vol2",
+   "title": "'An Incomplete Survey on Portraiture'. Vol. 2",
+   "artist": "Kelly Akashi, Marc Asekhame and Taylor Thoroski, Christophe Hamaide Pierson, Assume Vivid Astro Focus, Fabienne Audéoud, H.M. Baker, Stefania Batoeva, Costanza Candeloro, Drake Richard Carr, Shannon Cartier Lucy, Désirée Nakouzi de Monte & Andrea Parenti, Stephan Dillemuth, Ana Viktoria Dziniz, Pé Ferreira, Nicole Gravier, Dario Guccio, Sunil Gupta, Samuel Haitz, Graham Hamilton, Nina Kettiger, Isaac Lythgoe, Miltos Manetas, Emanuele Marcuccio, Sabina Mirri, Raffaela Naldi Rossano, Martin d'Orgeval, Vincenzo Ottino, Matthew Peers, Cameron Platter, Tobias Rehberger, Winnie Mo Rielly, Will Sheridan Jr., Tobias Spichtig, Timothy Lee Standring, Konrad Zukowski",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-02",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 187,
+   "venue": {
+    "name": "Galerie Hussenot",
+    "id": "galerie-hussenot",
+    "tier": 3,
+    "rank": 60,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie hussenot"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.37234042553191493,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2279306221395542,
+    "closing_soon": 1.0,
+    "quality": 0.874
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3686170212765958,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002622
+   },
+   "score": 0.3732390212765958,
+   "days_since_open": 64,
+   "days_to_close": 8,
+   "rank": 66,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 25,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 60 of 94)",
+    "quality 0.87 (5 images, 187 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hussenot-tendre-brute",
+   "title": "Tendre Brute: Montessori On Speed",
+   "artist": "Christophe Hamaide-Pierson and Tor Erik Bøe",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-02",
+    "end": "2026-09-12"
+   },
+   "n_images": 3,
+   "desc_words": 175,
+   "venue": {
+    "name": "Galerie Hussenot",
+    "id": "galerie-hussenot",
+    "tier": 3,
+    "rank": 60,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie hussenot"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.37234042553191493,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2279306221395542,
+    "closing_soon": 1.0,
+    "quality": 0.6499999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3686170212765958,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0019499999999999997
+   },
+   "score": 0.3725670212765958,
+   "days_since_open": 64,
+   "days_to_close": 8,
+   "rank": 67,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 26,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 60 of 94)",
+    "closes in 8 d",
+    "quality 0.65 (3 images, 175 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "bendana-pinel-la-familia-elegida",
+   "title": "La familia elegida (The Chosen Family)",
+   "artist": "Chiachio & Giannone",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 222,
+   "venue": {
+    "name": "Bendana | Pinel Art Contemporain",
+    "id": "bendana-pinel-art-contemporain",
+    "tier": 3,
+    "rank": 61,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "bendana pinel art contemporain"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36170212765957444,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.944
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3580851063829787,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002832
+   },
+   "score": 0.3609171063829787,
+   "days_since_open": -8,
+   "days_to_close": 57,
+   "rank": 68,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.36 (rank 61 of 94)",
+    "quality 0.94 (5 images, 222 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "vincent-lemaire-lumiere",
+   "title": "Ce que la lumière n'éclaire plus (What Light No Longer Illuminates)",
+   "artist": "Vincent Lemaire",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-09-19"
+   },
+   "n_images": 6,
+   "desc_words": 199,
+   "venue": {
+    "name": "Galerie Dix9 Hélène Lacharmoise",
+    "id": "galerie-dix9-helene-lacharmoise",
+    "tier": 3,
+    "rank": 62,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie dix9 helene lacharmoise"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commission",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.35106382978723405,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.898
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3475531914893617,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002694
+   },
+   "score": 0.3502471914893617,
+   "days_since_open": 0,
+   "days_to_close": 15,
+   "rank": 69,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 27,
+   "pinned": false,
+   "reasons": [
+    "venue 0.35 (rank 62 of 94)",
+    "quality 0.90 (6 images, 199 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "claudebernard-saul-steinberg",
+   "title": "Saul Steinberg",
+   "artist": "Saul Steinberg",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2026-11-14"
+   },
+   "n_images": 5,
+   "desc_words": 235,
+   "venue": {
+    "name": "Galerie Claude Bernard",
+    "id": "galerie-claude-bernard",
+    "tier": 3,
+    "rank": 64,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "galerie claude bernard"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.32978723404255317,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.97
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3264893617021276,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00291
+   },
+   "score": 0.32939936170212764,
+   "days_since_open": -13,
+   "days_to_close": 71,
+   "rank": 70,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.33 (rank 64 of 94)",
+    "quality 0.97 (5 images, 235 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "loeveandco-bongrain-traversee",
+   "title": "La traversée des Nuées",
+   "artist": "Léon Bongrain (dit le Mécano)",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-10-31"
+   },
+   "n_images": 3,
+   "desc_words": 190,
+   "venue": {
+    "name": "Loeve&Co",
+    "id": "loeve-and-co",
+    "tier": 3,
+    "rank": 66,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "loeve and co"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3085106382978723,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6799999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3054255319148936,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0020399999999999997
+   },
+   "score": 0.30746553191489356,
+   "days_since_open": -14,
+   "days_to_close": 57,
+   "rank": 71,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.31 (rank 66 of 94)",
+    "quality 0.68 (3 images, 190 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "maubert-loureiro",
+   "title": "Les Commensaux",
+   "artist": "José Loureiro",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 4,
+   "desc_words": 197,
+   "venue": {
+    "name": "Galerie Maubert",
+    "id": "galerie-maubert",
+    "tier": 3,
+    "rank": 67,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie maubert"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new series",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2978723404255319,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.794
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2948936170212766,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002382
+   },
+   "score": 0.2972756170212766,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 72,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.30 (rank 67 of 94)",
+    "quality 0.79 (4 images, 197 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "rxslag-kim-guiline-abstraction",
+   "title": "Aux origines de l'abstraction, 1962-1968",
+   "artist": "Kim Guiline",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-26"
+   },
+   "n_images": 4,
+   "desc_words": 202,
+   "venue": {
+    "name": "RX&SLAG",
+    "id": "rx-and-slag",
+    "tier": 3,
+    "rank": 70,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "rx and slag"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.26595744680851063,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.804
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2632978723404255,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002412
+   },
+   "score": 0.26570987234042553,
+   "days_since_open": -1,
+   "days_to_close": 22,
+   "rank": 73,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 70 of 94)",
+    "quality 0.80 (4 images, 202 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "rxslag-joanne-boyer-carnets",
+   "title": "Carnets ouverts",
+   "artist": "Joanne Boyer",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-26"
+   },
+   "n_images": 2,
+   "desc_words": 162,
+   "venue": {
+    "name": "RX&SLAG",
+    "id": "rx-and-slag",
+    "tier": 3,
+    "rank": 70,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "rx and slag"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.26595744680851063,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.524
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2632978723404255,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001572
+   },
+   "score": 0.2648698723404255,
+   "days_since_open": -1,
+   "days_to_close": 22,
+   "rank": 74,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 70 of 94)",
+    "quality 0.52 (2 images, 162 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "backslash-pauline-bazignan-sfondo",
+   "title": "Sfondo",
+   "artist": "Pauline Bazignan",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 2,
+   "desc_words": 204,
+   "venue": {
+    "name": "Backslash",
+    "id": "backslash",
+    "tier": 3,
+    "rank": 71,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "backslash"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.25531914893617025,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.608
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2527659574468085,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001824
+   },
+   "score": 0.2545899574468085,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 75,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.26 (rank 71 of 94)",
+    "quality 0.61 (2 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "pact-kinsbergen-after-the-procession",
+   "title": "After The Procession",
+   "artist": "Bram Kinsbergen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-03",
+    "end": "2026-10-16"
+   },
+   "n_images": 5,
+   "desc_words": 215,
+   "venue": {
+    "name": "PACT",
+    "id": "pact",
+    "tier": 3,
+    "rank": 72,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "pact"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.24468085106382975,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9771599684342459,
+    "closing_soon": 0.0,
+    "quality": 0.9299999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.24223404255319145,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00279
+   },
+   "score": 0.24502404255319143,
+   "days_since_open": 1,
+   "days_to_close": 42,
+   "rank": 76,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 28,
+   "pinned": false,
+   "reasons": [
+    "venue 0.24 (rank 72 of 94)",
+    "quality 0.93 (5 images, 215 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "milene-sanchez-alone-together",
+   "title": "Alone Together",
+   "artist": "Milène Sanchez",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-16",
+    "end": "2026-11-28"
+   },
+   "n_images": 5,
+   "desc_words": 214,
+   "venue": {
+    "name": "Galerie Claire Gastaud",
+    "id": "galerie-claire-gastaud",
+    "tier": 3,
+    "rank": 73,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie claire gastaud"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.23404255319148937,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9279999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.23170212765957446,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002784
+   },
+   "score": 0.23448612765957447,
+   "days_since_open": -42,
+   "days_to_close": 85,
+   "rank": 77,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.23 (rank 73 of 94)",
+    "quality 0.93 (5 images, 214 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "double-v-bonduelle",
+   "title": "Les oranges",
+   "artist": "Elvire Bonduelle",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 204,
+   "venue": {
+    "name": "Double V Gallery",
+    "id": "double-v",
+    "tier": 3,
+    "rank": 74,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "double v"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.22340425531914898,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9079999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2211702127659575,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002724
+   },
+   "score": 0.2238942127659575,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 78,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.22 (rank 74 of 94)",
+    "quality 0.91 (5 images, 204 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "193-memoire-materielle",
+   "title": "Mémoire Matérielle",
+   "artist": "Gaëlle Choisne, Joana Choumali, Andile Dyalvane, Carla Gueye",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 241,
+   "venue": {
+    "name": "193 Gallery",
+    "id": "193",
+    "tier": 3,
+    "rank": 75,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "193"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.21276595744680848,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2106382978723404,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.2135842978723404,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 79,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.21 (rank 75 of 94)",
+    "quality 0.98 (5 images, 241 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "afikaris-nos-geographies-intimes",
+   "title": "Nos géographies intimes (Our Intimate Geographies)",
+   "artist": "Hervé Yamguen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 193,
+   "venue": {
+    "name": "AFIKARIS",
+    "id": "afikaris",
+    "tier": 3,
+    "rank": 76,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "afikaris"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2021276595744681,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.886
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2001063829787234,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002658
+   },
+   "score": 0.2027643829787234,
+   "days_since_open": -1,
+   "days_to_close": 57,
+   "rank": 80,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.20 (rank 76 of 94)",
+    "quality 0.89 (5 images, 193 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "danysz-i-am-fine",
+   "title": "I am Fine: What Woman Wants — Portraits, Figures and Fictions of Femininity",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-10"
+   },
+   "n_images": 5,
+   "desc_words": 259,
+   "venue": {
+    "name": "Danysz Gallery",
+    "id": "danysz",
+    "tier": 3,
+    "rank": 77,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "danysz"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.19148936170212771,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.18957446808510645,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.19257446808510645,
+   "days_since_open": -1,
+   "days_to_close": 36,
+   "rank": 81,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.19 (rank 77 of 94)",
+    "quality 1.00 (5 images, 259 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "binome-laporte-cursus-corpus",
+   "title": "CURSUS / CORPUS",
+   "artist": "Julie Laporte",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-25",
+    "end": "2026-09-26"
+   },
+   "n_images": 4,
+   "desc_words": 207,
+   "venue": {
+    "name": "Galerie Binome",
+    "id": "galerie-binome",
+    "tier": 3,
+    "rank": 79,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie binome"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.17021276595744683,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19389309522921683,
+    "closing_soon": 0.0,
+    "quality": 0.8140000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16851063829787236,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002442
+   },
+   "score": 0.17095263829787236,
+   "days_since_open": 71,
+   "days_to_close": 22,
+   "rank": 82,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 29,
+   "pinned": false,
+   "reasons": [
+    "venue 0.17 (rank 79 of 94)",
+    "quality 0.81 (4 images, 207 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "james-barnor-lucky-jim",
+   "title": "Lucky Jim",
+   "artist": "James Barnor",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-24",
+    "end": "2026-11-21"
+   },
+   "n_images": 6,
+   "desc_words": 254,
+   "venue": {
+    "name": "Galerie Clémentine de la Féronnière",
+    "id": "galerie-clementine-de-la-feronniere",
+    "tier": 3,
+    "rank": 82,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "galerie clementine de la feronniere"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.13829787234042556,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1369148936170213,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.1399148936170213,
+   "days_since_open": -20,
+   "days_to_close": 78,
+   "rank": 83,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.14 (rank 82 of 94)",
+    "quality 1.00 (6 images, 254 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "galerie-vu-mp06",
+   "title": "MP#06",
+   "artist": "Jennifer Carlos, Judith Crico, Tavan Esmaili, Léa Pignard, Adrien Viot",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 182,
+   "venue": {
+    "name": "Galerie VU'",
+    "id": "galerie-vu",
+    "tier": 3,
+    "rank": 83,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Avenue Matignon/8th",
+    "norm": "galerie vu"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12765957446808507,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.864
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.1263829787234042,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002592
+   },
+   "score": 0.12897497872340422,
+   "days_since_open": -6,
+   "days_to_close": 22,
+   "rank": 84,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 83 of 94)",
+    "quality 0.86 (5 images, 182 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "robert-frank-john-cohen",
+   "title": "Robert Frank – Mabou / John Cohen – Pull My Daisy",
+   "artist": "Robert Frank & John Cohen",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 235,
+   "venue": {
+    "name": "Les Douches la Galerie",
+    "id": "les-douches-la-galerie",
+    "tier": 3,
+    "rank": 86,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "les douches la galerie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0957446808510638,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.97
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.09478723404255317,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00291
+   },
+   "score": 0.09769723404255316,
+   "days_since_open": 0,
+   "days_to_close": 57,
+   "rank": 85,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 30,
+   "pinned": false,
+   "reasons": [
+    "venue 0.10 (rank 86 of 94)",
+    "quality 0.97 (5 images, 235 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "loewy-sarah-tritz",
+   "title": "Je suis une économie du désir (I Am an Economy of Desire)",
+   "artist": "Sarah Tritz",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-24"
+   },
+   "n_images": 1,
+   "desc_words": 245,
+   "venue": {
+    "name": "Florence Loewy",
+    "id": "florence-loewy",
+    "tier": 3,
+    "rank": 87,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "florence loewy"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.08510638297872342,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.59
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.08425531914893618,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0017699999999999999
+   },
+   "score": 0.08602531914893617,
+   "days_since_open": -1,
+   "days_to_close": 50,
+   "rank": 86,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.09 (rank 87 of 94)",
+    "quality 0.59 (1 images, 245 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "romero-paprocki-poemes-graphiques",
+   "title": "Poèmes graphiques",
+   "artist": "Michel Houellebecq, Louis Paillard",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-04",
+    "end": "2026-09-26"
+   },
+   "n_images": 1,
+   "desc_words": 188,
+   "venue": {
+    "name": "Romero Paprocki",
+    "id": "romero-paprocki",
+    "tier": 3,
+    "rank": 88,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "romero paprocki"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.07446808510638303,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.476
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0737234042553192,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001428
+   },
+   "score": 0.0751514042553192,
+   "days_since_open": 0,
+   "days_to_close": 22,
+   "rank": 87,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 31,
+   "pinned": false,
+   "reasons": [
+    "venue 0.07 (rank 88 of 94)",
+    "quality 0.48 (1 images, 188 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "point-ephemere-almageste",
+   "title": "Almageste",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-02",
+    "end": "2026-09-13"
+   },
+   "n_images": 1,
+   "desc_words": 177,
+   "venue": {
+    "name": "Point Éphémère",
+    "id": "point-ephemere",
+    "tier": 3,
+    "rank": 90,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "point ephemere"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.05319148936170215,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2279306221395542,
+    "closing_soon": 1.0,
+    "quality": 0.45399999999999996
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.05265957446808513,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.001362
+   },
+   "score": 0.056021574468085124,
+   "days_since_open": 64,
+   "days_to_close": 9,
+   "rank": 88,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 32,
+   "pinned": false,
+   "reasons": [
+    "venue 0.05 (rank 90 of 94)",
+    "closes in 9 d",
+    "quality 0.45 (1 images, 177 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "cite-arts-sakura-momma",
+   "title": "Even as They Fade",
+   "artist": "Sakura Momma",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-08",
+    "end": "2026-09-09"
+   },
+   "n_images": 4,
+   "desc_words": 233,
+   "venue": {
+    "name": "Cité internationale des arts",
+    "id": "cite-internationale-des-arts",
+    "tier": 3,
+    "rank": 91,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "cite internationale des arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.04255319148936165,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2618235307051567,
+    "closing_soon": 1.0,
+    "quality": 0.8660000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.042127659574468033,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0025980000000000005
+   },
+   "score": 0.04672565957446803,
+   "days_since_open": 58,
+   "days_to_close": 5,
+   "rank": 89,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 33,
+   "pinned": false,
+   "reasons": [
+    "venue 0.04 (rank 91 of 94)",
+    "quality 0.87 (4 images, 233 words)",
+    "closes in 5 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "cite-arts-faire-place-monde",
+   "title": "Faire place au monde (Making Room for the World)",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-08",
+    "end": "2027-01-16"
+   },
+   "n_images": 3,
+   "desc_words": 265,
+   "venue": {
+    "name": "Cité internationale des arts",
+    "id": "cite-internationale-des-arts",
+    "tier": 3,
+    "rank": 91,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Marais",
+    "norm": "cite internationale des arts"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.04255319148936165,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.042127659574468033,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024000000000000002
+   },
+   "score": 0.04452765957446803,
+   "days_since_open": -34,
+   "days_to_close": 134,
+   "rank": 90,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.04 (rank 91 of 94)",
+    "quality 0.80 (3 images, 265 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "drawinglab-fenetre-temps",
+   "title": "Une fenêtre contre le temps (A Window Against Time)",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-28",
+    "end": "2026-09-06"
+   },
+   "n_images": 5,
+   "desc_words": 227,
+   "venue": {
+    "name": "Drawing Lab",
+    "id": "drawing-lab",
+    "tier": 3,
+    "rank": 93,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "drawing lab"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.021276595744680882,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.10153154954452945,
+    "closing_soon": 1.0,
+    "quality": 0.954
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.021063829787234072,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.002862
+   },
+   "score": 0.025925829787234074,
+   "days_since_open": 99,
+   "days_to_close": 2,
+   "rank": 91,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 34,
+   "pinned": false,
+   "reasons": [
+    "venue 0.02 (rank 93 of 94)",
+    "quality 0.95 (5 images, 227 words)",
+    "closes in 2 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "drawinglab-eclipse",
+   "title": "Éclipse",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-25",
+    "end": "2027-01-03"
+   },
+   "n_images": 4,
+   "desc_words": 256,
+   "venue": {
+    "name": "Drawing Lab",
+    "id": "drawing-lab",
+    "tier": 3,
+    "rank": 93,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Saint-Germain",
+    "norm": "drawing lab"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.021276595744680882,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.021063829787234072,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027
+   },
+   "score": 0.023763829787234073,
+   "days_since_open": -21,
+   "days_to_close": 121,
+   "rank": 92,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.02 (rank 93 of 94)",
+    "quality 0.90 (4 images, 256 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "104-walid-raad",
+   "title": "Festival of (in)gratitude",
+   "artist": "Walid Raad",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-23",
+    "end": "2026-11-22"
+   },
+   "n_images": 5,
+   "desc_words": 229,
+   "venue": {
+    "name": "Le CENTQUATRE-PARIS",
+    "id": "le-centquatre-paris",
+    "tier": 3,
+    "rank": 94,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Belleville/Pantin",
+    "norm": "le centquatre paris"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "four decades",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new photographs",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.010638297872340385,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.958
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.01053191489361698,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002874
+   },
+   "score": 0.01340591489361698,
+   "days_since_open": -49,
+   "days_to_close": 79,
+   "rank": 93,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.01 (rank 94 of 94)",
+    "quality 0.96 (5 images, 229 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788561121,
+   "run_id": "apply-paris-1788561121",
+   "city": "paris",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=51 reorder=True params=f81b83da35ba",
+   "params_hash": "f81b83da35ba"
+  },
+  {
+   "ts": 1788561122,
+   "run_id": "score-paris-1788561122",
+   "city": "paris",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.14,
+   "notes": "n_shows=93 featured=34 snapshot=None params=f81b83da35ba",
+   "params_hash": "f81b83da35ba",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 80,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

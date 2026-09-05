@@ -1,0 +1,328 @@
+{
+ "ts": 1788560187,
+ "city": "brussels",
+ "today": "2026-09-04",
+ "params_hash": "711562227710",
+ "params": {
+  "version": 1,
+  "city": "brussels",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 67,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "xh-constantin-nitsche-les-mains",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.99291,
+   "editors_pick": true
+  },
+  {
+   "slug": "laforestdivonne-summer-group-show",
+   "rank": 23,
+   "featured_rank": 2,
+   "score": 0.6396771343283583,
+   "editors_pick": true
+  },
+  {
+   "slug": "lita-albuquerque-pigments-et-presence",
+   "rank": 26,
+   "featured_rank": 3,
+   "score": 0.6084788955223881,
+   "editors_pick": true
+  },
+  {
+   "slug": "lost-and-found-japanese-photography",
+   "rank": 31,
+   "featured_rank": 4,
+   "score": 0.4155313432835821,
+   "editors_pick": true
+  },
+  {
+   "slug": "edji-robert-martin-a-gift-of-tears",
+   "rank": 32,
+   "featured_rank": 5,
+   "score": 0.4016912238805971,
+   "editors_pick": true
+  },
+  {
+   "slug": "summer-escape",
+   "rank": 39,
+   "featured_rank": 6,
+   "score": 0.19633955223880598,
+   "editors_pick": false
+  },
+  {
+   "slug": "nathalie-amand-le-carnet-rose",
+   "rank": 43,
+   "featured_rank": 7,
+   "score": 0.11969695522388062,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "xh-constantin-nitsche-les-mains",
+   "rank": 1,
+   "score": 0.99291,
+   "gate": null
+  },
+  {
+   "slug": "almine-rech-hans-op-de-beeck-vanishing-point",
+   "rank": 2,
+   "score": 0.9619117611940299,
+   "gate": "not_open"
+  },
+  {
+   "slug": "gretameert-du-pasquier-on-a-shelf",
+   "rank": 3,
+   "score": 0.9334815223880597,
+   "gate": "not_open"
+  },
+  {
+   "slug": "gretameert-pinsky-newtons-rings",
+   "rank": 4,
+   "score": 0.9334395223880597,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lisa-vlaemminck-dressage-ruined-by-puffers",
+   "rank": 5,
+   "score": 0.9030412835820895,
+   "gate": "not_open"
+  },
+  {
+   "slug": "alvin-ong-another-life",
+   "rank": 6,
+   "score": 0.9029272835820895,
+   "gate": "not_open"
+  },
+  {
+   "slug": "obadia-sophie-kuijken",
+   "rank": 7,
+   "score": 0.8746530447761194,
+   "gate": "not_open"
+  },
+  {
+   "slug": "caminhos-marcos-siqueira",
+   "rank": 8,
+   "score": 0.8586349253731344,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mm-kasper-sonne-people-are-strange",
+   "rank": 9,
+   "score": 0.8301086865671642,
+   "gate": "not_open"
+  },
+  {
+   "slug": "kristof-santy-bolero",
+   "rank": 14,
+   "score": 0.7710402089552238,
+   "gate": "not_open"
+  },
+  {
+   "slug": "superdakota-adrian-geller-village",
+   "rank": 15,
+   "score": 0.7549440895522388,
+   "gate": "not_open"
+  },
+  {
+   "slug": "isaac-andrews-i-wish-id-taken-more-photographs",
+   "rank": 16,
+   "score": 0.7267298507462687,
+   "gate": "not_open"
+  },
+  {
+   "slug": "hopstreet-atavists",
+   "rank": 17,
+   "score": 0.7121517313432836,
+   "gate": "not_open"
+  },
+  {
+   "slug": "pmg-sakiyama",
+   "rank": 18,
+   "score": 0.6972616119402986,
+   "gate": "not_open"
+  },
+  {
+   "slug": "villa-empain-diary-of-happiness",
+   "rank": 19,
+   "score": 0.6676973731343283,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "villa-empain-shape-of-absence",
+   "rank": 20,
+   "score": 0.6672353731343283,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "meessen-nicolas-lamas-failure-of-order",
+   "rank": 22,
+   "score": 0.6518712537313432,
+   "gate": "not_open"
+  },
+  {
+   "slug": "laforestdivonne-summer-group-show",
+   "rank": 23,
+   "score": 0.6396771343283583,
+   "gate": null
+  },
+  {
+   "slug": "laforestdivonne-le-choc-de-la-couleur",
+   "rank": 24,
+   "score": 0.6377251343283583,
+   "gate": "not_open"
+  },
+  {
+   "slug": "liturgie-des-jours-kurmaz-halkin",
+   "rank": 25,
+   "score": 0.6085208955223881,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lita-albuquerque-pigments-et-presence",
+   "rank": 26,
+   "score": 0.6084788955223881,
+   "gate": null
+  },
+  {
+   "slug": "nat-meade-shed-works-on-paper",
+   "rank": 27,
+   "score": 0.593348776119403,
+   "gate": "not_open"
+  },
+  {
+   "slug": "gaillard-folkert-de-jong-old-dna",
+   "rank": 28,
+   "score": 0.5492724179104478,
+   "gate": "not_open"
+  },
+  {
+   "slug": "cloudseven-casual-tease",
+   "rank": 29,
+   "score": 0.45957170149253734,
+   "gate": "not_open"
+  },
+  {
+   "slug": "mouraux-jonathan-adolphe-veils-of-light",
+   "rank": 30,
+   "score": 0.4448675820895522,
+   "gate": "not_open"
+  },
+  {
+   "slug": "lost-and-found-japanese-photography",
+   "rank": 31,
+   "score": 0.4155313432835821,
+   "gate": null
+  },
+  {
+   "slug": "edji-robert-martin-a-gift-of-tears",
+   "rank": 32,
+   "score": 0.4016912238805971,
+   "gate": null
+  },
+  {
+   "slug": "robert-brandy-couleur-matiere-energie",
+   "rank": 33,
+   "score": 0.3566908656716418,
+   "gate": "not_open"
+  },
+  {
+   "slug": "summer-escape",
+   "rank": 39,
+   "score": 0.19633955223880598,
+   "gate": null
+  },
+  {
+   "slug": "nathalie-amand-le-carnet-rose",
+   "rank": 43,
+   "score": 0.11969695522388062,
+   "gate": null
+  },
+  {
+   "slug": "hb-loustal-temps-suspendu",
+   "rank": 45,
+   "score": 0.07681459701492538,
+   "gate": "not_open"
+  },
+  {
+   "slug": "zwarthuis-pulso-agua-2",
+   "rank": 46,
+   "score": 0.06197247761194025,
+   "gate": "not_open"
+  },
+  {
+   "slug": "champaka-beuriot-flic-sous-occupation",
+   "rank": 47,
+   "score": 0.04570235820895524,
+   "gate": "not_open"
+  }
+ ]
+}

@@ -1,0 +1,349 @@
+{
+  "city": "venice",
+  "start_ts": 1788559068,
+  "zones": [
+    "San Marco",
+    "Dorsoduro",
+    "Cannaregio",
+    "Castello",
+    "Giudecca"
+  ],
+  "args": {
+    "city": "venice",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 40.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/venice/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559601,
+  "queue": {
+    "San Marco": {
+      "zone": "San Marco",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Dorsoduro": {
+      "zone": "Dorsoduro",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Cannaregio": {
+      "zone": "Cannaregio",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Castello": {
+      "zone": "Castello",
+      "order": 3,
+      "due": 5,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Giudecca": {
+      "zone": "Giudecca",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "bel-air-fine-art-venise"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bugno-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "caterina-tognon-arte-contemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-bevilacqua-la-masa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-dell-albero-d-oro-palazzo-vendramin-grimani"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-d-arte-contini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-la-salizada"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lineadacqua"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "a-plus-a"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "akka-project-venice"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-sanlorenzo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-alberta-pane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-d-arte-l-occhio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marignana-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "patricia-low-venezia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "san-polo-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "berggruen-arts-and-culture-palazzo-diedo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "european-cultural-centre-palazzo-mora-palazzo-bembo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondation-valmont-at-palazzo-bonvicini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ikona"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marina-bastianello"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "visioni-altre"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Marco",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-san-marco-1788559068",
+      "venue_ids": [
+        "bel-air-fine-art-venise",
+        "bugno-art",
+        "caterina-tognon-arte-contemporanea",
+        "fondazione-bevilacqua-la-masa",
+        "fondazione-dell-albero-d-oro-palazzo-vendramin-grimani",
+        "galleria-d-arte-contini",
+        "galleria-la-salizada",
+        "lineadacqua"
+      ],
+      "started_ts": 1788559068,
+      "ended_ts": 1788559237
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "castello-925"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-ravagnan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ocean-space-tba21-academy"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "smac-san-marco-art-centre"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-berlendis"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Cannaregio",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-cannaregio-1788559113",
+      "venue_ids": [
+        "berggruen-arts-and-culture-palazzo-diedo",
+        "european-cultural-centre-palazzo-mora-palazzo-bembo",
+        "fondation-valmont-at-palazzo-bonvicini",
+        "ikona",
+        "marina-bastianello",
+        "visioni-altre"
+      ],
+      "started_ts": 1788559113,
+      "ended_ts": 1788559238
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-punch"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dorsoduro",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-dorsoduro-1788559090",
+      "venue_ids": [
+        "a-plus-a",
+        "akka-project-venice",
+        "casa-sanlorenzo",
+        "galleria-alberta-pane",
+        "galleria-d-arte-l-occhio",
+        "marignana-arte",
+        "patricia-low-venezia",
+        "san-polo-art"
+      ],
+      "started_ts": 1788559090,
+      "ended_ts": 1788559239
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "victoria-miro-venice"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Giudecca",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-venice-giudecca-1788559238",
+      "venue_ids": [
+        "spazio-punch"
+      ],
+      "started_ts": 1788559238,
+      "ended_ts": 1788559305
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sparc-spazio-arte-contemporanea"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Marco",
+      "session": 2,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-venice-san-marco-1788559239",
+      "venue_ids": [
+        "victoria-miro-venice"
+      ],
+      "started_ts": 1788559239,
+      "ended_ts": 1788559334
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dorsoduro",
+      "session": 2,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-venice-dorsoduro-1788559305",
+      "venue_ids": [
+        "sparc-spazio-arte-contemporanea"
+      ],
+      "started_ts": 1788559305,
+      "ended_ts": 1788559366
+    },
+    {
+      "stage": "scrape",
+      "zone": "Castello",
+      "session": 1,
+      "todo": 5,
+      "saved": 8,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-venice-castello-1788559237",
+      "venue_ids": [
+        "castello-925",
+        "galleria-ravagnan",
+        "ocean-space-tba21-academy",
+        "smac-san-marco-art-centre",
+        "spazio-berlendis"
+      ],
+      "started_ts": 1788559237,
+      "ended_ts": 1788559601
+    }
+  ]
+}

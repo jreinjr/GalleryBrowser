@@ -1,0 +1,1562 @@
+{
+ "city": "chicago",
+ "generated_at": "2026-09-04T23:04:15+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "chicago",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 63,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "latinitudes",
+   "title": "Latinitudes: A Collection of Latin American Modern Architecture",
+   "artist": "Leonardo Finotti (curated by Michelle Jean de Castro)",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-02",
+    "end": "2026-09-26"
+   },
+   "n_images": 5,
+   "desc_words": 240,
+   "venue": {
+    "name": "Graham Foundation",
+    "id": "graham-foundation",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "graham foundation"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "U.S. debut",
+     "where": "description"
+    },
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennial",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8571428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0278405849418856,
+    "closing_soon": 0.0,
+    "quality": 0.98
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8485714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00294
+   },
+   "score": 0.8515114285714287,
+   "days_since_open": 155,
+   "days_to_close": 22,
+   "rank": 1,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.86 (rank 10 of 63)",
+    "quality 0.98 (5 images, 240 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "press-and-pull",
+   "title": "Press & Pull: A Legacy of the Robert Blackburn Printmaking Workshop",
+   "artist": "Group exhibition (Robert Blackburn Printmaking Workshop artists)",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-12-12"
+   },
+   "n_images": 5,
+   "desc_words": 226,
+   "venue": {
+    "name": "Gallery 400, University of Illinois Chicago",
+    "id": "gallery-400",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "gallery 400 university of illinois chicago"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8412698412698413,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.952
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8328571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002856
+   },
+   "score": 0.8357131428571428,
+   "days_since_open": -7,
+   "days_to_close": 99,
+   "rank": 2,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 11 of 63)",
+    "quality 0.95 (5 images, 226 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "cydney-lewis-reflection",
+   "title": "Cydney Lewis: Reflection",
+   "artist": "Cydney Lewis",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-29",
+    "end": "2026-12-12"
+   },
+   "n_images": 1,
+   "desc_words": 205,
+   "venue": {
+    "name": "Gallery 400, University of Illinois Chicago",
+    "id": "gallery-400",
+    "tier": 1,
+    "rank": 11,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "gallery 400 university of illinois chicago"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8412698412698413,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.10390473701784847,
+    "closing_soon": 0.0,
+    "quality": 0.51
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8328571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0015300000000000001
+   },
+   "score": 0.8343871428571429,
+   "days_since_open": 98,
+   "days_to_close": 99,
+   "rank": 3,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.84 (rank 11 of 63)",
+    "quality 0.51 (1 images, 205 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "big-picture-large-format",
+   "title": "The Big Picture: Midwest Large Format Asylum — Large Format Photography",
+   "artist": "Midwest Large Format Asylum (group exhibition)",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-04",
+    "end": "2026-10-02"
+   },
+   "n_images": 1,
+   "desc_words": 190,
+   "venue": {
+    "name": "Chicago Cultural Center",
+    "id": "chicago-cultural-center",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "River North",
+    "norm": "chicago cultural center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8095238095238095,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.48857998421712295,
+    "closing_soon": 0.0,
+    "quality": 0.48
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8014285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0014399999999999999
+   },
+   "score": 0.8028685714285714,
+   "days_since_open": 31,
+   "days_to_close": 28,
+   "rank": 4,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.81 (rank 13 of 63)",
+    "quality 0.48 (1 images, 190 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "tangible-sound",
+   "title": "Tangible Sound: Arrival to a Higher Ground",
+   "artist": "Lauren Deutsch and Jonathan Woods (with the Tangible Sound Collaborative)",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-04-25",
+    "end": "2026-09-27"
+   },
+   "n_images": 1,
+   "desc_words": 178,
+   "venue": {
+    "name": "Chicago Cultural Center",
+    "id": "chicago-cultural-center",
+    "tier": 1,
+    "rank": 13,
+    "n_fair": 0,
+    "is_museum": true,
+    "neighborhood": "River North",
+    "norm": "chicago cultural center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8095238095238095,
+    "artist_heat": 0.0,
+    "museum": 1.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.04736614270344993,
+    "closing_soon": 0.0,
+    "quality": 0.45599999999999996
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8014285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013679999999999999
+   },
+   "score": 0.8027965714285714,
+   "days_since_open": 132,
+   "days_to_close": 23,
+   "rank": 5,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.81 (rank 13 of 63)",
+    "quality 0.46 (1 images, 178 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "coprosperity-katharine-joy-houpt",
+   "title": "A Creature Who Is Aware of Joy and Despair and Everything in Between",
+   "artist": "Katharine Joy Houpt",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-14",
+    "end": "2026-09-25"
+   },
+   "n_images": 5,
+   "desc_words": 249,
+   "venue": {
+    "name": "Co-Prosperity",
+    "id": "co-prosperity",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "co prosperity"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7142857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6155722066724582,
+    "closing_soon": 0.0,
+    "quality": 0.998
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7071428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002994
+   },
+   "score": 0.7101368571428572,
+   "days_since_open": 21,
+   "days_to_close": 21,
+   "rank": 6,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.71 (rank 19 of 63)",
+    "quality 1.00 (5 images, 249 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "coprosperity-between-memory-becoming",
+   "title": "Between Memory and Becoming: Manifestations of Black Motherhood",
+   "artist": "Alexy Irving-Alleyne, Andrea Hill Fitzgerald, Grandeast Wright, Summer Coleman, and Teni Odunsi",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-14",
+    "end": "2026-09-25"
+   },
+   "n_images": 5,
+   "desc_words": 223,
+   "venue": {
+    "name": "Co-Prosperity",
+    "id": "co-prosperity",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "co prosperity"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7142857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6155722066724582,
+    "closing_soon": 0.0,
+    "quality": 0.946
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7071428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002838
+   },
+   "score": 0.7099808571428572,
+   "days_since_open": 21,
+   "days_to_close": 21,
+   "rank": 7,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.71 (rank 19 of 63)",
+    "quality 0.95 (5 images, 223 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "all-terrain-landscape",
+   "title": "All Terrain: The Contemporary Landscape",
+   "artist": "Joan Holleb, Michael Dubina, Mark Flickinger, Paula Blackwell, Julia Katz, Karen Perl, Misha Goro, Brooks Anderson, Robin Denevan, Marie Renaudin, and Dag Hol",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-10",
+    "end": null
+   },
+   "n_images": 6,
+   "desc_words": 229,
+   "venue": {
+    "name": "Addington Gallery",
+    "id": "addington",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "addington"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4285714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2742062449236565,
+    "closing_soon": 0.0,
+    "quality": 0.958
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4242857142857143,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002874
+   },
+   "score": 0.4271597142857143,
+   "days_since_open": 56,
+   "days_to_close": null,
+   "rank": 8,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.43 (rank 37 of 63)",
+    "quality 0.96 (6 images, 229 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "prairie-connie-wilson-dazzle-pig",
+   "title": "Dazzle Pig",
+   "artist": "Connie Wilson",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-08",
+    "end": "2026-09-20"
+   },
+   "n_images": 5,
+   "desc_words": 207,
+   "venue": {
+    "name": "Prairie",
+    "id": "prairie",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "prairie"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.39682539682539686,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.5358867312681466,
+    "closing_soon": 0.0,
+    "quality": 0.9139999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3928571428571429,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0027419999999999996
+   },
+   "score": 0.3955991428571429,
+   "days_since_open": 27,
+   "days_to_close": 16,
+   "rank": 9,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.40 (rank 39 of 63)",
+    "quality 0.91 (5 images, 207 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "honoring-resilience",
+   "title": "Honoring Resilience: Tragedy, Memory and Honor",
+   "artist": "Bruno Surdo",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": null
+   },
+   "n_images": 3,
+   "desc_words": 185,
+   "venue": {
+    "name": "Gallery Victor",
+    "id": "gallery-victor-armendariz",
+    "tier": 2,
+    "rank": 40,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "gallery victor"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38095238095238093,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.6699999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3771428571428571,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0020099999999999996
+   },
+   "score": 0.3791528571428571,
+   "days_since_open": -7,
+   "days_to_close": null,
+   "rank": 10,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.38 (rank 40 of 63)",
+    "quality 0.67 (3 images, 185 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "bac-color-songs",
+   "title": "Color Songs: Musicians as Visual Artists",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-17",
+    "end": "2026-09-04"
+   },
+   "n_images": 1,
+   "desc_words": 243,
+   "venue": {
+    "name": "Bridgeport Art Center",
+    "id": "bridgeport-art-center",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "bridgeport art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3650793650793651,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3223425771098948,
+    "closing_soon": 1.0,
+    "quality": 0.586
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3614285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.001758
+   },
+   "score": 0.36518657142857147,
+   "days_since_open": 49,
+   "days_to_close": 0,
+   "rank": 11,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 41 of 63)",
+    "closes in 0 d",
+    "quality 0.59 (1 images, 243 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "bac-gurushots-2026",
+   "title": "GuruShots Photo Exhibition: Chicago 2026",
+   "artist": null,
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-17",
+    "end": "2026-09-04"
+   },
+   "n_images": 1,
+   "desc_words": 149,
+   "venue": {
+    "name": "Bridgeport Art Center",
+    "id": "bridgeport-art-center",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "bridgeport art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3650793650793651,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3223425771098948,
+    "closing_soon": 1.0,
+    "quality": 0.398
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3614285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0011940000000000002
+   },
+   "score": 0.36462257142857146,
+   "days_since_open": 49,
+   "days_to_close": 0,
+   "rank": 12,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 41 of 63)",
+    "closes in 0 d",
+    "quality 0.40 (1 images, 149 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "bac-art-connection",
+   "title": "Art Connection: Past Meets Present",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-11-06"
+   },
+   "n_images": 1,
+   "desc_words": 171,
+   "venue": {
+    "name": "Bridgeport Art Center",
+    "id": "bridgeport-art-center",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "bridgeport art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3650793650793651,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.44200000000000006
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3614285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0013260000000000001
+   },
+   "score": 0.3627545714285715,
+   "days_since_open": -14,
+   "days_to_close": 63,
+   "rank": 13,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 41 of 63)",
+    "quality 0.44 (1 images, 171 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "bac-return-to-nature",
+   "title": "Return to Nature",
+   "artist": "Park Yon-jae",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 1,
+   "desc_words": 147,
+   "venue": {
+    "name": "Bridgeport Art Center",
+    "id": "bridgeport-art-center",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "bridgeport art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3650793650793651,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.394
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3614285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001182
+   },
+   "score": 0.3626105714285715,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 14,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 41 of 63)",
+    "quality 0.39 (1 images, 147 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "bac-una-vuelta-raices",
+   "title": "Una Vuelta a Mis Raíces (A Return to My Roots): Monochromatic Pigment Paintings",
+   "artist": "Robert Lipton",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-11-06"
+   },
+   "n_images": 1,
+   "desc_words": 140,
+   "venue": {
+    "name": "Bridgeport Art Center",
+    "id": "bridgeport-art-center",
+    "tier": 2,
+    "rank": 41,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "bridgeport art center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3650793650793651,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.38
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3614285714285715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00114
+   },
+   "score": 0.36256857142857146,
+   "days_since_open": -14,
+   "days_to_close": 63,
+   "rank": 15,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 41 of 63)",
+    "quality 0.38 (1 images, 140 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "sundowning-kevin-blake",
+   "title": "Sundowning",
+   "artist": "Kevin Blake",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-17"
+   },
+   "n_images": 5,
+   "desc_words": 241,
+   "venue": {
+    "name": "Bert Green Fine Art",
+    "id": "bert-green",
+    "tier": 2,
+    "rank": 45,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "bert green"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3015873015873016,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.982
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2985714285714286,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002946
+   },
+   "score": 0.3015174285714286,
+   "days_since_open": -8,
+   "days_to_close": 43,
+   "rank": 16,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.30 (rank 45 of 63)",
+    "quality 0.98 (5 images, 241 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "projectonward-my-little-pictures",
+   "title": "My Little Pictures",
+   "artist": "James Hall",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": null,
+    "end": null
+   },
+   "n_images": 3,
+   "desc_words": 213,
+   "venue": {
+    "name": "Project Onward",
+    "id": "project-onward",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "project onward"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2698412698412699,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.726
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2671428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002178
+   },
+   "score": 0.2693208571428572,
+   "days_since_open": null,
+   "days_to_close": null,
+   "rank": 17,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 47 of 63)",
+    "quality 0.73 (3 images, 213 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "projectonward-forever-yours",
+   "title": "Forever Yours: A Celebration of Tattooing",
+   "artist": "Ken Bortman, Ruby Bradford, Bill Douglas, Adam Hines, Fernando Ramirez, Lainey Sears, Noon Slaps, Luke Shemroske, and Alita Van Hee",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-11-07"
+   },
+   "n_images": 1,
+   "desc_words": 153,
+   "venue": {
+    "name": "Project Onward",
+    "id": "project-onward",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Pilsen/Bridgeport",
+    "norm": "project onward"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2698412698412699,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.406
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2671428571428572,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012180000000000001
+   },
+   "score": 0.2683608571428572,
+   "days_since_open": -14,
+   "days_to_close": 64,
+   "rank": 18,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.27 (rank 47 of 63)",
+    "quality 0.41 (1 images, 153 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "cls-urban-grain",
+   "title": "Urban Grain",
+   "artist": "CLs (Charles L. Shriver)",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-18",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 138,
+   "venue": {
+    "name": "Elephant Room Gallery",
+    "id": "elephant-room",
+    "tier": 2,
+    "rank": 48,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "River North",
+    "norm": "elephant room"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.25396825396825395,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.776
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2514285714285714,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002328
+   },
+   "score": 0.2537565714285714,
+   "days_since_open": -14,
+   "days_to_close": 57,
+   "rank": 19,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.25 (rank 48 of 63)",
+    "quality 0.78 (5 images, 138 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788563054,
+   "run_id": "apply-chicago-1788563054",
+   "city": "chicago",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=6 reorder=True params=9db179a918e9",
+   "params_hash": "9db179a918e9"
+  },
+  {
+   "ts": 1788563055,
+   "run_id": "score-chicago-1788563055",
+   "city": "chicago",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=19 featured=0 snapshot=None params=9db179a918e9",
+   "params_hash": "9db179a918e9",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 16,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

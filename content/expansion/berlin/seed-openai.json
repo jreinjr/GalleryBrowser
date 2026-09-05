@@ -1,0 +1,922 @@
+{
+ "provider": "openai",
+ "model": "gpt-5.6-sol",
+ "ts": 1788553923,
+ "system": "You are an art-world editor compiling a gallery guide for Berlin, Germany. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Berlin itself (galleries whose home is\nelsewhere count only through a permanent Berlin space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Mitte, Kreuzberg, Charlottenburg, Schöneberg) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Berlin spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Berlin, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "requests": 1,
+  "input_tokens": 399,
+  "output_tokens": 15299,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.307576,
+  "seconds": 252.9
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "neugerriemschneider",
+    "website": "https://www.neugerriemschneider.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Linienstraße 155",
+    "kind": "gallery",
+    "note": "A defining Berlin gallery with an internationally influential conceptual programme and major institutional artists."
+   },
+   {
+    "rank": 2,
+    "name": "Sprüth Magers",
+    "website": "https://www.spruethmagers.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Oranienburger Straße 18",
+    "kind": "gallery",
+    "note": "Global powerhouse representing leading postwar and contemporary artists, with exceptional museum and art-fair reach."
+   },
+   {
+    "rank": 3,
+    "name": "Esther Schipper",
+    "website": "https://www.estherschipper.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 81E",
+    "kind": "gallery",
+    "note": "Internationally pre-eminent for conceptual, time-based and technologically engaged art."
+   },
+   {
+    "rank": 4,
+    "name": "Galerie Max Hetzler",
+    "website": "https://www.maxhetzler.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Goethestraße 2/3",
+    "kind": "gallery",
+    "note": "One of Germany’s most powerful galleries, combining blue-chip postwar figures with influential contemporary artists."
+   },
+   {
+    "rank": 5,
+    "name": "KW Institute for Contemporary Art",
+    "website": "https://www.kw-berlin.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Auguststraße 69",
+    "kind": "nonprofit",
+    "note": "A central international institution for experimental contemporary art and home of the Berlin Biennale."
+   },
+   {
+    "rank": 6,
+    "name": "KÖNIG GALERIE",
+    "website": "https://www.koeniggalerie.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Alexandrinenstraße 118–121",
+    "kind": "gallery",
+    "note": "A highly visible international gallery known for ambitious installations and its landmark St. Agnes venue."
+   },
+   {
+    "rank": 7,
+    "name": "Contemporary Fine Arts",
+    "website": "https://www.cfa-berlin.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Grolmanstraße 32/33",
+    "kind": "gallery",
+    "note": "Longstanding tastemaker associated with major painters and prominent figures in contemporary figurative art."
+   },
+   {
+    "rank": 8,
+    "name": "Capitain Petzel",
+    "website": "https://www.capitainpetzel.de",
+    "neighborhood": "Friedrichshain",
+    "address_hint": "Karl-Marx-Allee 45",
+    "kind": "gallery",
+    "note": "Influential transatlantic programme presented in one of Berlin’s most distinctive modernist gallery buildings."
+   },
+   {
+    "rank": 9,
+    "name": "Meyer Riegger",
+    "website": "https://www.meyer-riegger.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Joachimsthaler Straße 24",
+    "kind": "gallery",
+    "note": "International gallery with a critically respected programme spanning major established and younger artists."
+   },
+   {
+    "rank": 10,
+    "name": "Galerie Buchholz",
+    "website": "https://www.galeriebuchholz.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Fasanenstraße 30",
+    "kind": "gallery",
+    "note": "Exceptionally influential, research-driven gallery closely connected to curatorial and institutional discourse."
+   },
+   {
+    "rank": 11,
+    "name": "Galerie Thomas Schulte",
+    "website": "https://www.galeriethomasschulte.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Charlottenstraße 24",
+    "kind": "gallery",
+    "note": "A major post-reunification gallery with strong conceptual, architectural and installation-based practices."
+   },
+   {
+    "rank": 12,
+    "name": "carlier | gebauer",
+    "website": "https://www.carliergebauer.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Markgrafenstraße 67",
+    "kind": "gallery",
+    "note": "Internationally respected programme spanning film, sculpture, painting and politically engaged practices."
+   },
+   {
+    "rank": 13,
+    "name": "ChertLüdde",
+    "website": "https://www.chertluedde.com",
+    "neighborhood": "Schöneberg",
+    "address_hint": "Hauptstraße 18",
+    "kind": "gallery",
+    "note": "Critically prominent gallery known for rigorous exhibitions and sustained development of distinctive artists."
+   },
+   {
+    "rank": 14,
+    "name": "Galerie Neu",
+    "website": "https://www.galerieneu.net",
+    "neighborhood": "Mitte",
+    "address_hint": "Linienstraße 119abc",
+    "kind": "gallery",
+    "note": "A key source of Berlin’s experimental gallery culture, with deep influence on younger international practices."
+   },
+   {
+    "rank": 15,
+    "name": "KOW",
+    "website": "https://www.kow-berlin.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Leipziger Straße 145",
+    "kind": "gallery",
+    "note": "Renowned for politically incisive conceptual art and artists receiving substantial institutional attention."
+   },
+   {
+    "rank": 16,
+    "name": "Galerie Nordenhake",
+    "website": "https://www.nordenhake.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Lindenstraße 34",
+    "kind": "gallery",
+    "note": "Established international gallery with a refined programme of conceptual, photographic and abstract art."
+   },
+   {
+    "rank": 17,
+    "name": "Galerie EIGEN + ART",
+    "website": "https://www.eigen-art.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Auguststraße 26",
+    "kind": "gallery",
+    "note": "Historically crucial to East Berlin’s art scene and still a major platform for German contemporary artists."
+   },
+   {
+    "rank": 18,
+    "name": "Galerie Isabella Bortolozzi",
+    "website": "https://www.galeriebortolozzi.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Schöneberger Ufer 61",
+    "kind": "gallery",
+    "note": "Highly influential, intellectually adventurous programme with strong critical and institutional visibility."
+   },
+   {
+    "rank": 19,
+    "name": "Galerie Barbara Wien",
+    "website": "https://www.barbarawien.de",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Schöneberger Ufer 65",
+    "kind": "gallery",
+    "note": "Distinguished for conceptual and research-based practices, especially artists working across cultural histories."
+   },
+   {
+    "rank": 20,
+    "name": "Schinkel Pavillon",
+    "website": "https://www.schinkelpavillon.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Oberwallstraße 32",
+    "kind": "nonprofit",
+    "note": "Prestigious nonprofit presenting ambitious contemporary commissions in an architecturally singular setting."
+   },
+   {
+    "rank": 21,
+    "name": "n.b.k. – Neuer Berliner Kunstverein",
+    "website": "https://www.nbk.org",
+    "neighborhood": "Mitte",
+    "address_hint": "Chausseestraße 128/129",
+    "kind": "nonprofit",
+    "note": "Foundational Berlin kunstverein with influential exhibitions, editions, archives and public discourse."
+   },
+   {
+    "rank": 22,
+    "name": "Galerie Nagel Draxler",
+    "website": "https://www.nagel-draxler.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Weydingerstraße 2/4",
+    "kind": "gallery",
+    "note": "Longstanding gallery bridging Pictures-generation legacies, institutional critique and emerging practices."
+   },
+   {
+    "rank": 23,
+    "name": "Société",
+    "website": "https://www.societeberlin.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Wielandstraße 26",
+    "kind": "gallery",
+    "note": "Internationally influential platform for artists addressing digital culture, identity and contemporary image-making."
+   },
+   {
+    "rank": 24,
+    "name": "Kraupa-Tuskany Zeidler",
+    "website": "https://www.kraupa-tuskany.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Kohlfurter Straße 41/43",
+    "kind": "gallery",
+    "note": "Closely watched gallery representing conceptually rigorous artists engaging technology, ecology and systems."
+   },
+   {
+    "rank": 25,
+    "name": "Galerie Barbara Thumm",
+    "website": "https://www.bthumm.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Markgrafenstraße 68",
+    "kind": "gallery",
+    "note": "Established gallery recognized for sustained support of feminist, postcolonial and socially engaged practices."
+   },
+   {
+    "rank": 26,
+    "name": "Konrad Fischer Galerie",
+    "website": "https://www.konradfischergalerie.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Neue Grünstraße 12",
+    "kind": "gallery",
+    "note": "Historically pivotal dealer of Minimal and Conceptual art with an enduring international programme."
+   },
+   {
+    "rank": 27,
+    "name": "NOME",
+    "website": "https://www.nomegallery.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 72",
+    "kind": "gallery",
+    "note": "Research-led gallery focused on the intersections of art, politics, technology and visual culture."
+   },
+   {
+    "rank": 28,
+    "name": "BQ",
+    "website": "https://www.bqberlin.de",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Kurfürstenstraße 145",
+    "kind": "gallery",
+    "note": "Artist-centred gallery with a longstanding reputation for idiosyncratic and critically important programmes."
+   },
+   {
+    "rank": 29,
+    "name": "Buchmann Galerie",
+    "website": "https://www.buchmanngalerie.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Charlottenstraße 13",
+    "kind": "gallery",
+    "note": "Respected international programme emphasizing sculpture, drawing and materially rigorous abstraction."
+   },
+   {
+    "rank": 30,
+    "name": "daadgalerie",
+    "website": "https://www.berliner-kuenstlerprogramm.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Oranienstraße 161",
+    "kind": "nonprofit",
+    "note": "Public exhibition platform for the DAAD Artists-in-Berlin programme and its internationally significant residents."
+   },
+   {
+    "rank": 31,
+    "name": "PSM",
+    "website": "https://www.psm-gallery.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Schöneberger Ufer 61",
+    "kind": "gallery",
+    "note": "Critically regarded gallery supporting conceptually precise and often socially attentive emerging artists."
+   },
+   {
+    "rank": 32,
+    "name": "DITTRICH & SCHLECHTRIEM",
+    "website": "https://www.dittrich-schlechtriem.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Linienstraße 23",
+    "kind": "gallery",
+    "note": "Strong international contemporary programme with notable art-fair activity and ambitious installations."
+   },
+   {
+    "rank": 33,
+    "name": "Wentrup",
+    "website": "https://www.wentrupgallery.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Knesebeckstraße 95",
+    "kind": "gallery",
+    "note": "Established Berlin gallery with a broad international roster and sustained institutional visibility."
+   },
+   {
+    "rank": 34,
+    "name": "Mehdi Chouakri",
+    "website": "https://www.mehdi-chouakri.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Fasanenstraße 61",
+    "kind": "gallery",
+    "note": "Known for precise conceptual and post-Minimal programmes and long relationships with influential artists."
+   },
+   {
+    "rank": 35,
+    "name": "JSF Berlin",
+    "website": "https://www.jsfoundation.art",
+    "neighborhood": "Mitte",
+    "address_hint": "Leipziger Straße 60",
+    "kind": "nonprofit",
+    "note": "Berlin venue of the Julia Stoschek Foundation, presenting major time-based and media-art exhibitions."
+   },
+   {
+    "rank": 36,
+    "name": "Tanya Leighton",
+    "website": "https://www.tanyaleighton.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Kluckstraße 6",
+    "kind": "gallery",
+    "note": "International gallery known for critically ambitious exhibitions and strong support of experimental practices."
+   },
+   {
+    "rank": 37,
+    "name": "Galerie Tanja Wagner",
+    "website": "https://www.tanjawagner.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Pohlstraße 64",
+    "kind": "gallery",
+    "note": "Prominent programme foregrounding feminist, queer, ecological and politically engaged positions."
+   },
+   {
+    "rank": 38,
+    "name": "Klemm’s",
+    "website": "https://www.klemms-berlin.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Leipziger Straße 57/58",
+    "kind": "gallery",
+    "note": "Respected for carefully developed careers and a conceptually focused international programme."
+   },
+   {
+    "rank": 39,
+    "name": "Daniel Marzona",
+    "website": "https://www.danielmarzona.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Friedrichstraße 17",
+    "kind": "gallery",
+    "note": "Rigorous gallery specializing in conceptual, Minimal and materially restrained contemporary art."
+   },
+   {
+    "rank": 40,
+    "name": "LAS Art Foundation",
+    "website": "https://www.las-art.foundation",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Glogauer Straße 2",
+    "kind": "nonprofit",
+    "note": "Ambitious foundation commissioning large-scale projects at the convergence of art, science and technology."
+   },
+   {
+    "rank": 41,
+    "name": "Sweetwater",
+    "website": "https://www.sweetwater.ltd",
+    "neighborhood": "Mitte",
+    "address_hint": "Leipziger Straße 56–58",
+    "kind": "gallery",
+    "note": "Fast-rising gallery with a tightly edited programme and substantial international fair and critical attention."
+   },
+   {
+    "rank": 42,
+    "name": "Efremidis",
+    "website": "https://www.efremidisgallery.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Reichpietschufer 84",
+    "kind": "gallery",
+    "note": "International programme recognized for ambitious presentations and distinctive architectural engagement."
+   },
+   {
+    "rank": 43,
+    "name": "Heidi",
+    "website": "https://www.heidi.gallery",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Kurfürstenstraße 145",
+    "kind": "gallery",
+    "note": "Closely watched contemporary gallery supporting emerging artists with strong institutional trajectories."
+   },
+   {
+    "rank": 44,
+    "name": "SAVVY Contemporary",
+    "website": "https://www.savvy-contemporary.com",
+    "neighborhood": "Wedding",
+    "address_hint": "Reinickendorfer Straße 17",
+    "kind": "nonprofit",
+    "note": "Internationally important decolonial art space combining exhibitions, research, performance and publishing."
+   },
+   {
+    "rank": 45,
+    "name": "Supportico Lopez",
+    "website": "https://www.supporticolopez.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Kurfürstenstraße 14B",
+    "kind": "gallery",
+    "note": "Distinctive artist-led gallery with an experimental programme and strong international critical profile."
+   },
+   {
+    "rank": 46,
+    "name": "Hua International",
+    "website": "https://www.hua-international.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 81A",
+    "kind": "gallery",
+    "note": "Cross-cultural contemporary gallery connecting Berlin with Chinese and wider international practices."
+   },
+   {
+    "rank": 47,
+    "name": "Trautwein Herleth",
+    "website": "https://www.trautweinherleth.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Karl-Liebknecht-Straße 29A",
+    "kind": "gallery",
+    "note": "Progressive gallery known for conceptually exacting exhibitions and influential emerging artists."
+   },
+   {
+    "rank": 48,
+    "name": "Molitor",
+    "website": "https://www.molitorberlin.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Kurfürstenstraße 143",
+    "kind": "gallery",
+    "note": "Highly regarded younger gallery with a precise, critically oriented international programme."
+   },
+   {
+    "rank": 49,
+    "name": "Künstlerhaus Bethanien",
+    "website": "https://www.bethanien.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Kottbusser Straße 10",
+    "kind": "nonprofit",
+    "note": "Longstanding international residency institution whose public exhibitions introduce artists from around the world."
+   },
+   {
+    "rank": 50,
+    "name": "nGbK – neue Gesellschaft für bildende Kunst",
+    "website": "https://www.ngbk.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Karl-Liebknecht-Straße 11/13",
+    "kind": "nonprofit",
+    "note": "Historically important member-run institution devoted to political, collaborative and socially engaged art."
+   },
+   {
+    "rank": 51,
+    "name": "Fluentum",
+    "website": "https://www.fluentum.org",
+    "neighborhood": "Zehlendorf",
+    "address_hint": "Clayallee 174",
+    "kind": "nonprofit",
+    "note": "Private contemporary-art platform noted for substantial exhibitions of moving-image and time-based work."
+   },
+   {
+    "rank": 52,
+    "name": "Haus am Lützowplatz",
+    "website": "https://www.hal-berlin.de",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Lützowplatz 9",
+    "kind": "nonprofit",
+    "note": "Established nonprofit presenting contemporary exhibitions, commissions and programmes addressing public debate."
+   },
+   {
+    "rank": 53,
+    "name": "Galerija Gregor Podnar",
+    "website": "https://www.galerijapodnar.com",
+    "neighborhood": "Friedrichshain",
+    "address_hint": "Strausberger Platz 19",
+    "kind": "gallery",
+    "note": "Internationally respected programme rooted in conceptual and formally rigorous Central European practices."
+   },
+   {
+    "rank": 54,
+    "name": "Aurel Scheibler",
+    "website": "https://www.aurelscheibler.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Bleibtreustraße 3",
+    "kind": "gallery",
+    "note": "Established dealer combining important postwar positions with thoughtfully selected contemporary artists."
+   },
+   {
+    "rank": 55,
+    "name": "Galerie Judin",
+    "website": "https://www.galeriejudin.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 83",
+    "kind": "gallery",
+    "note": "Prominent gallery particularly known for figurative painting and carefully staged solo exhibitions."
+   },
+   {
+    "rank": 56,
+    "name": "KEWENIG",
+    "website": "https://www.kewenig.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Brüderstraße 10",
+    "kind": "gallery",
+    "note": "International gallery presenting major postwar and contemporary artists in a historic Berlin townhouse."
+   },
+   {
+    "rank": 57,
+    "name": "Between Bridges",
+    "website": "https://www.betweenbridges.net",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Adalbertstraße 43",
+    "kind": "nonprofit",
+    "note": "Artist-founded nonprofit with a strong political programme, grants and support for cultural organizations."
+   },
+   {
+    "rank": 58,
+    "name": "Galerie Michael Janssen",
+    "website": "https://www.michaeljanssen.gallery",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 63",
+    "kind": "gallery",
+    "note": "Longstanding international gallery associated with significant painting, sculpture and cross-cultural programmes."
+   },
+   {
+    "rank": 59,
+    "name": "Crone",
+    "website": "https://www.croneberlin.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Fasanenstraße 29",
+    "kind": "gallery",
+    "note": "Established Berlin–Vienna gallery balancing historically significant work with contemporary positions."
+   },
+   {
+    "rank": 60,
+    "name": "alexander levy",
+    "website": "https://www.alexanderlevy.net",
+    "neighborhood": "Moabit",
+    "address_hint": "Alt-Moabit 110",
+    "kind": "gallery",
+    "note": "Recognized for artists engaging science, speculative futures, politics and technological systems."
+   },
+   {
+    "rank": 61,
+    "name": "Kadel Willborn",
+    "website": "https://www.kadel-willborn.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Knesebeckstraße 96",
+    "kind": "gallery",
+    "note": "Strong international gallery emphasizing conceptually and politically engaged contemporary practices."
+   },
+   {
+    "rank": 62,
+    "name": "max goelitz",
+    "website": "https://www.maxgoelitz.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Rudi-Dutschke-Straße 26",
+    "kind": "gallery",
+    "note": "Expanding gallery focused on abstract, conceptual and technology-conscious work across generations."
+   },
+   {
+    "rank": 63,
+    "name": "Robert Grunenberg",
+    "website": "https://www.robertgrunenberg.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Marburger Straße 6",
+    "kind": "gallery",
+    "note": "Closely watched programme pairing emerging artists with visually ambitious and culturally alert exhibitions."
+   },
+   {
+    "rank": 64,
+    "name": "GNYP Gallery",
+    "website": "https://www.gnypgallery.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Knesebeckstraße 96",
+    "kind": "gallery",
+    "note": "International contemporary gallery with particular strength in emerging and mid-career painting."
+   },
+   {
+    "rank": 65,
+    "name": "Noah Klink",
+    "website": "https://www.noahklink.com",
+    "neighborhood": "Mitte",
+    "address_hint": "Leipziger Straße 60",
+    "kind": "gallery",
+    "note": "Young programme attracting attention for experimental installations and institutionally engaged artists."
+   },
+   {
+    "rank": 66,
+    "name": "Kuckei + Kuckei",
+    "website": "https://www.kuckei-kuckei.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Linienstraße 107/108",
+    "kind": "gallery",
+    "note": "Longstanding gallery with an international programme spanning photography, painting, sculpture and installation."
+   },
+   {
+    "rank": 67,
+    "name": "Persons Projects",
+    "website": "https://www.personsprojects.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Lindenstraße 35",
+    "kind": "gallery",
+    "note": "Influential platform for Nordic and Northern European photography, video and lens-based conceptual art."
+   },
+   {
+    "rank": 68,
+    "name": "Galerie Thomas Fischer",
+    "website": "https://www.galerie-thomasfischer.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Mulackstraße 14",
+    "kind": "gallery",
+    "note": "Intimate, highly considered programme devoted to photography, sculpture and conceptual practices."
+   },
+   {
+    "rank": 69,
+    "name": "Kicken Berlin",
+    "website": "https://www.kicken-gallery.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Kaiserdamm 118",
+    "kind": "gallery",
+    "note": "Internationally important photography gallery combining canonical historical material with contemporary work."
+   },
+   {
+    "rank": 70,
+    "name": "Galerie Georg Nothelfer",
+    "website": "https://www.galerie-nothelfer.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Grolmanstraße 28",
+    "kind": "gallery",
+    "note": "Veteran Berlin gallery with deep expertise in postwar abstraction and related contemporary practices."
+   },
+   {
+    "rank": 71,
+    "name": "Galerie Michael Haas",
+    "website": "https://www.galeriehaas.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Niebuhrstraße 5",
+    "kind": "gallery",
+    "note": "Established gallery connecting modern and postwar art with selected contemporary painters and sculptors."
+   },
+   {
+    "rank": 72,
+    "name": "Galerie Friese",
+    "website": "https://www.galeriefriese.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Meierottostraße 1",
+    "kind": "gallery",
+    "note": "Respected programme with a strong history in German painting, drawing and materially focused art."
+   },
+   {
+    "rank": 73,
+    "name": "Schiefe Zähne",
+    "website": "https://www.schiefezaehne.com",
+    "neighborhood": "Prenzlauer Berg",
+    "address_hint": "Schönhauser Allee 161A",
+    "kind": "gallery",
+    "note": "Independent gallery admired for unconventional exhibitions and support of experimental emerging artists."
+   },
+   {
+    "rank": 74,
+    "name": "Galerie Anton Janizewski",
+    "website": "https://www.antonjanizewski.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Bleibtreustraße 1",
+    "kind": "gallery",
+    "note": "Younger gallery with a sharply contemporary programme and growing international critical recognition."
+   },
+   {
+    "rank": 75,
+    "name": "Galerie Russi Klenner",
+    "website": "https://www.russi-klenner.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Luckauer Straße 16",
+    "kind": "gallery",
+    "note": "Independent gallery known for strong emerging positions in painting, sculpture and installation."
+   },
+   {
+    "rank": 76,
+    "name": "Soy Capitán",
+    "website": "https://www.soycapitan.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Prinzessinnenstraße 29",
+    "kind": "gallery",
+    "note": "Critically respected programme supporting distinctive younger artists and carefully developed solo presentations."
+   },
+   {
+    "rank": 77,
+    "name": "SEXAUER",
+    "website": "https://www.sexauer.eu",
+    "neighborhood": "Weißensee",
+    "address_hint": "Streustraße 90",
+    "kind": "gallery",
+    "note": "Independent gallery with a conceptually driven roster and sustained participation in international fairs."
+   },
+   {
+    "rank": 78,
+    "name": "Office Impart",
+    "website": "https://www.officeimpart.com",
+    "neighborhood": "Moabit",
+    "address_hint": "Waldenserstraße 2–4",
+    "kind": "gallery",
+    "note": "Innovative gallery experimenting with exhibition, digital distribution and new models of artistic collaboration."
+   },
+   {
+    "rank": 79,
+    "name": "Dorothée Nilsson Gallery",
+    "website": "https://www.dorotheenilsson.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 65",
+    "kind": "gallery",
+    "note": "Well-regarded gallery devoted to contemporary photography and lens-based artistic practices."
+   },
+   {
+    "rank": 80,
+    "name": "Haverkampf Leistenschneider",
+    "website": "https://www.haverkampfleistenschneider.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Mommsenstraße 67",
+    "kind": "gallery",
+    "note": "Established contemporary programme with particular strength in painting and emerging German artists."
+   },
+   {
+    "rank": 81,
+    "name": "Jarmuschek + Partner",
+    "website": "https://www.jarmuschek.de",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 81A",
+    "kind": "gallery",
+    "note": "Active Berlin gallery supporting emerging and mid-career artists across painting, sculpture and photography."
+   },
+   {
+    "rank": 82,
+    "name": "CAMERA WORK",
+    "website": "https://www.camera-work.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Kantstraße 149",
+    "kind": "gallery",
+    "note": "Longstanding photography gallery with substantial market visibility and an international exhibition programme."
+   },
+   {
+    "rank": 83,
+    "name": "SETAREH",
+    "website": "https://www.setareh.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Schöneberger Ufer 71",
+    "kind": "gallery",
+    "note": "Berlin branch of an established German gallery presenting postwar and contemporary art."
+   },
+   {
+    "rank": 84,
+    "name": "REITER",
+    "website": "https://www.reitergalleries.com",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Potsdamer Straße 81A",
+    "kind": "gallery",
+    "note": "Berlin–Leipzig gallery with a solid programme of contemporary painting, sculpture and conceptual work."
+   },
+   {
+    "rank": 85,
+    "name": "Galerie Kornfeld",
+    "website": "https://www.galerie-kornfeld.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Fasanenstraße 26",
+    "kind": "gallery",
+    "note": "Established gallery with an international roster and visible commitment to contemporary painting."
+   },
+   {
+    "rank": 86,
+    "name": "Galerie kajetan",
+    "website": "https://www.galeriekajetan.com",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Gneisenaustraße 33",
+    "kind": "gallery",
+    "note": "Focused programme emphasizing reductive, conceptual and geometrically oriented contemporary art."
+   },
+   {
+    "rank": 87,
+    "name": "Galerie Springer Berlin",
+    "website": "https://www.galerie-springer.de",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Fasanenstraße 13",
+    "kind": "gallery",
+    "note": "Respected photography-focused gallery representing established and emerging international artists."
+   },
+   {
+    "rank": 88,
+    "name": "Galerie Poll",
+    "website": "https://www.galerie-poll.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Gipsstraße 3",
+    "kind": "gallery",
+    "note": "Historically significant West Berlin gallery with a sustained commitment to critical realist and figurative art."
+   },
+   {
+    "rank": 89,
+    "name": "Galerie Deschler",
+    "website": "https://www.deschler-berlin.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Auguststraße 61",
+    "kind": "gallery",
+    "note": "Long-running Mitte gallery presenting contemporary painting, sculpture and technology-related work."
+   },
+   {
+    "rank": 90,
+    "name": "Galerie Mazzoli",
+    "website": null,
+    "neighborhood": "Prenzlauer Berg",
+    "address_hint": "Eberswalder Straße 30",
+    "kind": "gallery",
+    "note": "Berlin outpost connected to the influential Italian gallery, with a programme spanning conceptual art and sound."
+   },
+   {
+    "rank": 91,
+    "name": "Rolando Anselmi",
+    "website": "https://www.rolandoanselmi.com",
+    "neighborhood": "Prenzlauer Berg",
+    "address_hint": "Winsstraße 72",
+    "kind": "gallery",
+    "note": "International gallery recognized for emerging conceptual practices and cross-generational exhibition projects."
+   },
+   {
+    "rank": 92,
+    "name": "Galerie Gilla Lörcher",
+    "website": "https://www.galeriegillaloercher.de",
+    "neighborhood": "Tiergarten",
+    "address_hint": "Pohlstraße 73",
+    "kind": "gallery",
+    "note": "Independent gallery with a consistent focus on conceptually grounded abstraction and installation."
+   },
+   {
+    "rank": 93,
+    "name": "taubert contemporary",
+    "website": "https://www.taubertcontemporary.com",
+    "neighborhood": "Charlottenburg",
+    "address_hint": "Knesebeckstraße 90",
+    "kind": "gallery",
+    "note": "Programme centered on concrete, reductive and architecturally responsive contemporary art."
+   },
+   {
+    "rank": 94,
+    "name": "Kunstverein am Rosa-Luxemburg-Platz",
+    "website": "https://www.kunstverein-rlp.de",
+    "neighborhood": "Mitte",
+    "address_hint": "Linienstraße 40",
+    "kind": "nonprofit",
+    "note": "Artist-oriented kunstverein presenting experimental exhibitions and supporting independent curatorial production."
+   },
+   {
+    "rank": 95,
+    "name": "alpha nova & galerie futura",
+    "website": "https://www.alpha-nova-kulturwerkstatt.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Am Flutgraben 3",
+    "kind": "nonprofit",
+    "note": "Important feminist and queer cultural space combining exhibitions, research, education and political practice."
+   },
+   {
+    "rank": 96,
+    "name": "Kunstraum Kreuzberg/Bethanien",
+    "website": "https://www.kunstraumkreuzberg.de",
+    "neighborhood": "Kreuzberg",
+    "address_hint": "Mariannenplatz 2",
+    "kind": "nonprofit",
+    "note": "Major municipal art space known for thematic group exhibitions and engagement with Berlin’s diverse communities."
+   },
+   {
+    "rank": 97,
+    "name": "Kunstverein Tiergarten | Galerie Nord",
+    "website": "https://www.kunstverein-tiergarten.de",
+    "neighborhood": "Moabit",
+    "address_hint": "Turmstraße 75",
+    "kind": "nonprofit",
+    "note": "Active local kunstverein presenting contemporary exhibitions with strong social and neighborhood engagement."
+   },
+   {
+    "rank": 98,
+    "name": "Galerie Wedding",
+    "website": "https://www.galeriewedding.de",
+    "neighborhood": "Wedding",
+    "address_hint": "Müllerstraße 146/147",
+    "kind": "nonprofit",
+    "note": "Municipal gallery recognized for experimental commissions and programmes engaging migration and urban politics."
+   },
+   {
+    "rank": 99,
+    "name": "Galerie im Turm",
+    "website": "https://www.galerie-im-turm.net",
+    "neighborhood": "Friedrichshain",
+    "address_hint": "Frankfurter Tor 1",
+    "kind": "nonprofit",
+    "note": "Municipal contemporary-art venue with a critically engaged programme in a landmark East Berlin setting."
+   },
+   {
+    "rank": 100,
+    "name": "Galerie im Saalbau",
+    "website": null,
+    "neighborhood": "Neukölln",
+    "address_hint": "Karl-Marx-Straße 141",
+    "kind": "nonprofit",
+    "note": "Municipal exhibition space providing an important platform for artists and curators connected to Neukölln."
+   }
+  ]
+ }
+}

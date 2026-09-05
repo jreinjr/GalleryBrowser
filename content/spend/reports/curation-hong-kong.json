@@ -1,0 +1,3016 @@
+{
+ "city": "hong-kong",
+ "generated_at": "2026-09-04T21:57:51+00:00",
+ "today": "2026-09-04",
+ "params_default": {
+  "version": 1,
+  "city": "hong-kong",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 54,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "sources": [],
+ "venue_registry_present": true,
+ "shows": [
+  {
+   "slug": "stanley-whitney-gagosian",
+   "title": "Isn't Love the Strangest Thing",
+   "artist": "Stanley Whitney",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-11-07"
+   },
+   "n_images": 3,
+   "desc_words": 231,
+   "venue": {
+    "name": "Gagosian",
+    "id": "gagosian",
+    "tier": 1,
+    "rank": 1,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "gagosian"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 1.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.762
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.99,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0022860000000000003
+   },
+   "score": 0.992286,
+   "days_since_open": -6,
+   "days_to_close": 64,
+   "rank": 1,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 1.00 (rank 1 of 54)",
+    "quality 0.76 (3 images, 231 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "dan-flavin-grids-dz",
+   "title": "Dan Flavin: Grids",
+   "artist": "Dan Flavin",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-05-28",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 240,
+   "venue": {
+    "name": "David Zwirner",
+    "id": "david-zwirner",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "david zwirner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo exhibition",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9814814814814815,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.10153154954452945,
+    "closing_soon": 1.0,
+    "quality": 0.98
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9716666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.00294
+   },
+   "score": 0.9766066666666666,
+   "days_since_open": 99,
+   "days_to_close": 8,
+   "rank": 2,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 1,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 2 of 54)",
+    "quality 0.98 (5 images, 240 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "nocturnal-dz",
+   "title": "Nocturnal",
+   "artist": "Uri Aran, Patricia Ayres, Julie Beaufils, Sedrick Chisom, Carroll Dunham, Nat Faulkner, Sasha Gordon, Kenji Ide, Olivia van Kuiken, Heidi Lau, Jack O'Brien, Kent O'Connor, Trevor Shimizu, Michelle Uckotter",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-23",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 126,
+   "venue": {
+    "name": "David Zwirner",
+    "id": "david-zwirner",
+    "tier": 1,
+    "rank": 2,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "david zwirner"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9814814814814815,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.352
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9716666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0010559999999999999
+   },
+   "score": 0.9727226666666666,
+   "days_since_open": -19,
+   "days_to_close": 71,
+   "rank": 3,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.98 (rank 2 of 54)",
+    "quality 0.35 (1 images, 126 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "hw-lucio-fontana",
+   "title": "Lucio Fontana: Spatialism. Pioneering the Contemporary",
+   "artist": "Lucio Fontana",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2026-12-19"
+   },
+   "n_images": 1,
+   "desc_words": 207,
+   "venue": {
+    "name": "Hauser & Wirth",
+    "id": "hauser-and-wirth",
+    "tier": 1,
+    "rank": 3,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "hauser and wirth"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.962962962962963,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.514
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9533333333333334,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001542
+   },
+   "score": 0.9548753333333334,
+   "days_since_open": -13,
+   "days_to_close": 106,
+   "rank": 4,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.96 (rank 3 of 54)",
+    "quality 0.51 (1 images, 207 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "tesfaye-urgessa-the-lingering-departure",
+   "title": "The Lingering Departure",
+   "artist": "Tesfaye Urgessa",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-09",
+    "end": "2026-10-20"
+   },
+   "n_images": 2,
+   "desc_words": 229,
+   "venue": {
+    "name": "White Cube",
+    "id": "white-cube",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "white cube"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "biennial",
+     "label": "biennial / Made in L.A. / Whitney",
+     "weight": 0.8,
+     "term": "Biennale",
+     "where": "description"
+    },
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9444444444444444,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.658
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9349999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001974
+   },
+   "score": 0.936974,
+   "days_since_open": -5,
+   "days_to_close": 46,
+   "rank": 5,
+   "gate": "not_open",
+   "gate_detail": "opens in 5 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 4 of 54)",
+    "quality 0.66 (2 images, 229 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 5 d"
+   ]
+  },
+  {
+   "slug": "yunyao-zhang-when-the-surface-thinks",
+   "title": "When the Surface Thinks",
+   "artist": "Yunyao Zhang",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-10-30",
+    "end": "2026-12-19"
+   },
+   "n_images": 1,
+   "desc_words": 219,
+   "venue": {
+    "name": "White Cube",
+    "id": "white-cube",
+    "tier": 1,
+    "rank": 4,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "white cube"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9444444444444444,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.538
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9349999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016140000000000002
+   },
+   "score": 0.936614,
+   "days_since_open": -56,
+   "days_to_close": 106,
+   "rank": 6,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.94 (rank 4 of 54)",
+    "quality 0.54 (1 images, 219 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "kiang-malingue-wayfarer-of-fire",
+   "title": "Wayfarer of Fire",
+   "artist": "Brook Hsu, Kwan Sheung Chi, Lai Chih-Sheng, Phillip Lai, Ellen Pau, Apichatpong Weerasethakul, Samson Young",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-11",
+    "end": "2026-11-14"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "Kiang Malingue",
+    "id": "kiang-malingue",
+    "tier": 1,
+    "rank": 5,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "kiang malingue"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9259259259259259,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9166666666666666,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.9181546666666667,
+   "days_since_open": -7,
+   "days_to_close": 71,
+   "rank": 7,
+   "gate": "not_open",
+   "gate_detail": "opens in 7 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.93 (rank 5 of 54)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 7 d"
+   ]
+  },
+  {
+   "slug": "blindspot-soft-borders",
+   "title": "Soft Borders",
+   "artist": "Igshaan Adams, Bi Rongrong, Kazuko Miyamoto, Angela Su, Aiko Tezuka, Yee I-Lann",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-15",
+    "end": "2026-11-07"
+   },
+   "n_images": 5,
+   "desc_words": 237,
+   "venue": {
+    "name": "Blindspot Gallery",
+    "id": "blindspot",
+    "tier": 1,
+    "rank": 6,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "blindspot"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.9074074074074074,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.974
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8983333333333333,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002922
+   },
+   "score": 0.9012553333333333,
+   "days_since_open": -11,
+   "days_to_close": 64,
+   "rank": 8,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.91 (rank 6 of 54)",
+    "quality 0.97 (5 images, 237 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "desarthe-lau-wai-after-intelligence",
+   "title": "After Intelligence",
+   "artist": "Lau Wai",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-26"
+   },
+   "n_images": 2,
+   "desc_words": 216,
+   "venue": {
+    "name": "de Sarthe",
+    "id": "de-sarthe",
+    "tier": 1,
+    "rank": 7,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "de sarthe"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8888888888888888,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.632
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8799999999999999,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0018960000000000001
+   },
+   "score": 0.8818959999999999,
+   "days_since_open": -1,
+   "days_to_close": 22,
+   "rank": 9,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.89 (rank 7 of 54)",
+    "quality 0.63 (2 images, 216 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "empty-gallery-ann-zhao-spillover",
+   "title": "Spillover",
+   "artist": "Ann Zhao",
+   "pool": "pending",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-04",
+    "end": "2026-09-05"
+   },
+   "n_images": 5,
+   "desc_words": 230,
+   "venue": {
+    "name": "Empty Gallery",
+    "id": "empty",
+    "tier": 1,
+    "rank": 8,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "empty"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8703703703703703,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2387104009776041,
+    "closing_soon": 1.0,
+    "quality": 0.96
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8616666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0028799999999999997
+   },
+   "score": 0.8665466666666667,
+   "days_since_open": 62,
+   "days_to_close": 1,
+   "rank": 10,
+   "gate": "not_published",
+   "gate_detail": "in the pending pool; the built site reads the published file only",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.87 (rank 8 of 54)",
+    "quality 0.96 (5 images, 230 words)",
+    "closes in 1 d",
+    "no judge verdict",
+    "no signals",
+    "gated: in the pending pool; the built site reads the published file only"
+   ]
+  },
+  {
+   "slug": "why-the-butterflies",
+   "title": "Why the Butterflies",
+   "artist": "Nicole Wittenberg",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-26",
+    "end": "2026-10-07"
+   },
+   "n_images": 6,
+   "desc_words": 262,
+   "venue": {
+    "name": "MASSIMODECARLO",
+    "id": "massimo-de-carlo",
+    "tier": 1,
+    "rank": 9,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "massimodecarlo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new paintings",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8518518518518519,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.19842513149602492,
+    "closing_soon": 0.0,
+    "quality": 1.0
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8433333333333334,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.003
+   },
+   "score": 0.8463333333333334,
+   "days_since_open": 70,
+   "days_to_close": 33,
+   "rank": 11,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 2,
+   "pinned": false,
+   "reasons": [
+    "venue 0.85 (rank 9 of 54)",
+    "quality 1.00 (6 images, 262 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "aaa-at-25-part-ii",
+   "title": "At 25: Artists' Early Worlds, Part II",
+   "artist": "Salima Hashmi, Holly Lee, Bahc Yiso, Raqs Media Collective",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-24",
+    "end": "2026-10-31"
+   },
+   "n_images": 3,
+   "desc_words": 230,
+   "venue": {
+    "name": "Asia Art Archive",
+    "id": "asia-art-archive",
+    "tier": 1,
+    "rank": 10,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "norm": "asia art archive"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    },
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "commissioned",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8333333333333334,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.37892914162759955,
+    "closing_soon": 0.0,
+    "quality": 0.76
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.8250000000000001,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00228
+   },
+   "score": 0.82728,
+   "days_since_open": 42,
+   "days_to_close": 57,
+   "rank": 12,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 3,
+   "pinned": false,
+   "reasons": [
+    "venue 0.83 (rank 10 of 54)",
+    "quality 0.76 (3 images, 230 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "axel-vervoordt-kim-lim-source",
+   "title": "Kim Lim: Source",
+   "artist": "Kim Lim",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-17",
+    "end": "2027-01-30"
+   },
+   "n_images": 3,
+   "desc_words": 250,
+   "venue": {
+    "name": "Axel Vervoordt Gallery",
+    "id": "axel-vervoordt",
+    "tier": 1,
+    "rank": 14,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "axel vervoordt"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7592592592592593,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7516666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0024000000000000002
+   },
+   "score": 0.7540666666666667,
+   "days_since_open": -13,
+   "days_to_close": 148,
+   "rank": 13,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.76 (rank 14 of 54)",
+    "quality 0.80 (3 images, 250 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "ben-brown-qi-lei-echoes",
+   "title": "Qi Lei: Echoes of Day and Night",
+   "artist": "Qi Lei",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-24"
+   },
+   "n_images": 5,
+   "desc_words": 182,
+   "venue": {
+    "name": "Ben Brown Fine Arts",
+    "id": "ben-brown",
+    "tier": 1,
+    "rank": 15,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "ben brown"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7407407407407407,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.864
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7333333333333333,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002592
+   },
+   "score": 0.7359253333333333,
+   "days_since_open": -8,
+   "days_to_close": 50,
+   "rank": 14,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.74 (rank 15 of 54)",
+    "quality 0.86 (5 images, 182 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "rossi-rossi-strange-song-amongst-snow",
+   "title": "A Strange Song Amongst the Snow",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-24"
+   },
+   "n_images": 6,
+   "desc_words": 223,
+   "venue": {
+    "name": "Rossi & Rossi",
+    "id": "rossi-and-rossi",
+    "tier": 1,
+    "rank": 16,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "rossi and rossi"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7222222222222222,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.946
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.715,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002838
+   },
+   "score": 0.717838,
+   "days_since_open": -1,
+   "days_to_close": 50,
+   "rank": 15,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.72 (rank 16 of 54)",
+    "quality 0.95 (6 images, 223 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "ora-ora-pleasure-dome-hills",
+   "title": "The Pleasure-Dome of Hills: A Curated Hallucination of a Modern Literati",
+   "artist": "Chan Cho Kiu Bunchi, Emily Cheng, Dave Chow Yui Wang, Huang Dan, Ashlee Ip, Vann Kwok, Lam Duen Shan Ming, Lau Hiu Tung, Mindy Lui, Gerald Mak, Tse Chun Sing, Wengio Wong, Zhang Zhihui",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-27",
+    "end": "2026-10-03"
+   },
+   "n_images": 3,
+   "desc_words": 208,
+   "venue": {
+    "name": "Galerie Ora-Ora",
+    "id": "galerie-ora-ora",
+    "tier": 1,
+    "rank": 17,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "galerie ora ora"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.7037037037037037,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8312378961427878,
+    "closing_soon": 0.0,
+    "quality": 0.716
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6966666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002148
+   },
+   "score": 0.6988146666666667,
+   "days_since_open": 8,
+   "days_to_close": 29,
+   "rank": 16,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 4,
+   "pinned": false,
+   "reasons": [
+    "venue 0.70 (rank 17 of 54)",
+    "quality 0.72 (3 images, 208 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "whitestone-traces-isobe-mizu",
+   "title": "TRACES: Yukihisa Isobe, Tetsuo Mizù",
+   "artist": "Yukihisa Isobe, Tetsuo Mizù",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-09-24"
+   },
+   "n_images": 4,
+   "desc_words": 232,
+   "venue": {
+    "name": "Whitestone Gallery",
+    "id": "whitestone",
+    "tier": 1,
+    "rank": 19,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "whitestone"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six-decade",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8640000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.66,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0025920000000000006
+   },
+   "score": 0.6625920000000001,
+   "days_since_open": -1,
+   "days_to_close": 20,
+   "rank": 17,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.67 (rank 19 of 54)",
+    "quality 0.86 (4 images, 232 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "gallery-exit-cho-wing-ki-dazzled",
+   "title": "Dazzled in the Loop",
+   "artist": "Cho Wing Ki",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-10-03"
+   },
+   "n_images": 5,
+   "desc_words": 243,
+   "venue": {
+    "name": "Gallery EXIT",
+    "id": "gallery-exit",
+    "tier": 1,
+    "rank": 20,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "gallery exit"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6481481481481481,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.986
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6416666666666666,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002958
+   },
+   "score": 0.6446246666666666,
+   "days_since_open": -1,
+   "days_to_close": 29,
+   "rank": 18,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.65 (rank 20 of 54)",
+    "quality 0.99 (5 images, 243 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "kwai-fung-hin-lost-time",
+   "title": "In Search of Lost Time",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-15",
+    "end": "2026-11-28"
+   },
+   "n_images": 1,
+   "desc_words": 152,
+   "venue": {
+    "name": "Kwai Fung Hin Art Gallery",
+    "id": "kwai-fung-hin-art",
+    "tier": 2,
+    "rank": 21,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "kwai fung hin art"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6296296296296297,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.404
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.6233333333333333,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0012120000000000002
+   },
+   "score": 0.6245453333333333,
+   "days_since_open": -11,
+   "days_to_close": 85,
+   "rank": 19,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.63 (rank 21 of 54)",
+    "quality 0.40 (1 images, 152 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "toil-and-soil-gdm",
+   "title": "Toil and Soil",
+   "artist": "Chiu Wei-Hsiang",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-31"
+   },
+   "n_images": 5,
+   "desc_words": 217,
+   "venue": {
+    "name": "Galerie du Monde (gdm)",
+    "id": "galerie-du-monde",
+    "tier": 2,
+    "rank": 23,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "galerie du monde gdm"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "debut",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5925925925925926,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.9339999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5866666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002802
+   },
+   "score": 0.5894686666666666,
+   "days_since_open": -6,
+   "days_to_close": 57,
+   "rank": 20,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.59 (rank 23 of 54)",
+    "quality 0.93 (5 images, 217 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "myonghi-kang-what-remains-to-be-seen",
+   "title": "What Remains to Be Seen",
+   "artist": "Myonghi Kang",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-29",
+    "end": "2026-11-15"
+   },
+   "n_images": 6,
+   "desc_words": 219,
+   "venue": {
+    "name": "Villepin",
+    "id": "villepin",
+    "tier": 2,
+    "rank": 24,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "villepin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "six decades",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5740740740740741,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.938
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5683333333333334,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002814
+   },
+   "score": 0.5711473333333333,
+   "days_since_open": -25,
+   "days_to_close": 72,
+   "rank": 21,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.57 (rank 24 of 54)",
+    "quality 0.94 (6 images, 219 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "videotage-itit-cheung-tide",
+   "title": "Tomorrow, the Tide Will Rise Again",
+   "artist": "itit Cheung (張喆)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-22",
+    "end": "2026-10-04"
+   },
+   "n_images": 1,
+   "desc_words": 223,
+   "venue": {
+    "name": "Videotage",
+    "id": "videotage",
+    "tier": 2,
+    "rank": 25,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Tsim Sha Tsui/Kowloon",
+    "norm": "videotage"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "new_work",
+     "label": "new work / debut",
+     "weight": 0.3,
+     "term": "new work",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5555555555555556,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.3,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.7405487761432821,
+    "closing_soon": 0.0,
+    "quality": 0.546
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.55,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0016380000000000001
+   },
+   "score": 0.5516380000000001,
+   "days_since_open": 13,
+   "days_to_close": 30,
+   "rank": 22,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": true,
+   "featured_rank": 5,
+   "pinned": false,
+   "reasons": [
+    "venue 0.56 (rank 25 of 54)",
+    "quality 0.55 (1 images, 223 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "hkac-collaboration-in-collision",
+   "title": "Collaboration in Collision",
+   "artist": "Fang Lijun, Kurt Chan Yuk-keung, Shiro Matsui, Raymond Fung Wing-kee, PRS, Juri Hwang, Andreas Kratky",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-26",
+    "end": "2026-09-20"
+   },
+   "n_images": 2,
+   "desc_words": 254,
+   "venue": {
+    "name": "Hong Kong Arts Centre",
+    "id": "hong-kong-arts-centre",
+    "tier": 2,
+    "rank": 26,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "hong kong arts centre"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.537037037037037,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8122523963562356,
+    "closing_soon": 0.0,
+    "quality": 0.7
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5316666666666666,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0021
+   },
+   "score": 0.5337666666666666,
+   "days_since_open": 9,
+   "days_to_close": 16,
+   "rank": 23,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 6,
+   "pinned": false,
+   "reasons": [
+    "venue 0.54 (rank 26 of 54)",
+    "quality 0.70 (2 images, 254 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "wesley-tongson-asiasociety",
+   "title": "Singing and Dancing with Brush and Ink: The Art of Wesley Tongson",
+   "artist": "Wesley Tongson",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-15",
+    "end": "2026-10-11"
+   },
+   "n_images": 5,
+   "desc_words": 240,
+   "venue": {
+    "name": "Asia Society Hong Kong Center",
+    "id": "asia-society-hong-kong-center",
+    "tier": 2,
+    "rank": 28,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "asia society hong kong center"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first major institutional survey",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.5,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3077861033362291,
+    "closing_soon": 0.0,
+    "quality": 0.98
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.495,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00294
+   },
+   "score": 0.49794,
+   "days_since_open": 51,
+   "days_to_close": 37,
+   "rank": 24,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 7,
+   "pinned": false,
+   "reasons": [
+    "venue 0.50 (rank 28 of 54)",
+    "quality 0.98 (5 images, 240 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "cbal-lightness-of-being",
+   "title": "Lightness of Being",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-13",
+    "end": "2026-09-12"
+   },
+   "n_images": 5,
+   "desc_words": 215,
+   "venue": {
+    "name": "Contemporary by Angela Li",
+    "id": "contemporary-by-angela-li",
+    "tier": 2,
+    "rank": 29,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "norm": "contemporary by angela li"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4814814814814815,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.6015125180410583,
+    "closing_soon": 1.0,
+    "quality": 0.9299999999999999
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4766666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.00279
+   },
+   "score": 0.4814566666666667,
+   "days_since_open": 22,
+   "days_to_close": 8,
+   "rank": 25,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 8,
+   "pinned": false,
+   "reasons": [
+    "venue 0.48 (rank 29 of 54)",
+    "quality 0.93 (5 images, 215 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "tranquil-state-3812",
+   "title": "Tranquil State: Eric Lai Wai Lam Solo Exhibition",
+   "artist": "Eric Lai Wai Lam",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-28",
+    "end": "2026-10-23"
+   },
+   "n_images": 6,
+   "desc_words": 198,
+   "venue": {
+    "name": "3812 Gallery",
+    "id": "3812",
+    "tier": 2,
+    "rank": 32,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "3812"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo show",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.42592592592592593,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8506671609508557,
+    "closing_soon": 0.0,
+    "quality": 0.896
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.4216666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0026880000000000003
+   },
+   "score": 0.4243546666666667,
+   "days_since_open": 7,
+   "days_to_close": 49,
+   "rank": 26,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 9,
+   "pinned": false,
+   "reasons": [
+    "venue 0.43 (rank 32 of 54)",
+    "quality 0.90 (6 images, 198 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "doubleq-ufo",
+   "title": "UFO: Universal Futurological Organisation",
+   "artist": null,
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-12",
+    "end": "2026-10-24"
+   },
+   "n_images": 2,
+   "desc_words": 205,
+   "venue": {
+    "name": "Double Q Gallery",
+    "id": "double-q",
+    "tier": 2,
+    "rank": 34,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "norm": "double q"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38888888888888884,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.61
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.38499999999999995,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00183
+   },
+   "score": 0.38682999999999995,
+   "days_since_open": -8,
+   "days_to_close": 50,
+   "rank": 27,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.39 (rank 34 of 54)",
+    "quality 0.61 (2 images, 205 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "blue-lotus-city-of-lights",
+   "title": "City of Lights",
+   "artist": "Keith Macgregor",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-06-18",
+    "end": "2026-10-04"
+   },
+   "n_images": 5,
+   "desc_words": 240,
+   "venue": {
+    "name": "Blue Lotus Gallery",
+    "id": "blue-lotus",
+    "tier": 2,
+    "rank": 35,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "norm": "blue lotus"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.37037037037037035,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.16493848884661177,
+    "closing_soon": 0.0,
+    "quality": 0.98
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.36666666666666664,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.00294
+   },
+   "score": 0.36960666666666664,
+   "days_since_open": 78,
+   "days_to_close": 30,
+   "rank": 28,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 10,
+   "pinned": false,
+   "reasons": [
+    "venue 0.37 (rank 35 of 54)",
+    "quality 0.98 (5 images, 240 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "sinsin-form",
+   "title": "FORM",
+   "artist": "Ailsa Wong, chaussette b., Gedvile Bunikyte, Jendrik Schröder, Joey Leung, Lie Fhung, Sin Sin Man",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-10",
+    "end": "2026-09-12"
+   },
+   "n_images": 6,
+   "desc_words": 230,
+   "venue": {
+    "name": "Sin Sin Fine Art",
+    "id": "sin-sin",
+    "tier": 2,
+    "rank": 37,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "sin sin"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33333333333333337,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.2742062449236565,
+    "closing_soon": 1.0,
+    "quality": 0.96
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.33,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.002,
+    "quality": 0.0028799999999999997
+   },
+   "score": 0.33488,
+   "days_since_open": 56,
+   "days_to_close": 8,
+   "rank": 29,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 11,
+   "pinned": false,
+   "reasons": [
+    "venue 0.33 (rank 37 of 54)",
+    "quality 0.96 (6 images, 230 words)",
+    "closes in 8 d",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "jps-runway-51",
+   "title": "Runway 51",
+   "artist": "Barminski",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-07-17",
+    "end": "2026-09-19"
+   },
+   "n_images": 6,
+   "desc_words": 198,
+   "venue": {
+    "name": "JPS Gallery",
+    "id": "jps",
+    "tier": 2,
+    "rank": 38,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "jps"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.31481481481481477,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.3223425771098948,
+    "closing_soon": 0.0,
+    "quality": 0.896
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.3116666666666666,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0026880000000000003
+   },
+   "score": 0.3143546666666666,
+   "days_since_open": 49,
+   "days_to_close": 15,
+   "rank": 30,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 12,
+   "pinned": false,
+   "reasons": [
+    "venue 0.31 (rank 38 of 54)",
+    "quality 0.90 (6 images, 198 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "alisan-atelier-revisiting-jade-terrace",
+   "title": "Revisiting the Jade Terrace: Exploring the Role of Female Ink Artists in Contemporary China",
+   "artist": "Chu Chu, Wang Mengsha, Zhang Yirong, Zhang Ying",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-05",
+    "end": "2026-11-28"
+   },
+   "n_images": 2,
+   "desc_words": 266,
+   "venue": {
+    "name": "Alisan Atelier (Alisan Fine Arts)",
+    "id": "alisan",
+    "tier": 2,
+    "rank": 39,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "alisan atelier alisan"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "retrospective_survey",
+     "label": "retrospective / survey",
+     "weight": 1.0,
+     "term": "retrospective",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2962962962962963,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 1.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.7
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.29333333333333333,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.0021
+   },
+   "score": 0.2954333333333333,
+   "days_since_open": -1,
+   "days_to_close": 85,
+   "rank": 31,
+   "gate": "not_open",
+   "gate_detail": "opens in 1 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.30 (rank 39 of 54)",
+    "quality 0.70 (2 images, 266 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 1 d"
+   ]
+  },
+  {
+   "slug": "podium-luis-xertu-halfway-across-the-rubicon",
+   "title": "Halfway Across the Rubicon",
+   "artist": "Luis Xertu",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-19",
+    "end": "2026-11-21"
+   },
+   "n_images": 6,
+   "desc_words": 222,
+   "venue": {
+    "name": "PODIUM",
+    "id": "podium",
+    "tier": 2,
+    "rank": 44,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wong Chuk Hang/Aberdeen",
+    "norm": "podium"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "first_solo",
+     "label": "first US / LA / museum solo",
+     "weight": 0.8,
+     "term": "first solo presentation",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.20370370370370372,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.8,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.944
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.2016666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002832
+   },
+   "score": 0.2044986666666667,
+   "days_since_open": -15,
+   "days_to_close": 78,
+   "rank": 32,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.20 (rank 44 of 54)",
+    "quality 0.94 (6 images, 222 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "leo-xiao-bo-46-sai-street",
+   "title": "46 Sai Street",
+   "artist": "Xiao Bo",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-10",
+    "end": "2026-10-28"
+   },
+   "n_images": 4,
+   "desc_words": 209,
+   "venue": {
+    "name": "Leo Gallery",
+    "id": "leo",
+    "tier": 2,
+    "rank": 46,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Sheung Wan/Sai Ying Pun",
+    "norm": "leo"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16666666666666663,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.8180000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.16499999999999995,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002454
+   },
+   "score": 0.16745399999999996,
+   "days_since_open": -6,
+   "days_to_close": 54,
+   "rank": 33,
+   "gate": "not_open",
+   "gate_detail": "opens in 6 d",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.17 (rank 46 of 54)",
+    "quality 0.82 (4 images, 209 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: opens in 6 d"
+   ]
+  },
+  {
+   "slug": "passed-on-amanda-wei",
+   "title": "Passed On (留痕)",
+   "artist": "Huang Bohan, with historical works by Dong Qichang, Huang Binhong and others",
+   "pool": "pending",
+   "in_window": false,
+   "dates": {
+    "start": "2026-09-23",
+    "end": "2026-11-30"
+   },
+   "n_images": 2,
+   "desc_words": 157,
+   "venue": {
+    "name": "Wei Gallery (Amanda Wei Gallery)",
+    "id": "amanda-wei",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "wei gallery amanda wei"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.14814814814814814,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 1.0,
+    "closing_soon": 0.0,
+    "quality": 0.514
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.14666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001542
+   },
+   "score": 0.14820866666666666,
+   "days_since_open": -19,
+   "days_to_close": 87,
+   "rank": 34,
+   "gate": "out_of_window",
+   "gate_detail": "not in the publication window",
+   "featured": false,
+   "editors_pick": false,
+   "featured_rank": null,
+   "pinned": false,
+   "reasons": [
+    "venue 0.15 (rank 47 of 54)",
+    "quality 0.51 (2 images, 157 words)",
+    "no judge verdict",
+    "no signals",
+    "gated: not in the publication window"
+   ]
+  },
+  {
+   "slug": "reweaving-memory-persia",
+   "title": "Reweaving Memory: Storytellers of Persia",
+   "artist": null,
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-23",
+    "end": "2027-03-05"
+   },
+   "n_images": 1,
+   "desc_words": 198,
+   "venue": {
+    "name": "Wei Gallery (Amanda Wei Gallery)",
+    "id": "amanda-wei",
+    "tier": 2,
+    "rank": 47,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "wei gallery amanda wei"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.14814814814814814,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.02209708691207961,
+    "closing_soon": 0.0,
+    "quality": 0.496
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.14666666666666667,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.001488
+   },
+   "score": 0.14815466666666666,
+   "days_since_open": 165,
+   "days_to_close": 182,
+   "rank": 35,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 13,
+   "pinned": false,
+   "reasons": [
+    "venue 0.15 (rank 47 of 54)",
+    "quality 0.50 (1 images, 198 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "the-feast-of-joy",
+   "title": "The Feast of Joy (確幸)",
+   "artist": "Steven Tang",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-09-02",
+    "end": "2026-09-25"
+   },
+   "n_images": 6,
+   "desc_words": 227,
+   "venue": {
+    "name": "Touch Gallery",
+    "id": "touch",
+    "tier": 2,
+    "rank": 48,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "touch"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12962962962962965,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.9548416039104165,
+    "closing_soon": 0.0,
+    "quality": 0.954
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.12833333333333335,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002862
+   },
+   "score": 0.13119533333333336,
+   "days_since_open": 2,
+   "days_to_close": 21,
+   "rank": 36,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 14,
+   "pinned": false,
+   "reasons": [
+    "venue 0.13 (rank 48 of 54)",
+    "quality 0.95 (6 images, 227 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "soil-shared-life-in-time",
+   "title": "A Shared Life in Time",
+   "artist": "Hanako Gejo, Takeshi Igawa",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-08-29",
+    "end": "2026-09-20"
+   },
+   "n_images": 4,
+   "desc_words": 209,
+   "venue": {
+    "name": "The Gallery by SOIL",
+    "id": "gallery-by-soil",
+    "tier": 3,
+    "rank": 52,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Central/Soho",
+    "norm": "gallery by soil"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.05555555555555558,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.8705505632961241,
+    "closing_soon": 0.0,
+    "quality": 0.8180000000000001
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.05500000000000002,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002454
+   },
+   "score": 0.05745400000000002,
+   "days_since_open": 6,
+   "days_to_close": 16,
+   "rank": 37,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 15,
+   "pinned": false,
+   "reasons": [
+    "venue 0.06 (rank 52 of 54)",
+    "quality 0.82 (4 images, 209 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  },
+  {
+   "slug": "va-incising-the-matrix",
+   "title": "Incising the Matrix: If Birdwood Block…",
+   "artist": "Jay Lau (LAU Ka-chun)",
+   "pool": "published",
+   "in_window": true,
+   "dates": {
+    "start": "2026-03-12",
+    "end": "2026-10-12"
+   },
+   "n_images": 5,
+   "desc_words": 219,
+   "venue": {
+    "name": "Hong Kong Visual Arts Centre (vA!)",
+    "id": "hong-kong-visual-arts-centre-va",
+    "tier": null,
+    "rank": null,
+    "n_fair": 0,
+    "is_museum": false,
+    "neighborhood": "Wan Chai/Causeway Bay",
+    "norm": "hong kong visual arts centre va"
+   },
+   "signals": [],
+   "judge": {},
+   "keyword_hits": [
+    {
+     "class": "commissioned",
+     "label": "commissioned / site-specific",
+     "weight": 0.5,
+     "term": "site-specific",
+     "where": "description"
+    }
+   ],
+   "wiki": {
+    "title": null,
+    "pageviews_90d": null,
+    "url": null
+   },
+   "features": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.5,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.017137890307728536,
+    "closing_soon": 0.0,
+    "quality": 0.938
+   },
+   "contrib": {
+    "press": 0.0,
+    "judge": 0.0,
+    "venue": 0.0,
+    "artist_heat": 0.0,
+    "museum": 0.0,
+    "keyword": 0.0,
+    "wiki_heat": 0.0,
+    "opening_recency": 0.0,
+    "closing_soon": 0.0,
+    "quality": 0.002814
+   },
+   "score": 0.002814,
+   "days_since_open": 176,
+   "days_to_close": 38,
+   "rank": 38,
+   "gate": null,
+   "gate_detail": null,
+   "featured": true,
+   "editors_pick": false,
+   "featured_rank": 16,
+   "pinned": false,
+   "reasons": [
+    "quality 0.94 (5 images, 219 words)",
+    "no judge verdict",
+    "no signals"
+   ]
+  }
+ ],
+ "candidates": [],
+ "seesaw": {
+  "snapshot_id": null,
+  "entries": [],
+  "metrics": null,
+  "misses": null,
+  "all_snapshots": []
+ },
+ "runs": [
+  {
+   "ts": 1788559054,
+   "run_id": "score-hong-kong-1788559054",
+   "city": "hong-kong",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.09,
+   "notes": "n_shows=38 featured=16 snapshot=None params=39009a5137a8",
+   "params_hash": "39009a5137a8",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  },
+  {
+   "ts": 1788559055,
+   "run_id": "apply-hong-kong-1788559055",
+   "city": "hong-kong",
+   "stage": "apply",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0,
+   "notes": "changes=22 reorder=True params=39009a5137a8",
+   "params_hash": "39009a5137a8"
+  },
+  {
+   "ts": 1788559071,
+   "run_id": "score-hong-kong-1788559071",
+   "city": "hong-kong",
+   "stage": "score",
+   "prompt_variant": null,
+   "prompt_hash": null,
+   "model": null,
+   "effort": null,
+   "sources_planned": [],
+   "sources_seen": [],
+   "signals_recorded": 0,
+   "candidates_new": 0,
+   "duplicates_rejected": 0,
+   "requests": 0,
+   "web_searches": 0,
+   "cost_usd": 0.0,
+   "stop_reason": null,
+   "duration_s": 0.1,
+   "notes": "n_shows=38 featured=16 snapshot=None params=39009a5137a8",
+   "params_hash": "39009a5137a8",
+   "params_path": "content/curation/params/publish-galleryorder.json"
+  }
+ ],
+ "judge_compare": {},
+ "commonality": {
+  "snapshot_id": null,
+  "n_matched": 0,
+  "n_rest": 0,
+  "rows": []
+ },
+ "wiki": {
+  "n_artists": 33,
+  "n_with_article": 0,
+  "rows": []
+ }
+}

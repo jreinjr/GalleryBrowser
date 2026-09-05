@@ -1,0 +1,787 @@
+{
+ "provider": "anthropic",
+ "model": "claude-opus-5",
+ "ts": 1788554254,
+ "system": "You are an art-world editor compiling a gallery guide for Seoul, South Korea. Answer with the\nJSON object the schema describes and nothing else. Rank by significance and influence in the\ncontemporary art world: programme quality, the artists represented, art-fair presence, critical and\ninstitutional attention, and longevity. Include commercial galleries and the nonprofit, artist-run and\nproject spaces that show contemporary art to the public in Seoul itself (galleries whose home is\nelsewhere count only through a permanent Seoul space). Exclude museums, art fairs, auction houses,\nframers, art schools, decor shops, online-only dealers and advisories. For every gallery give its usual\nname; its official website when you are confident of it, else null; the district it is in, using one of\nthese labels when it fits (Samcheong/Bukchon, Seochon/Tongui, Hannam/Itaewon, Cheongdam/Apgujeong, Euljiro/Jung-gu, Seongsu, Yeonhui/Mapo) else the district name you know; a street address hint when you\nknow it (street and number are enough), else null; its kind (gallery, museum, nonprofit, project_space, university, other); and a short note on why it\nmatters. Every entry must be a distinct venue — list a gallery with several Seoul spaces once.",
+ "user": "What are the 100 most significant and influential galleries in Seoul, ranked in order? If less than 100 significant galleries exist, provide the complete list of significant galleries.",
+ "error": null,
+ "usage": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "requests": 1,
+  "input_tokens": 58,
+  "output_tokens": 24305,
+  "cache_read_tokens": 0,
+  "cost_usd": 0.613709,
+  "seconds": 313.5
+ },
+ "data": {
+  "galleries": [
+   {
+    "rank": 1,
+    "name": "Kukje Gallery",
+    "website": "https://www.kukjegallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "54 Samcheong-ro, Jongno-gu",
+    "kind": "gallery",
+    "note": "Korea's most internationally connected gallery since 1982; represents Lee Ufan, Haegue Yang, Anish Kapoor and blue-chip Western estates, with a heavy Frieze/Art Basel presence."
+   },
+   {
+    "rank": 2,
+    "name": "Gallery Hyundai",
+    "website": "https://www.galleryhyundai.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "14 Samcheong-ro, Jongno-gu",
+    "kind": "gallery",
+    "note": "Founded 1970, the oldest contemporary gallery in Korea; steward of Park Soo-keun, Kim Whanki, Nam June Paik and Lee Kun-Yong legacies alongside a strong younger programme."
+   },
+   {
+    "rank": 3,
+    "name": "PKM Gallery",
+    "website": "https://www.pkmgallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "40 Samcheong-ro 7-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "Rigorous programme built around Yun Hyong-keun, Suh Se Ok, Olafur Eliasson and Cody Choi; a key driver of Dansaekhwa-era reappraisal abroad."
+   },
+   {
+    "rank": 4,
+    "name": "Hakgojae Gallery",
+    "website": "https://www.hakgojae.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "50 Samcheong-ro, Jongno-gu",
+    "kind": "gallery",
+    "note": "Since 1988 a bridge between Korean modernism, minjung art and contemporary practice; strong scholarly exhibitions and international fair presence."
+   },
+   {
+    "rank": 5,
+    "name": "Arario Gallery Seoul",
+    "website": "https://www.arariogallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "83 Yulgok-ro, Jongno-gu (Wonseo-dong)",
+    "kind": "gallery",
+    "note": "Collector-founded gallery with a pan-Asian roster (Korea, China, India, Southeast Asia) and an appetite for difficult, research-driven work."
+   },
+   {
+    "rank": 6,
+    "name": "Pace Gallery Seoul",
+    "website": "https://www.pacegallery.com",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "267 Itaewon-ro, Yongsan-gu (Le Beige Building)",
+    "kind": "gallery",
+    "note": "First mega-gallery to commit to Seoul (2017, expanded 2021); anchors the Hannam gallery cluster with Yoshitomo Nara, Lee Kun-Yong and Pace's global roster."
+   },
+   {
+    "rank": 7,
+    "name": "Thaddaeus Ropac Seoul",
+    "website": "https://ropac.net",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "122-1 Dokseodang-ro, Yongsan-gu (Fort Hill Building)",
+    "kind": "gallery",
+    "note": "Opened 2021 with museum-scale shows of Baselitz, Rauschenberg and Han Bing; central to Seoul's post-Frieze internationalisation."
+   },
+   {
+    "rank": 8,
+    "name": "Lehmann Maupin Seoul",
+    "website": "https://www.lehmannmaupin.com",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "213-3 Itaewon-ro, Yongsan-gu",
+    "kind": "gallery",
+    "note": "In Seoul since 2017 in a SO-IL-designed space; long-running commitment to Do Ho Suh, Lee Bul, Sung Neung Kyung and Kim Yun Shin."
+   },
+   {
+    "rank": 9,
+    "name": "Perrotin Seoul",
+    "website": "https://www.perrotin.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "5 Palpan-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "Early international arrival (2016) plus a Dosan Park space; blends global names with Korean artists such as Park Seo-Bo's late estate context and Bae Hyung-Kyung."
+   },
+   {
+    "rank": 10,
+    "name": "Gana Art",
+    "website": "https://www.ganaart.com",
+    "neighborhood": "Jongno-gu (Pyeongchang-dong)",
+    "address_hint": "28 Pyeongchang 30-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "Founded 1983; large Pyeongchang-dong complex plus Hannam and Nine One spaces, historically decisive for Korean modern and minjung art markets."
+   },
+   {
+    "rank": 11,
+    "name": "Gladstone Gallery Seoul",
+    "website": "https://www.gladstonegallery.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": "760 Samseong-ro, Gangnam-gu",
+    "kind": "gallery",
+    "note": "Opened 2021, bringing Anicka Yi, Alex Katz and Ugo Rondinone shows to Gangnam and legitimising Cheongdam as an international gallery district."
+   },
+   {
+    "rank": 12,
+    "name": "One and J. Gallery",
+    "website": "https://www.oneandj.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "31-14 Bukchon-ro 31-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "The leading gallery of Korea's mid-career generation — Park Kyung-ryul, Jung Heeseung, Kang Seung Lee, Haneyl Choi — with consistent international fair placement."
+   },
+   {
+    "rank": 13,
+    "name": "Gallery Baton",
+    "website": "https://www.gallerybaton.com",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "3 Dokseodang-ro 67-gil, Yongsan-gu",
+    "kind": "gallery",
+    "note": "Sharp, design-literate programme mixing Korean artists with European names; a fixture at Frieze, Art Basel and Liste."
+   },
+   {
+    "rank": 14,
+    "name": "Art Sonje Center",
+    "website": "https://artsonje.org",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "87 Yulgok-ro 3-gil, Jongno-gu",
+    "kind": "nonprofit",
+    "note": "Seoul's most influential noncommercial kunsthalle since 1998; launched careers of Korean artists later shown at Venice and Documenta."
+   },
+   {
+    "rank": 15,
+    "name": "Barakat Contemporary",
+    "website": "https://www.barakatcontemporary.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "36 Samcheong-ro, Jongno-gu",
+    "kind": "gallery",
+    "note": "Contemporary arm of the antiquities dealer; ambitious curated shows of international mid-career artists and strong institutional collaborations."
+   },
+   {
+    "rank": 16,
+    "name": "Esther Schipper Seoul",
+    "website": "https://www.estherschipper.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Berlin gallery's Seoul outpost brings conceptual and installation-led practices (Philippe Parreno, Ryan Gander, Ann Veronica Janssens) to Korean audiences."
+   },
+   {
+    "rank": 17,
+    "name": "Various Small Fires (VSF) Seoul",
+    "website": "https://vsf.la",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "82 Dokseodang-ro, Yongsan-gu",
+    "kind": "gallery",
+    "note": "LA gallery whose 2019 Seoul space was an early bet on the city; strong diasporic Korean-American and emerging international programme."
+   },
+   {
+    "rank": 18,
+    "name": "Peres Projects Seoul",
+    "website": "https://www.peresprojects.com",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Berlin gallery's Asian base since 2022, showing market-forward painting and a young international roster to Seoul collectors."
+   },
+   {
+    "rank": 19,
+    "name": "SongEun",
+    "website": "https://www.songeun.or.kr",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": "441 Dosan-daero, Gangnam-gu",
+    "kind": "nonprofit",
+    "note": "Foundation space in a Herzog & de Meuron building; its SongEun Art Award has been a career-making platform for emerging Korean artists since 2001."
+   },
+   {
+    "rank": 20,
+    "name": "Whitestone Gallery Seoul",
+    "website": "https://www.whitestone-gallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Tokyo gallery's Kengo Kuma-designed Seoul space; Gutai and postwar Japanese material alongside contemporary Asian painting."
+   },
+   {
+    "rank": 21,
+    "name": "Tang Contemporary Art Seoul",
+    "website": "https://www.tangcontemporary.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Beijing/Hong Kong gallery's Seoul branch, one of the few venues consistently showing major Chinese contemporary artists in Korea."
+   },
+   {
+    "rank": 22,
+    "name": "Johyun Gallery Seoul",
+    "website": "https://www.johyungallery.com",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Busan's leading gallery (Lee Bae, Kim Chong Hak) with a permanent Seoul space and a strong Frieze Seoul and international fair record."
+   },
+   {
+    "rank": 23,
+    "name": "Atelier Hermès",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": "7 Dosan-daero 45-gil, Gangnam-gu (Maison Hermès Dosan Park)",
+    "kind": "nonprofit",
+    "note": "Corporate-funded, curator-led space whose Hermès Foundation Missulsang has been one of Korea's most prestigious art prizes."
+   },
+   {
+    "rank": 24,
+    "name": "Doosan Gallery Seoul",
+    "website": "https://www.doosanartcenter.com",
+    "neighborhood": "Jongno-gu (Yeonji-dong)",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Doosan Art Center's gallery and its residency/award pipeline in Seoul and New York are a key incubator for artists under 40."
+   },
+   {
+    "rank": 25,
+    "name": "P21",
+    "website": "https://www.p21.kr",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Lean, curatorially serious gallery with Korean and international emerging artists; regular at Liste and Frieze Seoul."
+   },
+   {
+    "rank": 26,
+    "name": "Gallery2",
+    "website": "https://www.gallery2.co.kr",
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-running gallery with Palpan-dong and Pyeongchang-dong spaces, known for backing experimental Korean painters early."
+   },
+   {
+    "rank": 27,
+    "name": "Jason Haam",
+    "website": "https://www.jasonhaam.com",
+    "neighborhood": "Seongbuk-gu (Seongbuk-dong)",
+    "address_hint": "8 Seongbuk-ro 18-gil, Seongbuk-gu",
+    "kind": "gallery",
+    "note": "Young dealer with outsized international profile, showing Urs Fischer, Sarah Lucas and Ella Kruglyanskaya in Seoul."
+   },
+   {
+    "rank": 28,
+    "name": "PIBI Gallery",
+    "website": "https://www.pibigallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Quietly influential Samcheong gallery pairing established Korean conceptualists with strong younger sculptors and painters."
+   },
+   {
+    "rank": 29,
+    "name": "Chapter II",
+    "website": "https://www.chapterii.org",
+    "neighborhood": "Seongsu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Early mover in Seongsu; contemporary programme of Korean and international emerging artists across multiple spaces."
+   },
+   {
+    "rank": 30,
+    "name": "Whistle",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Critically respected small gallery representing young Korean artists with a conceptual, materially inventive bent."
+   },
+   {
+    "rank": 31,
+    "name": "BB&M",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "6-24 Palpan-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "Founded 2021 by veteran dealers; museum-quality shows of Korean artists including Kim Beom-adjacent conceptual practices."
+   },
+   {
+    "rank": 32,
+    "name": "Alternative Space Loop",
+    "website": null,
+    "neighborhood": "Yeonhui/Mapo",
+    "address_hint": "20 Wausan-ro 29na-gil, Mapo-gu",
+    "kind": "nonprofit",
+    "note": "Korea's first alternative space (1999), a foundational platform for media, performance and Asian curatorial exchange."
+   },
+   {
+    "rank": 33,
+    "name": "Leeahn Gallery Seoul",
+    "website": "https://www.leeahngallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Daegu-founded gallery with a permanent Seoul space; solid Korean modern-contemporary crossovers and international fair activity."
+   },
+   {
+    "rank": 34,
+    "name": "Space Willing N Dealing",
+    "website": null,
+    "neighborhood": "Yeonhui/Mapo",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Hybrid gallery/project space known for rigorous curatorial framing of emerging Korean artists and criticism-led programming."
+   },
+   {
+    "rank": 35,
+    "name": "Gallery Simon",
+    "website": null,
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": "Tongui-dong, Jongno-gu",
+    "kind": "gallery",
+    "note": "Seochon mainstay showing Korean conceptual and media artists; a steady presence at domestic fairs since the 1990s."
+   },
+   {
+    "rank": 36,
+    "name": "Gallery Chosun",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "Sogyeok-dong, Jongno-gu",
+    "kind": "gallery",
+    "note": "Long-running Samcheong gallery with an experimental, artist-friendly programme and open-call exhibitions."
+   },
+   {
+    "rank": 37,
+    "name": "Foundry Seoul",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "Dokseodang-ro, Yongsan-gu",
+    "kind": "nonprofit",
+    "note": "Well-funded exhibition space opened 2022 with ambitious curated group shows of international contemporary art."
+   },
+   {
+    "rank": 38,
+    "name": "Amado Art Space",
+    "website": "https://www.amadoart.org",
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Nonprofit with influential awards for artists and art critics, supporting research-based practice outside the market."
+   },
+   {
+    "rank": 39,
+    "name": "Gallery Shilla Seoul",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Daegu gallery (est. 1992) with a Seoul space; Korean postwar experimental art and international minimal/conceptual figures."
+   },
+   {
+    "rank": 40,
+    "name": "313 Art Project",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": "Dosan-daero 55-gil, Gangnam-gu",
+    "kind": "gallery",
+    "note": "Design-inflected Cheongdam gallery bringing European contemporary artists to Korean collectors."
+   },
+   {
+    "rank": 41,
+    "name": "Park Ryu Sook Gallery",
+    "website": "https://www.parkryusookgallery.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Founded 1983; pioneering in introducing international contemporary artists to Seoul and supporting Korean sculptors."
+   },
+   {
+    "rank": 42,
+    "name": "Gallery Bhak",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Veteran gallery (est. 1983) with a strong Korean modern and abstract painting programme."
+   },
+   {
+    "rank": 43,
+    "name": "Sun Gallery",
+    "website": null,
+    "neighborhood": "Jongno-gu (Insadong)",
+    "address_hint": "Insadong-gil, Jongno-gu",
+    "kind": "gallery",
+    "note": "Insadong institution since 1977; historically important for Korean modern painting and Sun Contemporary's younger arm."
+   },
+   {
+    "rank": 44,
+    "name": "Kwanhoon Gallery",
+    "website": null,
+    "neighborhood": "Jongno-gu (Insadong)",
+    "address_hint": "Gwanhun-dong, Jongno-gu",
+    "kind": "gallery",
+    "note": "One of Insadong's oldest galleries, a barometer of the traditional Korean art trade with regular contemporary shows."
+   },
+   {
+    "rank": 45,
+    "name": "Ihn Gallery",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-established Samcheong gallery with a quiet, connoisseurial programme of Korean modern and contemporary art."
+   },
+   {
+    "rank": 46,
+    "name": "Gallery Skape",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary gallery known for design-conscious installations and emerging Korean artists since the mid-2000s."
+   },
+   {
+    "rank": 47,
+    "name": "ThisWeekendRoom",
+    "website": "https://www.thisweekendroom.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Youth-oriented gallery that helped launch a generation of Korean painters now on the international fair circuit."
+   },
+   {
+    "rank": 48,
+    "name": "Cylinder",
+    "website": null,
+    "neighborhood": "Seongsu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Fast-rising young gallery with two Seoul spaces; a bellwether for the post-2020 emerging Korean scene."
+   },
+   {
+    "rank": 49,
+    "name": "N/A",
+    "website": null,
+    "neighborhood": "Yongsan-gu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Small, critically attentive gallery for emerging Korean and international artists, active at young-gallery fairs."
+   },
+   {
+    "rank": 50,
+    "name": "Hall1",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Architecturally striking Hannam space with a tightly curated contemporary programme."
+   },
+   {
+    "rank": 51,
+    "name": "Gallery Kiche",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Focused programme of Korean and Japanese contemporary artists with careful, restrained installations."
+   },
+   {
+    "rank": 52,
+    "name": "Choi&Choi Gallery",
+    "website": "https://www.choiandchoi.com",
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Cologne-Seoul gallery introducing European emerging artists to Korea and Korean artists to Germany."
+   },
+   {
+    "rank": 53,
+    "name": "Keumsan Gallery",
+    "website": null,
+    "neighborhood": "Jongno-gu (Pyeongchang-dong)",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-standing gallery with Korea-Japan exchange exhibitions and a Heyri satellite."
+   },
+   {
+    "rank": 54,
+    "name": "Trunk Gallery",
+    "website": "https://www.trunkgallery.com",
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": "Sogyeok-dong, Jongno-gu",
+    "kind": "gallery",
+    "note": "Photography-focused gallery that has been central to the market for contemporary Korean photography."
+   },
+   {
+    "rank": 55,
+    "name": "Gallery Lux",
+    "website": null,
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Dedicated photography gallery supporting emerging photographers through consistent solo exhibitions."
+   },
+   {
+    "rank": 56,
+    "name": "Space K Seoul",
+    "website": null,
+    "neighborhood": "Gangseo-gu (Magok)",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Kolon-funded nonprofit in a Mass Studies-designed building; free, well-produced solo shows by Korean and international artists."
+   },
+   {
+    "rank": 57,
+    "name": "Ilwoo Space",
+    "website": null,
+    "neighborhood": "Euljiro/Jung-gu",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Foundation space whose Ilwoo Photography Award is one of the most significant prizes for Korean photographers."
+   },
+   {
+    "rank": 58,
+    "name": "Arko Art Center",
+    "website": null,
+    "neighborhood": "Jongno-gu (Daehangno)",
+    "address_hint": "3 Dongsung-gil, Jongno-gu",
+    "kind": "nonprofit",
+    "note": "Arts Council Korea's public gallery in a Kim Swoo-geun building; long-running platform for mid-career Korean artists."
+   },
+   {
+    "rank": 59,
+    "name": "Art Space Pool",
+    "website": null,
+    "neighborhood": "Jongno-gu (Gugi-dong)",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Historic alternative space and publisher with a politically engaged, discourse-driven programme since 1999."
+   },
+   {
+    "rank": 60,
+    "name": "d/p",
+    "website": null,
+    "neighborhood": "Euljiro/Jung-gu",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Euljiro project space combining exhibitions with critical writing and publishing on emerging practice."
+   },
+   {
+    "rank": 61,
+    "name": "Audio Visual Pavilion",
+    "website": null,
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": "Jahamun-ro 10-gil, Jongno-gu",
+    "kind": "project_space",
+    "note": "Idiosyncratic artist-run space in a hanok alley, influential in Seoul's small-scale experimental scene."
+   },
+   {
+    "rank": 62,
+    "name": "Boan1942",
+    "website": "https://www.boan1942.com",
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": "33 Hyoja-ro, Jongno-gu",
+    "kind": "project_space",
+    "note": "Former inn turned cultural complex with galleries, residencies and publishing; a hub of Seochon's art community."
+   },
+   {
+    "rank": 63,
+    "name": "WESS",
+    "website": null,
+    "neighborhood": "Yeonhui/Mapo",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Curator-run space with research-heavy exhibitions and a reputation for spotting artists before institutions do."
+   },
+   {
+    "rank": 64,
+    "name": "Hapjungjigu",
+    "website": null,
+    "neighborhood": "Yeonhui/Mapo",
+    "address_hint": "Yanghwa-ro, Mapo-gu",
+    "kind": "project_space",
+    "note": "Artist-run Mapo space known for feminist and queer-inflected programming and emerging artists' first solos."
+   },
+   {
+    "rank": 65,
+    "name": "Post Territory Ujeongguk",
+    "website": null,
+    "neighborhood": "Eunpyeong-gu",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Converted post office running interdisciplinary exhibitions, performance and discourse programmes."
+   },
+   {
+    "rank": 66,
+    "name": "Primary Practice",
+    "website": null,
+    "neighborhood": "Euljiro/Jung-gu",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Small Euljiro space typical of the district's DIY scene, showing young artists and design-art crossovers."
+   },
+   {
+    "rank": 67,
+    "name": "PS Center",
+    "website": null,
+    "neighborhood": "Euljiro/Jung-gu",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Independent space in central Seoul mixing exhibitions, performance and publishing for a younger audience."
+   },
+   {
+    "rank": 68,
+    "name": "Espace Louis Vuitton Seoul",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": "454 Apgujeong-ro, Gangnam-gu",
+    "kind": "nonprofit",
+    "note": "Free exhibition space atop the Frank Gehry-designed Maison, presenting Fondation Louis Vuitton collection works."
+   },
+   {
+    "rank": 69,
+    "name": "Storage by Hyundai Card",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": "Itaewon-ro, Yongsan-gu",
+    "kind": "other",
+    "note": "Corporate-run underground exhibition hall commissioning large-scale installations by international artists."
+   },
+   {
+    "rank": 70,
+    "name": "The Page Gallery",
+    "website": null,
+    "neighborhood": "Seongsu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Seongsu gallery with a strong Korean abstraction and international mid-career programme in a large industrial space."
+   },
+   {
+    "rank": 71,
+    "name": "Artside Gallery",
+    "website": "https://www.artside.org",
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": "Tongui-dong, Jongno-gu",
+    "kind": "gallery",
+    "note": "Longtime Korea-China exchange gallery, one of the first to introduce Beijing avant-garde artists to Seoul."
+   },
+   {
+    "rank": 72,
+    "name": "Gallery ERD",
+    "website": null,
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary gallery with a design and craft-adjacent programme and consistent emerging-artist solos."
+   },
+   {
+    "rank": 73,
+    "name": "Gallery EM",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Cheongdam gallery known for photography and media-based Korean artists."
+   },
+   {
+    "rank": 74,
+    "name": "Gallery Yeh",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Established Gangnam gallery with a Korean modern and contemporary painting programme and deep collector base."
+   },
+   {
+    "rank": 75,
+    "name": "Opera Gallery Seoul",
+    "website": "https://www.operagallery.com",
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "International secondary-market chain whose Seoul branch is a significant conduit for blue-chip modern works."
+   },
+   {
+    "rank": 76,
+    "name": "Jinsun Gallery",
+    "website": null,
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Long-running Jongno gallery with a steady programme of Korean painters and sculptors."
+   },
+   {
+    "rank": 77,
+    "name": "Gallery Grimson",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Bukchon gallery supporting mid-career Korean artists with an accessible, consistent exhibition schedule."
+   },
+   {
+    "rank": 78,
+    "name": "Gallery Dam",
+    "website": null,
+    "neighborhood": "Samcheong/Bukchon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Small hanok-area gallery with an intimate programme of drawing, painting and artist books."
+   },
+   {
+    "rank": 79,
+    "name": "Space So",
+    "website": null,
+    "neighborhood": "Seochon/Tongui",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Compact independent space in Seochon showing experimental work by early-career artists."
+   },
+   {
+    "rank": 80,
+    "name": "Weekend",
+    "website": null,
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "project_space",
+    "note": "Artist-organised space with short, focused exhibitions that feed Seoul's emerging-gallery pipeline."
+   },
+   {
+    "rank": 81,
+    "name": "Space22",
+    "website": null,
+    "neighborhood": "Cheongdam/Apgujeong",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Photography-dedicated nonprofit space in Gangnam supporting documentary and contemporary photographers."
+   },
+   {
+    "rank": 82,
+    "name": "Kunstdoc",
+    "website": null,
+    "neighborhood": "Jongno-gu",
+    "address_hint": null,
+    "kind": "nonprofit",
+    "note": "Alternative space with international residency exchanges and experimental exhibition programming."
+   },
+   {
+    "rank": 83,
+    "name": "Gallery Joeun",
+    "website": null,
+    "neighborhood": "Hannam/Itaewon",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Yongsan gallery showing Korean contemporary painting and sculpture with regular domestic fair participation."
+   },
+   {
+    "rank": 84,
+    "name": "Sun Contemporary",
+    "website": null,
+    "neighborhood": "Jongno-gu (Insadong)",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Contemporary arm of Sun Gallery, focused on younger Korean artists and media-based work."
+   },
+   {
+    "rank": 85,
+    "name": "Everyday Mooonday",
+    "website": null,
+    "neighborhood": "Seongsu",
+    "address_hint": null,
+    "kind": "gallery",
+    "note": "Popular Seongsu gallery for young figurative painters and illustration-adjacent contemporary art, with a large collector following."
+   }
+  ]
+ }
+}

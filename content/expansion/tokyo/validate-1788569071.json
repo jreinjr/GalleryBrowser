@@ -1,0 +1,2665 @@
+{
+ "session": "quick-augment-tokyo-1788568906",
+ "city": "tokyo",
+ "ts": 1788569071,
+ "n": 25,
+ "counts": {
+  "verified": 15,
+  "unverified": 10
+ },
+ "reasons": {
+  "places_mismatch": 5,
+  "site_not_vouched": 3,
+  "site_dead": 3,
+  "stale": 2,
+  "no_hours": 2,
+  "site_blocked": 1,
+  "no_website": 1,
+  "places_closed": 1
+ },
+ "spend": {
+  "places_requests": 66,
+  "cost_usd": 1.716,
+  "fetches": 26,
+  "renders": 2
+ },
+ "rows": [
+  {
+   "rank": 31,
+   "name": "THE CLUB",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "address": "6-10-1 Ginza (GINZA SIX, 6F)",
+    "website": "https://theclub.tokyo"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": {
+    "lat": 35.6698867,
+    "lng": 139.7617936,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Ginza Club Chick【cabaret club】",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 7-chōme−6−１９ ソワレ・ド・銀座弥生ビル 3F",
+    "website": "https://www.chick.co.jp/ginza/",
+    "phone": "03-3569-7721",
+    "hours": [
+     "Monday: 7:00 PM – 1:00 AM",
+     "Tuesday: 7:00 PM – 1:00 AM",
+     "Wednesday: 7:00 PM – 1:00 AM",
+     "Thursday: 7:00 PM – 1:00 AM",
+     "Friday: 7:00 PM – 1:00 AM",
+     "Saturday: Closed",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6698867,
+    "lng": 139.7617936,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.chick.co.jp/ginza/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.chick.co.jp/ginza/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.chick.co.jp/ginza",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "unverified",
+   "reasons": [
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "THE CLUB",
+    "website": "https://theclub.tokyo",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "6-10-1 Ginza (GINZA SIX, 6F)",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Curatorially ambitious Ginza Six gallery pairing international contemporary names with Japanese historical material.",
+     "openai": "Curatorially driven Ginza gallery presenting historically important postwar and contemporary artists in an international context."
+    },
+    "ranks": {
+     "anthropic": 49,
+     "openai": 28
+    },
+    "names": {
+     "anthropic": "THE CLUB",
+     "openai": "THE CLUB"
+    },
+    "rank_claude": 49,
+    "rank_openai": 28,
+    "blended": 38.5,
+    "best": 28,
+    "both": true,
+    "rank": 31,
+    "registry_id": null
+   },
+   "venue_id": "club"
+  },
+  {
+   "rank": 45,
+   "name": "PGI",
+   "neighborhood": "Tennozu",
+   "note": null,
+   "hints": {
+    "address": "Higashiazabu",
+    "website": "https://www.pgi.ac"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Roppongi",
+   "geo": {
+    "lat": 35.6574035,
+    "lng": 139.7429123,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "PGI",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒106-0044 Tokyo, Minato City, Higashiazabu, 2-chōme−3−４ TKBビル 3F",
+    "website": "https://www.pgi.ac/",
+    "phone": "03-5114-7935",
+    "hours": [
+     "Monday: 11:00 AM – 6:00 PM",
+     "Tuesday: 11:00 AM – 6:00 PM",
+     "Wednesday: 11:00 AM – 6:00 PM",
+     "Thursday: 11:00 AM – 6:00 PM",
+     "Friday: 11:00 AM – 6:00 PM",
+     "Saturday: 11:00 AM – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6574035,
+    "lng": 139.7429123,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.pgi.ac/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.pgi.ac/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.pgi.ac/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pgi.ac/current",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pgi.ac/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pgi.ac/exhibitions/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pgi.ac/current-exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.pgi.ac",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "PGI",
+    "website": "https://www.pgi.ac",
+    "neighborhood": "Tennozu",
+    "address_hint": "Higashiazabu",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Photo Gallery International, founded 1979 — Japan's pioneering fine-art photography dealer and print workshop.",
+     "openai": "One of Tokyo's most important photography galleries, with major Japanese estates and a strong international programme."
+    },
+    "ranks": {
+     "anthropic": 47,
+     "openai": 61
+    },
+    "names": {
+     "anthropic": "PGI",
+     "openai": "PGI"
+    },
+    "rank_claude": 47,
+    "rank_openai": 61,
+    "blended": 54.0,
+    "best": 47,
+    "both": true,
+    "rank": 45,
+    "registry_id": null
+   },
+   "venue_id": "pgi"
+  },
+  {
+   "rank": 46,
+   "name": "Hauser & Wirth Tokyo",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "address": "1-2-7 Ginza",
+    "website": "https://www.hauserwirth.com/"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "places returned a different business: 'Gallery Art House'"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": null,
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Gallery Art House",
+    "address_seen": "4-chōme-4-5 Ginza, Chuo City, Tokyo 104-0061, Japan",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.hauserwirth.com/",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "http_429"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_blocked"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Hauser & Wirth Tokyo",
+    "website": "https://www.hauserwirth.com/",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "1-2-7 Ginza",
+    "kind": "gallery",
+    "notes": {
+     "openai": "Permanent Tokyo outpost of one of the world's most powerful galleries, with exhibitions by internationally canonical artists."
+    },
+    "ranks": {
+     "openai": 9
+    },
+    "names": {
+     "openai": "Hauser & Wirth Tokyo"
+    },
+    "rank_claude": null,
+    "rank_openai": 9,
+    "blended": 55.0,
+    "best": 9,
+    "both": false,
+    "rank": 46,
+    "registry_id": null
+   },
+   "venue_id": "hauser-and-wirth-tokyo"
+  },
+  {
+   "rank": 47,
+   "name": "Gagosian Tokyo",
+   "neighborhood": "Roppongi",
+   "note": null,
+   "hints": {
+    "address": "6-6-9 Roppongi (Piramide Building, 4F)",
+    "website": "https://gagosian.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: 27-gallery-tokyo (unknown), 81-gallery-tokyo (unknown), art-space-tokyo (candidate)"
+   ],
+   "zone": "Roppongi",
+   "geo": {
+    "lat": 35.6615289,
+    "lng": 139.7310734,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "27-gallery-tokyo",
+     "name": "27 Gallery Tokyo",
+     "status": "unknown"
+    },
+    {
+     "id": "81-gallery-tokyo",
+     "name": "+81 Gallery - Tokyo",
+     "status": "unknown"
+    },
+    {
+     "id": "art-space-tokyo",
+     "name": "Art Space Tokyo",
+     "status": "candidate"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Taka Ishii Gallery Tokyo",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 6-chōme−5−２４ complex665 3F",
+    "website": "https://www.takaishiigallery.com/jp/",
+    "phone": "03-6434-7010",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 12:00 – 7:00 PM",
+     "Wednesday: 12:00 – 7:00 PM",
+     "Thursday: 12:00 – 7:00 PM",
+     "Friday: 12:00 – 7:00 PM",
+     "Saturday: 12:00 – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6615289,
+    "lng": 139.7310734,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.takaishiigallery.com/jp/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.takaishiigallery.com/en/",
+    "js_only": false,
+    "final_url": "https://www.takaishiigallery.com/jp/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.takaishiigallery.com/en/",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.takaishiigallery.com/jp/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.takaishiigallery.com/jp",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Gagosian Tokyo",
+    "website": "https://gagosian.com",
+    "neighborhood": "Roppongi",
+    "address_hint": "6-6-9 Roppongi (Piramide Building, 4F)",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Longest-standing international mega-gallery outpost in Tokyo, presenting museum-grade shows of its global roster."
+    },
+    "ranks": {
+     "anthropic": 10
+    },
+    "names": {
+     "anthropic": "Gagosian Tokyo"
+    },
+    "rank_claude": 10,
+    "rank_openai": null,
+    "blended": 55.5,
+    "best": 10,
+    "both": false,
+    "rank": 47,
+    "registry_id": null
+   },
+   "venue_id": "gagosian-tokyo"
+  },
+  {
+   "rank": 49,
+   "name": "BLUM",
+   "neighborhood": "Shibuya/Omotesando",
+   "note": null,
+   "hints": {
+    "address": "1-14-34 Jingumae, Shibuya-ku",
+    "website": "https://www.blumgallery.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site does not read as an art venue",
+    "Places only knows a listing outside the metro: 5F, １丁目-１４-34 神宮前 渋谷区 東京都 150-0001, Japan"
+   ],
+   "zone": "Shibuya/Omotesando",
+   "geo": {
+    "lat": 35.6711093,
+    "lng": 139.7032441,
+    "source": "geocode:address_hint"
+   },
+   "near_misses": [
+    {
+     "id": "blum-tokyo",
+     "name": "Blum Tokyo",
+     "status": "candidate"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "BLUM 東京",
+    "address_seen": "5F, １丁目-１４-34 神宮前 渋谷区 東京都 150-0001, Japan",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.blumgallery.com",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.blumgallery.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.blumgallery.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_not_vouched",
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "BLUM",
+    "website": "https://www.blumgallery.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "1-14-34 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "The LA gallery's Tokyo space; historically decisive for Superflat and for reintroducing postwar Japanese art to the West."
+    },
+    "ranks": {
+     "anthropic": 11
+    },
+    "names": {
+     "anthropic": "BLUM"
+    },
+    "rank_claude": 11,
+    "rank_openai": null,
+    "blended": 56.0,
+    "best": 11,
+    "both": false,
+    "rank": 49,
+    "registry_id": null
+   },
+   "venue_id": "blum"
+  },
+  {
+   "rank": 53,
+   "name": "Gallery Common",
+   "neighborhood": "Shibuya/Omotesando",
+   "note": null,
+   "hints": {
+    "address": "Jingumae, Shibuya-ku",
+    "website": "https://gallery-common.com"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no live website",
+    "Places only knows a listing outside the metro: B1F, ５丁目-３９-6 神宮前 渋谷区 東京都 150-0001, Japan"
+   ],
+   "zone": "Shibuya/Omotesando",
+   "geo": null,
+   "near_misses": [
+    {
+     "id": "common-base",
+     "name": "COMMON BASE GALLERY",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Gallery Common",
+    "address_seen": "B1F, ５丁目-３９-6 神宮前 渋谷区 東京都 150-0001, Japan",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://gallery-common.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "site_dead"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Gallery Common",
+    "website": "https://gallery-common.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Compact Jingumae gallery with a sharp eye for young painters and illustration-adjacent practices.",
+     "openai": "Visible platform for younger contemporary art at the intersection of painting, street culture and design."
+    },
+    "ranks": {
+     "anthropic": 75,
+     "openai": 42
+    },
+    "names": {
+     "anthropic": "Gallery Common",
+     "openai": "GALLERY COMMON"
+    },
+    "rank_claude": 75,
+    "rank_openai": 42,
+    "blended": 58.5,
+    "best": 42,
+    "both": true,
+    "rank": 53,
+    "registry_id": null
+   },
+   "venue_id": "gallery-common"
+  },
+  {
+   "rank": 59,
+   "name": "Art Center Ongoing",
+   "neighborhood": "Setagaya/West Tokyo",
+   "note": null,
+   "hints": {
+    "address": "1-8-7 Kichijoji-honcho, Musashino-shi",
+    "website": "https://www.ongoing.jp"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Setagaya/West Tokyo",
+   "geo": {
+    "lat": 35.7083922,
+    "lng": 139.5827796,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Art Center Ongoing",
+    "status": "OPERATIONAL",
+    "address": "1-chōme-8-7 Kichijōji Higashichō, Musashino, Tokyo 180-0002, Japan",
+    "website": "http://www.ongoing.jp/ja/index.php",
+    "phone": "0422-26-8454",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: 6:00 – 9:00 PM",
+     "Thursday: 6:00 – 9:00 PM",
+     "Friday: 12:00 – 9:00 PM",
+     "Saturday: 12:00 – 9:00 PM",
+     "Sunday: 12:00 – 9:00 PM"
+    ],
+    "lat": 35.7083922,
+    "lng": 139.5827796,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.ongoing.jp/ja/index.php",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.ongoing.jp/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.ongoing.jp/exhibitions/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ongoing.jp",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Art Center Ongoing",
+    "website": "https://www.ongoing.jp",
+    "neighborhood": "Setagaya/West Tokyo",
+    "address_hint": "1-8-7 Kichijoji-honcho, Musashino-shi",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Artist-run centre, cafe and archive in Kichijoji; a long-running incubator for Tokyo's alternative scene.",
+     "openai": "Essential artist-led centre for emerging practices, performances, talks and community-building in western Tokyo."
+    },
+    "ranks": {
+     "anthropic": 57,
+     "openai": 69
+    },
+    "names": {
+     "anthropic": "Art Center Ongoing",
+     "openai": "Art Center Ongoing"
+    },
+    "rank_claude": 57,
+    "rank_openai": 69,
+    "blended": 63.0,
+    "best": 57,
+    "both": true,
+    "rank": 59,
+    "registry_id": null
+   },
+   "venue_id": "art-center-ongoing"
+  },
+  {
+   "rank": 76,
+   "name": "The Mass",
+   "neighborhood": "Shibuya/Omotesando",
+   "note": null,
+   "hints": {
+    "address": "5-11-1 Jingumae, Shibuya-ku",
+    "website": "https://themass.jp"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Shibuya/Omotesando",
+   "geo": {
+    "lat": 35.6669982,
+    "lng": 139.7065329,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "The Mass",
+    "status": "OPERATIONAL",
+    "address": "5-chōme-11-1 Jingūmae, Shibuya, Tokyo 150-0001, Japan",
+    "website": "http://themass.jp/",
+    "phone": "03-3406-0188",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: 12:00 – 7:00 PM",
+     "Thursday: 12:00 – 7:00 PM",
+     "Friday: 12:00 – 7:00 PM",
+     "Saturday: 12:00 – 7:00 PM",
+     "Sunday: 12:00 – 7:00 PM"
+    ],
+    "lat": 35.6669982,
+    "lng": 139.7065329,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://themass.jp/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "http://themass.jp/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "http://themass.jp",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "site_unvouched"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "The Mass",
+    "website": "https://themass.jp",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "5-11-1 Jingumae, Shibuya-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Harajuku venue bridging street/pop culture and contemporary art with frequent international collaborations.",
+     "openai": "Independent Harajuku complex mounting high-profile exhibitions across contemporary art, photography, fashion and design."
+    },
+    "ranks": {
+     "anthropic": 74,
+     "openai": 76
+    },
+    "names": {
+     "anthropic": "The Mass",
+     "openai": "THE MASS"
+    },
+    "rank_claude": 74,
+    "rank_openai": 76,
+    "blended": 75.0,
+    "best": 74,
+    "both": true,
+    "rank": 76,
+    "registry_id": null
+   },
+   "venue_id": "mass"
+  },
+  {
+   "rank": 82,
+   "name": "CLEAR GALLERY TOKYO",
+   "neighborhood": "Roppongi",
+   "note": null,
+   "hints": {},
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Roppongi",
+   "geo": {
+    "lat": 35.6621732,
+    "lng": 139.7292035,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "clear-gallery-tokyo-clear-edition-inc",
+     "name": "CLEAR GALLERY TOKYO / CLEAR EDITION INC",
+     "status": "unknown"
+    },
+    {
+     "id": "27-gallery-tokyo",
+     "name": "27 Gallery Tokyo",
+     "status": "unknown"
+    },
+    {
+     "id": "81-gallery-tokyo",
+     "name": "+81 Gallery - Tokyo",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "CLEAR GALLERY TOKYO / CLEAR EDITION INC",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 7-chōme−18−８ 2F",
+    "website": "http://www.cleargallerytokyo.com/",
+    "phone": "03-3405-8438",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 12:00 – 6:00 PM",
+     "Wednesday: 12:00 – 6:00 PM",
+     "Thursday: 12:00 – 6:00 PM",
+     "Friday: 12:00 – 6:00 PM",
+     "Saturday: 12:00 – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6621732,
+    "lng": 139.7292035,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.cleargallerytokyo.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.cleargallerytokyo.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.cleargallerytokyo.com/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.cleargallerytokyo.com/current",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.cleargallerytokyo.com/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.cleargallerytokyo.com/exhibitions/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.cleargallerytokyo.com/current-exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.cleargallerytokyo.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "CLEAR GALLERY TOKYO",
+    "website": null,
+    "neighborhood": "Roppongi",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "openai": "Internationally oriented gallery with a programme spanning contemporary art, design and historically informed presentations."
+    },
+    "ranks": {
+     "openai": 57
+    },
+    "names": {
+     "openai": "CLEAR GALLERY TOKYO"
+    },
+    "rank_claude": null,
+    "rank_openai": 57,
+    "blended": 79.0,
+    "best": 57,
+    "both": false,
+    "rank": 82,
+    "registry_id": null
+   },
+   "venue_id": "clear-gallery-tokyo-clear-edition-inc"
+  },
+  {
+   "rank": 84,
+   "name": "Arts Initiative Tokyo (AIT)",
+   "neighborhood": "Ebisu/Meguro",
+   "note": null,
+   "hints": {
+    "address": "Daikanyama, Shibuya-ku",
+    "website": "https://www.a-i-t.net"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ebisu/Meguro",
+   "geo": {
+    "lat": 35.646857,
+    "lng": 139.70189,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Arts Initiative Tokyo",
+    "status": "OPERATIONAL",
+    "address": "30-8 Sarugakuchō, Shibuya, Tokyo 150-0033, Japan",
+    "website": "http://www.a-i-t.net/",
+    "phone": "03-5489-7277",
+    "hours": [
+     "Monday: 10:00 AM – 7:00 PM",
+     "Tuesday: 10:00 AM – 7:00 PM",
+     "Wednesday: 10:00 AM – 7:00 PM",
+     "Thursday: 10:00 AM – 7:00 PM",
+     "Friday: 10:00 AM – 7:00 PM",
+     "Saturday: Closed",
+     "Sunday: Closed"
+    ],
+    "lat": 35.646857,
+    "lng": 139.70189,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.a-i-t.net/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.a-i-t.net/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.a-i-t.net",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Arts Initiative Tokyo (AIT)",
+    "website": "https://www.a-i-t.net",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Daikanyama, Shibuya-ku",
+    "kind": "nonprofit",
+    "notes": {
+     "anthropic": "Curatorial nonprofit running residencies, the MAD education programme and exhibitions since 2001."
+    },
+    "ranks": {
+     "anthropic": 59
+    },
+    "names": {
+     "anthropic": "Arts Initiative Tokyo (AIT)"
+    },
+    "rank_claude": 59,
+    "rank_openai": null,
+    "blended": 80.0,
+    "best": 59,
+    "both": false,
+    "rank": 84,
+    "registry_id": null
+   },
+   "venue_id": "arts-initiative-tokyo-ait"
+  },
+  {
+   "rank": 89,
+   "name": "Roentgenwerke AG",
+   "neighborhood": "Nihonbashi/Bakurocho",
+   "note": null,
+   "hints": {
+    "address": "Nihonbashi-Bakurocho, Chuo-ku",
+    "website": "https://www.roentgenwerke.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": {
+    "lat": 35.6842777,
+    "lng": 139.7650482,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "UBS AG Tokyo Branch",
+    "status": "OPERATIONAL",
+    "address": "Marunouchi Eiraku Building, 1-chōme-4-1 Marunouchi, Chiyoda City, Tokyo 100-0005, Japan",
+    "website": "https://www.ubs.com/jp/ja.html",
+    "phone": "03-5293-3000",
+    "hours": [
+     "Monday: 9:00 AM – 5:00 PM",
+     "Tuesday: 9:00 AM – 5:00 PM",
+     "Wednesday: 9:00 AM – 5:00 PM",
+     "Thursday: 9:00 AM – 5:00 PM",
+     "Friday: 9:00 AM – 5:00 PM",
+     "Saturday: Closed",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6842777,
+    "lng": 139.7650482,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.ubs.com/jp/ja.html",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.ubs.com/jp/ja.html",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.ubs.com/jp/ja.html/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ubs.com/jp/ja.html/current",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ubs.com/jp/ja.html/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ubs.com/jp/ja.html/exhibitions/past",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ubs.com/jp/ja.html/current-exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.ubs.com/jp/ja.html",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "unverified",
+   "reasons": [
+    "site_not_vouched"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Roentgenwerke AG",
+    "website": "https://www.roentgenwerke.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Nihonbashi-Bakurocho, Chuo-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Descendant of the legendary 1990s Roentgen Kunst Institut that first showed Murakami and Nara."
+    },
+    "ranks": {
+     "anthropic": 67
+    },
+    "names": {
+     "anthropic": "Roentgenwerke AG"
+    },
+    "rank_claude": 67,
+    "rank_openai": null,
+    "blended": 84.0,
+    "best": 67,
+    "both": false,
+    "rank": 89,
+    "registry_id": null
+   },
+   "venue_id": "roentgenwerke-ag"
+  },
+  {
+   "rank": 96,
+   "name": "VOILLD",
+   "neighborhood": "Ebisu/Meguro",
+   "note": null,
+   "hints": {
+    "address": "Higashiyama, Meguro-ku",
+    "website": "https://voilld.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Tennozu",
+   "geo": {
+    "lat": 35.6261711,
+    "lng": 139.7282726,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "VOILLD",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒141-0022 Tokyo, Shinagawa City, Higashigotanda, 3-chōme−17−４ 1F",
+    "website": "http://www.voilld.com/",
+    "phone": null,
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: 12:00 – 6:00 PM",
+     "Thursday: 12:00 – 6:00 PM",
+     "Friday: 12:00 – 6:00 PM",
+     "Saturday: 12:00 – 6:00 PM",
+     "Sunday: 12:00 – 6:00 PM"
+    ],
+    "lat": 35.6261711,
+    "lng": 139.7282726,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.voilld.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.voilld.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.voilld.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "VOILLD",
+    "website": "https://voilld.com",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "Higashiyama, Meguro-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Programme spanning contemporary art, craft and design culture; influential among younger collectors."
+    },
+    "ranks": {
+     "anthropic": 76
+    },
+    "names": {
+     "anthropic": "VOILLD"
+    },
+    "rank_claude": 76,
+    "rank_openai": null,
+    "blended": 88.5,
+    "best": 76,
+    "both": false,
+    "rank": 96,
+    "registry_id": null
+   },
+   "venue_id": "voilld"
+  },
+  {
+   "rank": 97,
+   "name": "OIL by Bijutsutecho Gallery",
+   "neighborhood": "Shibuya/Omotesando",
+   "note": null,
+   "hints": {
+    "address": "15-1 Udagawacho (Shibuya PARCO, 2F)",
+    "website": "https://oil.bijutsutecho.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Shibuya/Omotesando",
+   "geo": {
+    "lat": 35.6619636,
+    "lng": 139.698605,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "OIL by 美術手帖",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒150-0042 Tokyo, Shibuya, Udagawachō, 15−１ 渋谷パルコ 2F",
+    "website": "https://oil-gallery.bijutsutecho.com/",
+    "phone": "03-5422-3270",
+    "hours": [
+     "Monday: 11:00 AM – 9:00 PM",
+     "Tuesday: 11:00 AM – 9:00 PM",
+     "Wednesday: 11:00 AM – 9:00 PM",
+     "Thursday: 11:00 AM – 9:00 PM",
+     "Friday: 11:00 AM – 9:00 PM",
+     "Saturday: 11:00 AM – 9:00 PM",
+     "Sunday: 11:00 AM – 9:00 PM"
+    ],
+    "lat": 35.6619636,
+    "lng": 139.698605,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://oil-gallery.bijutsutecho.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://oil-gallery.bijutsutecho.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://oil-gallery.bijutsutecho.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "OIL by Bijutsutecho Gallery",
+    "website": "https://oil.bijutsutecho.com",
+    "neighborhood": "Shibuya/Omotesando",
+    "address_hint": "15-1 Udagawacho (Shibuya PARCO, 2F)",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Gallery arm of Japan's leading art magazine; accessible programming that reaches a wide public audience.",
+     "openai": "Physical exhibition arm of a major Japanese art-media platform, providing visibility and sales support to contemporary artists."
+    },
+    "ranks": {
+     "anthropic": 97,
+     "openai": 81
+    },
+    "names": {
+     "anthropic": "OIL by Bijutsutecho Gallery",
+     "openai": "OIL by Bijutsu Techo Gallery"
+    },
+    "rank_claude": 97,
+    "rank_openai": 81,
+    "blended": 89.0,
+    "best": 81,
+    "both": true,
+    "rank": 97,
+    "registry_id": null
+   },
+   "venue_id": "oil-by-bijutsutecho"
+  },
+  {
+   "rank": 103,
+   "name": "Shirota Gallery",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "address": "7-10-8 Ginza, Chuo-ku",
+    "website": "https://www.shirotagallery.jp"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": {
+    "lat": 35.6717135,
+    "lng": 139.7680234,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "シロタ画廊",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 3-chōme−9−４ 第一文成ビル ２Ｆ",
+    "website": "https://shirotagallery.com/",
+    "phone": "03-3572-7971",
+    "hours": [
+     "Monday: 11:00 AM – 6:00 PM",
+     "Tuesday: 11:00 AM – 6:00 PM",
+     "Wednesday: 11:00 AM – 6:00 PM",
+     "Thursday: 11:00 AM – 6:00 PM",
+     "Friday: 11:00 AM – 6:00 PM",
+     "Saturday: 11:00 AM – 4:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6717135,
+    "lng": 139.7680234,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://shirotagallery.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://shirotagallery.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://shirotagallery.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Shirota Gallery",
+    "website": "https://www.shirotagallery.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "7-10-8 Ginza, Chuo-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Historic Ginza gallery (est. 1966) central to Japanese printmaking and to Yoko Ono/Fluxus-era exhibitions."
+    },
+    "ranks": {
+     "anthropic": 81
+    },
+    "names": {
+     "anthropic": "Shirota Gallery"
+    },
+    "rank_claude": 81,
+    "rank_openai": null,
+    "blended": 91.0,
+    "best": 81,
+    "both": false,
+    "rank": 103,
+    "registry_id": null
+   },
+   "venue_id": "shirota"
+  },
+  {
+   "rank": 108,
+   "name": "SEIZAN Gallery",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "website": "https://www.seizangallery.com"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": {
+    "lat": 35.6687811,
+    "lng": 139.7671384,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "gallery-seizan",
+     "name": "Gallery Seizan",
+     "status": "unknown"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Gallery Seizan",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 5-chōme−14−１６ 銀座アビタシオン 1F",
+    "website": "https://art-japan.jp/",
+    "phone": "03-3546-7356",
+    "hours": [
+     "Monday: 11:00 AM – 7:00 PM",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 5:00 PM",
+     "Sunday: 11:00 AM – 5:00 PM"
+    ],
+    "lat": 35.6687811,
+    "lng": 139.7671384,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://art-japan.jp/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://art-japan.jp/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://art-japan.jp/exhibitions",
+       "latest_year": null,
+       "online": true
+      },
+      {
+       "url": "https://art-japan.jp",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "SEIZAN Gallery",
+    "website": "https://www.seizangallery.com",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Tokyo–New York gallery promoting Japanese artists internationally with a contemporary-meets-tradition programme."
+    },
+    "ranks": {
+     "anthropic": 85
+    },
+    "names": {
+     "anthropic": "SEIZAN Gallery"
+    },
+    "rank_claude": 85,
+    "rank_openai": null,
+    "blended": 93.0,
+    "best": 85,
+    "both": false,
+    "rank": 108,
+    "registry_id": null
+   },
+   "venue_id": "seizan"
+  },
+  {
+   "rank": 111,
+   "name": "Shibunkaku Tokyo",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "website": "https://www.shibunkaku.co.jp"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it",
+    "registry near-miss: 27-gallery-tokyo (unknown), 81-gallery-tokyo (unknown), art-space-tokyo (candidate)"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": {
+    "lat": 35.671573,
+    "lng": 139.762489,
+    "source": "places"
+   },
+   "near_misses": [
+    {
+     "id": "27-gallery-tokyo",
+     "name": "27 Gallery Tokyo",
+     "status": "unknown"
+    },
+    {
+     "id": "81-gallery-tokyo",
+     "name": "+81 Gallery - Tokyo",
+     "status": "unknown"
+    },
+    {
+     "id": "art-space-tokyo",
+     "name": "Art Space Tokyo",
+     "status": "candidate"
+    }
+   ],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Shibunkaku Ginza",
+    "status": "OPERATIONAL",
+    "address": "5-chōme-3-12 Ginza, Chuo City, Tokyo 104-0061, Japan",
+    "website": "https://www.shibunkaku.co.jp/english/",
+    "phone": "03-3289-0001",
+    "hours": [
+     "Monday: 10:00 AM – 6:00 PM",
+     "Tuesday: 10:00 AM – 6:00 PM",
+     "Wednesday: 10:00 AM – 6:00 PM",
+     "Thursday: 10:00 AM – 6:00 PM",
+     "Friday: 10:00 AM – 6:00 PM",
+     "Saturday: 10:00 AM – 6:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.671573,
+    "lng": 139.762489,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.shibunkaku.co.jp/english/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.shibunkaku.co.jp/english/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.shibunkaku.co.jp/english/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.shibunkaku.co.jp/english/current",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.shibunkaku.co.jp/english/past",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.shibunkaku.co.jp/english/exhibitions/past",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.shibunkaku.co.jp/english/current-exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.shibunkaku.co.jp/english",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Shibunkaku Tokyo",
+    "website": "https://www.shibunkaku.co.jp",
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": null,
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Kyoto house founded 1937; its Tokyo space stages scholarly shows linking classical Japanese art with contemporary practice."
+    },
+    "ranks": {
+     "anthropic": 86
+    },
+    "names": {
+     "anthropic": "Shibunkaku Tokyo"
+    },
+    "rank_claude": 86,
+    "rank_openai": null,
+    "blended": 93.5,
+    "best": 86,
+    "both": false,
+    "rank": 111,
+    "registry_id": null
+   },
+   "venue_id": "shibunkaku-tokyo"
+  },
+  {
+   "rank": 114,
+   "name": "Kanda & Oliveira",
+   "neighborhood": "Nihonbashi/Bakurocho",
+   "note": null,
+   "hints": {
+    "address": "Higashi-Kanda, Chiyoda-ku",
+    "website": "https://kandaoliveira.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "Places only knows a listing outside the metro: 1-chōme-1-16-2 Nishifuna, Funabashi, Chiba 273-0031, Japan",
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Nihonbashi/Bakurocho",
+   "geo": null,
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "Kanda & Oliveira",
+    "address_seen": "1-chōme-1-16-2 Nishifuna, Funabashi, Chiba 273-0031, Japan",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://kandaoliveira.com",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": true,
+    "exhibitions_url": "https://www.kandaoliveira.com/exhibitions",
+    "js_only": false,
+    "final_url": "https://www.kandaoliveira.com/",
+    "dated": {
+     "latest_year": 2026,
+     "stale": false,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.kandaoliveira.com/exhibitions",
+       "latest_year": 2026,
+       "online": false
+      },
+      {
+       "url": "https://www.kandaoliveira.com",
+       "latest_year": 2026,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Kanda & Oliveira",
+    "website": "https://kandaoliveira.com",
+    "neighborhood": "Nihonbashi/Bakurocho",
+    "address_hint": "Higashi-Kanda, Chiyoda-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Japanese–Brazilian gallery bringing Latin American and diaspora practices into the Tokyo conversation."
+    },
+    "ranks": {
+     "anthropic": 89
+    },
+    "names": {
+     "anthropic": "Kanda & Oliveira"
+    },
+    "rank_claude": 89,
+    "rank_openai": null,
+    "blended": 95.0,
+    "best": 89,
+    "both": false,
+    "rank": 114,
+    "registry_id": null
+   },
+   "venue_id": "kanda-and-oliveira"
+  },
+  {
+   "rank": 117,
+   "name": "Yukiko Koide Presents",
+   "neighborhood": "Kiyosumi-Shirakawa",
+   "note": null,
+   "hints": {
+    "address": "Kiyosumi, Koto-ku",
+    "website": "https://www.koidepresents.com"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Nihonbashi/Bakurocho",
+   "geo": {
+    "lat": 35.6903093,
+    "lng": 139.772777,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Yukiko Koide Presents",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒101-0044 Tokyo, Chiyoda City, 千代田区Kajichō, 1-chōme−10−４ 丸石ビルディング 3F",
+    "website": null,
+    "phone": "03-5298-7488",
+    "hours": null,
+    "lat": 35.6903093,
+    "lng": 139.772777,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://www.koidepresents.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Yukiko Koide Presents",
+    "website": "https://www.koidepresents.com",
+    "neighborhood": "Kiyosumi-Shirakawa",
+    "address_hint": "Kiyosumi, Koto-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Leading Japanese venue for art brut and outsider art, with strong international exhibition partnerships."
+    },
+    "ranks": {
+     "anthropic": 91
+    },
+    "names": {
+     "anthropic": "Yukiko Koide Presents"
+    },
+    "rank_claude": 91,
+    "rank_openai": null,
+    "blended": 96.0,
+    "best": 91,
+    "both": false,
+    "rank": 117,
+    "registry_id": null
+   },
+   "venue_id": "yukiko-koide-presents"
+  },
+  {
+   "rank": 119,
+   "name": "Hidari Zingaro",
+   "neighborhood": "Nakano",
+   "note": null,
+   "hints": {
+    "address": "Nakano Broadway, Nakano-ku",
+    "website": "https://hidari-zingaro.jp"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Setagaya/West Tokyo",
+   "geo": {
+    "lat": 35.709707,
+    "lng": 139.665597,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Hidari Zingaro",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒164-0001 Tokyo, Nakano City, Nakano, 5-chōme−52−１５ 中野ブロードウェイ 3F",
+    "website": "https://zingarokk.com/",
+    "phone": "03-5345-7825",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: Closed",
+     "Wednesday: Closed",
+     "Thursday: 12:00 – 7:00 PM",
+     "Friday: 12:00 – 7:00 PM",
+     "Saturday: 12:00 – 7:00 PM",
+     "Sunday: 12:00 – 7:00 PM"
+    ],
+    "lat": 35.709707,
+    "lng": 139.665597,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://zingarokk.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://zingarokk.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://zingarokk.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Hidari Zingaro",
+    "website": "https://hidari-zingaro.jp",
+    "neighborhood": "Nakano",
+    "address_hint": "Nakano Broadway, Nakano-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "Murakami-founded Nakano Broadway venue that turned otaku-adjacent subculture into a serious exhibition platform."
+    },
+    "ranks": {
+     "anthropic": 92
+    },
+    "names": {
+     "anthropic": "Hidari Zingaro"
+    },
+    "rank_claude": 92,
+    "rank_openai": null,
+    "blended": 96.5,
+    "best": 92,
+    "both": false,
+    "rank": 119,
+    "registry_id": null
+   },
+   "venue_id": "hidari-zingaro"
+  },
+  {
+   "rank": 120,
+   "name": "Komagome SOKO",
+   "neighborhood": "Komagome",
+   "note": null,
+   "hints": {
+    "address": "Komagome, Toshima-ku"
+   },
+   "verdict": "unverified",
+   "why": [
+    "site's newest dated show is from 2023"
+   ],
+   "zone": "Ueno/Yanaka",
+   "geo": {
+    "lat": 35.7354672,
+    "lng": 139.7489414,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "komagome1-14cas",
+    "status": "OPERATIONAL",
+    "address": "1-chōme-14-6 Komagome, Toshima City, Tokyo 170-0003, Japan",
+    "website": "https://komagome1-14cas.tumblr.com/",
+    "phone": "03-3946-3481",
+    "hours": [
+     "Monday: 12:00 – 6:00 PM",
+     "Tuesday: 12:00 – 6:00 PM",
+     "Wednesday: 12:00 – 6:00 PM",
+     "Thursday: 12:00 – 6:00 PM",
+     "Friday: 12:00 – 6:00 PM",
+     "Saturday: 12:00 – 6:00 PM",
+     "Sunday: 12:00 – 6:00 PM"
+    ],
+    "lat": 35.7354672,
+    "lng": 139.7489414,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://komagome1-14cas.tumblr.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": true,
+    "final_url": "https://komagome1-14cas.tumblr.com/",
+    "dated": {
+     "latest_year": 2023,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://komagome1-14cas.tumblr.com/past",
+       "latest_year": 2023,
+       "online": false
+      },
+      {
+       "url": "https://komagome1-14cas.tumblr.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "stale"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "Komagome SOKO",
+    "website": null,
+    "neighborhood": "Komagome",
+    "address_hint": "Komagome, Toshima-ku",
+    "kind": "project_space",
+    "notes": {
+     "anthropic": "Warehouse project space anchoring the Komagome cluster; large-scale installations by emerging artists."
+    },
+    "ranks": {
+     "anthropic": 93
+    },
+    "names": {
+     "anthropic": "Komagome SOKO"
+    },
+    "rank_claude": 93,
+    "rank_openai": null,
+    "blended": 97.0,
+    "best": 93,
+    "both": false,
+    "rank": 120,
+    "registry_id": null
+   },
+   "venue_id": "komagome-soko"
+  },
+  {
+   "rank": 122,
+   "name": "Yamaki Fine Art",
+   "neighborhood": "Ginza/Kyobashi",
+   "note": null,
+   "hints": {
+    "address": "Kyobashi"
+   },
+   "verdict": "not_found",
+   "why": [
+    "no matching Places listing",
+    "no website known",
+    "Places only knows a listing outside the metro: 3-chōme-9-5 Motomachidōri, Chuo Ward, Kobe, Hyogo 650-0022, Japan"
+   ],
+   "zone": "Ginza/Kyobashi",
+   "geo": null,
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": false,
+    "mismatch": "ギャラリーヤマキファインアート",
+    "address_seen": "3-chōme-9-5 Motomachidōri, Chuo Ward, Kobe, Hyogo 650-0022, Japan",
+    "name": null,
+    "status": null,
+    "address": null,
+    "website": null,
+    "phone": null,
+    "hours": null,
+    "lat": null,
+    "lng": null,
+    "metro": false,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": null,
+    "website_live": null,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": null,
+    "final_url": null,
+    "dated": null,
+    "error": null
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_mismatch",
+    "no_website"
+   ],
+   "in_footprint": false,
+   "entry": {
+    "name": "Yamaki Fine Art",
+    "website": null,
+    "neighborhood": "Ginza/Kyobashi",
+    "address_hint": "Kyobashi",
+    "kind": "gallery",
+    "notes": {
+     "openai": "Established gallery presenting Japanese postwar and contemporary work with a research-conscious, historically grounded approach."
+    },
+    "ranks": {
+     "openai": 95
+    },
+    "names": {
+     "openai": "Yamaki Fine Art"
+    },
+    "rank_claude": null,
+    "rank_openai": 95,
+    "blended": 98.0,
+    "best": 95,
+    "both": false,
+    "rank": 122,
+    "registry_id": null
+   },
+   "venue_id": "yamaki"
+  },
+  {
+   "rank": 124,
+   "name": "Toki-no-Wasuremono",
+   "neighborhood": "Komagome",
+   "note": null,
+   "hints": {
+    "address": "5-4-1 Kaminakazato",
+    "website": "https://www.toki-no-wasuremono.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ueno/Yanaka",
+   "geo": {
+    "lat": 35.732235,
+    "lng": 139.7502838,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "ときの忘れもの",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒113-0021 Tokyo, Bunkyo City, Honkomagome, 5-chōme−4−１ ＬＡＳＣＡＳＡＳ",
+    "website": "http://www.tokinowasuremono.com/",
+    "phone": "03-6902-9530",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.732235,
+    "lng": 139.7502838,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.tokinowasuremono.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://www.tokinowasuremono.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://www.tokinowasuremono.com/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://www.tokinowasuremono.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Toki-no-Wasuremono",
+    "website": "https://www.toki-no-wasuremono.com/",
+    "neighborhood": "Komagome",
+    "address_hint": "5-4-1 Kaminakazato",
+    "kind": "gallery",
+    "notes": {
+     "openai": "Scholarly gallery and publisher connecting contemporary work with modern architecture, prints, photography and Japanese avant-gardes."
+    },
+    "ranks": {
+     "openai": 97
+    },
+    "names": {
+     "openai": "Toki-no-Wasuremono"
+    },
+    "rank_claude": null,
+    "rank_openai": 97,
+    "blended": 99.0,
+    "best": 97,
+    "both": false,
+    "rank": 124,
+    "registry_id": null
+   },
+   "venue_id": "toki-no-wasuremono"
+  },
+  {
+   "rank": 125,
+   "name": "Gallery Naruyama",
+   "neighborhood": "Kudanshita",
+   "note": null,
+   "hints": {
+    "address": "3-8-5 Kudankita",
+    "website": "https://gallery-naruyama.com/"
+   },
+   "verdict": "miss",
+   "why": [
+    "not a Gallery Platform LA member",
+    "not on Carla's distribution list",
+    "never returned by the Places nearby sweep",
+    "caveat: its site does not read as an exhibition venue",
+    "no zone-enumeration session named it"
+   ],
+   "zone": "Shinjuku/Kagurazaka",
+   "geo": {
+    "lat": 35.694358,
+    "lng": 139.747093,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "成山画廊応接室",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒102-0074 Tokyo, Chiyoda City, Kudanminami, 2-chōme−2−８ 松岡九段ビル",
+    "website": "http://www.gallery-naruyama.com/",
+    "phone": "03-3264-4871",
+    "hours": [
+     "Monday: 1:00 – 7:00 PM",
+     "Tuesday: 1:00 – 7:00 PM",
+     "Wednesday: Closed",
+     "Thursday: 1:00 – 7:00 PM",
+     "Friday: 1:00 – 7:00 PM",
+     "Saturday: 1:00 – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.694358,
+    "lng": 139.747093,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://www.gallery-naruyama.com/",
+    "website_live": true,
+    "site_vouched": false,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "http://www.gallery-naruyama.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": false,
+     "online": false,
+     "pages": []
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "site_unvouched"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "Gallery Naruyama",
+    "website": "https://gallery-naruyama.com/",
+    "neighborhood": "Kudanshita",
+    "address_hint": "3-8-5 Kudankita",
+    "kind": "gallery",
+    "notes": {
+     "openai": "Singular gallery known for uncompromising figurative, photographic and subcultural positions outside Tokyo's mainstream market."
+    },
+    "ranks": {
+     "openai": 98
+    },
+    "names": {
+     "openai": "Gallery Naruyama"
+    },
+    "rank_claude": null,
+    "rank_openai": 98,
+    "blended": 99.5,
+    "best": 98,
+    "both": false,
+    "rank": 125,
+    "registry_id": null
+   },
+   "venue_id": "gallery-naruyama"
+  },
+  {
+   "rank": 126,
+   "name": "104GALERIE",
+   "neighborhood": "Ebisu/Meguro",
+   "note": null,
+   "hints": {
+    "address": "1-20-4 Aobadai",
+    "website": "https://www.104galerie.com/"
+   },
+   "verdict": "unverified",
+   "why": [
+    "no dated show on the site at all"
+   ],
+   "zone": "Ebisu/Meguro",
+   "geo": {
+    "lat": 35.6471082,
+    "lng": 139.6982323,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "104GALERIE",
+    "status": "OPERATIONAL",
+    "address": "Japan, 〒153-0042 Tokyo, Meguro City, Aobadai, 1-chōme−20−４ FORCEビル B1F",
+    "website": "http://104galerie.com/",
+    "phone": "03-6303-0956",
+    "hours": [
+     "Monday: Closed",
+     "Tuesday: 11:00 AM – 7:00 PM",
+     "Wednesday: 11:00 AM – 7:00 PM",
+     "Thursday: 11:00 AM – 7:00 PM",
+     "Friday: 11:00 AM – 7:00 PM",
+     "Saturday: 11:00 AM – 7:00 PM",
+     "Sunday: Closed"
+    ],
+    "lat": 35.6471082,
+    "lng": 139.6982323,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "http://104galerie.com/",
+    "website_live": true,
+    "site_vouched": true,
+    "closed_notice": false,
+    "exhibitions_page": false,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": "https://104galerie.com/",
+    "dated": {
+     "latest_year": null,
+     "stale": true,
+     "online": false,
+     "pages": [
+      {
+       "url": "https://104galerie.com/exhibitions",
+       "latest_year": null,
+       "online": false
+      },
+      {
+       "url": "https://104galerie.com",
+       "latest_year": null,
+       "online": false
+      }
+     ]
+    },
+    "error": null
+   },
+   "coverage": {},
+   "notes": [
+    "no_dated_show"
+   ],
+   "quick_verdict": "verified",
+   "reasons": [],
+   "in_footprint": true,
+   "entry": {
+    "name": "104GALERIE",
+    "website": "https://www.104galerie.com/",
+    "neighborhood": "Ebisu/Meguro",
+    "address_hint": "1-20-4 Aobadai",
+    "kind": "gallery",
+    "notes": {
+     "openai": "Nakameguro gallery with a sustained international programme emphasizing materially expressive painting and sculpture."
+    },
+    "ranks": {
+     "openai": 99
+    },
+    "names": {
+     "openai": "104GALERIE"
+    },
+    "rank_claude": null,
+    "rank_openai": 99,
+    "blended": 100.0,
+    "best": 99,
+    "both": false,
+    "rank": 126,
+    "registry_id": null
+   },
+   "venue_id": "104galerie"
+  },
+  {
+   "rank": 127,
+   "name": "MASATAKA CONTEMPORARY",
+   "neighborhood": "Ryogoku",
+   "note": null,
+   "hints": {
+    "address": "Ryogoku, Sumida-ku",
+    "website": "https://masatakacontemporary.com"
+   },
+   "verdict": "closed",
+   "why": [
+    "Places: permanently closed, website dead"
+   ],
+   "zone": "Nihonbashi/Bakurocho",
+   "geo": {
+    "lat": 35.6802799,
+    "lng": 139.7719833,
+    "source": "places"
+   },
+   "near_misses": [],
+   "places": {
+    "found": true,
+    "matched": true,
+    "mismatch": null,
+    "address_seen": null,
+    "name": "Masataka Contemporary",
+    "status": "CLOSED_PERMANENTLY",
+    "address": "3-chōme-2-9 Nihonbashi, Chuo City, Tokyo 103-0027, Japan",
+    "website": null,
+    "phone": "03-3275-1008",
+    "hours": null,
+    "lat": 35.6802799,
+    "lng": 139.7719833,
+    "metro": true,
+    "cached": null,
+    "skipped": null,
+    "error": null
+   },
+   "site": {
+    "website": "https://masatakacontemporary.com",
+    "website_live": false,
+    "site_vouched": null,
+    "closed_notice": null,
+    "exhibitions_page": null,
+    "exhibitions_url": null,
+    "js_only": false,
+    "final_url": null,
+    "dated": null,
+    "error": "ConnectionError"
+   },
+   "coverage": {},
+   "quick_verdict": "unverified",
+   "reasons": [
+    "places_closed",
+    "no_hours",
+    "site_dead"
+   ],
+   "in_footprint": true,
+   "entry": {
+    "name": "MASATAKA CONTEMPORARY",
+    "website": "https://masatakacontemporary.com",
+    "neighborhood": "Ryogoku",
+    "address_hint": "Ryogoku, Sumida-ku",
+    "kind": "gallery",
+    "notes": {
+     "anthropic": "East Tokyo gallery supporting mid-career and emerging artists, part of the Sumida/Ryogoku art cluster."
+    },
+    "ranks": {
+     "anthropic": 99
+    },
+    "names": {
+     "anthropic": "MASATAKA CONTEMPORARY"
+    },
+    "rank_claude": 99,
+    "rank_openai": null,
+    "blended": 100.0,
+    "best": 99,
+    "both": false,
+    "rank": 127,
+    "registry_id": null
+   },
+   "venue_id": "masataka-contemporary"
+  }
+ ]
+}

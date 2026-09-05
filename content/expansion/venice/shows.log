@@ -1,0 +1,439 @@
+=== STAGE 1: enumerate (skipped) ===
+=== STAGE 2: scrape ===
+[queue] due venues per zone: San Marco=9, Dorsoduro=9, Cannaregio=6, Castello=5, Giudecca=1
+[san-marco] session 1: 8 TODO venues -> deep-venice-san-marco-1788559068.log
+[san-marco]   ['bel-air-fine-art-venise', 'bugno-art', 'caterina-tognon-arte-contemporanea', 'fondazione-bevilacqua-la-masa', 'fondazione-dell-albero-d-oro-palazzo-vendramin-grimani', 'galleria-d-arte-contini', 'galleria-la-salizada', 'lineadacqua']
+[dorsoduro] session 1: 8 TODO venues -> deep-venice-dorsoduro-1788559090.log
+[dorsoduro]   ['a-plus-a', 'akka-project-venice', 'casa-sanlorenzo', 'galleria-alberta-pane', 'galleria-d-arte-l-occhio', 'marignana-arte', 'patricia-low-venezia', 'san-polo-art']
+[cannaregio] session 1: 6 TODO venues -> deep-venice-cannaregio-1788559113.log
+[cannaregio]   ['berggruen-arts-and-culture-palazzo-diedo', 'european-cultural-centre-palazzo-mora-palazzo-bembo', 'fondation-valmont-at-palazzo-bonvicini', 'ikona', 'marina-bastianello', 'visioni-altre']
+[san-marco] session 1 done: +0 saved, +0 skipped (exit 1)
+[castello] session 1: 5 TODO venues -> deep-venice-castello-1788559237.log
+[castello]   ['castello-925', 'galleria-ravagnan', 'ocean-space-tba21-academy', 'smac-san-marco-art-centre', 'spazio-berlendis']
+[cannaregio] session 1 done: +0 saved, +0 skipped (exit 1)
+[giudecca] session 1: 1 TODO venues -> deep-venice-giudecca-1788559238.log
+[giudecca]   ['spazio-punch']
+[dorsoduro] session 1 done: +0 saved, +0 skipped (exit 1)
+[san-marco] session 2: 1 TODO venues -> deep-venice-san-marco-1788559239.log
+[san-marco]   ['victoria-miro-venice']
+[giudecca] session 1 done: +1 saved, +0 skipped (exit 0)
+[dorsoduro] session 2: 1 TODO venues -> deep-venice-dorsoduro-1788559305.log
+[dorsoduro]   ['sparc-spazio-arte-contemporanea']
+[san-marco] session 2 done: +1 saved, +1 skipped (exit 0)
+[cannaregio] TODO empty after 1 session(s)
+[cannaregio] zone done: todo_empty after 1 session(s)
+[giudecca] TODO empty after 1 session(s)
+[giudecca] zone done: todo_empty after 1 session(s)
+[san-marco] TODO empty after 2 session(s)
+[san-marco] zone done: todo_empty after 2 session(s)
+[dorsoduro] session 2 done: +1 saved, +0 skipped (exit 0)
+[dorsoduro] TODO empty after 2 session(s)
+[dorsoduro] zone done: todo_empty after 2 session(s)
+[castello] session 1 done: +8 saved, +1 skipped (exit 0)
+[castello] TODO empty after 1 session(s)
+[castello] zone done: todo_empty after 1 session(s)
+=== STAGE 3: verify (pending pool) ===
+=== cross-check pass ===
+  venice/armitage-promise-of-change: GOOGLE_NOT_FOUND
+  venice/lorna-simpson-third-person: COORDS_OFF_OSM_1341m
+  venice/peggy-guggenheim-in-london: ok
+  venice/darkness-visible: ok
+  venice/varejao-modernisms: ok
+  venice/leo-frontini-yields-of-fray: ok
+  venice/castello925-sharing-legacy: ok
+  venice/castello925-future-light: ok
+  venice/castello925-chromatic-conditions: ok
+  venice/smac-lee-ufan: ok
+  venice/smac-boetti: ok
+  venice/oceanspace-tide-of-returns: ok
+  venice/berlendis-grenada-pavilion: ok
+  venice/berlendis-guatemala-pavilion: ok
+
+wrote /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/crosscheck.json (14 shows, 11 venue lookups); flags: {'GOOGLE_NOT_FOUND': 1, 'COORDS_OFF_OSM_1341m': 1}
+=== agent verification pass ===
+[verify venice] 11 shows
+  [venice #0] server:web_fetch {"url": "https://www.spaziopunch.com/projects/darkness-visible"}
+  [venice #0] server:web_fetch {"url": "https://www.victoria-miro.com/exhibitions/679/"}
+  [venice #0] server:web_fetch {"url": "https://www.veniceartfactory.org/pagina-mostre/yields-of-fray-%2F%2F-leo-frontini"}
+  [venice #0] server:web_fetch {"url": "https://www.castello925.com/nuova-pagina"}
+  [venice #0] server:web_fetch {"url": "https://smacvenice.org/whats-on/lee-ufan"}
+  [venice #0] server:web_fetch {"url": "https://smacvenice.org/whats-on/alighiero-boetti"}
+  [venice #0] server:web_fetch {"url": "https://tba21.org/oceanspace-exhibition_tide_of_returns"}
+  [venice #0] server:web_fetch {"url": "https://www.spazioberlendis.it/the-poetics-of-correspondence-grenada-pavilion-at-the-61st-international-art-exhibition-la-biennale-
+  [venice #0] server:web_fetch {"url": "https://www.spazioberlendis.it/las-invisibles-guatemala-pavilion-at-the-61st-international-art-exhibition-la-biennale-di-venezia/"}
+  [venice #0] server:web_search {"query": "Spazio Punch Darkness Visible dictatorship exhibition"}
+  [venice #0] server:web_search {"query": "Victoria Miro Venice Adriana Varej\u00e3o Modernisms"}
+  [venice #0] server:web_search {"query": "Venice Art Factory SPARC Leo Frontini Yields of Fray"}
+  [venice #0] server:web_search {"query": "Castello 925 Venice nuova pagina exhibitions"}
+  [venice #0] server:web_search {"query": "SMAC San Marco Art Centre Lee Ufan exhibition"}
+  [venice #0] server:web_search {"query": "SMAC San Marco Art Centre Alighiero Boetti exhibition"}
+  [venice #0] server:web_search {"query": "Ocean Space Venice Tide of Returns TBA21"}
+  [venice #0] server:web_search {"query": "Spazio Berlendis Grenada Pavilion Poetics of Correspondence"}
+  [venice #0] server:web_search {"query": "Spazio Berlendis Guatemala Pavilion Las Invisibles"}
+  [venice #0] server:web_fetch {"url": "https://www.castello925.com/nuova-pagina"}
+  [venice #0] server:web_fetch {"url": "https://www.castello925.com/"}
+  [venice #0] server:web_fetch {"url": "https://smacvenice.org/whats-on/lee-ufan"}
+  [venice #0] server:web_fetch {"url": "https://tba21.org/oceanspace-exhibition_tide_of_returns"}
+  [venice #0] server:web_fetch {"url": "https://www.spazioberlendis.it/the-poetics-of-correspondence-grenada-pavilion-at-the-61st-international-art-exhibition-la-biennale-
+  [venice #0] server:web_fetch {"url": "https://www.spazioberlendis.it/las-invisibles-guatemala-pavilion-at-the-61st-international-art-exhibition-la-biennale-di-venezia/"}
+  [venice #0] server:web_fetch {"url": "https://www.castello925.com/nuova-pagina"}
+  [venice #0] server:web_fetch {"url": "https://www.spaziopunch.com/projects/darkness-visible"}
+  [venice #0] Confirmed: Spazio Punch's own page states "may 6—november 22, 2026" exactly matching saved dates. All checks complete. Now I'll submit verdicts for all 11 shows.
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "darkness-visible", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "varejao-modernisms", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "leo-frontini-yields-of-fray", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "castello925-sharing-legacy", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "castello925-future-light", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "castello925-chromatic-conditions", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "smac-lee-ufan", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "smac-boetti", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "oceanspace-tide-of-returns", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "berlendis-grenada-pavilion", "status": "verified", "reason": null, "corrections": null}
+  [venice #0] tool:confirm_show {"city": "venice", "slug": "berlendis-guatemala-pavilion", "status": "verified", "reason": null, "corrections": null}
+  [venice #1] All 11 Venice shows audited: **11 verified / 0 corrected / 0 unverified**.
+[verify venice] done $0.56
+{
+  "city": "venice",
+  "zones": [
+    "San Marco",
+    "Dorsoduro",
+    "Cannaregio",
+    "Castello",
+    "Giudecca"
+  ],
+  "run_spend_usd": 3.6448,
+  "shows_total": 14,
+  "remaining_todo": {
+    "San Marco": 8,
+    "Dorsoduro": 8,
+    "Cannaregio": 6,
+    "Castello": 0,
+    "Giudecca": 0
+  },
+  "queue": {
+    "San Marco": {
+      "zone": "San Marco",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Dorsoduro": {
+      "zone": "Dorsoduro",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Cannaregio": {
+      "zone": "Cannaregio",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Castello": {
+      "zone": "Castello",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Giudecca": {
+      "zone": "Giudecca",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "bel-air-fine-art-venise"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "bugno-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "caterina-tognon-arte-contemporanea"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-bevilacqua-la-masa"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondazione-dell-albero-d-oro-palazzo-vendramin-grimani"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-d-arte-contini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-la-salizada"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lineadacqua"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "a-plus-a"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "akka-project-venice"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "casa-sanlorenzo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-alberta-pane"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-d-arte-l-occhio"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marignana-arte"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "patricia-low-venezia"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "san-polo-art"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "berggruen-arts-and-culture-palazzo-diedo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "european-cultural-centre-palazzo-mora-palazzo-bembo"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "fondation-valmont-at-palazzo-bonvicini"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ikona"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "marina-bastianello"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "visioni-altre"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Marco",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-san-marco-1788559068",
+      "venue_ids": [
+        "bel-air-fine-art-venise",
+        "bugno-art",
+        "caterina-tognon-arte-contemporanea",
+        "fondazione-bevilacqua-la-masa",
+        "fondazione-dell-albero-d-oro-palazzo-vendramin-grimani",
+        "galleria-d-arte-contini",
+        "galleria-la-salizada",
+        "lineadacqua"
+      ],
+      "started_ts": 1788559068,
+      "ended_ts": 1788559237
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "castello-925"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galleria-ravagnan"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ocean-space-tba21-academy"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "smac-san-marco-art-centre"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-berlendis"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Cannaregio",
+      "session": 1,
+      "todo": 6,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-cannaregio-1788559113",
+      "venue_ids": [
+        "berggruen-arts-and-culture-palazzo-diedo",
+        "european-cultural-centre-palazzo-mora-palazzo-bembo",
+        "fondation-valmont-at-palazzo-bonvicini",
+        "ikona",
+        "marina-bastianello",
+        "visioni-altre"
+      ],
+      "started_ts": 1788559113,
+      "ended_ts": 1788559238
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "spazio-punch"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dorsoduro",
+      "session": 1,
+      "todo": 8,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-venice-dorsoduro-1788559090",
+      "venue_ids": [
+        "a-plus-a",
+        "akka-project-venice",
+        "casa-sanlorenzo",
+        "galleria-alberta-pane",
+        "galleria-d-arte-l-occhio",
+        "marignana-arte",
+        "patricia-low-venezia",
+        "san-polo-art"
+      ],
+      "started_ts": 1788559090,
+      "ended_ts": 1788559239
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "victoria-miro-venice"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Giudecca",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-venice-giudecca-1788559238",
+      "venue_ids": [
+        "spazio-punch"
+      ],
+      "started_ts": 1788559238,
+      "ended_ts": 1788559305
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sparc-spazio-arte-contemporanea"
+    },
+    {
+      "stage": "scrape",
+      "zone": "San Marco",
+      "session": 2,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-venice-san-marco-1788559239",
+      "venue_ids": [
+        "victoria-miro-venice"
+      ],
+      "started_ts": 1788559239,
+      "ended_ts": 1788559334
+    },
+    {
+      "stage": "scrape",
+      "zone": "Dorsoduro",
+      "session": 2,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-venice-dorsoduro-1788559305",
+      "venue_ids": [
+        "sparc-spazio-arte-contemporanea"
+      ],
+      "started_ts": 1788559305,
+      "ended_ts": 1788559366
+    },
+    {
+      "stage": "scrape",
+      "zone": "Castello",
+      "session": 1,
+      "todo": 5,
+      "saved": 8,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-venice-castello-1788559237",
+      "venue_ids": [
+        "castello-925",
+        "galleria-ravagnan",
+        "ocean-space-tba21-academy",
+        "smac-san-marco-art-centre",
+        "spazio-berlendis"
+      ],
+      "started_ts": 1788559237,
+      "ended_ts": 1788559601
+    }
+  ],
+  "verification": {
+    "venice": {
+      "verified": 11,
+      "corrected": 0,
+      "unverified": 0,
+      "unchecked": [],
+      "published": 12,
+      "pending": [
+        {
+          "slug": "varejao-modernisms",
+          "venue": "Victoria Miro Venice",
+          "reason": null
+        },
+        {
+          "slug": "castello925-chromatic-conditions",
+          "venue": "Castello 925 (Castello 780 space)",
+          "reason": null
+        }
+      ]
+    }
+  },
+  "manifest": "/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/spend/deep_run-venice-1788559068.json"
+}
+venice: 14 shows, 0 with a published blurb, 0 venue objects updated, 0 without venue_id
+venice: 30 verified venues -> /mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/scraper/run_deep.py --city venice --venue-ids @/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/venice/shows-ids.txt --force-due --total-budget 40.0 --session-budget 4.5 --session-todo 8 --workers 3 --no-report

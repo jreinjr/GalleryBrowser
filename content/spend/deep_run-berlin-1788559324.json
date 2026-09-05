@@ -1,0 +1,191 @@
+{
+  "city": "berlin",
+  "start_ts": 1788559324,
+  "zones": [
+    "Mitte",
+    "Kreuzberg",
+    "Charlottenburg",
+    "Sch\u00f6neberg"
+  ],
+  "args": {
+    "city": "berlin",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 2,
+    "stagger": 20.0,
+    "total_budget": 20.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/berlin/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788559691,
+  "queue": {
+    "Mitte": {
+      "zone": "Mitte",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Kreuzberg": {
+      "zone": "Kreuzberg",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Charlottenburg": {
+      "zone": "Charlottenburg",
+      "order": 2,
+      "due": 1,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Sch\u00f6neberg": {
+      "zone": "Sch\u00f6neberg",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-mazzoli"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "general-public"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "rosalux"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "alpha-nova-and-galerie-futura"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-im-saalbau"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "somos-art-house"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mitte",
+      "session": 1,
+      "todo": 3,
+      "saved": 2,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-berlin-mitte-1788559325",
+      "venue_ids": [
+        "galerie-mazzoli",
+        "general-public",
+        "rosalux"
+      ],
+      "started_ts": 1788559325,
+      "ended_ts": 1788559461
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "galerie-gilla-lorcher"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "salon-dahlmann"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Kreuzberg",
+      "session": 1,
+      "todo": 3,
+      "saved": 4,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-berlin-kreuzberg-1788559345",
+      "venue_ids": [
+        "alpha-nova-and-galerie-futura",
+        "galerie-im-saalbau",
+        "somos-art-house"
+      ],
+      "started_ts": 1788559345,
+      "ended_ts": 1788559534
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "taubert-contemporary"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Sch\u00f6neberg",
+      "session": 1,
+      "todo": 2,
+      "saved": 4,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-berlin-sch-neberg-1788559461",
+      "venue_ids": [
+        "galerie-gilla-lorcher",
+        "salon-dahlmann"
+      ],
+      "started_ts": 1788559461,
+      "ended_ts": 1788559676
+    },
+    {
+      "stage": "scrape",
+      "zone": "Charlottenburg",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-berlin-charlottenburg-1788559534",
+      "venue_ids": [
+        "taubert-contemporary"
+      ],
+      "started_ts": 1788559534,
+      "ended_ts": 1788559691
+    }
+  ]
+}

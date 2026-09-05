@@ -1,0 +1,76 @@
+{
+  "city": "shanghai",
+  "start_ts": 1788558114,
+  "zones": [
+    "West Bund/Xuhui"
+  ],
+  "args": {
+    "city": "shanghai",
+    "zones": null,
+    "session_todo": 8,
+    "session_budget": 4.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 1,
+    "stagger": 20.0,
+    "total_budget": 10.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "@/mnt/c/Projects/260903_GalleryBrowser/GalleryBrowser/content/expansion/shanghai/shows-ids.txt",
+    "force_due": true,
+    "budget_reserve": null,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": false,
+    "no_report": true
+  },
+  "updated_ts": 1788558170,
+  "queue": {
+    "West Bund/Xuhui": {
+      "zone": "West Bund/Xuhui",
+      "order": 0,
+      "due": 1,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "don"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Bund/Xuhui",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-shanghai-west-bund-xuhui-1788558114",
+      "venue_ids": [
+        "don"
+      ],
+      "started_ts": 1788558114,
+      "ended_ts": 1788558170
+    }
+  ]
+}

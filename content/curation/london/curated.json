@@ -1,0 +1,770 @@
+{
+ "ts": 1788560902,
+ "city": "london",
+ "today": "2026-09-04",
+ "params_hash": "5fcfe4ab4736",
+ "params": {
+  "version": 1,
+  "city": "london",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 90,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "alex-israel-upside-down",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.995,
+   "editors_pick": true
+  },
+  {
+   "slug": "emma-reyes-white-cube-masons-yard",
+   "rank": 2,
+   "featured_rank": 2,
+   "score": 0.9816699999999999,
+   "editors_pick": true
+  },
+  {
+   "slug": "lisson-past-presence",
+   "rank": 6,
+   "featured_rank": 3,
+   "score": 0.950724,
+   "editors_pick": true
+  },
+  {
+   "slug": "lisson-himid-stawarska-zanzibar",
+   "rank": 7,
+   "featured_rank": 4,
+   "score": 0.9506880000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "lisson-buren-pages-in-situ",
+   "rank": 8,
+   "featured_rank": 5,
+   "score": 0.9503640000000001,
+   "editors_pick": true
+  },
+  {
+   "slug": "hospital-rooms-host-guest",
+   "rank": 15,
+   "featured_rank": 6,
+   "score": 0.9284840000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "sadie-coles-currin",
+   "rank": 18,
+   "featured_rank": 7,
+   "score": 0.917664,
+   "editors_pick": false
+  },
+  {
+   "slug": "sadie-coles-marten",
+   "rank": 19,
+   "featured_rank": 8,
+   "score": 0.9175380000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "sadie-coles-murphy",
+   "rank": 20,
+   "featured_rank": 9,
+   "score": 0.915772,
+   "editors_pick": false
+  },
+  {
+   "slug": "backyard-biennial-east",
+   "rank": 22,
+   "featured_rank": 10,
+   "score": 0.9064,
+   "editors_pick": false
+  },
+  {
+   "slug": "east-of-the-aldgate-pump",
+   "rank": 23,
+   "featured_rank": 11,
+   "score": 0.9062140000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "like-music-in-the-blood",
+   "rank": 26,
+   "featured_rank": 12,
+   "score": 0.89397,
+   "editors_pick": false
+  },
+  {
+   "slug": "elisa-giardina-papa-ica",
+   "rank": 28,
+   "featured_rank": 13,
+   "score": 0.8842859999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "chisenhale-jasper-marsalis-still-life",
+   "rank": 30,
+   "featured_rank": 14,
+   "score": 0.862718,
+   "editors_pick": false
+  },
+  {
+   "slug": "modernart-richard-tuttle-small-sculptures",
+   "rank": 32,
+   "featured_rank": 15,
+   "score": 0.8491000000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "herald-st-variation",
+   "rank": 35,
+   "featured_rank": 16,
+   "score": 0.818754,
+   "editors_pick": false
+  },
+  {
+   "slug": "aj-quentin-mccaffrey",
+   "rank": 37,
+   "featured_rank": 17,
+   "score": 0.805844,
+   "editors_pick": false
+  },
+  {
+   "slug": "mdc-xue-ruozhe-one-table-two-chairs",
+   "rank": 39,
+   "featured_rank": 18,
+   "score": 0.794676,
+   "editors_pick": false
+  },
+  {
+   "slug": "goodman-summer-show",
+   "rank": 40,
+   "featured_rank": 19,
+   "score": 0.7857479999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "richard-pettibone",
+   "rank": 44,
+   "featured_rank": 20,
+   "score": 0.741664,
+   "editors_pick": false
+  },
+  {
+   "slug": "corvi-mora-dohra-shoor",
+   "rank": 48,
+   "featured_rank": 21,
+   "score": 0.6832119999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "nomenclature-for-the-time-being",
+   "rank": 51,
+   "featured_rank": 22,
+   "score": 0.62025,
+   "editors_pick": false
+  },
+  {
+   "slug": "the-nabi-shock",
+   "rank": 55,
+   "featured_rank": 23,
+   "score": 0.5768319999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "josh-lilley-autumn-wallace",
+   "rank": 58,
+   "featured_rank": 24,
+   "score": 0.5417000000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "edel-assanti-agata-bogacka-interactionship",
+   "rank": 61,
+   "featured_rank": 25,
+   "score": 0.5195019999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "abstract-pairings",
+   "rank": 65,
+   "featured_rank": 26,
+   "score": 0.4554000000000001,
+   "editors_pick": false
+  },
+  {
+   "slug": "ali-kazim-alphabets",
+   "rank": 67,
+   "featured_rank": 27,
+   "score": 0.4429159999999999,
+   "editors_pick": false
+  },
+  {
+   "slug": "a-primer-of-birds",
+   "rank": 68,
+   "featured_rank": 28,
+   "score": 0.44279599999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "auto-italia-sensual-mutual",
+   "rank": 70,
+   "featured_rank": 29,
+   "score": 0.420814,
+   "editors_pick": false
+  },
+  {
+   "slug": "lgd-houseago-deaths-sacred-mirror",
+   "rank": 72,
+   "featured_rank": 30,
+   "score": 0.37691,
+   "editors_pick": false
+  },
+  {
+   "slug": "tpg-sayuri-ichida",
+   "rank": 73,
+   "featured_rank": 31,
+   "score": 0.36740600000000007,
+   "editors_pick": false
+  },
+  {
+   "slug": "tpg-japanese-women-photographers",
+   "rank": 74,
+   "featured_rank": 32,
+   "score": 0.36561000000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "tpg-ninagawa-captive-blooms",
+   "rank": 75,
+   "featured_rank": 33,
+   "score": 0.36544800000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "jonathan-wateridge-some-distance-apart",
+   "rank": 76,
+   "featured_rank": 34,
+   "score": 0.35471199999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "huxley-parlour-northeast-corridor",
+   "rank": 79,
+   "featured_rank": 35,
+   "score": 0.30143000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "copperfield-andrea-ferrero",
+   "rank": 83,
+   "featured_rank": 36,
+   "score": 0.254722,
+   "editors_pick": false
+  },
+  {
+   "slug": "interweave",
+   "rank": 84,
+   "featured_rank": 37,
+   "score": 0.244682,
+   "editors_pick": false
+  },
+  {
+   "slug": "kh-eileen-cooper-learning-to-fly",
+   "rank": 85,
+   "featured_rank": 38,
+   "score": 0.22280199999999997,
+   "editors_pick": false
+  },
+  {
+   "slug": "large-glass-rumours",
+   "rank": 87,
+   "featured_rank": 39,
+   "score": 0.20281999999999994,
+   "editors_pick": false
+  },
+  {
+   "slug": "ibrahim-el-salahi-calligraphic-forms",
+   "rank": 88,
+   "featured_rank": 40,
+   "score": 0.189856,
+   "editors_pick": false
+  },
+  {
+   "slug": "george-rouy-reprise",
+   "rank": 90,
+   "featured_rank": 41,
+   "score": 0.15852,
+   "editors_pick": false
+  },
+  {
+   "slug": "october-zana-benji",
+   "rank": 92,
+   "featured_rank": 42,
+   "score": 0.14572400000000005,
+   "editors_pick": false
+  },
+  {
+   "slug": "sid-motion-black-paintings",
+   "rank": 96,
+   "featured_rank": 43,
+   "score": 0.10398199999999998,
+   "editors_pick": false
+  },
+  {
+   "slug": "ridley-2010-2020",
+   "rank": 101,
+   "featured_rank": 44,
+   "score": 0.05678200000000002,
+   "editors_pick": false
+  },
+  {
+   "slug": "cubitt-hospitable-threshold",
+   "rank": 103,
+   "featured_rank": 45,
+   "score": 0.035615999999999995,
+   "editors_pick": false
+  },
+  {
+   "slug": "autograph-nhu-xuan-hua",
+   "rank": 104,
+   "featured_rank": 46,
+   "score": 0.02479000000000003,
+   "editors_pick": false
+  },
+  {
+   "slug": "bold-tendencies-euphoria",
+   "rank": 105,
+   "featured_rank": 47,
+   "score": 0.015999999999999962,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "alex-israel-upside-down",
+   "rank": 1,
+   "score": 0.995,
+   "gate": null
+  },
+  {
+   "slug": "emma-reyes-white-cube-masons-yard",
+   "rank": 2,
+   "score": 0.9816699999999999,
+   "gate": null
+  },
+  {
+   "slug": "lisson-past-presence",
+   "rank": 6,
+   "score": 0.950724,
+   "gate": null
+  },
+  {
+   "slug": "lisson-himid-stawarska-zanzibar",
+   "rank": 7,
+   "score": 0.9506880000000001,
+   "gate": null
+  },
+  {
+   "slug": "lisson-buren-pages-in-situ",
+   "rank": 8,
+   "score": 0.9503640000000001,
+   "gate": null
+  },
+  {
+   "slug": "cecily-brown-picture-making",
+   "rank": 11,
+   "score": 0.9397719999999999,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "serpentine-processing",
+   "rank": 12,
+   "score": 0.938908,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "hospital-rooms-host-guest",
+   "rank": 15,
+   "score": 0.9284840000000001,
+   "gate": null
+  },
+  {
+   "slug": "sadie-coles-currin",
+   "rank": 18,
+   "score": 0.917664,
+   "gate": null
+  },
+  {
+   "slug": "sadie-coles-marten",
+   "rank": 19,
+   "score": 0.9175380000000001,
+   "gate": null
+  },
+  {
+   "slug": "sadie-coles-murphy",
+   "rank": 20,
+   "score": 0.915772,
+   "gate": null
+  },
+  {
+   "slug": "gabriel-chaile-archaeology-of-memory",
+   "rank": 21,
+   "score": 0.907,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "backyard-biennial-east",
+   "rank": 22,
+   "score": 0.9064,
+   "gate": null
+  },
+  {
+   "slug": "east-of-the-aldgate-pump",
+   "rank": 23,
+   "score": 0.9062140000000001,
+   "gate": null
+  },
+  {
+   "slug": "like-music-in-the-blood",
+   "rank": 26,
+   "score": 0.89397,
+   "gate": null
+  },
+  {
+   "slug": "elisa-giardina-papa-ica",
+   "rank": 28,
+   "score": 0.8842859999999999,
+   "gate": null
+  },
+  {
+   "slug": "chisenhale-jasper-marsalis-still-life",
+   "rank": 30,
+   "score": 0.862718,
+   "gate": null
+  },
+  {
+   "slug": "modernart-richard-tuttle-small-sculptures",
+   "rank": 32,
+   "score": 0.8491000000000001,
+   "gate": null
+  },
+  {
+   "slug": "cac-liz-larner",
+   "rank": 33,
+   "score": 0.8383999999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "slg-monika-sosnowska-weight-of-matter",
+   "rank": 34,
+   "score": 0.8268000000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "herald-st-variation",
+   "rank": 35,
+   "score": 0.818754,
+   "gate": null
+  },
+  {
+   "slug": "aj-quentin-mccaffrey",
+   "rank": 37,
+   "score": 0.805844,
+   "gate": null
+  },
+  {
+   "slug": "mdc-xue-ruozhe-one-table-two-chairs",
+   "rank": 39,
+   "score": 0.794676,
+   "gate": null
+  },
+  {
+   "slug": "goodman-summer-show",
+   "rank": 40,
+   "score": 0.7857479999999999,
+   "gate": null
+  },
+  {
+   "slug": "richard-pettibone",
+   "rank": 44,
+   "score": 0.741664,
+   "gate": null
+  },
+  {
+   "slug": "corvi-mora-dohra-shoor",
+   "rank": 48,
+   "score": 0.6832119999999999,
+   "gate": null
+  },
+  {
+   "slug": "nomenclature-for-the-time-being",
+   "rank": 51,
+   "score": 0.62025,
+   "gate": null
+  },
+  {
+   "slug": "hales-staging-resistance",
+   "rank": 54,
+   "score": 0.5858559999999999,
+   "gate": "not_open"
+  },
+  {
+   "slug": "the-nabi-shock",
+   "rank": 55,
+   "score": 0.5768319999999999,
+   "gate": null
+  },
+  {
+   "slug": "ajfa-david-yuko-juda-award",
+   "rank": 57,
+   "score": 0.55162,
+   "gate": "not_open"
+  },
+  {
+   "slug": "josh-lilley-autumn-wallace",
+   "rank": 58,
+   "score": 0.5417000000000001,
+   "gate": null
+  },
+  {
+   "slug": "anish-kapoor-hayward",
+   "rank": 59,
+   "score": 0.53064,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "musquiqui-chihying-navigation",
+   "rank": 60,
+   "score": 0.530454,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "edel-assanti-agata-bogacka-interactionship",
+   "rank": 61,
+   "score": 0.5195019999999999,
+   "gate": null
+  },
+  {
+   "slug": "lehmann-maupin-teresa-solar-abboud",
+   "rank": 63,
+   "score": 0.47502799999999995,
+   "gate": "not_open"
+  },
+  {
+   "slug": "abstract-pairings",
+   "rank": 65,
+   "score": 0.4554000000000001,
+   "gate": null
+  },
+  {
+   "slug": "peter-howson-salvation",
+   "rank": 66,
+   "score": 0.4522360000000001,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ali-kazim-alphabets",
+   "rank": 67,
+   "score": 0.4429159999999999,
+   "gate": null
+  },
+  {
+   "slug": "a-primer-of-birds",
+   "rank": 68,
+   "score": 0.44279599999999997,
+   "gate": null
+  },
+  {
+   "slug": "bjg-robert-dukes",
+   "rank": 69,
+   "score": 0.432,
+   "gate": "not_open"
+  },
+  {
+   "slug": "auto-italia-sensual-mutual",
+   "rank": 70,
+   "score": 0.420814,
+   "gate": null
+  },
+  {
+   "slug": "lgd-houseago-deaths-sacred-mirror",
+   "rank": 72,
+   "score": 0.37691,
+   "gate": null
+  },
+  {
+   "slug": "tpg-sayuri-ichida",
+   "rank": 73,
+   "score": 0.36740600000000007,
+   "gate": null
+  },
+  {
+   "slug": "tpg-japanese-women-photographers",
+   "rank": 74,
+   "score": 0.36561000000000005,
+   "gate": null
+  },
+  {
+   "slug": "tpg-ninagawa-captive-blooms",
+   "rank": 75,
+   "score": 0.36544800000000005,
+   "gate": null
+  },
+  {
+   "slug": "jonathan-wateridge-some-distance-apart",
+   "rank": 76,
+   "score": 0.35471199999999997,
+   "gate": null
+  },
+  {
+   "slug": "huxley-parlour-northeast-corridor",
+   "rank": 79,
+   "score": 0.30143000000000003,
+   "gate": null
+  },
+  {
+   "slug": "copperfield-andrea-ferrero",
+   "rank": 83,
+   "score": 0.254722,
+   "gate": null
+  },
+  {
+   "slug": "interweave",
+   "rank": 84,
+   "score": 0.244682,
+   "gate": null
+  },
+  {
+   "slug": "kh-eileen-cooper-learning-to-fly",
+   "rank": 85,
+   "score": 0.22280199999999997,
+   "gate": null
+  },
+  {
+   "slug": "large-glass-rumours",
+   "rank": 87,
+   "score": 0.20281999999999994,
+   "gate": null
+  },
+  {
+   "slug": "ibrahim-el-salahi-calligraphic-forms",
+   "rank": 88,
+   "score": 0.189856,
+   "gate": null
+  },
+  {
+   "slug": "george-rouy-reprise",
+   "rank": 90,
+   "score": 0.15852,
+   "gate": null
+  },
+  {
+   "slug": "october-zana-benji",
+   "rank": 92,
+   "score": 0.14572400000000005,
+   "gate": null
+  },
+  {
+   "slug": "sid-motion-black-paintings",
+   "rank": 96,
+   "score": 0.10398199999999998,
+   "gate": null
+  },
+  {
+   "slug": "awg-annie-ratti-staging",
+   "rank": 98,
+   "score": 0.09080200000000002,
+   "gate": "not_open"
+  },
+  {
+   "slug": "ridley-2010-2020",
+   "rank": 101,
+   "score": 0.05678200000000002,
+   "gate": null
+  },
+  {
+   "slug": "cubitt-hospitable-threshold",
+   "rank": 103,
+   "score": 0.035615999999999995,
+   "gate": null
+  },
+  {
+   "slug": "autograph-nhu-xuan-hua",
+   "rank": 104,
+   "score": 0.02479000000000003,
+   "gate": null
+  },
+  {
+   "slug": "bold-tendencies-euphoria",
+   "rank": 105,
+   "score": 0.015999999999999962,
+   "gate": null
+  }
+ ]
+}

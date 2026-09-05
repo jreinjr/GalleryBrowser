@@ -1,0 +1,724 @@
+{
+ "ts": 1788559188,
+ "city": "seoul",
+ "today": "2026-09-04",
+ "params_hash": "bb09b654c2d1",
+ "params": {
+  "version": 1,
+  "city": "seoul",
+  "today": "2026-09-04",
+  "max_n": null,
+  "threshold": 0.0,
+  "max_per_venue": null,
+  "include_pending": false,
+  "published_only": true,
+  "require_open": true,
+  "editors_pick_top": 5,
+  "exclude_museums": true,
+  "max_per_neighborhood": null,
+  "max_museum_share": null,
+  "weights": {
+   "press": 0.0,
+   "judge": 0.005,
+   "venue": 0.99,
+   "artist_heat": 0.0,
+   "museum": 0.0,
+   "keyword": 0.0,
+   "wiki_heat": 0.0,
+   "opening_recency": 0.0,
+   "closing_soon": 0.002,
+   "quality": 0.003
+  },
+  "half_life_days": {
+   "press": 21,
+   "artist": 180,
+   "opening": 30
+  },
+  "press_ref": 4,
+  "artist_ref": 3,
+  "cap_per_source": 1.5,
+  "wiki_ref": 20000,
+  "default_source_weight": 0.3,
+  "kind_weights": {
+   "pick": 1,
+   "review": 0.9,
+   "news": 0.6,
+   "listing": 0.3,
+   "press_release_claim": 0.3,
+   "artist_activity": 1,
+   "award": 1.2
+  },
+  "strength_weights": {
+   "headline": 1,
+   "featured": 0.7,
+   "mentioned": 0.4,
+   "passing": 0.2
+  },
+  "sources": {},
+  "venue_tier_map": {
+   "1": 1,
+   "2": 0.8,
+   "3": 0.6,
+   "4": 0.3,
+   "unknown": 0.0
+  },
+  "judge": {
+   "variant": "judge_v1",
+   "model": "sonnet"
+  },
+  "overrides": {
+   "pin": [],
+   "exclude": []
+  },
+  "venue_rank_ref": 76,
+  "_note": "Gallery-order feed (client request, 2026-09-04): shows appear in the order of the city's hand-set / consensus gallery list (content/curation/<city>/venue_order.json). The venue feature is the list position (1 for #1, sliding to 0 at the last listed entry; venue_rank_ref 'auto' = the number of listed venues in the registry, 110 for LA; venues off the list score 0) at weight 0.99; judge / quality / closing_soon are tie-breakers among shows at the same gallery (their combined maximum, 0.01, is about one list step). No threshold, no per-venue cap: every open gallery show is in the feed. Museums stay out of Featured (exclude_museums). Rebuild: rank_venues.py apply --city C; curate.py score + apply --city C --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --all; webdemo/build.py."
+ },
+ "reorder": true,
+ "featured": [
+  {
+   "slug": "kukje-park-seo-bo-changing-unchanging",
+   "rank": 1,
+   "featured_rank": 1,
+   "score": 0.9927,
+   "editors_pick": true
+  },
+  {
+   "slug": "kukje-seeun-kim-pictos-pitwall",
+   "rank": 2,
+   "featured_rank": 2,
+   "score": 0.992514,
+   "editors_pick": true
+  },
+  {
+   "slug": "pkm-reimagine-yun-hyong-keun",
+   "rank": 3,
+   "featured_rank": 3,
+   "score": 0.9669473684210527,
+   "editors_pick": true
+  },
+  {
+   "slug": "pace-kunath-nearest-faraway-place",
+   "rank": 4,
+   "featured_rank": 4,
+   "score": 0.9528770526315788,
+   "editors_pick": true
+  },
+  {
+   "slug": "lehmann-maupin-kader-attia-irreparable-repairs",
+   "rank": 5,
+   "featured_rank": 5,
+   "score": 0.9408887368421054,
+   "editors_pick": true
+  },
+  {
+   "slug": "ropac-baselitz-per-mano",
+   "rank": 6,
+   "featured_rank": 6,
+   "score": 0.9278684210526316,
+   "editors_pick": false
+  },
+  {
+   "slug": "hakgojae-kang-yo-bae",
+   "rank": 7,
+   "featured_rank": 7,
+   "score": 0.9164641052631579,
+   "editors_pick": false
+  },
+  {
+   "slug": "hakgojae-solo-solo-solo",
+   "rank": 8,
+   "featured_rank": 8,
+   "score": 0.9163141052631579,
+   "editors_pick": false
+  },
+  {
+   "slug": "perrotin-mr-threshold-tomorrow",
+   "rank": 9,
+   "featured_rank": 9,
+   "score": 0.9008137894736843,
+   "editors_pick": false
+  },
+  {
+   "slug": "asjc-ham-yang-ah-panorama",
+   "rank": 10,
+   "featured_rank": 10,
+   "score": 0.8878894736842106,
+   "editors_pick": false
+  },
+  {
+   "slug": "asjc-muyeong-kim-pig",
+   "rank": 11,
+   "featured_rank": 11,
+   "score": 0.8878234736842106,
+   "editors_pick": false
+  },
+  {
+   "slug": "fujiwara-who-lived-happily-ever-after",
+   "rank": 13,
+   "featured_rank": 12,
+   "score": 0.8627368421052631,
+   "editors_pick": false
+  },
+  {
+   "slug": "gallery-baton-grace",
+   "rank": 14,
+   "featured_rank": 13,
+   "score": 0.8366302105263157,
+   "editors_pick": false
+  },
+  {
+   "slug": "jasonhaam-mike-lee-idyll-by-the-tide",
+   "rank": 15,
+   "featured_rank": 14,
+   "score": 0.8233818947368421,
+   "editors_pick": false
+  },
+  {
+   "slug": "tang-andrea-galvani",
+   "rank": 16,
+   "featured_rank": 15,
+   "score": 0.8106315789473684,
+   "editors_pick": false
+  },
+  {
+   "slug": "doosan-yeoreum-jeong-the-plural",
+   "rank": 17,
+   "featured_rank": 16,
+   "score": 0.784578947368421,
+   "editors_pick": false
+  },
+  {
+   "slug": "gallery2-double-skin-suyeon-kim",
+   "rank": 18,
+   "featured_rank": 17,
+   "score": 0.7712586315789474,
+   "editors_pick": false
+  },
+  {
+   "slug": "leeahn-umar-rashid",
+   "rank": 19,
+   "featured_rank": 18,
+   "score": 0.7571403157894737,
+   "editors_pick": false
+  },
+  {
+   "slug": "bbm-alex-dodge-dream-weaver",
+   "rank": 20,
+   "featured_rank": 19,
+   "score": 0.74535,
+   "editors_pick": false
+  },
+  {
+   "slug": "loop-vivi-zhu-untrustworthy-hearts",
+   "rank": 21,
+   "featured_rank": 20,
+   "score": 0.7344256842105263,
+   "editors_pick": false
+  },
+  {
+   "slug": "wnd-son-jihyeong-at-the-point",
+   "rank": 22,
+   "featured_rank": 21,
+   "score": 0.6930707368421053,
+   "editors_pick": false
+  },
+  {
+   "slug": "chapterii-2026-residency",
+   "rank": 23,
+   "featured_rank": 22,
+   "score": 0.6800864210526316,
+   "editors_pick": false
+  },
+  {
+   "slug": "spacek-kaws-friends-neighbors",
+   "rank": 24,
+   "featured_rank": 23,
+   "score": 0.6673421052631578,
+   "editors_pick": false
+  },
+  {
+   "slug": "whitestone-soonik-kwon",
+   "rank": 25,
+   "featured_rank": 24,
+   "score": 0.6537157894736843,
+   "editors_pick": false
+  },
+  {
+   "slug": "whitecube-marina-rheingantz",
+   "rank": 26,
+   "featured_rank": 25,
+   "score": 0.6412894736842105,
+   "editors_pick": false
+  },
+  {
+   "slug": "na-claires-camera",
+   "rank": 28,
+   "featured_rank": 26,
+   "score": 0.6272131578947369,
+   "editors_pick": false
+  },
+  {
+   "slug": "gallery-simon-becoming-with",
+   "rank": 29,
+   "featured_rank": 27,
+   "score": 0.6139588421052632,
+   "editors_pick": false
+  },
+  {
+   "slug": "tw-room-ostranenie",
+   "rank": 30,
+   "featured_rank": 28,
+   "score": 0.5890162105263157,
+   "editors_pick": false
+  },
+  {
+   "slug": "bhak-white-noise",
+   "rank": 31,
+   "featured_rank": 29,
+   "score": 0.5761578947368421,
+   "editors_pick": false
+  },
+  {
+   "slug": "primary-practice-art-of-loving",
+   "rank": 32,
+   "featured_rank": 30,
+   "score": 0.5230866315789474,
+   "editors_pick": false
+  },
+  {
+   "slug": "pibi-jazoo-yang",
+   "rank": 33,
+   "featured_rank": 31,
+   "score": 0.47194736842105267,
+   "editors_pick": false
+  },
+  {
+   "slug": "keumsan-in-scale",
+   "rank": 34,
+   "featured_rank": 32,
+   "score": 0.45752905263157895,
+   "editors_pick": false
+  },
+  {
+   "slug": "up-against-the-walls",
+   "rank": 35,
+   "featured_rank": 33,
+   "score": 0.44469473684210525,
+   "editors_pick": false
+  },
+  {
+   "slug": "museumhead-eunme-ahn-sculpture-show",
+   "rank": 36,
+   "featured_rank": 34,
+   "score": 0.41827610526315784,
+   "editors_pick": false
+  },
+  {
+   "slug": "drawingroom-rigorous-hands",
+   "rank": 37,
+   "featured_rank": 35,
+   "score": 0.3956574736842105,
+   "editors_pick": false
+  },
+  {
+   "slug": "gallery-sp-chris-ro-once-upon-now",
+   "rank": 38,
+   "featured_rank": 36,
+   "score": 0.3806791578947368,
+   "editors_pick": false
+  },
+  {
+   "slug": "sun-gallery-panvital-transcendentalism",
+   "rank": 39,
+   "featured_rank": 37,
+   "score": 0.3677368421052632,
+   "editors_pick": false
+  },
+  {
+   "slug": "sun-gallery-the-cycle-incipit-obvious",
+   "rank": 40,
+   "featured_rank": 38,
+   "score": 0.3666808421052632,
+   "editors_pick": false
+  },
+  {
+   "slug": "cha-minyoung-whiffling",
+   "rank": 41,
+   "featured_rank": 39,
+   "score": 0.3536545263157895,
+   "editors_pick": false
+  },
+  {
+   "slug": "choiandchoi-future-elegy",
+   "rank": 42,
+   "featured_rank": 40,
+   "score": 0.3155055789473684,
+   "editors_pick": false
+  },
+  {
+   "slug": "em-on-paper",
+   "rank": 43,
+   "featured_rank": 41,
+   "score": 0.28940494736842104,
+   "editors_pick": false
+  },
+  {
+   "slug": "ilwoo-nam-hwayeon-nap",
+   "rank": 44,
+   "featured_rank": 42,
+   "score": 0.26343031578947373,
+   "editors_pick": false
+  },
+  {
+   "slug": "galleryjj-kim-younghun-proxima",
+   "rank": 46,
+   "featured_rank": 43,
+   "score": 0.1983947368421052,
+   "editors_pick": false
+  },
+  {
+   "slug": "dear-collectors-yes-you",
+   "rank": 48,
+   "featured_rank": 44,
+   "score": 0.13516115789473682,
+   "editors_pick": false
+  },
+  {
+   "slug": "futura-seoul-es-devlin-3rd-poem",
+   "rank": 49,
+   "featured_rank": 45,
+   "score": 0.1202368421052632,
+   "editors_pick": false
+  },
+  {
+   "slug": "opera-xevi-sola-one-year",
+   "rank": 50,
+   "featured_rank": 46,
+   "score": 0.10691652631578946,
+   "editors_pick": false
+  },
+  {
+   "slug": "piknic-company-world-affair",
+   "rank": 51,
+   "featured_rank": 47,
+   "score": 0.08315789473684214,
+   "editors_pick": false
+  },
+  {
+   "slug": "space22-time-of-photo",
+   "rank": 52,
+   "featured_rank": 48,
+   "score": 0.057105263157894784,
+   "editors_pick": false
+  },
+  {
+   "slug": "joeun-cloud-9",
+   "rank": 53,
+   "featured_rank": 49,
+   "score": 0.02815263157894734,
+   "editors_pick": false
+  }
+ ],
+ "ranked": [
+  {
+   "slug": "kukje-park-seo-bo-changing-unchanging",
+   "rank": 1,
+   "score": 0.9927,
+   "gate": null
+  },
+  {
+   "slug": "kukje-seeun-kim-pictos-pitwall",
+   "rank": 2,
+   "score": 0.992514,
+   "gate": null
+  },
+  {
+   "slug": "pkm-reimagine-yun-hyong-keun",
+   "rank": 3,
+   "score": 0.9669473684210527,
+   "gate": null
+  },
+  {
+   "slug": "pace-kunath-nearest-faraway-place",
+   "rank": 4,
+   "score": 0.9528770526315788,
+   "gate": null
+  },
+  {
+   "slug": "lehmann-maupin-kader-attia-irreparable-repairs",
+   "rank": 5,
+   "score": 0.9408887368421054,
+   "gate": null
+  },
+  {
+   "slug": "ropac-baselitz-per-mano",
+   "rank": 6,
+   "score": 0.9278684210526316,
+   "gate": null
+  },
+  {
+   "slug": "hakgojae-kang-yo-bae",
+   "rank": 7,
+   "score": 0.9164641052631579,
+   "gate": null
+  },
+  {
+   "slug": "hakgojae-solo-solo-solo",
+   "rank": 8,
+   "score": 0.9163141052631579,
+   "gate": null
+  },
+  {
+   "slug": "perrotin-mr-threshold-tomorrow",
+   "rank": 9,
+   "score": 0.9008137894736843,
+   "gate": null
+  },
+  {
+   "slug": "asjc-ham-yang-ah-panorama",
+   "rank": 10,
+   "score": 0.8878894736842106,
+   "gate": null
+  },
+  {
+   "slug": "asjc-muyeong-kim-pig",
+   "rank": 11,
+   "score": 0.8878234736842106,
+   "gate": null
+  },
+  {
+   "slug": "fujiwara-who-lived-happily-ever-after",
+   "rank": 13,
+   "score": 0.8627368421052631,
+   "gate": null
+  },
+  {
+   "slug": "gallery-baton-grace",
+   "rank": 14,
+   "score": 0.8366302105263157,
+   "gate": null
+  },
+  {
+   "slug": "jasonhaam-mike-lee-idyll-by-the-tide",
+   "rank": 15,
+   "score": 0.8233818947368421,
+   "gate": null
+  },
+  {
+   "slug": "tang-andrea-galvani",
+   "rank": 16,
+   "score": 0.8106315789473684,
+   "gate": null
+  },
+  {
+   "slug": "doosan-yeoreum-jeong-the-plural",
+   "rank": 17,
+   "score": 0.784578947368421,
+   "gate": null
+  },
+  {
+   "slug": "gallery2-double-skin-suyeon-kim",
+   "rank": 18,
+   "score": 0.7712586315789474,
+   "gate": null
+  },
+  {
+   "slug": "leeahn-umar-rashid",
+   "rank": 19,
+   "score": 0.7571403157894737,
+   "gate": null
+  },
+  {
+   "slug": "bbm-alex-dodge-dream-weaver",
+   "rank": 20,
+   "score": 0.74535,
+   "gate": null
+  },
+  {
+   "slug": "loop-vivi-zhu-untrustworthy-hearts",
+   "rank": 21,
+   "score": 0.7344256842105263,
+   "gate": null
+  },
+  {
+   "slug": "wnd-son-jihyeong-at-the-point",
+   "rank": 22,
+   "score": 0.6930707368421053,
+   "gate": null
+  },
+  {
+   "slug": "chapterii-2026-residency",
+   "rank": 23,
+   "score": 0.6800864210526316,
+   "gate": null
+  },
+  {
+   "slug": "spacek-kaws-friends-neighbors",
+   "rank": 24,
+   "score": 0.6673421052631578,
+   "gate": null
+  },
+  {
+   "slug": "whitestone-soonik-kwon",
+   "rank": 25,
+   "score": 0.6537157894736843,
+   "gate": null
+  },
+  {
+   "slug": "whitecube-marina-rheingantz",
+   "rank": 26,
+   "score": 0.6412894736842105,
+   "gate": null
+  },
+  {
+   "slug": "na-claires-camera",
+   "rank": 28,
+   "score": 0.6272131578947369,
+   "gate": null
+  },
+  {
+   "slug": "gallery-simon-becoming-with",
+   "rank": 29,
+   "score": 0.6139588421052632,
+   "gate": null
+  },
+  {
+   "slug": "tw-room-ostranenie",
+   "rank": 30,
+   "score": 0.5890162105263157,
+   "gate": null
+  },
+  {
+   "slug": "bhak-white-noise",
+   "rank": 31,
+   "score": 0.5761578947368421,
+   "gate": null
+  },
+  {
+   "slug": "primary-practice-art-of-loving",
+   "rank": 32,
+   "score": 0.5230866315789474,
+   "gate": null
+  },
+  {
+   "slug": "pibi-jazoo-yang",
+   "rank": 33,
+   "score": 0.47194736842105267,
+   "gate": null
+  },
+  {
+   "slug": "keumsan-in-scale",
+   "rank": 34,
+   "score": 0.45752905263157895,
+   "gate": null
+  },
+  {
+   "slug": "up-against-the-walls",
+   "rank": 35,
+   "score": 0.44469473684210525,
+   "gate": null
+  },
+  {
+   "slug": "museumhead-eunme-ahn-sculpture-show",
+   "rank": 36,
+   "score": 0.41827610526315784,
+   "gate": null
+  },
+  {
+   "slug": "drawingroom-rigorous-hands",
+   "rank": 37,
+   "score": 0.3956574736842105,
+   "gate": null
+  },
+  {
+   "slug": "gallery-sp-chris-ro-once-upon-now",
+   "rank": 38,
+   "score": 0.3806791578947368,
+   "gate": null
+  },
+  {
+   "slug": "sun-gallery-panvital-transcendentalism",
+   "rank": 39,
+   "score": 0.3677368421052632,
+   "gate": null
+  },
+  {
+   "slug": "sun-gallery-the-cycle-incipit-obvious",
+   "rank": 40,
+   "score": 0.3666808421052632,
+   "gate": null
+  },
+  {
+   "slug": "cha-minyoung-whiffling",
+   "rank": 41,
+   "score": 0.3536545263157895,
+   "gate": null
+  },
+  {
+   "slug": "choiandchoi-future-elegy",
+   "rank": 42,
+   "score": 0.3155055789473684,
+   "gate": null
+  },
+  {
+   "slug": "em-on-paper",
+   "rank": 43,
+   "score": 0.28940494736842104,
+   "gate": null
+  },
+  {
+   "slug": "ilwoo-nam-hwayeon-nap",
+   "rank": 44,
+   "score": 0.26343031578947373,
+   "gate": null
+  },
+  {
+   "slug": "arko-art-school",
+   "rank": 45,
+   "score": 0.24987,
+   "gate": "exclude_museums"
+  },
+  {
+   "slug": "galleryjj-kim-younghun-proxima",
+   "rank": 46,
+   "score": 0.1983947368421052,
+   "gate": null
+  },
+  {
+   "slug": "dear-collectors-yes-you",
+   "rank": 48,
+   "score": 0.13516115789473682,
+   "gate": null
+  },
+  {
+   "slug": "futura-seoul-es-devlin-3rd-poem",
+   "rank": 49,
+   "score": 0.1202368421052632,
+   "gate": null
+  },
+  {
+   "slug": "opera-xevi-sola-one-year",
+   "rank": 50,
+   "score": 0.10691652631578946,
+   "gate": null
+  },
+  {
+   "slug": "piknic-company-world-affair",
+   "rank": 51,
+   "score": 0.08315789473684214,
+   "gate": null
+  },
+  {
+   "slug": "space22-time-of-photo",
+   "rank": 52,
+   "score": 0.057105263157894784,
+   "gate": null
+  },
+  {
+   "slug": "joeun-cloud-9",
+   "rank": 53,
+   "score": 0.02815263157894734,
+   "gate": null
+  }
+ ]
+}

@@ -1,0 +1,1193 @@
+{
+ "generated": "2026-09-04",
+ "question": "What are the 25 cities with the most significant and influential art galleries worldwide, ranked by the quantity, influence and activity of their galleries?",
+ "n_claude": 25,
+ "n_openai": 25,
+ "union": 31,
+ "pilot": [
+  "new-york",
+  "london",
+  "paris",
+  "berlin",
+  "hong-kong",
+  "seoul",
+  "mexico-city",
+  "shanghai",
+  "brussels",
+  "milan",
+  "seattle",
+  "venice",
+  "chicago",
+  "san-francisco",
+  "miami"
+ ],
+ "cities": [
+  {
+   "slug": "new-york",
+   "name": "New York",
+   "country": "United States",
+   "rank": 1,
+   "blended": 1.0,
+   "rank_claude": 1,
+   "rank_openai": 1,
+   "existing": true,
+   "center": {
+    "lat": 40.7448,
+    "lng": -73.9985
+   },
+   "map_span_deg": 0.4,
+   "timezone": "America/New_York",
+   "neighborhoods": [
+    "Chelsea",
+    "Tribeca",
+    "Lower East Side",
+    "Upper East Side",
+    "SoHo/Bowery",
+    "Chinatown/Two Bridges",
+    "Bushwick/Ridgewood",
+    "Greenpoint/Williamsburg",
+    "Harlem",
+    "Long Island City"
+   ],
+   "metro_tokens": [
+    ", NY ",
+    "New York",
+    "Brooklyn",
+    "100"
+   ],
+   "why": {
+    "anthropic": "No other city combines the sheer density of blue-chip mega-galleries, mid-size dealers and artist-run project spaces with the auction, collector and critical infrastructure that still sets global market prices.",
+    "openai": "New York ranks first for its unmatched concentration of market-making dealers, blue-chip flagships and experimental spaces operating at a relentless pace."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "london",
+   "name": "London",
+   "country": "United Kingdom",
+   "rank": 2,
+   "blended": 2.0,
+   "rank_claude": 2,
+   "rank_openai": 2,
+   "existing": true,
+   "center": {
+    "lat": 51.5136,
+    "lng": -0.1401
+   },
+   "map_span_deg": 0.32,
+   "timezone": "Europe/London",
+   "neighborhoods": [
+    "Mayfair/St James's",
+    "Fitzrovia",
+    "Shoreditch/Hoxton",
+    "Bermondsey/Southwark",
+    "King's Cross",
+    "Peckham/Deptford",
+    "Hackney Wick",
+    "Notting Hill/Kensington"
+   ],
+   "metro_tokens": [
+    "London",
+    "W1",
+    "E1",
+    "SE1"
+   ],
+   "why": {
+    "anthropic": "Mayfair's international dealers and a deep east-London ecology of young and artist-run spaces keep London the primary European gateway for the global art trade despite post-Brexit friction.",
+    "openai": "London ranks second because its deep primary and secondary markets support a vast mix of international galleries and influential nonprofit spaces."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "paris",
+   "name": "Paris",
+   "country": "France",
+   "rank": 3,
+   "blended": 3.5,
+   "rank_claude": 4,
+   "rank_openai": 3,
+   "existing": true,
+   "center": {
+    "lat": 48.8605,
+    "lng": 2.3555
+   },
+   "map_span_deg": 0.28,
+   "timezone": "Europe/Paris",
+   "neighborhoods": [
+    "Marais/Rue de Turenne",
+    "Saint-Germain-des-Prés",
+    "Matignon/Champs-Élysées",
+    "Belleville/Ménilmontant",
+    "Pantin/Romainville",
+    "Bastille",
+    "13e/Ivry"
+   ],
+   "metro_tokens": [
+    "Paris",
+    "750",
+    "93500"
+   ],
+   "why": {
+    "anthropic": "A wave of international gallery openings around Art Basel Paris has turned the Marais and Pantin into the fastest-growing dealer cluster in Europe.",
+    "openai": "Paris ranks third after a major expansion of global dealerships reinforced its already exceptional density of historic and emerging galleries."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "berlin",
+   "name": "Berlin",
+   "country": "Germany",
+   "rank": 4,
+   "blended": 4.0,
+   "rank_claude": 3,
+   "rank_openai": 5,
+   "existing": true,
+   "center": {
+    "lat": 52.5065,
+    "lng": 13.3905
+   },
+   "map_span_deg": 0.28,
+   "timezone": "Europe/Berlin",
+   "neighborhoods": [
+    "Mitte/Auguststraße",
+    "Potsdamer Straße",
+    "Charlottenburg",
+    "Kreuzberg",
+    "Schöneberg",
+    "Neukölln",
+    "Wedding",
+    "Friedrichshain/Lichtenberg"
+   ],
+   "metro_tokens": [
+    "Berlin",
+    "10",
+    "12"
+   ],
+   "why": {
+    "anthropic": "Berlin's unmatched concentration of artists and cheap project spaces feeds hundreds of galleries whose influence on discourse far exceeds the city's modest local sales.",
+    "openai": "Berlin ranks fifth because its unusually broad ecosystem of commercial galleries and artist-run spaces remains globally influential despite a smaller collector market than the leaders."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "los-angeles",
+   "name": "Los Angeles",
+   "country": "United States",
+   "rank": 5,
+   "blended": 4.5,
+   "rank_claude": 5,
+   "rank_openai": 4,
+   "existing": true,
+   "center": {
+    "lat": 34.057,
+    "lng": -118.34
+   },
+   "map_span_deg": 0.6,
+   "timezone": "America/Los_Angeles",
+   "neighborhoods": [
+    "Hollywood/Melrose Hill",
+    "Culver City",
+    "Downtown Arts District",
+    "Mid-Wilshire/La Brea",
+    "Chinatown/Lincoln Heights",
+    "West Hollywood",
+    "Santa Monica/Venice",
+    "Highland Park/Glassell Park",
+    "Inglewood"
+   ],
+   "metro_tokens": [
+    ", CA ",
+    "Los Angeles",
+    "900"
+   ],
+   "why": {
+    "anthropic": "Vast artist populations, top art schools and satellite spaces of nearly every mega-gallery make LA the second American market centre and a talent pipeline for the world.",
+    "openai": "Los Angeles ranks fourth for its large artist base, influential homegrown dealers and continuing influx of major international galleries across a sprawling geography."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "hong-kong",
+   "name": "Hong Kong",
+   "country": "China",
+   "rank": 6,
+   "blended": 6.0,
+   "rank_claude": 6,
+   "rank_openai": 6,
+   "existing": true,
+   "center": {
+    "lat": 22.283,
+    "lng": 114.158
+   },
+   "map_span_deg": 0.22,
+   "timezone": "Asia/Hong_Kong",
+   "neighborhoods": [
+    "Central/H Queen's",
+    "Pedder Building",
+    "Wong Chuk Hang",
+    "Sheung Wan",
+    "Tai Kwun/Soho",
+    "Chai Wan",
+    "Tsim Sha Tsui",
+    "Aberdeen"
+   ],
+   "metro_tokens": [
+    "Hong Kong",
+    "Central",
+    "Kowloon"
+   ],
+   "why": {
+    "anthropic": "Tax-free trading and the region's collector base keep Hong Kong the pivot of the Asian market even as galleries hedge with Seoul and Tokyo outposts.",
+    "openai": "Hong Kong ranks sixth as Asia's strongest high-value gallery marketplace with dense international flagships and an active network of regional dealers."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "seoul",
+   "name": "Seoul",
+   "country": "South Korea",
+   "rank": 7,
+   "blended": 7.0,
+   "rank_claude": 7,
+   "rank_openai": 7,
+   "existing": true,
+   "center": {
+    "lat": 37.535,
+    "lng": 127.0
+   },
+   "map_span_deg": 0.28,
+   "timezone": "Asia/Seoul",
+   "neighborhoods": [
+    "Samcheong/Bukchon",
+    "Hannam-dong",
+    "Cheongdam-dong",
+    "Euljiro",
+    "Seongsu-dong",
+    "Itaewon",
+    "Seochon/Yeonhui",
+    "Apgujeong"
+   ],
+   "metro_tokens": [
+    "Seoul",
+    "-gu",
+    "-dong"
+   ],
+   "why": {
+    "anthropic": "An explosion of foreign gallery branches alongside strong domestic dealers and a young collector class has made Seoul the most dynamic Asian scene of the last five years.",
+    "openai": "Seoul ranks seventh for its dense domestic gallery culture and rapid expansion by internationally prominent dealers serving a sophisticated collector base."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "tokyo",
+   "name": "Tokyo",
+   "country": "Japan",
+   "rank": 8,
+   "blended": 8.0,
+   "rank_claude": 8,
+   "rank_openai": 8,
+   "existing": true,
+   "center": {
+    "lat": 35.665,
+    "lng": 139.735
+   },
+   "map_span_deg": 0.35,
+   "timezone": "Asia/Tokyo",
+   "neighborhoods": [
+    "Roppongi/Piramide",
+    "Ginza",
+    "Tennozu Isle",
+    "Kiyosumi-Shirakawa",
+    "Shibuya/Ebisu",
+    "Nihonbashi/Bakurocho",
+    "Kagurazaka",
+    "Shinkawa/Tsukiji"
+   ],
+   "metro_tokens": [
+    "Tokyo",
+    "-ku",
+    "Minato"
+   ],
+   "why": {
+    "anthropic": "Deep-rooted dealers, a booming domestic collector base and new international arrivals give Tokyo enormous gallery density spread across several building-based clusters.",
+    "openai": "Tokyo ranks eighth because its immense but geographically fragmented scene combines globally respected dealers with numerous specialized and artist-led spaces."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "mexico-city",
+   "name": "Mexico City",
+   "country": "Mexico",
+   "rank": 9,
+   "blended": 9.5,
+   "rank_claude": 10,
+   "rank_openai": 9,
+   "existing": true,
+   "center": {
+    "lat": 19.421,
+    "lng": -99.168
+   },
+   "map_span_deg": 0.28,
+   "timezone": "America/Mexico_City",
+   "neighborhoods": [
+    "Colonia Juárez",
+    "San Miguel Chapultepec",
+    "Roma/Condesa",
+    "Polanco",
+    "San Rafael",
+    "Santa María la Ribera",
+    "Escandón",
+    "San Ángel/Coyoacán"
+   ],
+   "metro_tokens": [
+    "CDMX",
+    "Ciudad de México",
+    "06"
+   ],
+   "why": {
+    "anthropic": "A dense network of ambitious dealers and artist-run spaces plus a steady influx of foreign artists makes CDMX the undisputed capital of Latin American contemporary art.",
+    "openai": "Mexico City ranks ninth as Latin America's most internationally connected gallery hub with a particularly strong balance of established dealers and experimental spaces."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "shanghai",
+   "name": "Shanghai",
+   "country": "China",
+   "rank": 10,
+   "blended": 9.5,
+   "rank_claude": 9,
+   "rank_openai": 10,
+   "existing": true,
+   "center": {
+    "lat": 31.22,
+    "lng": 121.46
+   },
+   "map_span_deg": 0.32,
+   "timezone": "Asia/Shanghai",
+   "neighborhoods": [
+    "West Bund",
+    "M50/Moganshan Road",
+    "The Bund/Rockbund",
+    "Jing'an",
+    "Former French Concession",
+    "Xuhui Binjiang",
+    "Putuo",
+    "Pudong"
+   ],
+   "metro_tokens": [
+    "Shanghai",
+    "200",
+    "Xuhui"
+   ],
+   "why": {
+    "anthropic": "The West Bund corridor gathered international galleries and homegrown dealers into mainland China's most active commercial cluster.",
+    "openai": "Shanghai ranks tenth as mainland China's leading commercial gallery center with major local programs and the country's strongest concentration of international outposts."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "brussels",
+   "name": "Brussels",
+   "country": "Belgium",
+   "rank": 11,
+   "blended": 11.0,
+   "rank_claude": 11,
+   "rank_openai": 11,
+   "existing": true,
+   "center": {
+    "lat": 50.833,
+    "lng": 4.355
+   },
+   "map_span_deg": 0.2,
+   "timezone": "Europe/Brussels",
+   "neighborhoods": [
+    "Ixelles",
+    "Sablon",
+    "Saint-Gilles",
+    "Dansaert/Downtown",
+    "Molenbeek/Canal",
+    "Forest",
+    "Uccle",
+    "Anderlecht"
+   ],
+   "metro_tokens": [
+    "Brussels",
+    "Bruxelles",
+    "10"
+   ],
+   "why": {
+    "anthropic": "Belgium's collectors and favourable tax climate sustain a gallery count wildly disproportionate to the city's size and attract satellites from Paris and Berlin.",
+    "openai": "Brussels ranks eleventh for its extraordinary dealer density, international collector traffic and experimental programming relative to its compact size."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "milan",
+   "name": "Milan",
+   "country": "Italy",
+   "rank": 12,
+   "blended": 12.5,
+   "rank_claude": 12,
+   "rank_openai": 13,
+   "existing": true,
+   "center": {
+    "lat": 45.47,
+    "lng": 9.19
+   },
+   "map_span_deg": 0.22,
+   "timezone": "Europe/Rome",
+   "neighborhoods": [
+    "Porta Venezia",
+    "Brera",
+    "Isola/Via Farini",
+    "Lambrate/Ventura",
+    "Tortona/Navigli",
+    "Centro/Duomo",
+    "Città Studi",
+    "Bicocca"
+   ],
+   "metro_tokens": [
+    "Milano",
+    "Milan",
+    "201"
+   ],
+   "why": {
+    "anthropic": "Italy's commercial capital hosts the country's strongest dealers and a design-fuelled collector base that anchors gallery activity for the whole peninsula.",
+    "openai": "Milan ranks thirteenth for its substantial roster of internationally influential Italian dealers and a growing field of younger spaces spread across the city."
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "madrid",
+   "name": "Madrid",
+   "country": "Spain",
+   "rank": 13,
+   "blended": 14.5,
+   "rank_claude": 13,
+   "rank_openai": 16,
+   "existing": false,
+   "center": {
+    "lat": 40.425,
+    "lng": -3.698
+   },
+   "map_span_deg": 0.2,
+   "timezone": "Europe/Madrid",
+   "neighborhoods": [
+    "Salesas/Chueca",
+    "Doctor Fourquet/Lavapiés",
+    "Barrio de Salamanca",
+    "Chamberí",
+    "Malasaña",
+    "Retiro",
+    "Carabanchel"
+   ],
+   "metro_tokens": [
+    "Madrid",
+    "280"
+   ],
+   "why": {
+    "anthropic": "ARCO's gravity plus new Latin American money and the artist-driven Carabanchel studio boom have made Madrid Spain's leading gallery city.",
+    "openai": "Madrid ranks sixteenth for its broad Spanish gallery base and increasingly active clusters of ambitious young dealers alongside established programs."
+   },
+   "config_draft": {
+    "cities_py": "    \"madrid\": {\n        \"display_name\": \"Madrid\",\n        \"center\": {\"latitude\": 40.425, \"longitude\": -3.698},\n        \"span\": {\"latitudeDelta\": 0.2, \"longitudeDelta\": 0.2},\n        \"neighborhoods\": [\"Salesas/Chueca\", \"Doctor Fourquet/Lavapiés\", \"Barrio de Salamanca\", \"Chamberí\", \"Malasaña\", \"Retiro\", \"Carabanchel\"],\n        \"metro_tokens\": [\"Madrid\", \"280\"],\n        \"guidance\": \"Madrid's gallery districts, busiest first: Salesas/Chueca, Doctor Fourquet/Lavapiés, Barrio de Salamanca, Chamberí, Malasaña, Retiro, Carabanchel. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"madrid\": \"Europe/Madrid\",",
+    "models_swift": "        City(key: \"madrid\", displayName: \"Madrid\",\n             neighborhoods: [\"Salesas/Chueca\", \"Doctor Fourquet/Lavapiés\", \"Barrio de Salamanca\", \"Chamberí\", \"Malasaña\", \"Retiro\", \"Carabanchel\"],\n             center: CLLocationCoordinate2D(latitude: 40.425, longitude: -3.698),\n             spanDegrees: 0.2, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "zurich",
+   "name": "Zurich",
+   "country": "Switzerland",
+   "rank": 14,
+   "blended": 14.5,
+   "rank_claude": 14,
+   "rank_openai": 15,
+   "existing": false,
+   "center": {
+    "lat": 47.381,
+    "lng": 8.525
+   },
+   "map_span_deg": 0.18,
+   "timezone": "Europe/Zurich",
+   "neighborhoods": [
+    "Löwenbräukunst/Zürich West",
+    "Rämistrasse",
+    "Talstrasse/Old Town",
+    "Kreis 4",
+    "Binz",
+    "Seefeld",
+    "Oerlikon"
+   ],
+   "metro_tokens": [
+    "Zürich",
+    "Zurich",
+    "80"
+   ],
+   "why": {
+    "anthropic": "Small but exceptionally powerful, Zurich's dealers and freeport-adjacent private trade give it market influence far beyond its number of storefronts.",
+    "openai": "Zurich ranks fifteenth because its compact scene has exceptional collector wealth and a disproportionate number of globally important galleries."
+   },
+   "config_draft": {
+    "cities_py": "    \"zurich\": {\n        \"display_name\": \"Zurich\",\n        \"center\": {\"latitude\": 47.381, \"longitude\": 8.525},\n        \"span\": {\"latitudeDelta\": 0.18, \"longitudeDelta\": 0.18},\n        \"neighborhoods\": [\"Löwenbräukunst/Zürich West\", \"Rämistrasse\", \"Talstrasse/Old Town\", \"Kreis 4\", \"Binz\", \"Seefeld\", \"Oerlikon\"],\n        \"metro_tokens\": [\"Zürich\", \"Zurich\", \"80\"],\n        \"guidance\": \"Zurich's gallery districts, busiest first: Löwenbräukunst/Zürich West, Rämistrasse, Talstrasse/Old Town, Kreis 4, Binz, Seefeld, Oerlikon. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"zurich\": \"Europe/Zurich\",",
+    "models_swift": "        City(key: \"zurich\", displayName: \"Zurich\",\n             neighborhoods: [\"Löwenbräukunst/Zürich West\", \"Rämistrasse\", \"Talstrasse/Old Town\", \"Kreis 4\", \"Binz\", \"Seefeld\", \"Oerlikon\"],\n             center: CLLocationCoordinate2D(latitude: 47.381, longitude: 8.525),\n             spanDegrees: 0.18, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "beijing",
+   "name": "Beijing",
+   "country": "China",
+   "rank": 15,
+   "blended": 15.0,
+   "rank_claude": 18,
+   "rank_openai": 12,
+   "existing": false,
+   "center": {
+    "lat": 39.985,
+    "lng": 116.495
+   },
+   "map_span_deg": 0.4,
+   "timezone": "Asia/Shanghai",
+   "neighborhoods": [
+    "798 Art Zone/Dashanzi",
+    "Caochangdi",
+    "Chaoyang",
+    "Songzhuang",
+    "Shunyi",
+    "Dongcheng hutongs",
+    "Liangmaqiao"
+   ],
+   "metro_tokens": [
+    "Beijing",
+    "Chaoyang",
+    "100"
+   ],
+   "why": {
+    "anthropic": "Still the country's largest artist community, Beijing's 798 and Caochangdi compounds hold dozens of galleries even as commercial momentum shifted to Shanghai.",
+    "openai": "Beijing ranks twelfth because it retains a large concentration of China's most important galleries and artist-oriented spaces despite market and regulatory pressures."
+   },
+   "config_draft": {
+    "cities_py": "    \"beijing\": {\n        \"display_name\": \"Beijing\",\n        \"center\": {\"latitude\": 39.985, \"longitude\": 116.495},\n        \"span\": {\"latitudeDelta\": 0.4, \"longitudeDelta\": 0.4},\n        \"neighborhoods\": [\"798 Art Zone/Dashanzi\", \"Caochangdi\", \"Chaoyang\", \"Songzhuang\", \"Shunyi\", \"Dongcheng hutongs\", \"Liangmaqiao\"],\n        \"metro_tokens\": [\"Beijing\", \"Chaoyang\", \"100\"],\n        \"guidance\": \"Beijing's gallery districts, busiest first: 798 Art Zone/Dashanzi, Caochangdi, Chaoyang, Songzhuang, Shunyi, Dongcheng hutongs, Liangmaqiao. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"beijing\": \"Asia/Shanghai\",",
+    "models_swift": "        City(key: \"beijing\", displayName: \"Beijing\",\n             neighborhoods: [\"798 Art Zone/Dashanzi\", \"Caochangdi\", \"Chaoyang\", \"Songzhuang\", \"Shunyi\", \"Dongcheng hutongs\", \"Liangmaqiao\"],\n             center: CLLocationCoordinate2D(latitude: 39.985, longitude: 116.495),\n             spanDegrees: 0.4, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "sao-paulo",
+   "name": "São Paulo",
+   "country": "Brazil",
+   "rank": 16,
+   "blended": 15.5,
+   "rank_claude": 17,
+   "rank_openai": 14,
+   "existing": false,
+   "center": {
+    "lat": -23.562,
+    "lng": -46.665
+   },
+   "map_span_deg": 0.3,
+   "timezone": "America/Sao_Paulo",
+   "neighborhoods": [
+    "Jardins/Cerqueira César",
+    "Vila Madalena",
+    "Pinheiros",
+    "Barra Funda",
+    "Higienópolis",
+    "Itaim Bibi",
+    "Centro/Luz",
+    "Vila Leopoldina"
+   ],
+   "metro_tokens": [
+    "São Paulo",
+    "Sao Paulo",
+    ", SP ",
+    "01"
+   ],
+   "why": {
+    "anthropic": "Brazil's blue-chip dealers export Latin American artists worldwide from a compact but internationally decisive cluster of galleries.",
+    "openai": "São Paulo ranks fourteenth as South America's largest gallery ecosystem with powerful regional dealers and sustained international reach."
+   },
+   "config_draft": {
+    "cities_py": "    \"sao-paulo\": {\n        \"display_name\": \"São Paulo\",\n        \"center\": {\"latitude\": -23.562, \"longitude\": -46.665},\n        \"span\": {\"latitudeDelta\": 0.3, \"longitudeDelta\": 0.3},\n        \"neighborhoods\": [\"Jardins/Cerqueira César\", \"Vila Madalena\", \"Pinheiros\", \"Barra Funda\", \"Higienópolis\", \"Itaim Bibi\", \"Centro/Luz\", \"Vila Leopoldina\"],\n        \"metro_tokens\": [\"São Paulo\", \"Sao Paulo\", \", SP \", \"01\"],\n        \"guidance\": \"São Paulo's gallery districts, busiest first: Jardins/Cerqueira César, Vila Madalena, Pinheiros, Barra Funda, Higienópolis, Itaim Bibi, Centro/Luz, Vila Leopoldina. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"sao-paulo\": \"America/Sao_Paulo\",",
+    "models_swift": "        City(key: \"sao-paulo\", displayName: \"São Paulo\",\n             neighborhoods: [\"Jardins/Cerqueira César\", \"Vila Madalena\", \"Pinheiros\", \"Barra Funda\", \"Higienópolis\", \"Itaim Bibi\", \"Centro/Luz\", \"Vila Leopoldina\"],\n             center: CLLocationCoordinate2D(latitude: -23.562, longitude: -46.665),\n             spanDegrees: 0.3, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "vienna",
+   "name": "Vienna",
+   "country": "Austria",
+   "rank": 17,
+   "blended": 16.0,
+   "rank_claude": 15,
+   "rank_openai": 17,
+   "existing": false,
+   "center": {
+    "lat": 48.202,
+    "lng": 16.366
+   },
+   "map_span_deg": 0.2,
+   "timezone": "Europe/Vienna",
+   "neighborhoods": [
+    "Schleifmühlgasse/Freihausviertel",
+    "Eschenbachgasse/Innere Stadt",
+    "Neubau/MuseumsQuartier",
+    "Leopoldstadt",
+    "Margareten",
+    "Ottakring",
+    "Simmering"
+   ],
+   "metro_tokens": [
+    "Wien",
+    "Vienna",
+    "10"
+   ],
+   "why": {
+    "anthropic": "A tight cluster of internationally programmed galleries and off-spaces gives Vienna outsized curatorial influence in Central Europe.",
+    "openai": "Vienna ranks seventeenth for a rigorous gallery culture that combines internationally established programs with an active generation of experimental spaces."
+   },
+   "config_draft": {
+    "cities_py": "    \"vienna\": {\n        \"display_name\": \"Vienna\",\n        \"center\": {\"latitude\": 48.202, \"longitude\": 16.366},\n        \"span\": {\"latitudeDelta\": 0.2, \"longitudeDelta\": 0.2},\n        \"neighborhoods\": [\"Schleifmühlgasse/Freihausviertel\", \"Eschenbachgasse/Innere Stadt\", \"Neubau/MuseumsQuartier\", \"Leopoldstadt\", \"Margareten\", \"Ottakring\", \"Simmering\"],\n        \"metro_tokens\": [\"Wien\", \"Vienna\", \"10\"],\n        \"guidance\": \"Vienna's gallery districts, busiest first: Schleifmühlgasse/Freihausviertel, Eschenbachgasse/Innere Stadt, Neubau/MuseumsQuartier, Leopoldstadt, Margareten, Ottakring, Simmering. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"vienna\": \"Europe/Vienna\",",
+    "models_swift": "        City(key: \"vienna\", displayName: \"Vienna\",\n             neighborhoods: [\"Schleifmühlgasse/Freihausviertel\", \"Eschenbachgasse/Innere Stadt\", \"Neubau/MuseumsQuartier\", \"Leopoldstadt\", \"Margareten\", \"Ottakring\", \"Simmering\"],\n             center: CLLocationCoordinate2D(latitude: 48.202, longitude: 16.366),\n             spanDegrees: 0.2, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "amsterdam",
+   "name": "Amsterdam",
+   "country": "Netherlands",
+   "rank": 18,
+   "blended": 18.0,
+   "rank_claude": 16,
+   "rank_openai": 20,
+   "existing": false,
+   "center": {
+    "lat": 52.362,
+    "lng": 4.883
+   },
+   "map_span_deg": 0.2,
+   "timezone": "Europe/Amsterdam",
+   "neighborhoods": [
+    "Jordaan",
+    "Amsterdam-Noord/NDSM",
+    "De Baarsjes",
+    "Oud-Zuid",
+    "Westerpark",
+    "Zuidas",
+    "De Pijp",
+    "Bijlmer"
+   ],
+   "metro_tokens": [
+    "Amsterdam",
+    "10",
+    "NL-1"
+   ],
+   "why": {
+    "anthropic": "Strong mid-size dealers and a famously well-funded network of nonprofit and artist-run initiatives sustain a scene punching above the market's size.",
+    "openai": "Amsterdam ranks twentieth for its durable concentration of respected contemporary dealers and nonprofit spaces despite a relatively small domestic market."
+   },
+   "config_draft": {
+    "cities_py": "    \"amsterdam\": {\n        \"display_name\": \"Amsterdam\",\n        \"center\": {\"latitude\": 52.362, \"longitude\": 4.883},\n        \"span\": {\"latitudeDelta\": 0.2, \"longitudeDelta\": 0.2},\n        \"neighborhoods\": [\"Jordaan\", \"Amsterdam-Noord/NDSM\", \"De Baarsjes\", \"Oud-Zuid\", \"Westerpark\", \"Zuidas\", \"De Pijp\", \"Bijlmer\"],\n        \"metro_tokens\": [\"Amsterdam\", \"10\", \"NL-1\"],\n        \"guidance\": \"Amsterdam's gallery districts, busiest first: Jordaan, Amsterdam-Noord/NDSM, De Baarsjes, Oud-Zuid, Westerpark, Zuidas, De Pijp, Bijlmer. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"amsterdam\": \"Europe/Amsterdam\",",
+    "models_swift": "        City(key: \"amsterdam\", displayName: \"Amsterdam\",\n             neighborhoods: [\"Jordaan\", \"Amsterdam-Noord/NDSM\", \"De Baarsjes\", \"Oud-Zuid\", \"Westerpark\", \"Zuidas\", \"De Pijp\", \"Bijlmer\"],\n             center: CLLocationCoordinate2D(latitude: 52.362, longitude: 4.883),\n             spanDegrees: 0.2, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "cologne",
+   "name": "Cologne",
+   "country": "Germany",
+   "rank": 19,
+   "blended": 22.0,
+   "rank_claude": null,
+   "rank_openai": 18,
+   "existing": false,
+   "center": {
+    "lat": 50.938,
+    "lng": 6.951
+   },
+   "map_span_deg": 0.25,
+   "timezone": "Europe/Berlin",
+   "neighborhoods": [
+    "Altstadt",
+    "Belgisches Viertel",
+    "Friesenviertel",
+    "Südstadt",
+    "Ehrenfeld",
+    "Deutz",
+    "Mülheim",
+    "Nippes",
+    "Kalk"
+   ],
+   "metro_tokens": [
+    "Köln",
+    "Cologne",
+    "50667",
+    "50672"
+   ],
+   "why": {
+    "openai": "Cologne ranks eighteenth because its historically pivotal dealer community remains influential and active even after some of Germany's market energy shifted to Berlin."
+   },
+   "config_draft": {
+    "cities_py": "    \"cologne\": {\n        \"display_name\": \"Cologne\",\n        \"center\": {\"latitude\": 50.938, \"longitude\": 6.951},\n        \"span\": {\"latitudeDelta\": 0.25, \"longitudeDelta\": 0.25},\n        \"neighborhoods\": [\"Altstadt\", \"Belgisches Viertel\", \"Friesenviertel\", \"Südstadt\", \"Ehrenfeld\", \"Deutz\", \"Mülheim\", \"Nippes\", \"Kalk\"],\n        \"metro_tokens\": [\"Köln\", \"Cologne\", \"50667\", \"50672\"],\n        \"guidance\": \"Cologne's gallery districts, busiest first: Altstadt, Belgisches Viertel, Friesenviertel, Südstadt, Ehrenfeld, Deutz, Mülheim, Nippes, Kalk. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"cologne\": \"Europe/Berlin\",",
+    "models_swift": "        City(key: \"cologne\", displayName: \"Cologne\",\n             neighborhoods: [\"Altstadt\", \"Belgisches Viertel\", \"Friesenviertel\", \"Südstadt\", \"Ehrenfeld\", \"Deutz\", \"Mülheim\", \"Nippes\", \"Kalk\"],\n             center: CLLocationCoordinate2D(latitude: 50.938, longitude: 6.951),\n             spanDegrees: 0.25, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "singapore",
+   "name": "Singapore",
+   "country": "Singapore",
+   "rank": 20,
+   "blended": 22.0,
+   "rank_claude": 23,
+   "rank_openai": 21,
+   "existing": false,
+   "center": {
+    "lat": 1.29,
+    "lng": 103.83
+   },
+   "map_span_deg": 0.25,
+   "timezone": "Asia/Singapore",
+   "neighborhoods": [
+    "Tanjong Pagar Distripark",
+    "Gillman Barracks",
+    "Dempsey Hill",
+    "Orchard/Tanglin",
+    "Chinatown",
+    "Marina Bay",
+    "Kampong Gelam"
+   ],
+   "metro_tokens": [
+    "Singapore",
+    "SG",
+    "Gillman"
+   ],
+   "why": {
+    "anthropic": "Wealth migration and ART SG have revived Singapore's galleries as the commercial gateway for Southeast Asian art.",
+    "openai": "Singapore ranks twenty-first as Southeast Asia's best-connected gallery marketplace although its dealer population remains smaller and more changeable than higher-ranked Asian hubs."
+   },
+   "config_draft": {
+    "cities_py": "    \"singapore\": {\n        \"display_name\": \"Singapore\",\n        \"center\": {\"latitude\": 1.29, \"longitude\": 103.83},\n        \"span\": {\"latitudeDelta\": 0.25, \"longitudeDelta\": 0.25},\n        \"neighborhoods\": [\"Tanjong Pagar Distripark\", \"Gillman Barracks\", \"Dempsey Hill\", \"Orchard/Tanglin\", \"Chinatown\", \"Marina Bay\", \"Kampong Gelam\"],\n        \"metro_tokens\": [\"Singapore\", \"SG\", \"Gillman\"],\n        \"guidance\": \"Singapore's gallery districts, busiest first: Tanjong Pagar Distripark, Gillman Barracks, Dempsey Hill, Orchard/Tanglin, Chinatown, Marina Bay, Kampong Gelam. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"singapore\": \"Asia/Singapore\",",
+    "models_swift": "        City(key: \"singapore\", displayName: \"Singapore\",\n             neighborhoods: [\"Tanjong Pagar Distripark\", \"Gillman Barracks\", \"Dempsey Hill\", \"Orchard/Tanglin\", \"Chinatown\", \"Marina Bay\", \"Kampong Gelam\"],\n             center: CLLocationCoordinate2D(latitude: 1.29, longitude: 103.83),\n             spanDegrees: 0.25, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "chicago",
+   "name": "Chicago",
+   "country": "United States",
+   "rank": 21,
+   "blended": 22.5,
+   "rank_claude": 19,
+   "rank_openai": null,
+   "existing": false,
+   "center": {
+    "lat": 41.888,
+    "lng": -87.656
+   },
+   "map_span_deg": 0.3,
+   "timezone": "America/Chicago",
+   "neighborhoods": [
+    "West Town/West Loop",
+    "River North",
+    "Pilsen",
+    "Bridgeport",
+    "Logan Square",
+    "Garfield Park",
+    "Hyde Park",
+    "Wicker Park"
+   ],
+   "metro_tokens": [
+    ", IL ",
+    "Chicago",
+    "606"
+   ],
+   "why": {
+    "anthropic": "A durable dealer district plus one of the strongest artist-run and nonprofit cultures in North America keeps Chicago a serious alternative to the coasts."
+   },
+   "config_draft": {
+    "cities_py": "    \"chicago\": {\n        \"display_name\": \"Chicago\",\n        \"center\": {\"latitude\": 41.888, \"longitude\": -87.656},\n        \"span\": {\"latitudeDelta\": 0.3, \"longitudeDelta\": 0.3},\n        \"neighborhoods\": [\"West Town/West Loop\", \"River North\", \"Pilsen\", \"Bridgeport\", \"Logan Square\", \"Garfield Park\", \"Hyde Park\", \"Wicker Park\"],\n        \"metro_tokens\": [\", IL \", \"Chicago\", \"606\"],\n        \"guidance\": \"Chicago's gallery districts, busiest first: West Town/West Loop, River North, Pilsen, Bridgeport, Logan Square, Garfield Park, Hyde Park, Wicker Park. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"chicago\": \"America/Chicago\",",
+    "models_swift": "        City(key: \"chicago\", displayName: \"Chicago\",\n             neighborhoods: [\"West Town/West Loop\", \"River North\", \"Pilsen\", \"Bridgeport\", \"Logan Square\", \"Garfield Park\", \"Hyde Park\", \"Wicker Park\"],\n             center: CLLocationCoordinate2D(latitude: 41.888, longitude: -87.656),\n             spanDegrees: 0.3, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "taipei",
+   "name": "Taipei",
+   "country": "Taiwan",
+   "rank": 22,
+   "blended": 22.5,
+   "rank_claude": null,
+   "rank_openai": 19,
+   "existing": false,
+   "center": {
+    "lat": 25.048,
+    "lng": 121.54
+   },
+   "map_span_deg": 0.4,
+   "timezone": "Asia/Taipei",
+   "neighborhoods": [
+    "Zhongshan",
+    "Da'an",
+    "Neihu",
+    "Xinyi",
+    "Datong",
+    "Songshan",
+    "Wanhua",
+    "Shilin",
+    "Beitou"
+   ],
+   "metro_tokens": [
+    "Taipei City",
+    "台北市",
+    "104",
+    "106"
+   ],
+   "why": {
+    "openai": "Taipei ranks nineteenth for its substantial network of established East Asian galleries and an active collector market supporting newer programs."
+   },
+   "config_draft": {
+    "cities_py": "    \"taipei\": {\n        \"display_name\": \"Taipei\",\n        \"center\": {\"latitude\": 25.048, \"longitude\": 121.54},\n        \"span\": {\"latitudeDelta\": 0.4, \"longitudeDelta\": 0.4},\n        \"neighborhoods\": [\"Zhongshan\", \"Da'an\", \"Neihu\", \"Xinyi\", \"Datong\", \"Songshan\", \"Wanhua\", \"Shilin\", \"Beitou\"],\n        \"metro_tokens\": [\"Taipei City\", \"台北市\", \"104\", \"106\"],\n        \"guidance\": \"Taipei's gallery districts, busiest first: Zhongshan, Da'an, Neihu, Xinyi, Datong, Songshan, Wanhua, Shilin, Beitou. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"taipei\": \"Asia/Taipei\",",
+    "models_swift": "        City(key: \"taipei\", displayName: \"Taipei\",\n             neighborhoods: [\"Zhongshan\", \"Da'an\", \"Neihu\", \"Xinyi\", \"Datong\", \"Songshan\", \"Wanhua\", \"Shilin\", \"Beitou\"],\n             center: CLLocationCoordinate2D(latitude: 25.048, longitude: 121.54),\n             spanDegrees: 0.4, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "copenhagen",
+   "name": "Copenhagen",
+   "country": "Denmark",
+   "rank": 23,
+   "blended": 23.0,
+   "rank_claude": 20,
+   "rank_openai": null,
+   "existing": false,
+   "center": {
+    "lat": 55.679,
+    "lng": 12.568
+   },
+   "map_span_deg": 0.2,
+   "timezone": "Europe/Copenhagen",
+   "neighborhoods": [
+    "Kødbyen/Vesterbro",
+    "Bredgade",
+    "Nørrebro",
+    "Islands Brygge",
+    "Refshaleøen",
+    "Frederiksberg",
+    "Christianshavn"
+   ],
+   "metro_tokens": [
+    "København",
+    "Copenhagen",
+    "DK-1"
+   ],
+   "why": {
+    "anthropic": "Nordic collecting power and a cooperative gallery culture around Kødbyen make Copenhagen the region's clear commercial and experimental hub."
+   },
+   "config_draft": {
+    "cities_py": "    \"copenhagen\": {\n        \"display_name\": \"Copenhagen\",\n        \"center\": {\"latitude\": 55.679, \"longitude\": 12.568},\n        \"span\": {\"latitudeDelta\": 0.2, \"longitudeDelta\": 0.2},\n        \"neighborhoods\": [\"Kødbyen/Vesterbro\", \"Bredgade\", \"Nørrebro\", \"Islands Brygge\", \"Refshaleøen\", \"Frederiksberg\", \"Christianshavn\"],\n        \"metro_tokens\": [\"København\", \"Copenhagen\", \"DK-1\"],\n        \"guidance\": \"Copenhagen's gallery districts, busiest first: Kødbyen/Vesterbro, Bredgade, Nørrebro, Islands Brygge, Refshaleøen, Frederiksberg, Christianshavn. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"copenhagen\": \"Europe/Copenhagen\",",
+    "models_swift": "        City(key: \"copenhagen\", displayName: \"Copenhagen\",\n             neighborhoods: [\"Kødbyen/Vesterbro\", \"Bredgade\", \"Nørrebro\", \"Islands Brygge\", \"Refshaleøen\", \"Frederiksberg\", \"Christianshavn\"],\n             center: CLLocationCoordinate2D(latitude: 55.679, longitude: 12.568),\n             spanDegrees: 0.2, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "dubai",
+   "name": "Dubai",
+   "country": "United Arab Emirates",
+   "rank": 24,
+   "blended": 23.0,
+   "rank_claude": 22,
+   "rank_openai": 24,
+   "existing": false,
+   "center": {
+    "lat": 25.145,
+    "lng": 55.23
+   },
+   "map_span_deg": 0.3,
+   "timezone": "Asia/Dubai",
+   "neighborhoods": [
+    "Alserkal Avenue/Al Quoz",
+    "DIFC",
+    "Dubai Design District",
+    "Jumeirah",
+    "Al Fahidi",
+    "Business Bay",
+    "Deira"
+   ],
+   "metro_tokens": [
+    "Dubai",
+    "UAE",
+    "Al Quoz"
+   ],
+   "why": {
+    "anthropic": "Alserkal Avenue and DIFC turned Dubai into the trading and exhibition hub for the Middle East South Asia and the wider diaspora.",
+    "openai": "Dubai ranks twenty-fourth as the leading commercial gallery hub for the Gulf with strong regional programs and selective international expansion concentrated in a few districts."
+   },
+   "config_draft": {
+    "cities_py": "    \"dubai\": {\n        \"display_name\": \"Dubai\",\n        \"center\": {\"latitude\": 25.145, \"longitude\": 55.23},\n        \"span\": {\"latitudeDelta\": 0.3, \"longitudeDelta\": 0.3},\n        \"neighborhoods\": [\"Alserkal Avenue/Al Quoz\", \"DIFC\", \"Dubai Design District\", \"Jumeirah\", \"Al Fahidi\", \"Business Bay\", \"Deira\"],\n        \"metro_tokens\": [\"Dubai\", \"UAE\", \"Al Quoz\"],\n        \"guidance\": \"Dubai's gallery districts, busiest first: Alserkal Avenue/Al Quoz, DIFC, Dubai Design District, Jumeirah, Al Fahidi, Business Bay, Deira. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"dubai\": \"Asia/Dubai\",",
+    "models_swift": "        City(key: \"dubai\", displayName: \"Dubai\",\n             neighborhoods: [\"Alserkal Avenue/Al Quoz\", \"DIFC\", \"Dubai Design District\", \"Jumeirah\", \"Al Fahidi\", \"Business Bay\", \"Deira\"],\n             center: CLLocationCoordinate2D(latitude: 25.145, longitude: 55.23),\n             spanDegrees: 0.3, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "san-francisco",
+   "name": "San Francisco",
+   "country": "United States",
+   "rank": 25,
+   "blended": 23.5,
+   "rank_claude": 21,
+   "rank_openai": null,
+   "existing": false,
+   "center": {
+    "lat": 37.777,
+    "lng": -122.4
+   },
+   "map_span_deg": 0.4,
+   "timezone": "America/Los_Angeles",
+   "neighborhoods": [
+    "Dogpatch/Minnesota Street Project",
+    "Potrero Flats",
+    "Union Square/Downtown",
+    "SoMa",
+    "Mission",
+    "Chinatown",
+    "Oakland",
+    "Berkeley"
+   ],
+   "metro_tokens": [
+    ", CA ",
+    "San Francisco",
+    "941"
+   ],
+   "why": {
+    "anthropic": "Tech wealth and the Minnesota Street Project model sustain a compact but well-capitalised gallery core alongside a scrappy East Bay alternative scene."
+   },
+   "config_draft": {
+    "cities_py": "    \"san-francisco\": {\n        \"display_name\": \"San Francisco\",\n        \"center\": {\"latitude\": 37.777, \"longitude\": -122.4},\n        \"span\": {\"latitudeDelta\": 0.4, \"longitudeDelta\": 0.4},\n        \"neighborhoods\": [\"Dogpatch/Minnesota Street Project\", \"Potrero Flats\", \"Union Square/Downtown\", \"SoMa\", \"Mission\", \"Chinatown\", \"Oakland\", \"Berkeley\"],\n        \"metro_tokens\": [\", CA \", \"San Francisco\", \"941\"],\n        \"guidance\": \"San Francisco's gallery districts, busiest first: Dogpatch/Minnesota Street Project, Potrero Flats, Union Square/Downtown, SoMa, Mission, Chinatown, Oakland, Berkeley. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"san-francisco\": \"America/Los_Angeles\",",
+    "models_swift": "        City(key: \"san-francisco\", displayName: \"San Francisco\",\n             neighborhoods: [\"Dogpatch/Minnesota Street Project\", \"Potrero Flats\", \"Union Square/Downtown\", \"SoMa\", \"Mission\", \"Chinatown\", \"Oakland\", \"Berkeley\"],\n             center: CLLocationCoordinate2D(latitude: 37.777, longitude: -122.4),\n             spanDegrees: 0.4, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "miami",
+   "name": "Miami",
+   "country": "United States",
+   "rank": 26,
+   "blended": 23.5,
+   "rank_claude": 25,
+   "rank_openai": 22,
+   "existing": false,
+   "center": {
+    "lat": 25.81,
+    "lng": -80.195
+   },
+   "map_span_deg": 0.35,
+   "timezone": "America/New_York",
+   "neighborhoods": [
+    "Little Haiti/Little River",
+    "Allapattah",
+    "Wynwood",
+    "Design District",
+    "Downtown",
+    "Coral Gables",
+    "Miami Beach",
+    "Doral"
+   ],
+   "metro_tokens": [
+    ", FL ",
+    "Miami",
+    "331"
+   ],
+   "why": {
+    "anthropic": "Year-round galleries have finally taken root around Little Haiti and Allapattah alongside the collector traffic that Art Basel Miami Beach delivers each December.",
+    "openai": "Miami ranks twenty-second for its growing year-round dealer community and strong collector access though gallery activity remains notably seasonal."
+   },
+   "config_draft": {
+    "cities_py": "    \"miami\": {\n        \"display_name\": \"Miami\",\n        \"center\": {\"latitude\": 25.81, \"longitude\": -80.195},\n        \"span\": {\"latitudeDelta\": 0.35, \"longitudeDelta\": 0.35},\n        \"neighborhoods\": [\"Little Haiti/Little River\", \"Allapattah\", \"Wynwood\", \"Design District\", \"Downtown\", \"Coral Gables\", \"Miami Beach\", \"Doral\"],\n        \"metro_tokens\": [\", FL \", \"Miami\", \"331\"],\n        \"guidance\": \"Miami's gallery districts, busiest first: Little Haiti/Little River, Allapattah, Wynwood, Design District, Downtown, Coral Gables, Miami Beach, Doral. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"miami\": \"America/New_York\",",
+    "models_swift": "        City(key: \"miami\", displayName: \"Miami\",\n             neighborhoods: [\"Little Haiti/Little River\", \"Allapattah\", \"Wynwood\", \"Design District\", \"Downtown\", \"Coral Gables\", \"Miami Beach\", \"Doral\"],\n             center: CLLocationCoordinate2D(latitude: 25.81, longitude: -80.195),\n             spanDegrees: 0.35, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "lisbon",
+   "name": "Lisbon",
+   "country": "Portugal",
+   "rank": 27,
+   "blended": 24.5,
+   "rank_claude": null,
+   "rank_openai": 23,
+   "existing": false,
+   "center": {
+    "lat": 38.721,
+    "lng": -9.145
+   },
+   "map_span_deg": 0.3,
+   "timezone": "Europe/Lisbon",
+   "neighborhoods": [
+    "Chiado/Bairro Alto",
+    "Alvalade",
+    "Marvila",
+    "Estrela",
+    "Mouraria",
+    "Santos",
+    "Belém",
+    "Graça",
+    "Intendente/Anjos",
+    "Alcântara"
+   ],
+   "metro_tokens": [
+    "Lisboa",
+    "Lisbon",
+    "1200",
+    "1100"
+   ],
+   "why": {
+    "openai": "Lisbon ranks twenty-third for a fast-growing and internationally visible gallery scene strengthened by affordable space and an influx of artists and dealers."
+   },
+   "config_draft": {
+    "cities_py": "    \"lisbon\": {\n        \"display_name\": \"Lisbon\",\n        \"center\": {\"latitude\": 38.721, \"longitude\": -9.145},\n        \"span\": {\"latitudeDelta\": 0.3, \"longitudeDelta\": 0.3},\n        \"neighborhoods\": [\"Chiado/Bairro Alto\", \"Alvalade\", \"Marvila\", \"Estrela\", \"Mouraria\", \"Santos\", \"Belém\", \"Graça\", \"Intendente/Anjos\", \"Alcântara\"],\n        \"metro_tokens\": [\"Lisboa\", \"Lisbon\", \"1200\", \"1100\"],\n        \"guidance\": \"Lisbon's gallery districts, busiest first: Chiado/Bairro Alto, Alvalade, Marvila, Estrela, Mouraria, Santos, Belém, Graça, Intendente/Anjos, Alcântara. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"lisbon\": \"Europe/Lisbon\",",
+    "models_swift": "        City(key: \"lisbon\", displayName: \"Lisbon\",\n             neighborhoods: [\"Chiado/Bairro Alto\", \"Alvalade\", \"Marvila\", \"Estrela\", \"Mouraria\", \"Santos\", \"Belém\", \"Graça\", \"Intendente/Anjos\", \"Alcântara\"],\n             center: CLLocationCoordinate2D(latitude: 38.721, longitude: -9.145),\n             spanDegrees: 0.3, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "athens",
+   "name": "Athens",
+   "country": "Greece",
+   "rank": 28,
+   "blended": 25.0,
+   "rank_claude": 24,
+   "rank_openai": null,
+   "existing": false,
+   "center": {
+    "lat": 37.98,
+    "lng": 23.728
+   },
+   "map_span_deg": 0.25,
+   "timezone": "Europe/Athens",
+   "neighborhoods": [
+    "Kolonaki",
+    "Psyri/Metaxourgeio",
+    "Kerameikos",
+    "Exarchia",
+    "Neos Kosmos",
+    "Monastiraki",
+    "Piraeus"
+   ],
+   "metro_tokens": [
+    "Athens",
+    "Athina",
+    "10"
+   ],
+   "why": {
+    "anthropic": "Cheap space and post-documenta attention produced an unusually vital mix of local dealers project spaces and foreign-run galleries."
+   },
+   "config_draft": {
+    "cities_py": "    \"athens\": {\n        \"display_name\": \"Athens\",\n        \"center\": {\"latitude\": 37.98, \"longitude\": 23.728},\n        \"span\": {\"latitudeDelta\": 0.25, \"longitudeDelta\": 0.25},\n        \"neighborhoods\": [\"Kolonaki\", \"Psyri/Metaxourgeio\", \"Kerameikos\", \"Exarchia\", \"Neos Kosmos\", \"Monastiraki\", \"Piraeus\"],\n        \"metro_tokens\": [\"Athens\", \"Athina\", \"10\"],\n        \"guidance\": \"Athens's gallery districts, busiest first: Kolonaki, Psyri/Metaxourgeio, Kerameikos, Exarchia, Neos Kosmos, Monastiraki, Piraeus. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"athens\": \"Europe/Athens\",",
+    "models_swift": "        City(key: \"athens\", displayName: \"Athens\",\n             neighborhoods: [\"Kolonaki\", \"Psyri/Metaxourgeio\", \"Kerameikos\", \"Exarchia\", \"Neos Kosmos\", \"Monastiraki\", \"Piraeus\"],\n             center: CLLocationCoordinate2D(latitude: 37.98, longitude: 23.728),\n             spanDegrees: 0.25, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "mumbai",
+   "name": "Mumbai",
+   "country": "India",
+   "rank": 29,
+   "blended": 25.5,
+   "rank_claude": null,
+   "rank_openai": 25,
+   "existing": false,
+   "center": {
+    "lat": 19.025,
+    "lng": 72.85
+   },
+   "map_span_deg": 0.6,
+   "timezone": "Asia/Kolkata",
+   "neighborhoods": [
+    "Colaba/Fort",
+    "Lower Parel",
+    "Bandra",
+    "Worli",
+    "Byculla",
+    "Tardeo",
+    "Santacruz",
+    "Juhu",
+    "Andheri"
+   ],
+   "metro_tokens": [
+    "Mumbai",
+    "Maharashtra",
+    "400001",
+    "400013"
+   ],
+   "why": {
+    "openai": "Mumbai ranks twenty-fifth for its influential Indian galleries and rapidly strengthening contemporary market though the active dealer network remains comparatively compact."
+   },
+   "config_draft": {
+    "cities_py": "    \"mumbai\": {\n        \"display_name\": \"Mumbai\",\n        \"center\": {\"latitude\": 19.025, \"longitude\": 72.85},\n        \"span\": {\"latitudeDelta\": 0.6, \"longitudeDelta\": 0.6},\n        \"neighborhoods\": [\"Colaba/Fort\", \"Lower Parel\", \"Bandra\", \"Worli\", \"Byculla\", \"Tardeo\", \"Santacruz\", \"Juhu\", \"Andheri\"],\n        \"metro_tokens\": [\"Mumbai\", \"Maharashtra\", \"400001\", \"400013\"],\n        \"guidance\": \"Mumbai's gallery districts, busiest first: Colaba/Fort, Lower Parel, Bandra, Worli, Byculla, Tardeo, Santacruz, Juhu, Andheri. Verify which shows are actually on view right now on the venues' own websites.\",\n    },",
+    "city_tz": "    \"mumbai\": \"Asia/Kolkata\",",
+    "models_swift": "        City(key: \"mumbai\", displayName: \"Mumbai\",\n             neighborhoods: [\"Colaba/Fort\", \"Lower Parel\", \"Bandra\", \"Worli\", \"Byculla\", \"Tardeo\", \"Santacruz\", \"Juhu\", \"Andheri\"],\n             center: CLLocationCoordinate2D(latitude: 19.025, longitude: 72.85),\n             spanDegrees: 0.6, availabilityNote: nil),"
+   }
+  },
+  {
+   "slug": "seattle",
+   "name": "Seattle",
+   "country": null,
+   "rank": 30,
+   "blended": null,
+   "rank_claude": null,
+   "rank_openai": null,
+   "existing": true,
+   "center": null,
+   "map_span_deg": null,
+   "timezone": null,
+   "neighborhoods": [
+    "Pioneer Square",
+    "Downtown",
+    "Capitol Hill",
+    "Ballard/Fremont",
+    "Georgetown",
+    "University District"
+   ],
+   "metro_tokens": [
+    "Seattle",
+    ", WA "
+   ],
+   "why": {
+    "note": "configured city, not on either model's list"
+   },
+   "config_draft": null
+  },
+  {
+   "slug": "venice",
+   "name": "Venice",
+   "country": null,
+   "rank": 31,
+   "blended": null,
+   "rank_claude": null,
+   "rank_openai": null,
+   "existing": true,
+   "center": null,
+   "map_span_deg": null,
+   "timezone": null,
+   "neighborhoods": [
+    "San Marco",
+    "Dorsoduro",
+    "Cannaregio",
+    "Castello",
+    "Giudecca"
+   ],
+   "metro_tokens": [
+    "Venezia",
+    "Venice"
+   ],
+   "why": {
+    "note": "configured city, not on either model's list"
+   },
+   "config_draft": null
+  }
+ ],
+ "pilot_note": "top 10 + every configured city (LA/Tokyo excluded); chicago, san-francisco, miami added on request 2026-09-04 for US coverage"
+}
