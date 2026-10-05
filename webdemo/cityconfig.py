@@ -19,6 +19,19 @@ from cities import CITIES  # noqa: E402
 
 DEFAULT_CITY = "seattle"
 
+# Placeholder cities the demo shows but the scraper doesn't know about: same
+# shape as a scraper CITIES entry, listed after the scraped cities.
+DEMO_ONLY_CITIES = {
+    "tucson": {
+        "display_name": "Tucson",
+        "center": {"latitude": 32.235, "longitude": -110.955},
+        "span": {"latitudeDelta": 0.25, "longitudeDelta": 0.25},
+        "neighborhoods": ["Downtown/Congress Street", "Warehouse Arts District", "4th Avenue",
+                          "University/Main Gate", "Barrio Viejo/Armory Park", "Catalina Foothills"],
+    },
+}
+ALL_CITIES = {**CITIES, **DEMO_ONLY_CITIES}
+
 # IANA zone per city: the Discover function computes "today", "this weekend"
 # and opening hours in the city's own time, not the visitor's device time.
 CITY_TZ = {
@@ -30,13 +43,16 @@ CITY_TZ = {
     "hong-kong": "Asia/Hong_Kong", "seoul": "Asia/Seoul", "mexico-city": "America/Mexico_City",
     "shanghai": "Asia/Shanghai", "brussels": "Europe/Brussels", "milan": "Europe/Rome",
     "chicago": "America/Chicago", "san-francisco": "America/Los_Angeles", "miami": "America/New_York",
+    # demo-only placeholder cities
+    "tucson": "America/Phoenix",
 }
 
 
 def discover() -> list[dict]:
-    """Cities with content, in CITIES declaration order; warn on orphans."""
+    """Cities with content, in CITIES declaration order (demo-only cities last);
+    warn on orphans."""
     out = []
-    for key, cfg in CITIES.items():
+    for key, cfg in ALL_CITIES.items():
         if not (CONTENT_DIR / f"{key}.json").exists():
             print(f"  note: no content for configured city '{key}' — skipped")
             continue
@@ -48,7 +64,7 @@ def discover() -> list[dict]:
             "span": max(cfg["span"]["latitudeDelta"], cfg["span"]["longitudeDelta"]),
         })
     for f in sorted(CONTENT_DIR.glob("*.json")):
-        if f.stem not in CITIES:
+        if f.stem not in ALL_CITIES:
             print(f"  warning: content file {f.name} has no city config — not included")
     return out
 

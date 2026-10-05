@@ -201,6 +201,11 @@ struct City: Identifiable, Hashable {
                              "Coral Gables", "Miami Beach", "Doral"],
              center: CLLocationCoordinate2D(latitude: 25.81, longitude: -80.195),
              spanDegrees: 0.35, availabilityNote: nil),
+        City(key: "tucson", displayName: "Tucson",
+             neighborhoods: ["Downtown/Congress Street", "Warehouse Arts District", "4th Avenue",
+                             "University/Main Gate", "Barrio Viejo/Armory Park", "Catalina Foothills"],
+             center: CLLocationCoordinate2D(latitude: 32.235, longitude: -110.955),
+             spanDegrees: 0.25, availabilityNote: nil),
     ]
 
     static func named(_ key: String) -> City {
