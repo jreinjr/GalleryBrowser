@@ -11,9 +11,11 @@ on:
     branches: [Carlton]
   workflow_dispatch:
 
+# Queue rather than cancel: a cancelled build saves no image cache, so pushes
+# landing mid-build would keep every run cold. Only the newest queued run is kept.
 concurrency:
   group: carlton-preview
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 env:
   VERCEL_ORG_ID: team_eoZu8WiKipW0UEWUCvFI0EFO
@@ -26,6 +28,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # Fail in seconds on a bad or expired token, not after a half-hour build.
+      - name: Check Vercel token
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx --yes vercel@latest pull --yes --environment=production --token "$VERCEL_TOKEN"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -34,8 +46,9 @@ jobs:
 
       - run: pip install -r scraper/requirements.txt
 
-      # build.py caches recompressed images here; without it every run redoes them all.
-      - uses: actions/cache@v4
+      # build.py caches recompressed images here; without it every run redoes them all
+      # (~27 min). Saved straight after the build so a failed deploy doesn't lose it.
+      - uses: actions/cache/restore@v4
         with:
           path: webdemo/.cache
           key: webdemo-images-${{ github.sha }}
@@ -43,12 +56,18 @@ jobs:
 
       - run: python webdemo/build.py
 
-      - uses: actions/setup-node@v4
+      - uses: actions/cache/save@v4
         with:
-          node-version: 24
+          path: webdemo/.cache
+          key: webdemo-images-${{ github.sha }}-${{ github.run_attempt }}
 
+      # Deploy from outside the checkout. Inside it the CLI attaches the head commit's
+      # author, and Vercel blocks a Hobby deployment whose author isn't the account
+      # owner: the deploy sits at "Building…" until the job times out.
       - name: Deploy
-        working-directory: webdemo/dist/gallery-browser-demo
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
+        run: |
+          mv webdemo/dist/gallery-browser-demo "$RUNNER_TEMP/site"
+          cd "$RUNNER_TEMP/site"
+          npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
