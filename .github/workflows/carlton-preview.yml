@@ -11,9 +11,11 @@ on:
     branches: [Carlton]
   workflow_dispatch:
 
+# Queue rather than cancel: a cancelled build saves no image cache, so pushes
+# landing mid-build would keep every run cold. Only the newest queued run is kept.
 concurrency:
   group: carlton-preview
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 env:
   VERCEL_ORG_ID: team_eoZu8WiKipW0UEWUCvFI0EFO
