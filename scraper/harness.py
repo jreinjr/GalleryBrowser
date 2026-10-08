@@ -608,7 +608,8 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                              f"(valid: {cfg['neighborhoods']})")
         # save_show validates against this list, so the shard is hard-enforced
         cfg["neighborhoods"] = list(neighborhoods)
-    client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
+    # bounded per-request timeout: a stalled call (seen 2026-10-08) otherwise hangs a session for the better part of an hour
+    client = anthropic.Anthropic(api_key=api_key, timeout=480.0) if api_key else anthropic.Anthropic(timeout=480.0)
     mcfg = MODELS[model]
     meter = CostMeter(
         session_label or f"{'verify-' if verify else ''}{city_key}-{int(time.time())}",
