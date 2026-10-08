@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 877.0944,
-  "total_requests": 7423,
-  "total_web_searches": 4782,
-  "total_input_tokens": 49790493,
-  "total_output_tokens": 18620050,
-  "total_cache_write_tokens": 70155165,
-  "total_cache_read_tokens": 1156832012,
+  "total_cost_usd": 900.6147,
+  "total_requests": 7606,
+  "total_web_searches": 4914,
+  "total_input_tokens": 51177792,
+  "total_output_tokens": 18934741,
+  "total_cache_write_tokens": 73205924,
+  "total_cache_read_tokens": 1200091521,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -1119,6 +1119,18 @@
       "cost_usd": 0.0914
     },
     {
+      "session": "deep-los-angeles-beverly-hills-1791430387",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 6,
+      "input_tokens": 313552,
+      "output_tokens": 18418,
+      "cache_write_tokens": 232920,
+      "cache_read_tokens": 2036356,
+      "web_searches": 8,
+      "cost_usd": 1.8809
+    },
+    {
       "session": "deep-los-angeles-chinatown-east-la-1788316926",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1287,6 +1299,18 @@
       "cost_usd": 0.1537
     },
     {
+      "session": "deep-los-angeles-chinatown-east-la-1791430094",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 15,
+      "input_tokens": 209985,
+      "output_tokens": 22228,
+      "cache_write_tokens": 209691,
+      "cache_read_tokens": 3269578,
+      "web_searches": 11,
+      "cost_usd": 1.9304
+    },
+    {
       "session": "deep-los-angeles-culver-city-west-adams-1788325717",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1333,6 +1357,18 @@
       "cache_read_tokens": 99502,
       "web_searches": 1,
       "cost_usd": 0.1125
+    },
+    {
+      "session": "deep-los-angeles-culver-city-west-adams-1791430231",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 16,
+      "output_tokens": 10946,
+      "cache_write_tokens": 154634,
+      "cache_read_tokens": 626200,
+      "web_searches": 9,
+      "cost_usd": 0.7113
     },
     {
       "session": "deep-los-angeles-downtown-arts-district-1788316906",
@@ -1659,6 +1695,30 @@
       "cost_usd": 0.1469
     },
     {
+      "session": "deep-los-angeles-downtown-arts-district-1791429809",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 819,
+      "output_tokens": 18893,
+      "cache_write_tokens": 191627,
+      "cache_read_tokens": 2028864,
+      "web_searches": 6,
+      "cost_usd": 1.1354
+    },
+    {
+      "session": "deep-los-angeles-downtown-arts-district-1791430467",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 17,
+      "input_tokens": 2671,
+      "output_tokens": 31574,
+      "cache_write_tokens": 210238,
+      "cache_read_tokens": 3311440,
+      "web_searches": 6,
+      "cost_usd": 1.569
+    },
+    {
       "session": "deep-los-angeles-hollywood-1788316966",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1885,6 +1945,18 @@
       "cache_read_tokens": 204778,
       "web_searches": 0,
       "cost_usd": 0.1566
+    },
+    {
+      "session": "deep-los-angeles-hollywood-1791429849",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 5157,
+      "output_tokens": 21047,
+      "cache_write_tokens": 170212,
+      "cache_read_tokens": 1641620,
+      "web_searches": 10,
+      "cost_usd": 1.0746
     },
     {
       "session": "deep-los-angeles-los-feliz-nela-1788312264",
@@ -2115,6 +2187,30 @@
       "cost_usd": 0.5585
     },
     {
+      "session": "deep-los-angeles-los-feliz-nela-1791429829",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 7,
+      "input_tokens": 245657,
+      "output_tokens": 14551,
+      "cache_write_tokens": 150723,
+      "cache_read_tokens": 1400427,
+      "web_searches": 14,
+      "cost_usd": 1.4337
+    },
+    {
+      "session": "deep-los-angeles-los-feliz-nela-1791430610",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 16,
+      "input_tokens": 209663,
+      "output_tokens": 21370,
+      "cache_write_tokens": 197666,
+      "cache_read_tokens": 3423746,
+      "web_searches": 11,
+      "cost_usd": 1.9219
+    },
+    {
       "session": "deep-los-angeles-mid-wilshire-koreatown-1788317398",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2271,6 +2367,30 @@
       "cost_usd": 0.1279
     },
     {
+      "session": "deep-los-angeles-mid-wilshire-koreatown-1791430057",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 11,
+      "input_tokens": 34,
+      "output_tokens": 15142,
+      "cache_write_tokens": 171859,
+      "cache_read_tokens": 2102839,
+      "web_searches": 10,
+      "cost_usd": 1.1017
+    },
+    {
+      "session": "deep-los-angeles-no-zone-1791430430",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 27,
+      "input_tokens": 125283,
+      "output_tokens": 26211,
+      "cache_write_tokens": 254586,
+      "cache_read_tokens": 5926379,
+      "web_searches": 12,
+      "cost_usd": 2.4544
+    },
+    {
       "session": "deep-los-angeles-pasadena-san-gabriel-1788328977",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2413,6 +2533,18 @@
       "cache_read_tokens": 39428,
       "web_searches": 0,
       "cost_usd": 0.0256
+    },
+    {
+      "session": "deep-los-angeles-pasadena-san-gabriel-1791430156",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 19,
+      "input_tokens": 52,
+      "output_tokens": 22955,
+      "cache_write_tokens": 231329,
+      "cache_read_tokens": 4316997,
+      "web_searches": 9,
+      "cost_usd": 1.7614
     },
     {
       "session": "deep-los-angeles-santa-monica-venice-1788319268",
@@ -2607,6 +2739,18 @@
       "cost_usd": 0.1036
     },
     {
+      "session": "deep-los-angeles-santa-monica-venice-1791430020",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 18,
+      "output_tokens": 12106,
+      "cache_write_tokens": 121268,
+      "cache_read_tokens": 723696,
+      "web_searches": 4,
+      "cost_usd": 0.609
+    },
+    {
       "session": "deep-los-angeles-santa-monica-venice-datesmoke-1788324780",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2701,6 +2845,18 @@
       "cache_read_tokens": 117367,
       "web_searches": 1,
       "cost_usd": 0.1338
+    },
+    {
+      "session": "deep-los-angeles-south-la-inglewood-1791430374",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 14,
+      "input_tokens": 84331,
+      "output_tokens": 32591,
+      "cache_write_tokens": 259339,
+      "cache_read_tokens": 4175321,
+      "web_searches": 15,
+      "cost_usd": 2.128
     },
     {
       "session": "deep-los-angeles-west-hollywood-fairfax-1788318998",
@@ -2823,6 +2979,18 @@
       "cost_usd": 0.1044
     },
     {
+      "session": "deep-los-angeles-west-hollywood-fairfax-1791429869",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 17,
+      "input_tokens": 190037,
+      "output_tokens": 29597,
+      "cache_write_tokens": 292967,
+      "cache_read_tokens": 6599808,
+      "web_searches": 7,
+      "cost_usd": 2.7984
+    },
+    {
       "session": "deep-los-angeles-westside-brentwood-1788317299",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2893,6 +3061,18 @@
       "cache_read_tokens": 172157,
       "web_searches": 2,
       "cost_usd": 0.2205
+    },
+    {
+      "session": "deep-los-angeles-westside-brentwood-1791430268",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 24,
+      "output_tokens": 17062,
+      "cache_write_tokens": 201700,
+      "cache_read_tokens": 1676238,
+      "web_searches": 0,
+      "cost_usd": 1.0102
     },
     {
       "session": "deep-mexico-city-colonia-ju-rez-cuauht-moc-1788557333",
