@@ -159,6 +159,49 @@ def verify_cities(cities: list[str], pending_only: bool = False,
     return {"sessions": session_reports, "cities": summary, "sweep": sweep}
 
 
+def verify_by_rank(city: str, total_budget: float, batch: int = 8,
+                   max_rank: int | None = None) -> dict:
+    """Pending-pool audit in gallery-rank order (registry `rank`, unranked
+    last), one sequential session per `batch` shows, stopping before
+    `total_budget` — so a capped run spends on the galleries that matter most
+    rather than on whichever neighborhood comes first. `max_rank` skips shows
+    at venues ranked below it (and unranked ones)."""
+    import crosscheck
+    import venues
+
+    sweep = tools.sweep_placements([city])
+    rank = {v["id"]: v.get("rank") or 10**6 for v in venues.load_registry(city)["venues"]}
+    verdicts_now = tools.latest_verdicts()
+    shows = [s for s in tools._load_shows_file(tools._pending_file(city))["shows"]
+             if not tools.show_expired(s) and tools.verify_candidate(city, s, verdicts_now)]
+    if max_rank is not None:
+        shows = [s for s in shows if rank.get(s.get("venue_id"), 10**6) <= max_rank]
+    shows.sort(key=lambda s: (rank.get(s.get("venue_id"), 10**6), s.get("start_date") or ""))
+    if not shows:
+        print("nothing to verify", flush=True)
+        return {"sessions": [], "spent": 0.0, "sweep": sweep}
+    crosscheck.run([city])
+    spent, reports = 0.0, []
+    for i in range(0, len(shows), batch):
+        chunk = shows[i:i + batch]
+        n = len(chunk)
+        # the harness can overrun its budget, so leave the per-session headroom
+        budget = min(max(1.5, 0.30 * n), (total_budget - spent) / 1.5)
+        if budget < 1.0:
+            print(f"stop: ${spent:.2f} spent of ${total_budget:.2f}", flush=True)
+            break
+        names = sorted({s["venue"]["name"] for s in chunk})
+        print(f"[verify rank batch {i // batch + 1}] {n} shows: {', '.join(names)}", flush=True)
+        r = run_city(city_key=city, target_shows=0, max_searches=max(8, 2 * n),
+                     max_fetches=max(12, 4 * n), max_iterations=max(30, 8 * n),
+                     budget_usd=budget, verify=True, verify_pending_only=True,
+                     verify_slugs=[s["slug"] for s in chunk])
+        spent += r["cost_usd"]
+        reports.append({"job": f"rank batch {i // batch + 1}", "cost": r["cost_usd"]})
+        print(f"[verify rank batch {i // batch + 1}] ${r['cost_usd']:.2f} (total ${spent:.2f})", flush=True)
+    return {"sessions": reports, "spent": round(spent, 2), "sweep": sweep}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--city", choices=sorted(CITIES))
@@ -166,9 +209,21 @@ def main() -> None:
     parser.add_argument("--pending", action="store_true",
                         help="audit only the pending pool (what blocks publication)")
     parser.add_argument("--stagger", type=float, default=15.0)
+    parser.add_argument("--by-rank", type=float, metavar="BUDGET",
+                        help="with --city: audit the pending pool in gallery-rank order, "
+                             "highest-ranked first, stopping before BUDGET USD")
+    parser.add_argument("--max-rank", type=int,
+                        help="with --by-rank: skip venues ranked below N (and unranked ones)")
     args = parser.parse_args()
 
     load_env()
+    if args.by_rank is not None:
+        if not args.city:
+            sys.exit("--by-rank needs --city")
+        out = verify_by_rank(args.city, args.by_rank, max_rank=args.max_rank)
+        spend_report()
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return
     cities = [args.city] if args.city else \
         [c for c in CITIES if city_shows(c)] if args.all else \
         sys.exit("pass --city or --all")

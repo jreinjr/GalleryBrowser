@@ -1,11 +1,11 @@
 {
-  "total_cost_usd": 900.6147,
-  "total_requests": 7606,
-  "total_web_searches": 4914,
-  "total_input_tokens": 51177792,
-  "total_output_tokens": 18934741,
-  "total_cache_write_tokens": 73205924,
-  "total_cache_read_tokens": 1200091521,
+  "total_cost_usd": 936.0973,
+  "total_requests": 7880,
+  "total_web_searches": 5330,
+  "total_input_tokens": 51811336,
+  "total_output_tokens": 19326585,
+  "total_cache_write_tokens": 76348720,
+  "total_cache_read_tokens": 1289931961,
   "sessions": [
     {
       "session": "ab-a-deep-los-angeles-chinatown-east-la-1788302179",
@@ -1131,6 +1131,18 @@
       "cost_usd": 1.8809
     },
     {
+      "session": "deep-los-angeles-beverly-hills-1791479163",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 6,
+      "input_tokens": 16,
+      "output_tokens": 4920,
+      "cache_write_tokens": 46683,
+      "cache_read_tokens": 230930,
+      "web_searches": 0,
+      "cost_usd": 0.2121
+    },
+    {
       "session": "deep-los-angeles-chinatown-east-la-1788316926",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1311,6 +1323,18 @@
       "cost_usd": 1.9304
     },
     {
+      "session": "deep-los-angeles-chinatown-east-la-1791481566",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 8,
+      "input_tokens": 22,
+      "output_tokens": 3428,
+      "cache_write_tokens": 44252,
+      "cache_read_tokens": 282864,
+      "web_searches": 3,
+      "cost_usd": 0.2315
+    },
+    {
       "session": "deep-los-angeles-culver-city-west-adams-1788325717",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1369,6 +1393,30 @@
       "cache_read_tokens": 626200,
       "web_searches": 9,
       "cost_usd": 0.7113
+    },
+    {
+      "session": "deep-los-angeles-culver-city-west-adams-1791479098",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 26,
+      "output_tokens": 8171,
+      "cache_write_tokens": 82683,
+      "cache_read_tokens": 545894,
+      "web_searches": 8,
+      "cost_usd": 0.4776
+    },
+    {
+      "session": "deep-los-angeles-culver-city-west-adams-1791481301",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 11,
+      "input_tokens": 28,
+      "output_tokens": 20108,
+      "cache_write_tokens": 110313,
+      "cache_read_tokens": 1068927,
+      "web_searches": 0,
+      "cost_usd": 0.6907
     },
     {
       "session": "deep-los-angeles-downtown-arts-district-1788316906",
@@ -1719,6 +1767,18 @@
       "cost_usd": 1.569
     },
     {
+      "session": "deep-los-angeles-downtown-arts-district-1791481506",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 4,
+      "input_tokens": 826,
+      "output_tokens": 5773,
+      "cache_write_tokens": 84053,
+      "cache_read_tokens": 490782,
+      "web_searches": 4,
+      "cost_usd": 0.4077
+    },
+    {
       "session": "deep-los-angeles-hollywood-1788316966",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -1957,6 +2017,42 @@
       "cache_read_tokens": 1641620,
       "web_searches": 10,
       "cost_usd": 1.0746
+    },
+    {
+      "session": "deep-los-angeles-hollywood-1791478788",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 20,
+      "output_tokens": 10466,
+      "cache_write_tokens": 82502,
+      "cache_read_tokens": 579113,
+      "web_searches": 1,
+      "cost_usd": 0.4368
+    },
+    {
+      "session": "deep-los-angeles-hollywood-1791481261",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 28,
+      "input_tokens": 391,
+      "output_tokens": 21960,
+      "cache_write_tokens": 156811,
+      "cache_read_tokens": 3310719,
+      "web_searches": 7,
+      "cost_usd": 1.3446
+    },
+    {
+      "session": "deep-los-angeles-hollywood-1791481606",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 12,
+      "input_tokens": 25491,
+      "output_tokens": 13719,
+      "cache_write_tokens": 99098,
+      "cache_read_tokens": 845621,
+      "web_searches": 8,
+      "cost_usd": 0.685
     },
     {
       "session": "deep-los-angeles-los-feliz-nela-1788312264",
@@ -2211,6 +2307,30 @@
       "cost_usd": 1.9219
     },
     {
+      "session": "deep-los-angeles-los-feliz-nela-1791481591",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 1,
+      "input_tokens": 6,
+      "output_tokens": 453,
+      "cache_write_tokens": 19156,
+      "cache_read_tokens": 24477,
+      "web_searches": 2,
+      "cost_usd": 0.0773
+    },
+    {
+      "session": "deep-los-angeles-los-feliz-nela-1791481867",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 3903,
+      "output_tokens": 6164,
+      "cache_write_tokens": 66089,
+      "cache_read_tokens": 658696,
+      "web_searches": 6,
+      "cost_usd": 0.4264
+    },
+    {
       "session": "deep-los-angeles-mid-wilshire-koreatown-1788317398",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2377,6 +2497,30 @@
       "cache_read_tokens": 2102839,
       "web_searches": 10,
       "cost_usd": 1.1017
+    },
+    {
+      "session": "deep-los-angeles-mid-wilshire-koreatown-1791478928",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 124423,
+      "output_tokens": 17650,
+      "cache_write_tokens": 113979,
+      "cache_read_tokens": 1211731,
+      "web_searches": 8,
+      "cost_usd": 1.0326
+    },
+    {
+      "session": "deep-los-angeles-mid-wilshire-koreatown-1791481550",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 13,
+      "input_tokens": 14007,
+      "output_tokens": 18593,
+      "cache_write_tokens": 172356,
+      "cache_read_tokens": 2617679,
+      "web_searches": 12,
+      "cost_usd": 1.2884
     },
     {
       "session": "deep-los-angeles-no-zone-1791430430",
@@ -2751,6 +2895,18 @@
       "cost_usd": 0.609
     },
     {
+      "session": "deep-los-angeles-santa-monica-venice-1791479202",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 2,
+      "input_tokens": 137,
+      "output_tokens": 1224,
+      "cache_write_tokens": 22090,
+      "cache_read_tokens": 61232,
+      "web_searches": 0,
+      "cost_usd": 0.08
+    },
+    {
       "session": "deep-los-angeles-santa-monica-venice-datesmoke-1788324780",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -2989,6 +3145,30 @@
       "cache_read_tokens": 6599808,
       "web_searches": 7,
       "cost_usd": 2.7984
+    },
+    {
+      "session": "deep-los-angeles-west-hollywood-fairfax-1791478808",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 11,
+      "input_tokens": 32,
+      "output_tokens": 31522,
+      "cache_write_tokens": 101190,
+      "cache_read_tokens": 1132068,
+      "web_searches": 0,
+      "cost_usd": 0.7947
+    },
+    {
+      "session": "deep-los-angeles-west-hollywood-fairfax-1791481281",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 10,
+      "input_tokens": 85368,
+      "output_tokens": 17556,
+      "cache_write_tokens": 187298,
+      "cache_read_tokens": 1880941,
+      "web_searches": 10,
+      "cost_usd": 1.2907
     },
     {
       "session": "deep-los-angeles-westside-brentwood-1788317299",
@@ -7134,6 +7314,138 @@
       "cost_usd": 0.9132
     },
     {
+      "session": "verify-los-angeles-1791431586",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 27,
+      "input_tokens": 434,
+      "output_tokens": 46325,
+      "cache_write_tokens": 155795,
+      "cache_read_tokens": 19579476,
+      "web_searches": 48,
+      "cost_usd": 5.2495
+    },
+    {
+      "session": "verify-los-angeles-1791432681",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 28,
+      "input_tokens": 118,
+      "output_tokens": 22795,
+      "cache_write_tokens": 305701,
+      "cache_read_tokens": 12508967,
+      "web_searches": 42,
+      "cost_usd": 3.9142
+    },
+    {
+      "session": "verify-los-angeles-1791433045",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 9,
+      "input_tokens": 21046,
+      "output_tokens": 14848,
+      "cache_write_tokens": 84154,
+      "cache_read_tokens": 3025539,
+      "web_searches": 13,
+      "cost_usd": 1.1361
+    },
+    {
+      "session": "verify-los-angeles-1791474564",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 21,
+      "input_tokens": 25008,
+      "output_tokens": 10237,
+      "cache_write_tokens": 222023,
+      "cache_read_tokens": 4407049,
+      "web_searches": 25,
+      "cost_usd": 1.8389
+    },
+    {
+      "session": "verify-los-angeles-1791474937",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 3,
+      "input_tokens": 202810,
+      "output_tokens": 14132,
+      "cache_write_tokens": 214669,
+      "cache_read_tokens": 1933873,
+      "web_searches": 27,
+      "cost_usd": 1.7404
+    },
+    {
+      "session": "verify-los-angeles-1791475130",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 5,
+      "input_tokens": 310,
+      "output_tokens": 38062,
+      "cache_write_tokens": 141926,
+      "cache_read_tokens": 11586600,
+      "web_searches": 56,
+      "cost_usd": 3.6134
+    },
+    {
+      "session": "verify-los-angeles-1791477749",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 21,
+      "input_tokens": 256,
+      "output_tokens": 31370,
+      "cache_write_tokens": 186118,
+      "cache_read_tokens": 14621675,
+      "web_searches": 77,
+      "cost_usd": 4.4738
+    },
+    {
+      "session": "verify-los-angeles-1791478481",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 11,
+      "input_tokens": 128716,
+      "output_tokens": 11070,
+      "cache_write_tokens": 272890,
+      "cache_read_tokens": 4417673,
+      "web_searches": 22,
+      "cost_usd": 2.1539
+    },
+    {
+      "session": "verify-los-angeles-1791479846",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 6,
+      "input_tokens": 58,
+      "output_tokens": 8327,
+      "cache_write_tokens": 43164,
+      "cache_read_tokens": 732675,
+      "web_searches": 13,
+      "cost_usd": 0.4678
+    },
+    {
+      "session": "verify-los-angeles-1791480030",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 10,
+      "input_tokens": 82,
+      "output_tokens": 9964,
+      "cache_write_tokens": 67287,
+      "cache_read_tokens": 1942291,
+      "web_searches": 16,
+      "cost_usd": 0.8165
+    },
+    {
+      "session": "verify-los-angeles-1791480272",
+      "model": "claude-sonnet-5",
+      "batch": false,
+      "requests": 1,
+      "input_tokens": 10,
+      "output_tokens": 3007,
+      "cache_write_tokens": 60516,
+      "cache_read_tokens": 142948,
+      "web_searches": 8,
+      "cost_usd": 0.29
+    },
+    {
       "session": "verify-mexico-city-1788558507",
       "model": "claude-sonnet-5",
       "batch": false,
@@ -7391,6 +7703,30 @@
       "cost_usd": 0.0,
       "fetches": 8,
       "renders": 3
+    },
+    {
+      "session": "verify-order-los-angeles-1791480290",
+      "city": "los-angeles",
+      "places_requests": 6,
+      "cost_usd": 0.156,
+      "fetches": 3,
+      "renders": 2
+    },
+    {
+      "session": "verify-order-los-angeles-1791480383",
+      "city": "los-angeles",
+      "places_requests": 6,
+      "cost_usd": 0.156,
+      "fetches": 2,
+      "renders": 2
+    },
+    {
+      "session": "verify-order-los-angeles-1791481154",
+      "city": "los-angeles",
+      "places_requests": 0,
+      "cost_usd": 0.0,
+      "fetches": 2,
+      "renders": 2
     },
     {
       "session": "verify-paris-1788226496",

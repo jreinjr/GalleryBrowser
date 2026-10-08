@@ -1,7 +1,7 @@
 {
  "city": "los-angeles",
  "source": "client hand-set gallery order, 110 entries, 2026-09-04",
- "_note": "Client's hand-set gallery order, 110 entries (tier 1 = ranks 1-24, tier 2 = 25-46, tier 3 = 47-110), 2026-09-04; replaces the 200-entry list kept in venue_order-client200-2026-09-03.json. Every name resolved to a registry id by rank_venues.py order. The show feed follows this order via content/curation/params/publish-galleryorder.json. Rebuild after editing: rank_venues.py apply --city los-angeles --params content/curation/params/venues-la-ranked200.json; curate.py apply --city los-angeles --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --city los-angeles; webdemo/build.py.",
+ "_note": "Client's hand-set gallery order, 110 entries (tier 1 = ranks 1-24, tier 2 = 25-46, tier 3 = 47-110), 2026-09-04; replaces the 200-entry list kept in venue_order-client200-2026-09-03.json. Every name resolved to a registry id by rank_venues.py order. The show feed follows this order via content/curation/params/publish-galleryorder.json. Rebuild after editing: rank_venues.py apply --city los-angeles --params content/curation/params/venues-la-ranked200.json; curate.py apply --city los-angeles --params content/curation/params/publish-galleryorder.json --reorder; curation_site.py build --city los-angeles; webdemo/build.py. | 2026-10-08: every gallery on the client's See Saw \"All Current Shows\" screenshots (71) is ranked 1-100; the 26 not yet in the top 100 took ranks 75-100 (ordered by automatic score) and the 26 lowest non-See-Saw entries moved to 101+.",
  "tiers": {
   "1": 24,
   "2": 46
@@ -513,265 +513,450 @@
   },
   {
    "rank": 73,
-   "name": "Track 16",
-   "neighborhood": null,
-   "note": null,
-   "id": "track-16"
-  },
-  {
-   "rank": 74,
-   "name": "One Trick Pony Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "one-trick-pony"
-  },
-  {
-   "rank": 75,
-   "name": "Stroll Garden",
-   "neighborhood": null,
-   "note": null,
-   "id": "stroll-garden"
-  },
-  {
-   "rank": 76,
-   "name": "Diversions Fine Arts",
-   "neighborhood": null,
-   "note": null,
-   "id": "diversions"
-  },
-  {
-   "rank": 77,
-   "name": "Aabee Bleue Project",
-   "neighborhood": null,
-   "note": null,
-   "id": "aabee-bleue-project"
-  },
-  {
-   "rank": 78,
-   "name": "Billis/Williams Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "billis-williams"
-  },
-  {
-   "rank": 79,
-   "name": "Junior High",
-   "neighborhood": null,
-   "note": null,
-   "id": "junior-high"
-  },
-  {
-   "rank": 80,
-   "name": "albertz benda",
-   "neighborhood": null,
-   "note": null,
-   "id": "albertz-benda"
-  },
-  {
-   "rank": 81,
-   "name": "Yiwei Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "yiwei"
-  },
-  {
-   "rank": 82,
-   "name": "Weinstein Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "weinstein"
-  },
-  {
-   "rank": 83,
-   "name": "Phase Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "phase"
-  },
-  {
-   "rank": 84,
-   "name": "La Luz de Jesus Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "la-luz-de-jesus"
-  },
-  {
-   "rank": 85,
-   "name": "Band of Vices",
-   "neighborhood": null,
-   "note": null,
-   "id": "band-of-vices"
-  },
-  {
-   "rank": 86,
-   "name": "TIMESHARE",
-   "neighborhood": null,
-   "note": null,
-   "id": "timeshare"
-  },
-  {
-   "rank": 87,
-   "name": "induction gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "induction"
-  },
-  {
-   "rank": 88,
-   "name": "Currency Exchange",
-   "neighborhood": null,
-   "note": null,
-   "id": "currency-exchange"
-  },
-  {
-   "rank": 89,
-   "name": "La Loma Projects",
-   "neighborhood": null,
-   "note": null,
-   "id": "la-loma-projects"
-  },
-  {
-   "rank": 90,
    "name": "Rajiv Menon Contemporary",
    "neighborhood": null,
    "note": null,
    "id": "rajiv-menon-contemporary"
   },
   {
-   "rank": 91,
-   "name": "Beyond The Streets",
-   "neighborhood": null,
-   "note": null,
-   "id": "beyond-the-streets"
-  },
-  {
-   "rank": 92,
-   "name": "Feia",
-   "neighborhood": null,
-   "note": null,
-   "id": "feia"
-  },
-  {
-   "rank": 93,
-   "name": "Shoshana Wayne Gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "shoshana-wayne"
-  },
-  {
-   "rank": 94,
-   "name": "Royale Projects",
-   "neighborhood": null,
-   "note": null,
-   "id": "royale-projects"
-  },
-  {
-   "rank": 95,
-   "name": "la BEAST gallery",
-   "neighborhood": null,
-   "note": null,
-   "id": "la-beast"
-  },
-  {
-   "rank": 96,
+   "rank": 74,
    "name": "Monte Vista Projects",
    "neighborhood": null,
    "note": null,
    "id": "monte-vista-projects"
   },
   {
+   "rank": 75,
+   "name": "Roberts Projects",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "roberts-projects"
+  },
+  {
+   "rank": 76,
+   "name": "Nazarian / Curcio",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "nazarian-curcio"
+  },
+  {
+   "rank": 77,
+   "name": "De Boer",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "de-boer"
+  },
+  {
+   "rank": 78,
+   "name": "Sea View",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "sea-view"
+  },
+  {
+   "rank": 79,
+   "name": "The Broad",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "broad"
+  },
+  {
+   "rank": 80,
+   "name": "Redcat",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "gallery-at-redcat"
+  },
+  {
+   "rank": 81,
+   "name": "Baert Gallery",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "baert"
+  },
+  {
+   "rank": 82,
+   "name": "Gattopardo",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "gattopardo"
+  },
+  {
+   "rank": 83,
+   "name": "Gallery Luisotti",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "gallery-luisotti"
+  },
+  {
+   "rank": 84,
+   "name": "Babst Gallery",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "babst"
+  },
+  {
+   "rank": 85,
+   "name": "O-Town House",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "o-town-house"
+  },
+  {
+   "rank": 86,
+   "name": "Lola Gallery",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "lola"
+  },
+  {
+   "rank": 87,
+   "name": "Hoffman Donahue",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "hoffman-donahue"
+  },
+  {
+   "rank": 88,
+   "name": "Giovanni's Room",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "giovanni-s-room"
+  },
+  {
+   "rank": 89,
+   "name": "Ehrlich Steinberg",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "ehrlich-steinberg"
+  },
+  {
+   "rank": 90,
+   "name": "Frankfurt Ordorica",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "frankfurt-ordorica"
+  },
+  {
+   "rank": 91,
+   "name": "Reisig and Taylor Contemporary",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "reisig-and-taylor-contemporary"
+  },
+  {
+   "rank": 92,
+   "name": "Marciano Art Foundation",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "marciano-art-foundation"
+  },
+  {
+   "rank": 93,
+   "name": "Izzy Lee",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "izzy-lee-formerly-north-loop-west"
+  },
+  {
+   "rank": 94,
+   "name": "Seasons",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "seasons"
+  },
+  {
+   "rank": 95,
+   "name": "Brewer Martin",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "brewer-martin",
+   "address": "7209 Santa Monica Blvd, West Hollywood, CA 90046"
+  },
+  {
+   "rank": 96,
+   "name": "Castle",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "castle"
+  },
+  {
    "rank": 97,
+   "name": "House of Seiko",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "house-of-seiko"
+  },
+  {
+   "rank": 98,
+   "name": "Jeni Abramson Gallery",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "jeni-abramson"
+  },
+  {
+   "rank": 99,
+   "name": "June L. Mazer Lesbian Archives",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "june-l-mazer-lesbian-archives",
+   "address": "626 N Robertson Blvd, West Hollywood, CA 90069"
+  },
+  {
+   "rank": 100,
+   "name": "Mariposa",
+   "neighborhood": null,
+   "note": "See Saw current list 2026-10-08",
+   "id": "mariposa",
+   "address": "2700 N Beachwood Dr, Los Angeles, CA 90068"
+  },
+  {
+   "rank": 101,
+   "name": "Track 16",
+   "neighborhood": null,
+   "note": null,
+   "id": "track-16"
+  },
+  {
+   "rank": 102,
+   "name": "One Trick Pony Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "one-trick-pony"
+  },
+  {
+   "rank": 103,
+   "name": "Stroll Garden",
+   "neighborhood": null,
+   "note": null,
+   "id": "stroll-garden"
+  },
+  {
+   "rank": 104,
+   "name": "Diversions Fine Arts",
+   "neighborhood": null,
+   "note": null,
+   "id": "diversions"
+  },
+  {
+   "rank": 105,
+   "name": "Aabee Bleue Project",
+   "neighborhood": null,
+   "note": null,
+   "id": "aabee-bleue-project"
+  },
+  {
+   "rank": 106,
+   "name": "Billis/Williams Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "billis-williams"
+  },
+  {
+   "rank": 107,
+   "name": "Junior High",
+   "neighborhood": null,
+   "note": null,
+   "id": "junior-high"
+  },
+  {
+   "rank": 108,
+   "name": "albertz benda",
+   "neighborhood": null,
+   "note": null,
+   "id": "albertz-benda"
+  },
+  {
+   "rank": 109,
+   "name": "Yiwei Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "yiwei"
+  },
+  {
+   "rank": 110,
+   "name": "Weinstein Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "weinstein"
+  },
+  {
+   "rank": 111,
+   "name": "Phase Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "phase"
+  },
+  {
+   "rank": 112,
+   "name": "La Luz de Jesus Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "la-luz-de-jesus"
+  },
+  {
+   "rank": 113,
+   "name": "Band of Vices",
+   "neighborhood": null,
+   "note": null,
+   "id": "band-of-vices"
+  },
+  {
+   "rank": 114,
+   "name": "TIMESHARE",
+   "neighborhood": null,
+   "note": null,
+   "id": "timeshare"
+  },
+  {
+   "rank": 115,
+   "name": "induction gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "induction"
+  },
+  {
+   "rank": 116,
+   "name": "Currency Exchange",
+   "neighborhood": null,
+   "note": null,
+   "id": "currency-exchange"
+  },
+  {
+   "rank": 117,
+   "name": "La Loma Projects",
+   "neighborhood": null,
+   "note": null,
+   "id": "la-loma-projects"
+  },
+  {
+   "rank": 118,
+   "name": "Beyond The Streets",
+   "neighborhood": null,
+   "note": null,
+   "id": "beyond-the-streets"
+  },
+  {
+   "rank": 119,
+   "name": "Feia",
+   "neighborhood": null,
+   "note": null,
+   "id": "feia"
+  },
+  {
+   "rank": 120,
+   "name": "Shoshana Wayne Gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "shoshana-wayne"
+  },
+  {
+   "rank": 121,
+   "name": "Royale Projects",
+   "neighborhood": null,
+   "note": null,
+   "id": "royale-projects"
+  },
+  {
+   "rank": 122,
+   "name": "la BEAST gallery",
+   "neighborhood": null,
+   "note": null,
+   "id": "la-beast"
+  },
+  {
+   "rank": 123,
    "name": "Yares Art",
    "neighborhood": null,
    "note": null,
    "id": "yares-art"
   },
   {
-   "rank": 98,
+   "rank": 124,
    "name": "Stars",
    "neighborhood": null,
    "note": null,
    "id": "stars"
   },
   {
-   "rank": 99,
+   "rank": 125,
    "name": "Jonathan Novak Contemporary Art",
    "neighborhood": null,
    "note": null,
    "id": "jonathan-novak-contemporary-art"
   },
   {
-   "rank": 100,
+   "rank": 126,
    "name": "Anderson Galleries",
    "neighborhood": null,
    "note": null,
    "id": "anderson"
   },
   {
-   "rank": 101,
+   "rank": 127,
    "name": "Mek Contemporary",
    "neighborhood": null,
    "note": null,
    "id": "mek-contemporary"
   },
   {
-   "rank": 102,
+   "rank": 128,
    "name": "CONTROL Gallery",
    "neighborhood": null,
    "note": null,
    "id": "control"
   },
   {
-   "rank": 103,
+   "rank": 129,
    "name": "Artfully Spaced Gallery",
    "neighborhood": null,
    "note": null,
    "id": "artfully-spaced"
   },
   {
-   "rank": 104,
+   "rank": 130,
    "name": "Tracy Park Gallery",
    "neighborhood": null,
    "note": null,
    "id": "tracy-park"
   },
   {
-   "rank": 105,
+   "rank": 131,
    "name": "Craig Krull Gallery",
    "neighborhood": null,
    "note": null,
    "id": "craig-krull"
   },
   {
-   "rank": 106,
+   "rank": 132,
    "name": "KP Projects (Merry Karnowsky Gallery)",
    "neighborhood": null,
    "note": null,
    "id": "kp-projects-merry-karnowsky"
   },
   {
-   "rank": 107,
+   "rank": 133,
    "name": "Carpenters Workshop Gallery",
    "neighborhood": null,
    "note": null,
    "id": "carpenters-workshop"
   },
   {
-   "rank": 108,
+   "rank": 134,
    "name": "William Turner Gallery",
    "neighborhood": null,
    "note": null,
    "id": "william-turner"
   },
   {
-   "rank": 109,
+   "rank": 135,
    "name": "Gallery Nucleus",
    "neighborhood": null,
    "note": null,
    "id": "gallery-nucleus"
   },
   {
-   "rank": 110,
+   "rank": 136,
    "name": "bG Gallery",
    "neighborhood": null,
    "note": null,

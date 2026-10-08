@@ -592,7 +592,8 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
              search_domains: dict | None = None,
              keyword_signals: bool = False,
              missing_anchors: list[str] | None = None,
-             todo_venues: list[dict] | None = None) -> dict:
+             todo_venues: list[dict] | None = None,
+             verify_slugs: list[str] | None = None) -> dict:
     """Run one agent session. Modes (first match wins): verify, enrich,
     enumerate_zone, signal_variant (curation signal collection), else scrape
     (deep when `deep`). `search_domains` = {"allowed_domains": [...]} or
@@ -686,6 +687,8 @@ def run_city(city_key: str, target_shows: int, max_searches: int, max_fetches: i
                            if tools.verify_candidate(city_key, s, verdicts_now)]
         if neighborhoods:
             saved_shows = [s for s in saved_shows if s["venue"]["neighborhood"] in neighborhoods]
+        if verify_slugs is not None:
+            saved_shows = [s for s in saved_shows if s["slug"] in set(verify_slugs)]
         system = build_verify_prompt(city_key, cfg, saved_shows)
         messages = [{
             "role": "user",

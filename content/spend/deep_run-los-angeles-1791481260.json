@@ -1,0 +1,345 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1791481260,
+  "zones": [
+    "Downtown/Arts District",
+    "Chinatown/East LA",
+    "Los Feliz/NELA",
+    "Hollywood",
+    "West Hollywood/Fairfax",
+    "Mid-Wilshire/Koreatown",
+    "Culver City/West Adams"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": null,
+    "session_todo": 6,
+    "session_budget": 3.0,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 3,
+    "stagger": 20.0,
+    "total_budget": 14.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "ysasi,louis-stern,thinkspace-projects,good-mother,cirrus,michael-benevento,art-angels,art-bug,formed-for-brodin,timothy-hawkinson,sea-view,baert,o-town-house,lola,hoffman-donahue,giovanni-s-room,reisig-and-taylor-contemporary,brewer-martin,castle,house-of-seiko,june-l-mazer-lesbian-archives,mariposa",
+    "force_due": true,
+    "budget_reserve": 3.0,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": true,
+    "no_report": true
+  },
+  "updated_ts": 1791481816,
+  "queue": {
+    "Downtown/Arts District": {
+      "zone": "Downtown/Arts District",
+      "order": 0,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Chinatown/East LA": {
+      "zone": "Chinatown/East LA",
+      "order": 1,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Los Feliz/NELA": {
+      "zone": "Los Feliz/NELA",
+      "order": 2,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 1,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Hollywood": {
+      "zone": "Hollywood",
+      "order": 3,
+      "due": 0,
+      "sessions_run": 2,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "West Hollywood/Fairfax": {
+      "zone": "West Hollywood/Fairfax",
+      "order": 4,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    },
+    "Mid-Wilshire/Koreatown": {
+      "zone": "Mid-Wilshire/Koreatown",
+      "order": 5,
+      "due": 2,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    },
+    "Culver City/West Adams": {
+      "zone": "Culver City/West Adams",
+      "order": 6,
+      "due": 0,
+      "sessions_run": 1,
+      "zero_progress": 0,
+      "exhausted": true,
+      "active": false,
+      "why": "todo_empty"
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "baert"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "castle"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "formed-for-brodin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "giovanni-s-room"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "hoffman-donahue"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "house-of-seiko"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "art-angels"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "brewer-martin"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "june-l-mazer-lesbian-archives"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "louis-stern"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "timothy-hawkinson"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "good-mother"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "thinkspace-projects"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "ysasi"
+    },
+    {
+      "stage": "scrape",
+      "zone": "West Hollywood/Fairfax",
+      "session": 1,
+      "todo": 5,
+      "saved": 4,
+      "skipped": 3,
+      "exit": 0,
+      "label": "deep-los-angeles-west-hollywood-fairfax-1791481281",
+      "venue_ids": [
+        "art-angels",
+        "brewer-martin",
+        "june-l-mazer-lesbian-archives",
+        "louis-stern",
+        "timothy-hawkinson"
+      ],
+      "started_ts": 1791481281,
+      "ended_ts": 1791481506
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "art-bug"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "cirrus"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Culver City/West Adams",
+      "session": 1,
+      "todo": 3,
+      "saved": 7,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-culver-city-west-adams-1791481301",
+      "venue_ids": [
+        "good-mother",
+        "thinkspace-projects",
+        "ysasi"
+      ],
+      "started_ts": 1791481301,
+      "ended_ts": 1791481550
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "michael-benevento"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "o-town-house"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 1,
+      "todo": 6,
+      "saved": 6,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1791481261",
+      "venue_ids": [
+        "baert",
+        "castle",
+        "formed-for-brodin",
+        "giovanni-s-room",
+        "hoffman-donahue",
+        "house-of-seiko"
+      ],
+      "started_ts": 1791481261,
+      "ended_ts": 1791481566
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "lola"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Downtown/Arts District",
+      "session": 1,
+      "todo": 2,
+      "saved": 0,
+      "skipped": 2,
+      "exit": 0,
+      "label": "deep-los-angeles-downtown-arts-district-1791481506",
+      "venue_ids": [
+        "art-bug",
+        "cirrus"
+      ],
+      "started_ts": 1791481506,
+      "ended_ts": 1791481591
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "mariposa"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 1,
+      "todo": 1,
+      "saved": 0,
+      "skipped": 0,
+      "exit": 1,
+      "label": "deep-los-angeles-los-feliz-nela-1791481591",
+      "venue_ids": [
+        "mariposa"
+      ],
+      "started_ts": 1791481591,
+      "ended_ts": 1791481606
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "reisig-and-taylor-contemporary"
+    },
+    {
+      "stage": "backfill",
+      "venue_id": "sea-view"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Chinatown/East LA",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-los-angeles-chinatown-east-la-1791481566",
+      "venue_ids": [
+        "lola"
+      ],
+      "started_ts": 1791481566,
+      "ended_ts": 1791481629
+    },
+    {
+      "stage": "scrape",
+      "zone": "Hollywood",
+      "session": 2,
+      "todo": 2,
+      "saved": 2,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-los-angeles-hollywood-1791481606",
+      "venue_ids": [
+        "reisig-and-taylor-contemporary",
+        "sea-view"
+      ],
+      "started_ts": 1791481606,
+      "ended_ts": 1791481791
+    },
+    {
+      "stage": "scrape",
+      "zone": "Mid-Wilshire/Koreatown",
+      "session": 1,
+      "todo": 2,
+      "saved": 1,
+      "skipped": 1,
+      "exit": 0,
+      "label": "deep-los-angeles-mid-wilshire-koreatown-1791481550",
+      "venue_ids": [
+        "michael-benevento",
+        "o-town-house"
+      ],
+      "started_ts": 1791481550,
+      "ended_ts": 1791481816
+    }
+  ]
+}

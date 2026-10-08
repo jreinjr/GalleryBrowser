@@ -1,0 +1,76 @@
+{
+  "city": "los-angeles",
+  "start_ts": 1791481867,
+  "zones": [
+    "Los Feliz/NELA"
+  ],
+  "args": {
+    "city": "los-angeles",
+    "zones": null,
+    "session_todo": 1,
+    "session_budget": 1.5,
+    "enum_budget": 1.5,
+    "max_sessions_per_zone": 10,
+    "workers": 1,
+    "stagger": 20.0,
+    "total_budget": 2.0,
+    "max_shows": 600,
+    "min_zone_venues": 4,
+    "seed_sources": null,
+    "max_enum_rounds": 2,
+    "exclude_places_only": false,
+    "only_venues_with_saves": false,
+    "venue_ids": "mariposa",
+    "force_due": true,
+    "budget_reserve": 1.5,
+    "max_places_per_batch": 2,
+    "model": "claude-sonnet-5",
+    "enum_model": null,
+    "fetch_tokens": 20000,
+    "effort": null,
+    "context_editing": false,
+    "arm_label": null,
+    "keyword_signals": false,
+    "galleries_first": false,
+    "min_tier": null,
+    "min_score": null,
+    "rank_weight": 30.0,
+    "skip_enumeration": true,
+    "no_verify": true,
+    "no_report": true
+  },
+  "updated_ts": 1791481951,
+  "queue": {
+    "Los Feliz/NELA": {
+      "zone": "Los Feliz/NELA",
+      "order": 0,
+      "due": 1,
+      "sessions_run": 0,
+      "zero_progress": 0,
+      "exhausted": false,
+      "active": true,
+      "why": null
+    }
+  },
+  "sessions": [
+    {
+      "stage": "backfill",
+      "venue_id": "mariposa"
+    },
+    {
+      "stage": "scrape",
+      "zone": "Los Feliz/NELA",
+      "session": 1,
+      "todo": 1,
+      "saved": 1,
+      "skipped": 0,
+      "exit": 0,
+      "label": "deep-los-angeles-los-feliz-nela-1791481867",
+      "venue_ids": [
+        "mariposa"
+      ],
+      "started_ts": 1791481868,
+      "ended_ts": 1791481951
+    }
+  ]
+}
