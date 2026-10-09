@@ -1500,7 +1500,7 @@
   // (museums, the long tail and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '100' |
   // '150', show the top N galleries; below100: also show ranks 101–200 (galleries
-  // past 200 or unranked never show); active / receptions are toggles; list: null | 'saved' |
+  // past 200 or unranked never show). Both apply to the Map only; active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
@@ -1510,11 +1510,11 @@
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   // Gallery rank: buttons for the top 50 / 100 / 150, and a separate Below 100
   // toggle that adds ranks 101–200 (with Top 150 the two simply combine to the
-  // top 200). Galleries past 200 or unranked are not shown.
+  // top 200). Galleries past 200 or unranked are not shown. Map only: the
+  // Shows and Lists tabs keep every gallery.
   const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150']];
   const BELOW_100_MAX = 200;
   const withinRank = (v, f) => {
-    if (f.galleryRank === 'any') return true;   // internal: rank not applied (the Map's See marks)
     const r = venueRank(v);
     if (r == null) return false;
     return r <= Number(f.galleryRank) || (!!f.below100 && r > 100 && r <= BELOW_100_MAX);
@@ -1545,20 +1545,21 @@
   }
   state.filter = loadFilter();
   const persistFilter = () => store.set('filter', JSON.stringify(state.filter));
-  const resetFilter = () => { Object.assign(state.filter, { ...FILTER_DEFAULT, hoods: [], sort: state.filter.sort }); };
+  // Clear from a sheet without the Gallery rank group leaves the Map's rank choice alone.
+  const resetFilter = keepRank => { const f = state.filter; Object.assign(f, { ...FILTER_DEFAULT, hoods: [], sort: f.sort,
+    ...(keepRank ? { galleryRank: f.galleryRank, below100: f.below100 } : {}) }); };
   // A list that no longer exists (a draft from an earlier session) is no context.
   const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
-  const filterActiveCount = f => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    f.galleryRank !== FILTER_DEFAULT.galleryRank || f.below100 !== FILTER_DEFAULT.below100,
+  // Gallery rank only counts on the Map, the one tab it applies to.
+  const filterActiveCount = (f, onMap) => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
+    onMap && (f.galleryRank !== FILTER_DEFAULT.galleryRank || f.below100 !== FILTER_DEFAULT.below100),
     f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
   // One line for the Discover context message.
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
     const bits = [label(KINDS, f.kind)];
-    if (f.galleryRank !== FILTER_DEFAULT.galleryRank) bits.push('Top ' + f.galleryRank + ' galleries');
-    if (!f.below100) bits.push('no galleries below 100');
     bits.push(f.active ? 'Active' : 'All dates');
     if (f.receptions) bits.push('Upcoming receptions');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
@@ -1591,7 +1592,6 @@
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
       if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
-      if (!withinRank(s.venue, f)) return false;
       if (f.active && !isActiveShow(s)) return false;
       if (f.receptions && !hasUpcomingReception(s)) return false;
       return true;
@@ -1608,7 +1608,6 @@
     const kind = v.kind || (v.isMuseum ? 'museum' : 'gallery');
     if (f.kind === 'museums' && kind !== 'museum') return false;
     if (f.kind === 'galleries' && kind !== 'gallery') return false;
-    if (!withinRank(v, f)) return false;
     return true;
   }
   // The Map's venues: one entry per venue of the filtered shows, plus — when
@@ -1619,10 +1618,10 @@
   function mapVenues() {
     const f = state.filter;
     const out = new Map();
-    // Galleries marked See stay on the map whatever the rank slider says.
-    const anyRank = { ...f, galleryRank: 'any' };
+    // The Gallery rank buttons narrow the Map only; galleries marked See stay
+    // on it whatever they say.
     const keep = v => withinRank(v, f) || isToSee(v);
-    filterShows(cityShows(), anyRank).filter(s => keep(s.venue)).forEach(s => {
+    filteredShows().filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
       if (g) g.shows.push(s); else out.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
@@ -1630,7 +1629,7 @@
     if (!f.active && !f.receptions && !f.list) {
       cityVenues().forEach(v => {
         const k = venueKey(v);
-        if (!out.has(k) && venueMatches(v, anyRank) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
+        if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
     return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), see: isToSee(g.venue) }));
@@ -1749,7 +1748,7 @@
 
   // ---------------- filter button + sheet ----------------
   function updateFilterBadge(btn) {
-    const n = filterActiveCount(state.filter);
+    const n = filterActiveCount(state.filter, btn.id === 'map-filter-btn');
     let badge = btn.querySelector('.badge');
     if (!n) { if (badge) badge.remove(); return; }
     if (!badge) { badge = el('span', { class: 'badge' }); btn.appendChild(badge); }
@@ -1765,6 +1764,7 @@
   // { sort: false } drops the Sort group — it only orders the List.
   function openFilterSheet(opts) {
     const withSort = !(opts && opts.sort === false);
+    const onMap = !!(opts && opts.map);   // Gallery rank is a Map-only group
     const f = state.filter;
     const hoodList = city().neighborhoods;
 
@@ -1792,13 +1792,13 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
-      header('Gallery rank'), rankRow,
+      ...(onMap ? [header('Gallery rank'), rankRow] : []),
       header('Venue Type'), seg('kind', KINDS),
       header('Neighborhoods'), hoodWrap,
       ...(withSort ? [header('Sort'), sortGroup] : []));
     const countEl = el('span');
     const clearBtn = el('button', { class: 'ghost', onclick: () => {
-      resetFilter(); input.value = ''; clearQ.hidden = true; update();
+      resetFilter(!onMap); input.value = ''; clearQ.hidden = true; update();
     } }, 'Clear');
     const doneBtn = el('button', { class: 'capsule-btn', onclick: () => closeSheet() }, countEl);
     const sheetPage = el('div', { class: 'page filter-sheet' },
@@ -1848,9 +1848,9 @@
         class: 'row city-row', onclick: () => { f.sort = k; update(); },
       }, el('span', { class: 'cr-name' }, label),
         f.sort === k ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
-      const n = filteredShows().length;
+      const n = onMap ? mapVenues().reduce((a, g) => a + g.shows.length, 0) : filteredShows().length;
       countEl.textContent = `Show ${n} show${n === 1 ? '' : 's'}`;
-      clearBtn.hidden = !filterActiveCount(f);
+      clearBtn.hidden = !filterActiveCount(f, onMap);
     }
     update(false);
     openSheet(sheetPage);
@@ -2472,7 +2472,7 @@
   mapFilterBtn.append(icon('sliders'), el('span', null, 'Filter'));
   mapFilterBtn.dataset.filterBtn = '';
   updateFilterBadge(mapFilterBtn);
-  mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false }));   // Sort orders the List only
+  mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false, map: true }));   // Sort orders the List only; Gallery rank is Map-only
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
 
   // ---------------- discover tab ----------------
