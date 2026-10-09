@@ -63,7 +63,7 @@ struct MyShowsView: View {
                         .foregroundStyle(.tertiary)
                     Text("No Saved Shows Yet")
                         .font(.title3.weight(.bold))
-                    Text("Check out the Featured tab or the Editor's Picks\nlist to find something great.")
+                    Text("Check out the Shows tab or the Editor's Picks\nlist to find something great.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)

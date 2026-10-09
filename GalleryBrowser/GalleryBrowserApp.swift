@@ -25,7 +25,7 @@ struct RootView: View {
     var body: some View {
         TabView {
             FeaturedView()
-                .tabItem { Label("Featured", systemImage: "star.fill") }
+                .tabItem { Label("Shows", systemImage: "star.fill") }
             ListRootView()
                 .tabItem { Label("List", systemImage: "list.bullet") }
             MapTabView()
@@ -49,7 +49,7 @@ struct RootView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             HStack(spacing: 6) {
-                tabButton(0, "Featured", "star.fill")
+                tabButton(0, "Shows", "star.fill")
                 tabButton(1, "List", "list.bullet")
                 tabButton(2, "Map", "map.fill")
             }
