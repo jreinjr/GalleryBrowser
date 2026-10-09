@@ -1387,6 +1387,28 @@
     refreshAll();
     return { from, to: n };
   }
+  // On the local preview (webdemo/devserver.mjs) a move is written straight into
+  // the repo's ranking file instead: the server answers GET /api/local-rank
+  // with the cities it can re-rank. The deployed site has no such endpoint and
+  // keeps the per-device order above.
+  let localRankCities = null;
+  if (/^(localhost|127\.0\.0\.1|192\.168\.|10\.|172\.)/.test(location.hostname)) {
+    fetch('/api/local-rank').then(r => r.ok ? r.json() : null).then(j => { if (j && j.ok) localRankCities = j.cities || []; }).catch(() => {});
+  }
+  const savesToFile = () => !!localRankCities && localRankCities.includes(state.cityKey);
+  async function saveRankToFile(v, to) {
+    const res = await fetch('/api/local-rank', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city: state.cityKey, id: venueId(v), to }) });
+    const j = await res.json().catch(() => ({ ok: false }));
+    if (!j.ok) throw new Error(j.error || 'save failed');
+    // The file is now the ranking: drop this device's own order for the city,
+    // and the registry ranks in this page's data follow the file at once.
+    if (ranking.isPersonal(state.cityKey)) ranking.reset(state.cityKey);
+    Object.values(VENUES[state.cityKey] || {}).forEach(rec => { rec.rank = j.ranks[rec.id] ?? null; });
+    cityShows().forEach(s => { if (s.venueId && s.venueId in j.ranks) s.venue.rank = j.ranks[s.venueId]; });
+    refreshAll();
+    return j;
+  }
   // The text to paste to Claude: one line per gallery moved in this city.
   function rankMovesText() {
     const list = readMoves()[state.cityKey] || [];
@@ -1400,7 +1422,7 @@
       const r = venueRank(v);
       const changeBtn = el('button', { class: 'capsule-btn detail-save rank-change-btn', onclick: () => editing() },
         icon('listBullet'), el('span', null, 'Change rank'));
-      const moves = rankMovesText();
+      const moves = savesToFile() ? '' : rankMovesText();
       const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
       box.replaceChildren(
         el('div', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`, note ? el('span', { class: 'rank-note' }, ' · ' + note) : null),
@@ -1408,7 +1430,19 @@
     }
     function editing() {
       const input = el('input', { type: 'number', inputmode: 'numeric', min: '1', value: String(venueRank(v) || ''), 'aria-label': 'New rank' });
-      const go = () => { const n = Number(input.value); if (!(n >= 1)) { input.focus(); return; } const m = moveGalleryRank(v, n); paint(m ? `moved from #${m.from ?? '–'}` : ''); };
+      const go = async () => {
+        const n = Number(input.value);
+        if (!(n >= 1)) { input.focus(); return; }
+        if (savesToFile()) {
+          const from = venueRank(v);
+          box.replaceChildren(el('div', { class: 'rank-now' }, 'Saving to the ranking file…'));
+          try { await saveRankToFile(v, Math.round(n)); paint(`moved from #${from ?? '–'}, saved to the ranking file`); }
+          catch (e) { paint('could not save: ' + e.message); }
+          return;
+        }
+        const m = moveGalleryRank(v, n);
+        paint(m ? `moved from #${m.from ?? '–'}` : '');
+      };
       input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
       box.replaceChildren(
         el('div', { class: 'rank-now' }, 'New rank for ' + v.name),
