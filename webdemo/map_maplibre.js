@@ -1,7 +1,7 @@
 /* Map tab: MapLibre GL with CARTO dark style; venues as a GeoJSON source.
  *
  * Galleries: one unclustered dot per venue, coloured and sized by the
- * gallery's tier (its city-wide rank: top 20, top 50, the rest). With the
+ * gallery's city-wide rank band (top 25, 26–150, the rest). With the
  * Active-shows filter off the app hands over every gallery of the city, and
  * a venue with nothing on view is drawn faded. Name labels live in a symbol
  * layer, so MapLibre's collision engine guarantees they never overlap (a label
@@ -14,9 +14,13 @@
   const SRC = 'venues';
   // CARTO's vector basemap: no API key, and the venue-page card reuses it.
   const STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
-  // tier -> dot colour / radius. Keep in step with .map-legend in styles.css.
-  const TIER_COLOR = { top: 'rgba(97, 173, 242, 0.95)', notable: 'rgba(255, 255, 255, 0.85)', listed: 'rgba(150, 150, 158, 0.55)' };
-  const TIER_RADIUS = { top: 10.5, notable: 8, listed: 5.5 };
+  // Rank band -> dot colour / radius: the top 150 share one size, the top 25
+  // blue and 26–150 a lighter blue; the rest are small grey dots. Keep in step
+  // with .map-legend in styles.css and the iOS MapTabView.
+  const BAND_TOP = 25, BAND_RANKED = 150;
+  const BAND_COLOR = ['rgba(97, 173, 242, 0.95)', 'rgba(178, 216, 250, 0.9)', 'rgba(150, 150, 158, 0.55)'];
+  const BAND_RADIUS = [9.5, 9.5, 5.5];
+  const bandForRank = r => r == null ? 2 : r <= BAND_TOP ? 0 : r <= BAND_RANKED ? 1 : 2;
   const RING = 'rgba(255, 255, 255, 0.6)';
   // A venue with nothing on view (only reachable with Active shows off) is semi-transparent.
   const IS_ACTIVE = ['==', ['get', 'active'], 1];
@@ -67,7 +71,7 @@
           type: 'Feature',
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
           properties: { key: g.key, name: v.name, count: g.shows.length, active: g.active ? 1 : 0,
-                        tier: g.tier || 'listed', rank: g.rank == null ? 1e5 : g.rank },
+                        tier: g.tier || 'listed', band: bandForRank(g.rank), rank: g.rank == null ? 1e5 : g.rank },
         });
       });
       return { type: 'FeatureCollection', features };
@@ -104,16 +108,16 @@
     function addLayers() {
       map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-      // One dot per venue, by tier; top dots paint above listed ones, active
-      // ones above faded ones of the same tier.
+      // One dot per venue, by rank band; top-25 dots paint above 26–150 ones
+      // and those above the rest, active ones above faded ones of the same band.
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC,
-        layout: { 'circle-sort-key': ['-', ['*', -1, tierOrder], ['*', 0.5, activeOrder]] },
+        layout: { 'circle-sort-key': ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]] },
         paint: {
-          'circle-color': ['match', ['get', 'tier'], 'top', TIER_COLOR.top, 'notable', TIER_COLOR.notable, TIER_COLOR.listed],
-          'circle-radius': ['match', ['get', 'tier'], 'top', TIER_RADIUS.top, 'notable', TIER_RADIUS.notable, TIER_RADIUS.listed],
+          'circle-color': ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]],
+          'circle-radius': ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]],
           'circle-opacity': DOT_OPACITY,
-          'circle-stroke-width': ['match', ['get', 'tier'], 'listed', 0, 1], 'circle-stroke-color': RING,
+          'circle-stroke-width': ['match', ['get', 'band'], 2, 0, 1], 'circle-stroke-color': RING,
           'circle-stroke-opacity': DOT_OPACITY,
         },
       });
@@ -176,7 +180,7 @@
     // building stack their dots; the one painted on top (better tier, active
     // before faded, better rank) is the one the tap means.
     const TIER_ORDER = { top: 0, notable: 1, listed: 2 };
-    const paintOrder = f => { const p = f.properties; return (p.tier in TIER_ORDER ? TIER_ORDER[p.tier] : -1) * 1e6 + (p.active === 0 ? 5e5 : 0) + (Number(p.rank) || 0); };
+    const paintOrder = f => { const p = f.properties; return (p.band != null ? Number(p.band) : p.tier in TIER_ORDER ? TIER_ORDER[p.tier] : -1) * 1e6 + (p.active === 0 ? 5e5 : 0) + (Number(p.rank) || 0); };
     function onClick(e) {
       const pad = 6;
       const box = [[e.point.x - pad, e.point.y - pad], [e.point.x + pad, e.point.y + pad]];

@@ -1,11 +1,21 @@
 import SwiftUI
 import MapKit
 
-/// One map pin: a venue and every visible show running there.
+/// One map pin: a venue, every visible show running there, and the gallery's rank.
 private struct VenuePin: Identifiable {
     let venue: Venue
     var shows: [Show]
+    let rank: Int?
     var id: String { venue.groupingKey }
+
+    /// Dot style by rank band, matching the web map: the top 150 share one
+    /// size, the top 25 blue and 26–150 a lighter blue; the rest small grey.
+    var dotColor: Color {
+        guard let rank, rank <= 150 else { return Color(white: 0.6).opacity(0.7) }
+        return rank <= 25 ? Color.guideBlue.opacity(0.95) : Color(red: 0.70, green: 0.85, blue: 0.98).opacity(0.95)
+    }
+    var dotSize: CGFloat { (rank ?? .max) <= 150 ? 22 : 12 }
+    var hasRing: Bool { (rank ?? .max) <= 150 }
 }
 
 /// The Map tab: full-bleed map of the selected city's venues with a shows
@@ -33,7 +43,8 @@ struct MapTabView: View {
         }
     }
 
-    /// Shows grouped by venue, in first-seen order: one pin per venue.
+    /// Shows grouped by venue, one pin per venue, worst rank first so the
+    /// best-ranked dots draw on top.
     private var venuePins: [VenuePin] {
         var pins: [VenuePin] = []
         var indexByKey: [String: Int] = [:]
@@ -43,10 +54,10 @@ struct MapTabView: View {
                 pins[i].shows.append(show)
             } else {
                 indexByKey[key] = pins.count
-                pins.append(VenuePin(venue: show.venue, shows: [show]))
+                pins.append(VenuePin(venue: show.venue, shows: [show], rank: store.galleryRank(of: show)))
             }
         }
-        return pins
+        return pins.sorted { ($0.rank ?? .max) > ($1.rank ?? .max) }
     }
 
     var body: some View {
@@ -62,9 +73,9 @@ struct MapTabView: View {
                         }
                     } label: {
                         Circle()
-                            .fill(Color.guideBlue.opacity(0.85))
-                            .frame(width: 22, height: 22)
-                            .overlay(Circle().stroke(.white.opacity(0.6), lineWidth: 1))
+                            .fill(pin.dotColor)
+                            .frame(width: pin.dotSize, height: pin.dotSize)
+                            .overlay(Circle().stroke(.white.opacity(pin.hasRing ? 0.6 : 0), lineWidth: 1))
                             .overlay(alignment: .topTrailing) {
                                 if pin.shows.count > 1 {
                                     Text("\(pin.shows.count)")

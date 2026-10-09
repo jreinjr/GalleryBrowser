@@ -23,6 +23,7 @@ final class ContentStore: ObservableObject {
     }
 
     private var cache: [String: [Show]] = [:]
+    private var rankCache: [String: [String: Int]] = [:]
 
     init() {
         selectedCityKey = UserDefaults.standard.string(forKey: "selectedCityKey") ?? "seattle"
@@ -60,6 +61,29 @@ final class ContentStore: ObservableObject {
     }
 
     var currentShows: [Show] { shows(for: selectedCityKey) }
+
+    /// City-wide gallery rank by venue id, read from the bundled venue
+    /// registry (content/venues/<city>.json, rank_venues.py's `rank`).
+    func galleryRanks(for cityKey: String) -> [String: Int] {
+        if let cached = rankCache[cityKey] { return cached }
+        struct Entry: Decodable { let id: String; let rank: Int? }
+        struct Registry: Decodable { let venues: [Failable<Entry>] }
+        var ranks: [String: Int] = [:]
+        if let url = Self.contentRoot?.appendingPathComponent("venues/\(cityKey).json"),
+           let data = try? Data(contentsOf: url),
+           let registry = try? JSONDecoder().decode(Registry.self, from: data) {
+            for entry in registry.venues.compactMap(\.value) {
+                if let rank = entry.rank { ranks[entry.id] = rank }
+            }
+        }
+        rankCache[cityKey] = ranks
+        return ranks
+    }
+
+    /// The gallery rank of a show's venue in the selected city, nil when unranked.
+    func galleryRank(of show: Show) -> Int? {
+        show.venueId.flatMap { galleryRanks(for: selectedCityKey)[$0] }
+    }
 
     static func imageURL(_ relativePath: String) -> URL? {
         contentRoot?.appendingPathComponent(relativePath)

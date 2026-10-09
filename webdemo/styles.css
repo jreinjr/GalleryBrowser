@@ -394,7 +394,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 }
 .map-pill svg { width: 16px; height: 16px; }
 .map-pill .badge { background: var(--blue); color: #000; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; margin: 0 -4px 0 2px; }
-/* Gallery-tier legend; colours mirror TIER_COLOR in map_maplibre.js */
+/* Rank-band legend; colours mirror BAND_COLOR in map_maplibre.js */
 .map-legend {
   position: absolute; left: 12px; bottom: calc(96px + env(safe-area-inset-bottom)); z-index: 10;
   background: rgba(40, 40, 44, 0.85); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
@@ -402,9 +402,9 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 }
 .map-legend div { display: flex; align-items: center; gap: 8px; }
 .map-legend i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.5); }
-.map-legend i.t-top { background: rgba(97, 173, 242, 0.95); }
-.map-legend i.t-notable { background: rgba(255, 255, 255, 0.85); }
-.map-legend i.t-listed { background: rgba(150, 150, 158, 0.55); border: none; width: 8px; height: 8px; margin: 2px; }
+.map-legend i.b-top { background: rgba(97, 173, 242, 0.95); }
+.map-legend i.b-ranked { background: rgba(178, 216, 250, 0.9); }
+.map-legend i.b-listed { background: rgba(150, 150, 158, 0.55); border: none; width: 8px; height: 8px; margin: 2px; }
 /* a venue with nothing on view is drawn faded (only with Active shows off) */
 .map-legend i.t-off { background: rgba(97, 173, 242, 0.36); border-color: rgba(255, 255, 255, 0.25); }
 .map-legend div[hidden] { display: none; }
