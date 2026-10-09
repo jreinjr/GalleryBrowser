@@ -175,6 +175,8 @@ struct ImageCarousel: View {
                         Circle()
                             .fill(.white.opacity(index == page ? 0.95 : 0.45))
                             .frame(width: 6, height: 6)
+                            // keeps white dots readable over pale photos
+                            .shadow(color: .black.opacity(0.5), radius: 1.5)
                     }
                 }
                 .padding(10)
