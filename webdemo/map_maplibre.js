@@ -15,12 +15,11 @@
   // CARTO's vector basemap: no API key, and the venue-page card reuses it.
   // Voyager is the light, street-map style with legible street and place names.
   const STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
-  // Rank band -> dot colour / radius: the top 100 share one size, the top 25
-  // a deep blue and 26–100 a lighter blue; the rest are small grey dots. Keep
-  // in step with .map-legend in styles.css and the iOS MapTabView.
+  // Rank band -> dot colour: every dot is one size; the top 25 a deep blue,
+  // 26–100 a lighter blue and the rest grey. Keep in step with the iOS MapTabView.
   const BAND_TOP = 25, BAND_RANKED = 100;
   const BAND_COLOR = ['rgba(21, 101, 214, 1)', 'rgba(160, 205, 248, 0.95)', 'rgba(130, 130, 138, 0.6)'];
-  const BAND_RADIUS = [5.25, 5.25, 3];
+  const BAND_RADIUS = [5.25, 5.25, 5.25];
   // A gallery marked "See" on its map card is drawn red, whatever its band.
   const SEE_COLOR = 'rgba(229, 57, 53, 1)';
   const IS_SEE = ['==', ['get', 'see'], 1];
@@ -53,7 +52,6 @@
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
     let ctxKey = null;          // which list the context source currently shows
-    let band = null;            // legend filter: null (all) | 0 | 1 | 2 (rank band) | 'see'
 
     function cityBounds(c) {
       const half = c.span / 2;
@@ -111,15 +109,7 @@
       return { type: 'FeatureCollection', features, stops };
     }
 
-    // The legend's group filter, applied to the dot and label layers.
     const LABEL_FILTER = ['!=', ['get', 'tier'], 'listed'];
-    const bandFilter = () => band === null ? null : band === 'see' ? IS_SEE : ['==', ['get', 'band'], band];
-    function applyBand() {
-      if (!ready) return;
-      const f = bandFilter();
-      map.setFilter('gal-dot', f);
-      map.setFilter('gal-label', f ? ['all', LABEL_FILTER, f] : LABEL_FILTER);
-    }
 
     // CARTO hides street names until zoom 13–16 and draws them pale; bring
     // them in from city zoom, darker, so the map reads like a street map. Gallery labels are added
@@ -148,7 +138,7 @@
           'circle-color': ['case', IS_SEE, SEE_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
           'circle-radius': ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]],
           'circle-opacity': DOT_OPACITY,
-          'circle-stroke-width': ['match', ['get', 'band'], 2, 0, 1], 'circle-stroke-color': RING,
+          'circle-stroke-width': 1, 'circle-stroke-color': RING,
           'circle-stroke-opacity': DOT_OPACITY,
         },
       });
@@ -246,7 +236,6 @@
         showStreetNames();
         addLayers();
         ready = true;
-        applyBand();
         renderContext();
         map.on('click', onClick);
         if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
@@ -273,8 +262,7 @@
       renderPins();
     }
 
-    return { ensureInit, cityChanged, applyFilter: renderPins,
-      getBand: () => band, setBand: b => { band = b; applyBand(); } };
+    return { ensureInit, cityChanged, applyFilter: renderPins };
   };
   window.DemoMap.STYLE = STYLE;
 })();

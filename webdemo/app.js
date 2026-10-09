@@ -1498,20 +1498,25 @@
   // ---------------- filters: one state shared by Featured, List and Map ----------------
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
-  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: 'all' or a
-  // rank cutoff such as '75' (the filter sheet's slider); active / receptions are toggles; list: null | 'saved' |
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: a top-100
+  // cutoff '0' … '100' (the filter sheet's slider); below100: whether galleries
+  // ranked below 100 (and unranked ones) show too; active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
   const FILTER_VERSION = 7;
-  const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: 'all',
-    active: true, list: null, receptions: false, sort: 'rank' };
+  const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
+    below100: true, active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // galleryRank is 'all' or a whole-number cutoff (the Gallery rank slider, 0 … 200, or its All button).
-  const validRankCutoff = k => k === 'all' || /^\d+$/.test(String(k));
-  const rankLabel = k => k === 'all' ? 'All' : 'Top ' + k;
-  // Whether a venue is inside the chosen rank cutoff (unranked ones only under All).
-  const withinRank = (v, f) => { if (f.galleryRank === 'all') return true; const r = venueRank(v); return r != null && r <= Number(f.galleryRank); };
+  // The Gallery rank slider covers the top 100; the Below 100 button adds
+  // everything else (ranked 101+ or unranked).
+  const RANK_SLIDER_MAX = 100;
+  const rankCutoff = f => Math.max(0, Math.min(RANK_SLIDER_MAX, Number(f.galleryRank)));
+  const withinRank = (v, f) => {
+    const r = venueRank(v);
+    if (r != null && r <= RANK_SLIDER_MAX) return r <= rankCutoff(f);
+    return !!f.below100;
+  };
   const SORTS = [
     ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
     ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
@@ -1531,7 +1536,9 @@
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
-    if (!validRankCutoff(f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
+    // galleryRank: older builds stored 'all' or cutoffs up to 200; clamp to the slider.
+    f.galleryRank = /^\d+$/.test(String(f.galleryRank)) ? String(Math.min(RANK_SLIDER_MAX, Number(f.galleryRank))) : FILTER_DEFAULT.galleryRank;
+    f.below100 = typeof f.below100 === 'boolean' ? f.below100 : FILTER_DEFAULT.below100;
     if (typeof f.list !== 'string') f.list = null;
     return f;
   }
@@ -1542,14 +1549,15 @@
   const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
   const filterActiveCount = f => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    f.galleryRank !== FILTER_DEFAULT.galleryRank,
+    f.galleryRank !== FILTER_DEFAULT.galleryRank || f.below100 !== FILTER_DEFAULT.below100,
     f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
   // One line for the Discover context message.
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
     const bits = [label(KINDS, f.kind)];
-    if (f.galleryRank !== 'all') bits.push(rankLabel(f.galleryRank) + ' galleries');
+    if (f.galleryRank !== FILTER_DEFAULT.galleryRank) bits.push('Top ' + f.galleryRank + ' galleries');
+    if (!f.below100) bits.push('no galleries below 100');
     bits.push(f.active ? 'Active' : 'All dates');
     if (f.receptions) bits.push('Upcoming receptions');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
@@ -1610,7 +1618,10 @@
   function mapVenues() {
     const f = state.filter;
     const out = new Map();
-    filteredShows().forEach(s => {
+    // Galleries marked See stay on the map whatever the rank slider says.
+    const anyRank = { ...f, galleryRank: String(RANK_SLIDER_MAX), below100: true };
+    const keep = v => withinRank(v, f) || isToSee(v);
+    filterShows(cityShows(), anyRank).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
       if (g) g.shows.push(s); else out.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
@@ -1618,7 +1629,7 @@
     if (!f.active && !f.receptions && !f.list) {
       cityVenues().forEach(v => {
         const k = venueKey(v);
-        if (!out.has(k) && venueMatches(v, f)) out.set(k, { key: k, venue: v, shows: [] });
+        if (!out.has(k) && venueMatches(v, anyRank) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
     return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), see: isToSee(g.venue) }));
@@ -1768,18 +1779,16 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: a continuous slider from 0 to 200, and an All button
-    // beside it (every gallery, unranked ones included).
-    const RANK_SLIDER_MAX = 200;
-    const rankVal = () => f.galleryRank === 'all' ? RANK_SLIDER_MAX : Math.min(RANK_SLIDER_MAX, Number(f.galleryRank));
+    // Gallery rank: a continuous slider over the top 100, and a separate
+    // Below 100 button that shows or hides every other gallery.
     const rankInput = el('input', { type: 'range', min: '0', max: String(RANK_SLIDER_MAX), step: '1',
-      value: String(rankVal()), 'aria-label': 'Gallery rank' });
+      value: String(rankCutoff(f)), 'aria-label': 'Gallery rank' });
     rankInput.addEventListener('input', () => { f.galleryRank = String(Number(rankInput.value)); update(); });
-    const rankAll = el('button', { class: 'rank-all', 'data-value': 'all', onclick: () => { f.galleryRank = 'all'; update(); } }, 'All');
-    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, '100'), el('span', null, '200'));
+    const below = el('button', { class: 'rank-all', 'data-below100': '', onclick: () => { f.below100 = !f.below100; update(); } }, 'Below 100');
+    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, '50'), el('span', null, '100'));
     const rankSlider = el('div', { class: 'rank-slider', 'data-rank-slider': '' },
       el('div', { class: 'rank-value' }),
-      el('div', { class: 'rank-row' }, el('div', { class: 'rank-track' }, rankInput, rankStops), rankAll));
+      el('div', { class: 'rank-row' }, el('div', { class: 'rank-track' }, rankInput, rankStops), below));
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
@@ -1831,10 +1840,10 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
-      rankInput.value = String(rankVal());
-      rankSlider.querySelector('.rank-value').textContent = rankLabel(f.galleryRank) + ' galleries';
-      rankAll.classList.toggle('on', f.galleryRank === 'all');
-      rankInput.classList.toggle('dim', f.galleryRank === 'all');
+      rankInput.value = String(rankCutoff(f));
+      rankSlider.querySelector('.rank-value').textContent = 'Top ' + rankCutoff(f) + ' galleries' + (f.below100 ? ' + below 100' : '');
+      below.classList.toggle('on', !!f.below100);
+      below.setAttribute('aria-pressed', f.below100 ? 'true' : 'false');
       hoodWrap.innerHTML = '';
       hoodWrap.append(
         el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
@@ -2473,20 +2482,6 @@
   updateFilterBadge(mapFilterBtn);
   mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false }));   // Sort orders the List only
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
-  // The legend's link opens the ranking as a sheet (the Map has no page stack).
-  document.getElementById('map-rank-btn').addEventListener('click', () => openSheet(galleriesPage({ asSheet: true })));
-  // Tapping a legend row shows only that group on the Map; tapping it again shows all.
-  const legendRows = [...document.querySelectorAll('#map-legend [data-band]')];
-  legendRows.forEach(row => row.addEventListener('click', () => {
-    const band = row.dataset.band === 'see' ? 'see' : Number(row.dataset.band);
-    const next = MapTab.getBand() === band ? null : band;
-    MapTab.setBand(next);
-    legendRows.forEach(r => {
-      r.classList.toggle('on', next !== null && r === row);
-      r.classList.toggle('dim', next !== null && r !== row);
-      r.setAttribute('aria-pressed', next !== null && r === row ? 'true' : 'false');
-    });
-  }));
 
   // ---------------- discover tab ----------------
   // A chat over the city's data, answered by /api/discover (webdemo/api). Every

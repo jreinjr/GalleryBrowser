@@ -407,26 +407,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 }
 .map-pill svg { width: 16px; height: 16px; }
 .map-pill .badge { background: var(--blue); color: #000; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; margin: 0 -4px 0 2px; }
-/* Rank-band legend; colours mirror BAND_COLOR in map_maplibre.js */
-.map-legend {
-  position: absolute; left: 12px; bottom: calc(96px + env(safe-area-inset-bottom)); z-index: 10;
-  background: rgba(40, 40, 44, 0.85); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-  border-radius: 12px; padding: 8px 12px; font-size: 12px; color: #fff; display: flex; flex-direction: column; gap: 5px;
-}
-.map-legend div { display: flex; align-items: center; gap: 8px; }
-.map-legend i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.5); }
-.map-legend i.b-top { background: rgba(21, 101, 214, 1); }
-.map-legend i.b-ranked { background: rgba(160, 205, 248, 0.95); }
-.map-legend i.b-see { background: rgba(229, 57, 53, 1); }
-/* Legend rows filter the map: tap one to show only that group */
-.map-legend .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #fff; text-align: left; padding: 1px 0; }
-.map-legend .legend-row.on span { font-weight: 700; }
-.map-legend .legend-row.dim { opacity: 0.4; }
-.map-legend i.b-listed { background: rgba(150, 150, 158, 0.55); border: none; width: 8px; height: 8px; margin: 2px; }
-/* a venue with nothing on view is drawn faded (only with Active shows off) */
-.map-legend i.t-off { background: rgba(97, 173, 242, 0.36); border-color: rgba(255, 255, 255, 0.25); }
-.map-legend div[hidden] { display: none; }
-.map-legend .legend-link { margin-top: 3px; color: var(--blue); font-size: 12px; font-weight: 600; text-align: left; }
 /* Dots and labels are MapLibre layers (map_maplibre.js), not DOM. */
 /* My-location button (and attribution) sit above the tab bar, opposite the legend */
 #maplibre .maplibregl-ctrl-bottom-right { bottom: calc(86px + env(safe-area-inset-bottom)); }

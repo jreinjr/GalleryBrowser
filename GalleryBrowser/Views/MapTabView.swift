@@ -8,14 +8,14 @@ private struct VenuePin: Identifiable {
     let rank: Int?
     var id: String { venue.groupingKey }
 
-    /// Dot style by rank band, matching the web map: the top 100 share one
-    /// size, the top 25 a deep blue and 26–100 a lighter blue; the rest small grey.
+    /// Dot colour by rank band, matching the web map: every dot is one size;
+    /// the top 25 a deep blue, 26–100 a lighter blue, the rest grey.
     var dotColor: Color {
         guard let rank, rank <= 100 else { return Color(white: 0.51).opacity(0.7) }
         return rank <= 25 ? Color(red: 0.08, green: 0.40, blue: 0.84) : Color(red: 0.63, green: 0.80, blue: 0.97).opacity(0.95)
     }
-    var dotSize: CGFloat { (rank ?? .max) <= 100 ? 12.5 : 7 }
-    var hasRing: Bool { (rank ?? .max) <= 100 }
+    var dotSize: CGFloat { 12.5 }
+    var hasRing: Bool { true }
 }
 
 /// The Map tab: full-bleed map of the selected city's venues with a shows
