@@ -17,7 +17,7 @@ Only published (verified) shows in `content/<city>.json` are built;
 `content/pending/` is ignored. Same URL on every deploy. Image
 recompression is cached in `webdemo/.cache/`, so rebuilds are fast.
 
-Knobs: `--img-cap 7` (images per show), `--max-width 1080`, `--quality 78` (WebP),
+Knobs: `--img-cap 60` (images per show), `--max-width 1080`, `--quality 78` (WebP),
 `--full-side 3840`, `--full-quality 80` (full-res variants; `--full-side 0` disables).
 
 Images ship in two tiers: every surface first loads the 1080px proxy, and when the
