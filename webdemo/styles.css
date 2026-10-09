@@ -340,15 +340,10 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .switch.on::after { left: 20px; }
 .seg-row { display: flex; gap: 0; margin: 0 16px 16px; background: var(--field); border-radius: 10px; padding: 3px; }
 .seg-row button { flex: 1; padding: 7px 0; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--secondary); text-align: center; white-space: nowrap; }
-/* Gallery rank slider in the filter sheet: continuous 0–200, plus All */
-.rank-slider { margin: 0 16px 16px; background: var(--field); border-radius: 10px; padding: 10px 14px 8px; }
-.rank-slider .rank-value { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-.rank-slider .rank-row { display: flex; align-items: center; gap: 12px; }
-.rank-slider .rank-track { flex: 1; min-width: 0; }
-.rank-slider input[type=range] { width: 100%; margin: 0; accent-color: var(--blue); height: 28px; }
-.rank-slider input[type=range].dim { opacity: 0.45; }
-.rank-stops { display: flex; justify-content: space-between; margin-top: 2px; font-size: 12px; color: var(--secondary); }
-.rank-all { flex: 0 0 auto; padding: 7px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--secondary); background: rgba(255, 255, 255, 0.08); }
+/* Gallery rank in the filter sheet: Top 50 / 100 / 150, plus a Below 100 toggle */
+.rank-buttons { display: flex; gap: 8px; margin: 0 16px 16px; }
+.rank-buttons .seg-row { flex: 1; margin: 0; }
+.rank-all { flex: 0 0 auto; padding: 7px 12px; border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--secondary); background: rgba(255, 255, 255, 0.08); }
 .rank-all.on { background: var(--blue); color: #000; }
 /* The map card's See toggle: red once the gallery is marked to see */
 .see-btn { background: rgba(255, 255, 255, 0.12); color: #fff; margin-bottom: 10px; }

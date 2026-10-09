@@ -1498,9 +1498,9 @@
   // ---------------- filters: one state shared by Featured, List and Map ----------------
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
-  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: a top-100
-  // cutoff '0' … '100' (the filter sheet's slider); below100: whether galleries
-  // ranked below 100 (and unranked ones) show too; active / receptions are toggles; list: null | 'saved' |
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '100' |
+  // '150', show the top N galleries; below100: also show ranks 101–200 (galleries
+  // past 200 or unranked never show); active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
@@ -1508,14 +1508,16 @@
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
     below100: true, active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // The Gallery rank slider covers the top 100; the Below 100 button adds
-  // everything else (ranked 101+ or unranked).
-  const RANK_SLIDER_MAX = 100;
-  const rankCutoff = f => Math.max(0, Math.min(RANK_SLIDER_MAX, Number(f.galleryRank)));
+  // Gallery rank: buttons for the top 50 / 100 / 150, and a separate Below 100
+  // toggle that adds ranks 101–200 (with Top 150 the two simply combine to the
+  // top 200). Galleries past 200 or unranked are not shown.
+  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150']];
+  const BELOW_100_MAX = 200;
   const withinRank = (v, f) => {
+    if (f.galleryRank === 'any') return true;   // internal: rank not applied (the Map's See marks)
     const r = venueRank(v);
-    if (r != null && r <= RANK_SLIDER_MAX) return r <= rankCutoff(f);
-    return !!f.below100;
+    if (r == null) return false;
+    return r <= Number(f.galleryRank) || (!!f.below100 && r > 100 && r <= BELOW_100_MAX);
   };
   const SORTS = [
     ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
@@ -1536,8 +1538,7 @@
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
-    // galleryRank: older builds stored 'all' or cutoffs up to 200; clamp to the slider.
-    f.galleryRank = /^\d+$/.test(String(f.galleryRank)) ? String(Math.min(RANK_SLIDER_MAX, Number(f.galleryRank))) : FILTER_DEFAULT.galleryRank;
+    if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     f.below100 = typeof f.below100 === 'boolean' ? f.below100 : FILTER_DEFAULT.below100;
     if (typeof f.list !== 'string') f.list = null;
     return f;
@@ -1619,7 +1620,7 @@
     const f = state.filter;
     const out = new Map();
     // Galleries marked See stay on the map whatever the rank slider says.
-    const anyRank = { ...f, galleryRank: String(RANK_SLIDER_MAX), below100: true };
+    const anyRank = { ...f, galleryRank: 'any' };
     const keep = v => withinRank(v, f) || isToSee(v);
     filterShows(cityShows(), anyRank).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
@@ -1779,16 +1780,9 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: a continuous slider over the top 100, and a separate
-    // Below 100 button that shows or hides every other gallery.
-    const rankInput = el('input', { type: 'range', min: '0', max: String(RANK_SLIDER_MAX), step: '1',
-      value: String(rankCutoff(f)), 'aria-label': 'Gallery rank' });
-    rankInput.addEventListener('input', () => { f.galleryRank = String(Number(rankInput.value)); update(); });
+    // Gallery rank: Top 50 / 100 / 150, and a separate Below 100 toggle (ranks 101–200).
     const below = el('button', { class: 'rank-all', 'data-below100': '', onclick: () => { f.below100 = !f.below100; update(); } }, 'Below 100');
-    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, '50'), el('span', null, '100'));
-    const rankSlider = el('div', { class: 'rank-slider', 'data-rank-slider': '' },
-      el('div', { class: 'rank-value' }),
-      el('div', { class: 'rank-row' }, el('div', { class: 'rank-track' }, rankInput, rankStops), below));
+    const rankRow = el('div', { class: 'rank-buttons' }, seg('galleryRank', GALLERY_RANKS), below);
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
@@ -1798,7 +1792,7 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
-      header('Gallery rank'), rankSlider,
+      header('Gallery rank'), rankRow,
       header('Venue Type'), seg('kind', KINDS),
       header('Neighborhoods'), hoodWrap,
       ...(withSort ? [header('Sort'), sortGroup] : []));
@@ -1840,8 +1834,6 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
-      rankInput.value = String(rankCutoff(f));
-      rankSlider.querySelector('.rank-value').textContent = 'Top ' + rankCutoff(f) + ' galleries' + (f.below100 ? ' + below 100' : '');
       below.classList.toggle('on', !!f.below100);
       below.setAttribute('aria-pressed', f.below100 ? 'true' : 'false');
       hoodWrap.innerHTML = '';
