@@ -340,6 +340,16 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .switch.on::after { left: 20px; }
 .seg-row { display: flex; gap: 0; margin: 0 16px 16px; background: var(--field); border-radius: 10px; padding: 3px; }
 .seg-row button { flex: 1; padding: 7px 0; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--secondary); text-align: center; white-space: nowrap; }
+/* The map card's rank: current rank, Change rank, and the copyable list of moves */
+.rank-edit { margin-top: 18px; padding-top: 14px; border-top: 0.5px solid var(--sep); }
+.rank-edit .rank-now { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.rank-edit .rank-note { font-weight: 400; color: var(--secondary); }
+.rank-edit .rank-change-btn { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.rank-edit .rank-form { display: flex; gap: 8px; align-items: center; }
+.rank-edit .rank-form input { width: 90px; padding: 9px 12px; border-radius: 10px; background: var(--field); color: #fff; font-size: 16px; border: none; }
+.rank-edit .rank-form .capsule-btn { flex: 0 0 auto; padding: 0 20px; }
+.rank-edit .rank-copy { display: block; margin-top: 4px; color: var(--blue); font-size: 14px; font-weight: 600; }
+.rank-edit .rank-export { width: 100%; margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--field); color: #fff; font: 13px/1.4 ui-monospace, Menlo, monospace; border: none; }
 /* The map card's See toggle: red once the gallery is marked to see */
 .see-btn { background: rgba(255, 255, 255, 0.12); color: #fff; margin-bottom: 10px; }
 .see-btn.on { background: rgba(229, 57, 53, 1); color: #fff; }

@@ -1348,6 +1348,7 @@
     };
     seeBtn.onclick = () => { toggleToSee(v); paintSee(); };
     paintSee();
+    const rankBox = rankEditor(v);
     const body = el('div', { class: 'detail-body' },
       el('button', { class: 'venue-block', style: 'margin-top:0', onclick: openVenue },
         el('div', { class: 'vb-text' },
@@ -1357,9 +1358,77 @@
         icon('chevronRight')),
       seeBtn,
       el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
-        icon('walk'), el('span', null, 'Directions')));
+        icon('walk'), el('span', null, 'Directions')),
+      rankBox);
     page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
     return page;
+  }
+
+  // ---------------- change a gallery's rank from its map card ----------------
+  // Moving a gallery saves the person's own order for the city (the same store
+  // as Settings → Gallery ranking), so the map colours, the rank filter and
+  // the ranking list follow on this device. Each move is also logged in
+  // localStorage['rankMoves'] so it can be copied out and folded into the
+  // registry for everyone.
+  const readMoves = () => { try { return JSON.parse(store.get('rankMoves', '{}')) || {}; } catch (e) { return {}; } };
+  function moveGalleryRank(v, to) {
+    const city = state.cityKey, id = venueId(v);
+    if (!id) return;
+    const order = ranking.order(city).map(x => x.id).filter(x => x !== id);
+    const n = Math.max(1, Math.min(order.length + 1, Math.round(to)));
+    const from = venueRank(v);
+    order.splice(n - 1, 0, id);
+    ranking.save(city, order);
+    const moves = readMoves();
+    const list = (moves[city] || []).filter(m => m.id !== id);
+    list.push({ id, name: v.name, from: appRank(v), to: n, at: new Date().toISOString().slice(0, 10) });
+    moves[city] = list;
+    store.set('rankMoves', JSON.stringify(moves));
+    refreshAll();
+    return { from, to: n };
+  }
+  // The text to paste to Claude: one line per gallery moved in this city.
+  function rankMovesText() {
+    const list = readMoves()[state.cityKey] || [];
+    if (!list.length) return '';
+    return [`Gallery rank changes for ${city().displayName}:`,
+      ...list.map(m => `- ${m.name} (${m.id}): ${m.from == null ? 'unranked' : '#' + m.from} → #${m.to}`)].join('\n');
+  }
+  function rankEditor(v) {
+    const box = el('div', { class: 'rank-edit', 'data-rank-edit': '' });
+    function paint(note) {
+      const r = venueRank(v);
+      const changeBtn = el('button', { class: 'capsule-btn detail-save rank-change-btn', onclick: () => editing() },
+        icon('listBullet'), el('span', null, 'Change rank'));
+      const moves = rankMovesText();
+      const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
+      box.replaceChildren(
+        el('div', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`, note ? el('span', { class: 'rank-note' }, ' · ' + note) : null),
+        changeBtn, copyBtn);
+    }
+    function editing() {
+      const input = el('input', { type: 'number', inputmode: 'numeric', min: '1', value: String(venueRank(v) || ''), 'aria-label': 'New rank' });
+      const go = () => { const n = Number(input.value); if (!(n >= 1)) { input.focus(); return; } const m = moveGalleryRank(v, n); paint(m ? `moved from #${m.from ?? '–'}` : ''); };
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+      box.replaceChildren(
+        el('div', { class: 'rank-now' }, 'New rank for ' + v.name),
+        el('div', { class: 'rank-form' }, input,
+          el('button', { class: 'capsule-btn', onclick: go }, 'Move'),
+          el('button', { class: 'ghost', onclick: () => paint() }, 'Cancel')));
+      input.focus(); input.select();
+    }
+    function copyMoves() {
+      const text = rankMovesText();
+      const area = el('textarea', { class: 'rank-export', readonly: '', rows: '5' });
+      area.value = text;
+      box.appendChild(area);
+      area.select();
+      const done = () => { const b = box.querySelector('.rank-copy'); if (b) b.textContent = 'Copied — paste it to Claude'; };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => {});
+      else { try { if (document.execCommand('copy')) done(); } catch (e) { /* the text stays selected to copy by hand */ } }
+    }
+    paint();
+    return box;
   }
 
   // The gallery detail page lists its shows one card each — the Featured card in
