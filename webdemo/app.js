@@ -1307,6 +1307,40 @@
     return page;
   }
 
+  // The Map's tap card: the images of what is on view (the gallery's own
+  // photos when nothing is), then only the gallery's name, address, hours and
+  // a Directions link; no show text. The name opens the full gallery page.
+  function mapVenueCard(v, shows) {
+    const on = shows.filter(isActiveShow);
+    const images = (on.length ? on : shows).flatMap(s => s.images || []);
+    const pics = images.length ? images : (v.photos || []);
+    const page = el('div', { class: 'page map-card-sheet' });
+    const close = el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() });
+    const hero = pics.length
+      ? el('div', { class: 'detail-hero' },
+          makeCarousel(pics, { height: 300, dots: 'bottom', expand: true, onTap: i => openViewer(pics, i) }),
+          el('div', { class: 'detail-topbar' }, close))
+      : el('div', { class: 'navrow' }, close);
+    const openVenue = () => {
+      const p = venuePage(v, { inSheet: true });
+      p.dataset.sheetSub = '1';
+      const back = p.querySelector('.navrow .circle-btn');
+      if (back) back.onclick = () => p.remove();
+      page.parentElement.appendChild(p);
+    };
+    const body = el('div', { class: 'detail-body' },
+      el('button', { class: 'venue-block', style: 'margin-top:0', onclick: openVenue },
+        el('div', { class: 'vb-text' },
+          el('div', { class: 'vb-name' }, tierStar(galleryTier(v)), listLine(v)),
+          el('div', { class: 'vb-line' }, fullAddress(v)),
+          ...(v.hours || []).map(h => el('div', { class: 'vb-line' }, h))),
+        icon('chevronRight')),
+      el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
+        icon('walk'), el('span', null, 'Directions')));
+    page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
+    return page;
+  }
+
   // The gallery detail page lists its shows one card each — the Featured card in
   // miniature at 248px, with the run dates on the second line because the venue
   // is already the subject of the page.
@@ -1444,7 +1478,7 @@
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: 'all' or a
-  // rank cutoff ('50' | '100' | '150' | '200', the filter sheet's slider); active / receptions are toggles; list: null | 'saved' |
+  // rank cutoff such as '75' (the filter sheet's slider); active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
@@ -1452,8 +1486,9 @@
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: 'all',
     active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // The Gallery rank slider's stops, left to right.
-  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150'], ['200', 'Top 200'], ['all', 'All']];
+  // galleryRank is 'all' or a whole-number cutoff (the Gallery rank slider, 0 … All).
+  const validRankCutoff = k => k === 'all' || /^\d+$/.test(String(k));
+  const rankLabel = k => k === 'all' ? 'All' : 'Top ' + k;
   // Whether a venue is inside the chosen rank cutoff (unranked ones only under All).
   const withinRank = (v, f) => { if (f.galleryRank === 'all') return true; const r = venueRank(v); return r != null && r <= Number(f.galleryRank); };
   const SORTS = [
@@ -1475,7 +1510,7 @@
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
-    if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
+    if (!validRankCutoff(f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     if (typeof f.list !== 'string') f.list = null;
     return f;
   }
@@ -1493,7 +1528,7 @@
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
     const bits = [label(KINDS, f.kind)];
-    if (f.galleryRank !== 'all') bits.push(label(GALLERY_RANKS, f.galleryRank) + ' galleries');
+    if (f.galleryRank !== 'all') bits.push(rankLabel(f.galleryRank) + ' galleries');
     bits.push(f.active ? 'Active' : 'All dates');
     if (f.receptions) bits.push('Upcoming receptions');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
@@ -1712,13 +1747,14 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: a slider with a stop at each cutoff (Top 50 … All).
-    const rankIdx = () => Math.max(0, GALLERY_RANKS.findIndex(([k]) => k === f.galleryRank));
-    const rankInput = el('input', { type: 'range', min: '0', max: String(GALLERY_RANKS.length - 1), step: '1',
-      value: String(rankIdx()), 'aria-label': 'Gallery rank' });
-    rankInput.addEventListener('input', () => { f.galleryRank = GALLERY_RANKS[Number(rankInput.value)][0]; update(); });
-    const rankStops = el('div', { class: 'rank-stops' }, ...GALLERY_RANKS.map(([k, label]) => el('button', {
-      'data-value': k, onclick: () => { f.galleryRank = k; update(); } }, label.replace('Top ', ''))));
+    // Gallery rank: a continuous slider from 0 to the city's last ranked
+    // gallery; all the way right is All (unranked galleries included).
+    const rankMax = Math.max(1, ...cityVenues().map(venueRank).filter(r => r != null));
+    const rankVal = () => f.galleryRank === 'all' ? rankMax : Math.min(rankMax, Number(f.galleryRank));
+    const rankInput = el('input', { type: 'range', min: '0', max: String(rankMax), step: '1',
+      value: String(rankVal()), 'aria-label': 'Gallery rank' });
+    rankInput.addEventListener('input', () => { const n = Number(rankInput.value); f.galleryRank = n >= rankMax ? 'all' : String(n); update(); });
+    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, 'All'));
     const rankSlider = el('div', { class: 'rank-slider', 'data-rank-slider': '' },
       el('div', { class: 'rank-value' }), rankInput, rankStops);
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
@@ -1772,9 +1808,8 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
-      rankInput.value = String(rankIdx());
-      rankSlider.querySelector('.rank-value').textContent = (GALLERY_RANKS[rankIdx()] || [])[1] === 'All' ? 'All galleries' : GALLERY_RANKS[rankIdx()][1] + ' galleries';
-      rankStops.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.value === f.galleryRank));
+      rankInput.value = String(rankVal());
+      rankSlider.querySelector('.rank-value').textContent = rankLabel(f.galleryRank) + ' galleries';
       hoodWrap.innerHTML = '';
       hoodWrap.append(
         el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
@@ -2396,13 +2431,8 @@
     getCity: city,
     getVenues: mapVenues,
     venueKey,
-    // A tap opens the show on view there (swipe between them when the venue
-    // has several); a gallery with nothing on view opens its venue page.
-    onVenueTap: (v, shows) => {
-      const on = (shows || []).filter(isActiveShow);
-      if (on.length) openSheet(showDetailPage(on, 0, { asSheet: true }));
-      else openSheet(venuePage(v, { asSheet: true }));
-    },
+    // A tap opens the compact gallery card: images, hours, Directions.
+    onVenueTap: (v, shows) => openSheet(mapVenueCard(fullVenue(v), shows || [])),
     // The chosen list as context: its venues highlighted (a route also drawn
     // as a line through them in order), the rest of the filter dimmed.
     getContext: () => {

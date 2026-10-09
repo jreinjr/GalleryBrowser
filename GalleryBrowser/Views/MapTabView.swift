@@ -8,19 +8,19 @@ private struct VenuePin: Identifiable {
     let rank: Int?
     var id: String { venue.groupingKey }
 
-    /// Dot style by rank band, matching the web map: the top 150 share one
-    /// size, the top 25 blue and 26–150 a lighter blue; the rest small grey.
+    /// Dot style by rank band, matching the web map: the top 100 share one
+    /// size, the top 25 a deep blue and 26–100 a lighter blue; the rest small grey.
     var dotColor: Color {
-        guard let rank, rank <= 150 else { return Color(white: 0.6).opacity(0.7) }
-        return rank <= 25 ? Color.guideBlue.opacity(0.95) : Color(red: 0.70, green: 0.85, blue: 0.98).opacity(0.95)
+        guard let rank, rank <= 100 else { return Color(white: 0.51).opacity(0.7) }
+        return rank <= 25 ? Color(red: 0.08, green: 0.40, blue: 0.84) : Color(red: 0.63, green: 0.80, blue: 0.97).opacity(0.95)
     }
-    var dotSize: CGFloat { (rank ?? .max) <= 150 ? 16.5 : 9 }
-    var hasRing: Bool { (rank ?? .max) <= 150 }
+    var dotSize: CGFloat { (rank ?? .max) <= 100 ? 12.5 : 7 }
+    var hasRing: Bool { (rank ?? .max) <= 100 }
 }
 
 /// The Map tab: full-bleed map of the selected city's venues with a shows
-/// filter menu and the person's location; tapping a pin presents the show on
-/// view there as a sheet (swipe between them when the venue has several).
+/// filter menu and the person's location; tapping a pin presents a compact
+/// card: the shows' images, the gallery's address and hours, and Directions.
 struct MapTabView: View {
     @EnvironmentObject private var store: ContentStore
     @State private var filter: MapFilter = .all
@@ -75,13 +75,13 @@ struct MapTabView: View {
                             .overlay(alignment: .topTrailing) {
                                 if pin.shows.count > 1 {
                                     Text("\(pin.shows.count)")
-                                        .font(.system(size: 10, weight: .bold))
+                                        .font(.system(size: 8, weight: .bold))
                                         .foregroundStyle(.black)
-                                        .padding(.horizontal, 4)
-                                        .frame(minWidth: 17, minHeight: 17)
+                                        .padding(.horizontal, 3)
+                                        .frame(minWidth: 13, minHeight: 13)
                                         .background(.white, in: Capsule())
                                         .shadow(color: .black.opacity(0.6), radius: 1.5, y: 1)
-                                        .offset(x: 8, y: -7)
+                                        .offset(x: 7, y: -6)
                                 }
                             }
                     }
@@ -134,7 +134,7 @@ struct MapTabView: View {
         .sheet(isPresented: $showCitySheet) { CitySelectSheet() }
         .sheet(item: $selectedPin) { pin in
             NavigationStack {
-                ShowDetailView(shows: pin.shows, index: 0, presentedAsSheet: true)
+                MapVenueCard(venue: pin.venue, shows: pin.shows)
             }
             .preferredColorScheme(.dark)
             #if os(macOS)
@@ -155,5 +155,70 @@ struct MapTabView: View {
             span: MKCoordinateSpan(latitudeDelta: city.spanDegrees,
                                    longitudeDelta: city.spanDegrees)
         ))
+    }
+}
+
+/// The map's tap card: the images of the shows on view, then only the
+/// gallery's name, address and hours (tap through to the full gallery page)
+/// and a Directions button. No show text.
+private struct MapVenueCard: View {
+    let venue: Venue
+    let shows: [Show]
+
+    @Environment(\.dismiss) private var dismiss
+
+    private var images: [String] { shows.flatMap(\.images) }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                if !images.isEmpty {
+                    ImageCarousel(imagePaths: images, dotsAlignment: .bottom) { _ in }
+                        .frame(height: 300)
+                }
+                VStack(alignment: .leading, spacing: 16) {
+                    NavigationLink(value: venue) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(venue.name)
+                                    .font(.headline)
+                                Text(venue.fullAddress)
+                                    .font(.subheadline)
+                                ForEach(venue.hours, id: \.self) { line in
+                                    Text(line)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .buttonStyle(.plain)
+
+                    BlueCapsuleButton(title: "Directions", systemImage: "figure.walk") {
+                        let item = MKMapItem(placemark: MKPlacemark(coordinate: venue.coordinate))
+                        item.name = venue.name
+                        item.openInMaps(launchOptions: [
+                            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking
+                        ])
+                    }
+                }
+                .padding(.horizontal, 18)
+            }
+            .padding(.bottom, 40)
+        }
+        .background(Color.black)
+        .ignoresSafeArea(edges: .top)
+        .navigationDestination(for: Venue.self) { venue in
+            VenueDetailView(venue: venue)
+        }
+        .hideBackButton()
+        .toolbar {
+            ToolbarItem(placement: .guideLeading) {
+                CircleIconButton(systemName: "xmark") { dismiss() }
+            }
+        }
     }
 }
