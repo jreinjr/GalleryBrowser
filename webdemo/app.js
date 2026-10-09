@@ -644,7 +644,7 @@
     let index = 0;
     let dotEls = [];
     if (images.length > 1) {
-      const dotsEl = el('div', { class: 'carousel-dots ' + (dots === 'bottom' ? 'bottom-center' : 'top-left') });
+      const dotsEl = el('div', { class: 'carousel-dots ' + ({ bottom: 'bottom-center', 'above-footer': 'bottom-center above-footer' }[dots] || 'top-left') });
       dotEls = images.map((_, i) => el('i', i === 0 ? { class: 'on' } : null));
       dotEls.forEach(d => dotsEl.appendChild(d));
       car.appendChild(dotsEl);
@@ -1104,7 +1104,7 @@
   function showCard(deck, all) {
     return showDeck(deck, {
       cls: 'feed-card',
-      carousel: { aspect: '1 / 1', dots: 'top-left' },
+      carousel: { aspect: '1 / 1', dots: 'above-footer' },
       sub: s => `${listLine(s.venue)} • ${s.venue.address}`,
       onOpen: s => push(state.tab, showDetailPage(all, all.findIndex(x => showId(x) === showId(s)))),
     });
@@ -1314,7 +1314,7 @@
   function venueShowCard(s, onOpen) {
     return showDeck([s], {
       cls: 'venue-show-card',
-      carousel: { height: SHOW_CARD_H },
+      carousel: { height: SHOW_CARD_H, dots: 'above-footer' },
       sub: x => dateLine(x, fmtShort),
       onOpen,
     });

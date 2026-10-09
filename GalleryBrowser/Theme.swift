@@ -101,12 +101,13 @@ struct BlueCapsuleButton: View {
 }
 
 /// Paged image carousel for a show, backed by bundled image files.
-/// `dotsAlignment` matches the original: top-leading on feed cards,
-/// bottom-center on detail pages. When `onImageTap` is set, tapping the
+/// Dots sit bottom-center; feed cards raise them by `dotsBottomInset` to
+/// clear the frosted footer that covers the photo's bottom edge. When `onImageTap` is set, tapping the
 /// image opens the full-screen zoomable viewer at the current page.
 struct ImageCarousel: View {
     let imagePaths: [String]
     var dotsAlignment: Alignment = .bottom
+    var dotsBottomInset: CGFloat = 0
     var onImageTap: ((Int) -> Void)? = nil
 
     @State private var page = 0
@@ -180,6 +181,7 @@ struct ImageCarousel: View {
                     }
                 }
                 .padding(10)
+                .padding(.bottom, dotsBottomInset)
             }
         }
     }

@@ -62,13 +62,13 @@ struct IndexedShows: Hashable {
     let index: Int
 }
 
-/// One feed card: rounded image carousel with dots top-left and a blurred
+/// One feed card: rounded image carousel with dots centered above a blurred
 /// footer carrying the display name and "Venue • Address".
 struct ShowCardView: View {
     let show: Show
 
     var body: some View {
-        ImageCarousel(imagePaths: show.images, dotsAlignment: .topLeading)
+        ImageCarousel(imagePaths: show.images, dotsAlignment: .bottom, dotsBottomInset: 56)
             .frame(height: 310)
             .overlay(alignment: .bottom) { footer }
             .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
