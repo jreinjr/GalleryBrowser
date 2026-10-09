@@ -1498,7 +1498,7 @@
   // ---------------- filters: one state shared by Featured, List and Map ----------------
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
-  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '100' |
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '75' | '100' |
   // '150' (the top N galleries) | 'below100' (ranks 101–200 only), Map only; active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
@@ -1507,10 +1507,10 @@
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
     active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // Gallery rank: one of Top 50 / Top 100 / Top 150 (ranks 1–N) or Below 100
+  // Gallery rank: one of Top 50 / 75 / 100 / 150 (ranks 1–N) or Below 100
   // (ranks 101–200 only). Unranked galleries are not shown. Map only: the
   // Shows and Lists tabs keep every gallery.
-  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150'], ['below100', 'Below 100']];
+  const GALLERY_RANKS = [['50', 'Top 50'], ['75', 'Top 75'], ['100', 'Top 100'], ['150', 'Top 150'], ['below100', 'Below 100']];
   const withinRank = (v, f) => {
     const r = venueRank(v);
     if (r == null) return false;
@@ -1776,7 +1776,7 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: Top 50 / Top 100 / Top 150 / Below 100, one at a time (Map only).
+    // Gallery rank: Top 50 / 75 / 100 / 150 / Below 100, one at a time (Map only).
     const rankRow = seg('galleryRank', GALLERY_RANKS);
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
