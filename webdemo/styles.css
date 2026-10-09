@@ -599,6 +599,8 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .galleries-page.editing .rank-n { color: var(--blue); }
 .rr-main { flex: 1; min-width: 0; text-align: left; color: #fff; }
 .rr-name { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.ss-badge { flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: 0.02em; line-height: 1; padding: 3px 6px; border-radius: 6px; color: #f5c451; border: 1px solid rgba(245, 196, 81, 0.6); }
+.ss-badge.pick { color: #1c1400; background: #f5c451; border-color: #f5c451; }
 .rr-sub { font-size: 13px; color: var(--secondary); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rank-row .fav-btn { width: 32px; height: 32px; }
 .rank-row .fav-btn svg { width: 15px; height: 15px; }

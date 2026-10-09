@@ -135,12 +135,15 @@ def main() -> None:
                                       "neighborhood", "address", "addressDetail", "hours",
                                       "phone", "website", "lat", "lng")}
         rec["city"] = city_key
+        # See Saw lists the gallery now: "pick" (Editor's Picks) or "listed"
+        rec["seesaw"] = seesaw.get(city_key, {}).get(rv.get("id"))
         photos = venue_photos(rv)
         if photos:
             rec["photos"] = photos
         return {k: val for k, val in rec.items() if val is not None}
 
     venue_photo_count = 0
+    seesaw = {c["key"]: cityconfig.load_seesaw(c["key"]) for c in cities}
 
     # Gallery photos (content/images/venues/<city>/<id>/NN.jpg, gallery_photos.py)
     # ship like show images: 1080px proxy + @full variant, hero first. Entries

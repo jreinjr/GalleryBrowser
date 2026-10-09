@@ -2337,6 +2337,9 @@
         el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', 'data-move': 'go', onclick: () => move(num.value) }, 'Move'))));
       setTimeout(() => { num.focus(); if (num.select) num.select(); }, 320);
     }
+    // See Saw lists this gallery now (build.py, latest snapshot); an Editor's Pick gets the filled badge.
+    const seesawBadge = v => v.seesaw ? el('span', { class: 'ss-badge' + (v.seesaw === 'pick' ? ' pick' : ''),
+      title: v.seesaw === 'pick' ? "See Saw Editor's Pick" : 'On See Saw' }, v.seesaw === 'pick' ? 'Seesaw Pick' : 'Seesaw') : null;
     function rankRow(v, n, onView) {
       const r = editing ? n : venueRank(v);
       const tier = tierForRank(r);
@@ -2347,7 +2350,7 @@
           'aria-label': editing ? 'Move to a rank' : null, onclick: editing ? () => moveSheet(v) : null },
           el('i', { class: 'dot t-' + tier }), r == null ? '–' : String(r)),
         el('button', { class: 'rr-main', onclick: editing ? null : () => openVenue(v) },
-          el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name)),
+          el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name), seesawBadge(v)),
           el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
             onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
         favoriteBtn(v));

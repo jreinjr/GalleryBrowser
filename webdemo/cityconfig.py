@@ -131,6 +131,44 @@ def load_venues(city_key: str) -> dict[str, dict]:
     return out
 
 
+def load_seesaw(city_key: str) -> dict[str, str]:
+    """venue_id -> "pick" (on See Saw's latest Editor's Picks) or "listed" (on its
+    latest All / Featured capture), from content/curation/<city>/seesaw/; {} when
+    the city has no snapshots. Matched on the registry name and aliases with the
+    pipeline's venue-name key (tools._norm_venue)."""
+    d = CONTENT_DIR / "curation" / city_key / "seesaw"
+    if not d.is_dir():
+        return {}
+    from tools import _norm_venue  # scraper/, on sys.path above
+    latest: dict[str, dict] = {}   # tab -> newest snapshot (file names sort by date)
+    for f in sorted(d.glob(f"{city_key}-*.json")):
+        try:
+            snap = json.loads(f.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        latest[snap.get("tab") or "featured"] = snap
+    norms = lambda tabs: {_norm_venue(e.get("venue") or "") for t in tabs
+                          for e in latest.get(t, {}).get("entries", [])} - {""}
+    picks, listed = norms(["editors_picks"]), norms(["all", "featured", "editors_picks"])
+    if not listed:
+        return {}
+    reg = json.loads((CONTENT_DIR / "venues" / f"{city_key}.json").read_text()) \
+        if (CONTENT_DIR / "venues" / f"{city_key}.json").exists() else {}
+    city_tail = " " + city_key.replace("-", " ")
+    out: dict[str, str] = {}
+    for v in reg.get("venues", []):
+        if not v.get("id") or v.get("status") in HIDDEN_STATUSES:
+            continue
+        keys = {_norm_venue(n) for n in [v.get("name") or "", *(v.get("aliases") or [])]} - {""}
+        # "Vielmetter Los Angeles" is "Vielmetter" on See Saw
+        keys |= {k[: -len(city_tail)] for k in keys if k.endswith(city_tail) and len(k) > len(city_tail) + 2}
+        if keys & picks:
+            out[v["id"]] = "pick"
+        elif keys & listed:
+            out[v["id"]] = "listed"
+    return out
+
+
 # Registry statuses that mean "not a venue to show anyone" (rank_venues.py gates
 # on the same set).
 HIDDEN_STATUSES = {"closed", "duplicate", "out_of_scope"}
