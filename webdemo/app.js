@@ -1499,25 +1499,22 @@
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '100' |
-  // '150', show the top N galleries; below100: also show ranks 101–200 (galleries
-  // past 200 or unranked never show). Both apply to the Map only; active / receptions are toggles; list: null | 'saved' |
+  // '150' (the top N galleries) | 'below100' (ranks 101–200 only), Map only; active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
   const FILTER_VERSION = 7;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
-    below100: true, active: true, list: null, receptions: false, sort: 'rank' };
+    active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // Gallery rank: buttons for the top 50 / 100 / 150, and a separate Below 100
-  // toggle that adds ranks 101–200 (with Top 150 the two simply combine to the
-  // top 200). Galleries past 200 or unranked are not shown. Map only: the
+  // Gallery rank: one of Top 50 / Top 100 / Top 150 (ranks 1–N) or Below 100
+  // (ranks 101–200 only). Unranked galleries are not shown. Map only: the
   // Shows and Lists tabs keep every gallery.
-  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150']];
-  const BELOW_100_MAX = 200;
+  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150'], ['below100', 'Below 100']];
   const withinRank = (v, f) => {
     const r = venueRank(v);
     if (r == null) return false;
-    return r <= Number(f.galleryRank) || (!!f.below100 && r > 100 && r <= BELOW_100_MAX);
+    return f.galleryRank === 'below100' ? r > 100 && r <= 200 : r <= Number(f.galleryRank);
   };
   const SORTS = [
     ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
@@ -1539,7 +1536,6 @@
     if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
     if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
-    f.below100 = typeof f.below100 === 'boolean' ? f.below100 : FILTER_DEFAULT.below100;
     if (typeof f.list !== 'string') f.list = null;
     return f;
   }
@@ -1547,13 +1543,13 @@
   const persistFilter = () => store.set('filter', JSON.stringify(state.filter));
   // Clear from a sheet without the Gallery rank group leaves the Map's rank choice alone.
   const resetFilter = keepRank => { const f = state.filter; Object.assign(f, { ...FILTER_DEFAULT, hoods: [], sort: f.sort,
-    ...(keepRank ? { galleryRank: f.galleryRank, below100: f.below100 } : {}) }); };
+    ...(keepRank ? { galleryRank: f.galleryRank } : {}) }); };
   // A list that no longer exists (a draft from an earlier session) is no context.
   const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
   // Gallery rank only counts on the Map, the one tab it applies to.
   const filterActiveCount = (f, onMap) => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    onMap && (f.galleryRank !== FILTER_DEFAULT.galleryRank || f.below100 !== FILTER_DEFAULT.below100),
+    onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank,
     f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
   // One line for the Discover context message.
@@ -1780,9 +1776,8 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: Top 50 / 100 / 150, and a separate Below 100 toggle (ranks 101–200).
-    const below = el('button', { class: 'rank-all', 'data-below100': '', onclick: () => { f.below100 = !f.below100; update(); } }, 'Below 100');
-    const rankRow = el('div', { class: 'rank-buttons' }, seg('galleryRank', GALLERY_RANKS), below);
+    // Gallery rank: Top 50 / Top 100 / Top 150 / Below 100, one at a time (Map only).
+    const rankRow = seg('galleryRank', GALLERY_RANKS);
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
@@ -1834,8 +1829,6 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
-      below.classList.toggle('on', !!f.below100);
-      below.setAttribute('aria-pressed', f.below100 ? 'true' : 'false');
       hoodWrap.innerHTML = '';
       hoodWrap.append(
         el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
