@@ -1178,7 +1178,7 @@
           })
         : backBtn(state.tab);
       const topbar = el('div', { class: 'detail-topbar' }, leading);
-      if (!asSheet && shows.length > 1) {
+      if (shows.length > 1) {
         const up = el('button', { html: ICONS.chevronUp, 'aria-label': 'Previous show' });
         const down = el('button', { html: ICONS.chevronDown, 'aria-label': 'Next show' });
         up.disabled = i === 0; down.disabled = i === shows.length - 1;
@@ -1443,8 +1443,8 @@
   // ---------------- filters: one state shared by Featured, List and Map ----------------
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
-  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: 'all' |
-  // 'notable' | 'top'; active / receptions are toggles; list: null | 'saved' |
+  // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: 'all' or a
+  // rank cutoff ('50' | '100' | '150' | '200', the filter sheet's slider); active / receptions are toggles; list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
@@ -1452,7 +1452,10 @@
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: 'all',
     active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  const GALLERY_RANKS = [['all', 'All'], ['notable', 'Top 50'], ['top', 'Top 20']];
+  // The Gallery rank slider's stops, left to right.
+  const GALLERY_RANKS = [['50', 'Top 50'], ['100', 'Top 100'], ['150', 'Top 150'], ['200', 'Top 200'], ['all', 'All']];
+  // Whether a venue is inside the chosen rank cutoff (unranked ones only under All).
+  const withinRank = (v, f) => { if (f.galleryRank === 'all') return true; const r = venueRank(v); return r != null && r <= Number(f.galleryRank); };
   const SORTS = [
     ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
     ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
@@ -1523,10 +1526,7 @@
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
       if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
-      if (f.galleryRank !== 'all') {
-        const tier = galleryTier(s.venue);
-        if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
-      }
+      if (!withinRank(s.venue, f)) return false;
       if (f.active && !isActiveShow(s)) return false;
       if (f.receptions && !hasUpcomingReception(s)) return false;
       return true;
@@ -1543,10 +1543,7 @@
     const kind = v.kind || (v.isMuseum ? 'museum' : 'gallery');
     if (f.kind === 'museums' && kind !== 'museum') return false;
     if (f.kind === 'galleries' && kind !== 'gallery') return false;
-    if (f.galleryRank !== 'all') {
-      const tier = galleryTier(v);
-      if (f.galleryRank === 'top' ? tier !== 'top' : tier === 'listed') return false;
-    }
+    if (!withinRank(v, f)) return false;
     return true;
   }
   // The Map's venues: one entry per venue of the filtered shows, plus — when
@@ -1715,6 +1712,15 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
+    // Gallery rank: a slider with a stop at each cutoff (Top 50 … All).
+    const rankIdx = () => Math.max(0, GALLERY_RANKS.findIndex(([k]) => k === f.galleryRank));
+    const rankInput = el('input', { type: 'range', min: '0', max: String(GALLERY_RANKS.length - 1), step: '1',
+      value: String(rankIdx()), 'aria-label': 'Gallery rank' });
+    rankInput.addEventListener('input', () => { f.galleryRank = GALLERY_RANKS[Number(rankInput.value)][0]; update(); });
+    const rankStops = el('div', { class: 'rank-stops' }, ...GALLERY_RANKS.map(([k, label]) => el('button', {
+      'data-value': k, onclick: () => { f.galleryRank = k; update(); } }, label.replace('Top ', ''))));
+    const rankSlider = el('div', { class: 'rank-slider', 'data-rank-slider': '' },
+      el('div', { class: 'rank-value' }), rankInput, rankStops);
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
@@ -1724,7 +1730,7 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
-      header('Gallery rank'), seg('galleryRank', GALLERY_RANKS),
+      header('Gallery rank'), rankSlider,
       header('Venue Type'), seg('kind', KINDS),
       header('Neighborhoods'), hoodWrap,
       ...(withSort ? [header('Sort'), sortGroup] : []));
@@ -1766,6 +1772,9 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
+      rankInput.value = String(rankIdx());
+      rankSlider.querySelector('.rank-value').textContent = (GALLERY_RANKS[rankIdx()] || [])[1] === 'All' ? 'All galleries' : GALLERY_RANKS[rankIdx()][1] + ' galleries';
+      rankStops.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.value === f.galleryRank));
       hoodWrap.innerHTML = '';
       hoodWrap.append(
         el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
@@ -2387,8 +2396,12 @@
     getCity: city,
     getVenues: mapVenues,
     venueKey,
-    onVenueTap: v => {
-      openSheet(venuePage(v, { asSheet: true }));
+    // A tap opens the show on view there (swipe between them when the venue
+    // has several); a gallery with nothing on view opens its venue page.
+    onVenueTap: (v, shows) => {
+      const on = (shows || []).filter(isActiveShow);
+      if (on.length) openSheet(showDetailPage(on, 0, { asSheet: true }));
+      else openSheet(venuePage(v, { asSheet: true }));
     },
     // The chosen list as context: its venues highlighted (a route also drawn
     // as a line through them in order), the rest of the filter dimmed.

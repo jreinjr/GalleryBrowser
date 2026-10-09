@@ -1,4 +1,4 @@
-/* Map tab: MapLibre GL with CARTO dark style; venues as a GeoJSON source.
+/* Map tab: MapLibre GL with CARTO's Voyager street style; venues as a GeoJSON source.
  *
  * Galleries: one unclustered dot per venue, coloured and sized by the
  * gallery's city-wide rank band (top 25, 26–150, the rest). With the
@@ -13,15 +13,17 @@
 
   const SRC = 'venues';
   // CARTO's vector basemap: no API key, and the venue-page card reuses it.
-  const STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+  // Voyager is the light, street-map style with legible street and place names.
+  const STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
   // Rank band -> dot colour / radius: the top 150 share one size, the top 25
   // blue and 26–150 a lighter blue; the rest are small grey dots. Keep in step
   // with .map-legend in styles.css and the iOS MapTabView.
   const BAND_TOP = 25, BAND_RANKED = 150;
   const BAND_COLOR = ['rgba(97, 173, 242, 0.95)', 'rgba(178, 216, 250, 0.9)', 'rgba(150, 150, 158, 0.55)'];
-  const BAND_RADIUS = [9.5, 9.5, 5.5];
+  const BAND_RADIUS = [7, 7, 4];
   const bandForRank = r => r == null ? 2 : r <= BAND_TOP ? 0 : r <= BAND_RANKED ? 1 : 2;
-  const RING = 'rgba(255, 255, 255, 0.6)';
+  // A dark-blue ring keeps the pale dots readable on the light basemap.
+  const RING = 'rgba(25, 75, 135, 0.75)';
   // A venue with nothing on view (only reachable with Active shows off) is semi-transparent.
   const IS_ACTIVE = ['==', ['get', 'active'], 1];
   const DOT_OPACITY = ['case', IS_ACTIVE, 1, 0.38];
@@ -134,8 +136,8 @@
           'symbol-sort-key': ['+', ['*', 1e6, tierOrder], ['*', 5e5, activeOrder], ['get', 'rank']],
         },
         paint: {
-          'text-color': '#fff', 'text-opacity': LABEL_OPACITY,
-          'text-halo-color': 'rgba(0, 0, 0, 0.9)', 'text-halo-width': 1.2, 'text-halo-blur': 0.6,
+          'text-color': '#1c1c1e', 'text-opacity': LABEL_OPACITY,
+          'text-halo-color': 'rgba(255, 255, 255, 0.95)', 'text-halo-width': 1.4, 'text-halo-blur': 0.4,
         },
       });
       // Context layers (hidden until a list is the context)
@@ -150,7 +152,7 @@
         paint: { 'text-color': '#000' } });
       map.addLayer({ id: 'ctx-label', type: 'symbol', source: CTX, filter: ['==', ['get', 'on'], 1],
         layout: { visibility: 'none', 'text-field': ['get', 'name'], 'text-font': FONT_BOLD, 'text-size': 11, 'text-anchor': 'top', 'text-offset': [0, 1.5], 'text-max-width': 12, 'text-padding': 4 },
-        paint: { 'text-color': '#fff', 'text-halo-color': 'rgba(0, 0, 0, 0.9)', 'text-halo-width': 1.2, 'text-halo-blur': 0.6 } });
+        paint: { 'text-color': '#1c1c1e', 'text-halo-color': 'rgba(255, 255, 255, 0.95)', 'text-halo-width': 1.4, 'text-halo-blur': 0.4 } });
     }
 
     function setVisible(ids, on) {
@@ -205,6 +207,12 @@
         fitBoundsOptions: { padding: 30 },
         attributionControl: { compact: true },
       });
+      // The person's location: a blue dot that follows them, and a button that
+      // recentres the map on it (asks for permission on first tap).
+      map.addControl(new maplibregl.GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: true, showUserLocation: true, showAccuracyCircle: true,
+      }), 'bottom-right');
       map.on('load', () => {
         addLayers();
         ready = true;

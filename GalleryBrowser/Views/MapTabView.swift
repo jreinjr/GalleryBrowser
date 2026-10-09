@@ -14,19 +14,19 @@ private struct VenuePin: Identifiable {
         guard let rank, rank <= 150 else { return Color(white: 0.6).opacity(0.7) }
         return rank <= 25 ? Color.guideBlue.opacity(0.95) : Color(red: 0.70, green: 0.85, blue: 0.98).opacity(0.95)
     }
-    var dotSize: CGFloat { (rank ?? .max) <= 150 ? 22 : 12 }
+    var dotSize: CGFloat { (rank ?? .max) <= 150 ? 16.5 : 9 }
     var hasRing: Bool { (rank ?? .max) <= 150 }
 }
 
 /// The Map tab: full-bleed map of the selected city's venues with a shows
-/// filter menu; tapping a pin presents the show detail as a sheet, or the
-/// venue page when several shows share the venue.
+/// filter menu and the person's location; tapping a pin presents the show on
+/// view there as a sheet (swipe between them when the venue has several).
 struct MapTabView: View {
     @EnvironmentObject private var store: ContentStore
     @State private var filter: MapFilter = .all
     @State private var showCitySheet = false
-    @State private var selectedShow: Show?
-    @State private var selectedVenue: VenuePin?
+    @State private var selectedPin: VenuePin?
+    @State private var locationManager = CLLocationManager()
     @State private var camera: MapCameraPosition = .automatic
 
     enum MapFilter: String, CaseIterable {
@@ -66,16 +66,12 @@ struct MapTabView: View {
                 Annotation(pin.venue.isMuseum ? "🏛 \(pin.venue.name)" : pin.venue.name,
                            coordinate: pin.venue.coordinate) {
                     Button {
-                        if pin.shows.count > 1 {
-                            selectedVenue = pin
-                        } else {
-                            selectedShow = pin.shows.first
-                        }
+                        selectedPin = pin
                     } label: {
                         Circle()
                             .fill(pin.dotColor)
                             .frame(width: pin.dotSize, height: pin.dotSize)
-                            .overlay(Circle().stroke(.white.opacity(pin.hasRing ? 0.6 : 0), lineWidth: 1))
+                            .overlay(Circle().stroke(Color(red: 0.10, green: 0.29, blue: 0.53).opacity(pin.hasRing ? 0.75 : 0), lineWidth: 1))
                             .overlay(alignment: .topTrailing) {
                                 if pin.shows.count > 1 {
                                     Text("\(pin.shows.count)")
@@ -92,8 +88,14 @@ struct MapTabView: View {
                     .buttonStyle(.plain)
                 }
             }
+            UserAnnotation()
         }
-        .mapStyle(.standard)
+        .mapStyle(.standard(pointsOfInterest: .excludingAll))
+        // A light street map reads better than the app's dark scheme.
+        .environment(\.colorScheme, .light)
+        .mapControls {
+            MapUserLocationButton()
+        }
         .ignoresSafeArea(edges: .top)
         .overlay(alignment: .topLeading) {
             Button("Cities") { showCitySheet = true }
@@ -130,25 +132,19 @@ struct MapTabView: View {
             .padding(.trailing, 16)
         }
         .sheet(isPresented: $showCitySheet) { CitySelectSheet() }
-        .sheet(item: $selectedShow) { show in
+        .sheet(item: $selectedPin) { pin in
             NavigationStack {
-                ShowDetailView(shows: [show], index: 0, presentedAsSheet: true)
+                ShowDetailView(shows: pin.shows, index: 0, presentedAsSheet: true)
             }
             .preferredColorScheme(.dark)
             #if os(macOS)
             .frame(width: 380, height: 720)
             #endif
         }
-        .sheet(item: $selectedVenue) { pin in
-            NavigationStack {
-                VenueDetailView(venue: pin.venue, presentedAsSheet: true)
-            }
-            .preferredColorScheme(.dark)
-            #if os(macOS)
-            .frame(width: 380, height: 720)
-            #endif
+        .onAppear {
+            recenter()
+            locationManager.requestWhenInUseAuthorization()
         }
-        .onAppear { recenter() }
         .onChange(of: store.selectedCityKey) { recenter() }
     }
 
