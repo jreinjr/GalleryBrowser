@@ -21,6 +21,9 @@
   const BAND_TOP = 25, BAND_RANKED = 100;
   const BAND_COLOR = ['rgba(21, 101, 214, 1)', 'rgba(160, 205, 248, 0.95)', 'rgba(130, 130, 138, 0.6)'];
   const BAND_RADIUS = [5.25, 5.25, 3];
+  // A gallery marked "See" on its map card is drawn red, whatever its band.
+  const SEE_COLOR = 'rgba(229, 57, 53, 1)';
+  const IS_SEE = ['==', ['get', 'see'], 1];
   const bandForRank = r => r == null ? 2 : r <= BAND_TOP ? 0 : r <= BAND_RANKED ? 1 : 2;
   // A dark-blue ring keeps the pale dots readable on the light basemap.
   const RING = 'rgba(25, 75, 135, 0.75)';
@@ -50,6 +53,7 @@
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
     let ctxKey = null;          // which list the context source currently shows
+    let band = null;            // legend filter: null (all) | 0 | 1 | 2 (rank band) | 'see'
 
     function cityBounds(c) {
       const half = c.span / 2;
@@ -73,7 +77,7 @@
           type: 'Feature',
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
           properties: { key: g.key, name: v.name, count: g.shows.length, active: g.active ? 1 : 0,
-                        tier: g.tier || 'listed', band: bandForRank(g.rank), rank: g.rank == null ? 1e5 : g.rank },
+                        tier: g.tier || 'listed', band: bandForRank(g.rank), see: g.see ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
         });
       });
       return { type: 'FeatureCollection', features };
@@ -107,6 +111,31 @@
       return { type: 'FeatureCollection', features, stops };
     }
 
+    // The legend's group filter, applied to the dot and label layers.
+    const LABEL_FILTER = ['!=', ['get', 'tier'], 'listed'];
+    const bandFilter = () => band === null ? null : band === 'see' ? IS_SEE : ['==', ['get', 'band'], band];
+    function applyBand() {
+      if (!ready) return;
+      const f = bandFilter();
+      map.setFilter('gal-dot', f);
+      map.setFilter('gal-label', f ? ['all', LABEL_FILTER, f] : LABEL_FILTER);
+    }
+
+    // CARTO hides street names until zoom 13–16 and draws them pale; bring
+    // them in from city zoom, darker, so the map reads like a street map. Gallery labels are added
+    // later, so they still win label collisions.
+    const STREET_LABELS = { roadname_major: 10, roadname_pri: 11, roadname_sec: 12, roadname_minor: 13 };
+    function showStreetNames() {
+      Object.entries(STREET_LABELS).forEach(([id, minzoom]) => {
+        if (!map.getLayer(id)) return;
+        map.setLayerZoomRange(id, minzoom, 24);
+        map.setLayoutProperty(id, 'text-size', ['interpolate', ['linear'], ['zoom'], 11, 10, 14, 11.5, 17, 13]);
+        map.setPaintProperty(id, 'text-color', '#3a3a3c');
+        map.setPaintProperty(id, 'text-halo-color', 'rgba(255, 255, 255, 0.9)');
+        map.setPaintProperty(id, 'text-halo-width', 1.2);
+      });
+    }
+
     function addLayers() {
       map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
@@ -114,9 +143,9 @@
       // and those above the rest, active ones above faded ones of the same band.
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC,
-        layout: { 'circle-sort-key': ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]] },
+        layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'see']]] },
         paint: {
-          'circle-color': ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]],
+          'circle-color': ['case', IS_SEE, SEE_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
           'circle-radius': ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]],
           'circle-opacity': DOT_OPACITY,
           'circle-stroke-width': ['match', ['get', 'band'], 2, 0, 1], 'circle-stroke-color': RING,
@@ -126,7 +155,7 @@
       // Name label under the dot; default collision => labels never overlap.
       map.addLayer({
         id: 'gal-label', type: 'symbol', source: SRC,
-        filter: ['!=', ['get', 'tier'], 'listed'],   // listed galleries stay unlabelled
+        filter: LABEL_FILTER,   // listed galleries stay unlabelled
         layout: {
           'text-field': ['get', 'name'],
           'text-font': FONT_BOLD, 'text-size': 11,
@@ -214,8 +243,10 @@
         trackUserLocation: true, showUserLocation: true, showAccuracyCircle: true,
       }), 'bottom-right');
       map.on('load', () => {
+        showStreetNames();
         addLayers();
         ready = true;
+        applyBand();
         renderContext();
         map.on('click', onClick);
         if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
@@ -242,7 +273,8 @@
       renderPins();
     }
 
-    return { ensureInit, cityChanged, applyFilter: renderPins };
+    return { ensureInit, cityChanged, applyFilter: renderPins,
+      getBand: () => band, setBand: b => { band = b; applyBand(); } };
   };
   window.DemoMap.STYLE = STYLE;
 })();

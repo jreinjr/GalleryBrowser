@@ -19,6 +19,7 @@
     cityKey: store.get('selectedCityKey', DATA.defaultCity),
     saved: readSet('savedShowIDs'),            // My Shows: "<city>/<slug>"
     favorites: readSet('favoriteVenueIDs'),    // favorite galleries: "<city>/<venueId>"
+    toSee: readSet('seeVenueIDs'),             // galleries marked "See" on the Map: "<city>/<venueId>" (red dots)
     tab: 'featured',
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
@@ -63,6 +64,7 @@
 
   const persistSaved = () => store.set('savedShowIDs', JSON.stringify([...state.saved]));
   const persistFavorites = () => store.set('favoriteVenueIDs', JSON.stringify([...state.favorites]));
+  const persistToSee = () => store.set('seeVenueIDs', JSON.stringify([...state.toSee]));
   const persistCity = () => store.set('selectedCityKey', state.cityKey);
   const cityByKey = Object.fromEntries(DATA.cities.map(c => [c.key, c]));
 
@@ -363,6 +365,15 @@
   // galleries" is then a default list — their shows — and a filter context.
   // Stored as "<city>/<venueId>" in localStorage['favoriteVenueIDs'].
   const favKey = v => state.cityKey + '/' + venueId(v);
+  // "See": a gallery marked on the Map as one to visit; its dot turns red.
+  const isToSee = v => !!venueId(v) && state.toSee.has(favKey(v));
+  function toggleToSee(v) {
+    if (!venueId(v)) return;
+    const k = favKey(v);
+    if (state.toSee.has(k)) state.toSee.delete(k); else state.toSee.add(k);
+    persistToSee();
+    MapTab.applyFilter();
+  }
   const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
   const favoriteVenues = () => cityVenues().filter(isFavorite)
     .sort((a, b) => (venueRank(a) ?? 1e9) - (venueRank(b) ?? 1e9) || (a.name || '').localeCompare(b.name || ''));
@@ -1328,6 +1339,15 @@
       if (back) back.onclick = () => p.remove();
       page.parentElement.appendChild(p);
     };
+    const seeBtn = el('button', { class: 'capsule-btn detail-save see-btn', 'data-see': '' });
+    const paintSee = () => {
+      const on = isToSee(v);
+      seeBtn.classList.toggle('on', on);
+      seeBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      seeBtn.replaceChildren(icon(on ? 'check' : 'eye'), el('span', null, on ? 'Marked to see' : 'See'));
+    };
+    seeBtn.onclick = () => { toggleToSee(v); paintSee(); };
+    paintSee();
     const body = el('div', { class: 'detail-body' },
       el('button', { class: 'venue-block', style: 'margin-top:0', onclick: openVenue },
         el('div', { class: 'vb-text' },
@@ -1335,6 +1355,7 @@
           el('div', { class: 'vb-line' }, fullAddress(v)),
           ...(v.hours || []).map(h => el('div', { class: 'vb-line' }, h))),
         icon('chevronRight')),
+      seeBtn,
       el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
         icon('walk'), el('span', null, 'Directions')));
     page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
@@ -1486,7 +1507,7 @@
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: 'all',
     active: true, list: null, receptions: false, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
-  // galleryRank is 'all' or a whole-number cutoff (the Gallery rank slider, 0 … All).
+  // galleryRank is 'all' or a whole-number cutoff (the Gallery rank slider, 0 … 200, or its All button).
   const validRankCutoff = k => k === 'all' || /^\d+$/.test(String(k));
   const rankLabel = k => k === 'all' ? 'All' : 'Top ' + k;
   // Whether a venue is inside the chosen rank cutoff (unranked ones only under All).
@@ -1600,7 +1621,7 @@
         if (!out.has(k) && venueMatches(v, f)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue) }));
+    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), see: isToSee(g.venue) }));
   }
   // Pure: stable sort by the chosen key; ties fall back to the gallery rank,
   // then, within one gallery, to the show closing soonest.
@@ -1747,16 +1768,18 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: a continuous slider from 0 to the city's last ranked
-    // gallery; all the way right is All (unranked galleries included).
-    const rankMax = Math.max(1, ...cityVenues().map(venueRank).filter(r => r != null));
-    const rankVal = () => f.galleryRank === 'all' ? rankMax : Math.min(rankMax, Number(f.galleryRank));
-    const rankInput = el('input', { type: 'range', min: '0', max: String(rankMax), step: '1',
+    // Gallery rank: a continuous slider from 0 to 200, and an All button
+    // beside it (every gallery, unranked ones included).
+    const RANK_SLIDER_MAX = 200;
+    const rankVal = () => f.galleryRank === 'all' ? RANK_SLIDER_MAX : Math.min(RANK_SLIDER_MAX, Number(f.galleryRank));
+    const rankInput = el('input', { type: 'range', min: '0', max: String(RANK_SLIDER_MAX), step: '1',
       value: String(rankVal()), 'aria-label': 'Gallery rank' });
-    rankInput.addEventListener('input', () => { const n = Number(rankInput.value); f.galleryRank = n >= rankMax ? 'all' : String(n); update(); });
-    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, 'All'));
+    rankInput.addEventListener('input', () => { f.galleryRank = String(Number(rankInput.value)); update(); });
+    const rankAll = el('button', { class: 'rank-all', 'data-value': 'all', onclick: () => { f.galleryRank = 'all'; update(); } }, 'All');
+    const rankStops = el('div', { class: 'rank-stops' }, el('span', null, '0'), el('span', null, '100'), el('span', null, '200'));
     const rankSlider = el('div', { class: 'rank-slider', 'data-rank-slider': '' },
-      el('div', { class: 'rank-value' }), rankInput, rankStops);
+      el('div', { class: 'rank-value' }),
+      el('div', { class: 'rank-row' }, el('div', { class: 'rank-track' }, rankInput, rankStops), rankAll));
     const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
     const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
@@ -1810,6 +1833,8 @@
       }));
       rankInput.value = String(rankVal());
       rankSlider.querySelector('.rank-value').textContent = rankLabel(f.galleryRank) + ' galleries';
+      rankAll.classList.toggle('on', f.galleryRank === 'all');
+      rankInput.classList.toggle('dim', f.galleryRank === 'all');
       hoodWrap.innerHTML = '';
       hoodWrap.append(
         el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
@@ -2450,6 +2475,18 @@
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
   // The legend's link opens the ranking as a sheet (the Map has no page stack).
   document.getElementById('map-rank-btn').addEventListener('click', () => openSheet(galleriesPage({ asSheet: true })));
+  // Tapping a legend row shows only that group on the Map; tapping it again shows all.
+  const legendRows = [...document.querySelectorAll('#map-legend [data-band]')];
+  legendRows.forEach(row => row.addEventListener('click', () => {
+    const band = row.dataset.band === 'see' ? 'see' : Number(row.dataset.band);
+    const next = MapTab.getBand() === band ? null : band;
+    MapTab.setBand(next);
+    legendRows.forEach(r => {
+      r.classList.toggle('on', next !== null && r === row);
+      r.classList.toggle('dim', next !== null && r !== row);
+      r.setAttribute('aria-pressed', next !== null && r === row ? 'true' : 'false');
+    });
+  }));
 
   // ---------------- discover tab ----------------
   // A chat over the city's data, answered by /api/discover (webdemo/api). Every

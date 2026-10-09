@@ -22,12 +22,18 @@ final class ContentStore: ObservableObject {
         didSet { UserDefaults.standard.set(Array(savedShowIDs), forKey: "savedShowIDs") }
     }
 
+    /// Galleries marked "See" on the map (red dots), by "<city>/<venue grouping key>".
+    @Published private(set) var toSeeVenueKeys: Set<String> {
+        didSet { UserDefaults.standard.set(Array(toSeeVenueKeys), forKey: "seeVenueKeys") }
+    }
+
     private var cache: [String: [Show]] = [:]
     private var rankCache: [String: [String: Int]] = [:]
 
     init() {
         selectedCityKey = UserDefaults.standard.string(forKey: "selectedCityKey") ?? "seattle"
         savedShowIDs = Set(UserDefaults.standard.stringArray(forKey: "savedShowIDs") ?? [])
+        toSeeVenueKeys = Set(UserDefaults.standard.stringArray(forKey: "seeVenueKeys") ?? [])
     }
 
     var selectedCity: City { City.named(selectedCityKey) }
@@ -103,6 +109,19 @@ final class ContentStore: ObservableObject {
             savedShowIDs.remove(show.id)
         } else {
             savedShowIDs.insert(show.id)
+        }
+    }
+
+    private func seeKey(_ venue: Venue) -> String { "\(selectedCityKey)/\(venue.groupingKey)" }
+
+    func isToSee(_ venue: Venue) -> Bool { toSeeVenueKeys.contains(seeKey(venue)) }
+
+    func toggleToSee(_ venue: Venue) {
+        let key = seeKey(venue)
+        if toSeeVenueKeys.contains(key) {
+            toSeeVenueKeys.remove(key)
+        } else {
+            toSeeVenueKeys.insert(key)
         }
     }
 

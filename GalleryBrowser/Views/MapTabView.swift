@@ -69,7 +69,7 @@ struct MapTabView: View {
                         selectedPin = pin
                     } label: {
                         Circle()
-                            .fill(pin.dotColor)
+                            .fill(store.isToSee(pin.venue) ? Color(red: 0.90, green: 0.22, blue: 0.21) : pin.dotColor)
                             .frame(width: pin.dotSize, height: pin.dotSize)
                             .overlay(Circle().stroke(Color(red: 0.10, green: 0.29, blue: 0.53).opacity(pin.hasRing ? 0.75 : 0), lineWidth: 1))
                             .overlay(alignment: .topTrailing) {
@@ -165,6 +165,7 @@ private struct MapVenueCard: View {
     let venue: Venue
     let shows: [Show]
 
+    @EnvironmentObject private var store: ContentStore
     @Environment(\.dismiss) private var dismiss
 
     private var images: [String] { shows.flatMap(\.images) }
@@ -194,6 +195,21 @@ private struct MapVenueCard: View {
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(.secondary)
                         }
+                    }
+                    .buttonStyle(.plain)
+
+                    // "See" marks the gallery as one to visit; its map dot turns red.
+                    let marked = store.isToSee(venue)
+                    Button {
+                        store.toggleToSee(venue)
+                    } label: {
+                        Label(marked ? "Marked to see" : "See", systemImage: marked ? "checkmark" : "eye")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 13)
+                            .background(marked ? Color(red: 0.90, green: 0.22, blue: 0.21) : Color.white.opacity(0.12),
+                                        in: Capsule())
                     }
                     .buttonStyle(.plain)
 

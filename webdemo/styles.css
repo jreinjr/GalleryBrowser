@@ -340,11 +340,19 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .switch.on::after { left: 20px; }
 .seg-row { display: flex; gap: 0; margin: 0 16px 16px; background: var(--field); border-radius: 10px; padding: 3px; }
 .seg-row button { flex: 1; padding: 7px 0; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--secondary); text-align: center; white-space: nowrap; }
-/* Gallery rank slider in the filter sheet: continuous, 0 to All */
+/* Gallery rank slider in the filter sheet: continuous 0–200, plus All */
 .rank-slider { margin: 0 16px 16px; background: var(--field); border-radius: 10px; padding: 10px 14px 8px; }
 .rank-slider .rank-value { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.rank-slider .rank-row { display: flex; align-items: center; gap: 12px; }
+.rank-slider .rank-track { flex: 1; min-width: 0; }
 .rank-slider input[type=range] { width: 100%; margin: 0; accent-color: var(--blue); height: 28px; }
+.rank-slider input[type=range].dim { opacity: 0.45; }
 .rank-stops { display: flex; justify-content: space-between; margin-top: 2px; font-size: 12px; color: var(--secondary); }
+.rank-all { flex: 0 0 auto; padding: 7px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--secondary); background: rgba(255, 255, 255, 0.08); }
+.rank-all.on { background: var(--blue); color: #000; }
+/* The map card's See toggle: red once the gallery is marked to see */
+.see-btn { background: rgba(255, 255, 255, 0.12); color: #fff; margin-bottom: 10px; }
+.see-btn.on { background: rgba(229, 57, 53, 1); color: #fff; }
 .seg-row button.on { background: #48484a; color: #fff; font-weight: 600; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }
 .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px; }
 .filter-sheet [data-sort] .row { cursor: pointer; }
@@ -409,6 +417,11 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .map-legend i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.5); }
 .map-legend i.b-top { background: rgba(21, 101, 214, 1); }
 .map-legend i.b-ranked { background: rgba(160, 205, 248, 0.95); }
+.map-legend i.b-see { background: rgba(229, 57, 53, 1); }
+/* Legend rows filter the map: tap one to show only that group */
+.map-legend .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #fff; text-align: left; padding: 1px 0; }
+.map-legend .legend-row.on span { font-weight: 700; }
+.map-legend .legend-row.dim { opacity: 0.4; }
 .map-legend i.b-listed { background: rgba(150, 150, 158, 0.55); border: none; width: 8px; height: 8px; margin: 2px; }
 /* a venue with nothing on view is drawn faded (only with Active shows off) */
 .map-legend i.t-off { background: rgba(97, 173, 242, 0.36); border-color: rgba(255, 255, 255, 0.25); }
