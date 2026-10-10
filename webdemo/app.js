@@ -1321,7 +1321,9 @@
   // The Map's tap card: the images of what is on view (the gallery's own
   // photos when nothing is), then only the gallery's name, address, hours and
   // a Directions link; no show text. The name opens the full gallery page.
-  function mapVenueCard(v, shows) {
+  // `others` are the galleries sharing this pin (one building): each opens
+  // its own card in place of this one.
+  function mapVenueCard(v, shows, others = []) {
     const on = shows.filter(isActiveShow);
     const images = (on.length ? on : shows).flatMap(s => s.images || []);
     const pics = images.length ? images : (v.photos || []);
@@ -1359,6 +1361,14 @@
       seeBtn,
       el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
         icon('walk'), el('span', null, 'Directions')),
+      ...(others.length ? [el('div', { class: 'same-pin', 'data-same-pin': '' },
+        el('div', { class: 'same-pin-head' }, 'Also at this address'),
+        ...others.map(o => el('button', { class: 'venue-block',
+          onclick: () => { closeSheet(); openSheet(mapVenueCard(fullVenue(o.venue), o.shows, [{ venue: v, shows }, ...others.filter(x => x !== o)])); } },
+          el('div', { class: 'vb-text' },
+            el('div', { class: 'vb-name' }, tierStar(galleryTier(o.venue)), listLine(o.venue)),
+            el('div', { class: 'vb-line' }, plural(o.shows.filter(isActiveShow).length, 'show') + ' on view')),
+          icon('chevronRight'))))] : []),
       rankBox);
     page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
     return page;
@@ -1426,7 +1436,7 @@
       const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
       box.replaceChildren(
         el('div', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`, note ? el('span', { class: 'rank-note' }, ' · ' + note) : null),
-        changeBtn, copyBtn);
+        changeBtn, ...(copyBtn ? [copyBtn] : []));   // replaceChildren would print a null as text
     }
     function editing() {
       const input = el('input', { type: 'number', inputmode: 'numeric', min: '1', value: String(venueRank(v) || ''), 'aria-label': 'New rank' });
@@ -2559,8 +2569,9 @@
     getCity: city,
     getVenues: mapVenues,
     venueKey,
-    // A tap opens the compact gallery card: images, hours, Directions.
-    onVenueTap: (v, shows) => openSheet(mapVenueCard(fullVenue(v), shows || [])),
+    // A tap opens the compact gallery card: images, hours, Directions, and
+    // the other galleries sharing the pin.
+    onVenueTap: (v, shows, others) => openSheet(mapVenueCard(fullVenue(v), shows || [], others || [])),
     // The chosen list as context: its venues highlighted (a route also drawn
     // as a line through them in order), the rest of the filter dimmed.
     getContext: () => {

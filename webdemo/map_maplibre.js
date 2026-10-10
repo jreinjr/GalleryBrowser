@@ -45,12 +45,14 @@
   //   venue to draw (app.js mapVenues), tier 'top' | 'notable' | 'listed', rank
   //   the gallery's rank or null, active whether a show is on view there.
   // venueKey(venue) -> string groups shows that share a venue (the context layer).
-  // onVenueTap(venue, shows) opens the venue page.
+  // onVenueTap(venue, shows, others) opens the venue card; others are the
+  //   [{ venue, shows }] of further galleries sharing that pin (one building).
   // getContext() -> null | { list: {kind}, shows: [ordered list shows], backdrop: [other shows] }
   window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
+    let stacks = new Map();     // lead key -> keys of every gallery on that pin, lead first
     let ctxKey = null;          // which list the context source currently shows
 
     function cityBounds(c) {
@@ -61,22 +63,36 @@
       ];
     }
 
-    // One feature per venue (the app has already grouped a venue's concurrent
-    // shows). Sort keys are the gallery's own tier and rank — a show has no
-    // rank of its own — with an active venue ahead of a faded one.
+    // One feature per spot (the app has already grouped a venue's concurrent
+    // shows). Galleries in one building share coordinates, so their dots would
+    // stack and only the top one could be seen or tapped: they become one pin
+    // labelled with every name, best-ranked first, and the tap card lists the
+    // others. Sort keys are the lead gallery's own tier and rank — a show has
+    // no rank of its own — with an active venue ahead of a faded one.
+    const SAME_SPOT = 0.00005;          // degrees, ~5 m
+    const leadOrder = g => bandForRank(g.rank) * 1e6 + (g.active ? 0 : 5e5) + (g.rank == null ? 1e5 : g.rank);
     function buildGeoJSON() {
       groups = new Map();
-      const features = [];
+      stacks = new Map();
+      const spots = [];
       getVenues().forEach(g => {
         const v = g.venue;
         if (v.lat == null || v.lng == null) return;
         groups.set(g.key, { venue: v, shows: g.shows });
-        features.push({
+        const spot = spots.find(s => Math.abs(s.lat - v.lat) < SAME_SPOT && Math.abs(s.lng - v.lng) < SAME_SPOT);
+        if (spot) spot.members.push(g); else spots.push({ lat: v.lat, lng: v.lng, members: [g] });
+      });
+      const features = spots.map(({ members }) => {
+        members.sort((a, b) => leadOrder(a) - leadOrder(b));
+        const g = members[0], v = g.venue;
+        stacks.set(g.key, members.map(m => m.key));
+        return {
           type: 'Feature',
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-          properties: { key: g.key, name: v.name, count: g.shows.length, active: g.active ? 1 : 0,
-                        tier: g.tier || 'listed', band: bandForRank(g.rank), see: g.see ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
-        });
+          properties: { key: g.key, name: members.map(m => m.venue.name).join(' · '),
+                        count: members.reduce((a, m) => a + m.shows.length, 0), active: members.some(m => m.active) ? 1 : 0,
+                        tier: g.tier || 'listed', band: bandForRank(g.rank), see: members.some(m => m.see) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
+        };
       });
       return { type: 'FeatureCollection', features };
     }
@@ -209,7 +225,7 @@
       const f = hits.sort((a, b) => paintOrder(a) - paintOrder(b))[0];
       if (!f) return;
       const g = groups.get(f.properties.key);
-      if (g) { onVenueTap(g.venue, g.shows); return; }
+      if (g) { onVenueTap(g.venue, g.shows, (stacks.get(f.properties.key) || []).slice(1).map(k => groups.get(k))); return; }
       // a context stop whose shows are not in the filtered set
       const ctx = getContext ? getContext() : null;
       const shows = ctx ? ctx.shows.filter(s => venueKey(s.venue) === f.properties.key) : [];

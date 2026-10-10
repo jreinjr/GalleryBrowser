@@ -350,6 +350,10 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .rank-edit .rank-form .capsule-btn { flex: 0 0 auto; padding: 0 20px; }
 .rank-edit .rank-copy { display: block; margin-top: 4px; color: var(--blue); font-size: 14px; font-weight: 600; }
 .rank-edit .rank-export { width: 100%; margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--field); color: #fff; font: 13px/1.4 ui-monospace, Menlo, monospace; border: none; }
+/* The map card's other galleries on the same pin (one building) */
+.same-pin { margin-top: 18px; padding-top: 14px; border-top: 0.5px solid var(--sep); }
+.same-pin .same-pin-head { font-size: 15px; font-weight: 600; }
+.same-pin .venue-block { margin-top: 12px; width: 100%; text-align: left; }
 /* The map card's See toggle: red once the gallery is marked to see */
 .see-btn { background: rgba(255, 255, 255, 0.12); color: #fff; margin-bottom: 10px; }
 .see-btn.on { background: rgba(229, 57, 53, 1); color: #fff; }
