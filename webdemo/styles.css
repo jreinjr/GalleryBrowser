@@ -371,18 +371,23 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .rank-actions .capsule-btn { flex: 0 0 auto; width: auto; padding: 11px 22px; }
 .rank-actions .capsule-btn:disabled { opacity: 0.4; }
 /* The small Gem toggle on the rank line, and the symbol picker */
-.gem-wrap { display: inline-flex; align-items: center; gap: 4px; }
+.gem-wrap { display: inline-flex; align-items: center; gap: 6px; }
 .gem-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: var(--secondary); font-size: 14px; font-weight: 600; }
 .gem-toggle svg { width: 16px; height: 16px; opacity: 0.55; }
-.gem-toggle .gem-emoji { font-size: 15px; line-height: 1; opacity: 0.55; filter: grayscale(1); }
+.gem-toggle .gem-emoji { font-size: 16px; line-height: 1; opacity: 0.6; }
 .gem-toggle.on { background: rgba(21, 101, 214, 1); color: #fff; }
 .gem-toggle.on svg, .gem-toggle.on .gem-emoji { opacity: 1; filter: none; }
-.gem-pick { width: 30px; height: 30px; border-radius: 50%; color: var(--secondary); font-size: 16px; font-weight: 700; line-height: 1; }
-.gem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 10px; margin-top: 16px; }
+.gem-pick { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); color: var(--secondary); font-size: 13px; font-weight: 600; }
+.gem-pick svg { width: 13px; height: 13px; }
+.gem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 10px; margin-top: 10px; }
 .gem-choice { height: 52px; border-radius: 14px; background: rgba(255, 255, 255, 0.08); font-size: 26px; display: grid; place-items: center; color: #61ADF2; }
 .gem-choice svg { width: 26px; height: 26px; }
 .gem-choice.on { outline: 2px solid var(--blue); background: rgba(97, 173, 242, 0.18); }
-.gem-custom { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+.gem-sub { margin-top: 18px; font-size: 13px; font-weight: 600; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.gem-custom { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+.gem-own-preview { flex: 0 0 52px; height: 52px; border-radius: 14px; background: rgba(255, 255, 255, 0.08); display: grid; place-items: center; font-size: 28px; }
+.gem-hint { margin-top: 8px; font-size: 13px; color: var(--secondary); }
+.gem-custom .capsule-btn:disabled { opacity: 0.4; }
 .gem-input { flex: 1; min-width: 0; padding: 11px 14px; border-radius: 12px; background: var(--field); color: #fff; font-size: 18px; border: none; }
 .gem-custom .capsule-btn { flex: 0 0 auto; width: auto; padding: 11px 22px; }
 .gc-lines { margin-top: 16px; }

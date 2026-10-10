@@ -28,20 +28,26 @@
   const IS_GEM = ['==', ['get', 'gem'], 1];
   const GEM_IMAGE = ['case', IS_SAVED, 'gem-red', ['match', ['get', 'band'], 0, 'gem-0', 1, 'gem-1', 'gem-2']];
   // Gem icons for the symbol layer, one per colour, drawn on a canvas at 3x.
-  // With an emoji picked (`sym`) the icons are that emoji; red ones sit on a
-  // red disc, since an emoji cannot be recoloured.
+  // With an emoji picked (`sym`) the icons are that emoji on a white disc with
+  // a soft shadow, or on a red disc when the gallery has a saved show (an
+  // emoji cannot be recoloured).
   function addGemImages(map, sym) {
-    const S = 20, R = 3, P = S * R;
+    const S = sym ? 28 : 20, R = 3, P = S * R;   // an emoji gets a bigger, shadowed disc so it reads at a glance
     const colors = { 'gem-0': BAND_COLOR[0], 'gem-1': 'rgba(120, 180, 240, 1)', 'gem-2': 'rgba(130, 130, 138, 1)', 'gem-red': SAVED_COLOR };
     Object.entries(colors).forEach(([id, fill]) => {
       const c = document.createElement('canvas'); c.width = c.height = P;
       const g = c.getContext('2d');
       if (sym) {
-        if (id === 'gem-red') { g.beginPath(); g.arc(P / 2, P / 2, P / 2 - 1, 0, 2 * Math.PI); g.fillStyle = fill; g.fill(); }
-        else { g.beginPath(); g.arc(P / 2, P / 2, P / 2 - 1, 0, 2 * Math.PI); g.fillStyle = 'rgba(255, 255, 255, 0.85)'; g.fill(); }
-        g.font = `${Math.round(P * 0.72)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+        const r = P / 2 - 4 * R;
+        g.save();
+        g.shadowColor = 'rgba(0, 0, 0, 0.35)'; g.shadowBlur = 3 * R; g.shadowOffsetY = 1 * R;
+        g.beginPath(); g.arc(P / 2, P / 2, r, 0, 2 * Math.PI);
+        g.fillStyle = id === 'gem-red' ? fill : '#ffffff'; g.fill();
+        g.restore();
+        g.lineWidth = 1.5 * R; g.strokeStyle = id === 'gem-red' ? '#ffffff' : 'rgba(25, 75, 135, 0.35)'; g.stroke();
+        g.font = `${Math.round(r * 1.3)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
         g.textAlign = 'center'; g.textBaseline = 'middle';
-        g.fillText(sym, P / 2, P / 2 + P * 0.04);
+        g.fillText(sym, P / 2, P / 2 + r * 0.08);
       } else {
         g.scale(P / 24, P / 24);
         const outline = () => { g.beginPath(); g.moveTo(6.5, 3.5); g.lineTo(17.5, 3.5); g.lineTo(21.5, 9); g.lineTo(12, 21); g.lineTo(2.5, 9); g.closePath(); };
@@ -51,7 +57,9 @@
         outline(); g.strokeStyle = RING; g.lineWidth = 1.2; g.stroke();
       }
       const img = g.getImageData(0, 0, P, P);
-      if (map.hasImage(id)) map.updateImage(id, img); else map.addImage(id, img, { pixelRatio: R });
+      // updateImage needs the same size; switching gem <-> emoji changes it
+      if (map.hasImage(id)) map.removeImage(id);
+      map.addImage(id, img, { pixelRatio: R });
     });
   }
   // Several galleries in one building share a pin: larger, with the count inside.

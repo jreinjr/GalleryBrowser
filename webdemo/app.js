@@ -399,28 +399,42 @@
     };
     b.onclick = () => { toggleGem(v); b.paint(); };
     b.paint();
-    const pick = el('button', { class: 'gem-pick', 'aria-label': 'Choose the gem symbol', onclick: openGemPicker }, '⋯');
+    const pick = el('button', { class: 'gem-pick', 'aria-label': 'Choose the gem symbol', onclick: openGemPicker }, icon('pencil'), el('span', null, 'Symbol'));
     return el('div', { class: 'gem-wrap' }, b, pick);
   }
   const GEM_CHOICES = ['💎', '⭐', '❤️', '🔥', '🌟', '👀', '✨', '🎨', '🖼️', '🏛️', '📍', '🍸', '🌈', '👑', '🦄', '🌸'];
   function openGemPicker() {
     const cur = gemSymbol();
-    const input = el('input', { type: 'text', class: 'gem-input', placeholder: 'Or type any emoji', maxlength: '8', 'aria-label': 'Any emoji' });
+    // The first emoji in a string, whole (a joined or flag emoji counts as one).
+    const firstEmoji = t => !t ? '' : window.Intl && Intl.Segmenter ? [...new Intl.Segmenter().segment(t)][0].segment : [...t][0];
     const choose = sym => { setGemSymbol(sym); closeSheet(); };
+    // Your own: type or paste any emoji (the globe key on the iPhone keyboard
+    // switches to emoji); it shows in the preview and Save uses it.
+    const preview = el('span', { class: 'gem-own-preview' }, cur && !GEM_CHOICES.includes(cur) ? cur : '');
+    const input = el('input', { type: 'text', class: 'gem-input', inputmode: 'text', enterkeyhint: 'done', autocomplete: 'off',
+      autocorrect: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: 'Tap to type', 'aria-label': 'Your own emoji' });
+    const save = el('button', { class: 'capsule-btn gem-save', disabled: '' }, 'Save');
+    const update = () => {
+      const sym = firstEmoji((input.value || '').trim());
+      preview.textContent = sym;
+      if (sym) save.removeAttribute('disabled'); else save.setAttribute('disabled', '');
+      return sym;
+    };
+    input.addEventListener('input', update);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); const sym = update(); if (sym) choose(sym); } });
+    save.onclick = () => { const sym = update(); if (sym) choose(sym); else input.focus(); };
     const page = el('div', { class: 'page gem-picker' },
       el('div', { class: 'page-scroll' },
         el('div', { class: 'navrow' }, el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })),
         el('div', { class: 'detail-body' },
           el('div', { class: 'venue-title' }, 'Gem symbol'),
+          el('div', { class: 'gem-sub' }, 'Your own emoji'),
+          el('div', { class: 'gem-custom' }, preview, input, save),
+          el('div', { class: 'gem-hint' }, 'On iPhone, tap the field, then the 😀 or globe key to open the emoji keyboard.'),
+          el('div', { class: 'gem-sub' }, 'Or pick one'),
           el('div', { class: 'gem-grid' },
             el('button', { class: 'gem-choice' + (cur ? '' : ' on'), 'aria-label': 'The built-in gem', onclick: () => choose(null) }, icon('gem')),
-            ...GEM_CHOICES.map(e => el('button', { class: 'gem-choice' + (cur === e ? ' on' : ''), onclick: () => choose(e) }, e))),
-          el('div', { class: 'gem-custom' }, input,
-            el('button', { class: 'capsule-btn', onclick: () => {
-              const t = (input.value || '').trim();   // the first emoji typed, whole (joined emoji count as one)
-              const sym = !t ? '' : window.Intl && Intl.Segmenter ? [...new Intl.Segmenter().segment(t)][0].segment : [...t][0];
-              if (sym) choose(sym); else input.focus();
-            } }, 'Use')))));
+            ...GEM_CHOICES.map(e => el('button', { class: 'gem-choice' + (cur === e ? ' on' : ''), onclick: () => choose(e) }, e))))));
     openSheet(page);
   }
   // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem.
