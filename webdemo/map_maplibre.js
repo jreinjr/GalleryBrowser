@@ -23,6 +23,9 @@
   // A gallery marked "See" on its map card is drawn red, whatever its band.
   const SEE_COLOR = 'rgba(229, 57, 53, 1)';
   const IS_SEE = ['==', ['get', 'see'], 1];
+  // Several galleries in one building share a pin: larger, with the count inside.
+  const IS_SHARED = ['>', ['coalesce', ['get', 'n'], 1], 1];
+  const SHARED_RADIUS = 9;
   const bandForRank = r => r == null ? 2 : r <= BAND_TOP ? 0 : r <= BAND_RANKED ? 1 : 2;
   // A dark-blue ring keeps the pale dots readable on the light basemap.
   const RING = 'rgba(25, 75, 135, 0.75)';
@@ -34,12 +37,12 @@
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
     'HanWangHeiLight Regular', 'NanumBarunGothic Regular'];
-  const CLICK_LAYERS = ['gal-dot', 'gal-label', 'ctx-dot', 'ctx-label'];
+  const CLICK_LAYERS = ['gal-dot', 'gal-count', 'gal-label', 'ctx-dot', 'ctx-label'];
   // A list as context: its venues in blue over a dimmed backdrop; a route
   // list also draws a dashed line through the stops in order.
   const CTX = 'ctx';
   const CTX_LAYERS = ['ctx-line', 'ctx-dim', 'ctx-dot', 'ctx-num', 'ctx-label'];
-  const GAL_LAYERS = ['gal-dot', 'gal-label'];
+  const GAL_LAYERS = ['gal-dot', 'gal-count', 'gal-label'];
 
   // getVenues() -> [{ key, venue, shows, active, tier, rank }]: one entry per
   //   venue to draw (app.js mapVenues), tier 'top' | 'notable' | 'listed', rank
@@ -67,7 +70,8 @@
     // shows). Galleries in one building share coordinates, so their dots would
     // stack and only the top one could be seen or tapped: they become one pin
     // labelled with every name, best-ranked first, and the tap card lists the
-    // others. Sort keys are the lead gallery's own tier and rank — a show has
+    // others; the pin is drawn larger with the count inside, and the names
+    // stack one per line. Sort keys are the lead gallery's own tier and rank — a show has
     // no rank of its own — with an active venue ahead of a faded one.
     const SAME_SPOT = 0.00005;          // degrees, ~5 m
     const leadOrder = g => bandForRank(g.rank) * 1e6 + (g.active ? 0 : 5e5) + (g.rank == null ? 1e5 : g.rank);
@@ -89,7 +93,7 @@
         return {
           type: 'Feature',
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-          properties: { key: g.key, name: members.map(m => m.venue.name).join(' · '),
+          properties: { key: g.key, name: members.map(m => m.venue.name).join('\n'), n: members.length,
                         count: members.reduce((a, m) => a + m.shows.length, 0), active: members.some(m => m.active) ? 1 : 0,
                         tier: g.tier || 'listed', band: bandForRank(g.rank), see: members.some(m => m.see) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
         };
@@ -152,11 +156,18 @@
         layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'see']]] },
         paint: {
           'circle-color': ['case', IS_SEE, SEE_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
-          'circle-radius': ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]],
+          'circle-radius': ['case', IS_SHARED, SHARED_RADIUS, ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]]],
           'circle-opacity': DOT_OPACITY,
           'circle-stroke-width': 1, 'circle-stroke-color': RING,
           'circle-stroke-opacity': DOT_OPACITY,
         },
+      });
+      // The number of galleries on a shared pin, inside its dot.
+      map.addLayer({
+        id: 'gal-count', type: 'symbol', source: SRC, filter: IS_SHARED,
+        layout: { 'text-field': ['to-string', ['get', 'n']], 'text-font': FONT_BOLD, 'text-size': 11,
+                  'text-allow-overlap': true, 'text-ignore-placement': true },
+        paint: { 'text-color': ['case', ['==', ['get', 'band'], 1], '#14365e', '#ffffff'], 'text-opacity': DOT_OPACITY },
       });
       // Name label under the dot; default collision => labels never overlap.
       map.addLayer({
@@ -165,7 +176,7 @@
         layout: {
           'text-field': ['get', 'name'],
           'text-font': FONT_BOLD, 'text-size': 11,
-          'text-anchor': 'top', 'text-offset': [0, 1.2],
+          'text-anchor': 'top', 'text-offset': ['case', IS_SHARED, ['literal', [0, 1.5]], ['literal', [0, 1.2]]],
           'text-max-width': 12, 'text-padding': 4,
           // top tier first, active before faded, then the gallery's rank
           'symbol-sort-key': ['+', ['*', 1e6, tierOrder], ['*', 5e5, activeOrder], ['get', 'rank']],

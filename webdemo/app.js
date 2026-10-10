@@ -1351,7 +1351,17 @@
     seeBtn.onclick = () => { toggleToSee(v); paintSee(); };
     paintSee();
     const rankBox = rankEditor(v);
+    // Galleries sharing the pin: a row of name tabs above the card, this one
+    // selected; another opens its own card in place of this one.
+    const here = [{ venue: v, shows }, ...others].sort((a, b) => (venueRank(a.venue) ?? 1e9) - (venueRank(b.venue) ?? 1e9));
+    const samePin = others.length ? el('div', { class: 'same-pin', 'data-same-pin': '' },
+      el('div', { class: 'same-pin-head' }, `${here.length} galleries at this address`),
+      el('div', { class: 'same-pin-tabs' }, ...here.map(o => o.venue === v
+        ? el('span', { class: 'same-pin-tab on', 'aria-current': 'true' }, listLine(o.venue))
+        : el('button', { class: 'same-pin-tab', onclick: () => { closeSheet(); openSheet(mapVenueCard(fullVenue(o.venue), o.shows, here.filter(x => x !== o))); } },
+            listLine(o.venue))))) : null;
     const body = el('div', { class: 'detail-body' },
+      ...(samePin ? [samePin] : []),
       el('button', { class: 'venue-block', style: 'margin-top:0', onclick: openVenue },
         el('div', { class: 'vb-text' },
           el('div', { class: 'vb-name' }, tierStar(galleryTier(v)), listLine(v)),
@@ -1361,14 +1371,6 @@
       seeBtn,
       el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
         icon('walk'), el('span', null, 'Directions')),
-      ...(others.length ? [el('div', { class: 'same-pin', 'data-same-pin': '' },
-        el('div', { class: 'same-pin-head' }, 'Also at this address'),
-        ...others.map(o => el('button', { class: 'venue-block',
-          onclick: () => { closeSheet(); openSheet(mapVenueCard(fullVenue(o.venue), o.shows, [{ venue: v, shows }, ...others.filter(x => x !== o)])); } },
-          el('div', { class: 'vb-text' },
-            el('div', { class: 'vb-name' }, tierStar(galleryTier(o.venue)), listLine(o.venue)),
-            el('div', { class: 'vb-line' }, plural(o.shows.filter(isActiveShow).length, 'show') + ' on view')),
-          icon('chevronRight'))))] : []),
       rankBox);
     page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
     return page;
