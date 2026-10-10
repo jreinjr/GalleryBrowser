@@ -28,19 +28,30 @@
   const IS_GEM = ['==', ['get', 'gem'], 1];
   const GEM_IMAGE = ['case', IS_SAVED, 'gem-red', ['match', ['get', 'band'], 0, 'gem-0', 1, 'gem-1', 'gem-2']];
   // Gem icons for the symbol layer, one per colour, drawn on a canvas at 3x.
-  function addGemImages(map) {
-    const S = 14, R = 3;   // about a dot's size (dots are 10.5 px across plus the ring)
+  // With an emoji picked (`sym`) the icons are that emoji; red ones sit on a
+  // red disc, since an emoji cannot be recoloured.
+  function addGemImages(map, sym) {
+    const S = 20, R = 3, P = S * R;
     const colors = { 'gem-0': BAND_COLOR[0], 'gem-1': 'rgba(120, 180, 240, 1)', 'gem-2': 'rgba(130, 130, 138, 1)', 'gem-red': SAVED_COLOR };
     Object.entries(colors).forEach(([id, fill]) => {
-      if (map.hasImage(id)) return;
-      const c = document.createElement('canvas'); c.width = c.height = S * R;
-      const g = c.getContext('2d'); g.scale(R * S / 24, R * S / 24);
-      const outline = () => { g.beginPath(); g.moveTo(6.5, 3.5); g.lineTo(17.5, 3.5); g.lineTo(21.5, 9); g.lineTo(12, 21); g.lineTo(2.5, 9); g.closePath(); };
-      outline(); g.fillStyle = fill; g.fill();
-      g.lineJoin = 'round'; g.strokeStyle = 'rgba(255, 255, 255, 0.7)'; g.lineWidth = 1;
-      g.beginPath(); g.moveTo(2.5, 9); g.lineTo(21.5, 9); g.moveTo(9, 3.5); g.lineTo(7.5, 9); g.lineTo(12, 21); g.lineTo(16.5, 9); g.lineTo(15, 3.5); g.stroke();
-      outline(); g.strokeStyle = RING; g.lineWidth = 1.2; g.stroke();
-      map.addImage(id, g.getImageData(0, 0, S * R, S * R), { pixelRatio: R });
+      const c = document.createElement('canvas'); c.width = c.height = P;
+      const g = c.getContext('2d');
+      if (sym) {
+        if (id === 'gem-red') { g.beginPath(); g.arc(P / 2, P / 2, P / 2 - 1, 0, 2 * Math.PI); g.fillStyle = fill; g.fill(); }
+        else { g.beginPath(); g.arc(P / 2, P / 2, P / 2 - 1, 0, 2 * Math.PI); g.fillStyle = 'rgba(255, 255, 255, 0.85)'; g.fill(); }
+        g.font = `${Math.round(P * 0.72)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+        g.textAlign = 'center'; g.textBaseline = 'middle';
+        g.fillText(sym, P / 2, P / 2 + P * 0.04);
+      } else {
+        g.scale(P / 24, P / 24);
+        const outline = () => { g.beginPath(); g.moveTo(6.5, 3.5); g.lineTo(17.5, 3.5); g.lineTo(21.5, 9); g.lineTo(12, 21); g.lineTo(2.5, 9); g.closePath(); };
+        outline(); g.fillStyle = fill; g.fill();
+        g.lineJoin = 'round'; g.strokeStyle = 'rgba(255, 255, 255, 0.7)'; g.lineWidth = 1;
+        g.beginPath(); g.moveTo(2.5, 9); g.lineTo(21.5, 9); g.moveTo(9, 3.5); g.lineTo(7.5, 9); g.lineTo(12, 21); g.lineTo(16.5, 9); g.lineTo(15, 3.5); g.stroke();
+        outline(); g.strokeStyle = RING; g.lineWidth = 1.2; g.stroke();
+      }
+      const img = g.getImageData(0, 0, P, P);
+      if (map.hasImage(id)) map.updateImage(id, img); else map.addImage(id, img, { pixelRatio: R });
     });
   }
   // Several galleries in one building share a pin: larger, with the count inside.
@@ -70,11 +81,13 @@
   // venueKey(venue) -> string groups shows that share a venue (the context layer).
   // onVenueTap(venue, shows, others) opens the venue card; others are the
   //   [{ venue, shows }] of further galleries sharing that pin (one building).
+  // getGemSymbol() -> null (the built-in gem) or the emoji the person picked for gems.
   // getContext() -> null | { list: {kind}, shows: [ordered list shows], backdrop: [other shows] }
-  window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext }) {
+  window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext, getGemSymbol }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
+    let gemSym = null;          // the symbol the gem images were last drawn with
     let stacks = new Map();     // lead key -> keys of every gallery on that pin, lead first
     let ctxKey = null;          // which list the context source currently shows
 
@@ -172,7 +185,8 @@
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
       // One dot per venue, by rank band; top-25 dots paint above 26–150 ones
       // and those above the rest, active ones above faded ones of the same band.
-      addGemImages(map);
+      gemSym = getGemSymbol ? getGemSymbol() : null;
+      addGemImages(map, gemSym);
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC, filter: ['!', IS_GEM],
         layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'saved']]] },
@@ -187,12 +201,12 @@
       // Gems: the person's marked galleries, drawn as a gem in place of the dot.
       map.addLayer({
         id: 'gal-gem', type: 'symbol', source: SRC, filter: IS_GEM,
-        layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.45, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
+        layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.3, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
         paint: { 'icon-opacity': DOT_OPACITY },
       });
       // The number of galleries on a shared pin, inside its dot.
       map.addLayer({
-        id: 'gal-count', type: 'symbol', source: SRC, filter: IS_SHARED,
+        id: 'gal-count', type: 'symbol', source: SRC, filter: ['all', IS_SHARED, ['!', IS_GEM]],   // a gem's names say who shares it
         layout: { 'text-field': ['to-string', ['get', 'n']], 'text-font': FONT_BOLD, 'text-size': 11,
                   'text-allow-overlap': true, 'text-ignore-placement': true },
         paint: { 'text-color': ['case', ['==', ['get', 'band'], 1], '#14365e', '#ffffff'], 'text-opacity': DOT_OPACITY },
@@ -306,6 +320,8 @@
 
     function renderPins() {
       if (!ready) return;                 // the 'load' handler seeds the source itself
+      const sym = getGemSymbol ? getGemSymbol() : null;
+      if (sym !== gemSym) { gemSym = sym; addGemImages(map, sym); }
       map.getSource(SRC).setData(buildGeoJSON());
       renderContext();
     }

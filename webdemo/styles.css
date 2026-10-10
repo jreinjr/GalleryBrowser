@@ -356,14 +356,35 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
    button under each show card, and the Gallery details reveal */
 .gallery-card .venue-title { display: flex; align-items: center; gap: 8px; }
 .gallery-card .rank-edit { margin-top: 10px; padding-top: 0; border-top: none; }
-.rank-edit .rank-line { display: flex; align-items: center; gap: 14px; }
-.rank-edit .rank-line .rank-now { flex: 0 0 auto; min-width: 86px; margin: 0; }
-.rank-edit .rank-slider { flex: 1; min-width: 0; accent-color: var(--blue); }
+.rank-edit .rank-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.rank-edit .rank-open { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: #fff; font-size: 15px; font-weight: 600; }
+.rank-edit .rank-open svg { width: 13px; height: 13px; color: var(--secondary); }
+.rank-edit .rank-open[aria-expanded="true"] svg { transform: rotate(180deg); }
 .rank-edit > .rank-note { margin-top: 6px; font-size: 13px; }
-.gem-btn { margin-top: 14px; background: rgba(255, 255, 255, 0.12); color: #fff; }
-.gem-btn svg { color: #7fb8f0; }
-.gem-btn.on { background: rgba(21, 101, 214, 1); }
-.gem-btn.on svg { color: #fff; }
+.rank-panel { margin-top: 10px; padding: 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.07); }
+.rank-step { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.rank-step-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.14); color: #fff; display: grid; place-items: center; }
+.rank-step-btn svg { width: 18px; height: 18px; }
+.rank-value { min-width: 56px; text-align: center; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rank-panel .rank-slider { display: block; width: 100%; margin: 12px 0 4px; accent-color: var(--blue); }
+.rank-actions { display: flex; justify-content: flex-end; align-items: center; gap: 14px; margin-top: 8px; }
+.rank-actions .capsule-btn { flex: 0 0 auto; width: auto; padding: 11px 22px; }
+.rank-actions .capsule-btn:disabled { opacity: 0.4; }
+/* The small Gem toggle on the rank line, and the symbol picker */
+.gem-wrap { display: inline-flex; align-items: center; gap: 4px; }
+.gem-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: var(--secondary); font-size: 14px; font-weight: 600; }
+.gem-toggle svg { width: 16px; height: 16px; opacity: 0.55; }
+.gem-toggle .gem-emoji { font-size: 15px; line-height: 1; opacity: 0.55; filter: grayscale(1); }
+.gem-toggle.on { background: rgba(21, 101, 214, 1); color: #fff; }
+.gem-toggle.on svg, .gem-toggle.on .gem-emoji { opacity: 1; filter: none; }
+.gem-pick { width: 30px; height: 30px; border-radius: 50%; color: var(--secondary); font-size: 16px; font-weight: 700; line-height: 1; }
+.gem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 10px; margin-top: 16px; }
+.gem-choice { height: 52px; border-radius: 14px; background: rgba(255, 255, 255, 0.08); font-size: 26px; display: grid; place-items: center; color: #61ADF2; }
+.gem-choice svg { width: 26px; height: 26px; }
+.gem-choice.on { outline: 2px solid var(--blue); background: rgba(97, 173, 242, 0.18); }
+.gem-custom { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+.gem-input { flex: 1; min-width: 0; padding: 11px 14px; border-radius: 12px; background: var(--field); color: #fff; font-size: 18px; border: none; }
+.gem-custom .capsule-btn { flex: 0 0 auto; width: auto; padding: 11px 22px; }
 .gc-lines { margin-top: 16px; }
 .open-times { color: rgba(240, 80, 70, 1); font-weight: 600; }
 .gallery-card .venue-show-card .sub { color: rgba(220, 50, 45, 1); font-weight: 600; }

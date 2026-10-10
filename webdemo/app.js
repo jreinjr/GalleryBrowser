@@ -377,6 +377,52 @@
     persistGems();
     MapTab.applyFilter();
   }
+  // The symbol gems are drawn with: null for the built-in gem, else an emoji
+  // the person picked (one for all their gems, kept on this device).
+  const gemSymbol = () => store.get('gemSymbol', '') || null;
+  function setGemSymbol(sym) {
+    store.set('gemSymbol', sym || '');
+    document.querySelectorAll('[data-gem]').forEach(b => b.paint && b.paint());
+    MapTab.applyFilter();
+  }
+  const gemFace = () => gemSymbol() ? el('span', { class: 'gem-emoji' }, gemSymbol()) : icon('gem');
+  // The card's small Gem toggle (on the rank line), and beside it a button
+  // that opens the symbol picker.
+  function gemToggle(v) {
+    const b = el('button', { class: 'gem-toggle', 'data-gem': '' });
+    b.paint = () => {
+      const on = isGem(v);
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.setAttribute('aria-label', on ? 'Gem: on' : 'Mark as a gem');
+      b.replaceChildren(gemFace(), el('span', null, 'Gem'));
+    };
+    b.onclick = () => { toggleGem(v); b.paint(); };
+    b.paint();
+    const pick = el('button', { class: 'gem-pick', 'aria-label': 'Choose the gem symbol', onclick: openGemPicker }, '⋯');
+    return el('div', { class: 'gem-wrap' }, b, pick);
+  }
+  const GEM_CHOICES = ['💎', '⭐', '❤️', '🔥', '🌟', '👀', '✨', '🎨', '🖼️', '🏛️', '📍', '🍸', '🌈', '👑', '🦄', '🌸'];
+  function openGemPicker() {
+    const cur = gemSymbol();
+    const input = el('input', { type: 'text', class: 'gem-input', placeholder: 'Or type any emoji', maxlength: '8', 'aria-label': 'Any emoji' });
+    const choose = sym => { setGemSymbol(sym); closeSheet(); };
+    const page = el('div', { class: 'page gem-picker' },
+      el('div', { class: 'page-scroll' },
+        el('div', { class: 'navrow' }, el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })),
+        el('div', { class: 'detail-body' },
+          el('div', { class: 'venue-title' }, 'Gem symbol'),
+          el('div', { class: 'gem-grid' },
+            el('button', { class: 'gem-choice' + (cur ? '' : ' on'), 'aria-label': 'The built-in gem', onclick: () => choose(null) }, icon('gem')),
+            ...GEM_CHOICES.map(e => el('button', { class: 'gem-choice' + (cur === e ? ' on' : ''), onclick: () => choose(e) }, e))),
+          el('div', { class: 'gem-custom' }, input,
+            el('button', { class: 'capsule-btn', onclick: () => {
+              const t = (input.value || '').trim();   // the first emoji typed, whole (joined emoji count as one)
+              const sym = !t ? '' : window.Intl && Intl.Segmenter ? [...new Intl.Segmenter().segment(t)][0].segment : [...t][0];
+              if (sym) choose(sym); else input.focus();
+            } }, 'Use')))));
+    openSheet(page);
+  }
   // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem.
   const hasSavedShow = v => { const k = venueKey(v); return savedShows().some(s => venueKey(s.venue) === k); };
   const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
@@ -1340,15 +1386,6 @@
         : el('button', { class: 'same-pin-tab', onclick: () => { closeSheet(); openSheet(mapVenueCard(fullVenue(o.venue), o.shows, here.filter(x => x !== o))); } },
             listLine(o.venue))))) : null;
 
-    const gemBtn = el('button', { class: 'capsule-btn gem-btn', 'data-gem': '' });
-    const paintGem = () => {
-      const on = isGem(v);
-      gemBtn.classList.toggle('on', on);
-      gemBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      gemBtn.replaceChildren(icon('gem'), el('span', null, on ? 'Gem' : 'Mark as a gem'));
-    };
-    gemBtn.onclick = () => { toggleGem(v); paintGem(); };
-    paintGem();
 
     const on = shows.filter(isActiveShow);
     const list = sortShows(on.length ? on : shows, 'rank');
@@ -1381,7 +1418,6 @@
       samePin,
       el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), listLine(v)),
       rankEditor(v),
-      gemBtn,
       el('div', { class: 'venue-lines gc-lines' },
         el('div', null, fullAddress(v)),
         ...(v.hours || []).map(hoursLine)),
@@ -1446,29 +1482,56 @@
     return [`Gallery rank changes for ${city().displayName}:`,
       ...list.map(m => `- ${m.name} (${m.id}): ${m.from == null ? 'unranked' : '#' + m.from} → #${m.to}`)].join('\n');
   }
-  // The card's rank line: "Rank #20" with a slider beside it. Dragging shows
-  // the rank it will land on; letting go moves the gallery there.
+  // The card's rank line: "Rank #20" (tap to change) and the small Gem toggle.
+  // Tapping the rank opens a panel under it: a 1-150 slider, − / + for single
+  // steps, and Confirm, which moves the gallery; Cancel leaves it where it was.
+  const RANK_SLIDER_MAX = 150;
   function rankEditor(v) {
     const box = el('div', { class: 'rank-edit', 'data-rank-edit': '' });
+    const gem = gemToggle(v);
     function paint(note) {
       const r = venueRank(v);
-      const ranked = ranking.order(state.cityKey).filter(x => appRank(x) != null).length;
-      const max = Math.max(ranked, r || 1, 100);
-      const label = el('span', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`);
-      const slider = el('input', { type: 'range', class: 'rank-slider', min: '1', max: String(max), step: '1',
-        value: String(r || max), 'aria-label': 'Rank for ' + v.name });
-      slider.addEventListener('input', () => { label.textContent = `Rank #${slider.value}`; });
-      slider.addEventListener('change', () => go(Number(slider.value)));
+      const rankBtn = el('button', { class: 'rank-now rank-open', 'aria-expanded': 'false', onclick: () => editing() },
+        r == null ? 'Unranked' : `Rank #${r}`, icon('chevronDown'));
       const moves = savesToFile() ? '' : rankMovesText();
       const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
-      box.replaceChildren(el('div', { class: 'rank-line' }, label, slider),
+      box.replaceChildren(el('div', { class: 'rank-line' }, rankBtn, gem),
         ...(note ? [el('div', { class: 'rank-note' }, note)] : []),
         ...(copyBtn ? [copyBtn] : []));   // replaceChildren would print a null as text
+    }
+    function editing() {
+      const from = venueRank(v);
+      let n = Math.min(from || RANK_SLIDER_MAX, RANK_SLIDER_MAX);
+      const value = el('span', { class: 'rank-value' });
+      const slider = el('input', { type: 'range', class: 'rank-slider', min: '1', max: String(RANK_SLIDER_MAX), step: '1', 'aria-label': 'New rank for ' + v.name });
+      const confirm = el('button', { class: 'capsule-btn rank-confirm', onclick: () => go(n) }, 'Confirm');
+      const set = x => {
+        n = Math.max(1, Math.min(RANK_SLIDER_MAX, x));
+        slider.value = String(n);
+        value.textContent = `#${n}`;
+        confirm.disabled = n === from;
+      };
+      slider.addEventListener('input', () => set(Number(slider.value)));
+      set(n);
+      box.replaceChildren(
+        el('div', { class: 'rank-line' },
+          el('button', { class: 'rank-now rank-open', 'aria-expanded': 'true', onclick: () => paint() }, from == null ? 'Unranked' : `Rank #${from}`, icon('chevronDown')),
+          gem),
+        el('div', { class: 'rank-panel' },
+          el('div', { class: 'rank-step' },
+            el('button', { class: 'rank-step-btn', 'aria-label': 'One place higher', onclick: () => set(n - 1) }, icon('minus')),
+            value,
+            el('button', { class: 'rank-step-btn', 'aria-label': 'One place lower', onclick: () => set(n + 1) }, icon('plus'))),
+          slider,
+          el('div', { class: 'rank-actions' },
+            el('button', { class: 'ghost', onclick: () => paint() }, 'Cancel'),
+            confirm)));
     }
     async function go(n) {
       const from = venueRank(v);
       if (n === from) return paint();
       if (savesToFile()) {
+        box.replaceChildren(el('div', { class: 'rank-note' }, 'Saving to the ranking file…'));
         try { await saveRankToFile(v, n); paint(`moved from #${from ?? '–'}, saved to the ranking file`); }
         catch (e) { paint('could not save: ' + e.message); }
         return;
@@ -2585,6 +2648,7 @@
     getCity: city,
     getVenues: mapVenues,
     venueKey,
+    getGemSymbol: gemSymbol,
     // A tap opens the compact gallery card: images, hours, Directions, and
     // the other galleries sharing the pin.
     onVenueTap: (v, shows, others) => openSheet(mapVenueCard(fullVenue(v), shows || [], others || [])),
