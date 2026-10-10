@@ -1,6 +1,6 @@
 {
  "city": "los-angeles",
- "generated_at": 1791577793,
+ "generated_at": 1791595591,
  "today": "2026-10-09",
  "params_default": {
   "version": 1,
@@ -119,10 +119,11 @@
     "bel-ami",
     "gemini-g-e-l",
     "nonaka-hill",
-    "various-small-fires-vsf",
-    "make-room"
+    "sea-view",
+    "various-small-fires-vsf"
    ],
    "3": [
+    "make-room",
     "fernberger",
     "megan-mulrooney",
     "as-is-la",
@@ -161,7 +162,6 @@
     "roberts-projects",
     "nazarian-curcio",
     "de-boer",
-    "sea-view",
     "gattopardo",
     "gallery-at-redcat",
     "baert",
@@ -220,7 +220,7 @@
   },
   "manual_order_source": "market"
  },
- "params_hash": "a2fb9863fc1e",
+ "params_hash": "a7869d7a6c5d",
  "feature_names": [
   "hours_breadth",
   "fairs",
@@ -5198,6 +5198,114 @@
    "tier": 2
   },
   {
+   "id": "sea-view",
+   "name": "Sea View",
+   "kind": "gallery",
+   "is_museum": false,
+   "neighborhood": "Hollywood",
+   "status": "active",
+   "verification": "verified",
+   "website": "https://sea-view.us/",
+   "report_path": "content/venues/reports/los-angeles/sea-view.json",
+   "about": "Sea View is a Los Angeles gallery founded in 2022 by Sara Lee Hantman. It first opened in a domestic \"social sculpture\" concept space on Sea View Lane designed by Jorge Pardo for MOCA, and has since relocated to a restored 1930s Hollywood building. The gallery represents a roster of emerging and historically overlooked painters, sculptors, and designers, testing intimate, historically charged settings where art, design, and architecture intersect. Sea View has become known for solo and group presentations at major art fairs including Frieze Los Angeles, NADA Miami, Independent New York, and Felix Art Fair, championing artists working across painting, sculpture, ceramics, and craft-based practices.",
+   "features": {
+    "hours_breadth": 0.8909,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.7917440691885577,
+    "longevity": 0.4731974454383393,
+    "roster_size": 0.7818957080144684,
+    "roster_strength": 0.0,
+    "show_cadence": 0.7472830484792821,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.6499999999999999,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 1.0,
+    "kind_nonprofit": 0.0,
+    "kind_museum": 0.0,
+    "seesaw_presence": 0.0
+   },
+   "basis": {
+    "hours_breadth": "5 day(s)/wk, 40 h/wk",
+    "fairs": "no fair listings",
+    "curated_lists": "on no curated list",
+    "press": "no press",
+    "directory": "enumerated",
+    "longevity": "4 yr(s) (founded_year)",
+    "roster_size": "11 artists",
+    "roster_strength": "artists dataset not built",
+    "show_cadence": "9.75 shows/yr",
+    "multi_location": "single location / no report",
+    "places_popularity": "no Places ratings cached",
+    "web_presence": "exhibitions_url, about",
+    "venue_judge": "no verdict",
+    "wiki": "no article",
+    "kind_gallery": "gallery",
+    "kind_nonprofit": "gallery",
+    "kind_museum": "gallery",
+    "seesaw_presence": "off"
+   },
+   "raw": {
+    "hours": {
+     "days_open": 5,
+     "hours_per_week": 40.0,
+     "by_appointment": false,
+     "parsed": true
+    },
+    "hours_status": "active",
+    "fairs": [],
+    "lists": [],
+    "press": [],
+    "directories": [
+     "enumerated"
+    ],
+    "years": 4,
+    "founded_basis": "founded_year",
+    "roster_count": 11,
+    "exhibitions_per_year": 9.75,
+    "n_locations": 0,
+    "ratings": null,
+    "rating": null,
+    "web": {
+     "exhibitions_url": true,
+     "dates": false,
+     "about": true,
+     "fetch_mode": "static"
+    },
+    "judge": {},
+    "wiki": null,
+    "kind": "gallery",
+    "seesaw": null
+   },
+   "score": 0.3631647300157675,
+   "contrib": {
+    "hours_breadth": 0.142544,
+    "fairs": 0.0,
+    "curated_lists": 0.0,
+    "press": 0.0,
+    "directory": 0.08709184761074135,
+    "longevity": 0.009463948908766786,
+    "roster_size": 0.10164644204188089,
+    "roster_strength": 0.0,
+    "show_cadence": 0.02241849145437846,
+    "multi_location": 0.0,
+    "places_popularity": 0.0,
+    "web_presence": 0.0,
+    "venue_judge": 0.0,
+    "wiki": 0.0,
+    "kind_gallery": 0.0,
+    "kind_nonprofit": -0.0,
+    "kind_museum": -0.0,
+    "seesaw_presence": 0.0
+   },
+   "gate": null,
+   "rank": 45,
+   "tier": 2
+  },
+  {
    "id": "various-small-fires-vsf",
    "name": "Various Small Fires (VSF)",
    "kind": "gallery",
@@ -5300,7 +5408,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 45,
+   "rank": 46,
    "tier": 2
   },
   {
@@ -5412,8 +5520,8 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 46,
-   "tier": 2
+   "rank": 47,
+   "tier": 3
   },
   {
    "id": "fernberger",
@@ -5521,7 +5629,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 47,
+   "rank": 48,
    "tier": 3
   },
   {
@@ -5637,7 +5745,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 48,
+   "rank": 49,
    "tier": 3
   },
   {
@@ -5748,7 +5856,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 49,
+   "rank": 50,
    "tier": 3
   },
   {
@@ -5856,7 +5964,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 50,
+   "rank": 51,
    "tier": 3
   },
   {
@@ -5968,7 +6076,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 51,
+   "rank": 52,
    "tier": 3
   },
   {
@@ -6081,7 +6189,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 52,
+   "rank": 53,
    "tier": 3
   },
   {
@@ -6190,7 +6298,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 53,
+   "rank": 54,
    "tier": 3
   },
   {
@@ -6301,7 +6409,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 54,
+   "rank": 55,
    "tier": 3
   },
   {
@@ -6409,7 +6517,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 55,
+   "rank": 56,
    "tier": 3
   },
   {
@@ -6517,7 +6625,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 56,
+   "rank": 57,
    "tier": 3
   },
   {
@@ -6629,7 +6737,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 57,
+   "rank": 58,
    "tier": 3
   },
   {
@@ -6746,7 +6854,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 58,
+   "rank": 59,
    "tier": 3
   },
   {
@@ -6854,7 +6962,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 59,
+   "rank": 60,
    "tier": 3
   },
   {
@@ -6968,7 +7076,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 60,
+   "rank": 61,
    "tier": 3
   },
   {
@@ -7074,7 +7182,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 61,
+   "rank": 62,
    "tier": 3
   },
   {
@@ -7182,7 +7290,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 62,
+   "rank": 63,
    "tier": 3
   },
   {
@@ -7290,7 +7398,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 63,
+   "rank": 64,
    "tier": 3
   },
   {
@@ -7396,7 +7504,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 64,
+   "rank": 65,
    "tier": 3
   },
   {
@@ -7508,7 +7616,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 65,
+   "rank": 66,
    "tier": 3
   },
   {
@@ -7621,7 +7729,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 66,
+   "rank": 67,
    "tier": 3
   },
   {
@@ -7734,7 +7842,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 67,
+   "rank": 68,
    "tier": 3
   },
   {
@@ -7847,7 +7955,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 68,
+   "rank": 69,
    "tier": 3
   },
   {
@@ -7957,7 +8065,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 69,
+   "rank": 70,
    "tier": 3
   },
   {
@@ -8065,7 +8173,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 70,
+   "rank": 71,
    "tier": 3
   },
   {
@@ -8177,7 +8285,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 71,
+   "rank": 72,
    "tier": 3
   },
   {
@@ -8283,7 +8391,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 72,
+   "rank": 73,
    "tier": 3
   },
   {
@@ -8391,7 +8499,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 73,
+   "rank": 74,
    "tier": 3
   },
   {
@@ -8502,7 +8610,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 74,
+   "rank": 75,
    "tier": 3
   },
   {
@@ -8615,7 +8723,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 75,
+   "rank": 76,
    "tier": 3
   },
   {
@@ -8726,7 +8834,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 76,
+   "rank": 77,
    "tier": 3
   },
   {
@@ -8839,7 +8947,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 77,
+   "rank": 78,
    "tier": 3
   },
   {
@@ -8951,7 +9059,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 78,
+   "rank": 79,
    "tier": 3
   },
   {
@@ -9062,7 +9170,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 79,
+   "rank": 80,
    "tier": 3
   },
   {
@@ -9175,7 +9283,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 80,
+   "rank": 81,
    "tier": 3
   },
   {
@@ -9286,7 +9394,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 81,
+   "rank": 82,
    "tier": 3
   },
   {
@@ -9404,7 +9512,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 82,
+   "rank": 83,
    "tier": 3
   },
   {
@@ -9518,7 +9626,7 @@
     "seesaw_presence": 0.0
    },
    "gate": null,
-   "rank": 83,
+   "rank": 84,
    "tier": 3
   },
   {
@@ -9620,114 +9728,6 @@
     "roster_strength": 0.0,
     "show_cadence": 0.024519638267902745,
     "multi_location": 0.0425,
-    "places_popularity": 0.0,
-    "web_presence": 0.0,
-    "venue_judge": 0.0,
-    "wiki": 0.0,
-    "kind_gallery": 0.0,
-    "kind_nonprofit": -0.0,
-    "kind_museum": -0.0,
-    "seesaw_presence": 0.0
-   },
-   "gate": null,
-   "rank": 84,
-   "tier": 3
-  },
-  {
-   "id": "sea-view",
-   "name": "Sea View",
-   "kind": "gallery",
-   "is_museum": false,
-   "neighborhood": "Hollywood",
-   "status": "active",
-   "verification": "verified",
-   "website": "https://sea-view.us/",
-   "report_path": "content/venues/reports/los-angeles/sea-view.json",
-   "about": "Sea View is a Los Angeles gallery founded in 2022 by Sara Lee Hantman. It first opened in a domestic \"social sculpture\" concept space on Sea View Lane designed by Jorge Pardo for MOCA, and has since relocated to a restored 1930s Hollywood building. The gallery represents a roster of emerging and historically overlooked painters, sculptors, and designers, testing intimate, historically charged settings where art, design, and architecture intersect. Sea View has become known for solo and group presentations at major art fairs including Frieze Los Angeles, NADA Miami, Independent New York, and Felix Art Fair, championing artists working across painting, sculpture, ceramics, and craft-based practices.",
-   "features": {
-    "hours_breadth": 0.8909,
-    "fairs": 0.0,
-    "curated_lists": 0.0,
-    "press": 0.0,
-    "directory": 0.7917440691885577,
-    "longevity": 0.4731974454383393,
-    "roster_size": 0.7818957080144684,
-    "roster_strength": 0.0,
-    "show_cadence": 0.7472830484792821,
-    "multi_location": 0.0,
-    "places_popularity": 0.0,
-    "web_presence": 0.6499999999999999,
-    "venue_judge": 0.0,
-    "wiki": 0.0,
-    "kind_gallery": 1.0,
-    "kind_nonprofit": 0.0,
-    "kind_museum": 0.0,
-    "seesaw_presence": 0.0
-   },
-   "basis": {
-    "hours_breadth": "5 day(s)/wk, 40 h/wk",
-    "fairs": "no fair listings",
-    "curated_lists": "on no curated list",
-    "press": "no press",
-    "directory": "enumerated",
-    "longevity": "4 yr(s) (founded_year)",
-    "roster_size": "11 artists",
-    "roster_strength": "artists dataset not built",
-    "show_cadence": "9.75 shows/yr",
-    "multi_location": "single location / no report",
-    "places_popularity": "no Places ratings cached",
-    "web_presence": "exhibitions_url, about",
-    "venue_judge": "no verdict",
-    "wiki": "no article",
-    "kind_gallery": "gallery",
-    "kind_nonprofit": "gallery",
-    "kind_museum": "gallery",
-    "seesaw_presence": "off"
-   },
-   "raw": {
-    "hours": {
-     "days_open": 5,
-     "hours_per_week": 40.0,
-     "by_appointment": false,
-     "parsed": true
-    },
-    "hours_status": "active",
-    "fairs": [],
-    "lists": [],
-    "press": [],
-    "directories": [
-     "enumerated"
-    ],
-    "years": 4,
-    "founded_basis": "founded_year",
-    "roster_count": 11,
-    "exhibitions_per_year": 9.75,
-    "n_locations": 0,
-    "ratings": null,
-    "rating": null,
-    "web": {
-     "exhibitions_url": true,
-     "dates": false,
-     "about": true,
-     "fetch_mode": "static"
-    },
-    "judge": {},
-    "wiki": null,
-    "kind": "gallery",
-    "seesaw": null
-   },
-   "score": 0.3631647300157675,
-   "contrib": {
-    "hours_breadth": 0.142544,
-    "fairs": 0.0,
-    "curated_lists": 0.0,
-    "press": 0.0,
-    "directory": 0.08709184761074135,
-    "longevity": 0.009463948908766786,
-    "roster_size": 0.10164644204188089,
-    "roster_strength": 0.0,
-    "show_cadence": 0.02241849145437846,
-    "multi_location": 0.0,
     "places_popularity": 0.0,
     "web_presence": 0.0,
     "venue_judge": 0.0,
@@ -119309,9 +119309,8 @@
    26,
    29,
    42,
-   47,
-   50,
-   55,
+   48,
+   51,
    56,
    57,
    58,
@@ -119320,7 +119319,8 @@
    61,
    62,
    63,
-   64
+   64,
+   65
   ]
  },
  "presets": {
