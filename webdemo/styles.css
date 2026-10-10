@@ -356,9 +356,27 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .same-pin .same-pin-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .same-pin .same-pin-tab { padding: 7px 14px; border-radius: 999px; font-size: 15px; font-weight: 600; background: rgba(255, 255, 255, 0.12); color: #fff; }
 .same-pin .same-pin-tab.on { background: var(--blue); }
-/* The map card's See toggle: red once the gallery is marked to see */
-.see-btn { background: rgba(255, 255, 255, 0.12); color: #fff; margin-bottom: 10px; }
-.see-btn.on { background: rgba(229, 57, 53, 1); color: #fff; }
+/* The gallery card (the Map's pin tap): Gem toggle, red open times, a Save
+   button under each show card, and the Gallery details reveal */
+.gallery-card .venue-title { display: flex; align-items: center; gap: 8px; }
+.gallery-card .rank-edit { margin-top: 10px; padding-top: 0; border-top: none; }
+.gem-btn { margin-top: 14px; background: rgba(255, 255, 255, 0.12); color: #fff; }
+.gem-btn svg { color: #7fb8f0; }
+.gem-btn.on { background: rgba(21, 101, 214, 1); }
+.gem-btn.on svg { color: #fff; }
+.gc-lines { margin-top: 16px; }
+.open-times { color: rgba(240, 80, 70, 1); font-weight: 600; }
+.gallery-card .venue-shows { margin-top: 20px; }
+.gc-show + .gc-show { margin-top: 18px; }
+.gc-save { margin-top: 8px; background: rgba(255, 255, 255, 0.12); color: #fff; }
+.gc-save.on { background: rgba(229, 57, 53, 1); }
+.gc-details-btn { margin-top: 22px; background: rgba(255, 255, 255, 0.12); color: #fff; }
+.gc-details-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.gc-details { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+.gc-details[hidden] { display: none; }
+.gc-details .map-card { margin: 0; }
+.gc-photo { margin: 0; }
+.gc-details .venue-about { margin: 0; }
 .seg-row button.on { background: #48484a; color: #fff; font-weight: 600; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }
 .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px; }
 .filter-sheet [data-sort] .row { cursor: pointer; }

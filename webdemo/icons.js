@@ -37,6 +37,7 @@
     heart: `<svg ${S} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M12 20.3S3.2 15 3.2 8.9a4.6 4.6 0 018.8-1.9 4.6 4.6 0 018.8 1.9c0 6.1-8.8 11.4-8.8 11.4z"/></svg>`,
     heartFill: `<svg ${S} fill="currentColor"><path d="M12 20.3S3.2 15 3.2 8.9a4.6 4.6 0 018.8-1.9 4.6 4.6 0 018.8 1.9c0 6.1-8.8 11.4-8.8 11.4z"/></svg>`,
     gear: `<svg ${S} ${stroke}><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3L5.5 5.5"/></svg>`,
+    gem: `<svg ${S} fill="currentColor"><path d="M6.5 3.5h11l4 5.5L12 21 2.5 9z"/><path d="M2.5 9h19M9 3.5L7.5 9 12 21l4.5-12L15 3.5" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.1" stroke-linejoin="round"/></svg>`,
     arrowUp: `<svg ${S} ${stroke}><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>`,
   };
 })();

@@ -19,7 +19,10 @@
     cityKey: store.get('selectedCityKey', DATA.defaultCity),
     saved: readSet('savedShowIDs'),            // My Shows: "<city>/<slug>"
     favorites: readSet('favoriteVenueIDs'),    // favorite galleries: "<city>/<venueId>"
-    toSee: readSet('seeVenueIDs'),             // galleries marked "See" on the Map: "<city>/<venueId>" (red dots)
+    // Gems: galleries the person marks on their card; the Map draws a gem
+    // instead of a dot. "<city>/<venueId>". Marks from the older "See" toggle
+    // carry over the first time.
+    gems: store.get('gemVenueIDs', null) == null ? readSet('seeVenueIDs') : readSet('gemVenueIDs'),
     tab: 'featured',
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
@@ -64,7 +67,7 @@
 
   const persistSaved = () => store.set('savedShowIDs', JSON.stringify([...state.saved]));
   const persistFavorites = () => store.set('favoriteVenueIDs', JSON.stringify([...state.favorites]));
-  const persistToSee = () => store.set('seeVenueIDs', JSON.stringify([...state.toSee]));
+  const persistGems = () => store.set('gemVenueIDs', JSON.stringify([...state.gems]));
   const persistCity = () => store.set('selectedCityKey', state.cityKey);
   const cityByKey = Object.fromEntries(DATA.cities.map(c => [c.key, c]));
 
@@ -229,7 +232,14 @@
     toastEl = t;
     toastTimer = setTimeout(hide, 3800);
   }
+  function paintGcSave(b) {
+    const on = state.saved.has(b.dataset.gcSave);
+    b.classList.toggle('on', on);
+    b.replaceChild(icon(on ? 'bookmarkFill' : 'bookmark'), b.firstChild);
+    b.querySelector('span').textContent = on ? 'Saved to My Shows' : 'Save show';
+  }
   function refreshBookmarkUI() {
+    document.querySelectorAll('[data-gc-save]').forEach(paintGcSave);
     document.querySelectorAll('[data-bm]').forEach(btn => {
       const saved = state.saved.has(btn.dataset.bm);
       btn.classList.toggle('saved', saved);
@@ -365,15 +375,17 @@
   // galleries" is then a default list — their shows — and a filter context.
   // Stored as "<city>/<venueId>" in localStorage['favoriteVenueIDs'].
   const favKey = v => state.cityKey + '/' + venueId(v);
-  // "See": a gallery marked on the Map as one to visit; its dot turns red.
-  const isToSee = v => !!venueId(v) && state.toSee.has(favKey(v));
-  function toggleToSee(v) {
+  // A gem: the person's own mark on a gallery; its map dot becomes a gem.
+  const isGem = v => !!venueId(v) && state.gems.has(favKey(v));
+  function toggleGem(v) {
     if (!venueId(v)) return;
     const k = favKey(v);
-    if (state.toSee.has(k)) state.toSee.delete(k); else state.toSee.add(k);
-    persistToSee();
+    if (state.gems.has(k)) state.gems.delete(k); else state.gems.add(k);
+    persistGems();
     MapTab.applyFilter();
   }
+  // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem.
+  const hasSavedShow = v => { const k = venueKey(v); return savedShows().some(s => venueKey(s.venue) === k); };
   const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
   const favoriteVenues = () => cityVenues().filter(isFavorite)
     .sort((a, b) => (venueRank(a) ?? 1e9) - (venueRank(b) ?? 1e9) || (a.name || '').localeCompare(b.name || ''));
@@ -1318,41 +1330,15 @@
     return page;
   }
 
-  // The Map's tap card: the images of what is on view (the gallery's own
-  // photos when nothing is), then only the gallery's name, address, hours and
-  // a Directions link; no show text. The name opens the full gallery page.
-  // `others` are the galleries sharing this pin (one building): each opens
-  // its own card in place of this one.
+  // The Map's tap card, top to bottom: the gallery's name and rank (with
+  // Change rank), the Gem toggle, address and hours (open times in red), the
+  // shows on view with a Save button each, then a Gallery details button that
+  // reveals the location map, a photo of the building and the description.
+  // `others` are the galleries sharing this pin (one building): name tabs at
+  // the top open their own cards in place of this one.
   function mapVenueCard(v, shows, others = []) {
-    const on = shows.filter(isActiveShow);
-    const images = (on.length ? on : shows).flatMap(s => s.images || []);
-    const pics = images.length ? images : (v.photos || []);
-    const page = el('div', { class: 'page map-card-sheet' });
+    const page = el('div', { class: 'page map-card-sheet gallery-card' });
     const close = el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() });
-    const hero = pics.length
-      ? el('div', { class: 'detail-hero' },
-          makeCarousel(pics, { height: 300, dots: 'bottom', expand: true, onTap: i => openViewer(pics, i) }),
-          el('div', { class: 'detail-topbar' }, close))
-      : el('div', { class: 'navrow' }, close);
-    const openVenue = () => {
-      const p = venuePage(v, { inSheet: true });
-      p.dataset.sheetSub = '1';
-      const back = p.querySelector('.navrow .circle-btn');
-      if (back) back.onclick = () => p.remove();
-      page.parentElement.appendChild(p);
-    };
-    const seeBtn = el('button', { class: 'capsule-btn detail-save see-btn', 'data-see': '' });
-    const paintSee = () => {
-      const on = isToSee(v);
-      seeBtn.classList.toggle('on', on);
-      seeBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      seeBtn.replaceChildren(icon(on ? 'check' : 'eye'), el('span', null, on ? 'Marked to see' : 'See'));
-    };
-    seeBtn.onclick = () => { toggleToSee(v); paintSee(); };
-    paintSee();
-    const rankBox = rankEditor(v);
-    // Galleries sharing the pin: a row of name tabs above the card, this one
-    // selected; another opens its own card in place of this one.
     const here = [{ venue: v, shows }, ...others].sort((a, b) => (venueRank(a.venue) ?? 1e9) - (venueRank(b.venue) ?? 1e9));
     const samePin = others.length ? el('div', { class: 'same-pin', 'data-same-pin': '' },
       el('div', { class: 'same-pin-head' }, `${here.length} galleries at this address`),
@@ -1360,21 +1346,80 @@
         ? el('span', { class: 'same-pin-tab on', 'aria-current': 'true' }, listLine(o.venue))
         : el('button', { class: 'same-pin-tab', onclick: () => { closeSheet(); openSheet(mapVenueCard(fullVenue(o.venue), o.shows, here.filter(x => x !== o))); } },
             listLine(o.venue))))) : null;
+
+    const gemBtn = el('button', { class: 'capsule-btn gem-btn', 'data-gem': '' });
+    const paintGem = () => {
+      const on = isGem(v);
+      gemBtn.classList.toggle('on', on);
+      gemBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      gemBtn.replaceChildren(icon('gem'), el('span', null, on ? 'Gem' : 'Mark as a gem'));
+    };
+    gemBtn.onclick = () => { toggleGem(v); paintGem(); };
+    paintGem();
+
+    const on = shows.filter(isActiveShow);
+    const list = sortShows(on.length ? on : shows, 'rank');
+    const showsSection = list.length
+      ? el('div', { class: 'venue-shows' },
+          el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
+          el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
+            venueShowCard(s, x => pushShowInSheet(page.parentElement, x)),
+            saveShowBtn(s)))))
+      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
+
+    const details = el('div', { class: 'gc-details', hidden: '' });
+    const detailsBtn = el('button', { class: 'capsule-btn gc-details-btn', 'aria-expanded': 'false' }, el('span', null, 'Gallery details'), icon('chevronDown'));
+    detailsBtn.onclick = () => {
+      const open = details.hidden;
+      details.hidden = !open;
+      detailsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && !details.childElementCount) fillDetails();
+    };
+    // Built on first open: the location map needs the box on screen.
+    function fillDetails() {
+      const photo = (v.photos || [])[0];
+      details.append(
+        v.lat != null ? venueMapCard(v) : null,
+        photo ? el('div', { class: 'venue-hero gc-photo', onclick: () => openViewer(v.photos, 0) },
+          el('img', { src: photo.src, alt: '', decoding: 'async' }),
+          photo.attribution ? el('div', { class: 'venue-credit' }, 'Photo: ' + photo.attribution) : null) : null,
+        v.lat != null ? el('a', { class: 'capsule-btn', href: streetViewUrl(v), target: '_blank', rel: 'noopener' },
+          icon('eye'), el('span', null, 'Street View')) : null,
+        venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null,
+        el('div', { class: 'venue-actions' },
+          el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' }, icon('walk'), el('span', null, 'Directions')),
+          v.website ? el('a', { class: 'capsule-btn', href: v.website, target: '_blank', rel: 'noopener' }, icon('compass'), el('span', null, 'Website')) : null));
+    }
+
     const body = el('div', { class: 'detail-body' },
-      ...(samePin ? [samePin] : []),
-      el('button', { class: 'venue-block', style: 'margin-top:0', onclick: openVenue },
-        el('div', { class: 'vb-text' },
-          el('div', { class: 'vb-name' }, tierStar(galleryTier(v)), listLine(v)),
-          el('div', { class: 'vb-line' }, fullAddress(v)),
-          ...(v.hours || []).map(h => el('div', { class: 'vb-line' }, h))),
-        icon('chevronRight')),
-      seeBtn,
-      el('a', { class: 'capsule-btn detail-save', href: directionsUrl(v), target: '_blank', rel: 'noopener' },
-        icon('walk'), el('span', null, 'Directions')),
-      rankBox);
-    page.appendChild(el('div', { class: 'page-scroll' }, hero, body));
+      samePin,
+      el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), listLine(v)),
+      rankEditor(v),
+      gemBtn,
+      el('div', { class: 'venue-lines gc-lines' },
+        el('div', null, fullAddress(v)),
+        ...(v.hours || []).map(hoursLine)),
+      showsSection,
+      detailsBtn,
+      details);
+    page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
     return page;
   }
+  // An hours line with its open times in red: "Tue - Sat <red>10am to 5pm</red>".
+  function hoursLine(h) {
+    const m = /\d{1,2}(:\d\d)?\s*(am|pm)?\s*(to|-|–)\s*\d{1,2}(:\d\d)?\s*(am|pm)/i.exec(h);
+    if (!m) return el('div', null, h);
+    return el('div', null, h.slice(0, m.index), el('span', { class: 'open-times' }, m[0]), h.slice(m.index + m[0].length));
+  }
+  // Google Maps opened in Street View at the gallery (no key needed).
+  const streetViewUrl = v => `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${v.lat},${v.lng}`;
+  // The card's Save control for one show: a full-width toggle under its card.
+  const saveShowBtn = s => {
+    const id = showId(s);
+    const b = el('button', { class: 'capsule-btn gc-save', 'data-gc-save': id, onclick: () => toggleSaved(id) }, icon('bookmark'), el('span'));
+    paintGcSave(b);
+    return b;
+  };
 
   // ---------------- change a gallery's rank from its map card ----------------
   // Moving a gallery saves the person's own order for the city (the same store
@@ -1732,9 +1777,10 @@
   function mapVenues() {
     const f = state.filter;
     const out = new Map();
-    // The Gallery rank buttons narrow the Map only; galleries marked See stay
-    // on it whatever they say.
-    const keep = v => withinRank(v, f) || isToSee(v);
+    // The Gallery rank buttons narrow the Map only; gems and galleries with a
+    // saved show stay on it whatever they say.
+    const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
+    const keep = v => withinRank(v, f) || isGem(v) || savedKeys.has(venueKey(v));
     filteredShows().filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
@@ -1746,7 +1792,7 @@
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), see: isToSee(g.venue) }));
+    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.key) }));
   }
   // Pure: stable sort by the chosen key; ties fall back to the gallery rank,
   // then, within one gallery, to the show closing soonest.

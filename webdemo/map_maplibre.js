@@ -20,9 +20,29 @@
   const BAND_TOP = 25, BAND_RANKED = 100;
   const BAND_COLOR = ['rgba(21, 101, 214, 1)', 'rgba(160, 205, 248, 0.95)', 'rgba(130, 130, 138, 0.6)'];
   const BAND_RADIUS = [5.25, 5.25, 5.25];
-  // A gallery marked "See" on its map card is drawn red, whatever its band.
-  const SEE_COLOR = 'rgba(229, 57, 53, 1)';
-  const IS_SEE = ['==', ['get', 'see'], 1];
+  // A gallery with a saved show is drawn red, whatever its band; one the
+  // person marked a gem is drawn as a gem instead of a dot (red too when it
+  // has a saved show).
+  const SAVED_COLOR = 'rgba(229, 57, 53, 1)';
+  const IS_SAVED = ['==', ['get', 'saved'], 1];
+  const IS_GEM = ['==', ['get', 'gem'], 1];
+  const GEM_IMAGE = ['case', IS_SAVED, 'gem-red', ['match', ['get', 'band'], 0, 'gem-0', 1, 'gem-1', 'gem-2']];
+  // Gem icons for the symbol layer, one per colour, drawn on a canvas at 2x.
+  function addGemImages(map) {
+    const S = 26, R = 2;
+    const colors = { 'gem-0': BAND_COLOR[0], 'gem-1': 'rgba(120, 180, 240, 1)', 'gem-2': 'rgba(130, 130, 138, 1)', 'gem-red': SAVED_COLOR };
+    Object.entries(colors).forEach(([id, fill]) => {
+      if (map.hasImage(id)) return;
+      const c = document.createElement('canvas'); c.width = c.height = S * R;
+      const g = c.getContext('2d'); g.scale(R * S / 24, R * S / 24);
+      const outline = () => { g.beginPath(); g.moveTo(6.5, 3.5); g.lineTo(17.5, 3.5); g.lineTo(21.5, 9); g.lineTo(12, 21); g.lineTo(2.5, 9); g.closePath(); };
+      outline(); g.fillStyle = fill; g.fill();
+      g.lineJoin = 'round'; g.strokeStyle = 'rgba(255, 255, 255, 0.7)'; g.lineWidth = 1;
+      g.beginPath(); g.moveTo(2.5, 9); g.lineTo(21.5, 9); g.moveTo(9, 3.5); g.lineTo(7.5, 9); g.lineTo(12, 21); g.lineTo(16.5, 9); g.lineTo(15, 3.5); g.stroke();
+      outline(); g.strokeStyle = RING; g.lineWidth = 1.2; g.stroke();
+      map.addImage(id, g.getImageData(0, 0, S * R, S * R), { pixelRatio: R });
+    });
+  }
   // Several galleries in one building share a pin: larger, with the count inside.
   const IS_SHARED = ['>', ['coalesce', ['get', 'n'], 1], 1];
   const SHARED_RADIUS = 9;
@@ -37,12 +57,12 @@
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
     'HanWangHeiLight Regular', 'NanumBarunGothic Regular'];
-  const CLICK_LAYERS = ['gal-dot', 'gal-count', 'gal-label', 'ctx-dot', 'ctx-label'];
+  const CLICK_LAYERS = ['gal-dot', 'gal-gem', 'gal-count', 'gal-label', 'ctx-dot', 'ctx-label'];
   // A list as context: its venues in blue over a dimmed backdrop; a route
   // list also draws a dashed line through the stops in order.
   const CTX = 'ctx';
   const CTX_LAYERS = ['ctx-line', 'ctx-dim', 'ctx-dot', 'ctx-num', 'ctx-label'];
-  const GAL_LAYERS = ['gal-dot', 'gal-count', 'gal-label'];
+  const GAL_LAYERS = ['gal-dot', 'gal-gem', 'gal-count', 'gal-label'];
 
   // getVenues() -> [{ key, venue, shows, active, tier, rank }]: one entry per
   //   venue to draw (app.js mapVenues), tier 'top' | 'notable' | 'listed', rank
@@ -95,7 +115,8 @@
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
           properties: { key: g.key, name: members.map(m => m.venue.name).join('\n'), n: members.length,
                         count: members.reduce((a, m) => a + m.shows.length, 0), active: members.some(m => m.active) ? 1 : 0,
-                        tier: g.tier || 'listed', band: bandForRank(g.rank), see: members.some(m => m.see) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
+                        tier: g.tier || 'listed', band: bandForRank(g.rank), saved: members.some(m => m.saved) ? 1 : 0,
+                        gem: members.some(m => m.gem) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
         };
       });
       return { type: 'FeatureCollection', features };
@@ -151,16 +172,23 @@
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
       // One dot per venue, by rank band; top-25 dots paint above 26–150 ones
       // and those above the rest, active ones above faded ones of the same band.
+      addGemImages(map);
       map.addLayer({
-        id: 'gal-dot', type: 'circle', source: SRC,
-        layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'see']]] },
+        id: 'gal-dot', type: 'circle', source: SRC, filter: ['!', IS_GEM],
+        layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'saved']]] },
         paint: {
-          'circle-color': ['case', IS_SEE, SEE_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
+          'circle-color': ['case', IS_SAVED, SAVED_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
           'circle-radius': ['case', IS_SHARED, SHARED_RADIUS, ['match', ['get', 'band'], 0, BAND_RADIUS[0], 1, BAND_RADIUS[1], BAND_RADIUS[2]]],
           'circle-opacity': DOT_OPACITY,
           'circle-stroke-width': 1, 'circle-stroke-color': RING,
           'circle-stroke-opacity': DOT_OPACITY,
         },
+      });
+      // Gems: the person's marked galleries, drawn as a gem in place of the dot.
+      map.addLayer({
+        id: 'gal-gem', type: 'symbol', source: SRC, filter: IS_GEM,
+        layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.2, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
+        paint: { 'icon-opacity': DOT_OPACITY },
       });
       // The number of galleries on a shared pin, inside its dot.
       map.addLayer({
