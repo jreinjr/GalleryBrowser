@@ -344,10 +344,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .rank-edit { margin-top: 18px; padding-top: 14px; border-top: 0.5px solid var(--sep); }
 .rank-edit .rank-now { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
 .rank-edit .rank-note { font-weight: 400; color: var(--secondary); }
-.rank-edit .rank-change-btn { background: rgba(255, 255, 255, 0.12); color: #fff; }
-.rank-edit .rank-form { display: flex; gap: 8px; align-items: center; }
-.rank-edit .rank-form input { width: 90px; padding: 9px 12px; border-radius: 10px; background: var(--field); color: #fff; font-size: 16px; border: none; }
-.rank-edit .rank-form .capsule-btn { flex: 0 0 auto; padding: 0 20px; }
 .rank-edit .rank-copy { display: block; margin-top: 4px; color: var(--blue); font-size: 14px; font-weight: 600; }
 .rank-edit .rank-export { width: 100%; margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--field); color: #fff; font: 13px/1.4 ui-monospace, Menlo, monospace; border: none; }
 /* The map card's galleries sharing one pin (one building): a row of name tabs */
@@ -360,22 +356,25 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
    button under each show card, and the Gallery details reveal */
 .gallery-card .venue-title { display: flex; align-items: center; gap: 8px; }
 .gallery-card .rank-edit { margin-top: 10px; padding-top: 0; border-top: none; }
+.rank-edit .rank-line { display: flex; align-items: center; gap: 14px; }
+.rank-edit .rank-line .rank-now { flex: 0 0 auto; min-width: 86px; margin: 0; }
+.rank-edit .rank-slider { flex: 1; min-width: 0; accent-color: var(--blue); }
+.rank-edit > .rank-note { margin-top: 6px; font-size: 13px; }
 .gem-btn { margin-top: 14px; background: rgba(255, 255, 255, 0.12); color: #fff; }
 .gem-btn svg { color: #7fb8f0; }
 .gem-btn.on { background: rgba(21, 101, 214, 1); }
 .gem-btn.on svg { color: #fff; }
 .gc-lines { margin-top: 16px; }
 .open-times { color: rgba(240, 80, 70, 1); font-weight: 600; }
+.gallery-card .venue-show-card .sub { color: rgba(220, 50, 45, 1); font-weight: 600; }
 .gallery-card .venue-shows { margin-top: 20px; }
 .gc-show + .gc-show { margin-top: 18px; }
-.gc-save { margin-top: 8px; background: rgba(255, 255, 255, 0.12); color: #fff; }
-.gc-save.on { background: rgba(229, 57, 53, 1); }
-.gc-details-btn { margin-top: 22px; background: rgba(255, 255, 255, 0.12); color: #fff; }
+.gc-links { margin-top: 18px; }
+.gc-details-btn { margin-top: 12px; background: rgba(255, 255, 255, 0.12); color: #fff; }
 .gc-details-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
 .gc-details { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
 .gc-details[hidden] { display: none; }
 .gc-details .map-card { margin: 0; }
-.gc-photo { margin: 0; }
 .gc-details .venue-about { margin: 0; }
 .seg-row button.on { background: #48484a; color: #fff; font-weight: 600; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }
 .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px; }

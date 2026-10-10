@@ -232,14 +232,7 @@
     toastEl = t;
     toastTimer = setTimeout(hide, 3800);
   }
-  function paintGcSave(b) {
-    const on = state.saved.has(b.dataset.gcSave);
-    b.classList.toggle('on', on);
-    b.replaceChild(icon(on ? 'bookmarkFill' : 'bookmark'), b.firstChild);
-    b.querySelector('span').textContent = on ? 'Saved to My Shows' : 'Save show';
-  }
   function refreshBookmarkUI() {
-    document.querySelectorAll('[data-gc-save]').forEach(paintGcSave);
     document.querySelectorAll('[data-bm]').forEach(btn => {
       const saved = state.saved.has(btn.dataset.bm);
       btn.classList.toggle('saved', saved);
@@ -1363,8 +1356,7 @@
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
           el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
-            venueShowCard(s, x => pushShowInSheet(page.parentElement, x)),
-            saveShowBtn(s)))))
+            venueShowCard(s, x => pushShowInSheet(page.parentElement, x))))))
       : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const details = el('div', { class: 'gc-details', hidden: '' });
@@ -1377,19 +1369,13 @@
     };
     // Built on first open: the location map needs the box on screen.
     function fillDetails() {
-      const photo = (v.photos || [])[0];
-      details.append(
+      details.append(...[
         v.lat != null ? venueMapCard(v) : null,
-        photo ? el('div', { class: 'venue-hero gc-photo', onclick: () => openViewer(v.photos, 0) },
-          el('img', { src: photo.src, alt: '', decoding: 'async' }),
-          photo.attribution ? el('div', { class: 'venue-credit' }, 'Photo: ' + photo.attribution) : null) : null,
-        v.lat != null ? el('a', { class: 'capsule-btn', href: streetViewUrl(v), target: '_blank', rel: 'noopener' },
-          icon('eye'), el('span', null, 'Street View')) : null,
-        venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null,
-        el('div', { class: 'venue-actions' },
-          el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' }, icon('walk'), el('span', null, 'Directions')),
-          v.website ? el('a', { class: 'capsule-btn', href: v.website, target: '_blank', rel: 'noopener' }, icon('compass'), el('span', null, 'Website')) : null));
+        venueAbout(v) ? el('p', { class: 'venue-about' }, venueAbout(v)) : null].filter(Boolean));
     }
+    const links = el('div', { class: 'venue-actions gc-links' },
+      el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' }, icon('walk'), el('span', null, 'Directions')),
+      ...(v.website ? [el('a', { class: 'capsule-btn', href: v.website, target: '_blank', rel: 'noopener' }, icon('compass'), el('span', null, 'Website'))] : []));
 
     const body = el('div', { class: 'detail-body' },
       samePin,
@@ -1400,27 +1386,14 @@
         el('div', null, fullAddress(v)),
         ...(v.hours || []).map(hoursLine)),
       showsSection,
+      links,
       detailsBtn,
       details);
     page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
     return page;
   }
-  // An hours line with its open times in red: "Tue - Sat <red>10am to 5pm</red>".
-  function hoursLine(h) {
-    const m = /\d{1,2}(:\d\d)?\s*(am|pm)?\s*(to|-|–)\s*\d{1,2}(:\d\d)?\s*(am|pm)/i.exec(h);
-    if (!m) return el('div', null, h);
-    return el('div', null, h.slice(0, m.index), el('span', { class: 'open-times' }, m[0]), h.slice(m.index + m[0].length));
-  }
-  // Google Maps opened in Street View at the gallery (no key needed).
-  const streetViewUrl = v => `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${v.lat},${v.lng}`;
-  // The card's Save control for one show: a full-width toggle under its card.
-  const saveShowBtn = s => {
-    const id = showId(s);
-    const b = el('button', { class: 'capsule-btn gc-save', 'data-gc-save': id, onclick: () => toggleSaved(id) }, icon('bookmark'), el('span'));
-    paintGcSave(b);
-    return b;
-  };
-
+  // An hours line, days and open times in red; a "Closed" line stays plain.
+  const hoursLine = h => el('div', { class: /closed/i.test(h) && !/\d/.test(h) ? '' : 'open-times' }, h);
   // ---------------- change a gallery's rank from its map card ----------------
   // Moving a gallery saves the person's own order for the city (the same store
   // as Settings → Gallery ranking), so the map colours, the rank filter and
@@ -1473,40 +1446,35 @@
     return [`Gallery rank changes for ${city().displayName}:`,
       ...list.map(m => `- ${m.name} (${m.id}): ${m.from == null ? 'unranked' : '#' + m.from} → #${m.to}`)].join('\n');
   }
+  // The card's rank line: "Rank #20" with a slider beside it. Dragging shows
+  // the rank it will land on; letting go moves the gallery there.
   function rankEditor(v) {
     const box = el('div', { class: 'rank-edit', 'data-rank-edit': '' });
     function paint(note) {
       const r = venueRank(v);
-      const changeBtn = el('button', { class: 'capsule-btn detail-save rank-change-btn', onclick: () => editing() },
-        icon('listBullet'), el('span', null, 'Change rank'));
+      const ranked = ranking.order(state.cityKey).filter(x => appRank(x) != null).length;
+      const max = Math.max(ranked, r || 1, 100);
+      const label = el('span', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`);
+      const slider = el('input', { type: 'range', class: 'rank-slider', min: '1', max: String(max), step: '1',
+        value: String(r || max), 'aria-label': 'Rank for ' + v.name });
+      slider.addEventListener('input', () => { label.textContent = `Rank #${slider.value}`; });
+      slider.addEventListener('change', () => go(Number(slider.value)));
       const moves = savesToFile() ? '' : rankMovesText();
       const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
-      box.replaceChildren(
-        el('div', { class: 'rank-now' }, r == null ? 'Unranked' : `Rank #${r}`, note ? el('span', { class: 'rank-note' }, ' · ' + note) : null),
-        changeBtn, ...(copyBtn ? [copyBtn] : []));   // replaceChildren would print a null as text
+      box.replaceChildren(el('div', { class: 'rank-line' }, label, slider),
+        ...(note ? [el('div', { class: 'rank-note' }, note)] : []),
+        ...(copyBtn ? [copyBtn] : []));   // replaceChildren would print a null as text
     }
-    function editing() {
-      const input = el('input', { type: 'number', inputmode: 'numeric', min: '1', value: String(venueRank(v) || ''), 'aria-label': 'New rank' });
-      const go = async () => {
-        const n = Number(input.value);
-        if (!(n >= 1)) { input.focus(); return; }
-        if (savesToFile()) {
-          const from = venueRank(v);
-          box.replaceChildren(el('div', { class: 'rank-now' }, 'Saving to the ranking file…'));
-          try { await saveRankToFile(v, Math.round(n)); paint(`moved from #${from ?? '–'}, saved to the ranking file`); }
-          catch (e) { paint('could not save: ' + e.message); }
-          return;
-        }
-        const m = moveGalleryRank(v, n);
-        paint(m ? `moved from #${m.from ?? '–'}` : '');
-      };
-      input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
-      box.replaceChildren(
-        el('div', { class: 'rank-now' }, 'New rank for ' + v.name),
-        el('div', { class: 'rank-form' }, input,
-          el('button', { class: 'capsule-btn', onclick: go }, 'Move'),
-          el('button', { class: 'ghost', onclick: () => paint() }, 'Cancel')));
-      input.focus(); input.select();
+    async function go(n) {
+      const from = venueRank(v);
+      if (n === from) return paint();
+      if (savesToFile()) {
+        try { await saveRankToFile(v, n); paint(`moved from #${from ?? '–'}, saved to the ranking file`); }
+        catch (e) { paint('could not save: ' + e.message); }
+        return;
+      }
+      const m = moveGalleryRank(v, n);
+      paint(m ? `moved from #${m.from ?? '–'}` : '');
     }
     function copyMoves() {
       const text = rankMovesText();
