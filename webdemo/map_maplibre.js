@@ -27,9 +27,9 @@
   const IS_SAVED = ['==', ['get', 'saved'], 1];
   const IS_GEM = ['==', ['get', 'gem'], 1];
   const GEM_IMAGE = ['case', IS_SAVED, 'gem-red', ['match', ['get', 'band'], 0, 'gem-0', 1, 'gem-1', 'gem-2']];
-  // Gem icons for the symbol layer, one per colour, drawn on a canvas at 2x.
+  // Gem icons for the symbol layer, one per colour, drawn on a canvas at 3x.
   function addGemImages(map) {
-    const S = 26, R = 2;
+    const S = 14, R = 3;   // about a dot's size (dots are 10.5 px across plus the ring)
     const colors = { 'gem-0': BAND_COLOR[0], 'gem-1': 'rgba(120, 180, 240, 1)', 'gem-2': 'rgba(130, 130, 138, 1)', 'gem-red': SAVED_COLOR };
     Object.entries(colors).forEach(([id, fill]) => {
       if (map.hasImage(id)) return;
@@ -187,7 +187,7 @@
       // Gems: the person's marked galleries, drawn as a gem in place of the dot.
       map.addLayer({
         id: 'gal-gem', type: 'symbol', source: SRC, filter: IS_GEM,
-        layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.2, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
+        layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.45, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
         paint: { 'icon-opacity': DOT_OPACITY },
       });
       // The number of galleries on a shared pin, inside its dot.
