@@ -297,6 +297,9 @@ def main() -> None:
                 "description": s["description"], "reception": s.get("reception"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
                 "venueId": vid,
+                # a show filling more than one of the gallery's spaces: the
+                # others by index (0 = primary, 1.. = registry `locations`)
+                **({"alsoSpaces": s["also_spaces"]} if s.get("also_spaces") else {}),
                 "venue": {
                     "name": v["name"], "isMuseum": kind == "museum", "kind": kind, "address": v["address"],
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],

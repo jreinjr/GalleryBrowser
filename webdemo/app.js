@@ -1867,7 +1867,10 @@
         spaceLabel: sp.label || '', otherSpaces: spaces.filter(o => o !== sp) } }));
     g.shows.forEach(s => {
       const d = p => s.venue.lat == null ? 0 : haversine(s.venue.lat, s.venue.lng, p.venue.lat, p.venue.lng);
-      parts.reduce((a, b) => d(b) < d(a) ? b : a).shows.push(s);
+      const home = parts.reduce((a, b) => d(b) < d(a) ? b : a);
+      home.shows.push(s);
+      // a show that fills more than one space (Thomas Demand at both Matthew Marks buildings)
+      (s.alsoSpaces || []).forEach(i => { if (parts[i] && parts[i] !== home) parts[i].shows.push(s); });
     });
     return parts;
   }
