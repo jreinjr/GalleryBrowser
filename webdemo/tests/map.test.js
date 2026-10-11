@@ -150,7 +150,9 @@ async function collisionOn(page) {
         const v = window.DemoDebug.cityVenues().find(x => key(x) === k);
         return [k, ...((v && v.locations) || []).map((_, i) => k + '#' + (i + 1))];
       });
-      return { all: spaces.length, spaces, running: running.size, withShows: withShows.size };
+      // a gallery's second spaces are on view whenever the gallery is
+      const runningSpaces = spaces.filter(k => running.has(k.split('#')[0])).length;
+      return { all: spaces.length, spaces, running: runningSpaces, withShows: withShows.size };
     });
     const pinned = new Set(props.flatMap(p => String(p.keys).split('\n')));
     const missing = expect.spaces.filter(k => !pinned.has(k));

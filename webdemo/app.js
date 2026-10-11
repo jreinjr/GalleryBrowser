@@ -1358,7 +1358,7 @@
           el('div', { class: 'group-header' }, 'Shows'),
           el('div', { class: 'venue-show-list' },
             ...shows.map(s => venueShowCard(s, openShow))))
-      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
+      : el('div', { class: 'venue-none' }, v.otherSpaces ? 'No shows listed for this space yet.' : 'Nothing on view right now.');
 
     const leading = asSheet
       ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close' })
@@ -1838,7 +1838,7 @@
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].flatMap(splitSpaces).map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.base || g.key) }));
+    return [...out.values()].flatMap(g => { const on = g.shows.some(isActiveShow); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.base || g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -1846,7 +1846,10 @@
   // A show goes to the space nearest its own geocoded pin. The primary keeps
   // the gallery's key; the others are key#1, key#2… with `base` the gallery's.
   // Unset fields are '' / [] rather than null so fullVenue never refills them
-  // from the primary.
+  // from the primary. Every space shares the gallery's id, so its rank, tier and
+  // gem; and a space is drawn on view whenever the gallery has a show on view
+  // anywhere (show data is scraped per gallery and usually lands on the
+  // primary), so the second space shows up and labels like the first.
   const gallerySpaces = v => {
     const r = venueRecord(v) || v;
     if (!r.locations || !r.locations.length) return null;
