@@ -107,14 +107,14 @@
       ];
     }
 
-    // One feature per spot (the app has already grouped a venue's concurrent
+    // One feature per venue (the app has already grouped a venue's concurrent
     // shows). Galleries in one building share coordinates, so their dots would
-    // stack and only the top one could be seen or tapped: they become one pin
-    // labelled with every name, best-ranked first, and the tap card lists the
-    // others; the pin is drawn larger with the count inside, and the names
-    // stack one per line. Sort keys are the lead gallery's own tier and rank — a show has
-    // no rank of its own — with an active venue ahead of a faded one.
+    // stack and only the top one could be tapped: each keeps its own pin, the
+    // best-ranked at the address and the others nudged onto a small ring
+    // (~17 m) around it, so at street zoom every gallery is its own dot. Sort
+    // keys are the gallery's own tier and rank, active ahead of faded.
     const SAME_SPOT = 0.00005;          // degrees, ~5 m
+    const NUDGE = 0.00015;              // degrees of latitude, ~17 m
     const leadOrder = g => bandForRank(g.rank) * 1e6 + (g.active ? 0 : 5e5) + (g.rank == null ? 1e5 : g.rank);
     function buildGeoJSON() {
       groups = new Map();
@@ -127,18 +127,23 @@
         const spot = spots.find(s => Math.abs(s.lat - v.lat) < SAME_SPOT && Math.abs(s.lng - v.lng) < SAME_SPOT);
         if (spot) spot.members.push(g); else spots.push({ lat: v.lat, lng: v.lng, members: [g] });
       });
-      const features = spots.map(({ members }) => {
+      const features = spots.flatMap(({ lat, lng, members }) => {
         members.sort((a, b) => leadOrder(a) - leadOrder(b));
-        const g = members[0], v = g.venue;
-        stacks.set(g.key, members.map(m => m.key));
-        return {
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-          properties: { key: g.key, keys: members.map(m => m.key).join('\n'), name: members.map(m => m.venue.name).join('\n'), n: members.length,
-                        count: members.reduce((a, m) => a + m.shows.length, 0), active: members.some(m => m.active) ? 1 : 0,
-                        tier: g.tier || 'listed', band: bandForRank(g.rank), saved: members.some(m => m.saved) ? 1 : 0,
-                        gem: members.some(m => m.gem) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
-        };
+        const ring = members.length - 1;
+        return members.map((g, i) => {
+          const ang = ring ? (2 * Math.PI * (i - 1)) / ring : 0;   // first neighbour due east, clear of the label below
+          const pos = i === 0 ? [lng, lat]
+            : [lng + NUDGE * Math.cos(ang) / Math.cos(lat * Math.PI / 180), lat + NUDGE * Math.sin(ang)];
+          stacks.set(g.key, [g.key]);
+          return {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: pos },
+            properties: { key: g.key, keys: g.key, name: g.venue.name, n: 1,
+                          count: g.shows.length, active: g.active ? 1 : 0,
+                          tier: g.tier || 'listed', band: bandForRank(g.rank), saved: g.saved ? 1 : 0,
+                          gem: g.gem ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
+          };
+        });
       });
       return { type: 'FeatureCollection', features };
     }

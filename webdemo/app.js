@@ -1358,7 +1358,7 @@
           el('div', { class: 'group-header' }, 'Shows'),
           el('div', { class: 'venue-show-list' },
             ...shows.map(s => venueShowCard(s, openShow))))
-      : el('div', { class: 'venue-none' }, v.otherSpaces ? 'No shows listed for this space yet.' : 'Nothing on view right now.');
+      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const leading = asSheet
       ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close' })
@@ -1434,8 +1434,7 @@
       rankEditor(v),
       el('div', { class: 'venue-lines gc-lines' },
         el('div', null, fullAddress(v)),
-        ...(v.hours || []).map(hoursLine),
-        ...(v.otherSpaces || []).map(o => el('div', { class: 'gc-other-space' }, 'Also: ' + (o.label ? o.label + ', ' : '') + o.address))),
+        ...(v.hours || []).map(hoursLine)),
       showsSection,
       links,
       detailsBtn,
@@ -1871,7 +1870,7 @@
     const parts = spaces.map((sp, i) => ({ key: i ? g.key + '#' + i : g.key, base: g.key, shows: [],
       venue: { ...g.venue, name: sp.name || g.venue.name, address: sp.address || '', addressDetail: sp.addressDetail || '',
         neighborhood: sp.neighborhood || g.venue.neighborhood, hours: sp.hours || [], lat: sp.lat, lng: sp.lng,
-        spaceLabel: sp.label || '', otherSpaces: spaces.filter(o => o !== sp) } }));
+        spaceLabel: sp.label || '' } }));
     g.shows.forEach(s => {
       const d = p => s.venue.lat == null ? 0 : haversine(s.venue.lat, s.venue.lng, p.venue.lat, p.venue.lng);
       const home = parts.reduce((a, b) => d(b) < d(a) ? b : a);
