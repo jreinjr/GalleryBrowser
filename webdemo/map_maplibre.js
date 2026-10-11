@@ -193,6 +193,26 @@
       });
     }
 
+    // Main roads drawn bolder and warmer, closer to Google Maps: motorways and
+    // trunk roads orange, primary and secondary arterials yellow, each wider
+    // with a darker casing, so the street grid reads at a glance.
+    const ROAD_STYLE = [
+      [/_(mot|trunk)_case/, 1.5, '#e8a33d'], [/_(mot|trunk)_fill/, 1.5, '#ffc95c'],
+      [/_(pri|sec)_case/, 1.45, '#e3c06b'], [/_(pri|sec)_fill/, 1.45, '#ffe594'],
+    ];
+    function boldRoads() {
+      const scale = (w, k) => w && w.stops ? { ...w, stops: w.stops.map(([z, v]) => [z, v * k]) }
+        : typeof w === 'number' ? w * k : w;
+      map.getStyle().layers.forEach(l => {
+        if (l.type !== 'line' || !/^(road|bridge|tunnel)_/.test(l.id)) return;
+        const hit = ROAD_STYLE.find(([re]) => re.test(l.id));
+        if (!hit) return;
+        const [, k, color] = hit;
+        map.setPaintProperty(l.id, 'line-width', scale(map.getPaintProperty(l.id, 'line-width'), k));
+        if (!l.id.startsWith('tunnel_')) map.setPaintProperty(l.id, 'line-color', color);
+      });
+    }
+
     function addLayers() {
       map.addSource(SRC, { type: 'geojson', data: buildGeoJSON() });
       map.addSource(CTX, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
@@ -316,6 +336,7 @@
       }), 'bottom-right');
       map.on('load', () => {
         showStreetNames();
+        boldRoads();
         addLayers();
         ready = true;
         renderContext();

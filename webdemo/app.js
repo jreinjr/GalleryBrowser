@@ -172,6 +172,17 @@
   const isOpeningThisWeek = s => {
     const d = parseDate(s.startDate); return !!d && Math.abs(d - Date.now()) <= 7 * DAY;
   };
+  // The Show filter's three switches (on together they add up): running now,
+  // not yet open, and opening (start date or reception) in the next seven days.
+  const isUpcomingShow = s => { const d = parseDate(s.startDate); return !!d && d > startOfToday(); };
+  const isOpeningSoon = s => {
+    const today = startOfToday(), week = new Date(today.getTime() + 7 * DAY);
+    const inWeek = d => !!d && d >= today && d <= week;
+    return inWeek(parseDate(s.startDate)) || inWeek(receptionDate(s));
+  };
+  const showWhenFilter = f => f.active || f.upcoming || f.opening;
+  const passesWhen = (s, f) => !showWhenFilter(f)
+    || (f.active && isActiveShow(s)) || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s));
   const isClosingThisWeek = s => {
     const d = parseDate(s.endDate); if (!d) return false;
     const diff = d - Date.now(); return diff >= 0 && diff <= 7 * DAY;
@@ -1705,13 +1716,13 @@
   // (museums, the long tail and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '75' | '100' |
   // '150' (the top N galleries) | 'all' (every gallery, unranked included) |
-  // 'below100' (ranks 101–200 only), Map only; active / receptions are toggles; list: null | 'saved' |
+  // 'below100' (ranks 101–200 only), Map only; active / upcoming / opening are toggles (on together they add up); list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
-  const FILTER_VERSION = 7;
+  const FILTER_VERSION = 8;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
-    active: true, list: null, receptions: false, sort: 'rank' };
+    active: true, upcoming: false, opening: false, list: null, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   // Gallery rank: one of Top 50 / 75 / 100 / 150 (ranks 1–N), All, or Below
   // 100 (ranks 101–200 only). Unranked galleries show only under All. The
@@ -1738,6 +1749,8 @@
   function loadFilter() {
     let o = {};
     try { o = JSON.parse(store.get('filter', '{}')) || {}; } catch (e) { /* ignore */ }
+    // v7 -> v8: Upcoming receptions became Upcoming shows + Opening this week
+    if (o.v === 7) { const { receptions, ...rest } = o; o = { ...rest, v: FILTER_VERSION, upcoming: false, opening: !!receptions }; }
     if (o.v !== FILTER_VERSION) o = {};   // older filter shape: start from the defaults
     const f = { ...FILTER_DEFAULT, ...o };
     f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
@@ -1758,14 +1771,14 @@
   // Gallery rank only counts on the Map, the one tab it applies to.
   const filterActiveCount = (f, onMap) => [f.q.trim(), !onMap && f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
     onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank,
-    f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
+    f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening]
     .filter(Boolean).length;
   // One line for the Discover context message.
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
     const bits = [label(KINDS, f.kind)];
-    bits.push(f.active ? 'Active' : 'All dates');
-    if (f.receptions) bits.push('Upcoming receptions');
+    const when = [f.active && 'Active', f.upcoming && 'Upcoming', f.opening && 'Opening this week'].filter(Boolean);
+    bits.push(when.length ? when.join(' + ') : 'All dates');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
     if (f.q.trim()) bits.push(`search "${f.q.trim()}"`);
     return bits.join(' · ');
@@ -1796,8 +1809,7 @@
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
       if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
       if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
-      if (f.active && !isActiveShow(s)) return false;
-      if (f.receptions && !hasUpcomingReception(s)) return false;
+      if (!passesWhen(s, f)) return false;
       return true;
     });
   }
@@ -1815,13 +1827,15 @@
     return true;
   }
   // The Map's venues: one entry per venue of the filtered shows, plus — when
-  // Active shows is off and nothing else narrows to shows (upcoming receptions,
+  // Active shows is off and nothing else narrows to shows (Upcoming shows, Opening this week,
   // a list as context) — every other venue of the city the filter admits, with
   // no shows. `active` says whether something is on view there; the map fades
   // the rest. Tier and rank are the gallery's own (a show has no rank).
   function mapVenues() {
     // The Map has no Neighborhoods filter: a neighborhood picked on Shows or Lists never hides a pin.
     const f = { ...state.filter, hoods: [] };
+    // full-strength pin: a show matching the Show switches, or on view now when none is on
+    const lit = s => showWhenFilter(f) ? passesWhen(s, f) : isActiveShow(s);
     const out = new Map();
     // The Gallery rank buttons narrow the Map only; gems and galleries with a
     // saved show stay on it whatever they say.
@@ -1832,13 +1846,13 @@
       const g = out.get(k);
       if (g) g.shows.push(s); else out.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
     });
-    if (!f.active && !f.receptions && !f.list) {
+    if (!showWhenFilter(f) && !f.list) {
       cityVenues().forEach(v => {
         const k = venueKey(v);
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].flatMap(g => { const on = g.shows.some(isActiveShow); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
+    return [...out.values()].flatMap(g => { const on = g.shows.some(lit); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -1942,7 +1956,7 @@
     const off = document.getElementById('map-legend-off');
     if (!off) return;
     const f = state.filter;
-    off.hidden = !!(f.active || f.receptions || f.list);
+    off.hidden = !!(showWhenFilter(f) || f.list);
   }
 
   // ---- a list as context (L5b/L5c): bar under the Featured title, pill on the Map ----
@@ -2037,7 +2051,7 @@
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
       header('List'), listGroup,
       header('Show'),
-      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
+      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
       ...(onMap ? [header('Top galleries by rank'), rankRow] : []),
       header('Venue Type'), seg('kind', KINDS),
       ...(onMap ? [] : [header('Neighborhoods'), hoodWrap]),   // the Map has no neighborhood filter
