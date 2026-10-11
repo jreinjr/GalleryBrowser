@@ -1838,7 +1838,7 @@
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].flatMap(g => { const on = g.shows.some(isActiveShow); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.base || g.key) }));
+    return [...out.values()].flatMap(g => { const on = g.shows.some(isActiveShow); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -1858,6 +1858,13 @@
       address: r.address, addressDetail: r.addressDetail, neighborhood: r.neighborhood, hours: r.hours, lat: r.lat, lng: r.lng };
     return [primary, ...r.locations];
   };
+  // Red (saved) only on the space that holds the saved show, not every space of the gallery.
+  function savedAtSpace(g) {
+    const saved = savedShows().filter(s => venueKey(s.venue) === g.base);
+    if (!saved.length) return false;
+    const part = splitSpaces({ key: g.base, venue: g.venue, shows: saved }).find(p => p.key === g.key);
+    return !!(part && part.shows.length);
+  }
   function splitSpaces(g) {
     const spaces = gallerySpaces(g.venue);
     if (!spaces) return [g];
