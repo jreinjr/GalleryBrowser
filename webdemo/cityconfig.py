@@ -127,8 +127,25 @@ def load_venues(city_key: str) -> dict[str, dict]:
             "neighborhood": v.get("neighborhood"),
             "lat": v.get("latitude"), "lng": v.get("longitude"),
             "photos": published_photos(v),
+            "locationLabel": v.get("location_label"),
+            "locations": published_locations(v),
+            "locationsReviewed": v.get("locations_reviewed"),
         }
     return out
+
+
+def published_locations(v: dict) -> list[dict] | None:
+    """A gallery's other spaces (registry `locations`, beyond the primary
+    address): each is pinned on the Map in its own right. Only pinned entries
+    ship; the primary stays the venue's own address/lat/lng."""
+    out = []
+    for loc in v.get("locations") or []:
+        if loc.get("latitude") is None or loc.get("longitude") is None:
+            continue
+        out.append({"name": loc.get("name"), "label": loc.get("label"),
+                    "address": loc.get("address"), "neighborhood": loc.get("neighborhood"),
+                    "hours": loc.get("hours") or [], "lat": loc["latitude"], "lng": loc["longitude"]})
+    return out or None
 
 
 def load_seesaw(city_key: str) -> dict[str, str]:

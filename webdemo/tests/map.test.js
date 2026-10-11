@@ -145,10 +145,19 @@ async function collisionOn(page) {
       const withShows = new Set(window.DEMO_DATA.shows.filter(s => s.city === city).map(s => key(s.venue)));
       const running = new Set(window.DEMO_DATA.shows.filter(s => s.city === city && window.DemoDebug.isActiveShow(s)).map(s => key(s.venue)));
       const all = new Set([...withShows, ...window.DemoDebug.cityVenues().map(key)]);
-      return { all: all.size, running: running.size, withShows: withShows.size };
+      // every space of a multi-location gallery is its own pin (key, key#1, …)
+      const spaces = [...all].flatMap(k => {
+        const v = window.DemoDebug.cityVenues().find(x => key(x) === k);
+        return [k, ...((v && v.locations) || []).map((_, i) => k + '#' + (i + 1))];
+      });
+      return { all: spaces.length, spaces, running: running.size, withShows: withShows.size };
     });
-    check('M1d every gallery of the city is a feature with Active shows off',
-      props.length === expect.all && expect.all > expect.withShows, `features=${props.length} expected=${expect.all} (with shows ${expect.withShows})`);
+    const pinned = new Set(props.flatMap(p => String(p.keys).split('\n')));
+    const missing = expect.spaces.filter(k => !pinned.has(k));
+    check('M1d every gallery space of the city is on a pin with Active shows off (second locations too)',
+      missing.length === 0 && expect.all > expect.withShows, `pins=${props.length} spaces=${expect.all} (with shows ${expect.withShows}) missing=${missing.slice(0, 5).join(', ')}`);
+    check('M1d2 Hauser & Wirth and Hoffman Donahue each have two pins',
+      ['id:hauser-and-wirth', 'id:hoffman-donahue'].every(k => pinned.has(k) && pinned.has(k + '#1')) || CITY !== 'los-angeles');
     check('M1e venues with a running show are active, the rest faded',
       props.filter(p => p.active === 1).length === expect.running && props.some(p => p.active === 0 && p.count === 0),
       `active=${props.filter(p => p.active === 1).length} / ${expect.running}, faded=${props.filter(p => p.active === 0).length}`);

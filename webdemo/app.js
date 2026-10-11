@@ -1434,7 +1434,8 @@
       rankEditor(v),
       el('div', { class: 'venue-lines gc-lines' },
         el('div', null, fullAddress(v)),
-        ...(v.hours || []).map(hoursLine)),
+        ...(v.hours || []).map(hoursLine),
+        ...(v.otherSpaces || []).map(o => el('div', { class: 'gc-other-space' }, 'Also: ' + (o.label ? o.label + ', ' : '') + o.address))),
       showsSection,
       links,
       detailsBtn,
@@ -1837,7 +1838,35 @@
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.key) }));
+    return [...out.values()].flatMap(splitSpaces).map(g => ({ ...g, active: g.shows.some(isActiveShow), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: savedKeys.has(g.base || g.key) }));
+  }
+  // A gallery with more than one space (registry `locations`, build.py) is one
+  // venue everywhere but the Map, where each space gets its own pin: the
+  // gallery's record with that space's name, address, hours and coordinates.
+  // A show goes to the space nearest its own geocoded pin. The primary keeps
+  // the gallery's key; the others are key#1, key#2… with `base` the gallery's.
+  // Unset fields are '' / [] rather than null so fullVenue never refills them
+  // from the primary.
+  const gallerySpaces = v => {
+    const r = venueRecord(v) || v;
+    if (!r.locations || !r.locations.length) return null;
+    const label = r.locationLabel;
+    const primary = { name: label && !r.name.includes(label) ? r.name + ' · ' + label : r.name, label,
+      address: r.address, addressDetail: r.addressDetail, neighborhood: r.neighborhood, hours: r.hours, lat: r.lat, lng: r.lng };
+    return [primary, ...r.locations];
+  };
+  function splitSpaces(g) {
+    const spaces = gallerySpaces(g.venue);
+    if (!spaces) return [g];
+    const parts = spaces.map((sp, i) => ({ key: i ? g.key + '#' + i : g.key, base: g.key, shows: [],
+      venue: { ...g.venue, name: sp.name || g.venue.name, address: sp.address || '', addressDetail: sp.addressDetail || '',
+        neighborhood: sp.neighborhood || g.venue.neighborhood, hours: sp.hours || [], lat: sp.lat, lng: sp.lng,
+        spaceLabel: sp.label || '', otherSpaces: spaces.filter(o => o !== sp) } }));
+    g.shows.forEach(s => {
+      const d = p => s.venue.lat == null ? 0 : haversine(s.venue.lat, s.venue.lng, p.venue.lat, p.venue.lng);
+      parts.reduce((a, b) => d(b) < d(a) ? b : a).shows.push(s);
+    });
+    return parts;
   }
   // Pure: stable sort by the chosen key; ties fall back to the gallery rank,
   // then, within one gallery, to the show closing soonest.

@@ -30,6 +30,14 @@ photos:       {status: done|none, ts, model, confidence, candidates_seen, google
                                                                            # gallery_photos.py apply
 ```
 
+Multi-location galleries: `address`/`latitude`/`longitude` are the primary space;
+`location_label` names it and `locations: [{name, label, address, neighborhood, latitude,
+longitude, coords_source, hours, source_url}]` lists the gallery's other spaces. The Map pins
+every space (app.js `splitSpaces`); `webdemo/build.py` `check_pins` warns when a venue or
+space with coordinates gets no pin, when two spaces share one pin, or when the research
+report names a current same-metro space the registry lacks. `locations_reviewed: "<date>:
+<why>"` silences that last warning once a person has checked the report's extra spaces.
+
 `tier` / `notability` keep their meaning (tier 1-3 or null) but are now written by
 `rank_venues.py apply` (venue_tiers.py is superseded).
 

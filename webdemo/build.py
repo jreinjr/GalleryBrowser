@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -42,6 +43,66 @@ def cache_bust() -> None:
         digest = hashlib.md5((DIST / name).read_bytes()).hexdigest()[:10]
         html = html.replace(f'"{name}"', f'"{name}?v={digest}"')
     index.write_text(html, encoding="utf-8")
+
+
+def check_pins(city_key: str, registry_venues: dict[str, dict], city_venues: dict[str, dict]) -> int:
+    """Every gallery space with coordinates must reach the Map as a pin.
+
+    The app pins each shipped venue at its lat/lng and each of its `locations`
+    at theirs (app.js splitSpaces), so a space is pinned exactly when it ships
+    with coordinates. Flags (1) a mappable registry venue that did not ship,
+    (2) a shipped venue or location without coordinates, and (3) a current
+    same-metro location in the venue's research report that the registry has
+    no `locations` entry for: the case that left Hauser & Wirth West Hollywood
+    and Hoffman Donahue's Western Ave space off the map, because a registry
+    venue held one address. Returns the number of problems; prints each."""
+    problems: list[str] = []
+    for vid, rv in registry_venues.items():
+        if cityconfig.mappable(rv) and vid not in city_venues:
+            problems.append(f"{vid}: has coordinates but no pin")
+    for vid, rec in city_venues.items():
+        if rec.get("lat") is None or rec.get("lng") is None:
+            problems.append(f"{vid}: shipped without coordinates")
+            continue
+        # two spaces of one gallery within ~5 m share a pin (map_maplibre SAME_SPOT):
+        # usually the primary's pin was copied from a show at the other space
+        spots = [(rec.get("address"), rec["lat"], rec["lng"])] + \
+                [(l.get("address"), l["lat"], l["lng"]) for l in rec.get("locations") or []]
+        for i, a in enumerate(spots):
+            for b in spots[i + 1:]:
+                if abs(a[1] - b[1]) < 0.00005 and abs(a[2] - b[2]) < 0.00005:
+                    problems.append(f"{vid}: '{a[0]}' and '{b[0]}' have one pin between them")
+    # Same metro = a ZIP prefix at least three of this city's venues use.
+    zip3 = lambda s: {z[:3] for z in re.findall(r"\b(\d{5})(?:-\d{4})?\b", s or "")}
+    counts: dict[str, int] = {}
+    for rv in registry_venues.values():
+        for z in zip3(rv.get("address")):
+            counts[z] = counts.get(z, 0) + 1
+    metro = {z for z, n in counts.items() if n >= 3}
+    # the street number, wherever it sits ("Bergamot Station, 2525 Michigan Ave")
+    street_no = lambda s: (re.search(r"\b(\d{1,5})\s+[A-Za-z]", s or "") or [None, None])[1]
+    reports = cityconfig.CONTENT_DIR / "venues" / "reports" / city_key
+    for vid, rec in city_venues.items():
+        rv = registry_venues.get(vid) or {}
+        f = reports / f"{vid}.json"
+        if not metro or rv.get("locationsReviewed") or not f.is_file():
+            continue
+        try:
+            locs = json.loads(f.read_text()).get("locations") or []
+        except (json.JSONDecodeError, AttributeError):
+            continue
+        spaces = {street_no(l.get("address")): l.get("address") for l in locs
+                  if l.get("current") and zip3(l.get("address")) & metro and street_no(l.get("address"))}
+        # One current space is the gallery's address (a mismatch there is a
+        # move, not a missing pin); more than the registry pins is a gap.
+        pinned = {street_no(rec.get("address"))} | {street_no(l.get("address")) for l in rec.get("locations") or []}
+        if len(spaces) > len(pinned):
+            for no, addr in spaces.items():
+                if no not in pinned:
+                    problems.append(f"{vid}: report lists another space with no pin — {addr}")
+    for p in problems:
+        print(f"  pin check {city_key}: {p}")
+    return len(problems)
 
 
 def write_icons() -> None:
@@ -125,6 +186,7 @@ def main() -> None:
     full_bytes = 0
     full_count = 0
     venues_without_shows = 0
+    pin_problems = 0
 
     # The venue record the app works from: everything a venue page and a map
     # dot need, so a gallery with nothing on view is still a full venue. The
@@ -133,7 +195,8 @@ def main() -> None:
     def venue_record(rv: dict, city_key: str) -> dict:
         rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier", "rank",
                                       "neighborhood", "address", "addressDetail", "hours",
-                                      "phone", "website", "lat", "lng")}
+                                      "phone", "website", "lat", "lng",
+                                      "locationLabel", "locations")}
         rec["city"] = city_key
         # See Saw lists the gallery now: "pick" (Editor's Picks) or "listed"
         rec["seesaw"] = seesaw.get(city_key, {}).get(rv.get("id"))
@@ -252,6 +315,7 @@ def main() -> None:
                 continue
             city_venues[vid] = venue_record(rv, cty["key"])
             venues_without_shows += 1
+        pin_problems += check_pins(cty["key"], registry_venues, city_venues)
 
         if kept:
             all_lists[cty["key"]] = cityconfig.load_lists(cty["key"], {s["slug"] for s in kept})
@@ -286,6 +350,8 @@ def main() -> None:
     print(f"  cities: {len(cities)}   shows: {len(all_shows)}   venues: {sum(len(v) for v in all_venues.values())} "
           f"({venues_without_shows} without a show, {venue_photo_count} with gallery photos)   "
           f"curated lists: {sum(len(v) for v in all_lists.values())}")
+    print(f"  pin check: " + ("every gallery space is pinned" if not pin_problems
+          else f"{pin_problems} problem(s) above — a venue or space with no map pin"))
     for key, text in sorted(corpora.items()):
         print(f"  discover corpus {key}: {human(len(text.encode('utf-8')))}")
     print(f"  code {human(code_bytes)} | data.js {human((DIST / 'data.js').stat().st_size)} "

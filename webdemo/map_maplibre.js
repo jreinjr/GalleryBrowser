@@ -134,7 +134,7 @@
         return {
           type: 'Feature',
           geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
-          properties: { key: g.key, name: members.map(m => m.venue.name).join('\n'), n: members.length,
+          properties: { key: g.key, keys: members.map(m => m.key).join('\n'), name: members.map(m => m.venue.name).join('\n'), n: members.length,
                         count: members.reduce((a, m) => a + m.shows.length, 0), active: members.some(m => m.active) ? 1 : 0,
                         tier: g.tier || 'listed', band: bandForRank(g.rank), saved: members.some(m => m.saved) ? 1 : 0,
                         gem: members.some(m => m.gem) ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },

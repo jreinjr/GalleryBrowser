@@ -18243,7 +18243,8 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "locations_reviewed": "2026-10-11: the W Hotel and Kimpton La Peer displays in the research report are not on artangels.net; not pinned"
   },
   {
    "id": "art-avenue",
@@ -52682,9 +52683,9 @@
    "neighborhood": "Chinatown/East LA",
    "address": "969 Chung King Rd, Los Angeles, CA 90012",
    "address_detail": null,
-   "latitude": 34.0662682,
-   "longitude": -118.2384259,
-   "coords_source": "show:charlie-james-gallery-lookout-weekend",
+   "latitude": 34.066497,
+   "longitude": -118.238305,
+   "coords_source": "geocode",
    "website": "https://www.cjamesgallery.com",
    "exhibitions_url": "https://www.cjamesgallery.com/exhibitions",
    "exhibitions_url_source": "migration",
@@ -53056,7 +53057,23 @@
       }
      }
     ]
-   }
+   },
+   "location_label": "Gallery 1",
+   "locations": [
+    {
+     "name": "Charlie James Gallery · Gallery 2",
+     "label": "Gallery 2",
+     "address": "961 Chung King Rd, Los Angeles, CA 90012",
+     "neighborhood": "Chinatown/East LA",
+     "latitude": 34.0662682,
+     "longitude": -118.2384259,
+     "coords_source": "geocode",
+     "hours": [
+      "Tuesday - Saturday 11am to 5pm"
+     ],
+     "source_url": "https://www.cjamesgallery.com"
+    }
+   ]
   },
   {
    "id": "charlotte-call",
@@ -58814,7 +58831,8 @@
     "gate": "kind:nonprofit"
    },
    "kind_source": "research",
-   "kind_evidence": "Self-described nonprofit arts organization commissioning site-specific public art, no represented-artist roster, not a commercial gallery."
+   "kind_evidence": "Self-described nonprofit arts organization commissioning site-specific public art, no represented-artist roster, not a commercial gallery.",
+   "locations_reviewed": "2026-10-11: 2806 Clearwater St is the office and the Bowtie Parcel hosts scheduled events only; neither is a walk-in space to pin"
   },
   {
    "id": "cltr-bio",
@@ -110734,7 +110752,25 @@
     "kind_museum": -0.15
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "location_label": "Getty Center",
+   "locations": [
+    {
+     "name": "Getty Villa",
+     "label": "Getty Villa",
+     "address": "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272",
+     "neighborhood": "Westside/Brentwood",
+     "latitude": 34.0454958,
+     "longitude": -118.5648211,
+     "coords_source": "geocode",
+     "hours": [
+      "Wed - Mon 10am to 5pm",
+      "Tue Closed",
+      "Timed reservation required"
+     ],
+     "source_url": "https://www.getty.edu/visit/villa/"
+    }
+   ]
   },
   {
    "id": "ggla",
@@ -121281,7 +121317,23 @@
       }
      }
     ]
-   }
+   },
+   "location_label": "Downtown Los Angeles",
+   "locations": [
+    {
+     "name": "Hauser & Wirth West Hollywood",
+     "label": "West Hollywood",
+     "address": "8980 Santa Monica Blvd, West Hollywood, CA 90069",
+     "neighborhood": "West Hollywood/Fairfax",
+     "latitude": 34.0829762,
+     "longitude": -118.3862811,
+     "coords_source": "geocode",
+     "hours": [
+      "Tue - Sat 11am to 6pm"
+     ],
+     "source_url": "https://www.timeout.com/los-angeles/art/hauser-wirth-west-hollywood"
+    }
+   ]
   },
   {
    "id": "hawaii-fluid-art",
@@ -123690,7 +123742,7 @@
    "status": "active",
    "tier": 3,
    "notability": 0.133,
-   "neighborhood": "Hollywood",
+   "neighborhood": "Beverly Hills",
    "address": "427 N Camden Dr 2nd Floor, Beverly Hills, CA 90210",
    "address_detail": "2nd Floor",
    "latitude": 34.0689,
@@ -123943,7 +123995,24 @@
     "gate": null
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "location_label": "Beverly Hills",
+   "locations": [
+    {
+     "name": "Hoffman Donahue · Los Angeles",
+     "label": "Los Angeles",
+     "address": "725 N Western Ave, Ste. 105, Los Angeles, CA 90029",
+     "neighborhood": "Hollywood",
+     "latitude": 34.0841962,
+     "longitude": -118.3094663,
+     "coords_source": "places",
+     "hours": [
+      "Tue - Sat 11am to 6pm",
+      "or by appt."
+     ],
+     "source_url": "https://www.hoffmandonahue.com/info/"
+    }
+   ]
   },
   {
    "id": "hold-up-art",
@@ -139247,7 +139316,21 @@
       }
      }
     ]
-   }
+   },
+   "location_label": "Orange Drive",
+   "locations": [
+    {
+     "name": "Jeffrey Deitch · Santa Monica Blvd",
+     "label": "Santa Monica Blvd",
+     "address": "7000 Santa Monica Blvd, Los Angeles, CA 90038",
+     "neighborhood": "Hollywood",
+     "latitude": 34.090549,
+     "longitude": -118.341834,
+     "coords_source": "geocode",
+     "hours": [],
+     "source_url": "https://www.discoverlosangeles.com/jeffrey-deitch-gallery-2"
+    }
+   ]
   },
   {
    "id": "jeni-abramson",
@@ -151442,7 +151525,23 @@
     "multi_location": 0.0425
    },
    "kind_source": "research",
-   "kind_evidence": "Gallery represents and exhibits a roster of artists and participates in commercial art fairs (NADA, Armory, Aspen, Felix, etc.)."
+   "kind_evidence": "Gallery represents and exhibits a roster of artists and participates in commercial art fairs (NADA, Armory, Aspen, Felix, etc.).",
+   "location_label": "Highland Park",
+   "locations": [
+    {
+     "name": "La Loma Projects · Pasadena annex",
+     "label": "Pasadena annex",
+     "address": "1357 Brixton Rd, Pasadena, CA 91105",
+     "neighborhood": "Pasadena/San Gabriel",
+     "latitude": 34.137804,
+     "longitude": -118.1850495,
+     "coords_source": "geocode",
+     "hours": [
+      "By appointment only"
+     ],
+     "source_url": "https://www.lalomaprojects.com/about"
+    }
+   ]
   },
   {
    "id": "la-luz-de-jesus",
@@ -175113,11 +175212,11 @@
    "tier": 1,
    "notability": 0.488,
    "neighborhood": "Beverly Hills",
-   "address": "427 N Camden Drive",
-   "address_detail": "Camden Downstairs Annex",
+   "address": "9953 S Santa Monica Blvd, Beverly Hills, CA 90212",
+   "address_detail": null,
    "latitude": 34.0644238,
    "longitude": -118.4136516,
-   "coords_source": "show:marc-selwyn-dorothea-rockburne",
+   "coords_source": "geocode",
    "website": "https://www.marcselwynfineart.com",
    "exhibitions_url": "https://www.marcselwynfineart.com/exhibitions",
    "exhibitions_url_source": "harness",
@@ -175612,7 +175711,23 @@
       }
      }
     ]
-   }
+   },
+   "location_label": "Santa Monica Blvd",
+   "locations": [
+    {
+     "name": "Marc Selwyn Fine Art · 427 Camden & Camden Annex",
+     "label": "427 Camden & Camden Annex",
+     "address": "427 N Camden Dr, Beverly Hills, CA 90210",
+     "neighborhood": "Beverly Hills",
+     "latitude": 34.0689,
+     "longitude": -118.4047633,
+     "coords_source": "geocode",
+     "hours": [
+      "Thu - Sat 12pm to 5pm, or by appointment"
+     ],
+     "source_url": "https://www.marcselwynfineart.com/gallery"
+    }
+   ]
   },
   {
    "id": "marciano-art-foundation",
@@ -180872,7 +180987,23 @@
       }
      }
     ]
-   }
+   },
+   "location_label": "Santa Monica Blvd",
+   "locations": [
+    {
+     "name": "Matthew Marks Gallery · Orange Grove",
+     "label": "Orange Grove",
+     "address": "1062 N Orange Grove Ave, West Hollywood, CA 90046",
+     "neighborhood": "West Hollywood/Fairfax",
+     "latitude": 34.0904349,
+     "longitude": -118.3603594,
+     "coords_source": "geocode",
+     "hours": [
+      "Tue - Sat 10:00am to 6:00pm"
+     ],
+     "source_url": "https://matthewmarks.com/"
+    }
+   ]
   },
   {
    "id": "max-presneill",
@@ -187920,7 +188051,23 @@
     "kind_museum": -0.15
    },
    "kind_source": "show",
-   "kind_evidence": null
+   "kind_evidence": null,
+   "location_label": "Grand Avenue",
+   "locations": [
+    {
+     "name": "The Geffen Contemporary at MOCA",
+     "label": "Geffen Contemporary",
+     "address": "152 N Central Ave, Los Angeles, CA 90012",
+     "neighborhood": "Downtown/Arts District",
+     "latitude": 34.0504854,
+     "longitude": -118.2385914,
+     "coords_source": "geocode",
+     "hours": [
+      "Temporarily closed between exhibitions; see moca.org"
+     ],
+     "source_url": "https://www.moca.org/visit"
+    }
+   ]
   },
   {
    "id": "modern-fine-art-entertainment",
@@ -274498,7 +274645,24 @@
     "show_cadence": 0.0229
    },
    "kind_source": null,
-   "kind_evidence": null
+   "kind_evidence": null,
+   "location_label": "Downtown LA",
+   "locations": [
+    {
+     "name": "Track 16 · East Hollywood",
+     "label": "East Hollywood",
+     "address": "706 Heliotrope Dr, Los Angeles, CA 90029",
+     "neighborhood": "Hollywood",
+     "latitude": 34.0839269,
+     "longitude": -118.2947741,
+     "coords_source": "geocode",
+     "hours": [
+      "Tue - Sat 11am to 5pm",
+      "Also open by appointment"
+     ],
+     "source_url": "https://www.track16.com"
+    }
+   ]
   },
   {
    "id": "tracy-park",
