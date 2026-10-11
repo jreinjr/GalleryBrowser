@@ -1756,7 +1756,7 @@
   const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
   // Number of filter groups off their default: the badge on the filter button.
   // Gallery rank only counts on the Map, the one tab it applies to.
-  const filterActiveCount = (f, onMap) => [f.q.trim(), f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
+  const filterActiveCount = (f, onMap) => [f.q.trim(), !onMap && f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
     onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank,
     f.active !== FILTER_DEFAULT.active, f.list, f.receptions]
     .filter(Boolean).length;
@@ -1802,7 +1802,7 @@
     });
   }
   // The shows the Map dims behind a list context: everything else the filter admits.
-  const backdropShows = () => filterShows(cityShows(), { ...state.filter, list: null });
+  const backdropShows = () => filterShows(cityShows(), { ...state.filter, list: null, hoods: [] });
   // Venue-level filter: what a gallery with nothing on view has to pass to
   // reach the Map (name search, neighborhood, venue type, gallery tier).
   function venueMatches(v, f) {
@@ -1820,13 +1820,14 @@
   // no shows. `active` says whether something is on view there; the map fades
   // the rest. Tier and rank are the gallery's own (a show has no rank).
   function mapVenues() {
-    const f = state.filter;
+    // The Map has no Neighborhoods filter: a neighborhood picked on Shows or Lists never hides a pin.
+    const f = { ...state.filter, hoods: [] };
     const out = new Map();
     // The Gallery rank buttons narrow the Map only; gems and galleries with a
     // saved show stay on it whatever they say.
     const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
     const keep = v => withinRank(v, f) || isGem(v) || savedKeys.has(venueKey(v));
-    filteredShows().filter(s => keep(s.venue)).forEach(s => {
+    filterShows(cityShows(), f).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
       if (g) g.shows.push(s); else out.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
@@ -2039,7 +2040,7 @@
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming receptions', 'receptions')),
       ...(onMap ? [header('Top galleries by rank'), rankRow] : []),
       header('Venue Type'), seg('kind', KINDS),
-      header('Neighborhoods'), hoodWrap,
+      ...(onMap ? [] : [header('Neighborhoods'), hoodWrap]),   // the Map has no neighborhood filter
       ...(withSort ? [header('Sort'), sortGroup] : []));
     const countEl = el('span');
     const clearBtn = el('button', { class: 'ghost', onclick: () => {
