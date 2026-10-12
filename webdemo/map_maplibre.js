@@ -393,6 +393,7 @@
     function inViewTest() {
       if (!ready) return null;
       const c = map.getContainer(), w = c.clientWidth, h = c.clientHeight - inset();
+      if (w <= 0 || h <= 0) return null;   // not laid out (tab hidden): no view to narrow to
       return (lng, lat) => {
         if (lng == null || lat == null) return false;
         const p = map.project([lng, lat]);

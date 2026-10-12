@@ -2741,7 +2741,7 @@
   // Exactly the galleries on screen: the Map's own filtered pins (or a list
   // context's stops) whose pin sits in the part of the map above the list,
   // re-read after every pan or zoom. Best-ranked first. "All shows" zooms back
-  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens the show.
+  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens the gallery card, as a pin tap does.
   const mapList = (() => {
     const panel = document.getElementById('map-list');
     const scroll = document.getElementById('ml-scroll');
@@ -2764,7 +2764,7 @@
     function openCard(g) { openSheet(mapVenueCard(g.venue, g.shows, [])); }
     // A gallery with something on view gets the Shows tab's own card (its
     // concurrent shows as one swipeable deck); one with nothing on view a single line.
-    function row(g, all) {
+    function row(g) {
       const on = g.shows.filter(isActiveShow);
       const shows = sortShows(on.length ? on : g.shows, 'rank');
       const cls = 'ml-gal' + (g.key === picked ? ' picked' : '');
@@ -2774,7 +2774,7 @@
         cls: 'feed-card',
         carousel: { aspect: '1 / 1', dots: 'above-footer' },
         sub: s => `${listLine(g.venue)} • ${g.venue.address}`,
-        onOpen: s => openSheet(showDetailPage(all, all.findIndex(x => showId(x) === showId(s)), { asSheet: true })),
+        onOpen: () => openCard(g),   // the same gallery card a pin tap opens
       }));
     }
     function render() {
@@ -2784,8 +2784,7 @@
       seen.sort(order);
       allBtn.hidden = seen.length >= drawnAll.length;
       const top = scroll.scrollTop;
-      const all = seen.flatMap(g => { const on = g.shows.filter(isActiveShow); return sortShows(on.length ? on : g.shows, 'rank'); });
-      scroll.replaceChildren(...seen.map(g => row(g, all)),
+      scroll.replaceChildren(...seen.map(row),
         ...(seen.length ? [] : [el('div', { class: 'ml-empty' }, 'No galleries here. Zoom out or tap All shows.')]));
       scroll.scrollTop = top;
       if (picked && !seen.some(g => g.key === picked)) { picked = null; MapTab.setHighlight(null); }
