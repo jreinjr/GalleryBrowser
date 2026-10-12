@@ -14,6 +14,7 @@
  * answers with the city's new ranks.
  */
 import http from 'node:http';
+import zlib from 'node:zlib';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFile } from 'node:child_process';
@@ -110,6 +111,7 @@ async function localRank(req, res) {
   return json(out.ok ? 200 : 500, out);
 }
 
+const gzCache = new Map();   // file -> { etag, gz }
 const server = http.createServer(async (req, res) => {
   try {
     if (req.url.startsWith('/api/local-rank')) return localRank(req, res);
@@ -126,10 +128,30 @@ const server = http.createServer(async (req, res) => {
     if (p === '/') p = '/index.html';
     const file = path.join(DIST, p);
     if (!file.startsWith(DIST)) { res.writeHead(403); res.end(); return; }
-    fs.readFile(file, (err, data) => {
-      if (err) { res.writeHead(404); res.end('not found'); return; }
-      res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });
-      res.end(data);
+    fs.stat(file, (err, st) => {
+      if (err || !st.isFile()) { res.writeHead(404); res.end('not found'); return; }
+      // A phone on Wi-Fi or a hotspot: revalidate code and data (304 when
+      // unchanged), cache images for a day, and gzip text (data.js is ~3.5 MB raw).
+      const ext = path.extname(file);
+      const etag = `"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
+      const headers = { 'Content-Type': TYPES[ext] || 'application/octet-stream', ETag: etag,
+        'Cache-Control': /^\.(webp|jpg|png|svg|ico)$/.test(ext) ? 'public, max-age=86400' : 'no-cache' };
+      if (req.headers['if-none-match'] === etag) { res.writeHead(304, headers); res.end(); return; }
+      const text = /^\.(html|js|mjs|css|json)$/.test(ext);
+      if (text && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+        const hit = gzCache.get(file);
+        const send = gz => { res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip', Vary: 'Accept-Encoding', 'Content-Length': gz.length }); res.end(gz); };
+        if (hit && hit.etag === etag) return send(hit.gz);
+        fs.readFile(file, (e2, data) => {
+          if (e2) { res.writeHead(404); res.end('not found'); return; }
+          const gz = zlib.gzipSync(data, { level: 6 });
+          gzCache.set(file, { etag, gz });
+          send(gz);
+        });
+        return;
+      }
+      res.writeHead(200, { ...headers, 'Content-Length': st.size });
+      fs.createReadStream(file).pipe(res);
     });
   } catch (e) {
     console.error(e);
