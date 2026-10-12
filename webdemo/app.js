@@ -2803,7 +2803,7 @@
     function setFull(full) {
       panel.classList.toggle('full', full);
       toggle.setAttribute('aria-expanded', full ? 'true' : 'false');
-      mapBtn.textContent = full ? 'Open map' : 'Close map';   // names what it does to the map
+      mapBtn.textContent = full ? 'Close' : 'Open';   // opens and closes the show list
     }
     const mapBtn = document.getElementById('ml-mapbtn');
     toggle.addEventListener('click', () => setFull(!panel.classList.contains('full')));
