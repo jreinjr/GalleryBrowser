@@ -91,13 +91,18 @@
   //   [{ venue, shows }] of further galleries sharing that pin (one building).
   // getGemSymbol() -> null (the built-in gem) or the emoji the person picked for gems.
   // getContext() -> null | { list: {kind}, shows: [ordered list shows], backdrop: [other shows] }
-  window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext, getGemSymbol }) {
+  // onViewChange() runs once the map is ready and after every pan or zoom (the show list under the map).
+  // getBottomInset() -> px of the map hidden at the bottom (the show list and tab bar).
+  window.DemoMap = function ({ getCity, getVenues, venueKey, onVenueTap, getContext, getGemSymbol, onViewChange, getBottomInset }) {
     let map = null;
     let ready = false;          // style loaded, source + layers added
     let groups = new Map();     // key -> { venue, shows }, refreshed on every render
     let gemSym = null;          // the symbol the gem images were last drawn with
     let stacks = new Map();     // lead key -> keys of every gallery on that pin, lead first
     let ctxKey = null;          // which list the context source currently shows
+    let hlKey = null;           // the pin picked from the map, ringed until another is picked
+    const inset = () => (getBottomInset ? getBottomInset() : 0);
+    const fitPad = () => ({ top: 60, bottom: inset() + 20, left: 30, right: 30 });
 
     function cityBounds(c) {
       const half = c.span / 2;
@@ -220,6 +225,11 @@
       // and those above the rest, active ones above faded ones of the same band.
       gemSym = getGemSymbol ? getGemSymbol() : null;
       addGemImages(map, gemSym);
+      // The picked pin: an orange ring under its dot.
+      map.addLayer({
+        id: 'gal-hl', type: 'circle', source: SRC, filter: ['==', ['get', 'key'], hlKey || ''],
+        paint: { 'circle-radius': 13, 'circle-color': 'rgba(255, 149, 0, 0.28)', 'circle-stroke-width': 2.5, 'circle-stroke-color': 'rgba(255, 149, 0, 1)' },
+      });
       map.addLayer({
         id: 'gal-dot', type: 'circle', source: SRC, filter: ['!', IS_GEM],
         layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'saved']]] },
@@ -294,7 +304,7 @@
       if (key !== ctxKey && geo.stops.length) {
         ctxKey = key;
         const lngs = geo.stops.map(f => f.geometry.coordinates[0]), lats = geo.stops.map(f => f.geometry.coordinates[1]);
-        map.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], { padding: { top: 100, bottom: 210, left: 70, right: 70 }, maxZoom: 15, duration: 600 });
+        map.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], { padding: { top: 100, bottom: inset() + 30, left: 70, right: 70 }, maxZoom: 15, duration: 600 });
       }
     }
 
@@ -311,11 +321,11 @@
       const f = hits.sort((a, b) => paintOrder(a) - paintOrder(b))[0];
       if (!f) return;
       const g = groups.get(f.properties.key);
-      if (g) { onVenueTap(g.venue, g.shows, (stacks.get(f.properties.key) || []).slice(1).map(k => groups.get(k))); return; }
+      if (g) { onVenueTap(g.venue, g.shows, (stacks.get(f.properties.key) || []).slice(1).map(k => groups.get(k)), f.properties.key); return; }
       // a context stop whose shows are not in the filtered set
       const ctx = getContext ? getContext() : null;
       const shows = ctx ? ctx.shows.filter(s => venueKey(s.venue) === f.properties.key) : [];
-      if (shows.length) onVenueTap(shows[0].venue, shows);
+      if (shows.length) onVenueTap(shows[0].venue, shows, [], f.properties.key);
     }
 
     function ensureInit() {
@@ -325,7 +335,7 @@
         container: 'maplibre',
         style: STYLE,
         bounds: cityBounds(c),
-        fitBoundsOptions: { padding: 30 },
+        fitBoundsOptions: { padding: fitPad() },
         attributionControl: { compact: true },
       });
       // The person's location: a blue dot that follows them, and a button that
@@ -341,6 +351,7 @@
         ready = true;
         renderContext();
         map.on('click', onClick);
+        if (onViewChange) { map.on('moveend', () => onViewChange()); onViewChange(); }
         if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
           const canvas = map.getCanvas();
           CLICK_LAYERS.forEach(id => {
@@ -363,11 +374,40 @@
     function cityChanged() {
       if (!map) return;
       ctxKey = null;
-      map.fitBounds(cityBounds(getCity()), { padding: 30, duration: 700 });
+      setHighlight(null);
+      map.fitBounds(cityBounds(getCity()), { padding: fitPad(), duration: 700 });
       renderPins();
     }
 
-    return { ensureInit, cityChanged, applyFilter: renderPins };
+    // Zoom back out to the whole city ("All shows" under the map).
+    function showAll() {
+      if (!map) return;
+      map.fitBounds(cityBounds(getCity()), { padding: fitPad(), duration: 600 });
+    }
+    // Ring one pin (by its key), or none.
+    function setHighlight(key) {
+      hlKey = key || null;
+      if (ready && map.getLayer('gal-hl')) map.setFilter('gal-hl', ['==', ['get', 'key'], hlKey || '']);
+    }
+    // Whether a point is on screen, above the show list. null until the map is ready.
+    function inViewTest() {
+      if (!ready) return null;
+      const c = map.getContainer(), w = c.clientWidth, h = c.clientHeight - inset();
+      return (lng, lat) => {
+        if (lng == null || lat == null) return false;
+        const p = map.project([lng, lat]);
+        return p.x >= 0 && p.x <= w && p.y >= 0 && p.y <= h;
+      };
+    }
+    // Centre a point in the part of the map above the list, without changing zoom.
+    function reveal(lng, lat) {
+      if (!ready || lng == null) return;
+      const test = inViewTest();
+      if (test && test(lng, lat)) return;
+      map.easeTo({ center: [lng, lat], offset: [0, -inset() / 2], duration: 500 });
+    }
+
+    return { ensureInit, cityChanged, applyFilter: renderPins, showAll, setHighlight, inViewTest, reveal, resize: () => map && map.resize() };
   };
   window.DemoMap.STYLE = STYLE;
 })();

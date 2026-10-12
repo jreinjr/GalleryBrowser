@@ -1950,6 +1950,7 @@
     renderMapContext();
     renderMapLegend();
     MapTab.applyFilter();
+    mapList.render();
   }
   // The legend's "Nothing on view" row only means something when faded venues can appear.
   function renderMapLegend() {
@@ -2719,9 +2720,14 @@
     getVenues: mapVenues,
     venueKey,
     getGemSymbol: gemSymbol,
-    // A tap opens the compact gallery card: images, hours, Directions, and
-    // the other galleries sharing the pin.
-    onVenueTap: (v, shows, others) => openSheet(mapVenueCard(fullVenue(v), shows || [], others || [])),
+    // A tap rings the pin and scrolls the list under the map to that gallery;
+    // a second tap on the ringed pin opens its gallery card.
+    onVenueTap: (v, shows, others, key) => {
+      if (key && key !== mapList.picked()) { mapList.pick(key); return; }
+      openSheet(mapVenueCard(fullVenue(v), shows || [], others || []));
+    },
+    onViewChange: () => mapList.render(),
+    getBottomInset: () => mapList.inset(),
     // The chosen list as context: its venues highlighted (a route also drawn
     // as a line through them in order), the rest of the filter dimmed.
     getContext: () => {
@@ -2730,6 +2736,96 @@
       return { list: l, shows: listRunning(l).map(x => x.show), backdrop: backdropShows() };
     },
   });
+
+  // ---- the show list under the map ----
+  // Exactly the galleries on screen: the Map's own filtered pins (or a list
+  // context's stops) whose pin sits in the part of the map above the list,
+  // re-read after every pan or zoom. Best-ranked first. "All shows" zooms back
+  // out to the whole city. Tapping a row opens the gallery card (or the show).
+  const mapList = (() => {
+    const panel = document.getElementById('map-list');
+    const scroll = document.getElementById('ml-scroll');
+    const count = document.getElementById('ml-count');
+    const allBtn = document.getElementById('ml-all');
+    const toggle = document.getElementById('ml-toggle');
+    let picked = null;
+    // Galleries the map draws right now, as { key, venue, shows }.
+    function drawn() {
+      const l = currentList();
+      if (!l) return mapVenues();
+      const by = new Map();
+      listRunning(l).forEach(({ show: s }) => {
+        const k = venueKey(s.venue);
+        const g = by.get(k);
+        if (g) g.shows.push(s); else by.set(k, { key: k, venue: fullVenue(s.venue), shows: [s] });
+      });
+      return [...by.values()];
+    }
+    const order = (a, b) => (venueRank(a.venue) ?? 1e9) - (venueRank(b.venue) ?? 1e9) || (a.venue.name || '').localeCompare(b.venue.name || '');
+    function openCard(g) { openSheet(mapVenueCard(g.venue, g.shows, [])); }
+    function openShowIn(g, s) {
+      const page = mapVenueCard(g.venue, g.shows, []);
+      openSheet(page);
+      pushShowInSheet(page.parentElement, s);
+    }
+    function row(g) {
+      const on = g.shows.filter(isActiveShow);
+      const shows = sortShows(on.length ? on : g.shows, 'rank');
+      const rank = venueRank(g.venue);
+      return el('div', { class: 'ml-gal' + (g.key === picked ? ' picked' : ''), 'data-key': g.key },
+        el('button', { class: 'ml-gal-head', onclick: () => openCard(g) },
+          tierStar(galleryTier(g.venue)),
+          el('span', { class: 'ml-name' }, listLine(g.venue)),
+          rank ? el('span', { class: 'ml-rank' }, '#' + rank) : null,
+          icon('chevronRight')),
+        ...(shows.length ? shows.map(s => el('button', { class: 'ml-show', onclick: () => openShowIn(g, s) },
+          showImg(s) ? el('img', { src: showImg(s), alt: '', loading: 'lazy' }) : el('div', { class: 'ml-noimg' }),
+          el('div', { class: 'ml-txt' },
+            el('div', { class: 'ml-title' }, displayName(s)),
+            s.artist && s.title !== s.artist ? el('div', { class: 'ml-sub' }, s.title) : null,
+            el('div', { class: 'ml-date' }, dateLine(s, fmtShort)))))
+          : [el('div', { class: 'ml-none' }, 'Nothing on view')]));
+    }
+    function render() {
+      const all = drawn();
+      const test = MapTab.inViewTest();
+      const seen = test ? all.filter(g => test(g.venue.lng, g.venue.lat)) : all;
+      seen.sort(order);
+      const nShows = gs => new Set(gs.flatMap(g => g.shows.map(showId))).size;
+      const narrowed = seen.length < all.length;
+      count.textContent = narrowed
+        ? `${plural(nShows(seen), 'show')} at ${plural(seen.length, 'gallery', 'galleries')} in view`
+        : `All ${plural(nShows(all), 'show')} · ${plural(all.length, 'gallery', 'galleries')}`;
+      allBtn.hidden = !narrowed;
+      const top = scroll.scrollTop;
+      scroll.replaceChildren(...seen.map(row),
+        ...(seen.length ? [] : [el('div', { class: 'ml-empty' }, 'No galleries here. Zoom out or tap All shows.')]));
+      scroll.scrollTop = top;
+      if (picked && !seen.some(g => g.key === picked)) { picked = null; MapTab.setHighlight(null); }
+    }
+    function pick(key) {
+      picked = key;
+      MapTab.setHighlight(key);
+      setOpen(true);
+      render();
+      const r = scroll.querySelector(`.ml-gal[data-key="${CSS.escape(key)}"]`);
+      if (r) scroll.scrollTo({ top: r.offsetTop - 4, behavior: 'smooth' });
+    }
+    function setOpen(open) {
+      if (panel.classList.contains('collapsed') !== open) return;
+      panel.classList.toggle('collapsed', !open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      render();
+    }
+    toggle.addEventListener('click', () => setOpen(panel.classList.contains('collapsed')));
+    allBtn.addEventListener('click', () => { picked = null; MapTab.setHighlight(null); MapTab.showAll(); });
+    // How much of the map the list (and the tab bar under it) covers.
+    const inset = () => {
+      const frame = document.getElementById('screen-map').getBoundingClientRect();
+      return Math.max(0, frame.bottom - panel.getBoundingClientRect().top);
+    };
+    return { render, pick, picked: () => picked, inset };
+  })();
 
   const mapFilterBtn = document.getElementById('map-filter-btn');
   mapFilterBtn.append(icon('sliders'), el('span', null, 'Filter'));
