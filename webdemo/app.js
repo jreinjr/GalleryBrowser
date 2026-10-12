@@ -1453,6 +1453,170 @@
     page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
     return page;
   }
+  // The gallery card the Map's show list opens: the gallery's name, address
+  // and hours, its shows, then Directions and Website. No rank. A show here
+  // opens its rating page (seen it: rate, tag, note, keep in the archive).
+  function listGalleryCard(v, shows) {
+    const page = el('div', { class: 'page map-card-sheet gallery-card list-gallery-card' });
+    const close = el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() });
+    const on = shows.filter(isActiveShow);
+    const list = sortShows(on.length ? on : shows, 'rank');
+    const rate = x => {
+      const sub = ratePage(showSnapshot(x), x, () => sub.remove());
+      sub.dataset.sheetSub = '1';
+      page.parentElement.appendChild(sub);
+    };
+    const showsSection = list.length
+      ? el('div', { class: 'venue-shows' },
+          el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
+          el('div', { class: 'venue-show-list' }, ...list.map(x => el('div', { class: 'gc-show' }, venueShowCard(x, rate)))))
+      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
+    const links = el('div', { class: 'venue-actions gc-links' },
+      el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' }, icon('walk'), el('span', null, 'Directions')),
+      ...(v.website ? [el('a', { class: 'capsule-btn', href: v.website, target: '_blank', rel: 'noopener' }, icon('compass'), el('span', null, 'Website'))] : []));
+    const body = el('div', { class: 'detail-body' },
+      el('div', { class: 'venue-title' }, listLine(v)),
+      el('div', { class: 'venue-lines gc-lines' },
+        el('div', null, fullAddress(v)),
+        ...(v.hours || []).map(hoursLine)),
+      showsSection,
+      links);
+    page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
+    return page;
+  }
+
+  // ---------------- the seen-it archive ----------------
+  // Shows the person has seen and rated, kept for good in
+  // localStorage['showArchive'] as { [showId]: entry }. An entry carries its own
+  // copy of the show (title, artist, gallery, dates, first image) so it outlives
+  // the show leaving the data. Lives on this device only.
+  const archive = (() => {
+    let data = {};
+    try { data = JSON.parse(store.get('showArchive', '{}')) || {}; } catch (e) { data = {}; }
+    const write = () => store.set('showArchive', JSON.stringify(data));
+    return {
+      get: id => data[id] || null,
+      all: () => Object.values(data).sort((a, b) => (b.seenOn || '').localeCompare(a.seenOn || '') || (b.savedAt || 0) - (a.savedAt || 0)),
+      put(e) { data[e.id] = e; write(); },
+      remove(id) { delete data[id]; write(); },
+    };
+  })();
+  const showSnapshot = s => ({ id: showId(s), city: state.cityKey, title: s.title, artist: s.artist || null,
+    venue: s.venue.name, address: s.venue.address || '', startDate: s.startDate || null, endDate: s.endDate || null, img: showImg(s) });
+  const RATINGS = [['😴', 'Not for me'], ['😐', 'OK'], ['🙂', 'Liked it'], ['😍', 'Loved it'], ['🤯', 'Blew me away']];
+  const TAGS = [['🎨', 'Painting'], ['🗿', 'Sculpture'], ['📸', 'Photo'], ['🎬', 'Video'], ['🧵', 'Textile'], ['🌀', 'Installation'],
+    ['✨', 'Beautiful'], ['🔥', 'Bold'], ['💭', 'Thoughtful'], ['🤔', 'Puzzling'], ['😂', 'Funny'], ['😢', 'Moving'],
+    ['🖤', 'Dark'], ['🌈', 'Colorful'], ['🤫', 'Quiet'], ['👀', 'Go see it']];
+  // The Lists tab's pages (the Archive row and page) after an archive change.
+  const refreshLists = () => [...pagesRoot.list.children].forEach(p => { if (p.refresh) p.refresh(); });
+  const isoDay = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const ratingOf = e => RATINGS.find(r => r[0] === e.rating);
+
+  // Rate a show you've seen: an emoji rating, emoji tags, a note, the day you
+  // went, and Save to archive. `snap` is a showSnapshot (or an archive entry);
+  // `show` the live show when there is one (for Show details).
+  function ratePage(snap, show, onClose) {
+    const prev = archive.get(snap.id);
+    const st = { rating: prev ? prev.rating : null, tags: new Set(prev ? prev.tags : []),
+      note: prev ? prev.note || '' : '', seenOn: prev ? prev.seenOn : isoDay(new Date()) };
+    const page = el('div', { class: 'page rate-page page-push' });
+    const scroll = el('div', { class: 'page-scroll' });
+    page.appendChild(scroll);
+    const back = el('button', { class: 'circle-btn', html: ICONS.chevronLeft, 'aria-label': 'Back', onclick: onClose });
+    const head = el('div', { class: 'rate-show' },
+      snap.img ? el('img', { src: snap.img, alt: '' }) : el('div', { class: 'rate-noimg' }),
+      el('div', { class: 'rate-show-text' },
+        el('div', { class: 'rate-title' }, snap.artist || snap.title),
+        snap.artist && snap.title !== snap.artist ? el('div', { class: 'rate-sub' }, snap.title) : null,
+        el('div', { class: 'rate-venue' }, snap.venue),
+        el('div', { class: 'rate-date' }, dateLine(snap, fmtShort))));
+    const ratingRow = el('div', { class: 'rate-scale' });
+    const paintRating = () => {
+      ratingRow.replaceChildren(...RATINGS.map(([e, label]) => el('button', {
+        class: 'rate-opt' + (st.rating === e ? ' on' : ''), 'aria-pressed': st.rating === e ? 'true' : 'false',
+        onclick: () => { st.rating = st.rating === e ? null : e; paintRating(); dirty(); } },
+        el('span', { class: 'rate-emoji' }, e), el('span', { class: 'rate-label' }, label))));
+    };
+    const tagWrap = el('div', { class: 'rate-tags' });
+    const paintTags = () => {
+      tagWrap.replaceChildren(...TAGS.map(([e, label]) => el('button', {
+        class: 'rate-tag' + (st.tags.has(e) ? ' on' : ''), 'aria-pressed': st.tags.has(e) ? 'true' : 'false',
+        onclick: () => { st.tags.has(e) ? st.tags.delete(e) : st.tags.add(e); paintTags(); dirty(); } }, e + ' ' + label)));
+    };
+    const note = el('textarea', { class: 'rate-note', rows: '4', placeholder: 'What stayed with you? Emojis welcome 🙂' });
+    note.value = st.note;
+    note.addEventListener('input', () => { st.note = note.value; dirty(); });
+    const day = el('input', { class: 'rate-day', type: 'date', value: st.seenOn, max: isoDay(new Date()) });
+    day.addEventListener('change', () => { st.seenOn = day.value || isoDay(new Date()); dirty(); });
+    const saveBtn = el('button', { class: 'capsule-btn rate-save' });
+    const status = el('div', { class: 'rate-status' });
+    const removeBtn = el('button', { class: 'rate-remove' }, 'Remove from archive');
+    let saved = !!prev;
+    function dirty() { saveBtn.textContent = saved ? 'Update archive' : 'Save to archive'; saveBtn.disabled = false; status.textContent = ''; }
+    saveBtn.onclick = () => {
+      archive.put({ ...snap, rating: st.rating, tags: [...st.tags], note: st.note.trim(), seenOn: st.seenOn, savedAt: Date.now() });
+      saved = true;
+      saveBtn.textContent = 'Saved to archive ✓'; saveBtn.disabled = true;
+      status.textContent = 'Kept in your archive (Lists tab) on this device.';
+      removeBtn.hidden = false;
+      refreshLists();
+    };
+    removeBtn.onclick = () => {
+      archive.remove(snap.id); saved = false; removeBtn.hidden = true;
+      saveBtn.textContent = 'Save to archive'; saveBtn.disabled = false; status.textContent = 'Removed from your archive.';
+      refreshLists();
+    };
+    removeBtn.hidden = !prev;
+    if (prev) { saveBtn.textContent = 'Saved to archive ✓'; saveBtn.disabled = true; } else saveBtn.textContent = 'Save to archive';
+    paintRating(); paintTags();
+    const details = show ? el('button', { class: 'rate-details', onclick: () => {
+      const p = showDetailPage([show], 0, { asSheet: true, subPage: true, onClose: () => p.remove() });
+      p.dataset.sheetSub = '1';
+      page.parentElement.appendChild(p);
+    } }, 'Show details', icon('chevronRight')) : null;
+    scroll.append(
+      el('div', { class: 'navrow' }, back),
+      el('div', { class: 'detail-body rate-body' },
+        el('div', { class: 'rate-kicker' }, 'I saw this show'),
+        head, details,
+        el('div', { class: 'group-header' }, 'How was it?'), ratingRow,
+        el('div', { class: 'group-header' }, 'Describe it'), tagWrap,
+        el('div', { class: 'group-header' }, 'Notes'), note,
+        el('label', { class: 'rate-day-row' }, el('span', null, 'Seen on'), day),
+        saveBtn, status, removeBtn));
+    return page;
+  }
+
+  // The archive: every show rated and kept, most recently seen first.
+  function archivePage() {
+    const listEl = el('div', { class: 'archive-list' });
+    const empty = el('div', { class: 'empty-plain' }, 'Nothing archived yet. On the Map, open the show list, tap a gallery, then tap a show you have seen to rate it and save it here.');
+    const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn('list')),
+      el('div', { class: 'large-title' }, 'Archive'),
+      el('div', { class: 'archive-note' }, 'Shows you have seen and rated. Kept on this device.'),
+      listEl, empty));
+    page.refresh = () => {
+      const xs = archive.all();
+      empty.hidden = !!xs.length;
+      listEl.replaceChildren(...xs.map(e => el('button', { class: 'archive-row', onclick: () => {
+        let close = null;
+        const p = ratePage(e, showById(e.id), () => { if (close) close(); page.refresh(); });
+        p.classList.remove('page-push');
+        close = openSheet(p);
+      } },
+        e.img ? el('img', { src: e.img, alt: '', loading: 'lazy' }) : el('div', { class: 'rate-noimg' }),
+        el('div', { class: 'archive-text' },
+          el('div', { class: 'rate-title' }, (e.rating ? e.rating + ' ' : '') + (e.artist || e.title)),
+          e.artist && e.title !== e.artist ? el('div', { class: 'rate-sub' }, e.title) : null,
+          el('div', { class: 'rate-venue' }, `${e.venue} · seen ${fmtShort(parseDate(e.seenOn) || new Date(e.savedAt))}`),
+          e.tags && e.tags.length ? el('div', { class: 'archive-tags' }, e.tags.join(' ')) : null,
+          e.note ? el('div', { class: 'archive-noteline' }, e.note) : null))));
+    };
+    page.refresh();
+    return page;
+  }
+
   // An hours line, days and open times in red; a "Closed" line stays plain.
   const hoursLine = h => el('div', { class: /closed/i.test(h) && !/\d/.test(h) ? '' : 'open-times' }, h);
   // ---------------- change a gallery's rank from its map card ----------------
@@ -2183,6 +2347,10 @@
         pinned.appendChild(libRow({ name: 'My Shows', shows: savedRunning.map(x => x.show), sub: `${plural(savedRunning.length, 'show')} · saved by you` },
           { cls: 'mine', onclick: () => push('list', listPage(saved)) }));
       }
+      const arch = archive.all();
+      pinned.appendChild(libRow({ name: 'Archive', shows: arch.slice(0, 4).map(e => ({ images: e.img ? [{ src: e.img }] : [] })),
+        sub: arch.length ? `${plural(arch.length, 'show')} seen and rated` : 'Shows you have seen and rated' },
+        { cls: 'archive', onclick: () => push('list', archivePage()) }));
       // Favorite galleries is a default list: what the galleries the person
       // follows have on view. Empty, it leads to the ranking page to pick some.
       const favs = favoriteVenues(), favList = favoritesAsList(), favRunning = listRunning(favList);
@@ -2741,7 +2909,7 @@
   // Exactly the galleries on screen: the Map's own filtered pins (or a list
   // context's stops) whose pin sits in the part of the map above the list,
   // re-read after every pan or zoom. Best-ranked first. "All shows" zooms back
-  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens the gallery card, as a pin tap does.
+  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens listGalleryCard.
   const mapList = (() => {
     const panel = document.getElementById('map-list');
     const scroll = document.getElementById('ml-scroll');
@@ -2774,7 +2942,7 @@
         cls: 'feed-card',
         carousel: { aspect: '1 / 1', dots: 'above-footer' },
         sub: s => `${listLine(g.venue)} • ${g.venue.address}`,
-        onOpen: () => openCard(g),   // the same gallery card a pin tap opens
+        onOpen: () => openSheet(listGalleryCard(g.venue, g.shows)),   // name, address and hours, shows, links; a show opens its rating page
       }));
     }
     function render() {

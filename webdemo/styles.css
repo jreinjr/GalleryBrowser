@@ -25,7 +25,7 @@ button, a, .row, .tab-btn { touch-action: manipulation; }
 a { color: var(--blue); text-decoration: none; }
 img { display: block; pointer-events: none; -webkit-user-drag: none; }
 #app { user-select: none; -webkit-user-select: none; }
-.detail-desc, .venue-lines, input { user-select: text; -webkit-user-select: text; }
+.detail-desc, .venue-lines, input, textarea { user-select: text; -webkit-user-select: text; }
 
 /* iOS-style push transition */
 @keyframes page-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
@@ -754,3 +754,41 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .ml-empty-gal .ml-none { margin-left: auto; flex: 0 0 auto; font-size: 13px; font-weight: 400; color: var(--tertiary); }
 .ml-empty-gal .tier-star svg { width: 13px; height: 13px; }
 .ml-empty { padding: 24px 16px; text-align: center; color: var(--secondary); font-size: 14px; }
+
+/* ---- Rate a show you've seen (from the Map list's gallery card) + the Archive ---- */
+.rate-body { padding-bottom: 40px; }
+.rate-kicker { font-size: 13px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.4px; margin: 4px 0 10px; }
+.rate-show { display: flex; gap: 12px; align-items: center; }
+.rate-show img, .rate-noimg { width: 84px; height: 84px; border-radius: 10px; object-fit: cover; flex: 0 0 auto; background: var(--row); }
+.rate-show-text { min-width: 0; }
+.rate-title { font-size: 17px; font-weight: 700; }
+.rate-sub { font-size: 14px; color: var(--secondary); }
+.rate-venue { font-size: 14px; color: var(--secondary); margin-top: 2px; }
+.rate-date { font-size: 13px; color: var(--tertiary); }
+.rate-details { display: inline-flex; align-items: center; gap: 4px; color: var(--blue); font-size: 15px; margin: 10px 0 4px; }
+.rate-details svg { width: 12px; height: 12px; }
+.rate-body .group-header { padding: 18px 0 8px; }
+.rate-scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.rate-opt { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 2px; border-radius: 12px; background: var(--row); }
+.rate-opt.on { background: rgba(97, 173, 242, 0.25); box-shadow: inset 0 0 0 2px var(--blue); }
+.rate-emoji { font-size: 30px; line-height: 1; }
+.rate-label { font-size: 11px; color: var(--secondary); text-align: center; }
+.rate-opt.on .rate-label { color: #fff; }
+.rate-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.rate-tag { padding: 7px 12px; border-radius: 999px; background: var(--row); font-size: 14px; }
+.rate-tag.on { background: rgba(97, 173, 242, 0.25); box-shadow: inset 0 0 0 1.5px var(--blue); }
+.rate-note { width: 100%; background: var(--row); color: #fff; border: 0; border-radius: 12px; padding: 12px; font: 16px var(--font); resize: vertical; outline: none; }
+.rate-day-row { display: flex; align-items: center; justify-content: space-between; margin: 14px 0 18px; font-size: 15px; }
+.rate-day { background: var(--row); color: #fff; border: 0; border-radius: 10px; padding: 8px 10px; font: 15px var(--font); color-scheme: dark; }
+.rate-save:disabled { background: rgba(97, 173, 242, 0.35); color: rgba(255, 255, 255, 0.85); }
+.rate-status { text-align: center; color: var(--secondary); font-size: 13px; margin-top: 8px; min-height: 16px; }
+.rate-remove { display: block; margin: 14px auto 0; color: rgba(255, 90, 80, 1); font-size: 15px; }
+.rate-remove[hidden] { display: none; }
+.archive-note { padding: 0 16px 10px; color: var(--secondary); font-size: 14px; }
+.archive-list { display: flex; flex-direction: column; }
+.archive-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 16px; border-bottom: 0.5px solid var(--sep); width: 100%; }
+.archive-row img, .archive-row .rate-noimg { width: 64px; height: 64px; }
+.archive-text { min-width: 0; flex: 1; }
+.archive-text .rate-title { font-size: 16px; }
+.archive-tags { font-size: 16px; margin-top: 3px; }
+.archive-noteline { font-size: 13px; color: var(--secondary); margin-top: 3px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
