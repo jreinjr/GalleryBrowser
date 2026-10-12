@@ -2741,7 +2741,7 @@
   // Exactly the galleries on screen: the Map's own filtered pins (or a list
   // context's stops) whose pin sits in the part of the map above the list,
   // re-read after every pan or zoom. Best-ranked first. "All shows" zooms back
-  // out to the whole city. Tapping a row opens the gallery card (or the show).
+  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens the show.
   const mapList = (() => {
     const panel = document.getElementById('map-list');
     const scroll = document.getElementById('ml-scroll');
@@ -2763,42 +2763,35 @@
     }
     const order = (a, b) => (venueRank(a.venue) ?? 1e9) - (venueRank(b.venue) ?? 1e9) || (a.venue.name || '').localeCompare(b.venue.name || '');
     function openCard(g) { openSheet(mapVenueCard(g.venue, g.shows, [])); }
-    function openShowIn(g, s) {
-      const page = mapVenueCard(g.venue, g.shows, []);
-      openSheet(page);
-      pushShowInSheet(page.parentElement, s);
-    }
-    function row(g) {
+    // A gallery with something on view gets the Shows tab's own card (its
+    // concurrent shows as one swipeable deck); one with nothing on view a single line.
+    function row(g, all) {
       const on = g.shows.filter(isActiveShow);
       const shows = sortShows(on.length ? on : g.shows, 'rank');
-      const rank = venueRank(g.venue);
-      return el('div', { class: 'ml-gal' + (g.key === picked ? ' picked' : ''), 'data-key': g.key },
-        el('button', { class: 'ml-gal-head', onclick: () => openCard(g) },
-          tierStar(galleryTier(g.venue)),
-          el('span', { class: 'ml-name' }, listLine(g.venue)),
-          rank ? el('span', { class: 'ml-rank' }, '#' + rank) : null,
-          icon('chevronRight')),
-        ...(shows.length ? shows.map(s => el('button', { class: 'ml-show', onclick: () => openShowIn(g, s) },
-          showImg(s) ? el('img', { src: showImg(s), alt: '', loading: 'lazy' }) : el('div', { class: 'ml-noimg' }),
-          el('div', { class: 'ml-txt' },
-            el('div', { class: 'ml-title' }, displayName(s)),
-            s.artist && s.title !== s.artist ? el('div', { class: 'ml-sub' }, s.title) : null,
-            el('div', { class: 'ml-date' }, dateLine(s, fmtShort)))))
-          : [el('div', { class: 'ml-none' }, 'Nothing on view')]));
+      const cls = 'ml-gal' + (g.key === picked ? ' picked' : '');
+      if (!shows.length) return el('button', { class: cls + ' ml-empty-gal', 'data-key': g.key, onclick: () => openCard(g) },
+        tierStar(galleryTier(g.venue)), el('span', { class: 'ml-name' }, listLine(g.venue)), el('span', { class: 'ml-none' }, 'Nothing on view'));
+      return el('div', { class: cls, 'data-key': g.key }, showDeck(shows, {
+        cls: 'feed-card',
+        carousel: { aspect: '1 / 1', dots: 'above-footer' },
+        sub: s => `${listLine(g.venue)} • ${g.venue.address}`,
+        onOpen: s => openSheet(showDetailPage(all, all.findIndex(x => showId(x) === showId(s)), { asSheet: true })),
+      }));
     }
     function render() {
-      const all = drawn();
+      const drawnAll = drawn();
       const test = MapTab.inViewTest();
-      const seen = test ? all.filter(g => test(g.venue.lng, g.venue.lat)) : all;
+      const seen = test ? drawnAll.filter(g => test(g.venue.lng, g.venue.lat)) : drawnAll;
       seen.sort(order);
       const nShows = gs => new Set(gs.flatMap(g => g.shows.map(showId))).size;
-      const narrowed = seen.length < all.length;
+      const narrowed = seen.length < drawnAll.length;
       count.textContent = narrowed
         ? `${plural(nShows(seen), 'show')} at ${plural(seen.length, 'gallery', 'galleries')} in view`
-        : `All ${plural(nShows(all), 'show')} · ${plural(all.length, 'gallery', 'galleries')}`;
+        : `All ${plural(nShows(drawnAll), 'show')} · ${plural(drawnAll.length, 'gallery', 'galleries')}`;
       allBtn.hidden = !narrowed;
       const top = scroll.scrollTop;
-      scroll.replaceChildren(...seen.map(row),
+      const all = seen.flatMap(g => { const on = g.shows.filter(isActiveShow); return sortShows(on.length ? on : g.shows, 'rank'); });
+      scroll.replaceChildren(...seen.map(g => row(g, all)),
         ...(seen.length ? [] : [el('div', { class: 'ml-empty' }, 'No galleries here. Zoom out or tap All shows.')]));
       scroll.scrollTop = top;
       if (picked && !seen.some(g => g.key === picked)) { picked = null; MapTab.setHighlight(null); }
@@ -3016,7 +3009,7 @@
     state.tab = tab;
     Object.entries(screens).forEach(([k, elm]) => elm.classList.toggle('active', k === tab));
     tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-    if (tab === 'map') MapTab.ensureInit();
+    if (tab === 'map') { MapTab.ensureInit(); mapList.render(); }   // the list fills even before the basemap loads
   }
   tabBtns.forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
 
