@@ -2720,10 +2720,10 @@
     getVenues: mapVenues,
     venueKey,
     getGemSymbol: gemSymbol,
-    // A tap rings the pin and opens the list at that gallery;
-    // a tap on the ringed pin opens its gallery card.
+    // A tap opens the gallery card (its shows; a picture opens the show) and
+    // rings the pin; the list, when opened, starts at that gallery.
     onVenueTap: (v, shows, others, key) => {
-      if (key && key !== mapList.picked()) { mapList.pick(key); return; }
+      if (key) mapList.pick(key);
       openSheet(mapVenueCard(fullVenue(v), shows || [], others || []));
     },
     onViewChange: () => mapList.render(),
@@ -2794,9 +2794,11 @@
       picked = key;
       MapTab.setHighlight(key);
       render();
-      setFull(true);
-      const r = scroll.querySelector(`.ml-gal[data-key="${CSS.escape(key)}"]`);
-      if (r) scroll.scrollTo({ top: r.offsetTop - 4, behavior: 'smooth' });
+      if (panel.classList.contains('full')) scrollToPicked();
+    }
+    function scrollToPicked() {
+      const r = picked && scroll.querySelector(`.ml-gal[data-key="${CSS.escape(picked)}"]`);
+      if (r) scroll.scrollTop = r.offsetTop - 4;
     }
     // The list starts hidden, just its bar over the map; the bar opens it full
     // screen and closes it again. Open, it keeps listing what the map showed.
@@ -2804,6 +2806,7 @@
       panel.classList.toggle('full', full);
       toggle.setAttribute('aria-expanded', full ? 'true' : 'false');
       mapBtn.textContent = full ? 'Close' : 'Open';   // opens and closes the show list
+      if (full) scrollToPicked();   // opens at the gallery of the last pin tapped
     }
     const mapBtn = document.getElementById('ml-mapbtn');
     toggle.addEventListener('click', () => setFull(!panel.classList.contains('full')));
