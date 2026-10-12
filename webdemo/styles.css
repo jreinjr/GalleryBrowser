@@ -742,7 +742,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .ml-toggle { flex: 1; min-width: 0; height: 46px; position: relative; padding: 8px 14px 0; font-size: 14px; font-weight: 600; color: var(--secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ml-grab { position: absolute; top: 50%; margin-top: -2px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: rgba(255, 255, 255, 0.28); }
 .ml-all { z-index: 1; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: var(--blue); color: #000; font-size: 14px; font-weight: 700; padding: 7px 14px; border-radius: 999px; }
-.ml-all[hidden] { display: none; }
+.ml-all[hidden], .map-list:not(.full) .ml-all { display: none; }   /* only with the list open */
 .ml-mapbtn { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 1; background: rgba(255, 255, 255, 0.14); color: #fff; font-size: 14px; font-weight: 700; padding: 7px 14px; border-radius: 999px; }
 .ml-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: 4px 0 12px; position: relative; }
 .ml-scroll { display: flex; flex-direction: column; gap: 14px; padding: 6px 0 14px; }
