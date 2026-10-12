@@ -2745,7 +2745,6 @@
   const mapList = (() => {
     const panel = document.getElementById('map-list');
     const scroll = document.getElementById('ml-scroll');
-    const count = document.getElementById('ml-count');
     const allBtn = document.getElementById('ml-all');
     const toggle = document.getElementById('ml-toggle');
     let picked = null;
@@ -2783,12 +2782,7 @@
       const test = MapTab.inViewTest();
       const seen = test ? drawnAll.filter(g => test(g.venue.lng, g.venue.lat)) : drawnAll;
       seen.sort(order);
-      const nShows = gs => new Set(gs.flatMap(g => g.shows.map(showId))).size;
-      const narrowed = seen.length < drawnAll.length;
-      count.textContent = narrowed
-        ? `${plural(nShows(seen), 'show')} at ${plural(seen.length, 'gallery', 'galleries')} in view`
-        : `All ${plural(nShows(drawnAll), 'show')} · ${plural(drawnAll.length, 'gallery', 'galleries')}`;
-      allBtn.hidden = !narrowed;
+      allBtn.hidden = seen.length >= drawnAll.length;
       const top = scroll.scrollTop;
       const all = seen.flatMap(g => { const on = g.shows.filter(isActiveShow); return sortShows(on.length ? on : g.shows, 'rank'); });
       scroll.replaceChildren(...seen.map(g => row(g, all)),
@@ -2799,23 +2793,25 @@
     function pick(key) {
       picked = key;
       MapTab.setHighlight(key);
-      setOpen(true);
       render();
       const r = scroll.querySelector(`.ml-gal[data-key="${CSS.escape(key)}"]`);
       if (r) scroll.scrollTo({ top: r.offsetTop - 4, behavior: 'smooth' });
     }
-    function setOpen(open) {
-      if (panel.classList.contains('collapsed') !== open) return;
-      panel.classList.toggle('collapsed', !open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      render();
+    // The bar toggles the list full screen over the map and back; full screen
+    // it keeps listing what the map showed.
+    function setFull(full) {
+      panel.classList.toggle('full', full);
+      toggle.setAttribute('aria-expanded', full ? 'true' : 'false');
     }
-    toggle.addEventListener('click', () => setOpen(panel.classList.contains('collapsed')));
+    toggle.addEventListener('click', () => setFull(!panel.classList.contains('full')));
     allBtn.addEventListener('click', () => { picked = null; MapTab.setHighlight(null); MapTab.showAll(); });
     // How much of the map the list (and the tab bar under it) covers.
+    // Full screen, the map keeps the inset it had under the half-height list.
+    let lastInset = 0;
     const inset = () => {
+      if (panel.classList.contains('full')) return lastInset;
       const frame = document.getElementById('screen-map').getBoundingClientRect();
-      return Math.max(0, frame.bottom - panel.getBoundingClientRect().top);
+      return (lastInset = Math.max(0, frame.bottom - panel.getBoundingClientRect().top));
     };
     return { render, pick, picked: () => picked, inset };
   })();
