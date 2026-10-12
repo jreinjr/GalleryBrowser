@@ -2803,8 +2803,11 @@
     function setFull(full) {
       panel.classList.toggle('full', full);
       toggle.setAttribute('aria-expanded', full ? 'true' : 'false');
+      mapBtn.textContent = full ? 'Open map' : 'Close map';   // names what it does to the map
     }
+    const mapBtn = document.getElementById('ml-mapbtn');
     toggle.addEventListener('click', () => setFull(!panel.classList.contains('full')));
+    mapBtn.addEventListener('click', () => setFull(!panel.classList.contains('full')));
     allBtn.addEventListener('click', () => { picked = null; MapTab.setHighlight(null); MapTab.showAll(); });
     // How much of the map the list (and the tab bar under it) covers.
     // Full screen, the map keeps the inset it had under the half-height list.
