@@ -2720,8 +2720,8 @@
     getVenues: mapVenues,
     venueKey,
     getGemSymbol: gemSymbol,
-    // A tap rings the pin and scrolls the list under the map to that gallery;
-    // a second tap on the ringed pin opens its gallery card.
+    // A tap rings the pin and opens the list at that gallery;
+    // a tap on the ringed pin opens its gallery card.
     onVenueTap: (v, shows, others, key) => {
       if (key && key !== mapList.picked()) { mapList.pick(key); return; }
       openSheet(mapVenueCard(fullVenue(v), shows || [], others || []));
@@ -2794,11 +2794,12 @@
       picked = key;
       MapTab.setHighlight(key);
       render();
+      setFull(true);
       const r = scroll.querySelector(`.ml-gal[data-key="${CSS.escape(key)}"]`);
       if (r) scroll.scrollTo({ top: r.offsetTop - 4, behavior: 'smooth' });
     }
-    // The bar toggles the list full screen over the map and back; full screen
-    // it keeps listing what the map showed.
+    // The list starts hidden, just its bar over the map; the bar opens it full
+    // screen and closes it again. Open, it keeps listing what the map showed.
     function setFull(full) {
       panel.classList.toggle('full', full);
       toggle.setAttribute('aria-expanded', full ? 'true' : 'false');
