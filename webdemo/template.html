@@ -42,6 +42,9 @@
         <div id="ml-scroll" class="ml-scroll"></div>
       </div>
     </main>
+    <main id="screen-archive" class="tab-screen">
+      <div id="pages-archive" class="tab-pages"></div>
+    </main>
     <main id="screen-discover" class="tab-screen">
       <div id="pages-discover" class="tab-pages"></div>
     </main>
@@ -49,6 +52,7 @@
       <button class="tab-btn active" data-tab="featured"><span class="ico"></span><span>Shows</span></button>
       <button class="tab-btn" data-tab="list"><span class="ico"></span><span>Lists</span></button>
       <button class="tab-btn" data-tab="map"><span class="ico"></span><span>Map</span></button>
+      <button class="tab-btn" data-tab="archive"><span class="ico"></span><span>Archive</span></button>
       <button class="tab-btn" data-tab="discover"><span class="ico"></span><span>Discover</span></button>
     </nav>
     <div id="sheet-root"></div>
@@ -62,7 +66,7 @@
 <script>
   // tab bar icons
   document.querySelectorAll('.tab-btn').forEach(function (b) {
-    var names = { featured: 'star', list: 'list', map: 'map', discover: 'sparkle' };
+    var names = { featured: 'star', list: 'list', map: 'map', archive: 'archivebox', discover: 'sparkle' };
     b.querySelector('.ico').outerHTML = window.ICONS[names[b.dataset.tab]];
   });
 </script>

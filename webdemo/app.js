@@ -529,6 +529,7 @@
   const pagesRoot = {
     featured: document.getElementById('pages-featured'),
     list: document.getElementById('pages-list'),
+    archive: document.getElementById('pages-archive'),
     discover: document.getElementById('pages-discover'),
   };
   function push(tab, page) {
@@ -1509,8 +1510,8 @@
   const TAGS = [['🎨', 'Painting'], ['🗿', 'Sculpture'], ['📸', 'Photo'], ['🎬', 'Video'], ['🧵', 'Textile'], ['🌀', 'Installation'],
     ['✨', 'Beautiful'], ['🔥', 'Bold'], ['💭', 'Thoughtful'], ['🤔', 'Puzzling'], ['😂', 'Funny'], ['😢', 'Moving'],
     ['🖤', 'Dark'], ['🌈', 'Colorful'], ['🤫', 'Quiet'], ['👀', 'Go see it']];
-  // The Lists tab's pages (the Archive row and page) after an archive change.
-  const refreshLists = () => [...pagesRoot.list.children].forEach(p => { if (p.refresh) p.refresh(); });
+  // The Archive tab after an archive change.
+  const refreshLists = () => [...pagesRoot.archive.children].forEach(p => { if (p.refresh) p.refresh(); });
   const isoDay = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const ratingOf = e => RATINGS.find(r => r[0] === e.rating);
 
@@ -1559,7 +1560,7 @@
       archive.put({ ...snap, rating: st.rating, tags: [...st.tags], note: st.note.trim(), seenOn: st.seenOn, savedAt: Date.now() });
       saved = true;
       saveBtn.textContent = 'Saved to archive ✓'; saveBtn.disabled = true;
-      status.textContent = 'Kept in your archive (Lists tab) on this device.';
+      status.textContent = 'Kept in your Archive tab on this device.';
       removeBtn.hidden = false;
       refreshLists();
     };
@@ -1589,12 +1590,12 @@
     return page;
   }
 
-  // The archive: every show rated and kept, most recently seen first.
-  function archivePage() {
+  // The Archive tab: every show rated and kept, most recently seen first.
+  function archiveRoot() {
     const listEl = el('div', { class: 'archive-list' });
     const empty = el('div', { class: 'empty-plain' }, 'Nothing archived yet. On the Map, open the show list, tap a gallery, then tap a show you have seen to rate it and save it here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
-      el('div', { class: 'navrow' }, backBtn('list')),
+      el('div', { class: 'navrow' }),
       el('div', { class: 'large-title' }, 'Archive'),
       el('div', { class: 'archive-note' }, 'Shows you have seen and rated. Kept on this device.'),
       listEl, empty));
@@ -2349,10 +2350,6 @@
         pinned.appendChild(libRow({ name: 'My Shows', shows: savedRunning.map(x => x.show), sub: `${plural(savedRunning.length, 'show')} · saved by you` },
           { cls: 'mine', onclick: () => push('list', listPage(saved)) }));
       }
-      const arch = archive.all();
-      pinned.appendChild(libRow({ name: 'Archive', shows: arch.slice(0, 4).map(e => ({ images: e.img ? [{ src: e.img }] : [] })),
-        sub: arch.length ? `${plural(arch.length, 'show')} seen and rated` : 'Shows you have seen and rated' },
-        { cls: 'archive', onclick: () => push('list', archivePage()) }));
       // Favorite galleries is a default list: what the galleries the person
       // follows have on view. Empty, it leads to the ranking page to pick some.
       const favs = favoriteVenues(), favList = favoritesAsList(), favRunning = listRunning(favList);
@@ -3174,6 +3171,7 @@
     featured: document.getElementById('screen-featured'),
     list: document.getElementById('screen-list'),
     map: document.getElementById('screen-map'),
+    archive: document.getElementById('screen-archive'),
     discover: document.getElementById('screen-discover'),
   };
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -3202,9 +3200,11 @@
     if (l && l.city && l.city !== state.cityKey) state.filter.list = null;   // a list belongs to its city
     pagesRoot.featured.innerHTML = '';
     pagesRoot.list.innerHTML = '';
+    pagesRoot.archive.innerHTML = '';
     pagesRoot.discover.innerHTML = '';
     push('featured', featuredRoot());
     push('list', listRoot());
+    push('archive', archiveRoot());
     push('discover', discoverRoot());
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
     renderMapContext();
