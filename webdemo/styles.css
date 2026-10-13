@@ -358,10 +358,11 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .name-line { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .card-footer .name-line .name { min-width: 0; }
 .heat-btn { flex: none; height: 24px; display: flex; align-items: center; line-height: 1; overflow: visible; transition: font-size 0.15s ease; }
-.heat-btn[data-level="1"] { font-size: 15px; }
-.heat-btn[data-level="2"] { font-size: 21px; }
-.heat-btn[data-level="3"] { font-size: 28px; }
-.heat-btn[data-level="4"] { font-size: 42px; }
+.heat-btn[data-level="1"] { font-size: 11px; }
+.heat-btn[data-level="2"] { font-size: 18px; }
+.heat-btn[data-level="3"] { font-size: 26px; }
+/* TNT: centered on the whole strip (artist and dates), not just the name line */
+.heat-btn[data-level="4"] { font-size: 42px; transform: translateY(4px); }
 .gallery-card .rank-edit { margin-top: 10px; padding-top: 0; border-top: none; }
 .rank-edit .rank-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .rank-edit .rank-open { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: #fff; font-size: 15px; font-weight: 600; }
