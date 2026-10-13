@@ -1397,6 +1397,26 @@
     return page;
   }
 
+  // A flame on the gallery card's title strip: each tap grows it (three
+  // sizes), the fourth turns it into TNT, the next starts over. Kept per
+  // gallery on this device in localStorage['heat'] as { [venueKey]: 1-4 }.
+  const heat = (() => {
+    let data = {};
+    try { data = JSON.parse(store.get('heat', '{}')) || {}; } catch (e) { data = {}; }
+    return {
+      get: k => data[k] || 1,
+      bump(k) { data[k] = (this.get(k) % 4) + 1; store.set('heat', JSON.stringify(data)); return data[k]; },
+    };
+  })();
+  function heatButton(v) {
+    const k = venueKey(v);
+    const b = el('button', { class: 'heat-btn', 'aria-label': 'Heat' });
+    const paint = lv => { b.dataset.level = lv; b.textContent = lv === 4 ? '🧨' : '🔥'; };
+    b.onclick = () => paint(heat.bump(k));
+    paint(heat.get(k));
+    return b;
+  }
+
   // The Map's tap card, top to bottom: the gallery's name and rank (with
   // Change rank), the Gem toggle, address and hours (open times in red), the
   // shows on view with a Save button each, then a Gallery details button that
@@ -1444,7 +1464,7 @@
 
     const body = el('div', { class: 'detail-body' },
       samePin,
-      el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), listLine(v)),
+      el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), el('span', { class: 'venue-name' }, listLine(v)), heatButton(v)),
       rankEditor(v),
       el('div', { class: 'venue-lines gc-lines' },
         el('div', null, fullAddress(v)),
