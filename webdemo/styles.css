@@ -355,12 +355,13 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 /* The gallery card (the Map's pin tap): Gem toggle, red open times, a Save
    button under each show card, and the Gallery details reveal */
 .gallery-card .venue-title { display: flex; align-items: center; gap: 8px; }
-.gallery-card .venue-name { flex: 1; min-width: 0; }
-.heat-btn { flex: none; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; line-height: 1; transition: font-size 0.15s ease; }
-.heat-btn[data-level="1"] { font-size: 20px; }
-.heat-btn[data-level="2"] { font-size: 30px; }
-.heat-btn[data-level="3"] { font-size: 42px; }
-.heat-btn[data-level="4"] { font-size: 42px; }
+.card-footer .name-line { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.card-footer .name-line .name { min-width: 0; }
+.heat-btn { flex: none; height: 24px; display: flex; align-items: center; line-height: 1; overflow: visible; transition: font-size 0.15s ease; }
+.heat-btn[data-level="1"] { font-size: 15px; }
+.heat-btn[data-level="2"] { font-size: 21px; }
+.heat-btn[data-level="3"] { font-size: 28px; }
+.heat-btn[data-level="4"] { font-size: 28px; }
 .gallery-card .rank-edit { margin-top: 10px; padding-top: 0; border-top: none; }
 .rank-edit .rank-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .rank-edit .rank-open { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: #fff; font-size: 15px; font-weight: 600; }

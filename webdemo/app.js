@@ -1397,9 +1397,9 @@
     return page;
   }
 
-  // A flame on the gallery card's title strip: each tap grows it (three
-  // sizes), the fourth turns it into TNT, the next starts over. Kept per
-  // gallery on this device in localStorage['heat'] as { [venueKey]: 1-4 }.
+  // A flame after the artist's name on each show of the gallery card: each
+  // tap grows it (three sizes), the fourth turns it into TNT, the next starts
+  // over. Kept per show on this device in localStorage['heat'] as { [showId]: 1-4 }.
   const heat = (() => {
     let data = {};
     try { data = JSON.parse(store.get('heat', '{}')) || {}; } catch (e) { data = {}; }
@@ -1408,11 +1408,11 @@
       bump(k) { data[k] = (this.get(k) % 4) + 1; store.set('heat', JSON.stringify(data)); return data[k]; },
     };
   })();
-  function heatButton(v) {
-    const k = venueKey(v);
+  function heatButton(s) {
+    const k = showId(s);
     const b = el('button', { class: 'heat-btn', 'aria-label': 'Heat' });
     const paint = lv => { b.dataset.level = lv; b.textContent = lv === 4 ? '🧨' : '🔥'; };
-    b.onclick = () => paint(heat.bump(k));
+    b.onclick = e => { e.stopPropagation(); paint(heat.bump(k)); };
     paint(heat.get(k));
     return b;
   }
@@ -1441,7 +1441,7 @@
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
           el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
-            venueShowCard(s, x => pushShowInSheet(page.parentElement, x))))))
+            venueShowCard(s, x => pushShowInSheet(page.parentElement, x), heatButton)))))
       : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const details = el('div', { class: 'gc-details', hidden: '' });
@@ -1464,7 +1464,7 @@
 
     const body = el('div', { class: 'detail-body' },
       samePin,
-      el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), el('span', { class: 'venue-name' }, listLine(v)), heatButton(v)),
+      el('div', { class: 'venue-title' }, tierStar(galleryTier(v)), listLine(v)),
       rankEditor(v),
       el('div', { class: 'venue-lines gc-lines' },
         el('div', null, fullAddress(v)),
@@ -1769,12 +1769,12 @@
   // miniature at 248px, with the run dates on the second line because the venue
   // is already the subject of the page.
   const SHOW_CARD_H = 248;
-  function venueShowCard(s, onOpen) {
+  function venueShowCard(s, onOpen, nameExtra) {
     return showDeck([s], {
       cls: 'venue-show-card',
       carousel: { height: SHOW_CARD_H, dots: 'above-footer' },
       sub: x => dateLine(x, fmtShort),
-      onOpen,
+      onOpen, nameExtra,
     });
   }
 
@@ -1785,7 +1785,7 @@
   // no counter, nothing to swipe.
   const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
   function showDeck(shows, opts) {
-    const { cls, carousel, sub, onOpen } = opts;
+    const { cls, carousel, sub, onOpen, nameExtra } = opts;
     let idx = 0;
     let swipedAt = 0;             // a swipe ends over the card: don't let it open a show too
     const card = el('div', { class: 'card ' + cls });
@@ -1823,7 +1823,9 @@
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       const text = el('div', { class: 'cf-text' },
-        el('div', { class: 'name' }, displayName(s)),
+        nameExtra
+          ? el('div', { class: 'name-line' }, el('div', { class: 'name' }, displayName(s)), nameExtra(s))
+          : el('div', { class: 'name' }, displayName(s)),
         el('div', { class: 'sub' }, sub(s)));
       text.addEventListener('click', open);
       const footer = el('div', { class: 'card-footer' }, text,
