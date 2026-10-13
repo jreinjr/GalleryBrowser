@@ -1189,14 +1189,14 @@
   // ---------------- screens ----------------
   // A Featured row is one venue, not one show: concurrent shows at the same
   // gallery deal through a single card rather than repeating the venue down the
-  // feed. `all` is the whole filtered set, so opening a show still hands the
-  // detail page a stepper over every card in the feed.
-  function showCard(deck, all) {
+  // feed. Tapping it opens the same gallery card a map pin opens (its shows;
+  // tap a picture for the show).
+  function showCard(deck) {
     return showDeck(deck, {
       cls: 'feed-card',
       carousel: { aspect: '1 / 1', dots: 'above-footer' },
       sub: s => `${listLine(s.venue)} • ${s.venue.address}`,
-      onOpen: s => push(state.tab, showDetailPage(all, all.findIndex(x => showId(x) === showId(s)))),
+      onOpen: s => openSheet(mapVenueCard(fullVenue(s.venue), deck, [])),
     });
   }
 
@@ -1233,7 +1233,7 @@
       ctxSlot.innerHTML = '';
       if (l) ctxSlot.appendChild(ctxBar(l));
       feed.innerHTML = '';
-      byVenue(shows).forEach(deck => feed.appendChild(showCard(deck, shows)));
+      byVenue(shows).forEach(deck => feed.appendChild(showCard(deck)));
       feed.hidden = !shows.length;
       empty.hidden = !!shows.length;
     };
