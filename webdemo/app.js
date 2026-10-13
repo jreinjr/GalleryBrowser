@@ -1847,8 +1847,6 @@
       if (deep) wireSwipe(footer);
       card.innerHTML = '';
       card.append(makeCarousel(s.images, { ...carousel, onTap: open }), footer);
-      // More than one show here: say so on the picture, where it can't be missed.
-      if (deep) card.appendChild(el('div', { class: 'multi-badge' }, `${shows.length} shows here`));
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;
       void card.offsetWidth;                  // restart the animation on a re-deal
