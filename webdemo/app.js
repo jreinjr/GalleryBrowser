@@ -1397,23 +1397,32 @@
     return page;
   }
 
-  // A flame after the artist's name on each show of the gallery card: each
-  // tap grows it (three sizes), the fourth turns it into TNT, the next starts
-  // over. Kept per show on this device in localStorage['heat'] as { [showId]: 1-4 }.
+  // A flame after the artist's name on each show of the gallery card. It
+  // starts faint (level 0); each tap grows it (three sizes), the fourth turns
+  // it into TNT, the next goes back to faint. A show at levels 1-4 is in the
+  // Archive tab. Kept per show on this device in localStorage['heat'] as
+  // { [showId]: { level, at, snap } }, the snapshot so a closed show still lists.
   const heat = (() => {
     let data = {};
     try { data = JSON.parse(store.get('heat', '{}')) || {}; } catch (e) { data = {}; }
     return {
-      get: k => data[k] || 1,
-      bump(k) { data[k] = (this.get(k) % 4) + 1; store.set('heat', JSON.stringify(data)); return data[k]; },
+      get: k => (data[k] && data[k].level) || 0,
+      all: () => Object.entries(data).filter(([, e]) => e && e.level).map(([id, e]) => ({ id, ...e })),
+      bump(s) {
+        const k = showId(s), lv = (this.get(k) + 1) % 5;
+        if (lv) data[k] = { level: lv, at: Date.now(), snap: showSnapshot(s) }; else delete data[k];
+        store.set('heat', JSON.stringify(data));
+        refreshLists();
+        return lv;
+      },
     };
   })();
+  const heatEmoji = lv => lv === 4 ? '🧨' : '🔥';
   function heatButton(s) {
-    const k = showId(s);
     const b = el('button', { class: 'heat-btn', 'aria-label': 'Heat' });
-    const paint = lv => { b.dataset.level = lv; b.textContent = lv === 4 ? '🧨' : '🔥'; };
-    b.onclick = e => { e.stopPropagation(); paint(heat.bump(k)); };
-    paint(heat.get(k));
+    const paint = lv => { b.dataset.level = lv; b.textContent = heatEmoji(lv); };
+    b.onclick = e => { e.stopPropagation(); paint(heat.bump(s)); };
+    paint(heat.get(showId(s)));
     return b;
   }
 
@@ -1610,31 +1619,50 @@
     return page;
   }
 
-  // The Archive tab: every show rated and kept, most recently seen first.
+  // The Archive tab: every show with a flame or TNT, and every show rated on
+  // its rating page, newest first. One strip each: the mark, the artist and
+  // the gallery. A strip opens the show's gallery card (the one a pin opens);
+  // a rated show that has closed opens its rating page instead.
   function archiveRoot() {
     const listEl = el('div', { class: 'archive-list' });
-    const empty = el('div', { class: 'empty-plain' }, 'Nothing archived yet. On the Map, open the show list, tap a gallery, then tap a show you have seen to rate it and save it here.');
+    const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and the show lands here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }),
       el('div', { class: 'large-title' }, 'Archive'),
-      el('div', { class: 'archive-note' }, 'Shows you have seen and rated. Kept on this device.'),
+      el('div', { class: 'archive-note' }, 'Shows you gave a flame or rated. Kept on this device.'),
       listEl, empty));
-    page.refresh = () => {
-      const xs = archive.all();
-      empty.hidden = !!xs.length;
-      listEl.replaceChildren(...xs.map(e => el('button', { class: 'archive-row', onclick: () => {
+    const open = (id, rated) => {
+      const s = showById(id);
+      if (s) {
+        const k = venueKey(s.venue);
+        openSheet(mapVenueCard(fullVenue(s.venue), DATA.shows.filter(x => venueKey(x.venue) === k), []));
+      } else if (rated) {
         let close = null;
-        const p = ratePage(e, showById(e.id), () => { if (close) close(); page.refresh(); });
+        const p = ratePage(rated, null, () => { if (close) close(); page.refresh(); });
         p.classList.remove('page-push');
         close = openSheet(p);
-      } },
-        e.img ? el('img', { src: e.img, alt: '', loading: 'lazy' }) : el('div', { class: 'rate-noimg' }),
-        el('div', { class: 'archive-text' },
-          el('div', { class: 'rate-title' }, (e.rating ? e.rating + ' ' : '') + (e.artist || e.title)),
-          e.artist && e.title !== e.artist ? el('div', { class: 'rate-sub' }, e.title) : null,
-          el('div', { class: 'rate-venue' }, `${e.venue} · seen ${fmtShort(parseDate(e.seenOn) || new Date(e.savedAt))}`),
-          e.tags && e.tags.length ? el('div', { class: 'archive-tags' }, e.tags.join(' ')) : null,
-          e.note ? el('div', { class: 'archive-noteline' }, e.note) : null))));
+      }
+    };
+    page.refresh = () => {
+      const byId = new Map();
+      heat.all().forEach(h => byId.set(h.id, { id: h.id, level: h.level, at: h.at, snap: h.snap }));
+      archive.all().forEach(e => {
+        const x = byId.get(e.id) || { id: e.id, at: 0, snap: e };
+        x.rated = e; x.at = Math.max(x.at, e.savedAt || 0);
+        byId.set(e.id, x);
+      });
+      const xs = [...byId.values()].sort((a, b) => b.at - a.at);
+      empty.hidden = !!xs.length;
+      listEl.replaceChildren(...xs.map(x => {
+        const live = showById(x.id), snap = x.snap || {};
+        const artist = live ? displayName(live) : (snap.artist || snap.title || 'Show');
+        const gallery = live ? listLine(live.venue) : (snap.venue || '');
+        return el('button', { class: 'archive-strip', onclick: () => open(x.id, x.rated) },
+          el('span', { class: 'heat-mark', 'data-level': x.level || 0 }, x.level ? heatEmoji(x.level) : (x.rated && x.rated.rating) || ''),
+          el('span', { class: 'archive-strip-text' },
+            el('span', { class: 'as-artist' }, artist),
+            el('span', { class: 'as-gallery' }, gallery)));
+      }));
     };
     page.refresh();
     return page;
