@@ -1397,34 +1397,39 @@
     return page;
   }
 
-  // A flame after the artist's name on each show of the gallery card. It
-  // starts faint (level 0); each tap grows it (three sizes), the fourth turns
-  // it into TNT, the next goes back to faint. A show at levels 1-4 is in the
-  // Archive tab. Kept per show on this device in localStorage['heat'] as
+  // Two marks after the artist's name on each show of the gallery card: a
+  // flame and a puppy. Each starts faint (level 0); a tap grows it (three
+  // sizes), the fourth turns it into its last emoji (TNT, a wolf), the next
+  // goes back to faint. A show with either mark at levels 1-4 is in the
+  // Archive tab. Kept per show on this device in localStorage[key] as
   // { [showId]: { level, at, snap } }, the snapshot so a closed show still lists.
-  const heat = (() => {
+  function markStore(key) {
     let data = {};
-    try { data = JSON.parse(store.get('heat', '{}')) || {}; } catch (e) { data = {}; }
+    try { data = JSON.parse(store.get(key, '{}')) || {}; } catch (e) { data = {}; }
     return {
       get: k => (data[k] && data[k].level) || 0,
       all: () => Object.entries(data).filter(([, e]) => e && e.level).map(([id, e]) => ({ id, ...e })),
       bump(s) {
         const k = showId(s), lv = (this.get(k) + 1) % 5;
         if (lv) data[k] = { level: lv, at: Date.now(), snap: showSnapshot(s) }; else delete data[k];
-        store.set('heat', JSON.stringify(data));
+        store.set(key, JSON.stringify(data));
         refreshLists();
         return lv;
       },
     };
-  })();
-  const heatEmoji = lv => lv === 4 ? '🧨' : '🔥';
-  function heatButton(s) {
-    const b = el('button', { class: 'heat-btn', 'aria-label': 'Heat' });
-    const paint = lv => { b.dataset.level = lv; b.textContent = heatEmoji(lv); };
-    b.onclick = e => { e.stopPropagation(); paint(heat.bump(s)); };
-    paint(heat.get(showId(s)));
+  }
+  const MARKS = [
+    { name: 'heat', store: markStore('heat'), emoji: lv => lv === 4 ? '🧨' : '🔥', label: 'Heat' },
+    { name: 'pup', store: markStore('pup'), emoji: lv => lv === 4 ? '🐺' : '🐶', label: 'Puppy' },
+  ];
+  function markButton(m, s) {
+    const b = el('button', { class: 'heat-btn', 'data-mark': m.name, 'aria-label': m.label });
+    const paint = lv => { b.dataset.level = lv; b.textContent = m.emoji(lv); };
+    b.onclick = e => { e.stopPropagation(); paint(m.store.bump(s)); };
+    paint(m.store.get(showId(s)));
     return b;
   }
+  const markButtons = s => el('span', { class: 'marks' }, ...MARKS.map(m => markButton(m, s)));
 
   // The Map's tap card, top to bottom: the gallery's name and rank (with
   // Change rank), the Gem toggle, address and hours (open times in red), the
@@ -1456,7 +1461,7 @@
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, list.length > 1 ? `${list.length} shows` : 'Show'),
           el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
-            venueShowCard(s, rate, heatButton)))))
+            venueShowCard(s, rate, markButtons)))))
       : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const details = el('div', { class: 'gc-details', hidden: '' });
@@ -1595,19 +1600,19 @@
     return page;
   }
 
-  // The Archive tab: only the exact shows given a flame or TNT (not the rest
+  // The Archive tab: only the exact shows given a flame or puppy (not the rest
   // of their gallery), plus shows rated on the rating page, newest first, as
   // small square cards three across. Each card: the picture, then the artist
-  // and gallery, with two rows of emoji where Save would be (the flame or TNT
-  // and the rating; the tags). A card opens just that show. A show that has
+  // and gallery, with two rows of emoji where Save would be (the flame or TNT,
+  // the puppy or wolf, and the rating; the tags). A card opens just that show. A show that has
   // left the data still lists from the snapshot taken when it was flamed or rated.
   function archiveRoot() {
     const listEl = el('div', { class: 'archive-grid' });
-    const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and that show lands here.');
+    const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame or puppy next to an artist on a gallery card and that show lands here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }),
       el('div', { class: 'large-title' }, 'Archive'),
-      el('div', { class: 'archive-note' }, 'Shows you gave a flame or rated. Kept on this device.'),
+      el('div', { class: 'archive-note' }, 'Shows you gave a flame or puppy, or rated. Kept on this device.'),
       listEl, empty));
     const fromSnap = (id, snap) => {
       const i = id.indexOf('/');
@@ -1616,7 +1621,10 @@
     };
     page.refresh = () => {
       const byId = new Map();
-      heat.all().forEach(h => byId.set(h.id, { id: h.id, at: h.at, snap: h.snap }));
+      MARKS.forEach(m => m.store.all().forEach(h => {
+        const x = byId.get(h.id);
+        if (x) x.at = Math.max(x.at, h.at); else byId.set(h.id, { id: h.id, at: h.at, snap: h.snap });
+      }));
       archive.all().forEach(e => {
         const x = byId.get(e.id) || { id: e.id, at: 0, snap: e };
         x.rated = e; x.at = Math.max(x.at, e.savedAt || 0);
@@ -1645,7 +1653,7 @@
               el('div', { class: 'ac-artist' }, displayName(s)),
               el('div', { class: 'ac-gallery' }, live ? listLine(live.venue) : s.venue.name)),
             el('div', { class: 'ac-emoji' },
-              el('div', { class: 'ac-row' }, heat.get(x.id) ? heatButton(s) : null, r && r.rating ? el('span', null, r.rating) : null),
+              el('div', { class: 'ac-row' }, ...MARKS.map(m => m.store.get(x.id) ? markButton(m, s) : null), r && r.rating ? el('span', null, r.rating) : null),
               el('div', { class: 'ac-row' }, r && r.tags ? r.tags.join('') : ''))));
       }));
     };
@@ -1924,7 +1932,7 @@
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
   const FILTER_VERSION = 8;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
-    active: true, upcoming: false, opening: false, list: null, sort: 'rank' };
+    active: true, upcoming: false, opening: false, openToday: false, list: null, sort: 'rank' };
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   // Gallery rank: one of Top 50 / 75 / 100 / 150 (ranks 1–N), All, or Below
   // 100 (ranks 101–200 only). Unranked galleries show only under All. The
@@ -1937,6 +1945,23 @@
     if (r == null) return false;
     return f.galleryRank === 'below100' ? r > 100 && r <= 200 : r <= Number(f.galleryRank);
   };
+  // Open today (Map only): the venue's hours name today's weekday with times.
+  // Lines that say Closed or by appointment only don't count; a gallery with no
+  // hours listed is left off, since there's no telling.
+  const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  const DAY_RE = /\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\.?(?:\s*(?:-|–|—|to|through)\s*(sun|mon|tue|wed|thu|fri|sat)[a-z]*)?/g;
+  function openOnDay(hours, dow) {
+    return (hours || []).some(line => {
+      // "…, or by appointment" adds to set hours; "by appointment" alone doesn't open.
+      const l = line.toLowerCase().replace(/,?\s*(?:or|and|also)\s+(?:open\s+)?by\s+(?:appointment|appt\.?)/g, '');
+      if (/closed|appoint|appt/.test(l) || !/\d/.test(l)) return false;
+      return [...l.matchAll(DAY_RE)].some(m => {
+        const a = DAY_KEYS.indexOf(m[1]), b = m[2] ? DAY_KEYS.indexOf(m[2]) : a;
+        return a <= b ? dow >= a && dow <= b : dow >= a || dow <= b;   // Wed - Mon wraps the week
+      });
+    });
+  }
+  const openToday = v => openOnDay(v.hours, new Date().getDay());
   const SORTS = [
     ['rank', 'Gallery rank'], ['closing', 'Closing soon'], ['opened', 'Recently opened'],
     ['reception', 'Reception soon'], ['venue', 'Venue A–Z'], ['nearby', 'Nearby'],
@@ -1972,7 +1997,7 @@
   // Number of filter groups off their default: the badge on the filter button.
   // Gallery rank only counts on the Map, the one tab it applies to.
   const filterActiveCount = (f, onMap) => [f.q.trim(), !onMap && f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank,
+    onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank, onMap && f.openToday,
     f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening]
     .filter(Boolean).length;
   // One line for the Discover context message.
@@ -2054,7 +2079,8 @@
         if (!out.has(k) && venueMatches(v, f) && keep(v)) out.set(k, { key: k, venue: v, shows: [] });
       });
     }
-    return [...out.values()].flatMap(g => { const on = g.shows.some(lit); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); }).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
+    return [...out.values()].flatMap(g => { const on = g.shows.some(lit); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); })
+      .filter(g => !f.openToday || openToday(g.venue)).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -2255,6 +2281,7 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
+      ...(onMap ? [header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday'))] : []),
       ...(onMap ? [header('Top galleries by rank'), rankRow] : []),
       header('Venue Type'), seg('kind', KINDS),
       ...(onMap ? [] : [header('Neighborhoods'), hoodWrap]),   // the Map has no neighborhood filter

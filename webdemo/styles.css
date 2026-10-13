@@ -358,6 +358,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .gallery-card .venue-title { display: flex; align-items: center; gap: 8px; }
 .card-footer .name-line { display: flex; align-items: center; gap: 6px; }
 .card-footer .name-col { min-width: 0; }
+.card-footer .marks { display: flex; align-items: center; gap: 2px; flex: none; }
 .heat-btn { flex: none; height: 24px; display: flex; align-items: center; line-height: 1; overflow: visible; transition: font-size 0.15s ease; }
 .heat-btn[data-level="0"] { font-size: 11px; opacity: 0.3; filter: grayscale(1); }
 .heat-btn[data-level="1"] { font-size: 11px; }
