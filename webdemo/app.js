@@ -182,7 +182,9 @@
   };
   const showWhenFilter = f => f.active || f.upcoming || f.opening;
   const passesWhen = (s, f) => !showWhenFilter(f)
-    || (f.active && isActiveShow(s)) || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s));
+    || (f.active && isActiveShow(s)) || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s) && inTop150(s));
+  // Opening this week only counts galleries ranked 1-150 (Carlton, 2026-10-12).
+  const inTop150 = s => { const r = venueRank(s.venue); return r != null && r <= 150; };
   const isClosingThisWeek = s => {
     const d = parseDate(s.endDate); if (!d) return false;
     const diff = d - Date.now(); return diff >= 0 && diff <= 7 * DAY;
