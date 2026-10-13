@@ -1621,11 +1621,11 @@
 
   // The Archive tab: only the exact shows given a flame or TNT (not the rest
   // of their gallery), plus shows rated on the rating page, newest first. Each
-  // is a picture card like the gallery card's: artist with its flame, gallery
+  // is a Shows tab picture card: artist with its flame, gallery
   // name under it. A card opens just that show. A show that has left the data
   // still lists from the snapshot taken when it was flamed or rated.
   function archiveRoot() {
-    const listEl = el('div', { class: 'venue-show-list archive-cards' });
+    const listEl = el('div', { class: 'feed' });
     const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and that show lands here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }),
@@ -1650,9 +1650,9 @@
       listEl.replaceChildren(...xs.map(x => {
         const live = showById(x.id);
         const s = live || fromSnap(x.id, x.snap || {});
-        return el('div', { class: 'gc-show' }, showDeck([s], {
-          cls: 'venue-show-card',
-          carousel: { height: SHOW_CARD_H, dots: 'above-footer' },
+        return showDeck([s], {
+          cls: 'feed-card',
+          carousel: { aspect: '1 / 1', dots: 'above-footer' },
           sub: y => live ? listLine(y.venue) : y.venue.name,
           nameExtra: heatButton,
           onOpen: () => {
@@ -1664,7 +1664,7 @@
               close = openSheet(p);
             }
           },
-        }));
+        });
       }));
     };
     page.refresh();
