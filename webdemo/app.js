@@ -1190,7 +1190,7 @@
   // A Featured row is one venue, not one show: concurrent shows at the same
   // gallery deal through a single card rather than repeating the venue down the
   // feed. Tapping it opens the same gallery card a map pin opens (its shows;
-  // tap a picture for the show).
+  // a show opens its rating page).
   function showCard(deck) {
     return showDeck(deck, {
       cls: 'feed-card',
@@ -1446,11 +1446,17 @@
 
     const on = shows.filter(isActiveShow);
     const list = sortShows(on.length ? on : shows, 'rank');
+    // A show here opens its rating page (seen it: rate, tag, note, archive).
+    const rate = x => {
+      const sub = ratePage(showSnapshot(x), x, () => sub.remove());
+      sub.dataset.sheetSub = '1';
+      page.parentElement.appendChild(sub);
+    };
     const showsSection = list.length
       ? el('div', { class: 'venue-shows' },
-          el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
+          el('div', { class: 'group-header' }, list.length > 1 ? `${list.length} shows` : 'Show'),
           el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
-            venueShowCard(s, x => pushShowInSheet(page.parentElement, x), heatButton)))))
+            venueShowCard(s, rate, heatButton)))))
       : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const details = el('div', { class: 'gc-details', hidden: '' });
@@ -1485,37 +1491,7 @@
     page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
     return page;
   }
-  // The gallery card the Map's show list opens: the gallery's name, address
-  // and hours, its shows, then Directions and Website. No rank. A show here
-  // opens its rating page (seen it: rate, tag, note, keep in the archive).
-  function listGalleryCard(v, shows) {
-    const page = el('div', { class: 'page map-card-sheet gallery-card list-gallery-card' });
-    const close = el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() });
-    const on = shows.filter(isActiveShow);
-    const list = sortShows(on.length ? on : shows, 'rank');
-    const rate = x => {
-      const sub = ratePage(showSnapshot(x), x, () => sub.remove());
-      sub.dataset.sheetSub = '1';
-      page.parentElement.appendChild(sub);
-    };
-    const showsSection = list.length
-      ? el('div', { class: 'venue-shows' },
-          el('div', { class: 'group-header' }, list.length > 1 ? 'Shows' : 'Show'),
-          el('div', { class: 'venue-show-list' }, ...list.map(x => el('div', { class: 'gc-show' }, venueShowCard(x, rate)))))
-      : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
-    const links = el('div', { class: 'venue-actions gc-links' },
-      el('a', { class: 'capsule-btn', href: directionsUrl(v), target: '_blank', rel: 'noopener' }, icon('walk'), el('span', null, 'Directions')),
-      ...(v.website ? [el('a', { class: 'capsule-btn', href: v.website, target: '_blank', rel: 'noopener' }, icon('compass'), el('span', null, 'Website'))] : []));
-    const body = el('div', { class: 'detail-body' },
-      el('div', { class: 'venue-title' }, listLine(v)),
-      el('div', { class: 'venue-lines gc-lines' },
-        el('div', null, fullAddress(v)),
-        ...(v.hours || []).map(hoursLine)),
-      showsSection,
-      links);
-    page.appendChild(el('div', { class: 'page-scroll' }, el('div', { class: 'navrow' }, close), body));
-    return page;
-  }
+
 
   // ---------------- the seen-it archive ----------------
   // Shows the person has seen and rated, kept for good in
@@ -1871,6 +1847,8 @@
       if (deep) wireSwipe(footer);
       card.innerHTML = '';
       card.append(makeCarousel(s.images, { ...carousel, onTap: open }), footer);
+      // More than one show here: say so on the picture, where it can't be missed.
+      if (deep) card.appendChild(el('div', { class: 'multi-badge' }, `${shows.length} shows here`));
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;
       void card.offsetWidth;                  // restart the animation on a re-deal
@@ -2946,7 +2924,7 @@
     getVenues: mapVenues,
     venueKey,
     getGemSymbol: gemSymbol,
-    // A tap opens the gallery card (its shows; a picture opens the show) and
+    // A tap opens the gallery card (its shows; a show opens its rating page) and
     // rings the pin; the list, when opened, starts at that gallery.
     onVenueTap: (v, shows, others, key) => {
       if (key) mapList.pick(key);
@@ -2967,7 +2945,7 @@
   // Exactly the galleries on screen: the Map's own filtered pins (or a list
   // context's stops) whose pin sits in the part of the map above the list,
   // re-read after every pan or zoom. Best-ranked first. "All shows" zooms back
-  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens listGalleryCard.
+  // out to the whole city. Each gallery is the Shows tab's card; tapping it opens the gallery card.
   const mapList = (() => {
     const panel = document.getElementById('map-list');
     const scroll = document.getElementById('ml-scroll');
@@ -3000,7 +2978,7 @@
         cls: 'feed-card',
         carousel: { aspect: '1 / 1', dots: 'above-footer' },
         sub: s => `${listLine(g.venue)} • ${g.venue.address}`,
-        onOpen: () => openSheet(listGalleryCard(g.venue, g.shows)),   // name, address and hours, shows, links; a show opens its rating page
+        onOpen: () => openCard(g),   // the same gallery card a pin or the Shows tab opens
       }));
     }
     function render() {

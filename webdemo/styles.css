@@ -816,3 +816,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .ac-row .heat-btn[data-level="2"] { font-size: 12px; }
 .ac-row .heat-btn[data-level="3"], .ac-row .heat-btn[data-level="4"] { font-size: 15px; }
 
+/* A venue deck with more than one show: a bold pill on the picture */
+.card .multi-badge { position: absolute; top: 10px; left: 10px; z-index: 3; padding: 5px 11px; border-radius: 999px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; }
+
