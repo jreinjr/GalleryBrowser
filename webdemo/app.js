@@ -1620,12 +1620,13 @@
   }
 
   // The Archive tab: only the exact shows given a flame or TNT (not the rest
-  // of their gallery), plus shows rated on the rating page, newest first. Each
-  // is a Shows tab picture card: artist with its flame, gallery
-  // name under it. A card opens just that show. A show that has left the data
-  // still lists from the snapshot taken when it was flamed or rated.
+  // of their gallery), plus shows rated on the rating page, newest first, as
+  // small square cards three across. Each card: the picture, then the artist
+  // and gallery, with two rows of emoji where Save would be (the flame or TNT
+  // and the rating; the tags). A card opens just that show. A show that has
+  // left the data still lists from the snapshot taken when it was flamed or rated.
   function archiveRoot() {
-    const listEl = el('div', { class: 'feed' });
+    const listEl = el('div', { class: 'archive-grid' });
     const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and that show lands here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }),
@@ -1650,21 +1651,26 @@
       listEl.replaceChildren(...xs.map(x => {
         const live = showById(x.id);
         const s = live || fromSnap(x.id, x.snap || {});
-        return showDeck([s], {
-          cls: 'feed-card',
-          carousel: { aspect: '1 / 1', dots: 'above-footer' },
-          sub: y => live ? listLine(y.venue) : y.venue.name,
-          nameExtra: heatButton,
-          onOpen: () => {
-            if (live) push('archive', showDetailPage([live], 0));
-            else if (x.rated) {
-              let close = null;
-              const p = ratePage(x.rated, null, () => { if (close) close(); page.refresh(); });
-              p.classList.remove('page-push');
-              close = openSheet(p);
-            }
-          },
-        });
+        const img = live ? showImg(live) : (x.snap && x.snap.img);
+        const r = x.rated;
+        const open = () => {
+          if (live) push('archive', showDetailPage([live], 0));
+          else if (r) {
+            let close = null;
+            const p = ratePage(r, null, () => { if (close) close(); page.refresh(); });
+            p.classList.remove('page-push');
+            close = openSheet(p);
+          }
+        };
+        return el('div', { class: 'archive-card', onclick: open },
+          img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
+          el('div', { class: 'ac-foot' },
+            el('div', { class: 'ac-text' },
+              el('div', { class: 'ac-artist' }, displayName(s)),
+              el('div', { class: 'ac-gallery' }, live ? listLine(live.venue) : s.venue.name)),
+            el('div', { class: 'ac-emoji' },
+              el('div', { class: 'ac-row' }, heat.get(x.id) ? heatButton(s) : null, r && r.rating ? el('span', null, r.rating) : null),
+              el('div', { class: 'ac-row' }, r && r.tags ? r.tags.join('') : ''))));
       }));
     };
     page.refresh();
