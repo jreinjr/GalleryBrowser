@@ -1619,33 +1619,27 @@
     return page;
   }
 
-  // The Archive tab: every show with a flame or TNT, and every show rated on
-  // its rating page, newest first. One strip each: the mark, the artist and
-  // the gallery. A strip opens the show's gallery card (the one a pin opens);
-  // a rated show that has closed opens its rating page instead.
+  // The Archive tab: only the exact shows given a flame or TNT (not the rest
+  // of their gallery), plus shows rated on the rating page, newest first. Each
+  // is a picture card like the gallery card's: artist with its flame, gallery
+  // name under it. A card opens just that show. A show that has left the data
+  // still lists from the snapshot taken when it was flamed or rated.
   function archiveRoot() {
-    const listEl = el('div', { class: 'archive-list' });
-    const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and the show lands here.');
+    const listEl = el('div', { class: 'venue-show-list archive-cards' });
+    const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame next to an artist on a gallery card and that show lands here.');
     const page = el('div', { class: 'page' }, el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' }),
       el('div', { class: 'large-title' }, 'Archive'),
       el('div', { class: 'archive-note' }, 'Shows you gave a flame or rated. Kept on this device.'),
       listEl, empty));
-    const open = (id, rated) => {
-      const s = showById(id);
-      if (s) {
-        const k = venueKey(s.venue);
-        openSheet(mapVenueCard(fullVenue(s.venue), DATA.shows.filter(x => venueKey(x.venue) === k), []));
-      } else if (rated) {
-        let close = null;
-        const p = ratePage(rated, null, () => { if (close) close(); page.refresh(); });
-        p.classList.remove('page-push');
-        close = openSheet(p);
-      }
+    const fromSnap = (id, snap) => {
+      const i = id.indexOf('/');
+      return { city: id.slice(0, i), slug: id.slice(i + 1), title: snap.title || '', artist: snap.artist || null,
+        venue: { name: snap.venue || '', address: snap.address || '' }, images: snap.img ? [{ src: snap.img }] : [] };
     };
     page.refresh = () => {
       const byId = new Map();
-      heat.all().forEach(h => byId.set(h.id, { id: h.id, level: h.level, at: h.at, snap: h.snap }));
+      heat.all().forEach(h => byId.set(h.id, { id: h.id, at: h.at, snap: h.snap }));
       archive.all().forEach(e => {
         const x = byId.get(e.id) || { id: e.id, at: 0, snap: e };
         x.rated = e; x.at = Math.max(x.at, e.savedAt || 0);
@@ -1654,14 +1648,23 @@
       const xs = [...byId.values()].sort((a, b) => b.at - a.at);
       empty.hidden = !!xs.length;
       listEl.replaceChildren(...xs.map(x => {
-        const live = showById(x.id), snap = x.snap || {};
-        const artist = live ? displayName(live) : (snap.artist || snap.title || 'Show');
-        const gallery = live ? listLine(live.venue) : (snap.venue || '');
-        return el('button', { class: 'archive-strip', onclick: () => open(x.id, x.rated) },
-          el('span', { class: 'heat-mark', 'data-level': x.level || 0 }, x.level ? heatEmoji(x.level) : (x.rated && x.rated.rating) || ''),
-          el('span', { class: 'archive-strip-text' },
-            el('span', { class: 'as-artist' }, artist),
-            el('span', { class: 'as-gallery' }, gallery)));
+        const live = showById(x.id);
+        const s = live || fromSnap(x.id, x.snap || {});
+        return el('div', { class: 'gc-show' }, showDeck([s], {
+          cls: 'venue-show-card',
+          carousel: { height: SHOW_CARD_H, dots: 'above-footer' },
+          sub: y => live ? listLine(y.venue) : y.venue.name,
+          nameExtra: heatButton,
+          onOpen: () => {
+            if (live) push('archive', showDetailPage([live], 0));
+            else if (x.rated) {
+              let close = null;
+              const p = ratePage(x.rated, null, () => { if (close) close(); page.refresh(); });
+              p.classList.remove('page-push');
+              close = openSheet(p);
+            }
+          },
+        }));
       }));
     };
     page.refresh();
@@ -1850,11 +1853,11 @@
     function paint(step) {
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
-      const text = el('div', { class: 'cf-text' },
-        nameExtra
-          ? el('div', { class: 'name-line' }, el('div', { class: 'name' }, displayName(s)), nameExtra(s))
-          : el('div', { class: 'name' }, displayName(s)),
-        el('div', { class: 'sub' }, sub(s)));
+      // nameExtra (the flame) sits after the name and sub lines, centered on both.
+      const lines = [el('div', { class: 'name' }, displayName(s)), el('div', { class: 'sub' }, sub(s))];
+      const text = nameExtra
+        ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
+        : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
       const footer = el('div', { class: 'card-footer' }, text,
         deep ? el('div', { class: 'cf-count' }, `${idx + 1} / ${shows.length}`) : null,
