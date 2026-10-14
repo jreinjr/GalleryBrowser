@@ -1827,14 +1827,13 @@
     return box;
   }
 
-  // The gallery detail page lists its shows one card each — the Featured card in
-  // miniature at 248px, with the run dates on the second line because the venue
-  // is already the subject of the page.
-  const SHOW_CARD_H = 248;
+  // The gallery page and a map pin's gallery card list its shows one card each,
+  // the same full-width square card as the Shows tab, with the run dates on the
+  // second line because the venue is already the subject of the page.
   function venueShowCard(s, onOpen, nameExtra) {
     return showDeck([s], {
-      cls: 'venue-show-card',
-      carousel: { height: SHOW_CARD_H, dots: 'above-footer' },
+      cls: 'feed-card venue-show-card',
+      carousel: { aspect: '1 / 1', dots: 'above-footer' },
       sub: x => dateLine(x, fmtShort),
       onOpen, nameExtra,
     });

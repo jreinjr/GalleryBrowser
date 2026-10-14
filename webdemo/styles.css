@@ -138,7 +138,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .show-stack .d1 { left: 0; right: 0; top: 9px; bottom: -9px; background: #4A4A4C; }   /* the second layer is as wide as the card */
 .show-stack .d2 { left: 21px; right: 21px; top: 18px; bottom: -18px; background: #303032; }
 .show-stack .card { z-index: 1; }
-.venue-show-list .stack-sheet { border-radius: 0 0 14px 14px; }
 /* the footer swipes; a vertical drag on it must still scroll the page */
 .show-stack .card-footer { touch-action: pan-y; }
 /* dealing the next show: its photo and footer slide in from the swipe direction */
@@ -240,13 +239,9 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 /* The gallery detail page lists a venue's shows, one card each */
 .venue-shows { margin-top: 18px; margin-bottom: 18px; }
 .venue-shows .group-header { padding: 0 2px 8px; }
-.venue-show-list { display: flex; flex-direction: column; gap: 12px; }
-.venue-show-card { border-radius: 14px; content-visibility: visible; }
-.venue-show-card .card-footer { padding: 6px 8px 6px 12px; }
-.venue-show-card .card-footer .name { font-size: 15px; }
-.venue-show-card .card-footer .sub { font-size: 12px; }
-.venue-show-card .bookmark-btn { width: 32px; height: 32px; }
-.venue-show-card .bookmark-btn svg { width: 14px; height: 14px; }
+/* full-bleed like the Shows tab: the list cancels the page's 18px side padding */
+.venue-show-list { display: flex; flex-direction: column; gap: 14px; margin: 0 -18px; }
+.venue-show-card { content-visibility: visible; }
 
 /* ---- Lists ---- */
 .group { background: var(--row); border-radius: 12px; margin: 0 16px 22px; overflow: hidden; }
@@ -404,7 +399,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .open-times { color: rgba(240, 80, 70, 1); font-weight: 600; }
 .gallery-card .venue-show-card .sub { color: rgba(220, 50, 45, 1); font-weight: 600; }
 .gallery-card .venue-shows { margin-top: 20px; }
-.gc-show + .gc-show { margin-top: 18px; }
 .gc-links { margin-top: 18px; }
 .gc-details-btn { margin-top: 12px; background: rgba(255, 255, 255, 0.12); color: #fff; }
 .gc-details-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
