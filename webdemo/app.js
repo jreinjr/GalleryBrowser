@@ -120,10 +120,11 @@
   };
   const KIND_LABEL = { museum: 'Museum', nonprofit: 'Nonprofit', project_space: 'Project space', university: 'University', other: 'Other' };
   const displayName = s => s.artist || s.title;
-  // The artist name with each artist's age in blue right after it (the life
-  // span for an artist who has died). Tapping an age opens that artist's bio
+  // The artist name with each artist's age in blue right after it. Tapping an age opens that artist's bio
   // card in the full-screen viewer.
-  const ageText = b => b.died ? `${b.born}–${b.died}` : String(new Date().getFullYear() - b.born);
+  // An artist who has died gets a red skull in place of an age.
+  const SKULL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 2C6.5 2 3 5.6 3 10.2c0 2.6 1.2 4.6 3 5.8V19a1 1 0 0 0 1 1h1.6v-2h1.6v2h3.6v-2h1.6v2H17a1 1 0 0 0 1-1v-3c1.8-1.2 3-3.2 3-5.8C21 5.6 17.5 2 12 2Zm-3.6 7a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2Zm7.2 0a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM12 13.4l1.2 2.2h-2.4l1.2-2.2Z"/></svg>';
+  const ageText = b => String(new Date().getFullYear() - b.born);
   function nameNode(s) {
     const text = displayName(s);
     if (!s.artist || !s.bios) return text;
@@ -136,9 +137,11 @@
     for (const { b, end } of marks) {
       out.append(text.slice(pos, end), ' ');
       out.append(el('span', {
-        class: 'artist-age', role: b.img != null ? 'button' : null,
+        class: b.died ? 'artist-age died' : 'artist-age', role: b.img != null ? 'button' : null,
+        'aria-label': b.died ? `${b.born}–${b.died}` : null,
+        html: b.died ? SKULL : null,
         onclick: b.img != null ? e => { e.stopPropagation(); e.preventDefault(); openViewer(s.images, b.img); } : null,
-      }, ageText(b)));
+      }, b.died ? null : ageText(b)));
       pos = end;
     }
     out.append(text.slice(pos));
