@@ -148,6 +148,13 @@ def published_locations(v: dict) -> list[dict] | None:
     return out or None
 
 
+def load_bios(city_key: str) -> dict[str, list[dict]]:
+    """show slug -> its artists' bio facts (content/artists/bios/<city>.json,
+    scraper/bio_cards.py); {} when the city has none."""
+    f = CONTENT_DIR / "artists" / "bios" / f"{city_key}.json"
+    return json.loads(f.read_text())["shows"] if f.exists() else {}
+
+
 def load_seesaw(city_key: str) -> dict[str, str]:
     """venue_id -> "pick" (on See Saw's latest Editor's Picks) or "listed" (on its
     latest All / Featured capture), from content/curation/<city>/seesaw/; {} when

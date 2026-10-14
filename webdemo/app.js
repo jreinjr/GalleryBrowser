@@ -120,6 +120,30 @@
   };
   const KIND_LABEL = { museum: 'Museum', nonprofit: 'Nonprofit', project_space: 'Project space', university: 'University', other: 'Other' };
   const displayName = s => s.artist || s.title;
+  // The artist name with each artist's age in blue right after it (the life
+  // span for an artist who has died). Tapping an age opens that artist's bio
+  // card in the full-screen viewer.
+  const ageText = b => b.died ? `${b.born}–${b.died}` : String(new Date().getFullYear() - b.born);
+  function nameNode(s) {
+    const text = displayName(s);
+    if (!s.artist || !s.bios) return text;
+    const marks = s.bios
+      .map(b => ({ b, at: text.indexOf(b.name) }))
+      .map(m => ({ ...m, end: m.at < 0 ? text.length : m.at + m.b.name.length }))
+      .sort((x, y) => x.end - y.end);
+    const out = el('span', { class: 'name-ages' });
+    let pos = 0;
+    for (const { b, end } of marks) {
+      out.append(text.slice(pos, end), ' ');
+      out.append(el('span', {
+        class: 'artist-age', role: b.img != null ? 'button' : null,
+        onclick: b.img != null ? e => { e.stopPropagation(); e.preventDefault(); openViewer(s.images, b.img); } : null,
+      }, ageText(b)));
+      pos = end;
+    }
+    out.append(text.slice(pos));
+    return out;
+  }
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
 
@@ -734,6 +758,22 @@
     let index = 0;
     let dotEls = [];
     if (images.length > 1) {
+      // Swiping past the last picture lands on a copy of the first, and the
+      // track then jumps back to the real first one: the pictures loop.
+      const loopSlide = track.firstChild.cloneNode(true);
+      if (onTap) loopSlide.addEventListener('click', () => onTap(0));
+      track.appendChild(loopSlide);
+      let settle = null;
+      track.addEventListener('scroll', () => {
+        clearTimeout(settle);
+        settle = setTimeout(() => {
+          if (Math.round(track.scrollLeft / track.clientWidth) === images.length) {
+            track.style.scrollSnapType = 'none';     // jump without a snap animation
+            track.scrollLeft = 0;
+            track.style.scrollSnapType = '';
+          }
+        }, 120);
+      }, { passive: true });
       const dotsEl = el('div', { class: 'carousel-dots ' + ({ bottom: 'bottom-center', 'above-footer': 'bottom-center above-footer' }[dots] || 'top-left') });
       dotEls = images.map((_, i) => el('i', i === 0 ? { class: 'on' } : null));
       dotEls.forEach(d => dotsEl.appendChild(d));
@@ -745,13 +785,10 @@
       next.addEventListener('click', e => { e.stopPropagation(); track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }); });
       car.append(prev, next);
 
-      const syncArrows = () => {
-        prev.classList.toggle('hidden', index === 0);
-        next.classList.toggle('hidden', index === images.length - 1);
-      };
+      const syncArrows = () => prev.classList.toggle('hidden', index === 0);
       syncArrows();
       track.addEventListener('scroll', () => {
-        const i = Math.round(track.scrollLeft / track.clientWidth);
+        const i = Math.round(track.scrollLeft / track.clientWidth) % images.length;  // the copy reads as the first
         if (i !== index && i >= 0 && i < images.length) {
           index = i;
           dotEls.forEach((d, j) => d.classList.toggle('on', j === i));
@@ -941,7 +978,8 @@
     };
 
     function goTo(i, animate) {
-      i = Math.max(0, Math.min(images.length - 1, i));
+      // past the last picture loops back to the first
+      i = i >= images.length && images.length > 1 ? 0 : Math.max(0, Math.min(images.length - 1, i));
       if (i !== index) {
         const prev = slides[index];
         prev.scale = 1; prev.tx = 0; prev.ty = 0; apply(prev, false);
@@ -1042,7 +1080,7 @@
         s.tx = origin.tx + dx; s.ty = origin.ty + dy;
         clampPan(s); apply(s, false);
       } else if (mode === 'swipe') {
-        const resist = (index === 0 && dx > 0) || (index === images.length - 1 && dx < 0);
+        const resist = (index === 0 && dx > 0) || (images.length === 1 && dx < 0);
         setTrack(-index * width() + (resist ? dx * 0.3 : dx), false);
       } else if (mode === 'pull') {
         const y = Math.max(0, dy);
@@ -1161,7 +1199,7 @@
         s.tx = mdrag.tx0 + dx; s.ty = mdrag.ty0 + dy;
         clampPan(s); apply(s, false);
       } else {
-        const resist = (index === 0 && dx > 0) || (index === images.length - 1 && dx < 0);
+        const resist = (index === 0 && dx > 0) || (images.length === 1 && dx < 0);
         setTrack(-index * width() + (resist ? dx * 0.3 : dx), false);
       }
     });
@@ -1295,7 +1333,7 @@
         icon('chevronRight'));
 
       const body = el('div', { class: 'detail-body' },
-        s.artist ? el('div', { class: 'detail-artist' }, s.artist) : null,
+        s.artist ? el('div', { class: 'detail-artist' }, nameNode(s)) : null,
         el('div', { class: 'detail-title' }, s.title),
         el('div', { class: 'detail-dates' }, dateLine(s)),
         s.reception ? el('div', { class: 'detail-reception' }, 'Reception: ' + s.reception) : null,
@@ -1650,7 +1688,7 @@
           img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
           el('div', { class: 'ac-foot' },
             el('div', { class: 'ac-text' },
-              el('div', { class: 'ac-artist' }, displayName(s)),
+              el('div', { class: 'ac-artist' }, nameNode(s)),
               el('div', { class: 'ac-gallery' }, live ? listLine(live.venue) : s.venue.name)),
             el('div', { class: 'ac-emoji' },
               el('div', { class: 'ac-row' }, ...MARKS.map(m => m.store.get(x.id) ? markButton(m, s) : null), r && r.rating ? el('span', null, r.rating) : null),
@@ -1844,7 +1882,7 @@
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       // nameExtra (the flame) sits after the name and sub lines, centered on both.
-      const lines = [el('div', { class: 'name' }, displayName(s)), el('div', { class: 'sub' }, sub(s))];
+      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s))];
       const text = nameExtra
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
@@ -1911,7 +1949,7 @@
   function showRow(s, onOpen) {
     return el('div', { class: 'show-row' },
       el('button', { class: 'sr-text', onclick: () => (onOpen || pushDetailFromRow)(s) },
-        el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+        el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, nameNode(s))),
         el('div', { class: 'sr-venue' }, tierStar(galleryTier(s.venue)), el('span', { class: 'sr-txt' }, listLine(s.venue))),
         el('div', { class: 'sr-addr' }, s.venue.neighborhood ? `${s.venue.neighborhood} · ${s.venue.address}` : s.venue.address)),
       bookmarkBtn(s));
@@ -2464,7 +2502,7 @@
     const s = x.show, id = showId(s), gone = !isActiveShow(s);
     const row = el('div', { class: 'list-row' + (gone ? ' gone' : '') + (expanded.has(id) ? ' expanded' : ''), 'data-id': id });
     const main = el('button', { class: 'lr-main', onclick: () => push(tab, showDetailPage(shows, i)) },
-      el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+      el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, nameNode(s))),
       el('div', { class: 'sr-venue' }, tierStar(galleryTier(s.venue)), el('span', { class: 'sr-txt' }, listLine(s.venue))),
       el('div', { class: 'sr-sub' }, rowSub(s)),
       el('div', { class: 'lr-byline' }, x.note || firstSentence(s.description)));
@@ -2613,7 +2651,7 @@
         const row = el('div', { class: 'list-row', 'data-id': showId(s) },
           el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')),
           el('div', { class: 'lr-main' },
-            el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, displayName(s))),
+            el('div', { class: 'sr-name' }, el('span', { class: 'sr-txt' }, nameNode(s))),
             el('div', { class: 'sr-venue' }, el('span', { class: 'sr-txt' }, listLine(s.venue))),
             el('div', { class: 'sr-sub' }, rowSub(s))),
           el('button', { class: 'minus', 'aria-label': 'Remove from list', onclick: () => { lists.removeEntry(list.id, showId(s)); renderRows(); renderCover(); } }, icon('minus')));
@@ -2663,7 +2701,7 @@
         const on = lists.has(listId, showId(s));
         const ring = el('span', { class: 'check-ring' + (on ? ' on' : '') }, icon('check'));
         group.appendChild(el('button', { class: 'row', 'data-pick': showId(s), onclick: () => { lists.toggleEntry(listId, showId(s)); ring.classList.toggle('on'); } },
-          el('span', { class: 'row-text' }, el('span', { class: 'row-label' }, displayName(s)), el('span', { class: 'row-sub' }, listLine(s.venue))), ring));
+          el('span', { class: 'row-text' }, el('span', { class: 'row-label' }, nameNode(s)), el('span', { class: 'row-sub' }, listLine(s.venue))), ring));
       });
     };
     input.addEventListener('input', render);
@@ -2710,7 +2748,7 @@
     close = openSheet(el('div', { class: 'page add-sheet' },
       el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Add to list'), sheetCloseBtn()),
       el('div', { class: 'page-scroll' },
-        el('div', { class: 'add-subject' }, showImg(s) ? el('img', { src: showImg(s), alt: '' }) : null, el('span', null, el('b', null, displayName(s)), el('br'), listLine(s.venue))),
+        el('div', { class: 'add-subject' }, showImg(s) ? el('img', { src: showImg(s), alt: '' }) : null, el('span', null, el('b', null, nameNode(s)), el('br'), listLine(s.venue))),
         group),
       el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', onclick: () => close() }, 'Done'))));
   }
@@ -3140,7 +3178,7 @@
         kids.push(el('div', { class: 'ans-head' }, el('span', { class: 'ans-title' }, draft.name), el('span', { class: 'ans-count' }, plural(xs.length, 'show'))));
         xs.slice(0, 5).forEach((x, i) => kids.push(el('button', { class: 'ans-entry', onclick: () => push('discover', showDetailPage(shows, i)) },
           showImg(x.show) ? el('img', { class: 'ans-thumb', src: showImg(x.show), alt: '' }) : el('span', { class: 'ans-thumb' }),
-          el('div', { class: 'ans-text' }, el('div', { class: 'ans-name' }, displayName(x.show)),
+          el('div', { class: 'ans-text' }, el('div', { class: 'ans-name' }, nameNode(x.show)),
             el('div', { class: 'ans-venue' }, `${listLine(x.show.venue)}${x.show.venue.neighborhood ? ' · ' + x.show.venue.neighborhood : ''}`),
             x.note ? el('div', { class: 'why' }, x.note) : null))));
         if (xs.length > 5) kids.push(el('button', { class: 'ans-more', onclick: openList }, `Show all ${xs.length}`));

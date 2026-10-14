@@ -246,8 +246,11 @@ def main() -> None:
             venue_photo_count += 1
         return out
 
+    from bio_cards import slugify  # scraper/, on sys.path via cityconfig
+
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
+        bios = cityconfig.load_bios(cty["key"])
         registry_venues = cityconfig.load_venues(cty["key"])
         venue_kinds = {vid: v["kind"] for vid, v in registry_venues.items() if v.get("kind")}
         city_venues = all_venues.setdefault(cty["key"], {})
@@ -280,6 +283,17 @@ def main() -> None:
                 continue
             kept.append(s)
             img_by_slug[s["slug"]] = out_imgs[0]["src"]
+            # artist ages for the name line; img = that artist's bio card, which
+            # tapping the age opens
+            show_bios = []
+            for a in bios.get(s["slug"], []):
+                if not a.get("born"):
+                    continue
+                card = f"/bio-{slugify(a['artist'])}."
+                img = next((i for i, e in enumerate(out_imgs) if card in e["src"]), None)
+                show_bios.append({"name": a["artist"], "born": a["born"],
+                                  **({"died": a["died"]} if a.get("died") else {}),
+                                  **({"img": img} if img is not None else {})})
             v = s["venue"]
             # registry `kind` is the source of truth; the show record's boolean is
             # only the fallback for a venue with no registry entry
@@ -296,6 +310,7 @@ def main() -> None:
                 "artist": s.get("artist"), "startDate": s["start_date"], "endDate": s["end_date"],
                 "description": s["description"], "reception": s.get("reception"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
+                **({"bios": show_bios} if show_bios else {}),
                 "venueId": vid,
                 # a show filling more than one of the gallery's spaces: the
                 # others by index (0 = primary, 1.. = registry `locations`)

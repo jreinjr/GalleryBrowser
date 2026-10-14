@@ -818,3 +818,8 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .ac-row .heat-btn[data-level="2"] { font-size: 12px; }
 .ac-row .heat-btn[data-level="3"], .ac-row .heat-btn[data-level="4"] { font-size: 15px; }
 
+
+/* artist age after the name (nameNode); tappable when a bio card exists */
+.artist-age { color: var(--blue); }
+.artist-age[role=button] { cursor: pointer; }
+.card-footer .artist-age { color: #0A6FD6; }   /* the footer bar is light: a deeper blue reads */

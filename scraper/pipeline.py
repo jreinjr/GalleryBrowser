@@ -122,6 +122,12 @@ def main() -> None:
                       f"{res['hints']} hint(s) banked", flush=True)
         except Exception as exc:  # noqa: BLE001 - housekeeping never blocks publication
             print(f"lint {c} skipped: {exc}", flush=True)
+        # shows from a multi-city gallery's shared exhibitions list can belong to
+        # its space in another city (check_show_city.py); report, don't block
+        if c in __import__("check_show_city").HOME:
+            rc = sh([sys.executable, HERE / "check_show_city.py", "--city", c])
+            if rc:
+                failures.append(f"check_show_city {c}: shows at another city's space (see FLAG lines)")
         try:
             import artists
             if hasattr(artists, "write_report"):

@@ -1,5 +1,5 @@
 """Artist bio cards: render content/artists/bios/<city>.json to square PNGs
-and put them in each show's image set, after the artworks.
+and put them in each show's image set, second, after the lead artwork.
 
     scraper/.venv/bin/python scraper/bio_cards.py --city los-angeles [--slug SLUG ...]
 
@@ -151,7 +151,9 @@ def main() -> None:
     for s in data["shows"]:
         if s["slug"] in cards:
             found.add(s["slug"])
-            s["images"] = [r for r in s["images"] if not is_bio(r)] + cards[s["slug"]]
+            # the bio card is the second picture, right after the lead artwork
+            art = [r for r in s["images"] if not is_bio(r)]
+            s["images"] = art[:1] + cards[s["slug"]] + art[1:]
     shows_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     for slug, rels in cards.items():
         print(f"  {slug}: {len(rels)} card(s)" + ("" if slug in found else "  (no such show)"))

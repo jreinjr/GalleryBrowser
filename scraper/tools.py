@@ -352,7 +352,7 @@ SAVE_SHOW_SCHEMA = {
             "properties": {
                 "name": {"type": "string"},
                 "is_museum": {"type": "boolean", "description": "true only for a museum proper (a collecting institution or kunsthalle-scale public museum). Nonprofit art centers, foundations, university galleries, artist-run and project spaces are false."},
-                "address": {"type": "string", "description": "Street address, e.g. '212 Third Ave S'. Must match the venue's own site exactly — the map pin is geocoded from it."},
+                "address": {"type": "string", "description": "Street address, e.g. '212 Third Ave S'. Must match the venue's own site exactly — the map pin is geocoded from it. It is the space THIS show hangs in, as the show's own page states it: a gallery with spaces in several cities lists all of them on one exhibitions page, and a show at its space in another city is not saved here."},
                 "address_detail": {"type": ["string", "null"], "description": "Suite/floor, or null"},
                 "neighborhood": {"type": "string", "description": "One of the city's configured neighborhoods"},
                 "hours": {"type": "array", "items": {"type": "string"}, "description": "Lines like 'Tue - Sat 10:30am to 5:30pm'"},
