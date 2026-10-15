@@ -11,7 +11,8 @@
  * card's Change rank write straight into the repo. GET says which cities can be
  * moved; POST {city, id, to} runs scraper/move_venue_rank.py (venue_order.json +
  * rank_venues.py apply), rebuilds the dist so a reload keeps the change, and
- * answers with the city's new ranks.
+ * answers with the city's new ranks. /api/local-venue adds a gallery from
+ * Google Maps (see localVenue).
  */
 import http from 'node:http';
 import zlib from 'node:zlib';
@@ -111,10 +112,48 @@ async function localRank(req, res) {
   return json(out.ok ? 200 : 500, out);
 }
 
+// Local only: /api/local-venue adds a gallery from its Google Maps listing.
+// GET ?city=&q= looks it up (scraper/add_venue.py --lookup, writes nothing);
+// POST {city, name} adds it to the registry and rebuilds the dist, sharing the
+// rank queue since both rewrite the registry.
+async function localVenue(req, res) {
+  const json = (status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)); };
+  const parse = r => { try { return JSON.parse(r.stdout.trim().split('\n').pop()); } catch (e) { return { ok: false, error: 'lookup failed', log: r.stderr.slice(-2000) }; } };
+  const okCity = c => /^[a-z-]+$/.test(String(c || ''));
+  const script = path.join(ROOT, 'scraper', 'add_venue.py');
+  if (req.method === 'GET') {
+    const u = new URL(req.url, 'http://x');
+    const city = u.searchParams.get('city'), q = (u.searchParams.get('q') || '').trim();
+    if (!q) return json(200, { ok: true, google: !!process.env.GOOGLE_MAPS_API_KEY });
+    if (!okCity(city) || q.length > 120) return json(400, { ok: false, error: 'bad request' });
+    const out = parse(await run([script, '--city', city, '--name', q, '--lookup']));
+    return json(out.ok ? 200 : 500, out);
+  }
+  if (req.method !== 'POST') return json(405, { ok: false, error: 'method' });
+  const chunks = [];
+  for await (const ch of req) chunks.push(ch);
+  let b;
+  try { b = JSON.parse(Buffer.concat(chunks).toString('utf8')); } catch (e) { return json(400, { ok: false, error: 'bad json' }); }
+  const name = String(b.name || '').trim();
+  if (!okCity(b.city) || !name || name.length > 120) return json(400, { ok: false, error: 'bad request' });
+  const job = rankQueue.then(async () => {
+    const out = parse(await run([script, '--city', b.city, '--name', name]));
+    if (!out.ok || !out.id) return out;
+    const build = await run([path.join(HERE, 'build.py')]);
+    if (build.code !== 0) console.error('build after gallery add failed:', build.stderr.slice(-2000));
+    console.log(`gallery add: ${b.city}/${out.id} (rank ${out.rank})`);
+    return out;
+  });
+  rankQueue = job.catch(() => {});
+  const out = await job;
+  return json(out.ok ? 200 : 500, out);
+}
+
 const gzCache = new Map();   // file -> { etag, gz }
 const server = http.createServer(async (req, res) => {
   try {
     if (req.url.startsWith('/api/local-rank')) return localRank(req, res);
+    if (req.url.startsWith('/api/local-venue')) return localVenue(req, res);
     if (req.url.startsWith('/api/discover')) {
       if (!POST) { res.writeHead(503); res.end('Discover is not available on this preview'); return; }
       if (req.method === 'POST' && process.env.DISCOVER_MOCK === '1') { req.resume(); await new Promise(r => req.on('end', r)); return mock(res); }

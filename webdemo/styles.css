@@ -820,3 +820,14 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .artist-age.died { color: #E0262B; display: inline-block; width: 1em; height: 1em; vertical-align: -0.12em; }
 .artist-age.died svg { display: block; width: 100%; height: 100%; }
 .card-footer .artist-age.died { color: #E0262B; }
+
+/* ---- Gallery tab: add a gallery (local preview) ---- */
+.add-gallery .rank-sub { margin: 8px 20px 0; }
+.add-gallery-result { margin: 16px 0 24px; }
+.add-gallery-result .capsule-btn { display: block; width: calc(100% - 40px); margin: 14px 20px 0; text-align: center; }
+.add-gallery-msg { margin: 12px 20px 0; font-size: 15px; color: var(--secondary, #8e8e93); }
+.add-gallery-msg.err { color: #ff6b5e; }
+.ag-card { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.ag-name { font-size: 19px; font-weight: 700; }
+.ag-field { display: flex; gap: 10px; font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; }
+.ag-label { flex: 0 0 64px; color: var(--secondary, #8e8e93); }

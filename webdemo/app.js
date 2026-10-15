@@ -2818,6 +2818,82 @@
     return page;
   }
 
+  // ---------------- add a gallery (local preview only) ----------------
+  // On the Mac preview (webdemo/devserver.mjs) the Gallery tab has a + that
+  // looks a gallery up on Google Maps and, on Add, writes it into the city's
+  // gallery file at the end of the ranking and rebuilds; the page then reloads
+  // on the new gallery. The deployed site has no /api/local-venue, so no +.
+  let canAddGallery = false;
+  if (/^(localhost|127\.0\.0\.1|192\.168\.|10\.|172\.)|\.local$/.test(location.hostname)) {
+    fetch('/api/local-venue').then(r => r.ok ? r.json() : null).then(j => {
+      canAddGallery = !!(j && j.ok && j.google);
+      document.querySelectorAll('[data-add-gallery]').forEach(b => { b.hidden = !canAddGallery; });
+    }).catch(() => {});
+  }
+  function addGallerySheet() {
+    const cityKey = state.cityKey;
+    const input = el('input', { class: 'new-name', type: 'text', placeholder: 'Gallery name', autocomplete: 'off', maxlength: '120', 'aria-label': 'Gallery name' });
+    const result = el('div', { class: 'add-gallery-result' });
+    let close, busy = false;
+    const say = (t, cls) => { result.replaceChildren(el('div', { class: 'add-gallery-msg' + (cls ? ' ' + cls : '') }, t)); };
+    const field = (label, val) => val ? el('div', { class: 'ag-field' }, el('span', { class: 'ag-label' }, label), el('span', null, val)) : null;
+    async function find() {
+      const q = input.value.trim();
+      if (!q || busy) { input.focus(); return; }
+      busy = true; say('Looking it up on Google Maps…');
+      let j;
+      try { j = await (await fetch(`/api/local-venue?city=${encodeURIComponent(cityKey)}&q=${encodeURIComponent(q)}`)).json(); }
+      catch (e) { j = { ok: false, error: 'The preview server did not answer.' }; }
+      busy = false;
+      if (!j.ok) return say(j.error || 'Lookup failed.', 'err');
+      if (!j.found) return say(`Google Maps has nothing for “${q}” near ${city().displayName}.`, 'err');
+      const p = j.place;
+      const hours = (p.hours || []).map(h => el('div', null, h));
+      const card = el('div', { class: 'group ag-card' },
+        el('div', { class: 'ag-name' }, p.name),
+        field('Address', p.address),
+        field('Website', p.website),
+        field('Phone', p.phone),
+        hours.length ? el('div', { class: 'ag-field' }, el('span', { class: 'ag-label' }, 'Hours'), el('span', null, ...hours)) : field('Hours', 'none on Google'),
+        p.km_from_center > 25 ? el('div', { class: 'add-gallery-msg err' }, `${p.km_from_center} km from the centre of ${city().displayName}. Check it is the right place.`) : null);
+      const ex = j.existing;
+      let action;
+      if (ex && ex.shown) {
+        const v = (VENUES[cityKey] || {})[ex.id];
+        action = el('div', null,
+          el('div', { class: 'add-gallery-msg' }, `Already in the ranking${ex.rank ? ' at #' + ex.rank : ''}.`),
+          v ? el('button', { class: 'capsule-btn', onclick: () => { close(); push(state.tab, venuePage(v)); } }, 'Open it') : null);
+      } else {
+        const btn = el('button', { class: 'capsule-btn', 'data-add-confirm': '', onclick: () => add(p.name || q) },
+          ex ? 'Add it to the ranking' : 'Add to the ranking');
+        action = el('div', null, ex ? el('div', { class: 'add-gallery-msg' }, 'It is in the gallery file but hidden; adding fills it in from Google and shows it.') : null, btn);
+      }
+      result.replaceChildren(card, action);
+    }
+    async function add(name) {
+      if (busy) return;
+      busy = true; say(`Adding ${name} and rebuilding the preview…`);
+      let j;
+      try { j = await (await fetch('/api/local-venue', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ city: cityKey, name }) })).json(); }
+      catch (e) { j = { ok: false, error: 'The preview server did not answer.' }; }
+      busy = false;
+      if (!j.ok) return say(j.error || 'Adding failed.', 'err');
+      if (j.existing && j.existing.shown) return say(`Already in the ranking${j.existing.rank ? ' at #' + j.existing.rank : ''}.`);
+      try { sessionStorage.setItem('openAddedGallery', JSON.stringify({ city: cityKey, id: j.id })); } catch (e) { /* reload still shows it */ }
+      say(`Added${j.rank ? ' at #' + j.rank : ''}. Reloading…`);
+      setTimeout(() => location.reload(), 400);
+    }
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') find(); });
+    close = openSheet(el('div', { class: 'page add-gallery' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Add gallery'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' },
+        el('div', { class: 'group', style: 'margin-top:12px' }, el('div', { class: 'row new-list' }, el('span', { class: 'row-icon', html: ICONS.search }), input,
+          el('button', { class: 'create', onclick: find }, 'Find'))),
+        el('div', { class: 'rank-sub' }, `Found on Google Maps near ${city().displayName}: address, hours, website and the map pin.`),
+        result)));
+    setTimeout(() => input.focus(), 320);
+  }
+
   // ---------------- gallery ranking page ----------------
   // Every venue of the city in the order the app uses, with the tier dot, the
   // rank and a heart. Edit reorders (drag a row, or tap its number to move it
@@ -2926,7 +3002,8 @@
       if (!confirm('Go back to the app’s ranking? Your order will be discarded.')) return;
       ranking.reset(cityKey); refreshAll(); render();
     } }, 'Reset to app ranking');
-    const trailing = asRoot ? el('div', { class: 'nav-btns' }, settingsButton(), editBtn) : editBtn;
+    const addBtn = el('button', { class: 'icon-btn', 'data-add-gallery': '', 'aria-label': 'Add gallery', hidden: canAddGallery ? null : '', onclick: addGallerySheet }, icon('plus'));
+    const trailing = asRoot ? el('div', { class: 'nav-btns' }, addBtn, settingsButton(), editBtn) : editBtn;
     const nav = el('div', { class: 'navrow' });
     scroll.append(nav, el('div', { class: 'large-title' }, 'Galleries'), sub,
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
@@ -3330,6 +3407,13 @@
 
   rebuildTabs();
   setTab('featured');
+  // Back from adding a gallery on the Mac preview: open it on the Gallery tab.
+  try {
+    const added = JSON.parse(sessionStorage.getItem('openAddedGallery') || 'null');
+    sessionStorage.removeItem('openAddedGallery');
+    const v = added && added.city === state.cityKey && (VENUES[added.city] || {})[added.id];
+    if (v) { setTab('list'); push('list', venuePage(v)); }
+  } catch (e) { /* nothing to open */ }
   // test hook
   window.DemoDebug = { receptionDate, hasUpcomingReception, isActiveShow, galleryTier, venueRank, appRank, filteredShows, mapVenues, cityVenues, favoriteVenues, favoritesAsList, ranking, cityPrefs, GALLERY_TIER_CUTOFF, lists, curatedLists, listVisible, FILTER_VERSION };
 })();
