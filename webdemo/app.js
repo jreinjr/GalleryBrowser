@@ -2425,7 +2425,14 @@
   }
   const libHeader = (t, trail) => el('div', { class: 'lib-header' }, el('span', null, t), trail || null);
 
+  // The Gallery tab is the gallery ranking itself. The library (All shows,
+  // My Shows, Favorite galleries, your lists, Curated) stays in the code and
+  // in storage but is no longer shown.
   function listRoot() {
+    return galleriesPage({ asRoot: true });
+  }
+
+  function libraryRoot() {
     const pinned = el('div', { class: 'lib-pinned' });
     const yourHead = libHeader('Your lists', el('button', { class: 'lib-new', onclick: () => newListSheet() }, icon('plus'), 'New'));
     const grid = el('div', { class: 'lib-grid' });
@@ -2778,7 +2785,7 @@
   }
 
   // ---------------- settings ----------------
-  // A gear on the Lists tab. Settings holds what is personal and city-wide:
+  // A gear on the Gallery tab. Settings holds what is personal and city-wide:
   // the gallery ranking (the app's, or the person's own) and the favorites.
   const settingsButton = () => el('button', { class: 'icon-btn', 'data-settings-btn': '', 'aria-label': 'Settings', onclick: () => push(state.tab, settingsPage()) }, icon('gear'));
   const settingRow = (label, sub, onclick, key) => el('button', { class: 'row city-row', 'data-setting': key, onclick },
@@ -2818,6 +2825,7 @@
   // returns to the app's. In a sheet (from the Map) venue pages layer inside it.
   function galleriesPage(opts) {
     const asSheet = !!(opts && opts.asSheet);
+    const asRoot = !!(opts && opts.asRoot);
     const tab = state.tab;
     const cityKey = state.cityKey;
     const page = el('div', { class: 'page galleries-page' });
@@ -2903,12 +2911,12 @@
         : `${ranking.isPersonal(cityKey) ? 'Your ranking' : 'App ranking'} · ${plural(list.length, 'gallery', 'galleries')}`;
       page.classList.toggle('editing', editing);
       nav.innerHTML = '';
-      nav.append(editing ? cancelBtn : leading, editing ? saveBtn : editBtn);
+      nav.append(editing ? cancelBtn : leading, editing ? saveBtn : trailing);
       resetBtn.hidden = editing || !ranking.isPersonal(cityKey);
     }
     const leading = asSheet
       ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })
-      : backBtn(tab);
+      : asRoot ? el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities') : backBtn(tab);
     const editBtn = el('button', { class: 'nav-textbtn', 'data-rank-edit': '', onclick: () => { editing = true; order = ranking.order(cityKey).map(v => v.id); render(); } }, 'Edit');
     const cancelBtn = el('button', { class: 'nav-textbtn', 'data-rank-cancel': '', onclick: () => { editing = false; order = null; render(); } }, 'Cancel');
     const saveBtn = el('button', { class: 'nav-textbtn bold', 'data-rank-save': '', onclick: () => {
@@ -2918,6 +2926,7 @@
       if (!confirm('Go back to the app’s ranking? Your order will be discarded.')) return;
       ranking.reset(cityKey); refreshAll(); render();
     } }, 'Reset to app ranking');
+    const trailing = asRoot ? el('div', { class: 'nav-btns' }, settingsButton(), editBtn) : editBtn;
     const nav = el('div', { class: 'navrow' });
     scroll.append(nav, el('div', { class: 'large-title' }, 'Galleries'), sub,
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
@@ -2925,6 +2934,7 @@
     const inline = el('div', { class: 'inline-title' }, 'Galleries');
     largeTitleScroll(scroll, inline);
     page.append(inline, scroll);
+    page.refresh = () => { if (!editing) render(); };
     render();
     return page;
   }
