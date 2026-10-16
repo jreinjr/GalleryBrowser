@@ -37,6 +37,8 @@ HOME = {
     "los-angeles": {"state": ("CA", "California"),
                     "words": ["Los Angeles", "Beverly Hills", "West Hollywood", "Hollywood",
                               "Santa Monica", "Culver City", "Pasadena", "Venice"]},
+    "seattle": {"state": ("WA", "Washington"),
+                "words": ["Seattle", "Pioneer Square", "Capitol Hill", "Ballard", "Georgetown"]},
 }
 
 
@@ -81,11 +83,18 @@ def main() -> None:
         if args.slug and s["slug"] not in args.slug:
             continue
         rep_path = CONTENT / "venues" / "reports" / args.city / f"{s.get('venue_id')}.json"
-        if not rep_path.exists():
+        if rep_path.exists():
+            locs = json.loads(rep_path.read_text()).get("locations") or []
+        else:
+            # no research report (quick cities): the registry's other-city spaces,
+            # facts.locations_elsewhere = [{"address": "…, Tacoma, WA …", "city": "Tacoma"}]
+            locs = [{**(l if isinstance(l, dict) else {"address": l, "city": l.split(",")[0]}), "in_state_ok": False}
+                    for l in ((registry.get(s.get("venue_id")) or {}).get("facts") or {}).get("locations_elsewhere") or []]
+        if not locs:
             continue
-        locs = json.loads(rep_path.read_text()).get("locations") or []
         away = [l for l in locs if l.get("address")
-                and not any(f", {st}" in l["address"] or f" {st} " in l["address"] for st in home["state"])]
+                and (not any(f", {st}" in l["address"] or f" {st} " in l["address"] for st in home["state"])
+                     or (l.get("in_state_ok") is False and l.get("city") and l["city"] not in home["words"]))]
         if not away:
             continue
         rv = registry.get(s["venue_id"], {})
