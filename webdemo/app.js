@@ -1277,6 +1277,7 @@
     const scroll = el('div', { class: 'page-scroll' },
       el('div', { class: 'navrow' },
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
+        kindSwitch(false),
         filterButton()),
       el('div', { class: 'large-title' }, city().displayName),
       ctxSlot, feed, empty);
@@ -2079,13 +2080,16 @@
   const FILTER_VERSION = 8;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
     active: true, upcoming: false, opening: false, openToday: false, list: null, sort: 'rank' };
-  const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
+  // kind is the Galleries | Museums switch at the top of the Shows tab and the
+  // Map (each tab its own), split like the Gallery tab's two lists: Museums is
+  // museums, nonprofit spaces and university galleries, Galleries everything else.
+  const KINDS = [['galleries', 'Galleries'], ['museums', 'Museums']];
   // Gallery rank: one of Top 50 / 75 / 100 / 150 (ranks 1–N), All, or Below
   // 100 (ranks 101–200 only). Unranked galleries show only under All. The
   // buttons drop the "Top" so all six fit one row on a phone.
   const GALLERY_RANKS = [['50', '50'], ['75', '75'], ['100', '100'], ['150', '150'], ['all', 'All'], ['below100', 'Below 100']];
   const withinRank = (v, f) => {
-    if (f.galleryRank === 'all') return true;
+    if (f.galleryRank === 'all' || f.kind === 'museums') return true;   // museums hold no gallery rank
     const r = venueRank(v);
     if (r == null) return false;
     return f.galleryRank === 'below100' ? r > 100 && r <= 200 : r <= Number(f.galleryRank);
@@ -2151,15 +2155,16 @@
   state.filter = loadFilter('showFilter', 'filter');
   state.mapFilter = loadFilter('filter');
   const persistFilter = () => { store.set('showFilter', JSON.stringify(state.filter)); store.set('filter', JSON.stringify(state.mapFilter)); };
-  const resetFilter = f => { Object.assign(f, { ...FILTER_DEFAULT, hoods: [] }); };
+  // Clear in the sheet leaves the Galleries | Museums switch alone.
+  const resetFilter = f => { Object.assign(f, { ...FILTER_DEFAULT, hoods: [], kind: f.kind }); };
   // A list that no longer exists (a draft from an earlier session) is no context.
   const currentList = (f = state.filter) => { const l = listById(f.list); if (f.list && !l) f.list = null; return l; };
   const mapCtxList = () => currentList(state.mapFilter);
   // Either tab's context is this list (a saved show or a followed gallery changes its rows).
   const inContext = id => state.filter.list === id || state.mapFilter.list === id;
   // Number of filter groups off their default: the badge on the filter button.
-  const filterActiveCount = f => [f.q.trim(), f.kind !== FILTER_DEFAULT.kind,
-    f.galleryRank !== FILTER_DEFAULT.galleryRank, f.openToday,
+  const filterActiveCount = f => [f.q.trim(),
+    f.kind !== 'museums' && f.galleryRank !== FILTER_DEFAULT.galleryRank, f.openToday,
     f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening]
     .filter(Boolean).length;
   // One line for the Discover context message.
@@ -2178,13 +2183,8 @@
     (s.artist || '').toLowerCase().includes(t) ||
     s.venue.name.toLowerCase().includes(t);
 
-  // The venue-kind split. `kind` is the registry's source of truth ('gallery',
-  // 'museum', 'nonprofit', 'project_space', 'university', 'other'); isMuseum is
-  // the derived mirror and only the fallback for records built before kind was
-  // carried through. The filter is strict (2026-09-03): Galleries is the
-  // gallery kind only, Museums the museum kind only; nonprofits, university
-  // galleries, project spaces and other venues appear under All venues alone.
-  const venueKind = s => s.venue.kind || (s.venue.isMuseum ? 'museum' : 'gallery');
+  // The venue-kind split (KINDS above): onMuseumList reads the registry's kind.
+  const passesKind = (v, f) => (f.kind === 'museums') === onMuseumList(v);
 
   // Pure: shows -> shows passing every active filter.
   function filterShows(shows, f) {
@@ -2196,8 +2196,7 @@
       if (inList && !inList.has(showId(s))) return false;
       if (!matchesQuery(s, t)) return false;
       if (hoods.size && !hoods.has(s.venue.neighborhood)) return false;
-      if (f.kind === 'museums' && venueKind(s) !== 'museum') return false;
-      if (f.kind === 'galleries' && venueKind(s) !== 'gallery') return false;
+      if (!passesKind(s.venue, f)) return false;
       if (!passesWhen(s, f)) return false;
       return true;
     });
@@ -2218,9 +2217,7 @@
     const t = f.q.trim().toLowerCase();
     if (t && !(v.name || '').toLowerCase().includes(t)) return false;
     if (f.hoods.length && !f.hoods.includes(v.neighborhood)) return false;
-    const kind = v.kind || (v.isMuseum ? 'museum' : 'gallery');
-    if (f.kind === 'museums' && kind !== 'museum') return false;
-    if (f.kind === 'galleries' && kind !== 'gallery') return false;
+    if (!passesKind(v, f)) return false;
     return true;
   }
   // The Map's venues: one entry per venue of the filtered shows, plus — when
@@ -2294,7 +2291,7 @@
   // then, within one gallery, to the show closing soonest.
   function sortShows(shows, sort, origin) {
     const time = str => { const d = parseDate(str); return d ? d.getTime() : null; };
-    const vr = s => venueRank(s.venue) ?? 1e9;
+    const vr = s => listRank(s.venue) ?? 1e9;   // a museum by its museum rank
     const byRank = (a, b) => vr(a) - vr(b) || (a.venue.name || '').localeCompare(b.venue.name || '')
       || (time(a.endDate) ?? Infinity) - (time(b.endDate) ?? Infinity) || a.title.localeCompare(b.title);
     const now = Date.now();
@@ -2344,6 +2341,7 @@
       [...root.children].forEach(page => { if (page.refresh) page.refresh(); });
     });
     document.querySelectorAll('[data-filter-btn]').forEach(updateFilterBadge);
+    document.querySelectorAll('[data-kind-switch]').forEach(paintKindSwitch);
     renderMapContext();
     renderMapLegend();
     MapTab.applyFilter();
@@ -2421,6 +2419,23 @@
     if (!badge) { badge = el('span', { class: 'badge' }); btn.appendChild(badge); }
     badge.textContent = String(n);
   }
+  // The Galleries | Museums switch at the top of the Shows tab and the Map; each
+  // drives its own tab's filter. refreshAll repaints every copy.
+  function kindSwitch(onMap) {
+    const f = () => onMap ? state.mapFilter : state.filter;
+    const box = el('div', { class: 'seg-row kind-switch' + (onMap ? ' on-map' : ''), 'data-kind-switch': onMap ? 'map' : 'shows' },
+      ...KINDS.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { if (f().kind !== k) { f().kind = k; refreshAll(); } } }, label)));
+    paintKindSwitch(box);
+    return box;
+  }
+  function paintKindSwitch(box) {
+    const kind = (box.dataset.kindSwitch === 'map' ? state.mapFilter : state.filter).kind;
+    box.querySelectorAll('button').forEach(b => {
+      const on = b.dataset.value === kind;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
   function filterButton() {
     const b = el('button', { class: 'icon-btn', 'data-filter-btn': '', 'aria-label': 'Filters', onclick: () => openFilterSheet() }, icon('sliders'));
     updateFilterBadge(b);
@@ -2456,8 +2471,8 @@
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
       header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday')),
-      header('Top galleries by rank'), rankRow,
-      header('Venue Type'), seg('kind', KINDS));
+      // museums hold no gallery rank
+      ...(f.kind === 'museums' ? [] : [header('Top galleries by rank'), rankRow]));
     const countEl = el('span');
     const clearBtn = el('button', { class: 'ghost', onclick: () => {
       resetFilter(f); input.value = ''; clearQ.hidden = true; update();
@@ -3354,6 +3369,7 @@
   mapFilterBtn.dataset.filterBtn = '';
   updateFilterBadge(mapFilterBtn);
   mapFilterBtn.addEventListener('click', () => openFilterSheet({ map: true }));
+  mapFilterBtn.before(kindSwitch(true));
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
 
   // ---------------- discover tab ----------------
