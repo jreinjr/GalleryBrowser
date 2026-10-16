@@ -1,7 +1,7 @@
 {
  "schema": 3,
  "city": "los-angeles",
- "updated": 1791656597,
+ "updated": 1792185130,
  "venues": [
   {
    "id": "1301-pe",
@@ -167852,7 +167852,7 @@
    "aliases": [],
    "kind": "museum",
    "is_museum": true,
-   "status": "unknown",
+   "status": "active",
    "tier": null,
    "notability": 0.0,
    "neighborhood": "South LA/Inglewood",
@@ -167861,11 +167861,14 @@
    "latitude": 34.0158254,
    "longitude": -118.290469,
    "coords_source": "places",
-   "website": "https://www.lucasmuseum.org/",
-   "exhibitions_url": null,
+   "website": "https://lucasmuseum.org",
+   "exhibitions_url": "https://lucasmuseum.org",
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
-   "hours": [],
+   "hours": [
+    "Mon, Wed–Thu 10–5, Fri 10–9, Sat 9–9, Sun 9–5",
+    "Timed-entry tickets required"
+   ],
    "phone": null,
    "google": {
     "status": "CLOSED_TEMPORARILY",
@@ -167922,7 +167925,7 @@
    },
    "notes": "seeded from Google Places (Exposition Park/museum)",
    "verification": {
-    "status": "flagged",
+    "status": "verified",
     "ts": 1788458073,
     "checks": {
      "places_status": "CLOSED_TEMPORARILY",
@@ -167944,9 +167947,8 @@
      "evidence_path": ".cache/evidence/los-angeles/43af298e3be3c133-1788458052.txt",
      "address_match": null
     },
-    "reasons": [
-     "places_closed_temporarily"
-    ]
+    "reasons": [],
+    "note": "opened to the public Sept 22, 2026 (lucasmuseum.org/hours-and-location); checked by hand 2026-10-16"
    },
    "about": {
     "text": null,
@@ -203181,7 +203183,7 @@
    "aliases": [],
    "kind": "museum",
    "is_museum": true,
-   "status": "unknown",
+   "status": "active",
    "tier": null,
    "notability": 0.0,
    "neighborhood": "Pasadena/San Gabriel",
@@ -203190,7 +203192,7 @@
    "latitude": 34.1463464,
    "longitude": -118.1592625,
    "coords_source": "places",
-   "website": "http://www.nortonsimon.org/",
+   "website": "https://www.nortonsimon.org",
    "exhibitions_url": null,
    "exhibitions_url_source": null,
    "exhibitions_url_candidates": [],
@@ -203283,7 +203285,8 @@
     },
     "reasons": [
      "site_dead"
-    ]
+    ],
+    "note": "open, exhibitions current (nortonsimon.org); checked by hand 2026-10-16"
    },
    "about": {
     "text": null,
