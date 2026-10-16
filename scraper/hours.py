@@ -74,22 +74,12 @@ def _span_hours(text: str) -> float | None:
     total = 0.0
     found = False
     for m in _TIME_SPAN.finditer(text):
-        a, b = m.group(1), m.group(2)
-        # "11:00 AM – 6:00 PM": explicit; "10am to 6": borrow the pm from context
-        b_has_ap = bool(re.search(r"am|pm|a\.m|p\.m", b, re.I))
-        a_has_ap = bool(re.search(r"am|pm|a\.m|p\.m", a, re.I))
-        start = _to_minutes(a)
-        end = _to_minutes(b, default_pm=not b_has_ap)
-        if start is None or end is None:
+        se = _span_minutes(m.group(1), m.group(2))
+        if se is None:
             continue
-        if not a_has_ap and b_has_ap and start > end:
-            # "10 - 6pm" -> 10am
-            pass
+        start, end = se
         if end <= start:
-            if not a_has_ap and start >= 12 * 60:
-                start -= 12 * 60
-            if end <= start:
-                end += 24 * 60
+            end += 24 * 60
         span = (end - start) / 60.0
         if 0 < span <= 24:
             total += span
@@ -132,8 +122,11 @@ def parse_hours(lines) -> dict:
     per_day: dict[int, float] = {}
     by_appt = False
     parsed = False
+    segs = []
     for raw in lines or []:
-        line = _clean(str(raw))
+        segs.extend(split_segments(_clean(str(raw))))
+    for line in segs:
+        line = line.strip()
         if not line:
             continue
         if _APPT.search(line):
@@ -142,7 +135,7 @@ def parse_hours(lines) -> dict:
             # "Sat 12-5 or by appointment" still carries public hours
             if not _TIME_SPAN.search(line):
                 continue
-        days = _days_in(line)
+        days = list(range(7)) if _DAILY.search(line) else _days_in(line)
         if not days:
             if _TIME_SPAN.search(line) and not per_day:
                 # "10am-6pm" with no day named: assume a weekday-ish 5-day week
@@ -205,3 +198,282 @@ def hours_breadth(v: dict) -> tuple[float, str]:
     if v.get("status") == "appointment_only":
         return APPOINTMENT_ONLY_VALUE, "status: appointment_only"
     return 0.0, "no hours on record"
+
+
+# ---------------------------------------------------------------------------
+# Grouped display form (Carlton, 2026-10-16): hours are never listed day by
+# day. Every city's stored and shown hours read like
+#
+#     "Tue–Sat 11–6, closed Sun–Mon"
+#     "Wed–Sat 12–6, Sun 12–5, Mon–Tue by appointment"
+#     "Daily 10–5"
+#     "By appointment only"
+#
+# group_hours() turns any mix of Google per-day lines ("Tuesday: 11:00 AM –
+# 6:00 PM") and range lines ("Tue - Sat 10am to 6pm", "Sun Closed", "and by
+# appointment") into that one line, plus any free-text note lines it cannot
+# read ("Closed through end of August"), kept as they are. It is idempotent:
+# a grouped line groups to itself. The raw Google weekday_text stays under a
+# venue's `google.hours` as evidence; only `hours` is regrouped.
+# ---------------------------------------------------------------------------
+
+DAY_ABBR = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+_FULL_DAY = re.compile(r"^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*:\s*(.*)$", re.I)
+_DAILY = re.compile(r"\b(?:daily|every ?day|7 days(?: a week)?)\b", re.I)
+_PAREN = re.compile(r"\(([^)]*)\)")
+# A grouped line's segments are separated by ", " after a time, "closed …",
+# or "appointment" — never inside a day list like "Tue, Thu, Sat 10–5".
+_SEG_SPLIT = re.compile(r"\s*[,;]\s+(?=(?:closed\b|(?:mon|tue|wed|thu|fri|sat|sun|daily)))", re.I)
+_SEG_END = re.compile(r"\d|\bclosed\b|appointment|appt|\bhours\b|\)", re.I)
+# one-off or labelled lines stay as notes ("First Thursday 5pm to 8pm",
+# "During exhibitions: …", "Tokyo: …", "holidays")
+_SPECIAL = re.compile(r"\b(?:first|last|second|third|every other|holidays?|during|summer|winter|"
+                      r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*[-–]\s*"
+                      r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec))\b|^[^:]{3,40}:\s", re.I)
+_24H = re.compile(r"\bopen 24 hours\b|\b24 hours\b", re.I)
+
+
+def split_segments(line: str) -> list[str]:
+    """'Tue–Sat 11–6, closed Sun–Mon' -> ['Tue–Sat 11–6', 'closed Sun–Mon'];
+    'Tue, Thu, Sat 10–5' stays whole."""
+    out: list[str] = []
+    pending: list[str] = []
+    for piece in _SEG_SPLIT.split(line):
+        if not piece.strip():
+            continue
+        # bare day names ("Tue" in "Tue, Thu, Sat 10–5") join the next piece
+        # that carries a time, "closed" or appointment; trailing ones the last
+        if _SEG_END.search(piece) or _DAILY.search(piece):
+            out.append(", ".join(pending + [piece]))
+            pending = []
+        else:
+            pending.append(piece)
+    if pending:
+        if out:
+            out[-1] += ", " + ", ".join(pending)
+        else:
+            out.append(", ".join(pending))
+    return out
+
+
+def _span_minutes(a: str, b: str) -> tuple[int, int] | None:
+    """Start/end minutes for one span; am/pm inferred the gallery way
+    ("11–6" is 11am–6pm, "1–6" is 1pm–6pm, "12:00 – 6:00 PM" is noon–6pm)."""
+    a_ap = re.search(r"am|pm|a\.m|p\.m", a, re.I)
+    b_ap = re.search(r"am|pm|a\.m|p\.m", b, re.I)
+    end = _to_minutes(b, default_pm=not b_ap)
+    start = _to_minutes(a)
+    if start is None or end is None:
+        return None
+    if not a_ap:
+        if b_ap and b_ap.group(0).lower().startswith("p") and start < 12 * 60 and start + 12 * 60 < end:
+            start += 12 * 60          # "1 – 6 PM"
+        elif not b_ap and start < 7 * 60:
+            start += 12 * 60          # "1–6"
+    return start, end
+
+
+def _fmt_time(m: int, suffix: bool) -> str:
+    h, mi = divmod(m % (24 * 60), 60)
+    h12 = h % 12 or 12
+    s = f"{h12}:{mi:02d}" if mi else f"{h12}"
+    return s + (("am" if h < 12 else "pm") if suffix else "")
+
+
+def _fmt_span(start: int, end: int) -> str:
+    """'11–6' when it reads unambiguously as gallery hours (start 7am–6:59pm,
+    end noon–11:59pm, after the start), else explicit: '6–9pm', '9am–12pm'."""
+    if 7 * 60 <= start < 18 * 60 and 12 * 60 <= end < 24 * 60 and end > start:
+        # the bare start reads as am for 7–11 and pm for 12–5
+        return f"{_fmt_time(start, False)}–{_fmt_time(end, False)}"
+    if start >= 12 * 60 and end >= 12 * 60 and end > start:
+        return f"{_fmt_time(start, False)}–{_fmt_time(end, True)}"
+    return f"{_fmt_time(start, True)}–{_fmt_time(end, True)}"
+
+
+def _times_of(text: str) -> str | None:
+    """'10:00 AM – 1:00 PM, 2:00 – 6:00 PM' -> '10–1 & 2–6'; None when no span."""
+    spans = []
+    for m in _TIME_SPAN.finditer(text):
+        se = _span_minutes(m.group(1), m.group(2))
+        if se:
+            spans.append(_fmt_span(*se))
+    if not spans:
+        return None
+    return " & ".join(dict.fromkeys(spans))
+
+
+def _runs(days: set[int]) -> list[list[int]]:
+    """Consecutive runs over the cyclic week (Sun–Mon is one run)."""
+    if len(days) == 7:
+        return [list(range(7))]
+    start = next(d for d in range(7) if d not in days)
+    runs, cur = [], []
+    for k in range(1, 8):
+        d = (start + k) % 7
+        if d in days:
+            cur.append(d)
+        elif cur:
+            runs.append(cur)
+            cur = []
+    if cur:
+        runs.append(cur)
+    return sorted(runs, key=lambda r: r[0])
+
+
+def _days_label(days: set[int]) -> str:
+    if len(days) == 7:
+        return "Daily"
+    parts = []
+    for r in _runs(days):
+        parts.append(DAY_ABBR[r[0]] if len(r) == 1 else f"{DAY_ABBR[r[0]]}–{DAY_ABBR[r[-1]]}")
+    return ", ".join(parts)
+
+
+def group_hours(lines) -> list[str]:
+    """Any hours lines -> [one grouped line] + unreadable note lines.
+    Returns [] for no hours; never raises."""
+    raw = [str(x) for x in ([lines] if isinstance(lines, str) else (lines or [])) if str(x).strip()]
+    try:
+        out = _group_hours(raw)
+        # a reading that loses open days or doesn't hold its shape keeps the
+        # venue's own wording (only tidied), rather than a wrong summary
+        if (out != _group_hours(out)
+                or parse_hours(out)["days_open"] != parse_hours(raw)["days_open"]):
+            return [_tidy(x) for x in raw]
+        return out
+    except Exception:  # noqa: BLE001 - display helper, keep the input
+        return raw
+
+
+def _tidy(line: str) -> str:
+    """'Tue - Sat 10:00am to 6:00pm' -> 'Tue–Sat 10–6' without regrouping."""
+    line = _clean(line)
+    line = re.sub(r"\s+-\s+(?=(?:mon|tue|wed|thu|fri|sat|sun))", "–", line, flags=re.I)
+    def one(m):
+        se = _span_minutes(m.group(1), m.group(2))
+        return _fmt_span(*se) + re.search(r"\s*$", m.group(0)).group(0) if se else m.group(0)
+    return _TIME_SPAN.sub(one, line)
+
+
+def _group_hours(lines) -> list[str]:
+    if isinstance(lines, str):
+        lines = re.split(r"[\n;]+", lines)
+    per_day: dict[int, str] = {}       # day -> "11–6" | "closed" | "appt"
+    appt_any = False                   # "or by appointment" with no days
+    appt_only = False
+    notes: list[str] = []
+    segs: list[str] = []
+    for raw in lines or []:
+        line = _clean(str(raw))
+        if line:
+            segs.extend(s.strip() for s in split_segments(line))
+
+    width: dict[int, int] = {}         # day -> how many days the setting line covered
+
+    def put(days, val):
+        # a narrower line overrides a wider one ("Tue–Sun 10–6" then "Fri
+        # 10–8"); lines over the same days add up ("Tue–Sat 11–1", "Tue–Sat 2–7")
+        n = len(days)
+        for d in days:
+            old = per_day.get(d)
+            if old is None or n < width[d]:
+                per_day[d], width[d] = val, n
+            elif n == width[d] and old != val:
+                if "closed" in (old, val) or "appt" in (old, val):
+                    if old in ("closed", "appt"):
+                        per_day[d] = val
+                else:
+                    per_day[d] = f"{old} & {val}"
+
+    for seg in segs:
+        g = _FULL_DAY.match(seg)
+        if g:
+            d = DAYS.index(g.group(1).lower()[:3])
+            rest = g.group(2)
+            if _CLOSED.search(rest):
+                put([d], "closed")
+            elif _24H.search(rest):
+                put([d], "24 hours")
+            else:
+                t = _times_of(rest)
+                put([d], t if t else rest)
+            continue
+        # "Monday - Thursday: 9 AM - 6 PM", "Tue: By Appointment"
+        seg = re.sub(rf"\b({_DAY_RE})\s*:\s*", r"\1 ", seg, flags=re.I)
+        if _SPECIAL.search(_PAREN.sub(" ", seg)):
+            sp_days = _days_in(seg)
+            if (sp_days and _CLOSED.search(seg) and not _TIME_SPAN.search(seg)
+                    and re.search(r"holiday", seg, re.I) and not re.search(r"\b(first|last|every other)\b", seg, re.I)):
+                # "Closed Sundays, Mondays and public holidays"
+                put(sp_days, "closed")
+                hol = re.search(r"((?:public|bank|national|legal)\s+)?holidays?", seg, re.I).group(0)
+                notes.append(f"Closed {hol.lower()}")
+            else:
+                notes.append(_tidy(seg))
+            continue
+        paren = " ".join(f"({p})" for p in _PAREN.findall(seg))
+        body = _PAREN.sub(" ", seg)
+        days = list(range(7)) if _DAILY.search(body) else _days_in(body)
+        has_appt = bool(_APPT.search(body))
+        times = _times_of(body)
+        if not days:
+            if has_appt and not times:
+                if re.search(r"\bonly\b", body, re.I) and not per_day:
+                    appt_only = True
+                elif re.search(r"\b(other|remaining|all other)\b", body, re.I):
+                    appt_any = "other"
+                else:
+                    appt_any = appt_any or True
+            else:
+                notes.append(_tidy(seg))
+            continue
+        if times:
+            put(days, times + (f" {paren}" if paren else ""))
+            if has_appt:
+                appt_any = appt_any or True
+        elif _CLOSED.search(body):
+            if re.search(r"\b(through|until|till|for|from|reopen)", body, re.I):
+                notes.append(_tidy(seg))
+            else:
+                put(days, "closed")
+        elif has_appt:
+            put(days, "appt")
+        elif _24H.search(body):
+            put(days, "24 hours")
+        else:
+            notes.append(_tidy(seg))
+
+    open_days = {d for d, v in per_day.items() if v not in ("closed", "appt")}
+    if not per_day:
+        if any(_TIME_SPAN.search(n) for n in notes):
+            return [_tidy(x) for x in segs]
+        if appt_only or appt_any:
+            return ["By appointment only"] + notes
+        return notes
+    # days nobody mentioned: closed, or by appointment when the venue says so
+    note_names_days = any(_days_in(n) for n in notes)
+    if open_days and not note_names_days:
+        fill = "appt" if appt_any == "other" else "closed"
+        for d in range(7):
+            per_day.setdefault(d, fill)
+    groups: dict[str, set[int]] = {}
+    for d, v in per_day.items():
+        groups.setdefault(v, set()).add(d)
+    order = lambda item: (item[0] in ("appt", "closed"), item[0] == "closed",
+                          _runs(item[1])[0][0] if item[1] else 0)
+    parts = []
+    for val, days in sorted(groups.items(), key=order):
+        label = _days_label(days)
+        if val == "closed":
+            parts.append(f"closed {label}" if parts else ("Closed" if len(days) == 7 else f"Closed {label}"))
+        elif val == "appt":
+            parts.append(f"{label} by appointment" if len(days) < 7 else "By appointment only")
+        else:
+            parts.append(f"{label} {val}")
+    if appt_any is True and open_days:
+        # "or by appointment" rides on the last open-hours segment
+        k = max(i for i, p in enumerate(parts) if not p.lower().startswith("closed") and "appointment" not in p)
+        parts[k] += " or by appointment"
+    line = ", ".join(parts)
+    return [line[0].upper() + line[1:]] + notes

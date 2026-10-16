@@ -54,6 +54,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import tools
+from hours import group_hours
 
 SCHEMA = 3
 SCRAPER_DIR = Path(__file__).resolve().parent
@@ -301,6 +302,14 @@ def save_registry(city: str, reg: dict) -> None:
     reg["city"] = city
     reg["updated"] = int(time.time())
     reg["venues"] = sorted(reg["venues"], key=lambda v: v["id"])
+    # hours are stored grouped ("Tue–Sat 11–6, closed Sun–Mon"), never day by
+    # day; Google's raw weekday_text stays under google.hours as evidence
+    for v in reg["venues"]:
+        if v.get("hours"):
+            v["hours"] = group_hours(v["hours"])
+        for loc in v.get("locations") or []:
+            if loc.get("hours"):
+                loc["hours"] = group_hours(loc["hours"])
     p = _registry_file(city)
     tmp = p.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(reg, indent=1, ensure_ascii=False))

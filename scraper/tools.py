@@ -1071,6 +1071,9 @@ def save_show(record: dict, city_key: str, neighborhoods: list[str]) -> str:
         problems.append(
             f"show opens more than {FUTURE_SAVE_DAYS} days out — too far ahead to save; "
             "log_skip it with reason 'closed_or_between_shows' instead")
+    if record["venue"].get("hours"):
+        from hours import group_hours
+        record["venue"]["hours"] = group_hours(record["venue"]["hours"])
     zone = normalize_zone(record["venue"].get("neighborhood"), neighborhoods, city_key)
     if zone is None:
         problems.append(

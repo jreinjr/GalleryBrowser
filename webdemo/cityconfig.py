@@ -16,6 +16,7 @@ CONTENT_DIR = ROOT / "content"
 
 sys.path.insert(0, str(ROOT / "scraper"))
 from cities import CITIES  # noqa: E402
+from hours import group_hours  # noqa: E402
 
 DEFAULT_CITY = "seattle"
 
@@ -122,7 +123,7 @@ def load_venues(city_key: str) -> dict[str, dict]:
             "verified": (v.get("verification") or {}).get("status") == "verified",
             "verification": (v.get("verification") or {}).get("status"),
             "status": v.get("status"),
-            "website": v.get("website"), "phone": v.get("phone"), "hours": v.get("hours") or [],
+            "website": v.get("website"), "phone": v.get("phone"), "hours": group_hours(v.get("hours") or []),
             "address": v.get("address"), "addressDetail": v.get("address_detail"),
             "neighborhood": v.get("neighborhood"),
             "lat": v.get("latitude"), "lng": v.get("longitude"),
@@ -144,7 +145,7 @@ def published_locations(v: dict) -> list[dict] | None:
             continue
         out.append({"name": loc.get("name"), "label": loc.get("label"),
                     "address": loc.get("address"), "neighborhood": loc.get("neighborhood"),
-                    "hours": loc.get("hours") or [], "lat": loc["latitude"], "lng": loc["longitude"]})
+                    "hours": group_hours(loc.get("hours") or []), "lat": loc["latitude"], "lng": loc["longitude"]})
     return out or None
 
 

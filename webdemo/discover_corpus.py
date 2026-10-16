@@ -101,8 +101,9 @@ def _hours_table(lines) -> dict | None:
     per: dict[int, list | None] = {}
     parsed = False
     appt = False
-    for raw in lines or []:
-        line = hours_mod._clean(str(raw))
+    segs = [seg for raw in lines or [] for seg in hours_mod.split_segments(hours_mod._clean(str(raw)))]
+    for line in segs:   # a grouped line "Tue–Sat 11–6, closed Sun–Mon" reads per segment
+        line = line.strip()
         if not line:
             continue
         if hours_mod._APPT.search(line):
@@ -117,16 +118,10 @@ def _hours_table(lines) -> dict | None:
                     per.setdefault(d, None)
                 parsed = True
             continue
-        a, b = span.group(1), span.group(2)
-        start = hours_mod._to_minutes(a)
-        end = hours_mod._to_minutes(b, default_pm=not AP_RE.search(b))
-        if start is None or end is None:
+        se = hours_mod._span_minutes(span.group(1), span.group(2))
+        if se is None:
             continue
-        # "1 - 5pm": a bare opening hour before 8 with a pm closing is afternoon
-        if not AP_RE.search(a) and re.search(r"pm|p\.m", b, re.I) and start < 8 * 60:
-            start += 12 * 60
-        if end <= start and not AP_RE.search(a) and start >= 12 * 60:
-            start -= 12 * 60
+        start, end = se   # "11–6" is 11am–6pm, "1–6" and "1 - 5pm" afternoon
         if end <= start:
             continue
         parsed = True

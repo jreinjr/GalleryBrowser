@@ -20,6 +20,7 @@ import shutil
 from pathlib import Path
 
 import cityconfig
+from hours import group_hours  # scraper/, on sys.path via cityconfig
 import discover_corpus
 import images as image_pipe
 
@@ -318,7 +319,7 @@ def main() -> None:
                 "venue": {
                     "name": v["name"], "isMuseum": kind == "museum", "kind": kind, "address": v["address"],
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],
-                    "hours": v["hours"], "phone": v.get("phone"), "website": v.get("website"),
+                    "hours": group_hours(v["hours"] or []), "phone": v.get("phone"), "website": v.get("website"),
                     "lat": v["latitude"], "lng": v["longitude"],
                     **{k: rv[k] for k in ("about", "tier", "rank") if rv.get(k) is not None},
                     **({"id": vid} if vid else {}),

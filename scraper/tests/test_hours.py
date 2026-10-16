@@ -78,3 +78,49 @@ class ParseHours(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GroupHours(unittest.TestCase):
+    """Hours are stored and shown grouped, never one day per line (Carlton, 2026-10-16)."""
+
+    def check(self, lines, want):
+        got = hours.group_hours(lines)
+        self.assertEqual(got, want)
+        self.assertEqual(hours.group_hours(got), got)          # idempotent
+
+    def test_google_per_day(self):
+        self.check(GOOGLE, ["Tue–Sat 11–6, closed Sun–Mon"])
+
+    def test_alternating_days(self):
+        self.check(["Monday: Closed", "Tuesday: 12:00 – 5:00 PM", "Wednesday: Closed",
+                    "Thursday: 12:00 – 5:00 PM", "Friday: Closed",
+                    "Saturday: 12:00 – 5:00 PM", "Sunday: 12:00 – 5:00 PM"],
+                   ["Tue, Thu, Sat–Sun 12–5, closed Mon, Wed, Fri"])
+
+    def test_range_lines(self):
+        self.check(["Tue - Sat 10:00am to 6:00pm"], ["Tue–Sat 10–6, closed Sun–Mon"])
+        self.check(["Wed - Sat 11am to 7pm", "Sun 12pm to 6pm", "Closed Mon & Tue"],
+                   ["Wed–Sat 11–7, Sun 12–6, closed Mon–Tue"])
+        self.check(["Mon - Sun 12pm to 5pm"], ["Daily 12–5"])
+
+    def test_narrow_line_overrides(self):
+        self.check(["Tue - Sun 10:00am to 6:00pm", "Fri 10:00am to 8:00pm", "Closed Mondays"],
+                   ["Tue–Thu, Sat–Sun 10–6, Fri 10–8, closed Mon"])
+
+    def test_appointments(self):
+        self.check(["Tue - Sat 11am to 5pm", "and by appointment"],
+                   ["Tue–Sat 11–5 or by appointment, closed Sun–Mon"])
+        self.check(["Fri 12pm to 5pm", "Sun 12pm to 5pm", "Other days by appointment"],
+                   ["Fri, Sun 12–5, Mon–Thu, Sat by appointment"])
+        self.check(["By appointment only"], ["By appointment only"])
+
+    def test_evening_and_notes(self):
+        self.check(["Thu - Sat 6pm to 9pm"], ["Thu–Sat 6–9pm, closed Sun–Wed"])
+        self.check(["Thu - Sat 12pm to 5pm", "First Thursday 5pm to 8pm", "and by appointment"],
+                   ["Thu–Sat 12–5 or by appointment", "First Thursday 5–8"])
+        self.check(["Closed through end of August"], ["Closed through end of August"])
+
+    def test_grouped_lines_parse_the_same(self):
+        for lines in (GOOGLE, ["Wed - Sat 11am to 7pm", "Sun 12pm to 6pm", "Closed Mon & Tue"]):
+            a, b = hours.parse_hours(lines), hours.parse_hours(hours.group_hours(lines))
+            self.assertEqual((a["days_open"], a["hours_per_week"]), (b["days_open"], b["hours_per_week"]))

@@ -36,6 +36,7 @@ import cities  # noqa: E402
 import crosscheck  # noqa: E402
 import seed_venues  # noqa: E402
 import venues  # noqa: E402
+from hours import group_hours  # noqa: E402
 sys.path.insert(0, str(ROOT / "webdemo"))
 import cityconfig  # noqa: E402
 from move_venue_rank import PARAMS as HAND_ORDER_CITIES  # noqa: E402
@@ -83,6 +84,7 @@ def main() -> int:
         return out(ok=True, found=False)
     far = crosscheck.haversine_m(c["latitude"], c["longitude"], g["lat"], g["lng"])
     place = {k: g.get(k) for k in ("name", "address", "website", "phone", "hours", "lat", "lng", "status")}
+    place["hours"] = group_hours(place.get("hours") or [])
     place["km_from_center"] = round(far / 1000, 1)
 
     reg = venues.load_registry(a.city)

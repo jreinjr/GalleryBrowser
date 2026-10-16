@@ -2010,8 +2010,21 @@
   // hours listed is left off, since there's no telling.
   const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   const DAY_RE = /\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\.?(?:\s*(?:-|–|—|to|through)\s*(sun|mon|tue|wed|thu|fri|sat)[a-z]*)?/g;
+  // Hours are one grouped line ("Tue–Sat 11–6, Sun–Mon by appointment, closed
+  // Mon"); its segments split at the comma after a time, "closed …" or
+  // appointment, never inside a day list like "Tue, Thu, Sat 10–5".
+  const hourSegments = line => {
+    const out = [], pending = [];
+    for (const piece of String(line).split(/\s*[,;]\s+(?=closed\b|mon|tue|wed|thu|fri|sat|sun|daily)/i)) {
+      if (/\d|\bclosed\b|appoint|appt|\bhours\b|\)|daily/i.test(piece)) { out.push([...pending, piece].join(', ')); pending.length = 0; }
+      else pending.push(piece);
+    }
+    if (pending.length) out.length ? (out[out.length - 1] += ', ' + pending.join(', ')) : out.push(pending.join(', '));
+    return out;
+  };
   function openOnDay(hours, dow) {
-    return (hours || []).some(line => {
+    return (hours || []).flatMap(hourSegments).some(line => {
+      if (/^\s*daily\b/i.test(line) && /\d/.test(line)) return true;
       // "…, or by appointment" adds to set hours; "by appointment" alone doesn't open.
       const l = line.toLowerCase().replace(/,?\s*(?:or|and|also)\s+(?:open\s+)?by\s+(?:appointment|appt\.?)/g, '');
       if (/closed|appoint|appt/.test(l) || !/\d/.test(l)) return false;
