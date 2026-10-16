@@ -428,66 +428,28 @@
     persistEyes();
     MapTab.applyFilter();
   }
-  // The symbol gems are drawn with: null for the built-in gem, else an emoji
-  // the person picked (one for all their gems, kept on this device).
-  const gemSymbol = () => store.get('gemSymbol', '') || null;
-  function setGemSymbol(sym) {
-    store.set('gemSymbol', sym || '');
-    document.querySelectorAll('[data-gem]').forEach(b => b.paint && b.paint());
-    MapTab.applyFilter();
-  }
-  const gemFace = () => gemSymbol() ? el('span', { class: 'gem-emoji' }, gemSymbol()) : icon('gem');
-  // The card's small Gem toggle (on the rank line), and beside it a button
-  // that opens the symbol picker.
-  function gemToggle(v) {
-    const b = el('button', { class: 'gem-toggle', 'data-gem': '' });
+  // Gems are always the built-in gem (the emoji picker is gone; an emoji
+  // picked earlier is ignored).
+  const gemSymbol = () => null;
+  // Every gem and eye toggle on screen shows the same state as the Map: one
+  // repaint after any change, wherever it was tapped.
+  const repaintVenueMarks = () => document.querySelectorAll('[data-gem], [data-eye], [data-vmark]').forEach(b => b.paint && b.paint());
+  // The card's Gem and Eye toggles, side by side (on the rank line).
+  function markToggle(v, kind) {
+    const gem = kind === 'gem';
+    const b = el('button', { class: 'gem-toggle' + (gem ? '' : ' eye-toggle'), [gem ? 'data-gem' : 'data-eye']: '' });
     b.paint = () => {
-      const on = isGem(v);
+      const on = gem ? isGem(v) : isEye(v);
       b.classList.toggle('on', on);
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.setAttribute('aria-label', on ? 'Gem: on' : 'Mark as a gem');
-      b.replaceChildren(gemFace(), el('span', null, 'Gem'));
+      b.setAttribute('aria-label', gem ? (on ? 'Gem: on' : 'Mark as a gem') : (on ? 'Eye: on' : 'Put an eye on the pin'));
+      b.replaceChildren(gem ? icon('gem') : el('span', { class: 'gem-emoji' }, '👁️'), el('span', null, gem ? 'Gem' : 'Eye'));
     };
-    b.onclick = () => { toggleGem(v); b.paint(); };
+    b.onclick = e => { e.stopPropagation(); (gem ? toggleGem : toggleEye)(v); repaintVenueMarks(); };
     b.paint();
-    const pick = el('button', { class: 'gem-pick', 'aria-label': 'Choose the gem symbol', onclick: openGemPicker }, icon('pencil'), el('span', null, 'Symbol'));
-    return el('div', { class: 'gem-wrap' }, b, pick);
+    return b;
   }
-  const GEM_CHOICES = ['💎', '⭐', '❤️', '🔥', '🌟', '👀', '✨', '🎨', '🖼️', '🏛️', '📍', '🍸', '🌈', '👑', '🦄', '🌸'];
-  function openGemPicker() {
-    const cur = gemSymbol();
-    // The first emoji in a string, whole (a joined or flag emoji counts as one).
-    const firstEmoji = t => !t ? '' : window.Intl && Intl.Segmenter ? [...new Intl.Segmenter().segment(t)][0].segment : [...t][0];
-    const choose = sym => { setGemSymbol(sym); closeSheet(); };
-    // Your own: type or paste any emoji (the globe key on the iPhone keyboard
-    // switches to emoji); it shows in the preview and Save uses it.
-    const preview = el('span', { class: 'gem-own-preview' }, cur && !GEM_CHOICES.includes(cur) ? cur : '');
-    const input = el('input', { type: 'text', class: 'gem-input', inputmode: 'text', enterkeyhint: 'done', autocomplete: 'off',
-      autocorrect: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: 'Tap to type', 'aria-label': 'Your own emoji' });
-    const save = el('button', { class: 'capsule-btn gem-save', disabled: '' }, 'Save');
-    const update = () => {
-      const sym = firstEmoji((input.value || '').trim());
-      preview.textContent = sym;
-      if (sym) save.removeAttribute('disabled'); else save.setAttribute('disabled', '');
-      return sym;
-    };
-    input.addEventListener('input', update);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); const sym = update(); if (sym) choose(sym); } });
-    save.onclick = () => { const sym = update(); if (sym) choose(sym); else input.focus(); };
-    const page = el('div', { class: 'page gem-picker' },
-      el('div', { class: 'page-scroll' },
-        el('div', { class: 'navrow' }, el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })),
-        el('div', { class: 'detail-body' },
-          el('div', { class: 'venue-title' }, 'Gem symbol'),
-          el('div', { class: 'gem-sub' }, 'Your own emoji'),
-          el('div', { class: 'gem-custom' }, preview, input, save),
-          el('div', { class: 'gem-hint' }, 'On iPhone, tap the field, then the 😀 or globe key to open the emoji keyboard.'),
-          el('div', { class: 'gem-sub' }, 'Or pick one'),
-          el('div', { class: 'gem-grid' },
-            el('button', { class: 'gem-choice' + (cur ? '' : ' on'), 'aria-label': 'The built-in gem', onclick: () => choose(null) }, icon('gem')),
-            ...GEM_CHOICES.map(e => el('button', { class: 'gem-choice' + (cur === e ? ' on' : ''), onclick: () => choose(e) }, e))))));
-    openSheet(page);
-  }
+  const gemToggle = v => el('div', { class: 'gem-wrap' }, markToggle(v, 'gem'), markToggle(v, 'eye'));
   // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem.
   const hasSavedShow = v => { const k = venueKey(v); return savedShows().some(s => venueKey(s.venue) === k); };
   const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
@@ -1810,7 +1772,7 @@
   // Tapping the rank opens a panel under it: a 1-150 slider, − / + for single
   // steps, and Confirm, which moves the gallery; Cancel leaves it where it was.
   const RANK_SLIDER_MAX = 150;
-  function rankEditor(v) {
+  function rankEditor(v, opts) {
     const box = el('div', { class: 'rank-edit', 'data-rank-edit': '' });
     const gem = gemToggle(v);
     function paint(note) {
@@ -1873,8 +1835,16 @@
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => {});
       else { try { if (document.execCommand('copy')) done(); } catch (e) { /* the text stays selected to copy by hand */ } }
     }
-    paint();
+    if (opts && opts.open) editing(); else paint();
     return box;
+  }
+  // The Gallery tab: tapping a gallery's rank opens the same slider in a sheet.
+  function rankSheet(v) {
+    openSheet(el('div', { class: 'page rank-sheet' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, 'Change rank'), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, el('div', { class: 'detail-body' },
+        el('div', { class: 'venue-title' }, listLine(v)),
+        rankEditor(v, { open: true })))));
   }
 
   // The gallery page and a map pin's gallery card list its shows one card each,
@@ -2310,7 +2280,10 @@
   // show detail's venue block. Shows carry no mark of their own.
   const TIER_GLYPH = { top: { icon: 'star', label: 'Top 20' } };
   // The star alone, as a prefix to the gallery it rates.
+  // The top-gallery stars are switched off (the ranking's blue dots stay).
+  const SHOW_TIER_STARS = false;
   function tierStar(tier) {
+    if (!SHOW_TIER_STARS) return null;
     const g = TIER_GLYPH[tier];
     if (!g) return null;
     return el('span', { class: 'tier-star t-' + tier, 'data-tier': tier }, icon(g.icon));
@@ -2949,14 +2922,14 @@
   function venueMarks(v) {
     const mk = (name, emoji, label, isOn, toggle) => {
       const b = el('button', { class: 'vmark', 'data-vmark': name, 'aria-label': label });
-      const paint = () => { const on = isOn(v); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); };
-      b.textContent = emoji;
-      b.onclick = e => { e.stopPropagation(); toggle(v); paint(); document.querySelectorAll('[data-gem]').forEach(x => x.paint && x.paint()); };
-      paint();
+      b.paint = () => { const on = isOn(v); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); };
+      b.append(emoji);
+      b.onclick = e => { e.stopPropagation(); toggle(v); repaintVenueMarks(); };
+      b.paint();
       return b;
     };
     return el('div', { class: 'vmarks' },
-      mk('gem', '💎', 'Gem: a gem instead of a pin on the map', isGem, toggleGem),
+      mk('gem', icon('gem'), 'Gem: a gem instead of a pin on the map', isGem, toggleGem),
       mk('eye', '👁️', 'Eye: an eye on the map pin', isEye, toggleEye));
   }
   // The map button on a ranking row: the Map tab, zoomed to the gallery with its pin ringed.
@@ -3037,8 +3010,8 @@
       const kind = v.kind || 'gallery';
       const row = el('div', { class: 'rank-row t-' + tier, 'data-id': v.id },
         editing ? el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')) : null,
-        el('button', { class: 'rank-n', 'data-rank': r == null ? '' : String(r), disabled: editing ? null : '',
-          'aria-label': editing ? 'Move to a rank' : null, onclick: editing ? () => moveSheet(v) : null },
+        el('button', { class: 'rank-n', 'data-rank': r == null ? '' : String(r), disabled: editing || !asSheet ? null : '',
+          'aria-label': editing || !asSheet ? 'Change rank' : null, onclick: editing ? () => moveSheet(v) : asSheet ? null : () => rankSheet(v) },
           el('i', { class: 'dot t-' + tier }), r == null ? '–' : String(r)),
         el('div', { class: 'rr-main' },
           el('button', { class: 'rr-hit', onclick: editing ? null : () => openRow(v) },
