@@ -663,6 +663,12 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .rank-row.t-top .rank-n { color: #fff; }
 .galleries-page.editing .rank-n { color: var(--blue); }
 .rr-main { flex: 1; min-width: 0; text-align: left; color: #fff; }
+.rr-hit { display: block; width: 100%; text-align: left; color: inherit; }
+.vmarks { display: flex; gap: 14px; margin-top: 3px; }
+.vmark { font-size: 15px; line-height: 1; padding: 3px 0; opacity: 0.3; filter: grayscale(1); transition: opacity 0.15s ease, transform 0.15s ease; }
+.vmark.on { opacity: 1; filter: none; transform: scale(1.2); }
+.rr-map { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blue); background: rgba(255, 255, 255, 0.08); flex: 0 0 auto; }
+.rr-map svg { width: 15px; height: 15px; }
 .rr-name { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
 .ss-badge { flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: 0.02em; line-height: 1; padding: 3px 6px; border-radius: 6px; color: #f5c451; border: 1px solid rgba(245, 196, 81, 0.6); }
 .ss-badge.pick { color: #1c1400; background: #f5c451; border-color: #f5c451; }

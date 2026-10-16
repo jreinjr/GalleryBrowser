@@ -62,6 +62,25 @@
       map.addImage(id, img, { pixelRatio: R });
     });
   }
+  // An eye: the person's own "watch this one" mark, drawn as a small 👁️ badge
+  // above the top-right of the gallery's pin (dot or gem).
+  const IS_EYE = ['==', ['get', 'eye'], 1];
+  function addEyeImage(map) {
+    const S = 18, R = 3, P = S * R;
+    const c = document.createElement('canvas'); c.width = c.height = P;
+    const g = c.getContext('2d');
+    const r = P / 2 - 2 * R;
+    g.save();
+    g.shadowColor = 'rgba(0, 0, 0, 0.35)'; g.shadowBlur = 2 * R; g.shadowOffsetY = 0.5 * R;
+    g.beginPath(); g.arc(P / 2, P / 2, r, 0, 2 * Math.PI); g.fillStyle = '#ffffff'; g.fill();
+    g.restore();
+    g.lineWidth = 1 * R; g.strokeStyle = 'rgba(25, 75, 135, 0.45)'; g.stroke();
+    g.font = `${Math.round(r * 1.25)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText('👁️', P / 2, P / 2 + r * 0.08);
+    if (map.hasImage('eye-badge')) map.removeImage('eye-badge');
+    map.addImage('eye-badge', g.getImageData(0, 0, P, P), { pixelRatio: R });
+  }
   // Several galleries in one building share a pin: larger, with the count inside.
   const IS_SHARED = ['>', ['coalesce', ['get', 'n'], 1], 1];
   const SHARED_RADIUS = 9;
@@ -76,12 +95,12 @@
   // combination the tile server already serves.
   const FONT_BOLD = ['Montserrat Medium', 'Open Sans Bold', 'Noto Sans Regular',
     'HanWangHeiLight Regular', 'NanumBarunGothic Regular'];
-  const CLICK_LAYERS = ['gal-dot', 'gal-gem', 'gal-count', 'gal-label', 'ctx-dot', 'ctx-label'];
+  const CLICK_LAYERS = ['gal-dot', 'gal-gem', 'gal-eye', 'gal-count', 'gal-label', 'ctx-dot', 'ctx-label'];
   // A list as context: its venues in blue over a dimmed backdrop; a route
   // list also draws a dashed line through the stops in order.
   const CTX = 'ctx';
   const CTX_LAYERS = ['ctx-line', 'ctx-dim', 'ctx-dot', 'ctx-num', 'ctx-label'];
-  const GAL_LAYERS = ['gal-dot', 'gal-gem', 'gal-count', 'gal-label'];
+  const GAL_LAYERS = ['gal-dot', 'gal-gem', 'gal-eye', 'gal-count', 'gal-label'];
 
   // getVenues() -> [{ key, venue, shows, active, tier, rank }]: one entry per
   //   venue to draw (app.js mapVenues), tier 'top' | 'notable' | 'listed', rank
@@ -146,7 +165,7 @@
             properties: { key: g.key, keys: g.key, name: g.venue.name, n: 1,
                           count: g.shows.length, active: g.active ? 1 : 0,
                           tier: g.tier || 'listed', band: bandForRank(g.rank), saved: g.saved ? 1 : 0,
-                          gem: g.gem ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
+                          gem: g.gem ? 1 : 0, eye: g.eye ? 1 : 0, rank: g.rank == null ? 1e5 : g.rank },
           };
         });
       });
@@ -225,6 +244,7 @@
       // and those above the rest, active ones above faded ones of the same band.
       gemSym = getGemSymbol ? getGemSymbol() : null;
       addGemImages(map, gemSym);
+      addEyeImage(map);
       // The picked pin: an orange ring under its dot.
       map.addLayer({
         id: 'gal-hl', type: 'circle', source: SRC, filter: ['==', ['get', 'key'], hlKey || ''],
@@ -246,6 +266,11 @@
         id: 'gal-gem', type: 'symbol', source: SRC, filter: IS_GEM,
         layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.3, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
         paint: { 'icon-opacity': DOT_OPACITY },
+      });
+      map.addLayer({
+        id: 'gal-eye', type: 'symbol', source: SRC, filter: IS_EYE,
+        layout: { 'icon-image': 'eye-badge', 'icon-anchor': 'bottom-left', 'icon-offset': ['case', IS_GEM, ['literal', [3, -3]], ['literal', [2, -2]]],
+                  'icon-allow-overlap': true, 'icon-ignore-placement': true },
       });
       // The number of galleries on a shared pin, inside its dot.
       map.addLayer({
@@ -389,6 +414,20 @@
       hlKey = key || null;
       if (ready && map.getLayer('gal-hl')) map.setFilter('gal-hl', ['==', ['get', 'key'], hlKey || '']);
     }
+    // Bring one gallery into view, zoomed in, and ring its pin (the Gallery
+    // tab's map button). Before the basemap has loaded it waits for it.
+    let pendingFocus = null;
+    function focus(key, lng, lat) {
+      if (lng == null || lat == null) return;
+      if (!ready) {
+        if (!pendingFocus && map) map.once('load', () => { const f = pendingFocus; pendingFocus = null; if (f) focus(...f); });
+        pendingFocus = [key, lng, lat];
+        return;
+      }
+      setHighlight(key);
+      map.resize();
+      map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 15), offset: [0, -inset() / 2], duration: 800 });
+    }
     // Whether a point is on screen, above the show list. null until the map is ready.
     function inViewTest() {
       if (!ready) return null;
@@ -408,7 +447,7 @@
       map.easeTo({ center: [lng, lat], offset: [0, -inset() / 2], duration: 500 });
     }
 
-    return { ensureInit, cityChanged, applyFilter: renderPins, showAll, setHighlight, inViewTest, reveal, resize: () => map && map.resize() };
+    return { ensureInit, cityChanged, applyFilter: renderPins, showAll, setHighlight, focus, inViewTest, reveal, resize: () => map && map.resize() };
   };
   window.DemoMap.STYLE = STYLE;
 })();

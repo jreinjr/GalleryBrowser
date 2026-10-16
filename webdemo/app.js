@@ -23,6 +23,8 @@
     // instead of a dot. "<city>/<venueId>". Marks from the older "See" toggle
     // carry over the first time.
     gems: store.get('gemVenueIDs', null) == null ? readSet('seeVenueIDs') : readSet('gemVenueIDs'),
+    // Eyes: galleries marked to keep an eye on; the Map puts a 👁️ on the pin.
+    eyes: readSet('eyeVenueIDs'),
     tab: 'featured',
   };
   if (!DATA.cities.some(c => c.key === state.cityKey)) state.cityKey = DATA.defaultCity;
@@ -68,6 +70,7 @@
   const persistSaved = () => store.set('savedShowIDs', JSON.stringify([...state.saved]));
   const persistFavorites = () => store.set('favoriteVenueIDs', JSON.stringify([...state.favorites]));
   const persistGems = () => store.set('gemVenueIDs', JSON.stringify([...state.gems]));
+  const persistEyes = () => store.set('eyeVenueIDs', JSON.stringify([...state.eyes]));
   const persistCity = () => store.set('selectedCityKey', state.cityKey);
   const cityByKey = Object.fromEntries(DATA.cities.map(c => [c.key, c]));
 
@@ -415,6 +418,14 @@
     const k = favKey(v);
     if (state.gems.has(k)) state.gems.delete(k); else state.gems.add(k);
     persistGems();
+    MapTab.applyFilter();
+  }
+  const isEye = v => !!venueId(v) && state.eyes.has(favKey(v));
+  function toggleEye(v) {
+    if (!venueId(v)) return;
+    const k = favKey(v);
+    if (state.eyes.has(k)) state.eyes.delete(k); else state.eyes.add(k);
+    persistEyes();
     MapTab.applyFilter();
   }
   // The symbol gems are drawn with: null for the built-in gem, else an emoji
@@ -1655,48 +1666,87 @@
       el('div', { class: 'large-title' }, 'Archive'),
       el('div', { class: 'archive-note' }, 'Shows you gave a flame or puppy, or rated. Kept on this device.'),
       listEl, empty));
-    const fromSnap = (id, snap) => {
-      const i = id.indexOf('/');
-      return { city: id.slice(0, i), slug: id.slice(i + 1), title: snap.title || '', artist: snap.artist || null,
-        venue: { name: snap.venue || '', address: snap.address || '' }, images: snap.img ? [{ src: snap.img }] : [] };
-    };
     page.refresh = () => {
-      const byId = new Map();
-      MARKS.forEach(m => m.store.all().forEach(h => {
-        const x = byId.get(h.id);
-        if (x) x.at = Math.max(x.at, h.at); else byId.set(h.id, { id: h.id, at: h.at, snap: h.snap });
-      }));
-      archive.all().forEach(e => {
-        const x = byId.get(e.id) || { id: e.id, at: 0, snap: e };
-        x.rated = e; x.at = Math.max(x.at, e.savedAt || 0);
-        byId.set(e.id, x);
-      });
-      const xs = [...byId.values()].sort((a, b) => b.at - a.at);
+      const xs = archiveEntries();
       empty.hidden = !!xs.length;
-      listEl.replaceChildren(...xs.map(x => {
-        const live = showById(x.id);
-        const s = live || fromSnap(x.id, x.snap || {});
-        const img = live ? showImg(live) : (x.snap && x.snap.img);
-        const r = x.rated;
-        const open = () => {
-          if (live) push('archive', showDetailPage([live], 0));
-          else if (r) {
-            let close = null;
-            const p = ratePage(r, null, () => { if (close) close(); page.refresh(); });
-            p.classList.remove('page-push');
-            close = openSheet(p);
-          }
-        };
-        return el('div', { class: 'archive-card', onclick: open },
-          img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
-          el('div', { class: 'ac-foot' },
-            el('div', { class: 'ac-text' },
-              el('div', { class: 'ac-artist' }, nameNode(s)),
-              el('div', { class: 'ac-gallery' }, live ? listLine(live.venue) : s.venue.name)),
-            el('div', { class: 'ac-emoji' },
-              el('div', { class: 'ac-row' }, ...MARKS.map(m => m.store.get(x.id) ? markButton(m, s) : null), r && r.rating ? el('span', null, r.rating) : null),
-              el('div', { class: 'ac-row' }, r && r.tags ? r.tags.join('') : ''))));
-      }));
+      listEl.replaceChildren(...xs.map(x => archiveCard(x, 'archive', page)));
+    };
+    page.refresh();
+    return page;
+  }
+  // Every archived show (flamed, puppied or rated), newest first, as
+  // { id, at, snap, rated?, live?, show }: `show` is the live show or one
+  // rebuilt from the snapshot taken when it was marked.
+  const archiveFromSnap = (id, snap) => {
+    const i = id.indexOf('/');
+    return { city: id.slice(0, i), slug: id.slice(i + 1), title: snap.title || '', artist: snap.artist || null,
+      venue: { name: snap.venue || '', address: snap.address || '' }, images: snap.img ? [{ src: snap.img }] : [] };
+  };
+  function archiveEntries() {
+    const byId = new Map();
+    MARKS.forEach(m => m.store.all().forEach(h => {
+      const x = byId.get(h.id);
+      if (x) x.at = Math.max(x.at, h.at); else byId.set(h.id, { id: h.id, at: h.at, snap: h.snap });
+    }));
+    archive.all().forEach(e => {
+      const x = byId.get(e.id) || { id: e.id, at: 0, snap: e };
+      x.rated = e; x.at = Math.max(x.at, e.savedAt || 0);
+      byId.set(e.id, x);
+    });
+    return [...byId.values()].sort((a, b) => b.at - a.at).map(x => {
+      x.live = showById(x.id);
+      x.show = x.live || archiveFromSnap(x.id, x.snap || {});
+      return x;
+    });
+  }
+  // One small square archive card; it opens just that show on `tab`. `owner`
+  // is the page that lists it (refreshed after a rating closes).
+  function archiveCard(x, tab, owner) {
+    const live = x.live, s = x.show;
+    const img = live ? showImg(live) : (x.snap && x.snap.img);
+    const r = x.rated;
+    const open = () => {
+      if (live) push(tab, showDetailPage([live], 0));
+      else if (r) {
+        let close = null;
+        const p = ratePage(r, null, () => { if (close) close(); if (owner && owner.refresh) owner.refresh(); });
+        p.classList.remove('page-push');
+        close = openSheet(p);
+      }
+    };
+    return el('div', { class: 'archive-card', onclick: open },
+      img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
+      el('div', { class: 'ac-foot' },
+        el('div', { class: 'ac-text' },
+          el('div', { class: 'ac-artist' }, nameNode(s)),
+          el('div', { class: 'ac-gallery' }, live ? listLine(live.venue) : s.venue.name)),
+        el('div', { class: 'ac-emoji' },
+          el('div', { class: 'ac-row' }, ...MARKS.map(m => m.store.get(x.id) ? markButton(m, s) : null), r && r.rating ? el('span', null, r.rating) : null),
+          el('div', { class: 'ac-row' }, r && r.tags ? r.tags.join('') : ''))));
+  }
+  // A gallery's own archive: the archived shows that hung there (the live
+  // show's gallery, else the snapshot's gallery name in the same city), with a
+  // button to the gallery's full page. Opened from a row on the Gallery tab.
+  function gallerySeenPage(v) {
+    const tab = state.tab, cityKey = state.cityKey;
+    const listEl = el('div', { class: 'archive-grid' });
+    const empty = el('div', { class: 'empty-plain' }, 'No shows seen here yet. Tap the flame or puppy on one of this gallery’s shows, or rate it, and it lands here.');
+    const count = el('div', { class: 'archive-note' });
+    const here = x => x.live ? venueId(x.live.venue) === v.id
+      : x.id.startsWith(cityKey + '/') && (x.snap && x.snap.venue || '').trim().toLowerCase() === (v.name || '').trim().toLowerCase();
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn(tab),
+        el('button', { class: 'nav-textbtn', 'data-gallery-page': '', onclick: () => push(tab, venuePage(v)) }, 'Gallery page')),
+      el('div', { class: 'large-title' }, v.name),
+      count, listEl, empty, el('div', { class: 'lib-tail' }));
+    const inline = el('div', { class: 'inline-title' }, v.name);
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page gallery-seen' }, inline, scroll);
+    page.refresh = () => {
+      const xs = archiveEntries().filter(here);
+      count.textContent = xs.length ? `${plural(xs.length, 'show')} you have seen here` : 'Shows you have seen here';
+      empty.hidden = !!xs.length;
+      listEl.replaceChildren(...xs.map(x => archiveCard(x, tab, page)));
     };
     page.refresh();
     return page;
@@ -2104,10 +2154,10 @@
     // full-strength pin: a show matching the Show switches, or on view now when none is on
     const lit = s => showWhenFilter(f) ? passesWhen(s, f) : isActiveShow(s);
     const out = new Map();
-    // The Gallery rank buttons narrow the Map only; gems and galleries with a
-    // saved show stay on it whatever they say.
+    // The Gallery rank buttons narrow the Map only; gems, eyes and galleries
+    // with a saved show stay on it whatever they say.
     const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
-    const keep = v => withinRank(v, f) || isGem(v) || savedKeys.has(venueKey(v));
+    const keep = v => withinRank(v, f) || isGem(v) || isEye(v) || savedKeys.has(venueKey(v));
     filterShows(cityShows(), f).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
@@ -2120,7 +2170,7 @@
       });
     }
     return [...out.values()].flatMap(g => { const on = g.shows.some(lit); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); })
-      .filter(g => !f.openToday || openToday(g.venue)).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
+      .filter(g => !f.openToday || openToday(g.venue)).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), eye: isEye(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -2894,6 +2944,28 @@
     setTimeout(() => input.focus(), 320);
   }
 
+  // The second, small row on a gallery's ranking row: a gem (its map pin
+  // becomes a gem) and an eye (a 👁️ on its pin). Faint when off.
+  function venueMarks(v) {
+    const mk = (name, emoji, label, isOn, toggle) => {
+      const b = el('button', { class: 'vmark', 'data-vmark': name, 'aria-label': label });
+      const paint = () => { const on = isOn(v); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); };
+      b.textContent = emoji;
+      b.onclick = e => { e.stopPropagation(); toggle(v); paint(); document.querySelectorAll('[data-gem]').forEach(x => x.paint && x.paint()); };
+      paint();
+      return b;
+    };
+    return el('div', { class: 'vmarks' },
+      mk('gem', '💎', 'Gem: a gem instead of a pin on the map', isGem, toggleGem),
+      mk('eye', '👁️', 'Eye: an eye on the map pin', isEye, toggleEye));
+  }
+  // The map button on a ranking row: the Map tab, zoomed to the gallery with its pin ringed.
+  function showOnMap(v) {
+    closeAllSheets();
+    setTab('map');
+    MapTab.focus(venueKey(v), v.lng, v.lat);
+  }
+
   // ---------------- gallery ranking page ----------------
   // Every venue of the city in the order the app uses, with the tier dot, the
   // rank and a heart. Edit reorders (drag a row, or tap its number to move it
@@ -2902,7 +2974,7 @@
   function galleriesPage(opts) {
     const asSheet = !!(opts && opts.asSheet);
     const asRoot = !!(opts && opts.asRoot);
-    const tab = state.tab;
+    const tab = asRoot ? 'list' : state.tab;   // the Gallery tab's root is built while another tab shows
     const cityKey = state.cityKey;
     const page = el('div', { class: 'page galleries-page' });
     const scroll = el('div', { class: 'page-scroll' });
@@ -2915,6 +2987,9 @@
     let editing = false;
     let order = null;               // working copy while editing: venue ids
 
+    // On the Gallery tab a row opens the shows seen at that gallery; in the
+    // Map's sheet it opens the gallery page as before.
+    const openRow = v => asSheet ? openVenue(v) : push(tab, gallerySeenPage(v));
     const openVenue = v => {
       if (!asSheet) { push(tab, venuePage(v)); return; }
       const p = venuePage(v, { inSheet: true });
@@ -2965,10 +3040,13 @@
         el('button', { class: 'rank-n', 'data-rank': r == null ? '' : String(r), disabled: editing ? null : '',
           'aria-label': editing ? 'Move to a rank' : null, onclick: editing ? () => moveSheet(v) : null },
           el('i', { class: 'dot t-' + tier }), r == null ? '–' : String(r)),
-        el('button', { class: 'rr-main', onclick: editing ? null : () => openVenue(v) },
-          el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name), seesawBadge(v)),
-          el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
-            onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
+        el('div', { class: 'rr-main' },
+          el('button', { class: 'rr-hit', onclick: editing ? null : () => openRow(v) },
+            el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name), seesawBadge(v)),
+            el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
+              onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
+          editing || asSheet ? null : venueMarks(v)),
+        editing || asSheet || v.lat == null ? null : el('button', { class: 'rr-map', 'data-show-on-map': v.id, 'aria-label': 'Show on the map', onclick: () => showOnMap(v) }, icon('map')),
         favoriteBtn(v));
       if (editing) wireDrag(row, rows, ids => { reorderVisible(ids); render(); }, '.rank-row');
       return row;
