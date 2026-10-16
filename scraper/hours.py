@@ -204,7 +204,7 @@ def hours_breadth(v: dict) -> tuple[float, str]:
 # Grouped display form (Carlton, 2026-10-16): hours are never listed day by
 # day. Every city's stored and shown hours read like
 #
-#     "Tue–Sat 11–6, closed Sun–Mon"
+#     "Tue–Sat 11–6"                 (closed days are never mentioned)
 #     "Wed–Sat 12–6, Sun 12–5, Mon–Tue by appointment"
 #     "Daily 10–5"
 #     "By appointment only"
@@ -335,15 +335,45 @@ def group_hours(lines) -> list[str]:
     Returns [] for no hours; never raises."""
     raw = [str(x) for x in ([lines] if isinstance(lines, str) else (lines or [])) if str(x).strip()]
     try:
-        out = _group_hours(raw)
-        # a reading that loses open days or doesn't hold its shape keeps the
-        # venue's own wording (only tidied), rather than a wrong summary
-        if (out != _group_hours(out)
-                or parse_hours(out)["days_open"] != parse_hours(raw)["days_open"]):
-            return [_tidy(x) for x in raw]
-        return out
+        return _drop_closed(_group(raw))
     except Exception:  # noqa: BLE001 - display helper, keep the input
         return raw
+
+
+# a closing note is kept only when it says something besides closed days
+# ("Closed through end of August", "closed for installation between shows")
+_KEEP_CLOSED = re.compile(r"through|until|till|temporar|between|reopen|installation|break|summer|winter|august|january", re.I)
+_CLOSED_CLAUSE = re.compile(r"\s*(?:[/;,.]\s*|\band\b\s*)?\(?\bclosed\b(?::)?[^()/;]*\)?", re.I)
+
+
+def _drop_closed(lines: list[str]) -> list[str]:
+    """Closed days and holidays are never mentioned (Carlton, 2026-10-16)."""
+    out = []
+    for line in lines:
+        if not _CLOSED.search(line) or _KEEP_CLOSED.search(line) or line.strip().lower() == "closed":
+            out.append(line)
+            continue
+        rest = _CLOSED_CLAUSE.sub("", line).strip(" ,;/.(")
+        if rest and re.search(r"\d|appoint", rest, re.I):
+            out.append(rest)
+    return out
+
+
+def _group(raw: list[str]) -> list[str]:
+    out = _group_hours(raw)
+    # a reading that loses open days or doesn't hold its shape keeps the
+    # venue's own wording (only tidied), rather than a wrong summary
+    if (out != _group_hours(out)
+            or parse_hours(out)["days_open"] != parse_hours(raw)["days_open"]):
+        return [_tidy(x) for x in raw if not _closed_days_only(x)] or [_tidy(x) for x in raw]
+    return out
+
+
+def _closed_days_only(line: str) -> bool:
+    """'Sun - Mon closed', 'Closed Mondays': a line naming only closed days."""
+    line = _clean(line)
+    return bool(_CLOSED.search(line) and _days_in(line) and not _TIME_SPAN.search(line)
+                and not re.search(r"\b(through|until|till|from|reopen)", line, re.I))
 
 
 def _tidy(line: str) -> str:
@@ -407,8 +437,6 @@ def _group_hours(lines) -> list[str]:
                     and re.search(r"holiday", seg, re.I) and not re.search(r"\b(first|last|every other)\b", seg, re.I)):
                 # "Closed Sundays, Mondays and public holidays"
                 put(sp_days, "closed")
-                hol = re.search(r"((?:public|bank|national|legal)\s+)?holidays?", seg, re.I).group(0)
-                notes.append(f"Closed {hol.lower()}")
             else:
                 notes.append(_tidy(seg))
             continue
@@ -466,7 +494,10 @@ def _group_hours(lines) -> list[str]:
     for val, days in sorted(groups.items(), key=order):
         label = _days_label(days)
         if val == "closed":
-            parts.append(f"closed {label}" if parts else ("Closed" if len(days) == 7 else f"Closed {label}"))
+            # closed days aren't mentioned (Carlton, 2026-10-16): only open
+            # days and times show; a venue closed every day still says so
+            if len(groups) == 1:
+                parts.append("Closed")
         elif val == "appt":
             parts.append(f"{label} by appointment" if len(days) < 7 else "By appointment only")
         else:

@@ -532,7 +532,7 @@ class SeedFlowTests(TempEnv):
         v = reg["1301-pe"]
         self.assertEqual((v["status"], v["neighborhood"], v["website"], v["phone"], v["coords_source"]),
                          ("unknown", "Mid-Wilshire/Koreatown", "https://www.1301pe.com", "323 938 5822", "geocode"))
-        self.assertEqual(v["hours"], ["Tue–Sat 11–6, Sun by appointment, closed Mon"])   # stored grouped
+        self.assertEqual(v["hours"], ["Tue–Sat 11–6, Sun by appointment"])   # stored grouped
         self.assertEqual(v["next_check"], "2026-09-01")
         self.assertEqual(v["sources"]["seed"]["gpla"]["region"], "Central")
         self.assertEqual(v["notes"], "GPLA region: Central")

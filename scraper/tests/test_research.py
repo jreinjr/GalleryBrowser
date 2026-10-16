@@ -304,7 +304,7 @@ class ResearchTests(TempCaches):
             self.assertEqual(rv2["about"]["source_kind"], "official")
             self.assertTrue(rv2["about"]["text"].startswith("Fixture Gallery opened"))
             self.assertIsNotNone(rv2["research"]["ts"])
-            self.assertEqual(rv2["hours"], ["Wed–Sat 11–6, closed Sun–Tue"])   # stored grouped
+            self.assertEqual(rv2["hours"], ["Wed–Sat 11–6"])   # stored grouped
             self.assertIsNone(rv2["verification"]["status"], "research must not touch verification")
             # the profile pass typed the venue: same kind, but now research-sourced
             self.assertEqual(rep["venue_kind"], "gallery")
