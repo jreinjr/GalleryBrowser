@@ -255,7 +255,7 @@
     if (nowSaved) state.saved.add(id); else state.saved.delete(id);
     persistSaved();
     refreshBookmarkUI();
-    if (state.filter.list === 'saved') refreshAll();   // the row set itself changes
+    if (inContext('saved')) refreshAll();   // the row set itself changes
     else { MapTab.applyFilter(); refreshLibrary(); }
     const s = showById(id);
     if (nowSaved && !quiet && s) toast('Saved to My Shows', 'Add to list…', () => addToListSheet(s));
@@ -461,7 +461,7 @@
     if (state.favorites.has(k)) state.favorites.delete(k); else state.favorites.add(k);
     persistFavorites();
     refreshFavoriteUI();
-    if (state.filter.list === 'favorites') refreshAll();   // the context itself changed
+    if (inContext('favorites')) refreshAll();   // the context itself changed
     else refreshLibrary();
   }
   function refreshFavoriteUI() {
@@ -1981,12 +1981,16 @@
     push(state.tab, showDetailPage(list, list.findIndex(x => showId(x) === showId(s))));
   }
 
-  // ---------------- filters: one state shared by Featured, List and Map ----------------
+  // ---------------- filters: the Shows tab and the Map each keep their own ----------------
+  // Both tabs open the same Filters sheet with the same groups (Carlton,
+  // 2026-10-16); each sheet only changes its own tab. state.filter is the
+  // Shows tab's (also the Gallery tab's show lists and Discover's context),
+  // state.mapFilter the Map's.
   // Defaults: gallery shows that are running now, best-ranked gallery first
   // (museums, the long tail and shows that have closed or not yet opened are
   // opt-in). kind: 'all' | 'galleries' | 'museums'; galleryRank: '50' | '75' | '100' |
   // '150' (the top N galleries) | 'all' (every gallery, unranked included) |
-  // 'below100' (ranks 101–200 only), Map only; active / upcoming / opening are toggles (on together they add up); list: null | 'saved' |
+  // 'below100' (ranks 101–200 only); active / upcoming / opening are toggles (on together they add up); list: null | 'saved' |
   // 'favorites' | a list id (the chosen list is the context every tab shows,
   // L5); sort: SORTS key (List order only). There is no show-level rank: the
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
@@ -1996,8 +2000,7 @@
   const KINDS = [['all', 'All venues'], ['galleries', 'Galleries'], ['museums', 'Museums']];
   // Gallery rank: one of Top 50 / 75 / 100 / 150 (ranks 1–N), All, or Below
   // 100 (ranks 101–200 only). Unranked galleries show only under All. The
-  // buttons drop the "Top" so all six fit one row on a phone. Map only: the
-  // Shows and Lists tabs keep every gallery.
+  // buttons drop the "Top" so all six fit one row on a phone.
   const GALLERY_RANKS = [['50', '50'], ['75', '75'], ['100', '100'], ['150', '150'], ['all', 'All'], ['below100', 'Below 100']];
   const withinRank = (v, f) => {
     if (f.galleryRank === 'all') return true;
@@ -2005,7 +2008,7 @@
     if (r == null) return false;
     return f.galleryRank === 'below100' ? r > 100 && r <= 200 : r <= Number(f.galleryRank);
   };
-  // Open today (Map only): the venue's hours name today's weekday with times.
+  // Open today: the venue's hours name today's weekday with times.
   // Lines that say Closed or by appointment only don't count; a gallery with no
   // hours listed is left off, since there's no telling.
   const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
@@ -2046,31 +2049,35 @@
   const tierForRank = r => r == null ? 'listed' : r <= GALLERY_TIER_CUTOFF.top ? 'top' : r <= GALLERY_TIER_CUTOFF.notable ? 'notable' : 'listed';
   const galleryTier = v => tierForRank(venueRank(v));
 
-  function loadFilter() {
+  // key: the filter's localStorage key; fallback: read when the key is unset
+  // (the Shows tab starts from the one filter both tabs shared before).
+  function loadFilter(key, fallback) {
     let o = {};
-    try { o = JSON.parse(store.get('filter', '{}')) || {}; } catch (e) { /* ignore */ }
+    try { o = JSON.parse(store.get(key, null) || (fallback && store.get(fallback, null)) || '{}') || {}; } catch (e) { /* ignore */ }
     // v7 -> v8: Upcoming receptions became Upcoming shows + Opening this week
     if (o.v === 7) { const { receptions, ...rest } = o; o = { ...rest, v: FILTER_VERSION, upcoming: false, opening: !!receptions }; }
     if (o.v !== FILTER_VERSION) o = {};   // older filter shape: start from the defaults
     const f = { ...FILTER_DEFAULT, ...o };
-    f.hoods = Array.isArray(o.hoods) ? [...o.hoods] : [];
-    if (!SORTS.some(([k]) => k === f.sort)) f.sort = 'rank';
+    // The sheet has no Neighborhoods or Sort group: neither may narrow or reorder unseen.
+    f.hoods = [];
+    f.sort = 'rank';
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
     if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     if (typeof f.list !== 'string') f.list = null;
     return f;
   }
-  state.filter = loadFilter();
-  const persistFilter = () => store.set('filter', JSON.stringify(state.filter));
-  // Clear from a sheet without the Gallery rank group leaves the Map's rank choice alone.
-  const resetFilter = keepRank => { const f = state.filter; Object.assign(f, { ...FILTER_DEFAULT, hoods: [], sort: f.sort,
-    ...(keepRank ? { galleryRank: f.galleryRank } : {}) }); };
+  state.filter = loadFilter('showFilter', 'filter');
+  state.mapFilter = loadFilter('filter');
+  const persistFilter = () => { store.set('showFilter', JSON.stringify(state.filter)); store.set('filter', JSON.stringify(state.mapFilter)); };
+  const resetFilter = f => { Object.assign(f, { ...FILTER_DEFAULT, hoods: [] }); };
   // A list that no longer exists (a draft from an earlier session) is no context.
-  const currentList = () => { const l = listById(state.filter.list); if (state.filter.list && !l) state.filter.list = null; return l; };
+  const currentList = (f = state.filter) => { const l = listById(f.list); if (f.list && !l) f.list = null; return l; };
+  const mapCtxList = () => currentList(state.mapFilter);
+  // Either tab's context is this list (a saved show or a followed gallery changes its rows).
+  const inContext = id => state.filter.list === id || state.mapFilter.list === id;
   // Number of filter groups off their default: the badge on the filter button.
-  // Gallery rank only counts on the Map, the one tab it applies to.
-  const filterActiveCount = (f, onMap) => [f.q.trim(), !onMap && f.hoods.length, f.kind !== FILTER_DEFAULT.kind,
-    onMap && f.galleryRank !== FILTER_DEFAULT.galleryRank, onMap && f.openToday,
+  const filterActiveCount = f => [f.q.trim(), f.kind !== FILTER_DEFAULT.kind,
+    f.galleryRank !== FILTER_DEFAULT.galleryRank, f.openToday,
     f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening]
     .filter(Boolean).length;
   // One line for the Discover context message.
@@ -2114,7 +2121,15 @@
     });
   }
   // The shows the Map dims behind a list context: everything else the filter admits.
-  const backdropShows = () => filterShows(cityShows(), { ...state.filter, list: null, hoods: [] });
+  const backdropShows = () => filterShows(cityShows(), { ...state.mapFilter, list: null, hoods: [] });
+  // The Gallery rank buttons narrow either tab; gems, eyes and galleries with a
+  // saved show stay whatever they say.
+  const rankKeeper = f => {
+    const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
+    return v => withinRank(v, f) || isGem(v) || isEye(v) || savedKeys.has(venueKey(v));
+  };
+  // Open today for a show: any space of its gallery is open today.
+  const venueOpenToday = v => openToday(v) || (gallerySpaces(v) || []).some(sp => openOnDay(sp.hours, new Date().getDay()));
   // Venue-level filter: what a gallery with nothing on view has to pass to
   // reach the Map (name search, neighborhood, venue type, gallery tier).
   function venueMatches(v, f) {
@@ -2132,15 +2147,12 @@
   // no shows. `active` says whether something is on view there; the map fades
   // the rest. Tier and rank are the gallery's own (a show has no rank).
   function mapVenues() {
-    // The Map has no Neighborhoods filter: a neighborhood picked on Shows or Lists never hides a pin.
-    const f = { ...state.filter, hoods: [] };
+    const f = { ...state.mapFilter, hoods: [] };
     // full-strength pin: a show matching the Show switches, or on view now when none is on
     const lit = s => showWhenFilter(f) ? passesWhen(s, f) : isActiveShow(s);
     const out = new Map();
-    // The Gallery rank buttons narrow the Map only; gems, eyes and galleries
-    // with a saved show stay on it whatever they say.
     const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
-    const keep = v => withinRank(v, f) || isGem(v) || isEye(v) || savedKeys.has(venueKey(v));
+    const keep = rankKeeper(f);
     filterShows(cityShows(), f).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
       const g = out.get(k);
@@ -2238,11 +2250,13 @@
         if (state.filter.sort === 'nearby') refreshAll();
       }, () => { /* keep city-center order */ }, { timeout: 5000 });
     }
-    return sortShows(filterShows(cityShows(), f), f.sort, geo || city().center);
+    const keep = rankKeeper(f);
+    const shows = filterShows(cityShows(), f).filter(s => keep(s.venue) && (!f.openToday || venueOpenToday(fullVenue(s.venue))));
+    return sortShows(shows, f.sort, geo || city().center);
   }
   // Re-render every surface that shows the filtered set.
   function refreshAll() {
-    currentList();
+    currentList(); mapCtxList();
     persistFilter();
     Object.values(pagesRoot).forEach(root => {
       [...root.children].forEach(page => { if (page.refresh) page.refresh(); });
@@ -2257,7 +2271,7 @@
   function renderMapLegend() {
     const off = document.getElementById('map-legend-off');
     if (!off) return;
-    const f = state.filter;
+    const f = state.mapFilter;
     off.hidden = !!(showWhenFilter(f) || f.list);
   }
 
@@ -2273,12 +2287,12 @@
       el('button', { class: 'ctx-text', onclick: () => { setTab('list'); push('list', listPage(l)); } }, l.name),
       el('span', { class: 'ctx-n' }, opts && opts.pill ? plural(venueCount(running), 'venue') : String(running.length)),
       saveAct,
-      el('button', { class: 'ctx-x', 'aria-label': 'Clear list', onclick: () => { state.filter.list = null; refreshAll(); } }, icon('xmark')));
+      el('button', { class: 'ctx-x', 'aria-label': 'Clear list', onclick: () => { (opts && opts.pill ? state.mapFilter : state.filter).list = null; refreshAll(); } }, icon('xmark')));
   }
   function renderMapContext() {
     const host = document.getElementById('map-ctx');
     if (!host) return;
-    const l = currentList();
+    const l = mapCtxList();
     host.innerHTML = '';
     host.hidden = !l;
     if (!l) return;
@@ -2314,25 +2328,24 @@
 
   // ---------------- filter button + sheet ----------------
   function updateFilterBadge(btn) {
-    const n = filterActiveCount(state.filter, btn.id === 'map-filter-btn');
+    const n = filterActiveCount(btn.id === 'map-filter-btn' ? state.mapFilter : state.filter);
     let badge = btn.querySelector('.badge');
     if (!n) { if (badge) badge.remove(); return; }
     if (!badge) { badge = el('span', { class: 'badge' }); btn.appendChild(badge); }
     badge.textContent = String(n);
   }
   function filterButton() {
-    const b = el('button', { class: 'icon-btn', 'data-filter-btn': '', 'aria-label': 'Filters', onclick: openFilterSheet }, icon('sliders'));
+    const b = el('button', { class: 'icon-btn', 'data-filter-btn': '', 'aria-label': 'Filters', onclick: () => openFilterSheet() }, icon('sliders'));
     updateFilterBadge(b);
     return b;
   }
 
   // Grouped form; every control applies immediately, the footer just closes.
-  // { sort: false } drops the Sort group — it only orders the List.
+  // The Shows tab and the Map open this same sheet; { map: true } edits the
+  // Map's filter, otherwise the Shows tab's.
   function openFilterSheet(opts) {
-    const withSort = !(opts && opts.sort === false);
-    const onMap = !!(opts && opts.map);   // Gallery rank is a Map-only group
-    const f = state.filter;
-    const hoodList = city().neighborhoods;
+    const onMap = !!(opts && opts.map);
+    const f = onMap ? state.mapFilter : state.filter;
 
     const input = el('input', { type: 'search', placeholder: 'Artist, gallery, or show', autocomplete: 'off', value: f.q });
     const clearQ = el('button', { class: 'search-clear', html: ICONS.xmark, 'aria-label': 'Clear search', hidden: f.q ? null : '' });
@@ -2346,10 +2359,8 @@
     }, el('span', { class: 'row-label' }, label), el('span', { class: 'switch' }));
     const seg = (key, options) => el('div', { class: 'seg-row', 'data-seg': key },
       ...options.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { f[key] = k; update(); } }, label)));
-    // Gallery rank: top 50 / 75 / 100 / 150, All, Below 100, one at a time (Map only).
+    // Gallery rank: top 50 / 75 / 100 / 150, All, Below 100, one at a time.
     const rankRow = seg('galleryRank', GALLERY_RANKS);
-    const hoodWrap = el('div', { class: 'chip-wrap', 'data-hoods': '' });
-    const sortGroup = el('div', { class: 'group', 'data-sort': '' });
     const listGroup = el('div', { class: 'group', 'data-list-group': '' });
 
     const body = el('div', { class: 'page-scroll' },
@@ -2357,14 +2368,12 @@
       header('List'), listGroup,
       header('Show'),
       el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
-      ...(onMap ? [header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday'))] : []),
-      ...(onMap ? [header('Top galleries by rank'), rankRow] : []),
-      header('Venue Type'), seg('kind', KINDS),
-      ...(onMap ? [] : [header('Neighborhoods'), hoodWrap]),   // the Map has no neighborhood filter
-      ...(withSort ? [header('Sort'), sortGroup] : []));
+      header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday')),
+      header('Top galleries by rank'), rankRow,
+      header('Venue Type'), seg('kind', KINDS));
     const countEl = el('span');
     const clearBtn = el('button', { class: 'ghost', onclick: () => {
-      resetFilter(!onMap); input.value = ''; clearQ.hidden = true; update();
+      resetFilter(f); input.value = ''; clearQ.hidden = true; update();
     } }, 'Clear');
     const doneBtn = el('button', { class: 'capsule-btn', onclick: () => closeSheet() }, countEl);
     const sheetPage = el('div', { class: 'page filter-sheet' },
@@ -2384,7 +2393,7 @@
       if (savedRunning.length) options.push({ id: 'saved', name: 'My Shows', n: savedRunning.length });
       if (favoriteVenues().length) options.push({ id: 'favorites', name: 'Favorite galleries', n: listRunning(favoritesAsList()).length });
       lists.all().filter(listVisible).forEach(l => options.push({ id: l.id, name: l.name, n: listRunning(l).length }));
-      const cur = currentList();
+      const cur = currentList(f);
       if (cur && !options.some(o => o.id === cur.id)) options.push({ id: cur.id, name: cur.name, n: listRunning(cur).length });
       options.forEach(o => listGroup.appendChild(el('button', {
         class: 'row city-row', 'data-list-option': o.id || 'all', onclick: () => { f.list = o.id; update(); },
@@ -2400,21 +2409,9 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       }));
-      hoodWrap.innerHTML = '';
-      hoodWrap.append(
-        el('button', { class: 'chip' + (f.hoods.length ? '' : ' on'), onclick: () => { f.hoods = []; update(); } }, 'All'),
-        ...hoodList.map(h => el('button', {
-          class: 'chip' + (f.hoods.includes(h) ? ' on' : ''),
-          onclick: () => { const i = f.hoods.indexOf(h); if (i >= 0) f.hoods.splice(i, 1); else f.hoods.push(h); update(); },
-        }, h)));
-      sortGroup.innerHTML = '';
-      if (withSort) SORTS.forEach(([k, label]) => sortGroup.appendChild(el('button', {
-        class: 'row city-row', onclick: () => { f.sort = k; update(); },
-      }, el('span', { class: 'cr-name' }, label),
-        f.sort === k ? el('span', { class: 'check', html: ICONS.check }) : el('span'))));
       const n = onMap ? mapVenues().reduce((a, g) => a + g.shows.length, 0) : filteredShows().length;
       countEl.textContent = `Show ${n} show${n === 1 ? '' : 's'}`;
-      clearBtn.hidden = !filterActiveCount(f, onMap);
+      clearBtn.hidden = !filterActiveCount(f);
     }
     update(false);
     openSheet(sheetPage);
@@ -2565,7 +2562,7 @@
   // are popped so the person lands back on the library.
   function removeList(l, tab, depth) {
     if (!confirm(`Remove "${l.name}"?`)) return false;
-    if (state.filter.list === l.id) state.filter.list = null;
+    [state.filter, state.mapFilter].forEach(f => { if (f.list === l.id) f.list = null; });
     lists.remove(l.id);
     for (let i = 0; i < (depth || 1); i += 1) pop(tab, i < (depth || 1) - 1 ? false : undefined);
     refreshAll();
@@ -2587,7 +2584,7 @@
       const owned = builtIn || (!l.curated && !l.draft && !!lists.get(l.id));
       const savedAs = l.draft ? (l.savedAs && lists.get(l.savedAs)) : l.curated ? savedCopyOf(l.id) : null;
       scroll.innerHTML = '';
-      const acts = [heroAct('map', 'Map', () => { state.filter.list = l.id; refreshAll(); setTab('map'); })];
+      const acts = [heroAct('map', 'Map', () => { state.mapFilter.list = l.id; refreshAll(); setTab('map'); })];
       if (l.kind === 'favorites') {
         acts.push(heroAct('heart', 'Galleries', () => push(tab, galleriesPage())));
       } else if (owned && l.kind !== 'saved') {
@@ -3151,7 +3148,7 @@
     // The chosen list as context: its venues highlighted (a route also drawn
     // as a line through them in order), the rest of the filter dimmed.
     getContext: () => {
-      const l = currentList();
+      const l = mapCtxList();
       if (!l) return null;
       return { list: l, shows: listRunning(l).map(x => x.show), backdrop: backdropShows() };
     },
@@ -3170,7 +3167,7 @@
     let picked = null;
     // Galleries the map draws right now, as { key, venue, shows }.
     function drawn() {
-      const l = currentList();
+      const l = mapCtxList();
       if (!l) return mapVenues();
       const by = new Map();
       listRunning(l).forEach(({ show: s }) => {
@@ -3246,7 +3243,7 @@
   mapFilterBtn.append(icon('sliders'), el('span', null, 'Filter'));
   mapFilterBtn.dataset.filterBtn = '';
   updateFilterBadge(mapFilterBtn);
-  mapFilterBtn.addEventListener('click', () => openFilterSheet({ sort: false, map: true }));   // Sort orders the List only; Gallery rank is Map-only
+  mapFilterBtn.addEventListener('click', () => openFilterSheet({ map: true }));
   document.getElementById('map-cities-btn').addEventListener('click', openCitySheet);
 
   // ---------------- discover tab ----------------
@@ -3315,7 +3312,7 @@
       const saveBtn = savedAs
         ? el('button', { class: 'ans-act done', onclick: () => push('discover', listPage(savedAs)) }, icon('check'), 'Saved')
         : el('button', { class: 'ans-act primary', 'data-save-draft': draft.id, onclick: () => { const c = lists.copyFrom(draft, { kind: 'answer', source: draft.source || null }); lists.markDraftSaved(draft.id, c.id); render(); } }, icon('bookmark'), 'Save as list');
-      const mapBtn = el('button', { class: 'ans-act', 'data-map-draft': draft.id, onclick: () => { state.filter.list = draft.id; refreshAll(); setTab('map'); } }, icon('map'), draft.kind === 'route' ? 'Show route on Map' : 'Show on Map');
+      const mapBtn = el('button', { class: 'ans-act', 'data-map-draft': draft.id, onclick: () => { state.mapFilter.list = draft.id; refreshAll(); setTab('map'); } }, icon('map'), draft.kind === 'route' ? 'Show route on Map' : 'Show on Map');
       const kids = [];
       if (draft.kind === 'route' && turn.route && turn.route.stops) {
         kids.push(el('div', { class: 'ans-head' }, el('span', { class: 'ans-title' }, draft.name), el('span', { class: 'ans-count' }, `${plural(turn.route.stops.length, 'stop')} · ${turn.route.total_km} km`)));
@@ -3447,10 +3444,10 @@
   }
 
   function rebuildTabs() {
-    const hoods = city().neighborhoods;
-    state.filter.hoods = state.filter.hoods.filter(h => hoods.includes(h));   // city switch
-    const l = currentList();
-    if (l && l.city && l.city !== state.cityKey) state.filter.list = null;   // a list belongs to its city
+    [state.filter, state.mapFilter].forEach(f => {   // a list belongs to its city
+      const l = currentList(f);
+      if (l && l.city && l.city !== state.cityKey) f.list = null;
+    });
     pagesRoot.featured.innerHTML = '';
     pagesRoot.list.innerHTML = '';
     pagesRoot.archive.innerHTML = '';
