@@ -315,6 +315,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
   display: flex; flex-direction: column; overflow: hidden;
 }
 .sheet.open { transform: translateY(0); }
+.sheet.sheet-full { top: 0; border-radius: 0; }
 .sheet .page { position: absolute; inset: 0; background: #121214; }
 .sheet-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 4px; }
 .sheet-title { font-size: 20px; font-weight: 700; }

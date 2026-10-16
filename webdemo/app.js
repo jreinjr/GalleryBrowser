@@ -570,7 +570,8 @@
   const sheetStack = [];
   function openSheet(contentEl) {
     const backdrop = el('div', { class: 'sheet-backdrop' });
-    const sheet = el('div', { class: 'sheet' }, contentEl);
+    // A map pin's card covers the whole screen, so no slice of the map shows above it.
+    const sheet = el('div', { class: 'sheet' + (contentEl.classList.contains('map-card-sheet') ? ' sheet-full' : '') }, contentEl);
     const entry = { backdrop, sheet };
     sheetStack.push(entry);
     sheetRoot.append(backdrop, sheet);
