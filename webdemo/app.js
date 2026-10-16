@@ -3001,9 +3001,9 @@
         el('div', { class: 'sheet-foot' }, el('button', { class: 'capsule-btn', 'data-move': 'go', onclick: () => move(num.value) }, 'Move'))));
       setTimeout(() => { num.focus(); if (num.select) num.select(); }, 320);
     }
-    // See Saw lists this gallery now (build.py, latest snapshot); an Editor's Pick gets the filled badge.
-    const seesawBadge = v => v.seesaw ? el('span', { class: 'ss-badge' + (v.seesaw === 'pick' ? ' pick' : ''),
-      title: v.seesaw === 'pick' ? "See Saw Editor's Pick" : 'On See Saw' }, v.seesaw === 'pick' ? 'Seesaw Pick' : 'Seesaw') : null;
+    // The See Saw badge is off on the ranking rows; a gallery See Saw lists
+    // that our own ranking leaves out of the top 25 gets a yellow dot instead.
+    const seesawOnly = (v, tier) => !!v.seesaw && tier !== 'top';
     function rankRow(v, n, onView) {
       const r = editing ? n : venueRank(v);
       const tier = tierForRank(r);
@@ -3012,15 +3012,15 @@
         editing ? el('span', { class: 'grip', 'aria-label': 'Reorder' }, icon('grip')) : null,
         el('button', { class: 'rank-n', 'data-rank': r == null ? '' : String(r), disabled: editing || !asSheet ? null : '',
           'aria-label': editing || !asSheet ? 'Change rank' : null, onclick: editing ? () => moveSheet(v) : asSheet ? null : () => rankSheet(v) },
-          el('i', { class: 'dot t-' + tier }), r == null ? '–' : String(r)),
+          el('i', { class: 'dot t-' + tier + (seesawOnly(v, tier) ? ' ss-only' : '') }), r == null ? '–' : String(r)),
         el('div', { class: 'rr-main' },
           el('button', { class: 'rr-hit', onclick: editing ? null : () => openRow(v) },
-            el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name), seesawBadge(v)),
+            el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name)),
             el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
               onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
           editing || asSheet ? null : venueMarks(v)),
         editing || asSheet || v.lat == null ? null : el('button', { class: 'rr-map', 'data-show-on-map': v.id, 'aria-label': 'Show on the map', onclick: () => showOnMap(v) }, icon('map')),
-        favoriteBtn(v));
+        asSheet ? favoriteBtn(v) : null);
       if (editing) wireDrag(row, rows, ids => { reorderVisible(ids); render(); }, '.rank-row');
       return row;
     }
