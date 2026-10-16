@@ -45,6 +45,11 @@ scores no longer decide membership or order); every other venue is scored and ga
 as usual but gets tier null (below the hand-set list) and ranks after it. ``null``
 (the default) = automatic ranking.
 
+MUSEUMS: kinds in ``venues.MUSEUM_LIST_KINDS`` (museum, nonprofit, university)
+never take a gallery rank, even when an order file lists them (gate
+``museum_list``); the Gallery tab ranks them on its Museums list from
+``content/curation/<city>/museum_order.json``.
+
 MARKET ORDER FILE: ``content/curation/<city>/venue_order.json`` is a per-market
 hand ranking (typically a client's list) that overrides the automatic ranking::
 
@@ -617,6 +622,11 @@ def rank(ctx: Context, params: dict, today: date) -> list[dict]:
                              else (1, -r["score"], r["id"])))
     n = 0
     for r in rows:
+        # museums, nonprofits and university galleries are ranked on their own
+        # list (content/curation/<city>/museum_order.json), never here
+        if (r["kind"] or "") in venues.MUSEUM_LIST_KINDS:
+            r["tier"], r["rank"], r["gate"] = None, None, "museum_list"
+            continue
         if r["id"] in manual:
             n += 1
             r["rank"], r["tier"], r["gate"] = n, manual[r["id"]][1], None

@@ -110,6 +110,8 @@ def load_venues(city_key: str) -> dict[str, dict]:
     if not f.exists():
         return {}
     data = json.loads(f.read_text())
+    from venues import load_museum_ranks  # scraper/, on sys.path above
+    museum_ranks = load_museum_ranks(city_key)
     out: dict[str, dict] = {}
     for v in data.get("venues", []):
         vid = v.get("id")
@@ -120,6 +122,8 @@ def load_venues(city_key: str) -> dict[str, dict]:
             "id": vid, "name": v.get("name"), "kind": kind, "isMuseum": kind == "museum",
             "about": published_about(v),
             "tier": v.get("tier"), "rank": v.get("rank"), "score": v.get("score"),
+            # place on the Gallery tab's Museums list (museum_order.json)
+            "museumRank": museum_ranks.get(vid),
             "verified": (v.get("verification") or {}).get("status") == "verified",
             "verification": (v.get("verification") or {}).get("status"),
             "status": v.get("status"),
@@ -210,7 +214,8 @@ def mappable(v: dict) -> bool:
         return False
     if v.get("status") in HIDDEN_STATUSES or v.get("verification") == "flagged":
         return False
-    return bool(v.get("verified")) or v.get("status") == "active" or v.get("tier") is not None
+    return (bool(v.get("verified")) or v.get("status") == "active" or v.get("tier") is not None
+            or v.get("museumRank") is not None)
 
 
 def load_venue_kinds(city_key: str) -> dict[str, str]:

@@ -843,3 +843,6 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 
 .eye-toggle.on { background: rgba(255, 255, 255, 0.9); color: #1c1c1e; }
 .rank-sheet .rank-edit { margin-top: 12px; }
+/* Gallery tab: Galleries | Museums */
+.galleries-page .rank-mode { margin: 4px 16px 12px; }
+.galleries-page .rank-mode.locked button:not(.on) { opacity: 0.4; }

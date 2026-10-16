@@ -194,7 +194,7 @@ def main() -> None:
     # gallery rank (rank_venues.py) is the app's only ranking signal; show-level
     # curation (curate.py's rank / featured / editors_pick) is not published.
     def venue_record(rv: dict, city_key: str) -> dict:
-        rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier", "rank",
+        rec = {k: rv.get(k) for k in ("id", "name", "kind", "isMuseum", "about", "tier", "rank", "museumRank",
                                       "neighborhood", "address", "addressDetail", "hours",
                                       "phone", "website", "lat", "lng",
                                       "locationLabel", "locations")}
@@ -321,7 +321,7 @@ def main() -> None:
                     "addressDetail": v.get("address_detail"), "neighborhood": v["neighborhood"],
                     "hours": group_hours(v["hours"] or []), "phone": v.get("phone"), "website": v.get("website"),
                     "lat": v["latitude"], "lng": v["longitude"],
-                    **{k: rv[k] for k in ("about", "tier", "rank") if rv.get(k) is not None},
+                    **{k: rv[k] for k in ("about", "tier", "rank", "museumRank") if rv.get(k) is not None},
                     **({"id": vid} if vid else {}),
                 },
             })

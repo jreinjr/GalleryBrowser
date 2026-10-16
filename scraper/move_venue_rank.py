@@ -15,6 +15,12 @@ when Carlton taps Change rank on a map card; never by the deployed site.
 
 Only cities listed in PARAMS can be moved this way; their params are the ones
 the venue_order.json note says to rebuild with.
+
+    move_venue_rank.py --city los-angeles --list museums --id hammer-museum --to 2
+
+moves a museum, nonprofit or university gallery on the Gallery tab's Museums
+list instead: content/curation/<city>/museum_order.json is renumbered and the
+JSON answer's "ranks" are museum ranks. Any city with a museum order file.
 """
 from __future__ import annotations
 
@@ -35,7 +41,10 @@ def main() -> int:
     ap.add_argument("--city", required=True)
     ap.add_argument("--id", required=True)
     ap.add_argument("--to", type=int, required=True)
+    ap.add_argument("--list", choices=("galleries", "museums"), default="galleries")
     a = ap.parse_args()
+    if a.list == "museums":
+        return move_museum(a)
     if a.city not in PARAMS:
         print(json.dumps({"ok": False, "error": f"rank moves are not set up for {a.city}"}))
         return 2
@@ -68,6 +77,32 @@ def main() -> int:
 
     ranks = {v["id"]: v.get("rank") for v in json.loads(reg_path.read_text())["venues"]}
     print(json.dumps({"ok": True, "id": a.id, "to": pos, "rank": ranks.get(a.id), "ranks": ranks}))
+    return 0
+
+
+def move_museum(a: argparse.Namespace) -> int:
+    sys.path.insert(0, str(HERE))
+    import venues
+    reg_path = ROOT / "content/venues" / f"{a.city}.json"
+    registry = {v["id"]: v for v in json.loads(reg_path.read_text())["venues"]} if reg_path.exists() else {}
+    if not venues.on_museum_list(registry.get(a.id) or {}):
+        print(json.dumps({"ok": False, "error": f"{a.id} is not on the museums list"}))
+        return 2
+    order_path = venues.museum_order_file(a.city)
+    order = json.loads(order_path.read_text()) if order_path.exists() else {"city": a.city, "entries": []}
+    entries = sorted(order["entries"], key=lambda e: int(e.get("rank") or 0))
+    old = next((e for e in entries if e.get("id") == a.id), None)
+    entries = [e for e in entries if e is not old]
+    entry = old or {"rank": None, "name": registry[a.id].get("name"), "id": a.id, "note": None}
+    entry["note"] = f"moved on the Gallery tab {datetime.date.today().isoformat()}"
+    pos = max(1, min(len(entries) + 1, a.to))
+    entries.insert(pos - 1, entry)
+    for i, e in enumerate(entries, 1):
+        e["rank"] = i
+    order["entries"] = entries
+    order_path.write_text(json.dumps(order, indent=1, ensure_ascii=False) + "\n")
+    ranks = venues.load_museum_ranks(a.city)
+    print(json.dumps({"ok": True, "id": a.id, "to": pos, "rank": ranks.get(a.id), "ranks": ranks, "list": "museums"}))
     return 0
 
 

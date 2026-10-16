@@ -122,6 +122,11 @@
     return out;
   };
   const KIND_LABEL = { museum: 'Museum', nonprofit: 'Nonprofit', project_space: 'Project space', university: 'University', other: 'Other' };
+  // Museums, nonprofit spaces and university galleries live on the Gallery
+  // tab's Museums list with their own rank (museumRank, from the city's
+  // museum_order.json); they never hold a gallery rank.
+  const MUSEUM_KINDS = new Set(['museum', 'nonprofit', 'university']);
+  const onMuseumList = v => { const r = venueRecord(v) || v || {}; return MUSEUM_KINDS.has(r.kind || (r.isMuseum ? 'museum' : 'gallery')); };
   const displayName = s => s.artist || s.title;
   // The artist name with each artist's age in blue right after it. Tapping an age opens that artist's bio
   // card in the full-screen viewer.
@@ -368,7 +373,7 @@
     const maps = new Map();     // city -> Map(venueId -> rank) under the saved order; cleared on a write
     const write = () => { store.set('galleryOrder', JSON.stringify(data)); maps.clear(); };
     const byApp = (a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9) || (a.name || '').localeCompare(b.name || '');
-    const venuesOf = city => Object.values(VENUES[city] || {});
+    const venuesOf = city => Object.values(VENUES[city] || {}).filter(v => !MUSEUM_KINDS.has(v.kind || 'gallery'));
     const api = {
       // The city's venues in the app's own order: registry rank, unranked last, A–Z.
       appOrder: city => venuesOf(city).sort(byApp),
@@ -405,6 +410,42 @@
     };
     return api;
   })();
+
+  // The Museums list's order: the person's own order for the city when they
+  // saved one (localStorage['museumOrder']), else museumRank, unranked last A–Z.
+  const museumRanking = (() => {
+    let data = { v: 1, cities: {} };
+    try { const o = JSON.parse(store.get('museumOrder', '{}')); if (o && o.v === 1 && o.cities) data = o; } catch (e) { /* defaults */ }
+    const write = () => store.set('museumOrder', JSON.stringify(data));
+    const byApp = (a, b) => (a.museumRank ?? 1e9) - (b.museumRank ?? 1e9) || (a.name || '').localeCompare(b.name || '');
+    const appOrder = city => Object.values(VENUES[city] || {}).filter(v => MUSEUM_KINDS.has(v.kind)).sort(byApp);
+    const mine = city => (data.cities[city] && Array.isArray(data.cities[city].order) && data.cities[city].order) || null;
+    const api = {
+      isPersonal: city => !!mine(city),
+      order(city) {
+        const app = appOrder(city), m = mine(city);
+        if (!m) return app;
+        const byId = new Map(app.map(v => [v.id, v]));
+        const out = m.map(id => byId.get(id)).filter(Boolean);
+        const seen = new Set(out.map(v => v.id));
+        app.forEach(v => { if (!seen.has(v.id)) out.push(v); });
+        return out;
+      },
+      rankOf(v) {
+        const id = venueId(v);
+        if (!id) return null;
+        if (mine(state.cityKey)) { const i = api.order(state.cityKey).findIndex(x => x.id === id); return i < 0 ? null : i + 1; }
+        const r = venueRecord(v);
+        const n = r && r.museumRank != null ? r.museumRank : (v && v.museumRank);
+        return n == null ? null : +n;
+      },
+      save(city, ids) { data.cities[city] = { order: ids.slice(), updatedAt: Date.now() }; write(); },
+      reset(city) { delete data.cities[city]; write(); },
+    };
+    return api;
+  })();
+  // The rank on the venue's own list: museum rank for the Museums list, gallery rank otherwise.
+  const listRank = v => onMuseumList(v) ? museumRanking.rankOf(v) : venueRank(v);
 
   // ---------------- favorite galleries ----------------
   // A heart on a gallery (its page, the ranking page) follows it; "Favorite
@@ -1746,9 +1787,34 @@
   // keeps the per-device order above.
   let localRankCities = null;
   if (/^(localhost|127\.0\.0\.1|192\.168\.|10\.|172\.)/.test(location.hostname)) {
-    fetch('/api/local-rank').then(r => r.ok ? r.json() : null).then(j => { if (j && j.ok) localRankCities = j.cities || []; }).catch(() => {});
+    fetch('/api/local-rank').then(r => r.ok ? r.json() : null).then(j => { if (j && j.ok) { localRankCities = j.cities || []; localMuseumCities = j.museumCities || []; } }).catch(() => {});
   }
+  let localMuseumCities = null;
   const savesToFile = () => !!localRankCities && localRankCities.includes(state.cityKey);
+  const savesMuseumsToFile = () => !!localMuseumCities && localMuseumCities.includes(state.cityKey);
+  // A museum moved on the local preview is written to museum_order.json.
+  async function saveMuseumRankToFile(v, to) {
+    const res = await fetch('/api/local-rank', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city: state.cityKey, id: venueId(v), to, list: 'museums' }) });
+    const j = await res.json().catch(() => ({ ok: false }));
+    if (!j.ok) throw new Error(j.error || 'save failed');
+    if (museumRanking.isPersonal(state.cityKey)) museumRanking.reset(state.cityKey);
+    Object.values(VENUES[state.cityKey] || {}).forEach(rec => { if (MUSEUM_KINDS.has(rec.kind)) rec.museumRank = j.ranks[rec.id] ?? null; });
+    refreshAll();
+    return j;
+  }
+  // Elsewhere a museum move saves this device's own museum order.
+  function moveMuseumRank(v, to) {
+    const city = state.cityKey, id = venueId(v);
+    if (!id) return null;
+    const from = museumRanking.rankOf(v);
+    const order = museumRanking.order(city).map(x => x.id).filter(x => x !== id);
+    const n = Math.max(1, Math.min(order.length + 1, Math.round(to)));
+    order.splice(n - 1, 0, id);
+    museumRanking.save(city, order);
+    refreshAll();
+    return { from, to: n };
+  }
   async function saveRankToFile(v, to) {
     const res = await fetch('/api/local-rank', { method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ city: state.cityKey, id: venueId(v), to }) });
@@ -1776,24 +1842,28 @@
   function rankEditor(v, opts) {
     const box = el('div', { class: 'rank-edit', 'data-rank-edit': '' });
     const gem = gemToggle(v);
+    // a museum, nonprofit or university gallery moves on the Museums list
+    const museum = onMuseumList(v);
+    const rankText = r => r == null ? 'Unranked' : museum ? `Museum rank #${r}` : `Rank #${r}`;
+    const sliderMax = museum ? Math.max(2, Math.min(RANK_SLIDER_MAX, museumRanking.order(state.cityKey).length)) : RANK_SLIDER_MAX;
     function paint(note) {
-      const r = venueRank(v);
+      const r = listRank(v);
       const rankBtn = el('button', { class: 'rank-now rank-open', 'aria-expanded': 'false', onclick: () => editing() },
-        r == null ? 'Unranked' : `Rank #${r}`, icon('chevronDown'));
-      const moves = savesToFile() ? '' : rankMovesText();
+        rankText(r), icon('chevronDown'));
+      const moves = museum || savesToFile() ? '' : rankMovesText();
       const copyBtn = moves ? el('button', { class: 'ghost rank-copy', onclick: () => copyMoves() }, 'Copy my rank changes') : null;
       box.replaceChildren(el('div', { class: 'rank-line' }, rankBtn, gem),
         ...(note ? [el('div', { class: 'rank-note' }, note)] : []),
         ...(copyBtn ? [copyBtn] : []));   // replaceChildren would print a null as text
     }
     function editing() {
-      const from = venueRank(v);
-      let n = Math.min(from || RANK_SLIDER_MAX, RANK_SLIDER_MAX);
+      const from = listRank(v);
+      let n = Math.min(from || sliderMax, sliderMax);
       const value = el('span', { class: 'rank-value' });
-      const slider = el('input', { type: 'range', class: 'rank-slider', min: '1', max: String(RANK_SLIDER_MAX), step: '1', 'aria-label': 'New rank for ' + v.name });
+      const slider = el('input', { type: 'range', class: 'rank-slider', min: '1', max: String(sliderMax), step: '1', 'aria-label': 'New rank for ' + v.name });
       const confirm = el('button', { class: 'capsule-btn rank-confirm', onclick: () => go(n) }, 'Confirm');
       const set = x => {
-        n = Math.max(1, Math.min(RANK_SLIDER_MAX, x));
+        n = Math.max(1, Math.min(sliderMax, x));
         slider.value = String(n);
         value.textContent = `#${n}`;
         confirm.disabled = n === from;
@@ -1802,7 +1872,7 @@
       set(n);
       box.replaceChildren(
         el('div', { class: 'rank-line' },
-          el('button', { class: 'rank-now rank-open', 'aria-expanded': 'true', onclick: () => paint() }, from == null ? 'Unranked' : `Rank #${from}`, icon('chevronDown')),
+          el('button', { class: 'rank-now rank-open', 'aria-expanded': 'true', onclick: () => paint() }, rankText(from), icon('chevronDown')),
           gem),
         el('div', { class: 'rank-panel' },
           el('div', { class: 'rank-step' },
@@ -1815,8 +1885,19 @@
             confirm)));
     }
     async function go(n) {
-      const from = venueRank(v);
+      const from = listRank(v);
       if (n === from) return paint();
+      if (museum) {
+        if (savesMuseumsToFile()) {
+          box.replaceChildren(el('div', { class: 'rank-note' }, 'Saving to the museum ranking file…'));
+          try { await saveMuseumRankToFile(v, n); paint(`moved from #${from ?? '–'}, saved to the museum ranking file`); }
+          catch (e) { paint('could not save: ' + e.message); }
+          return;
+        }
+        const m = moveMuseumRank(v, n);
+        paint(m ? `moved from #${m.from ?? '–'}` : '');
+        return;
+      }
       if (savesToFile()) {
         box.replaceChildren(el('div', { class: 'rank-note' }, 'Saving to the ranking file…'));
         try { await saveRankToFile(v, n); paint(`moved from #${from ?? '–'}, saved to the ranking file`); }
@@ -2318,6 +2399,11 @@
   }
   // The gallery page's pill: "#4 · Top 20", "#33 · Top 50", "#120"; nothing when unranked.
   function rankPill(v) {
+    if (onMuseumList(v)) {
+      const m = museumRanking.rankOf(v);
+      return m == null ? null : el('div', { class: 'tier-pill t-listed', 'data-tier': 'museum', 'data-rank': String(m) },
+        el('span', null, `Museum #${m}${museumRanking.isPersonal(state.cityKey) ? ' · your ranking' : ''}`));
+    }
     const r = venueRank(v);
     if (r == null) return null;
     const tier = galleryTier(v);
@@ -2965,6 +3051,21 @@
     const rows = el('div', { class: 'rank-rows' });
     const sub = el('div', { class: 'rank-sub' });
     const input = el('input', { type: 'search', placeholder: 'Find a gallery', autocomplete: 'off', 'aria-label': 'Find a gallery' });
+    // Galleries | Museums: two lists, each ranked from 1 (museums, nonprofits
+    // and university galleries are on Museums). The last one picked is kept.
+    let mode = (opts && opts.mode) || (store.get('galleryTabList', 'galleries') === 'museums' ? 'museums' : 'galleries');
+    const museums = () => mode === 'museums';
+    const listStore = () => museums() ? museumRanking : ranking;
+    const modeSeg = el('div', { class: 'seg-row rank-mode', 'data-seg': 'rank-mode' },
+      ...[['galleries', 'Galleries'], ['museums', 'Museums']].map(([k, label]) =>
+        el('button', { 'data-value': k, onclick: () => {
+          if (editing || mode === k) return;
+          mode = k;
+          try { store.set('galleryTabList', k); } catch (e) { /* per-device nicety */ }
+          input.value = ''; clearQ.hidden = true;
+          render();
+          scroll.scrollTop = 0;
+        } }, label)));
     const clearQ = el('button', { class: 'search-clear', html: ICONS.xmark, 'aria-label': 'Clear search', hidden: '' });
     input.addEventListener('input', () => { clearQ.hidden = !input.value; render(); });
     clearQ.addEventListener('click', () => { input.value = ''; clearQ.hidden = true; render(); input.focus(); });
@@ -3016,7 +3117,7 @@
     // that our own ranking leaves out of the top 25 gets a yellow dot instead.
     const seesawOnly = (v, tier) => !!v.seesaw && tier !== 'top';
     function rankRow(v, n, onView) {
-      const r = editing ? n : venueRank(v);
+      const r = editing ? n : museums() ? museumRanking.rankOf(v) : venueRank(v);
       const tier = tierForRank(r);
       const kind = v.kind || 'gallery';
       const row = el('div', { class: 'rank-row t-' + tier, 'data-id': v.id },
@@ -3027,7 +3128,7 @@
         el('div', { class: 'rr-main' },
           el('button', { class: 'rr-hit', onclick: editing ? null : () => openRow(v) },
             el('div', { class: 'rr-name' }, tierStar(tier), el('span', { class: 'sr-txt' }, v.name)),
-            el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' ? (KIND_LABEL[kind] || kind) : null,
+            el('div', { class: 'rr-sub' }, [v.neighborhood, kind !== 'gallery' && !(museums() && kind === 'museum') ? (KIND_LABEL[kind] || kind) : null,
               onView ? `${plural(onView, 'show')} on view` : null].filter(Boolean).join(' · '))),
           editing || asSheet ? null : venueMarks(v)),
         editing || asSheet || v.lat == null ? null : el('button', { class: 'rr-map', 'data-show-on-map': v.id, 'aria-label': 'Show on the map', onclick: () => showOnMap(v) }, icon('map')),
@@ -3037,7 +3138,7 @@
     }
     function render() {
       const byId = VENUES[cityKey] || {};
-      const list = editing ? order.map(id => byId[id]).filter(Boolean) : ranking.order(cityKey);
+      const list = editing ? order.map(id => byId[id]).filter(Boolean) : listStore().order(cityKey);
       const t = input.value.trim().toLowerCase();
       const onView = new Map();
       cityShows().forEach(s => { if (isActiveShow(s)) { const id = venueId(s.venue); if (id) onView.set(id, (onView.get(id) || 0) + 1); } });
@@ -3045,29 +3146,37 @@
       list.forEach((v, i) => { if (!t || (v.name || '').toLowerCase().includes(t)) frag.appendChild(rankRow(v, i + 1, onView.get(v.id) || 0)); });
       rows.innerHTML = '';
       rows.appendChild(frag);
-      sub.textContent = editing ? 'Drag a gallery, or tap its number to move it.'
-        : `${ranking.isPersonal(cityKey) ? 'Your ranking' : 'App ranking'} · ${plural(list.length, 'gallery', 'galleries')}`;
+      const noun = museums() ? ['museum', 'museums'] : ['gallery', 'galleries'];
+      sub.textContent = editing ? `Drag a ${noun[0]}, or tap its number to move it.`
+        : `${listStore().isPersonal(cityKey) ? 'Your ranking' : 'App ranking'} · ${plural(list.length, ...noun)}`;
+      const title = museums() ? 'Museums' : 'Galleries';
+      bigTitle.textContent = title; inline.textContent = title;
+      input.placeholder = museums() ? 'Find a museum' : 'Find a gallery';
+      input.setAttribute('aria-label', input.placeholder);
+      modeSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.value === mode));
+      modeSeg.classList.toggle('locked', editing);
       page.classList.toggle('editing', editing);
       nav.innerHTML = '';
       nav.append(editing ? cancelBtn : leading, editing ? saveBtn : trailing);
-      resetBtn.hidden = editing || !ranking.isPersonal(cityKey);
+      resetBtn.hidden = editing || !listStore().isPersonal(cityKey);
     }
     const leading = asSheet
       ? el('button', { class: 'circle-btn', html: ICONS.xmark, 'aria-label': 'Close', onclick: () => closeSheet() })
       : asRoot ? el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities') : backBtn(tab);
-    const editBtn = el('button', { class: 'nav-textbtn', 'data-rank-edit': '', onclick: () => { editing = true; order = ranking.order(cityKey).map(v => v.id); render(); } }, 'Edit');
+    const editBtn = el('button', { class: 'nav-textbtn', 'data-rank-edit': '', onclick: () => { editing = true; order = listStore().order(cityKey).map(v => v.id); render(); } }, 'Edit');
     const cancelBtn = el('button', { class: 'nav-textbtn', 'data-rank-cancel': '', onclick: () => { editing = false; order = null; render(); } }, 'Cancel');
     const saveBtn = el('button', { class: 'nav-textbtn bold', 'data-rank-save': '', onclick: () => {
-      ranking.save(cityKey, order); editing = false; order = null; refreshAll(); render();
+      listStore().save(cityKey, order); editing = false; order = null; refreshAll(); render();
     } }, 'Save');
     const resetBtn = el('button', { class: 'delete-list rank-reset', 'data-rank-reset': '', onclick: () => {
       if (!confirm('Go back to the app’s ranking? Your order will be discarded.')) return;
-      ranking.reset(cityKey); refreshAll(); render();
+      listStore().reset(cityKey); refreshAll(); render();
     } }, 'Reset to app ranking');
     const addBtn = el('button', { class: 'icon-btn', 'data-add-gallery': '', 'aria-label': 'Add gallery', hidden: canAddGallery ? null : '', onclick: addGallerySheet }, icon('plus'));
     const trailing = asRoot ? el('div', { class: 'nav-btns' }, addBtn, settingsButton(), editBtn) : editBtn;
     const nav = el('div', { class: 'navrow' });
-    scroll.append(nav, el('div', { class: 'large-title' }, 'Galleries'), sub,
+    const bigTitle = el('div', { class: 'large-title' }, 'Galleries');
+    scroll.append(nav, bigTitle, modeSeg, sub,
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
       rows, resetBtn, el('div', { class: 'lib-tail' }));
     const inline = el('div', { class: 'inline-title' }, 'Galleries');

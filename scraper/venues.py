@@ -134,6 +134,29 @@ def is_museum(v: dict) -> bool:
     return (v.get("kind") or "") == MUSEUM_KIND
 
 
+# Kinds that live on the Gallery tab's Museums list (Carlton, 2026-10-16):
+# museums, nonprofit spaces and university galleries. They never take a gallery
+# rank; their order is content/curation/<city>/museum_order.json.
+MUSEUM_LIST_KINDS = {"museum", "nonprofit", "university"}
+
+
+def on_museum_list(v: dict) -> bool:
+    return (v.get("kind") or "") in MUSEUM_LIST_KINDS
+
+
+def museum_order_file(city: str):
+    return tools.CONTENT_DIR / "curation" / city / "museum_order.json"
+
+
+def load_museum_ranks(city: str) -> dict[str, int]:
+    """venue_id -> museum rank (1 = top) from the city's museum order file; {} without one."""
+    f = museum_order_file(city)
+    if not f.exists():
+        return {}
+    entries = sorted(json.loads(f.read_text()).get("entries") or [], key=lambda e: int(e.get("rank") or 0))
+    return {e["id"]: i for i, e in enumerate((e for e in entries if e.get("id")), 1)}
+
+
 def sync_museum_flag(v: dict) -> dict:
     """Re-derive the mirrored boolean from `kind`, so the two can never drift.
     They did: a Google Places sweep used to OR `is_museum` to true while

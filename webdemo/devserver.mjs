@@ -89,16 +89,22 @@ const run = (args) => new Promise(resolve => execFile(PY, args, { cwd: ROOT, max
 let rankQueue = Promise.resolve();     // one move at a time: each rewrites the order file and the registry
 async function localRank(req, res) {
   const json = (status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)); };
-  if (req.method === 'GET') return json(200, { ok: true, cities: RANK_CITIES });
+  if (req.method === 'GET') {
+    const museumCities = fs.readdirSync(path.join(ROOT, 'content', 'curation')).filter(c => fs.existsSync(path.join(ROOT, 'content', 'curation', c, 'museum_order.json')));
+    return json(200, { ok: true, cities: RANK_CITIES, museumCities });
+  }
   if (req.method !== 'POST') return json(405, { ok: false, error: 'method' });
   const chunks = [];
   for await (const ch of req) chunks.push(ch);
   let b;
   try { b = JSON.parse(Buffer.concat(chunks).toString('utf8')); } catch (e) { return json(400, { ok: false, error: 'bad json' }); }
   const to = Number(b.to);
-  if (!RANK_CITIES.includes(b.city) || !/^[a-z0-9-]+$/.test(String(b.id || '')) || !(to >= 1 && to <= 10000)) return json(400, { ok: false, error: 'bad request' });
+  // list 'museums' moves a venue on the Gallery tab's Museums list (any city with a museum order file)
+  const museums = b.list === 'museums';
+  const cityOk = museums ? fs.existsSync(path.join(ROOT, 'content', 'curation', String(b.city || '').replace(/[^a-z-]/g, ''), 'museum_order.json')) : RANK_CITIES.includes(b.city);
+  if (!cityOk || !/^[a-z0-9-]+$/.test(String(b.id || '')) || !(to >= 1 && to <= 10000)) return json(400, { ok: false, error: 'bad request' });
   const job = rankQueue.then(async () => {
-    const mv = await run([path.join(ROOT, 'scraper', 'move_venue_rank.py'), '--city', b.city, '--id', b.id, '--to', String(Math.round(to))]);
+    const mv = await run([path.join(ROOT, 'scraper', 'move_venue_rank.py'), '--city', b.city, '--id', b.id, '--to', String(Math.round(to)), ...(museums ? ['--list', 'museums'] : [])]);
     let out;
     try { out = JSON.parse(mv.stdout.trim().split('\n').pop()); } catch (e) { out = { ok: false, error: 'move failed', log: mv.stderr.slice(-2000) }; }
     if (!out.ok) return out;
