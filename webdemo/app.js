@@ -1947,21 +1947,23 @@
   // behind the card, swiping the footer deals the next one, and a tap opens
   // whichever show is face up. A single show returns the bare card — no sheets,
   // no counter, nothing to swipe.
-  // A show card's third line: Map (the Map on the matching Galleries | Museums
-  // side, the pin ringed) and Directions buttons, then the grouped open hours.
+  // A show card's third line: the grouped open hours in blue (what matters
+  // most), then icon-only Map (the Map on the matching Galleries | Museums
+  // side, the pin ringed) and Directions buttons.
   function venueInfoLine(venue) {
     const v = fullVenue(venue);
     const hours = (v.hours || []).join(', ');
     const mapBtn = v.lat == null ? null : el('button', {
       class: 'cf-act', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
       onclick: e => { e.stopPropagation(); showOnMap(v); },
-    }, icon('map'), 'Map');
+    }, icon('map'));
     const dirBtn = el('a', {
       class: 'cf-act', href: directionsUrl(v), target: '_blank', rel: 'noopener', 'aria-label': 'Directions',
       onclick: e => e.stopPropagation(),
-    }, icon('walk'), 'Directions');
-    return el('div', { class: 'info' }, mapBtn, dirBtn,
-      hours ? el('span', { class: 'cf-hours' }, hours) : null);
+    }, icon('walk'));
+    return el('div', { class: 'info' },
+      hours ? el('span', { class: 'cf-hours' }, hours) : null,
+      el('span', { class: 'cf-acts' }, mapBtn, dirBtn));
   }
   // "Gallery name • address" with the name in bold
   const venueSub = v => el('span', null, el('b', { class: 'cf-venue' }, listLine(v)), ` • ${v.address}`);

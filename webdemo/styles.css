@@ -122,12 +122,13 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .bookmark-btn.saved { color: var(--blue); }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* third line: Map and Directions buttons, then the open hours in blue */
-.card-footer .info { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; min-width: 0; }
+/* third line: the open hours in blue at the far left, then subdued icon-only Map and Directions buttons */
+.card-footer .info { display: flex; align-items: center; gap: 8px; margin-top: 3px; font-size: 13px; min-width: 0; }
 .card-footer .cf-venue { color: #000; font-weight: 700; }
-.card-footer .cf-hours { flex: 0 1 auto; min-width: 0; margin-left: 2px; color: #0A6FD6; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-footer .cf-act { flex: none; display: flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: 999px; background: var(--blue); color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; }
-.card-footer .cf-act svg { width: 12px; height: 12px; }
+.card-footer .cf-hours { flex: 0 1 auto; min-width: 0; color: #0A6FD6; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-footer .cf-acts { flex: none; display: flex; gap: 6px; margin-left: auto; }
+.card-footer .cf-act { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(0, 0, 0, 0.08); color: rgba(0, 0, 0, 0.5); }
+.card-footer .cf-act svg { width: 19px; height: 19px; }
 /* "1 / 3": more than one show at this gallery, in bold red so it isn't missed */
 .card-footer .cf-count { font-size: 17px; font-weight: 800; color: #E0262B; flex: 0 0 auto; font-variant-numeric: tabular-nums; padding: 8px 4px; margin: -8px -4px; cursor: pointer; }
 
