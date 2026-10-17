@@ -1251,7 +1251,7 @@
     return showDeck(deck, {
       cls: 'feed-card',
       carousel: { aspect: '1 / 1', dots: 'above-footer' },
-      sub: s => `${listLine(s.venue)} • ${s.venue.address}`,
+      sub: s => venueSub(s.venue),
       onOpen: s => openSheet(mapVenueCard(fullVenue(s.venue), deck, [])),
     });
   }
@@ -1947,23 +1947,24 @@
   // behind the card, swiping the footer deals the next one, and a tap opens
   // whichever show is face up. A single show returns the bare card — no sheets,
   // no counter, nothing to swipe.
-  // A show card's third line: the venue's rank, its grouped open hours and a
-  // map button that opens the Map on the matching Galleries | Museums side
-  // with the pin ringed.
+  // A show card's third line: Map (the Map on the matching Galleries | Museums
+  // side, the pin ringed) and Directions buttons, then the grouped open hours.
   function venueInfoLine(venue) {
     const v = fullVenue(venue);
-    const museum = onMuseumList(v);
-    const r = listRank(v);
     const hours = (v.hours || []).join(', ');
     const mapBtn = v.lat == null ? null : el('button', {
-      class: 'cf-map', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
+      class: 'cf-act', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
       onclick: e => { e.stopPropagation(); showOnMap(v); },
     }, icon('map'), 'Map');
-    return el('div', { class: 'info' },
-      r == null ? null : el('span', { class: 'cf-rank' }, museum ? `Museum #${r}` : `#${r}`),
-      hours ? el('span', { class: 'cf-hours' }, hours) : null,
-      mapBtn);
+    const dirBtn = el('a', {
+      class: 'cf-act', href: directionsUrl(v), target: '_blank', rel: 'noopener', 'aria-label': 'Directions',
+      onclick: e => e.stopPropagation(),
+    }, icon('walk'), 'Directions');
+    return el('div', { class: 'info' }, mapBtn, dirBtn,
+      hours ? el('span', { class: 'cf-hours' }, hours) : null);
   }
+  // "Gallery name • address" with the name in bold
+  const venueSub = v => el('span', null, el('b', { class: 'cf-venue' }, listLine(v)), ` • ${v.address}`);
   const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
   function showDeck(shows, opts) {
     const { cls, carousel, sub, onOpen, nameExtra } = opts;
@@ -3360,7 +3361,7 @@
       return el('div', { class: cls, 'data-key': g.key }, showDeck(shows, {
         cls: 'feed-card',
         carousel: { aspect: '1 / 1', dots: 'above-footer' },
-        sub: s => `${listLine(g.venue)} • ${g.venue.address}`,
+        sub: () => venueSub(g.venue),
         onOpen: () => openCard(g),   // the same gallery card a pin or the Shows tab opens
       }));
     }
