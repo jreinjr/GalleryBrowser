@@ -155,6 +155,29 @@
     out.append(text.slice(pos));
     return out;
   }
+  // The bio card is one of the show's pictures; tapping it opens the artist's
+  // CV: everything the bio holds (build.py `cv`), with Full CV linking to the
+  // artist's own CV document when one is sourced (Carlton, 2026-10-17).
+  const bioAt = (s, i) => (s.bios || []).find(b => b.img === i && b.cv) || null;
+  function openCV(b) {
+    const cv = b.cv || {};
+    const yrs = b.died ? `${b.born}–${b.died}` : `Born ${b.born} · age ${ageText(b)}`;
+    const shows = xs => (xs || []).slice().sort((x, y) => (y.year || 0) - (x.year || 0))
+      .map(x => el('div', { class: 'cv-row' }, el('span', { class: 'cv-year' }, x.year ? String(x.year) : ''),
+        el('span', null, el('b', null, x.title || ''), x.venue ? `, ${x.venue}` : '', x.kind && x.kind !== 'solo' ? ` (${x.kind})` : '')));
+    const part = (label, rows) => rows.length ? [el('div', { class: 'group-header cv-head' }, label), el('div', { class: 'cv-list' }, ...rows)] : [];
+    const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
+    openSheet(el('div', { class: 'page cv-sheet' },
+      el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, b.name), sheetCloseBtn()),
+      el('div', { class: 'page-scroll' }, el('div', { class: 'detail-body cv-body' },
+        el('div', { class: 'cv-years' + (b.died ? ' died' : '') }, yrs),
+        cv.birthplace ? el('div', { class: 'cv-place' }, cv.birthplace) : null,
+        cv.cvUrl ? el('a', { class: 'capsule-btn cv-full', href: cv.cvUrl, target: '_blank', rel: 'noopener' }, el('span', null, 'Full CV')) : null,
+        ...part('Education', (cv.education || []).map(e => el('div', { class: 'cv-row' }, e))),
+        ...part('Museum shows', shows(cv.museum_shows)),
+        ...part('Solo gallery shows', shows(cv.solo_gallery_shows)),
+        ...part('Sources', (cv.sources || []).map(u => el('a', { class: 'cv-row cv-src', href: u, target: '_blank', rel: 'noopener' }, host(u))))))));
+  }
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;
 
@@ -215,9 +238,16 @@
     const inWeek = d => !!d && d >= today && d <= week;
     return inWeek(parseDate(s.startDate)) || inWeek(receptionDate(s));
   };
-  const showWhenFilter = f => f.active || f.upcoming || f.opening;
-  const passesWhen = (s, f) => !showWhenFilter(f)
-    || (f.active && isActiveShow(s)) || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s) && inTop150(s));
+  // Closing soon narrows whatever else is on: running now and ending within
+  // the next seven days (Carlton, 2026-10-17).
+  const isClosingSoon = s => {
+    const end = parseDate(s.endDate), today = startOfToday();
+    return isActiveShow(s) && !!end && end >= today && end <= new Date(today.getTime() + 7 * DAY);
+  };
+  const showWhenFilter = f => f.active || f.upcoming || f.opening || f.closing;
+  const passesWhen = (s, f) => (!(f.active || f.upcoming || f.opening)
+    || (f.active && isActiveShow(s)) || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s) && inTop150(s)))
+    && (!f.closing || isClosingSoon(s));
   // Opening this week only counts galleries ranked 1-150 (Carlton, 2026-10-12).
   const inTop150 = s => { const r = venueRank(s.venue); return r != null && r <= 150; };
   const isClosingThisWeek = s => {
@@ -759,7 +789,7 @@
   }
 
   function makeCarousel(images, opts) {
-    const { height, aspect, dots = 'top-left', onTap, expand } = opts;
+    const { height, aspect, dots = 'top-left', onTap, expand, slideExtra } = opts;
     const car = el('div', { class: 'carousel', style: aspect ? `aspect-ratio:${aspect}` : `height:${height}px` });
     const track = el('div', { class: 'carousel-track' });
     images.forEach((entry, i) => {
@@ -767,7 +797,7 @@
         src: entry.src, 'data-full': entry.full || null,
         loading: 'lazy', decoding: 'async', alt: '',
       });
-      const slide = el('div', { class: 'carousel-slide' }, img);
+      const slide = el('div', { class: 'carousel-slide' }, img, slideExtra ? slideExtra(entry, i) : null);
       if (onTap) slide.addEventListener('click', () => onTap(i));
       track.appendChild(slide);
     });
@@ -779,6 +809,7 @@
       // Swiping past the last picture lands on a copy of the first, and the
       // track then jumps back to the real first one: the pictures loop.
       const loopSlide = track.firstChild.cloneNode(true);
+      if (slideExtra) { loopSlide.lastChild.remove(); loopSlide.appendChild(slideExtra(images[0], 0)); }   // a clone has no handlers
       if (onTap) loopSlide.addEventListener('click', () => onTap(0));
       track.appendChild(loopSlide);
       let settle = null;
@@ -1246,7 +1277,7 @@
   // A Featured row is one venue, not one show: concurrent shows at the same
   // gallery deal through a single card rather than repeating the venue down the
   // feed. Tapping it opens the same gallery card a map pin opens (its shows;
-  // a show opens its rating page).
+  // a show opens that show, where it can be rated).
   function showCard(deck) {
     return showDeck(deck, {
       cls: 'feed-card',
@@ -1298,6 +1329,37 @@
     return page;
   }
 
+  // Favorite pictures in a show, three levels: each picture on the show page
+  // carries a star button that cycles none → ★ → ★★ → ★★★ → none (Carlton,
+  // 2026-10-17). Kept on this device in localStorage['imageFavs'] as
+  // { "<showId>|<image src>": level }.
+  const imageFavs = (() => {
+    let data = {};
+    try { data = JSON.parse(store.get('imageFavs', '{}')) || {}; } catch (e) { data = {}; }
+    const key = (s, entry) => showId(s) + '|' + entry.src;
+    return {
+      get: (s, entry) => data[key(s, entry)] || 0,
+      set(s, entry, n) { if (n) data[key(s, entry)] = n; else delete data[key(s, entry)]; store.set('imageFavs', JSON.stringify(data)); },
+    };
+  })();
+  function imageFavButton(s, entry) {
+    const b = el('button', { class: 'img-fav', 'data-img-fav': entry.src });
+    b.paint = () => {
+      const n = imageFavs.get(s, entry);
+      b.dataset.level = String(n);
+      b.textContent = n ? '★'.repeat(n) : '☆';
+      b.setAttribute('aria-label', n ? `Favorite picture, level ${n} of 3: tap to change` : 'Mark as a favorite picture');
+    };
+    b.addEventListener('pointerdown', e => e.stopPropagation());   // not a pinch or a swipe start
+    b.onclick = e => {
+      e.stopPropagation();
+      imageFavs.set(s, entry, (imageFavs.get(s, entry) + 1) % 4);
+      document.querySelectorAll('[data-img-fav]').forEach(x => x.dataset.imgFav === entry.src && x.paint && x.paint());
+    };
+    b.paint();
+    return b;
+  }
+
   function showDetailPage(shows, index, opts) {
     const asSheet = opts && opts.asSheet;
     const page = el('div', { class: 'page' });
@@ -1312,7 +1374,8 @@
 
       const car = makeCarousel(s.images, {
         height: 340, dots: 'bottom', expand: true,
-        onTap: i => openViewer(s.images, i),
+        onTap: i => { const b = bioAt(s, i); if (b) openCV(b); else openViewer(s.images, i); },
+        slideExtra: entry => imageFavButton(s, entry),
       });
       // opts.subPage: pushed on top of another page inside a sheet, so the
       // leading button reads as "back" rather than "close".
@@ -1340,6 +1403,17 @@
         onclick: () => toggleSaved(showId(s)),
       }, el('span', null, state.saved.has(showId(s)) ? 'Added to My Shows' : 'Add to My Shows'));
       const addListBtn = el('button', { class: 'detail-addlist', onclick: () => addToListSheet(s) }, 'Add to list…');
+      // Rating is a choice made here, never where a tap lands on a show.
+      const rateBtn = el('button', { class: 'detail-addlist detail-rate', 'data-rate-show': showId(s), onclick: () => {
+        if (asSheet) {
+          const sub = ratePage(showSnapshot(s), null, () => sub.remove());
+          sub.dataset.sheetSub = '1';
+          page.parentElement.appendChild(sub);
+        } else {
+          const tab = state.tab;
+          push(tab, ratePage(showSnapshot(s), null, () => pop(tab)));
+        }
+      } }, (r => r ? (r.rating ? `Your rating ${r.rating} · change` : 'Rated · change') : 'I saw this show: rate it')(archive.get(showId(s))));
 
       const venueBlock = el('button', {
         class: 'venue-block',
@@ -1358,6 +1432,7 @@
         s.reception ? el('div', { class: 'detail-reception' }, 'Reception: ' + s.reception) : null,
         saveBtn,
         addListBtn,
+        rateBtn,
         venueBlock,
         el('div', { class: 'divider' }),
         el('div', { class: 'detail-desc' },
@@ -1508,9 +1583,10 @@
 
     const on = shows.filter(isActiveShow);
     const list = sortShows(on.length ? on : shows, 'rank');
-    // A show here opens its rating page (seen it: rate, tag, note, archive).
-    const rate = x => {
-      const sub = ratePage(showSnapshot(x), x, () => sub.remove());
+    // A show here opens the show itself; rating it is a button on that page
+    // (Carlton, 2026-10-17: a tap went straight to rating).
+    const openShow = x => {
+      const sub = showDetailPage([x], 0, { asSheet: true, subPage: true, onClose: () => sub.remove() });
       sub.dataset.sheetSub = '1';
       page.parentElement.appendChild(sub);
     };
@@ -1518,7 +1594,7 @@
       ? el('div', { class: 'venue-shows' },
           el('div', { class: 'group-header' }, list.length > 1 ? `${list.length} shows` : 'Show'),
           el('div', { class: 'venue-show-list' }, ...list.map(s => el('div', { class: 'gc-show' },
-            venueShowCard(s, rate, markButtons)))))
+            venueShowCard(s, openShow, markButtons)))))
       : el('div', { class: 'venue-none' }, 'Nothing on view right now.');
 
     const details = el('div', { class: 'gc-details', hidden: '' });
@@ -2026,7 +2102,7 @@
       card.innerHTML = '';
       const save = bookmarkBtn(s);
       save.classList.add('cf-save');
-      const car = makeCarousel(s.images, { ...carousel, onTap: open });
+      const car = makeCarousel(s.images, { ...carousel, onTap: i => { const b = bioAt(s, i); if (b) openCV(b); else open(); } });   // the bio card opens the CV
       car.appendChild(save);
       card.append(car, footer);
       card.classList.remove('deal-next', 'deal-prev');
@@ -2110,7 +2186,7 @@
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
   const FILTER_VERSION = 8;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
-    active: true, upcoming: false, opening: false, openToday: false, list: null, sort: 'rank' };
+    active: true, upcoming: false, opening: false, closing: false, openToday: false, list: null, sort: 'rank' };
   // kind is the Galleries | Museums switch at the top of the Shows tab and the
   // Map (each tab its own), split like the Gallery tab's two lists: Museums is
   // museums, nonprofit spaces and university galleries, Galleries everything else.
@@ -2196,13 +2272,13 @@
   // Number of filter groups off their default: the badge on the filter button.
   const filterActiveCount = f => [f.q.trim(),
     f.kind !== 'museums' && f.galleryRank !== FILTER_DEFAULT.galleryRank, f.openToday,
-    f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening]
+    f.active !== FILTER_DEFAULT.active, f.list, f.upcoming, f.opening, f.closing]
     .filter(Boolean).length;
   // One line for the Discover context message.
   function filterSummary() {
     const f = state.filter, label = (opts, k) => (opts.find(([key]) => key === k) || [])[1];
     const bits = [label(KINDS, f.kind)];
-    const when = [f.active && 'Active', f.upcoming && 'Upcoming', f.opening && 'Opening this week'].filter(Boolean);
+    const when = [f.active && 'Active', f.upcoming && 'Upcoming', f.opening && 'Opening this week', f.closing && 'Closing soon'].filter(Boolean);
     bits.push(when.length ? when.join(' + ') : 'All dates');
     if (f.hoods.length) bits.push(f.hoods.join(', '));
     if (f.q.trim()) bits.push(`search "${f.q.trim()}"`);
@@ -2500,7 +2576,7 @@
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
       header('List'), listGroup,
       header('Show'),
-      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
+      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening'), switchRow('Closing soon', 'closing')),
       header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday')),
       // museums hold no gallery rank
       ...(f.kind === 'museums' ? [] : [header('Top galleries by rank'), rankRow]));
@@ -3321,7 +3397,7 @@
     getVenues: mapVenues,
     venueKey,
     getGemSymbol: gemSymbol,
-    // A tap opens the gallery card (its shows; a show opens its rating page) and
+    // A tap opens the gallery card (its shows; a show opens that show) and
     // rings the pin; the list, when opened, starts at that gallery.
     onVenueTap: (v, shows, others, key) => {
       if (key) mapList.pick(key);

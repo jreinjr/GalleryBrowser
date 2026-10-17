@@ -183,6 +183,12 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .carousel-arrow.prev { left: 10px; }
 .carousel-arrow.next { right: 10px; }
 @media (pointer: fine) { .carousel:hover .carousel-arrow:not(.hidden) { display: flex; } }
+/* favorite picture, three levels: a star pill in the picture's bottom-left corner (the top bar and the expand button hold the other corners) */
+.carousel-slide { position: relative; }
+.img-fav { position: absolute; bottom: 12px; left: 12px; z-index: 4; min-width: 34px; height: 34px; padding: 0 9px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.38); color: rgba(255, 255, 255, 0.85); font-size: 17px; line-height: 34px; letter-spacing: 1px;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.img-fav:not([data-level="0"]) { color: #FFC83D; background: rgba(0, 0, 0, 0.55); }
 .carousel .expand-btn { position: absolute; right: 12px; bottom: 12px; z-index: 4; }
 
 /* ---- Show detail ---- */
@@ -867,3 +873,15 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .galleries-page .rank-mode.locked button:not(.on) { opacity: 0.4; }
 .galleries-page .rank-space .rr-name { font-weight: 500; }
 .galleries-page .rank-space .rank-n { opacity: 0.6; }
+
+/* An artist's CV, opened from the bio card */
+.cv-body { padding-top: 6px; }
+.cv-years { font-size: 28px; font-weight: 800; color: var(--blue); }
+.cv-years.died { color: rgba(240, 80, 70, 1); }
+.cv-place { margin-top: 2px; color: var(--secondary); font-size: 15px; }
+.cv-full { margin-top: 16px; }
+.cv-head { padding: 22px 0 6px; }
+.cv-list { display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.35; }
+.cv-row { display: flex; gap: 10px; color: inherit; }
+.cv-year { flex: 0 0 40px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.cv-src { color: var(--blue); text-decoration: none; }

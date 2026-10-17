@@ -292,9 +292,14 @@ def main() -> None:
                     continue
                 card = f"/bio-{slugify(a['artist'])}."
                 img = next((i for i, e in enumerate(out_imgs) if card in e["src"]), None)
+                # cv: everything the bio holds, for the CV page that tapping the
+                # bio card opens; cvUrl is the artist's own CV document when sourced
+                cv_url = next((u for u in a.get("sources") or [] if re.search(r"cv|resume|\.pdf", u, re.I)), None)
+                cv = {k: a[k] for k in ("birthplace", "education", "museum_shows", "solo_gallery_shows", "sources") if a.get(k)}
                 show_bios.append({"name": a["artist"], "born": a["born"],
                                   **({"died": a["died"]} if a.get("died") else {}),
-                                  **({"img": img} if img is not None else {})})
+                                  **({"img": img} if img is not None else {}),
+                                  "cv": {**cv, **({"cvUrl": cv_url} if cv_url else {})}})
             v = s["venue"]
             # registry `kind` is the source of truth; the show record's boolean is
             # only the fallback for a venue with no registry entry
