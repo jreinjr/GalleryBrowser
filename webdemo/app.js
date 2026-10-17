@@ -3151,6 +3151,24 @@
       if (editing) wireDrag(row, rows, ids => { reorderVisible(ids); render(); }, '.rank-row');
       return row;
     }
+    // On the Museums list a museum's other buildings (MOCA's Geffen
+    // Contemporary, the Getty Villa) get their own row under it, with the
+    // museum's rank; the map button flies to that building's pin.
+    function spaceRows(v, r) {
+      if (!museums() || editing || asSheet) return [];
+      return (v.locations || []).map((loc, i) => {
+        const near = s => s.venue.lat != null && haversine(s.venue.lat, s.venue.lng, loc.lat, loc.lng) < 0.2;
+        const on = cityShows().filter(s => venueId(s.venue) === v.id && isActiveShow(s) && (near(s) || (s.alsoSpaces || []).includes(i + 1))).length;
+        return el('div', { class: 'rank-row rank-space t-listed', 'data-id': v.id + '#' + (i + 1) },
+          el('span', { class: 'rank-n', 'aria-hidden': 'true' }, el('i', { class: 'dot t-listed' }), r == null ? '–' : String(r)),
+          el('div', { class: 'rr-main' },
+            el('button', { class: 'rr-hit', onclick: () => openRow(v) },
+              el('div', { class: 'rr-name' }, el('span', { class: 'sr-txt' }, loc.name || `${v.name} · ${loc.label}`)),
+              el('div', { class: 'rr-sub' }, [loc.neighborhood, `Part of ${v.name}`, on ? `${plural(on, 'show')} on view` : null].filter(Boolean).join(' · ')))),
+          loc.lat == null ? null : el('button', { class: 'rr-map', 'aria-label': 'Show on the map', onclick: () => {
+            closeAllSheets(); setTab('map'); MapTab.focus(venueKey(v) + '#' + (i + 1), loc.lng, loc.lat); } }, icon('map')));
+      });
+    }
     function render() {
       const byId = VENUES[cityKey] || {};
       const list = editing ? order.map(id => byId[id]).filter(Boolean) : listStore().order(cityKey);
@@ -3158,7 +3176,12 @@
       const onView = new Map();
       cityShows().forEach(s => { if (isActiveShow(s)) { const id = venueId(s.venue); if (id) onView.set(id, (onView.get(id) || 0) + 1); } });
       const frag = document.createDocumentFragment();
-      list.forEach((v, i) => { if (!t || (v.name || '').toLowerCase().includes(t)) frag.appendChild(rankRow(v, i + 1, onView.get(v.id) || 0)); });
+      list.forEach((v, i) => {
+        const names = [v.name, ...(museums() ? (v.locations || []).map(l => l.name || l.label) : [])];
+        if (t && !names.some(n => (n || '').toLowerCase().includes(t))) return;
+        frag.appendChild(rankRow(v, i + 1, onView.get(v.id) || 0));
+        spaceRows(v, museumRanking.rankOf(v)).forEach(row => frag.appendChild(row));
+      });
       rows.innerHTML = '';
       rows.appendChild(frag);
       const noun = museums() ? ['museum', 'museums'] : ['gallery', 'galleries'];
