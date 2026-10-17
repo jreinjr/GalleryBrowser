@@ -26,7 +26,7 @@ import images as image_pipe
 
 HERE = Path(__file__).resolve().parent
 DIST = HERE / "dist" / "gallery-browser-demo"
-STATIC = ["styles.css", "icons.js", "app.js", "map_maplibre.js"]
+STATIC = ["styles.css", "icons.js", "app.js", "map_maplibre.js", "sync.js"]
 # The Discover function (api/discover.js + api/_lib) ships inside the same
 # static deploy; Vercel installs this dependency at deploy time.
 SDK_VERSION = "0.123.0"

@@ -678,6 +678,16 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .row .chev { display: inline-flex; color: var(--tertiary); flex: 0 0 auto; }
 .row .chev svg { width: 13px; height: 13px; }
 .settings-note { margin: 0 32px; font-size: 13px; color: var(--secondary); line-height: 1.45; }
+.sync-body { padding-bottom: 20px; }
+.sync-body .settings-note { margin: 10px 20px; }
+.sync-status { margin: 4px 20px 12px; font-size: 15px; color: var(--secondary); }
+.sync-status.err { color: #ff6b6b; }
+.sync-btn { width: calc(100% - 40px); margin: 10px 20px 0; }
+.sync-btn.quiet { background: rgba(255,255,255,0.1); }
+.sync-join { display: flex; gap: 10px; margin: 0 20px; align-items: center; }
+.sync-join .sync-btn { width: auto; margin: 0; padding: 12px 22px; }
+.sync-code { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 12px; border: 0; background: rgba(255,255,255,0.1); color: #fff; font-size: 16px; font-family: ui-monospace, Menlo, monospace; outline: 0; }
+.sync-code-show { margin: 0 20px; padding: 14px; border-radius: 12px; background: rgba(255,255,255,0.08); font: 600 18px ui-monospace, Menlo, monospace; letter-spacing: 0.04em; user-select: all; -webkit-user-select: all; }
 .rank-sub { padding: 0 16px 6px; font-size: 14px; color: var(--secondary); }
 .galleries-page .search-bar { padding: 4px 16px 12px; }
 .rank-rows { margin: 0 16px 24px; background: var(--row); border-radius: 12px; overflow: hidden; }

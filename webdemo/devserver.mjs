@@ -13,6 +13,11 @@
  * rank_venues.py apply), rebuilds the dist so a reload keeps the change, and
  * answers with the city's new ranks. /api/local-venue adds a gallery from
  * Google Maps (see localVenue).
+ *
+ * /api/sync (Settings → Sync): proxied to the live site once its sync store is
+ * set up, so the preview, the phone and the live site share one set of marks;
+ * until then webdemo/.cache/sync-store.json stands in (SYNC_UPSTREAM overrides
+ * the live address, SYNC_UPSTREAM=off keeps the file).
  */
 import http from 'node:http';
 import zlib from 'node:zlib';
@@ -51,6 +56,35 @@ if (!process.env.DISCOVER_ALLOW_NO_ORIGIN) process.env.DISCOVER_ALLOW_NO_ORIGIN 
 // the preview still serves and /api/discover answers 503.
 let POST = null, GET = null;
 try { ({ POST, GET } = await import('./api/discover.js')); } catch (e) { console.warn('Discover off:', e.message.split('\n')[0]); }
+
+const SYNC_UPSTREAM = process.env.SYNC_UPSTREAM || 'https://gallery-browser-carlton.vercel.app';
+if (!process.env.SYNC_LOCAL_FILE) process.env.SYNC_LOCAL_FILE = path.join(HERE, '.cache', 'sync-store.json');
+const syncLocal = await import('./api/sync.js');
+let upstream = { at: 0, ok: false };
+async function upstreamReady() {
+  if (SYNC_UPSTREAM === 'off') return false;
+  if (Date.now() - upstream.at < 5 * 60e3) return upstream.ok;
+  let ok = false;
+  try { const r = await fetch(SYNC_UPSTREAM + '/api/sync', { signal: AbortSignal.timeout(4000) }); ok = r.ok && !!(await r.json()).configured; } catch (e) { /* offline or not deployed */ }
+  if (ok !== upstream.ok) console.log(ok ? `sync: using ${SYNC_UPSTREAM}` : 'sync: using the local file store');
+  upstream = { at: Date.now(), ok };
+  return ok;
+}
+async function sync(req, res) {
+  const chunks = [];
+  for await (const ch of req) chunks.push(ch);
+  const body = Buffer.concat(chunks);
+  if (await upstreamReady()) {
+    try {
+      const r = await fetch(SYNC_UPSTREAM + '/api/sync', req.method === 'POST' ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body } : {});
+      res.writeHead(r.status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+      res.end(Buffer.from(await r.arrayBuffer()));
+      return;
+    } catch (e) { upstream = { at: 0, ok: false }; }
+  }
+  const webReq = toRequest(req, body);
+  return pipe(req.method === 'POST' ? await syncLocal.POST(webReq) : syncLocal.GET(webReq), res);
+}
 
 function toRequest(req, body) {
   const url = `http://${req.headers.host || 'localhost'}${req.url}`;
@@ -160,6 +194,7 @@ const server = http.createServer(async (req, res) => {
   try {
     if (req.url.startsWith('/api/local-rank')) return localRank(req, res);
     if (req.url.startsWith('/api/local-venue')) return localVenue(req, res);
+    if (req.url.startsWith('/api/sync')) return sync(req, res);
     if (req.url.startsWith('/api/discover')) {
       if (!POST) { res.writeHead(503); res.end('Discover is not available on this preview'); return; }
       if (req.method === 'POST' && process.env.DISCOVER_MOCK === '1') { req.resume(); await new Promise(r => req.on('end', r)); return mock(res); }

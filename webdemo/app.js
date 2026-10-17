@@ -3122,6 +3122,8 @@
       el('div', { class: 'group-header' }, city().displayName),
       group,
       el('p', { class: 'settings-note' }, 'Galleries are ranked city-wide. The rank orders the feed and the list, colours the map, and sets the tiers: the top 20 and the top 50. Shows themselves are not ranked. Save your own ranking and the app uses it instead.'),
+      window.GBSync ? el('div', { class: 'group-header' }, 'Devices') : null,
+      window.GBSync ? el('div', { class: 'group settings-group' }, settingRow('Sync', syncSummary(), () => push(tab, syncPage()), 'sync')) : null,
       el('div', { class: 'lib-tail' }));
     const inline = el('div', { class: 'inline-title' }, 'Settings');
     largeTitleScroll(scroll, inline);
@@ -3137,6 +3139,65 @@
           () => push(tab, favs ? listPage(favoritesAsList()) : galleriesPage()), 'favorites'));
     };
     page.refresh();
+    return page;
+  }
+
+  // ---------------- sync (sync.js) ----------------
+  // One sync code shared by the person's devices and web addresses keeps the
+  // marks, ratings, archive, rankings and lists the same on all of them.
+  const ago = t => { const m = Math.round((Date.now() - t) / 60000); return m < 1 ? 'just now' : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} d ago`; };
+  function syncSummary() {
+    const st = window.GBSync.status();
+    if (!st.on) return 'Off · marks stay on this device';
+    if (st.state === 'error') return st.error;
+    if (st.state === 'syncing') return 'Syncing…';
+    return st.at ? `On · synced ${ago(st.at)}` : 'On';
+  }
+  function syncPage() {
+    const tab = state.tab, S = window.GBSync;
+    const body = el('div', { class: 'sync-body' });
+    const scroll = el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn(tab), el('span')),
+      el('div', { class: 'large-title' }, 'Sync'), body, el('div', { class: 'lib-tail' }));
+    const inline = el('div', { class: 'inline-title' }, 'Sync');
+    largeTitleScroll(scroll, inline);
+    const page = el('div', { class: 'page settings-page' }, inline, scroll);
+    const btn = (label, onclick, cls) => el('button', { class: 'capsule-btn sync-btn' + (cls ? ' ' + cls : ''), onclick }, label);
+    const note = t => el('p', { class: 'settings-note' }, t);
+    let msg = '';
+    const busy = async p => { const r = await p; if (r && r.error) msg = r.error; render(); };
+    function render() {
+      const st = S.status();
+      const line = el('div', { class: 'sync-status' + (st.state === 'error' ? ' err' : '') }, syncSummary());
+      if (!st.on) {
+        const input = el('input', { class: 'sync-code', type: 'text', placeholder: 'xxxx-xxxx-xxxx-xxxx', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': 'Sync code' });
+        body.replaceChildren(line,
+          note('Saved shows, 👁 and 💎 marks, favorite galleries, picture and show ratings, the Archive with its notes, your rankings and your lists can follow you to every device and web address. What this device already has is kept and added in.'),
+          el('div', { class: 'group-header' }, 'First device'),
+          btn('Start syncing', () => busy(S.start())),
+          el('div', { class: 'group-header' }, 'Another device already syncs'),
+          el('div', { class: 'sync-join' }, input, btn('Join', () => busy(S.join(input.value)), 'small')),
+          note('Use the code or the join link from Settings → Sync on that device.'),
+          msg ? el('div', { class: 'sync-status err' }, msg) : '');
+      } else {
+        const link = S.joinLink();
+        const copy = el('button', { class: 'capsule-btn sync-btn', onclick: async () => {
+          try { if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ title: 'Gallery Browser sync', url: link }); else { await navigator.clipboard.writeText(link); copy.textContent = 'Copied'; } }
+          catch (e) { /* cancelled */ }
+        } }, 'Share join link');
+        body.replaceChildren(line,
+          el('div', { class: 'group-header' }, 'Sync code'),
+          el('div', { class: 'sync-code-show' }, st.code),
+          note('Open the join link on another device or address (the live site, the Mac preview, the phone), or type the code in its Settings → Sync. Keep it private: anyone with it sees and changes your marks.'),
+          copy,
+          btn('Sync now', () => busy(S.now())),
+          btn('Turn off on this device', () => { S.stop(); render(); }, 'quiet'),
+          msg ? el('div', { class: 'sync-status err' }, msg) : '');
+      }
+      msg = '';
+    }
+    const unsub = S.subscribe(() => { if (!page.isConnected) { unsub(); return; } render(); });
+    render();
     return page;
   }
 
