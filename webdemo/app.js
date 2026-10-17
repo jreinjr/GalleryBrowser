@@ -1993,7 +1993,10 @@
         : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
       const footer = el('div', { class: 'card-footer' }, text,
-        deep ? el('div', { class: 'cf-count' }, `${idx + 1} / ${shows.length}`) : null,
+        deep ? el('button', {
+          class: 'cf-count', 'aria-label': 'Next show at this gallery',
+          onclick: e => { e.stopPropagation(); deal(1); },   // tapping the red count deals the next artist
+        }, `${idx + 1} / ${shows.length}`) : null,
         bookmarkBtn(s));
       if (deep) wireSwipe(footer);
       card.innerHTML = '';

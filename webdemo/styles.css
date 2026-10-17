@@ -123,7 +123,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* "1 / 3": more than one show at this gallery, in bold red so it isn't missed */
-.card-footer .cf-count { font-size: 17px; font-weight: 800; color: #E0262B; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+.card-footer .cf-count { font-size: 17px; font-weight: 800; color: #E0262B; flex: 0 0 auto; font-variant-numeric: tabular-nums; padding: 8px 4px; margin: -8px -4px; cursor: pointer; }
 
 /* A venue's concurrent shows deal through one card (showDeck in app.js): sheets
    peek out below to say how deep the deck is, and the footer swipes through it.
