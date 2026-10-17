@@ -2014,7 +2014,7 @@
         : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
       // one row under the text: Map, Directions, the hours, the red count;
-      // the save button sits small in the photo's top-right corner
+      // the save button sits in the photo's bottom-right corner
       const hours = cardHours(fullVenue(s.venue));
       const footer = el('div', { class: 'card-footer' }, text,
         el('div', { class: 'cf-buttons' }, ...venueActs(s.venue), el('span', { class: 'cf-hours' }, hours),
@@ -2026,7 +2026,9 @@
       card.innerHTML = '';
       const save = bookmarkBtn(s);
       save.classList.add('cf-save');
-      card.append(makeCarousel(s.images, { ...carousel, onTap: open }), save, footer);
+      const car = makeCarousel(s.images, { ...carousel, onTap: open });
+      car.appendChild(save);
+      card.append(car, footer);
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;
       void card.offsetWidth;                  // restart the animation on a re-deal
