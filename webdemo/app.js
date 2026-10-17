@@ -1649,27 +1649,33 @@
   // localStorage['showArchive'] as { [showId]: entry }. An entry carries its own
   // copy of the show (title, artist, gallery, dates, first image) so it outlives
   // the show leaving the data. Lives on this device only.
-  // The earlier five-face show ratings, read as the flame scale (RATINGS below).
-  const OLD_RATINGS = { '😴': '🔥', '😐': '🔥', '🙂': '🔥🔥', '😍': '🔥🔥🔥', '🤯': '🧨' };
+  // Earlier show ratings, read on today's scale (RATINGS below): the five
+  // faces, and the four-flame scale of 2026-10-17 (🔥 OK, 🔥🔥 Liked it, …),
+  // told apart by entries saved since carrying scale: 5.
+  const OLD_RATINGS = { '😴': '🤔', '😐': '🤔', '🙂': '🔥', '😍': '🔥🔥🔥', '🤯': '🧨' };
+  const FOUR_STEP = { '🔥': '🤔', '🔥🔥': '🔥', '🔥🔥🔥': '🔥🔥🔥', '🧨': '🧨' };
   const archive = (() => {
     let data = {};
     try { data = JSON.parse(store.get('showArchive', '{}')) || {}; } catch (e) { data = {}; }
     const write = () => store.set('showArchive', JSON.stringify(data));
-    let moved = false;   // ratings given on the earlier face scale
-    Object.values(data).forEach(e => { if (OLD_RATINGS[e.rating]) { e.rating = OLD_RATINGS[e.rating]; moved = true; } });
+    let moved = false;   // ratings given on an earlier scale
+    Object.values(data).forEach(e => {
+      if (e.scale === 5) return;
+      if (e.rating) e.rating = OLD_RATINGS[e.rating] || FOUR_STEP[e.rating] || e.rating;
+      e.scale = 5; moved = true;
+    });
     if (moved) write();
     return {
       get: id => data[id] || null,
       all: () => Object.values(data).sort((a, b) => (b.seenOn || '').localeCompare(a.seenOn || '') || (b.savedAt || 0) - (a.savedAt || 0)),
-      put(e) { data[e.id] = e; write(); },
+      put(e) { data[e.id] = { ...e, scale: 5 }; write(); },
       remove(id) { delete data[id]; write(); },
     };
   })();
   const showSnapshot = s => ({ id: showId(s), city: state.cityKey, title: s.title, artist: s.artist || null,
     venue: s.venue.name, address: s.venue.address || '', startDate: s.startDate || null, endDate: s.endDate || null, img: showImg(s) });
-  // Three flames then TNT, rising (Carlton, 2026-10-17); the earlier five
-  // faces read as 😴 😐 → 🔥, 🙂 → 🔥🔥, 😍 → 🔥🔥🔥, 🤯 → 🧨.
-  const RATINGS = [['🔥', 'OK'], ['🔥🔥', 'Liked it'], ['🔥🔥🔥', 'Loved it'], ['🧨', 'Blew me away']];
+  // Undecided, three flames, then TNT, rising (Carlton, 2026-10-17).
+  const RATINGS = [['🤔', 'Undecided'], ['🔥', 'Liked it'], ['🔥🔥', 'Really liked it'], ['🔥🔥🔥', 'Loved it'], ['🧨', 'Blew me away']];
   const TAGS = [['🎨', 'Painting'], ['🗿', 'Sculpture'], ['📸', 'Photo'], ['🎬', 'Video'], ['🧵', 'Textile'], ['🌀', 'Installation'],
     ['✨', 'Beautiful'], ['🔥', 'Bold'], ['💭', 'Thoughtful'], ['🤔', 'Puzzling'], ['😂', 'Funny'], ['😢', 'Moving'],
     ['🖤', 'Dark'], ['🌈', 'Colorful'], ['🤫', 'Quiet'], ['👀', 'Go see it']];
