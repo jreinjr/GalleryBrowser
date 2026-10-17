@@ -1947,6 +1947,23 @@
   // behind the card, swiping the footer deals the next one, and a tap opens
   // whichever show is face up. A single show returns the bare card — no sheets,
   // no counter, nothing to swipe.
+  // A show card's third line: the venue's rank, its grouped open hours and a
+  // map button that opens the Map on the matching Galleries | Museums side
+  // with the pin ringed.
+  function venueInfoLine(venue) {
+    const v = fullVenue(venue);
+    const museum = onMuseumList(v);
+    const r = listRank(v);
+    const hours = (v.hours || []).join(', ');
+    const mapBtn = v.lat == null ? null : el('button', {
+      class: 'cf-map', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
+      onclick: e => { e.stopPropagation(); showOnMap(v); },
+    }, icon('map'), 'Map');
+    return el('div', { class: 'info' },
+      r == null ? null : el('span', { class: 'cf-rank' }, museum ? `Museum #${r}` : `#${r}`),
+      hours ? el('span', { class: 'cf-hours' }, hours) : null,
+      mapBtn);
+  }
   const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
   function showDeck(shows, opts) {
     const { cls, carousel, sub, onOpen, nameExtra } = opts;
@@ -1987,7 +2004,7 @@
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       // nameExtra (the flame) sits after the name and sub lines, centered on both.
-      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s))];
+      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s)), venueInfoLine(s.venue)];
       const text = nameExtra
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
@@ -3049,6 +3066,8 @@
   }
   // The map button on a ranking row: the Map tab, zoomed to the gallery with its pin ringed.
   function showOnMap(v) {
+    const kind = onMuseumList(v) ? 'museums' : 'galleries';   // the side of the switch the pin is on
+    if (state.mapFilter.kind !== kind) { state.mapFilter.kind = kind; refreshAll(); }
     closeAllSheets();
     setTab('map');
     MapTab.focus(venueKey(v), v.lng, v.lat);
