@@ -2013,7 +2013,7 @@
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
-      // one row under the text: Map, Directions | the hours in blue, centered | count, save
+      // one row under the text: Map, Directions, the hours in grey | count, save
       const hours = cardHours(fullVenue(s.venue));
       const footer = el('div', { class: 'card-footer' }, text,
         el('div', { class: 'cf-buttons' }, ...venueActs(s.venue), el('span', { class: 'cf-hours' }, hours),

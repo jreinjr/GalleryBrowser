@@ -118,21 +118,21 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
   background: #E9E9EB;
 }
 .card-footer .cf-text { min-width: 0; cursor: pointer; }
-.card-footer .bookmark-btn { background: rgba(0, 0, 0, 0.32); color: #fff; width: 34px; height: 34px; flex: none; }
-.card-footer .bookmark-btn svg { width: 17px; height: 17px; }
+.card-footer .bookmark-btn { background: rgba(0, 0, 0, 0.32); color: #fff; width: 30px; height: 30px; flex: none; }
+.card-footer .bookmark-btn svg { width: 15px; height: 15px; }
 .card-footer .bookmark-btn.saved { color: var(--blue); }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* the button row: Map and Directions, the hours in blue centered between them and the
-   count and save, the hours as tall as the 34px buttons */
+/* the button row: Map and Directions, then the hours in grey, left-aligned, then the
+   count and save on the right; 30px buttons */
 .card-footer .cf-venue { color: rgba(0, 0, 0, 0.6); font-weight: 700; }
 .card-footer .cf-buttons { display: flex; align-items: center; gap: 6px; }
-.card-footer .cf-hours { flex: 1; min-width: 0; text-align: center; color: #0A6FD6; font-size: 18px; line-height: 34px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-footer .cf-act { flex: none; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(0, 0, 0, 0.08); color: rgba(0, 0, 0, 0.5); }
-.card-footer .cf-act svg { width: 18px; height: 18px; }
+.card-footer .cf-hours { flex: 1; min-width: 0; margin-left: 4px; text-align: left; color: rgba(0, 0, 0, 0.55); font-size: 15px; line-height: 30px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-footer .cf-act { flex: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(0, 0, 0, 0.08); color: rgba(0, 0, 0, 0.5); }
+.card-footer .cf-act svg { width: 16px; height: 16px; }
 /* "1 / 3": more than one show at this gallery, in bold red so it isn't missed */
 /* a button the save button's height: white, so the red count stays readable on the light bar */
-.card-footer .cf-count { font-size: 16px; font-weight: 800; color: #E0262B; flex: 0 0 auto; font-variant-numeric: tabular-nums; height: 34px; min-width: 34px; padding: 0 9px; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18); white-space: nowrap; cursor: pointer; }
+.card-footer .cf-count { font-size: 14px; font-weight: 800; color: #E0262B; flex: 0 0 auto; font-variant-numeric: tabular-nums; height: 30px; min-width: 30px; padding: 0 8px; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18); white-space: nowrap; cursor: pointer; }
 
 /* A venue's concurrent shows deal through one card (showDeck in app.js): sheets
    peek out below to say how deep the deck is, and the footer swipes through it.
