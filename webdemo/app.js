@@ -1287,10 +1287,10 @@
   }
   // A show tapped on the Shows tab opens its rating page ("I saw this show":
   // the small picture, the emoji rating, tags, notes and Save to archive) in a
-  // sheet; Show details there opens the show (Carlton, 2026-10-17).
+  // sheet, without Show details (Carlton, 2026-10-17).
   function rateFromCard(s) {
     let close = null;
-    const p = ratePage(showSnapshot(s), s, () => close && close());
+    const p = ratePage(showSnapshot(s), null, () => close && close());
     p.classList.remove('page-push');
     close = openSheet(p);
   }
@@ -1337,31 +1337,33 @@
     return page;
   }
 
-  // Favorite pictures in a show, three levels: each picture on the show page
-  // carries a star button that cycles none → ★ → ★★ → ★★★ → none (Carlton,
-  // 2026-10-17). Kept on this device in localStorage['imageFavs'] as
-  // { "<showId>|<image src>": level }.
+  // A rating on each picture in a show, drawn on the picture itself in every
+  // slideshow (Shows tab, Map list, gallery cards, the show page): each tap
+  // cycles off → 🔥 → 🧨 → off, faint when off (Carlton, 2026-10-17). Kept on
+  // this device in localStorage['imageFavs'] as { "<showId>|<image src>": 1 | 2 };
+  // the earlier star levels read as 1★ → 🔥, 2–3★ → 🧨.
   const imageFavs = (() => {
     let data = {};
     try { data = JSON.parse(store.get('imageFavs', '{}')) || {}; } catch (e) { data = {}; }
     const key = (s, entry) => showId(s) + '|' + entry.src;
     return {
-      get: (s, entry) => data[key(s, entry)] || 0,
+      get: (s, entry) => Math.min(2, data[key(s, entry)] || 0),
       set(s, entry, n) { if (n) data[key(s, entry)] = n; else delete data[key(s, entry)]; store.set('imageFavs', JSON.stringify(data)); },
     };
   })();
+  const IMG_MARKS = ['🔥', '🔥', '🧨'];   // off shows a faint flame to tap
   function imageFavButton(s, entry) {
     const b = el('button', { class: 'img-fav', 'data-img-fav': entry.src });
     b.paint = () => {
       const n = imageFavs.get(s, entry);
       b.dataset.level = String(n);
-      b.textContent = n ? '★'.repeat(n) : '☆';
-      b.setAttribute('aria-label', n ? `Favorite picture, level ${n} of 3: tap to change` : 'Mark as a favorite picture');
+      b.textContent = IMG_MARKS[n];
+      b.setAttribute('aria-label', n === 2 ? 'Picture rated TNT: tap to clear' : n === 1 ? 'Picture rated flame: tap for TNT' : 'Rate this picture: tap for a flame');
     };
     b.addEventListener('pointerdown', e => e.stopPropagation());   // not a pinch or a swipe start
     b.onclick = e => {
       e.stopPropagation();
-      imageFavs.set(s, entry, (imageFavs.get(s, entry) + 1) % 4);
+      imageFavs.set(s, entry, (imageFavs.get(s, entry) + 1) % 3);
       document.querySelectorAll('[data-img-fav]').forEach(x => x.dataset.imgFav === entry.src && x.paint && x.paint());
     };
     b.paint();
@@ -2110,7 +2112,8 @@
       card.innerHTML = '';
       const save = bookmarkBtn(s);
       save.classList.add('cf-save');
-      const car = makeCarousel(s.images, { ...carousel, onTap: i => { const b = bioAt(s, i); if (b) openCV(b); else open(); } });   // the bio card opens the CV
+      const car = makeCarousel(s.images, { ...carousel, onTap: i => { const b = bioAt(s, i); if (b) openCV(b); else open(); },   // the bio card opens the CV
+        slideExtra: entry => imageFavButton(s, entry) });
       car.appendChild(save);
       card.append(car, footer);
       card.classList.remove('deal-next', 'deal-prev');
