@@ -452,23 +452,23 @@
   // galleries" is then a default list — their shows — and a filter context.
   // Stored as "<city>/<venueId>" in localStorage['favoriteVenueIDs'].
   const favKey = v => state.cityKey + '/' + venueId(v);
-  // A gem: the person's own mark on a gallery; its map dot becomes a gem.
+  // A gem or an eye: the person's own mark on a gallery, one at a time; its
+  // map dot becomes a gem or an eye.
   const isGem = v => !!venueId(v) && state.gems.has(favKey(v));
-  function toggleGem(v) {
+  const isEye = v => !!venueId(v) && state.eyes.has(favKey(v)) && !isGem(v);
+  // 'none' | 'eye' | 'gem'
+  const venueMark = v => isGem(v) ? 'gem' : isEye(v) ? 'eye' : 'none';
+  function setVenueMark(v, mark) {
     if (!venueId(v)) return;
     const k = favKey(v);
-    if (state.gems.has(k)) state.gems.delete(k); else state.gems.add(k);
-    persistGems();
+    state.gems.delete(k); state.eyes.delete(k);
+    if (mark === 'gem') state.gems.add(k);
+    if (mark === 'eye') state.eyes.add(k);
+    persistGems(); persistEyes();
     MapTab.applyFilter();
   }
-  const isEye = v => !!venueId(v) && state.eyes.has(favKey(v));
-  function toggleEye(v) {
-    if (!venueId(v)) return;
-    const k = favKey(v);
-    if (state.eyes.has(k)) state.eyes.delete(k); else state.eyes.add(k);
-    persistEyes();
-    MapTab.applyFilter();
-  }
+  const toggleGem = v => setVenueMark(v, isGem(v) ? 'none' : 'gem');
+  const toggleEye = v => setVenueMark(v, isEye(v) ? 'none' : 'eye');
   // Gems are always the built-in gem (the emoji picker is gone; an emoji
   // picked earlier is ignored).
   const gemSymbol = () => null;
@@ -3060,20 +3060,23 @@
     setTimeout(() => input.focus(), 320);
   }
 
-  // The second, small row on a gallery's ranking row: a gem (its map pin
-  // becomes a gem) and an eye (a 👁️ on its pin). Faint when off.
+  // The second, small row on a gallery's ranking row: one mark that cycles on
+  // each tap, none → eye → gem → none; the eye or gem then replaces the
+  // gallery's pin on the map. Faint when none, red once a show there is saved.
+  const MARK_NEXT = { none: 'eye', eye: 'gem', gem: 'none' };
   function venueMarks(v) {
-    const mk = (name, emoji, label, isOn, toggle) => {
-      const b = el('button', { class: 'vmark', 'data-vmark': name, 'aria-label': label });
-      b.paint = () => { const on = isOn(v); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); };
-      b.append(emoji);
-      b.onclick = e => { e.stopPropagation(); toggle(v); repaintVenueMarks(); };
-      b.paint();
-      return b;
+    const b = el('button', { class: 'vmark', 'data-vmark': 'cycle' });
+    b.paint = () => {
+      const mark = venueMark(v);
+      b.dataset.mark = mark;
+      b.classList.toggle('on', mark !== 'none');
+      b.classList.toggle('saved', mark !== 'none' && hasSavedShow(v));
+      b.setAttribute('aria-label', mark === 'gem' ? 'Gem on the map: tap to clear' : mark === 'eye' ? 'Eye on the map: tap for a gem' : 'Mark on the map: tap for an eye');
+      b.replaceChildren(mark === 'gem' ? icon('gem') : el('span', { class: 'vm-eye' }, '👁️'));
     };
-    return el('div', { class: 'vmarks' },
-      mk('gem', icon('gem'), 'Gem: a gem instead of a pin on the map', isGem, toggleGem),
-      mk('eye', '👁️', 'Eye: an eye on the map pin', isEye, toggleEye));
+    b.onclick = e => { e.stopPropagation(); setVenueMark(v, MARK_NEXT[venueMark(v)]); repaintVenueMarks(); };
+    b.paint();
+    return el('div', { class: 'vmarks' }, b);
   }
   // The map button on a ranking row: the Map tab, zoomed to the gallery with its pin ringed.
   function showOnMap(v) {

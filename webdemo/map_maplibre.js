@@ -62,24 +62,28 @@
       map.addImage(id, img, { pixelRatio: R });
     });
   }
-  // An eye: the person's own "watch this one" mark, drawn as a small 👁️ badge
-  // above the top-right of the gallery's pin (dot or gem).
-  const IS_EYE = ['==', ['get', 'eye'], 1];
+  // An eye: the person's own "watch this one" mark, drawn like a gem in place
+  // of the gallery's dot: a 👁️ on a white disc, or a red disc when the
+  // gallery has a saved show (an emoji cannot be recoloured).
+  const IS_EYE = ['all', ['==', ['get', 'eye'], 1], ['!', IS_GEM]];
+  const IS_MARKED = ['any', IS_GEM, IS_EYE];
   function addEyeImage(map) {
-    const S = 18, R = 3, P = S * R;
-    const c = document.createElement('canvas'); c.width = c.height = P;
-    const g = c.getContext('2d');
-    const r = P / 2 - 2 * R;
-    g.save();
-    g.shadowColor = 'rgba(0, 0, 0, 0.35)'; g.shadowBlur = 2 * R; g.shadowOffsetY = 0.5 * R;
-    g.beginPath(); g.arc(P / 2, P / 2, r, 0, 2 * Math.PI); g.fillStyle = '#ffffff'; g.fill();
-    g.restore();
-    g.lineWidth = 1 * R; g.strokeStyle = 'rgba(25, 75, 135, 0.45)'; g.stroke();
-    g.font = `${Math.round(r * 1.25)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
-    g.textAlign = 'center'; g.textBaseline = 'middle';
-    g.fillText('👁️', P / 2, P / 2 + r * 0.08);
-    if (map.hasImage('eye-badge')) map.removeImage('eye-badge');
-    map.addImage('eye-badge', g.getImageData(0, 0, P, P), { pixelRatio: R });
+    const S = 22, R = 3, P = S * R;
+    [['eye-badge', '#ffffff'], ['eye-red', SAVED_COLOR]].forEach(([id, fill]) => {
+      const c = document.createElement('canvas'); c.width = c.height = P;
+      const g = c.getContext('2d');
+      const r = P / 2 - 2.5 * R;
+      g.save();
+      g.shadowColor = 'rgba(0, 0, 0, 0.35)'; g.shadowBlur = 2 * R; g.shadowOffsetY = 0.5 * R;
+      g.beginPath(); g.arc(P / 2, P / 2, r, 0, 2 * Math.PI); g.fillStyle = fill; g.fill();
+      g.restore();
+      g.lineWidth = 1.2 * R; g.strokeStyle = fill === '#ffffff' ? 'rgba(25, 75, 135, 0.6)' : '#ffffff'; g.stroke();
+      g.font = `${Math.round(r * 1.2)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;
+      g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText('👁️', P / 2, P / 2 + r * 0.08);
+      if (map.hasImage(id)) map.removeImage(id);
+      map.addImage(id, g.getImageData(0, 0, P, P), { pixelRatio: R });
+    });
   }
   // Several galleries in one building share a pin: larger, with the count inside.
   const IS_SHARED = ['>', ['coalesce', ['get', 'n'], 1], 1];
@@ -251,7 +255,7 @@
         paint: { 'circle-radius': 13, 'circle-color': 'rgba(255, 149, 0, 0.28)', 'circle-stroke-width': 2.5, 'circle-stroke-color': 'rgba(255, 149, 0, 1)' },
       });
       map.addLayer({
-        id: 'gal-dot', type: 'circle', source: SRC, filter: ['!', IS_GEM],
+        id: 'gal-dot', type: 'circle', source: SRC, filter: ['!', IS_MARKED],
         layout: { 'circle-sort-key': ['+', ['-', ['*', -1, ['get', 'band']], ['*', 0.5, activeOrder]], ['*', 5, ['get', 'saved']]] },
         paint: {
           'circle-color': ['case', IS_SAVED, SAVED_COLOR, ['match', ['get', 'band'], 0, BAND_COLOR[0], 1, BAND_COLOR[1], BAND_COLOR[2]]],
@@ -261,20 +265,21 @@
           'circle-stroke-opacity': DOT_OPACITY,
         },
       });
-      // Gems: the person's marked galleries, drawn as a gem in place of the dot.
+      // Gems and eyes: the person's marked galleries, drawn in place of the dot.
       map.addLayer({
         id: 'gal-gem', type: 'symbol', source: SRC, filter: IS_GEM,
         layout: { 'icon-image': GEM_IMAGE, 'icon-size': ['case', IS_SHARED, 1.3, 1], 'icon-allow-overlap': true, 'icon-ignore-placement': true },
         paint: { 'icon-opacity': DOT_OPACITY },
       });
       map.addLayer({
-        id: 'gal-eye', type: 'symbol', source: SRC, filter: IS_EYE,
-        layout: { 'icon-image': 'eye-badge', 'icon-anchor': 'bottom-left', 'icon-offset': ['case', IS_GEM, ['literal', [3, -3]], ['literal', [2, -2]]],
+        id: 'gal-eye', type: 'symbol', source: SRC, filter: IS_EYE,   // an eye in place of the dot, like a gem
+        layout: { 'icon-image': ['case', IS_SAVED, 'eye-red', 'eye-badge'], 'icon-size': ['case', IS_SHARED, 1.3, 1],
                   'icon-allow-overlap': true, 'icon-ignore-placement': true },
+        paint: { 'icon-opacity': DOT_OPACITY },
       });
       // The number of galleries on a shared pin, inside its dot.
       map.addLayer({
-        id: 'gal-count', type: 'symbol', source: SRC, filter: ['all', IS_SHARED, ['!', IS_GEM]],   // a gem's names say who shares it
+        id: 'gal-count', type: 'symbol', source: SRC, filter: ['all', IS_SHARED, ['!', IS_MARKED]],   // a gem's or eye's names say who shares it
         layout: { 'text-field': ['to-string', ['get', 'n']], 'text-font': FONT_BOLD, 'text-size': 11,
                   'text-allow-overlap': true, 'text-ignore-placement': true },
         paint: { 'text-color': ['case', ['==', ['get', 'band'], 1], '#14365e', '#ffffff'], 'text-opacity': DOT_OPACITY },

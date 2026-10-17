@@ -682,10 +682,13 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .galleries-page.editing .rank-n { color: var(--blue); }
 .rr-main { flex: 1; min-width: 0; text-align: left; color: #fff; }
 .rr-hit { display: block; width: 100%; text-align: left; color: inherit; }
-.vmarks { display: flex; gap: 14px; margin-top: 3px; }
-.vmark svg { width: 15px; height: 15px; display: block; color: rgba(97, 173, 242, 1); }
-.vmark { font-size: 15px; line-height: 1; padding: 3px 0; opacity: 0.3; filter: grayscale(1); transition: opacity 0.15s ease, transform 0.15s ease; }
-.vmark.on { opacity: 1; filter: none; transform: scale(1.2); }
+/* one mark per row, cycling none → eye → gem; red once a show there is saved */
+.vmarks { display: flex; margin-top: 2px; }
+.vmark svg { width: 24px; height: 24px; display: block; color: rgba(97, 173, 242, 1); }
+.vmark { font-size: 24px; line-height: 1; padding: 3px 6px 3px 0; opacity: 0.3; filter: grayscale(1); transition: opacity 0.15s ease; }
+.vmark.on { opacity: 1; filter: none; }
+.vmark.saved svg { color: rgba(229, 57, 53, 1); }
+.vmark.saved .vm-eye { filter: grayscale(1) sepia(1) saturate(9) hue-rotate(-50deg) brightness(0.9); }
 .rr-map { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blue); background: rgba(255, 255, 255, 0.08); flex: 0 0 auto; }
 .rr-map svg { width: 24px; height: 24px; }
 .rr-name { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
