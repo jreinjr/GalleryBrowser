@@ -1276,15 +1276,23 @@
   // ---------------- screens ----------------
   // A Featured row is one venue, not one show: concurrent shows at the same
   // gallery deal through a single card rather than repeating the venue down the
-  // feed. Tapping it opens the same gallery card a map pin opens (its shows;
-  // a show opens that show, where it can be rated).
+  // feed. Tapping it opens the face-up show's rating page (rateFromCard).
   function showCard(deck) {
     return showDeck(deck, {
       cls: 'feed-card',
       carousel: { aspect: '1 / 1', dots: 'above-footer' },
       sub: s => venueSub(s.venue),
-      onOpen: s => openSheet(mapVenueCard(fullVenue(s.venue), deck, [])),
+      onOpen: rateFromCard,
     });
+  }
+  // A show tapped on the Shows tab opens its rating page ("I saw this show":
+  // the small picture, the emoji rating, tags, notes and Save to archive) in a
+  // sheet; Show details there opens the show (Carlton, 2026-10-17).
+  function rateFromCard(s) {
+    let close = null;
+    const p = ratePage(showSnapshot(s), s, () => close && close());
+    p.classList.remove('page-push');
+    close = openSheet(p);
   }
 
   // Group the filtered set by venue, keeping feed order: a venue takes the slot
