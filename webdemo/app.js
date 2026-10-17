@@ -1765,6 +1765,19 @@
   // and gallery, with two rows of emoji where Save would be (the flame or TNT,
   // the puppy or wolf, and the rating; the tags). A card opens just that show. A show that has
   // left the data still lists from the snapshot taken when it was flamed or rated.
+  // The Archive's card-size slider: five steps from five across (smaller than
+  // the old three) to one across, full size like the Shows tab's cards; kept
+  // on this device in localStorage['archiveCardSize'] (Carlton, 2026-10-17).
+  const ARCHIVE_COLS = [5, 4, 3, 2, 1];
+  function archiveSizeSlider(grid) {
+    let step = +store.get('archiveCardSize', '3');
+    if (!(step >= 1 && step <= 5)) step = 3;
+    const apply = () => { grid.dataset.cols = String(ARCHIVE_COLS[step - 1]); };
+    const input = el('input', { type: 'range', min: '1', max: '5', step: '1', value: String(step), 'aria-label': 'Card size' });
+    input.addEventListener('input', () => { step = +input.value; apply(); store.set('archiveCardSize', String(step)); });
+    apply();
+    return el('label', { class: 'archive-size' }, el('span', { class: 'as-small' }), input, el('span', { class: 'as-big' }));
+  }
   function archiveRoot() {
     const listEl = el('div', { class: 'archive-grid' });
     const empty = el('div', { class: 'empty-plain' }, 'Nothing here yet. Tap the flame or puppy next to an artist on a gallery card and that show lands here.');
@@ -1772,6 +1785,7 @@
       el('div', { class: 'navrow' }),
       el('div', { class: 'large-title' }, 'Archive'),
       el('div', { class: 'archive-note' }, 'Shows you gave a flame or puppy, or rated. Kept on this device.'),
+      archiveSizeSlider(listEl),
       listEl, empty));
     page.refresh = () => {
       const xs = archiveEntries();
@@ -1812,15 +1826,7 @@
     const live = x.live, s = x.show;
     const img = live ? showImg(live) : (x.snap && x.snap.img);
     const r = x.rated;
-    const open = () => {
-      if (live) push(tab, showDetailPage([live], 0));
-      else if (r) {
-        let close = null;
-        const p = ratePage(r, null, () => { if (close) close(); if (owner && owner.refresh) owner.refresh(); });
-        p.classList.remove('page-push');
-        close = openSheet(p);
-      }
-    };
+    const open = () => push(tab, archiveShowPage(x, tab, owner));
     return el('div', { class: 'archive-card', onclick: open },
       img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
       el('div', { class: 'ac-foot' },
@@ -1830,6 +1836,34 @@
         el('div', { class: 'ac-emoji' },
           el('div', { class: 'ac-row' }, ...MARKS.map(m => m.store.get(x.id) ? markButton(m, s) : null), r && r.rating ? el('span', null, r.rating) : null),
           el('div', { class: 'ac-row' }, r && r.tags ? r.tags.join('') : ''))));
+  }
+  // An archived show opened from the Archive: the full-size show card of the
+  // Shows tab (slideshow, picture marks, gallery line, hours, Map and
+  // Directions); tapping it opens the I saw this show page. A show that has
+  // left the data is rebuilt from what was kept: its snapshot picture and the
+  // pictures it was rated on (Carlton, 2026-10-17).
+  function archiveShowPage(x, tab, owner) {
+    let s = x.live;
+    if (!s) {
+      const kept = [...(x.show.images || []), ...imageFavs.rated(x.id)];
+      const seen = new Set();
+      s = { ...x.show, gone: true, images: kept.filter(e => !seen.has(e.src) && seen.add(e.src)) };
+    }
+    const rate = () => {
+      let close = null;
+      const p = ratePage(x.rated || showSnapshot(s), null, () => { if (close) close(); if (owner && owner.refresh) owner.refresh(); });
+      p.classList.remove('page-push');
+      close = openSheet(p);
+    };
+    const card = showDeck([s], {
+      cls: 'feed-card',
+      carousel: { aspect: '1 / 1', dots: 'above-footer' },
+      sub: y => y.gone ? y.venue.name : venueSub(y.venue),
+      onOpen: rate,
+    });
+    return el('div', { class: 'page archive-show' }, el('div', { class: 'page-scroll' },
+      el('div', { class: 'navrow' }, backBtn(tab)),
+      el('div', { class: 'feed' }, card)));
   }
   // A gallery's own archive: the archived shows that hung there (the live
   // show's gallery, else the snapshot's gallery name in the same city), with a
@@ -2062,7 +2096,7 @@
       class: 'cf-act', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
       onclick: e => { e.stopPropagation(); showOnMap(v); },
     }, icon('map'));
-    const dirBtn = el('a', {
+    const dirBtn = v.lat == null ? null : el('a', {
       class: 'cf-act', href: directionsUrl(v), target: '_blank', rel: 'noopener', 'aria-label': 'Directions',
       onclick: e => e.stopPropagation(),
     }, icon('walk'));
@@ -2126,11 +2160,11 @@
           }, `${idx + 1} / ${shows.length}`) : null));
       if (deep) wireSwipe(footer);
       card.innerHTML = '';
-      const save = bookmarkBtn(s);
-      save.classList.add('cf-save');
+      const save = s.gone ? null : bookmarkBtn(s);   // a show that has left the data can't be saved
+      if (save) save.classList.add('cf-save');
       const car = makeCarousel(s.images, { ...carousel, onTap: i => { const b = bioAt(s, i); if (b) openCV(b); else open(); },   // the bio card opens the CV
         slideExtra: entry => imageFavButton(s, entry) });
-      car.appendChild(save);
+      if (save) car.appendChild(save);
       card.append(car, footer);
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;

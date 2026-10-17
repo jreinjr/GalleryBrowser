@@ -840,7 +840,28 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .archive-noteline { font-size: 13px; color: var(--secondary); margin-top: 3px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* Archive tab: small square cards, three across; two rows of emoji where Save would be */
-.archive-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 6px 10px 96px; }
+.archive-grid { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; padding: 6px 10px 96px; }
+/* the size slider: five across up to one across, full size and full bleed like a show card */
+.archive-grid[data-cols="5"] { --cols: 5; gap: 6px; }
+.archive-grid[data-cols="4"] { --cols: 4; }
+.archive-grid[data-cols="2"] { --cols: 2; gap: 10px; }
+.archive-grid[data-cols="1"] { --cols: 1; gap: 14px; padding-left: 0; padding-right: 0; }
+.archive-grid[data-cols="1"] .archive-card { border-radius: 0; }
+.archive-grid[data-cols="1"] .ac-foot, .archive-grid[data-cols="2"] .ac-foot { padding: 8px 12px 10px 14px; }
+.archive-grid[data-cols="1"] .ac-artist { font-size: 16px; }
+.archive-grid[data-cols="1"] .ac-gallery { font-size: 13px; }
+.archive-grid[data-cols="1"] .ac-row { font-size: 18px; height: 22px; }
+.archive-grid[data-cols="2"] .ac-artist { font-size: 14px; }
+.archive-grid[data-cols="2"] .ac-gallery { font-size: 11px; }
+.archive-grid[data-cols="5"] .ac-foot { padding: 4px 4px 5px; }
+.archive-grid[data-cols="5"] .ac-artist { font-size: 10px; }
+.archive-grid[data-cols="5"] .ac-gallery { font-size: 9px; }
+.archive-size { display: flex; align-items: center; gap: 10px; padding: 4px 18px 10px; color: var(--secondary); }
+.archive-size input { flex: 1; accent-color: var(--blue); }
+/* a small and a large square at the ends say which way is bigger */
+.archive-size .as-small, .archive-size .as-big { flex: none; border: 1.5px solid currentColor; border-radius: 3px; }
+.archive-size .as-small { width: 10px; height: 10px; }
+.archive-size .as-big { width: 20px; height: 20px; border-radius: 4px; }
 .archive-card { border-radius: 10px; overflow: hidden; background: #e9e9ec; color: #000; cursor: pointer; min-width: 0; }
 .archive-card img, .archive-card .ac-noimg { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--row); }
 .ac-foot { display: flex; gap: 4px; align-items: center; padding: 5px 6px 6px; }
