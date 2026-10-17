@@ -1947,12 +1947,22 @@
   // behind the card, swiping the footer deals the next one, and a tap opens
   // whichever show is face up. A single show returns the bare card — no sheets,
   // no counter, nothing to swipe.
-  // A show card's third line: the grouped open hours in blue (what matters
-  // most), then icon-only Map (the Map on the matching Galleries | Museums
-  // side, the pin ringed) and Directions buttons.
-  function venueInfoLine(venue) {
+  // Show card hours: the grouped open days only, never "by appointment"
+  // ("Tue–Sat 11–6 or by appointment" → "Tue–Sat 11–6"; "By appointment only" → nothing).
+  const cardHours = v => (v.hours || []).join(', ').split(/,\s*/)
+    .map(h => h.replace(/\s+or by appointment(?: only)?/i, '').trim())   // "… or by appointment": keep the hours
+    .filter(h => h && !/appointment/i.test(h)).join(', ');                 // "Sat by appointment", "By appointment only": drop
+  // The second line: the venue (or the run dates) then the hours in blue,
+  // which keep their room while the address gives way.
+  const subLine = (s, text) => {
+    const hours = cardHours(fullVenue(s.venue));
+    return el('div', { class: 'sub' }, el('span', { class: 'cf-addr' }, text),
+      hours ? el('span', { class: 'cf-hours' }, hours) : null);
+  };
+  // Map (the Map on the matching Galleries | Museums side, the pin ringed)
+  // and Directions, icon-only, in the card's button row.
+  function venueActs(venue) {
     const v = fullVenue(venue);
-    const hours = (v.hours || []).join(', ');
     const mapBtn = v.lat == null ? null : el('button', {
       class: 'cf-act', 'aria-label': 'Show on the map', 'data-show-on-map': v.id || '',
       onclick: e => { e.stopPropagation(); showOnMap(v); },
@@ -1961,9 +1971,7 @@
       class: 'cf-act', href: directionsUrl(v), target: '_blank', rel: 'noopener', 'aria-label': 'Directions',
       onclick: e => e.stopPropagation(),
     }, icon('walk'));
-    return el('div', { class: 'info' },
-      hours ? el('span', { class: 'cf-hours' }, hours) : null,
-      el('span', { class: 'cf-acts' }, mapBtn, dirBtn));
+    return [mapBtn, dirBtn];
   }
   // "Gallery name • address" with the name in bold
   const venueSub = v => el('span', null, el('b', { class: 'cf-venue' }, listLine(v)), ` • ${v.address}`);
@@ -2007,17 +2015,19 @@
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       // nameExtra (the flame) sits after the name and sub lines, centered on both.
-      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s)), venueInfoLine(s.venue)];
+      const lines = [el('div', { class: 'name' }, nameNode(s)), subLine(s, sub(s))];
       const text = nameExtra
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
+      // every button in one row under the text: Map, Directions | count, save
       const footer = el('div', { class: 'card-footer' }, text,
-        deep ? el('button', {
-          class: 'cf-count', 'aria-label': 'Next show at this gallery',
-          onclick: e => { e.stopPropagation(); deal(1); },   // tapping the red count deals the next artist
-        }, `${idx + 1} / ${shows.length}`) : null,
-        bookmarkBtn(s));
+        el('div', { class: 'cf-buttons' }, ...venueActs(s.venue), el('span', { class: 'cf-gap' }),
+          deep ? el('button', {
+            class: 'cf-count', 'aria-label': 'Next show at this gallery',
+            onclick: e => { e.stopPropagation(); deal(1); },   // tapping the red count deals the next artist
+          }, `${idx + 1} / ${shows.length}`) : null,
+          bookmarkBtn(s)));
       if (deep) wireSwipe(footer);
       card.innerHTML = '';
       card.append(makeCarousel(s.images, { ...carousel, onTap: open }), footer);
