@@ -110,11 +110,12 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
   position: relative; border-radius: 0; overflow: hidden; background: #111;
   content-visibility: auto; contain-intrinsic-size: auto 400px;
 }
+/* the title card sits under the pictures, never over them: the whole square
+   photo shows on every show card (Shows tab, map list, gallery pages, pin cards) */
 .card-footer {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  position: relative; z-index: 3;
   padding: 8px 10px 8px 14px; display: flex; align-items: center; gap: 10px;
-  background: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(18px) saturate(1.8); backdrop-filter: blur(18px) saturate(1.8);
+  background: #E9E9EB;
 }
 .card-footer .cf-text { flex: 1; min-width: 0; cursor: pointer; }
 .card-footer .bookmark-btn { background: rgba(0, 0, 0, 0.32); color: #fff; width: 36px; height: 36px; }
@@ -159,9 +160,8 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .carousel-dots { position: absolute; display: flex; gap: 5px; z-index: 3; pointer-events: none; }
 .carousel-dots.top-left { top: 12px; left: 12px; }
 .carousel-dots.bottom-center { bottom: 12px; left: 50%; transform: translateX(-50%); }
-/* on show cards the frosted footer covers the photo's bottom edge: sit just above it */
-.carousel-dots.above-footer { bottom: 62px; }
-.venue-show-card .carousel-dots.above-footer { bottom: 54px; }
+/* the footer sits below the photo now, so the dots sit at the photo's own bottom edge */
+.carousel-dots.above-footer { bottom: 12px; }
 /* the shadow keeps white dots readable over pale photos */
 .carousel-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.45); box-shadow: 0 0 3px rgba(0, 0, 0, 0.5); }
 .carousel-dots i.on { background: rgba(255, 255, 255, 0.95); }
