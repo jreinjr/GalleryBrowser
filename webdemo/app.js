@@ -1349,6 +1349,9 @@
     return {
       get: (s, entry) => Math.min(2, data[key(s, entry)] || 0),
       set(s, entry, n) { if (n) data[key(s, entry)] = n; else delete data[key(s, entry)]; store.set('imageFavs', JSON.stringify(data)); },
+      // the pictures of a show (by id) that carry a rating: what an archived show
+      // that has left the data still has to show
+      rated: id => Object.keys(data).filter(k => k.startsWith(id + '|')).map(k => ({ src: k.slice(id.length + 1) })),
     };
   })();
   const IMG_MARKS = ['🔥', '🔥', '🧨'];   // off shows a faint flame to tap
@@ -1734,13 +1737,26 @@
       el('div', { class: 'navrow' }, back),
       el('div', { class: 'detail-body rate-body' },
         el('div', { class: 'rate-kicker' }, 'I saw this show'),
-        head, details,
+        head, details, ratePics(snap),
         el('div', { class: 'group-header' }, 'How was it?'), ratingRow,
         el('div', { class: 'group-header' }, 'Describe it'), tagWrap,
         el('div', { class: 'group-header' }, 'Notes'), note,
         el('label', { class: 'rate-day-row' }, el('span', null, 'Seen on'), day),
         saveBtn, status, removeBtn));
     return page;
+  }
+
+  // The rating page's pictures, each with its own 🔥 / 🧨 mark (the same one
+  // the slideshows carry): the live show's pictures, or for an archived show
+  // that has left the data the pictures it was rated on. Bio cards are left out.
+  function ratePics(snap) {
+    const live = showById(snap.id);
+    const s = live || archiveFromSnap(snap.id, snap);
+    const pics = (live ? live.images : imageFavs.rated(snap.id)).filter(e => !/\/bio-/.test(e.src));
+    if (!pics.length) return null;
+    return el('div', null, el('div', { class: 'group-header' }, 'Pictures'),
+      el('div', { class: 'rate-pics' }, ...pics.map(e => el('div', { class: 'rate-pic' },
+        el('img', { src: e.src, alt: '', loading: 'lazy', decoding: 'async' }), imageFavButton(s, e)))));
   }
 
   // The Archive tab: only the exact shows given a flame or puppy (not the rest
