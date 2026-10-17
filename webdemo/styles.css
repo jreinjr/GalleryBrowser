@@ -907,5 +907,9 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .cv-head { padding: 22px 0 6px; }
 .cv-list { display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.35; }
 .cv-row { display: flex; gap: 10px; color: inherit; }
-.cv-year { flex: 0 0 40px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.cv-year { flex: 0 0 52px; color: var(--secondary); font-variant-numeric: tabular-nums; }
 .cv-src { color: var(--blue); text-decoration: none; }
+.cv-text { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.cv-soon { margin-left: 6px; font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.cv-collections .cv-row { color: rgba(240, 80, 70, 1); }
+.cv-note { margin-top: 22px; font-size: 13px; color: var(--secondary); }

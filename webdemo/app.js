@@ -156,27 +156,46 @@
     return out;
   }
   // The bio card is one of the show's pictures; tapping it opens the artist's
-  // CV: everything the bio holds (build.py `cv`), with Full CV linking to the
-  // artist's own CV document when one is sourced (Carlton, 2026-10-17).
+  // CV page: the full CV (build.py ships content/artists/cvs/<slug>.json as
+  // cv.file, fetched on open) shown in the app, collections in red; until it
+  // loads, or when there is none, the bio's own facts (Carlton, 2026-10-17).
   const bioAt = (s, i) => (s.bios || []).find(b => b.img === i && b.cv) || null;
+  const cvCache = new Map();
   function openCV(b) {
     const cv = b.cv || {};
-    const yrs = b.died ? `${b.born}–${b.died}` : `Born ${b.born} · age ${ageText(b)}`;
-    const shows = xs => (xs || []).slice().sort((x, y) => (y.year || 0) - (x.year || 0))
-      .map(x => el('div', { class: 'cv-row' }, el('span', { class: 'cv-year' }, x.year ? String(x.year) : ''),
-        el('span', null, el('b', null, x.title || ''), x.venue ? `, ${x.venue}` : '', x.kind && x.kind !== 'solo' ? ` (${x.kind})` : '')));
-    const part = (label, rows) => rows.length ? [el('div', { class: 'group-header cv-head' }, label), el('div', { class: 'cv-list' }, ...rows)] : [];
     const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
+    const part = (label, rows, cls) => rows.length ? [el('div', { class: 'group-header cv-head' }, label), el('div', { class: 'cv-list' + (cls ? ' ' + cls : '') }, ...rows)] : [];
+    // the year shows once, on the first row of its run, as CVs print it
+    const yearRows = (items, body) => { let last; return items.map(x => {
+      const y = x.year ? String(x.year) : ''; const shown = y && y !== last ? y : ''; if (y) last = y;
+      return el('div', { class: 'cv-row' }, el('span', { class: 'cv-year' }, shown), el('span', { class: 'cv-text' }, ...body(x)));
+    }); };
+    const showBody = x => [x.title ? el('i', null, x.title) : null, x.title && x.venue ? ', ' : '', x.venue || '', x.text || '',
+      x.kind && x.kind !== 'solo' ? ` (${x.kind})` : '', x.forthcoming ? el('span', { class: 'cv-soon' }, 'Forthcoming') : null];
+    const sources = urls => part('Sources', (urls || []).map(u => el('a', { class: 'cv-row cv-src', href: u, target: '_blank', rel: 'noopener' }, host(u))));
+    const summary = () => [
+      ...part('Education', (cv.education || []).map(e => el('div', { class: 'cv-row' }, e))),
+      ...part('Museum shows', yearRows((cv.museum_shows || []).slice().sort((x, y) => (y.year || 0) - (x.year || 0)), showBody)),
+      ...part('Solo gallery shows', yearRows((cv.solo_gallery_shows || []).slice().sort((x, y) => (y.year || 0) - (x.year || 0)), showBody)),
+      ...sources(cv.sources)];
+    const full = d => [
+      ...d.sections.flatMap(sec => sec.kind === 'collections'
+        ? part(sec.title, (sec.items || []).map(x => el('div', { class: 'cv-row' }, el('span', { class: 'cv-text' }, x.text))), 'cv-collections')
+        : part(sec.title, yearRows(sec.items || [], showBody))),
+      d.cv_kind === 'rebuilt' ? el('div', { class: 'cv-note' }, 'No published CV was found; this one is assembled from the sources below.') : null,
+      ...sources(d.sources)];
+    const head = d => { const place = d && d.birthplace || cv.birthplace; return [
+      el('div', { class: 'cv-years' + (b.died ? ' died' : '') }, b.died ? `${b.born}–${b.died}` : `Age ${ageText(b)}`),
+      el('div', { class: 'cv-place' }, 'Born' + (b.died ? '' : ' ' + b.born) + (place ? ' in ' + place : '')),
+      d && d.lives_works ? el('div', { class: 'cv-place' }, (b.died ? 'Lived and worked in ' : 'Lives and works in ') + d.lives_works) : null]; };
+    const body = el('div', { class: 'detail-body cv-body' }, ...head(null), ...summary());
     openSheet(el('div', { class: 'page cv-sheet' },
       el('div', { class: 'sheet-header' }, el('div', { class: 'sheet-title' }, b.name), sheetCloseBtn()),
-      el('div', { class: 'page-scroll' }, el('div', { class: 'detail-body cv-body' },
-        el('div', { class: 'cv-years' + (b.died ? ' died' : '') }, yrs),
-        cv.birthplace ? el('div', { class: 'cv-place' }, cv.birthplace) : null,
-        cv.cvUrl ? el('a', { class: 'capsule-btn cv-full', href: cv.cvUrl, target: '_blank', rel: 'noopener' }, el('span', null, 'Full CV')) : null,
-        ...part('Education', (cv.education || []).map(e => el('div', { class: 'cv-row' }, e))),
-        ...part('Museum shows', shows(cv.museum_shows)),
-        ...part('Solo gallery shows', shows(cv.solo_gallery_shows)),
-        ...part('Sources', (cv.sources || []).map(u => el('a', { class: 'cv-row cv-src', href: u, target: '_blank', rel: 'noopener' }, host(u))))))));
+      el('div', { class: 'page-scroll' }, body)));
+    if (!cv.file) return;
+    const p = cvCache.get(cv.file) || fetch(cv.file).then(r => r.ok ? r.json() : null).catch(() => null);
+    cvCache.set(cv.file, p);
+    p.then(d => { if (d && (d.sections || []).length) body.replaceChildren(...head(d).filter(Boolean), ...full(d).filter(Boolean)); });
   }
   const listLine = v => v.name;
   const fullAddress = v => v.addressDetail ? v.address + ', ' + v.addressDetail : v.address;

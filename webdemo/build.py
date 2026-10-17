@@ -249,6 +249,25 @@ def main() -> None:
 
     from bio_cards import slugify  # scraper/, on sys.path via cityconfig
 
+    cv_dir = cityconfig.CONTENT_DIR / "artists" / "cvs"
+    cv_shipped: dict[str, str] = {}
+
+    def full_cv(name: str) -> str | None:
+        """Ship content/artists/cvs/<slug>.json as cv/<slug>.json (minified,
+        versioned so phones never show a stale CV); None when there is none."""
+        slug = slugify(name)
+        if slug in cv_shipped:
+            return cv_shipped[slug]
+        src = cv_dir / f"{slug}.json"
+        if not src.is_file():
+            return None
+        body = json.dumps(json.loads(src.read_text()), ensure_ascii=False, separators=(",", ":"))
+        dest = DIST / "cv" / f"{slug}.json"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_text(body, encoding="utf-8")
+        cv_shipped[slug] = f"cv/{slug}.json?v={hashlib.md5(body.encode()).hexdigest()[:10]}"
+        return cv_shipped[slug]
+
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
         bios = cityconfig.load_bios(cty["key"])
@@ -296,10 +315,14 @@ def main() -> None:
                 # bio card opens; cvUrl is the artist's own CV document when sourced
                 cv_url = next((u for u in a.get("sources") or [] if re.search(r"cv|resume|\.pdf", u, re.I)), None)
                 cv = {k: a[k] for k in ("birthplace", "education", "museum_shows", "solo_gallery_shows", "sources") if a.get(k)}
+                # the artist's full CV (content/artists/cvs/<slug>.json) ships as
+                # its own file the CV page fetches when opened
+                cv_file = full_cv(a["artist"])
                 show_bios.append({"name": a["artist"], "born": a["born"],
                                   **({"died": a["died"]} if a.get("died") else {}),
                                   **({"img": img} if img is not None else {}),
-                                  "cv": {**cv, **({"cvUrl": cv_url} if cv_url else {})}})
+                                  "cv": {**cv, **({"cvUrl": cv_url} if cv_url else {}),
+                                         **({"file": cv_file} if cv_file else {})}})
             v = s["venue"]
             # registry `kind` is the source of truth; the show record's boolean is
             # only the fallback for a venue with no registry entry
@@ -378,6 +401,7 @@ def main() -> None:
           else f"{pin_problems} problem(s) above — a venue or space with no map pin"))
     for key, text in sorted(corpora.items()):
         print(f"  discover corpus {key}: {human(len(text.encode('utf-8')))}")
+    print(f"  artist CVs: {len(cv_shipped)} shipped to cv/")
     print(f"  code {human(code_bytes)} | data.js {human((DIST / 'data.js').stat().st_size)} "
           f"| proxies {human(img_bytes)} | full-res {human(full_bytes)} ({full_count}) "
           f"| total {human(total)}")
