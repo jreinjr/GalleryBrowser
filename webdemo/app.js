@@ -1649,10 +1649,15 @@
   // localStorage['showArchive'] as { [showId]: entry }. An entry carries its own
   // copy of the show (title, artist, gallery, dates, first image) so it outlives
   // the show leaving the data. Lives on this device only.
+  // The earlier five-face show ratings, read as the flame scale (RATINGS below).
+  const OLD_RATINGS = { '😴': '🔥', '😐': '🔥', '🙂': '🔥🔥', '😍': '🔥🔥🔥', '🤯': '🧨' };
   const archive = (() => {
     let data = {};
     try { data = JSON.parse(store.get('showArchive', '{}')) || {}; } catch (e) { data = {}; }
     const write = () => store.set('showArchive', JSON.stringify(data));
+    let moved = false;   // ratings given on the earlier face scale
+    Object.values(data).forEach(e => { if (OLD_RATINGS[e.rating]) { e.rating = OLD_RATINGS[e.rating]; moved = true; } });
+    if (moved) write();
     return {
       get: id => data[id] || null,
       all: () => Object.values(data).sort((a, b) => (b.seenOn || '').localeCompare(a.seenOn || '') || (b.savedAt || 0) - (a.savedAt || 0)),
@@ -1662,7 +1667,9 @@
   })();
   const showSnapshot = s => ({ id: showId(s), city: state.cityKey, title: s.title, artist: s.artist || null,
     venue: s.venue.name, address: s.venue.address || '', startDate: s.startDate || null, endDate: s.endDate || null, img: showImg(s) });
-  const RATINGS = [['😴', 'Not for me'], ['😐', 'OK'], ['🙂', 'Liked it'], ['😍', 'Loved it'], ['🤯', 'Blew me away']];
+  // Three flames then TNT, rising (Carlton, 2026-10-17); the earlier five
+  // faces read as 😴 😐 → 🔥, 🙂 → 🔥🔥, 😍 → 🔥🔥🔥, 🤯 → 🧨.
+  const RATINGS = [['🔥', 'OK'], ['🔥🔥', 'Liked it'], ['🔥🔥🔥', 'Loved it'], ['🧨', 'Blew me away']];
   const TAGS = [['🎨', 'Painting'], ['🗿', 'Sculpture'], ['📸', 'Photo'], ['🎬', 'Video'], ['🧵', 'Textile'], ['🌀', 'Installation'],
     ['✨', 'Beautiful'], ['🔥', 'Bold'], ['💭', 'Thoughtful'], ['🤔', 'Puzzling'], ['😂', 'Funny'], ['😢', 'Moving'],
     ['🖤', 'Dark'], ['🌈', 'Colorful'], ['🤫', 'Quiet'], ['👀', 'Go see it']];
@@ -1737,26 +1744,13 @@
       el('div', { class: 'navrow' }, back),
       el('div', { class: 'detail-body rate-body' },
         el('div', { class: 'rate-kicker' }, 'I saw this show'),
-        head, details, ratePics(snap),
+        head, details,
         el('div', { class: 'group-header' }, 'How was it?'), ratingRow,
         el('div', { class: 'group-header' }, 'Describe it'), tagWrap,
         el('div', { class: 'group-header' }, 'Notes'), note,
         el('label', { class: 'rate-day-row' }, el('span', null, 'Seen on'), day),
         saveBtn, status, removeBtn));
     return page;
-  }
-
-  // The rating page's pictures, each with its own 🔥 / 🧨 mark (the same one
-  // the slideshows carry): the live show's pictures, or for an archived show
-  // that has left the data the pictures it was rated on. Bio cards are left out.
-  function ratePics(snap) {
-    const live = showById(snap.id);
-    const s = live || archiveFromSnap(snap.id, snap);
-    const pics = (live ? live.images : imageFavs.rated(snap.id)).filter(e => !/\/bio-/.test(e.src));
-    if (!pics.length) return null;
-    return el('div', null, el('div', { class: 'group-header' }, 'Pictures'),
-      el('div', { class: 'rate-pics' }, ...pics.map(e => el('div', { class: 'rate-pic' },
-        el('img', { src: e.src, alt: '', loading: 'lazy', decoding: 'async' }), imageFavButton(s, e)))));
   }
 
   // The Archive tab: only the exact shows given a flame or puppy (not the rest
