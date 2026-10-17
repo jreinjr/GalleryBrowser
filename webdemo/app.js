@@ -2013,18 +2013,20 @@
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
       text.addEventListener('click', open);
-      // one row under the text: Map, Directions, the hours in grey | count, save
+      // one row under the text: Map, Directions, the hours, the red count;
+      // the save button sits small in the photo's top-right corner
       const hours = cardHours(fullVenue(s.venue));
       const footer = el('div', { class: 'card-footer' }, text,
         el('div', { class: 'cf-buttons' }, ...venueActs(s.venue), el('span', { class: 'cf-hours' }, hours),
           deep ? el('button', {
             class: 'cf-count', 'aria-label': 'Next show at this gallery',
             onclick: e => { e.stopPropagation(); deal(1); },   // tapping the red count deals the next artist
-          }, `${idx + 1} / ${shows.length}`) : null,
-          bookmarkBtn(s)));
+          }, `${idx + 1} / ${shows.length}`) : null));
       if (deep) wireSwipe(footer);
       card.innerHTML = '';
-      card.append(makeCarousel(s.images, { ...carousel, onTap: open }), footer);
+      const save = bookmarkBtn(s);
+      save.classList.add('cf-save');
+      card.append(makeCarousel(s.images, { ...carousel, onTap: open }), save, footer);
       card.classList.remove('deal-next', 'deal-prev');
       if (!step) return;
       void card.offsetWidth;                  // restart the animation on a re-deal
