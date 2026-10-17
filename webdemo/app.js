@@ -136,7 +136,7 @@
   function nameNode(s) {
     const text = displayName(s);
     if (!s.artist || !s.bios) return text;
-    const marks = s.bios
+    const marks = s.bios.filter(b => b.born)
       .map(b => ({ b, at: text.indexOf(b.name) }))
       .map(m => ({ ...m, end: m.at < 0 ? text.length : m.at + m.b.name.length }))
       .sort((x, y) => x.end - y.end);
@@ -185,8 +185,8 @@
       d.cv_kind === 'rebuilt' ? el('div', { class: 'cv-note' }, 'No published CV was found; this one is assembled from the sources below.') : null,
       ...sources(d.sources)];
     const head = d => { const place = d && d.birthplace || cv.birthplace; return [
-      el('div', { class: 'cv-years' + (b.died ? ' died' : '') }, b.died ? `${b.born}–${b.died}` : `Age ${ageText(b)}`),
-      el('div', { class: 'cv-place' }, 'Born' + (b.died ? '' : ' ' + b.born) + (place ? ' in ' + place : '')),
+      b.born ? el('div', { class: 'cv-years' + (b.died ? ' died' : '') }, b.died ? `${b.born}–${b.died}` : `Age ${ageText(b)}`) : null,
+      b.born || place ? el('div', { class: 'cv-place' }, 'Born' + (b.born && !b.died ? ' ' + b.born : '') + (place ? ' in ' + place : '')) : null,
       d && d.lives_works ? el('div', { class: 'cv-place' }, (b.died ? 'Lived and worked in ' : 'Lives and works in ') + d.lives_works) : null]; };
     const body = el('div', { class: 'detail-body cv-body' }, ...head(null), ...summary());
     openSheet(el('div', { class: 'page cv-sheet' },

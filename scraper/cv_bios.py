@@ -11,7 +11,7 @@ pages), cv_url, sections [{kind, title, items}] in the CV's own order, and
 sources. build.py ships it for the CV page the bio card opens.
 
 A report maps show slugs to their artists ({"shows": {slug: [name, ...]}}).
-For each artist with a CV and a birth year but no bio on that show, a bio is
+For each artist with a CV but no bio on that show, a bio is
 added to content/artists/bios/<city>.json (education, latest museum shows,
 latest solo gallery shows); the slugs that got one are printed for
 bio_cards.py --slug.
@@ -98,9 +98,6 @@ def main() -> None:
                     if slugify(name) in have or not f.exists():
                         continue
                     d = json.loads(f.read_text())
-                    if not d.get("born"):
-                        print(f"  {slug}: {name} has no birth year — no bio card")
-                        continue
                     bios["shows"].setdefault(slug, []).append(bio_from_cv(d))
                     if slug not in added:
                         added.append(slug)

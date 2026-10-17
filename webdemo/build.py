@@ -307,8 +307,8 @@ def main() -> None:
             # tapping the age opens
             show_bios = []
             for a in bios.get(s["slug"], []):
-                if not a.get("born"):
-                    continue
+                # an artist with no known birth year still has a bio card and CV,
+                # just no age on the name line
                 card = f"/bio-{slugify(a['artist'])}."
                 img = next((i for i, e in enumerate(out_imgs) if card in e["src"]), None)
                 # cv: everything the bio holds, for the CV page that tapping the
@@ -318,7 +318,7 @@ def main() -> None:
                 # the artist's full CV (content/artists/cvs/<slug>.json) ships as
                 # its own file the CV page fetches when opened
                 cv_file = full_cv(a["artist"])
-                show_bios.append({"name": a["artist"], "born": a["born"],
+                show_bios.append({"name": a["artist"], **({"born": a["born"]} if a.get("born") else {}),
                                   **({"died": a["died"]} if a.get("died") else {}),
                                   **({"img": img} if img is not None else {}),
                                   "cv": {**cv, **({"cvUrl": cv_url} if cv_url else {}),
