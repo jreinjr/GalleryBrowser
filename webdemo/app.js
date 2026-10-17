@@ -816,7 +816,7 @@
         src: entry.src, 'data-full': entry.full || null,
         loading: 'lazy', decoding: 'async', alt: '',
       });
-      const slide = el('div', { class: 'carousel-slide' }, img, slideExtra ? slideExtra(entry, i) : null);
+      const slide = el('div', { class: 'carousel-slide' + (/\/bio-[^/]*$/.test(entry.src) ? ' bio' : '') }, img, slideExtra ? slideExtra(entry, i) : null);
       if (onTap) slide.addEventListener('click', () => onTap(i));
       track.appendChild(slide);
     });
