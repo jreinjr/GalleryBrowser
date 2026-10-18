@@ -23,6 +23,7 @@ import cityconfig
 from hours import group_hours  # scraper/, on sys.path via cityconfig
 import discover_corpus
 import images as image_pipe
+from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 DIST = HERE / "dist" / "gallery-browser-demo"
@@ -304,7 +305,10 @@ def main() -> None:
                 dest = DIST / out_rel
                 image_pipe.process(src, dest, args.max_width, args.quality)
                 img_bytes += dest.stat().st_size
-                entry = {"src": out_rel}
+                with Image.open(dest) as im:
+                    entry = {"src": out_rel, "r": round(im.width / im.height, 4),
+                             # version for the URL: a re-encode (a new trim) must reach phones
+                             "v": hashlib.md5(dest.read_bytes()).hexdigest()[:8]}
                 if args.full_side:
                     full_rel = str(Path(rel).with_suffix("")) + "@full.webp"
                     full_dest = DIST / full_rel
@@ -398,6 +402,7 @@ def main() -> None:
     for name in STATIC:
         shutil.copy(HERE / name, DIST / name)
     image_pipe.save_hashes()
+    image_pipe.save_trims()
     cache_bust()
     write_function_bundle(corpora)
     write_icons()

@@ -165,11 +165,17 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-slide { flex: 0 0 100%; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; }
-/* artwork is never cropped: the whole picture fits inside the slide with a
-   thin white border on every side (a bio card fills it) */
-.carousel-slide { box-sizing: border-box; padding: 4px; background: #fff; }
-.carousel-slide.bio { padding: 0; }
-.carousel-slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* artwork is never cropped: the whole picture floats on black inside the
+   slide, framed by its own thin white border (a bio card fills the slide).
+   The build has already trimmed plain wall or page off the picture's edges. */
+.carousel-slide { box-sizing: border-box; padding: 10px; background: #000;
+  display: flex; align-items: center; justify-content: center; container-type: size; }
+.carousel-slide.bio { padding: 0; display: block; }
+.carousel-slide.bio img { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* .framed: sized to the picture itself (--r = width / height) so the border
+   hugs it evenly on all four sides */
+img.framed { display: block; box-sizing: content-box; border: 2px solid #fff; height: auto;
+  aspect-ratio: var(--r, 1); width: min(calc(100cqw - 4px), calc((100cqh - 4px) * var(--r, 1))); }
 .carousel-dots { position: absolute; display: flex; gap: 5px; z-index: 3; pointer-events: none; }
 .carousel-dots.top-left { top: 12px; left: 12px; }
 .carousel-dots.bottom-center { bottom: 12px; left: 50%; transform: translateX(-50%); }
@@ -873,8 +879,10 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .archive-size .as-big { width: 20px; height: 20px; border-radius: 4px; }
 .archive-card { border-radius: 10px; overflow: hidden; background: #e9e9ec; color: #000; cursor: pointer; min-width: 0; }
 .archive-card img, .archive-card .ac-noimg { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--row); }
-/* the whole artwork, with a thin white border on every side */
-.archive-card img { display: block; box-sizing: border-box; padding: 3px; object-fit: contain; background: #fff; }
+/* the whole artwork on black, in a thin white border hugging the picture */
+.archive-card .ac-pic { box-sizing: border-box; width: 100%; aspect-ratio: 1 / 1; padding: 6px; background: #000;
+  display: flex; align-items: center; justify-content: center; container-type: size; }
+.archive-card .ac-pic img.framed { border-width: 1.5px; width: min(calc(100cqw - 3px), calc((100cqh - 3px) * var(--r, 1))); }
 .ac-foot { display: flex; gap: 4px; align-items: center; padding: 5px 6px 6px; }
 .ac-text { flex: 1; min-width: 0; }
 .ac-artist { font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

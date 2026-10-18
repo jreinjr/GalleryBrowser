@@ -1,4 +1,5 @@
-"""Show-image pipeline: resize/recompress source JPEGs to WebP with a disk cache.
+"""Show-image pipeline: trim plain edge bands, resize/recompress source JPEGs
+to WebP with a disk cache.
 
 Two variants per image: a proxy (width-capped, quality-lean) that every surface
 loads first, and — when the source meaningfully out-resolves the proxy — a
@@ -13,7 +14,7 @@ import os
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageFilter
 
 CACHE_DIR = Path(__file__).resolve().parent / ".cache" / "img"
 
@@ -52,12 +53,146 @@ def save_hashes() -> None:
         _HASHES_FILE.write_text(json.dumps(_hashes))
 
 
+# ---- trimming baked-in margins ----
+# Show pictures often arrive with a band of wall, white page or backdrop on one
+# or more sides. The app frames every picture in its own thin white border, so a
+# plain band along an edge is cut away first: an edge whose outer strip is one
+# even pale gray or white is trimmed inward until the rows (or columns) stop being that
+# color. Edges where the art or a varied photo reaches the frame are left alone.
+# Gallery photos and artist bio cards are never trimmed. Boxes are memoised by
+# content hash; TRIM_VERSION is part of every trimmed picture's cache key.
+TRIM_VERSION = 1
+TRIM_TOL = 12          # a pixel further than this (max channel) from the edge color is art
+TRIM_EDGE_TOL = 20     # an edge counts as margin when TRIM_EDGE_EVEN of its outer
+TRIM_EDGE_EVEN = 0.95  # strip is within TRIM_EDGE_TOL of the strip's median color
+TRIM_ROW_CONTENT = 0.01  # a row/column with more than this share of non-margin pixels is art
+TRIM_MIN_SIDE = 0.005  # ignore trims thinner than this share of the side
+# only a pale, near-gray edge counts as wall or page: a colored or dark edge is
+# much more likely the work's own ground (a pink painting, a night photograph)
+TRIM_MIN_LIGHT = 170   # darkest channel of the edge color
+TRIM_MAX_TINT = 25     # spread between its channels
+_TRIM_FILE = CACHE_DIR.parent / "img-trim.json"
+_trims: dict[str, list | None] | None = None
+
+
+def trimmable(src: Path) -> bool:
+    return "venues" not in src.parts and not src.name.startswith("bio-")
+
+
+def _maxdiff(img: Image.Image, color: tuple) -> Image.Image:
+    """Per-pixel max channel distance from color, as an L image."""
+    diff = ImageChops.difference(img, Image.new("RGB", img.size, color))
+    r, g, b = diff.split()
+    return ImageChops.lighter(ImageChops.lighter(r, g), b)
+
+
+def _median(img: Image.Image) -> tuple:
+    return tuple(sorted(c.getdata())[c.width * c.height // 2] for c in img.split())
+
+
+def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
+    """(left, top, right, bottom) crop box without the plain edge bands, or None."""
+    W, H = img.size
+    a = img.convert("RGB")
+    s = min(1.0, 800 / max(W, H))
+    a = a.resize((max(1, round(W * s)), max(1, round(H * s))), Image.BOX)
+    w, h = a.size
+    if w < 40 or h < 40:
+        return None
+    k = 3
+    strips = {"top": (0, 0, w, k), "bottom": (0, h - k, w, h),
+              "left": (0, 0, k, h), "right": (w - k, 0, w, h)}
+    cut = {}
+    for side, box in strips.items():
+        strip = a.crop(box)
+        color = _median(strip)
+        if min(color) < TRIM_MIN_LIGHT or max(color) - min(color) > TRIM_MAX_TINT:
+            cut[side] = 0
+            continue
+        even = _maxdiff(strip, color).point(lambda v: 255 if v <= TRIM_EDGE_TOL else 0)
+        if sum(even.getdata()) / 255 / (strip.width * strip.height) < TRIM_EDGE_EVEN:
+            cut[side] = 0
+            continue
+        mask = _maxdiff(a, color).point(lambda v: 255 if v > TRIM_TOL else 0)
+        mask = mask.filter(ImageFilter.MedianFilter(3))
+        if side in ("top", "bottom"):
+            prof = list(mask.resize((1, h), Image.BOX).getdata())
+        else:
+            prof = list(mask.resize((w, 1), Image.BOX).getdata())
+        if side in ("bottom", "right"):
+            prof.reverse()
+        n = 0
+        while n < len(prof) and prof[n] / 255 <= TRIM_ROW_CONTENT:
+            n += 1
+        cut[side] = n
+    l, t = cut["left"], cut["top"]
+    r, b = w - cut["right"], h - cut["bottom"]
+    if r - l < 0.25 * w or b - t < 0.25 * h:
+        return None                                   # mostly "margin": a pale or plain work
+    for side, n in cut.items():
+        if n < TRIM_MIN_SIDE * (w if side in ("left", "right") else h):
+            cut[side] = 0
+    if not any(cut.values()):
+        return None
+    box = (round(cut["left"] / s), round(cut["top"] / s),
+           W - round(cut["right"] / s), H - round(cut["bottom"] / s))
+    return box
+
+
+def _trim_key(src: Path) -> str:
+    return f"{_content_hash(src)}|v{TRIM_VERSION}"
+
+
+def _load_trims() -> dict:
+    global _trims
+    if _trims is None:
+        try:
+            _trims = json.loads(_TRIM_FILE.read_text())
+        except Exception:
+            _trims = {}
+    return _trims
+
+
+def _trim_job(src: Path):
+    with Image.open(src) as im:
+        im.load()
+        return find_trim(im)
+
+
+def trim_box(src: Path) -> tuple | None:
+    if not trimmable(src):
+        return None
+    trims = _load_trims()
+    key = _trim_key(src)
+    if key not in trims:
+        box = _trim_job(src)
+        trims[key] = list(box) if box else None
+    box = trims[key]
+    return tuple(box) if box else None
+
+
+def save_trims() -> None:
+    if _trims is not None:
+        _TRIM_FILE.parent.mkdir(parents=True, exist_ok=True)
+        _TRIM_FILE.write_text(json.dumps(_trims))
+
+
+def source_width(src: Path) -> int:
+    box = trim_box(src)
+    if box:
+        return box[2] - box[0]
+    with Image.open(src) as im:
+        return im.width
+
+
 def _cached_path(src: Path, quality: int, max_width: int | None, max_side: int | None) -> Path:
+    box = trim_box(src)
+    trim = f"|trim{TRIM_VERSION}:{','.join(map(str, box))}" if box else ""
     key = hashlib.sha1(
-        f"{_content_hash(src)}|{max_width}|{max_side}|{quality}".encode()
+        f"{_content_hash(src)}|{max_width}|{max_side}|{quality}{trim}".encode()
     ).hexdigest()
     cached = CACHE_DIR / f"{key}.webp"
-    if not cached.exists():
+    if not cached.exists() and not box:
         legacy = CACHE_DIR / (hashlib.sha1(
             f"{src}|{src.stat().st_mtime_ns}|{max_width}|{max_side}|{quality}".encode()
         ).hexdigest() + ".webp")
@@ -67,12 +202,15 @@ def _cached_path(src: Path, quality: int, max_width: int | None, max_side: int |
 
 
 def _encode(src: Path, cached: Path, quality: int,
-            max_width: int | None, max_side: int | None) -> None:
+            max_width: int | None, max_side: int | None,
+            box: tuple | None = None) -> None:
     cached.parent.mkdir(parents=True, exist_ok=True)
     img = Image.open(src)
     img.load()
     if img.mode not in ("RGB", "L"):
         img = img.convert("RGB")
+    if box:
+        img = img.crop(box)
     w, h = img.size
     scale = 1.0
     if max_width and w > max_width:
@@ -95,21 +233,29 @@ def warm(srcs, max_width: int = 1080, quality: int = 78,
     """Encode every proxy and full-res variant missing from the cache, on all
     cores; the build's own (sequential) pass then only copies. Returns how many
     were encoded."""
+    srcs = [s for s in dict.fromkeys(srcs) if s.is_file()]
+    # trim boxes first, on all cores: every cache key below depends on them
+    trims = _load_trims()
+    todo = [s for s in srcs if trimmable(s) and _trim_key(s) not in trims]
+    if todo:
+        print(f"  finding margins in {len(todo)} images on {os.cpu_count()} cores")
+        with ProcessPoolExecutor() as pool:
+            for src, box in zip(todo, pool.map(_trim_job, todo, chunksize=4)):
+                trims[_trim_key(src)] = list(box) if box else None
+        save_trims()
     jobs = []
-    for src in dict.fromkeys(srcs):
-        if not src.is_file():
-            continue
+    for src in srcs:
+        box = trim_box(src)
         cached = _cached_path(src, quality, max_width, None)
         if not cached.exists():
-            jobs.append((src, cached, quality, max_width, None))
+            jobs.append((src, cached, quality, max_width, None, box))
         if full_side:
-            with Image.open(src) as im:
-                w = im.width
-            if w > max_width * FULL_MIN_GAIN:
+            if source_width(src) > max_width * FULL_MIN_GAIN:
                 cached = _cached_path(src, full_quality, None, full_side)
                 if not cached.exists():
-                    jobs.append((src, cached, full_quality, None, full_side))
+                    jobs.append((src, cached, full_quality, None, full_side, box))
     save_hashes()
+    save_trims()
     if jobs:
         print(f"  encoding {len(jobs)} images on {os.cpu_count()} cores")
         with ProcessPoolExecutor() as pool:
@@ -121,7 +267,7 @@ def _convert(src: Path, dest: Path, quality: int,
              max_width: int | None = None, max_side: int | None = None) -> None:
     cached = _cached_path(src, quality, max_width, max_side)
     if not cached.exists():
-        _encode(src, cached, quality, max_width, max_side)
+        _encode(src, cached, quality, max_width, max_side, trim_box(src))
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_bytes(cached.read_bytes())
 
@@ -137,9 +283,7 @@ def process_full(src: Path, dest: Path, proxy_width: int = 1080,
 
     Returns False (writing nothing) when the proxy already is max-res.
     """
-    with Image.open(src) as im:
-        w = im.width
-    if w <= proxy_width * FULL_MIN_GAIN:
+    if source_width(src) <= proxy_width * FULL_MIN_GAIN:
         return False
     _convert(src, dest, quality, max_side=max_side)
     return True

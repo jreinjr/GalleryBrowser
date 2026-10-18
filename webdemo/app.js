@@ -796,6 +796,11 @@
   // Image entries are {src, full?}: src is the 1080px proxy every surface loads
   // first; full (present when the source out-resolves the proxy) is the
   // near-4K variant swapped in once someone zooms.
+  // The URL a picture loads from: entry.src stays its stable id (picture
+  // ratings are keyed on it); `v` changes whenever the build re-encodes it
+  // (a new trim), so no browser keeps showing the old picture from its cache.
+  const picUrl = (entry, url = entry.src) => url && entry.v ? `${url}?v=${entry.v}` : url;
+
   function upgradeToFull(img, full) {
     if (!full || img.dataset.res === 'full') return;
     img.dataset.res = 'full';                        // claim before the async load
@@ -807,16 +812,29 @@
     else hi.onload = swap;
   }
 
+  // An artwork <img> sized to its own picture (see img.framed): the build's
+  // aspect ratio when known, else the picture's own once it loads.
+  function framed(img, r) {
+    img.classList.add('framed');
+    const set = v => img.style.setProperty('--r', v);
+    if (r) set(r);
+    else if (img.complete && img.naturalWidth) set(img.naturalWidth / img.naturalHeight);
+    else img.addEventListener('load', () => set(img.naturalWidth / img.naturalHeight), { once: true });
+    return img;
+  }
+
   function makeCarousel(images, opts) {
     const { height, aspect, dots = 'top-left', onTap, expand, slideExtra } = opts;
     const car = el('div', { class: 'carousel', style: aspect ? `aspect-ratio:${aspect}` : `height:${height}px` });
     const track = el('div', { class: 'carousel-track' });
     images.forEach((entry, i) => {
       const img = el('img', {
-        src: entry.src, 'data-full': entry.full || null,
+        src: picUrl(entry), 'data-full': picUrl(entry, entry.full) || null,
         loading: 'lazy', decoding: 'async', alt: '',
       });
-      const slide = el('div', { class: 'carousel-slide' + (/\/bio-[^/]*$/.test(entry.src) ? ' bio' : '') }, img, slideExtra ? slideExtra(entry, i) : null);
+      const bio = /\/bio-[^/]*$/.test(entry.src);
+      if (!bio && !entry.src.includes('/venues/')) framed(img, entry.r);   // gallery photos fill the slide
+      const slide = el('div', { class: 'carousel-slide' + (img.classList.contains('framed') ? '' : ' bio') }, img, slideExtra ? slideExtra(entry, i) : null);
       if (onTap) slide.addEventListener('click', () => onTap(i));
       track.appendChild(slide);
     });
@@ -1007,10 +1025,10 @@
     const viewer = el('div', { class: 'viewer' });
     const track = el('div', { class: 'viewer-track' });
     const slides = images.map(entry => {
-      const img = el('img', { src: entry.src, decoding: 'async', alt: '' });
+      const img = el('img', { src: picUrl(entry), decoding: 'async', alt: '' });
       const slide = el('div', { class: 'viewer-slide' }, img);
       track.appendChild(slide);
-      return { slide, img, full: entry.full, scale: 1, tx: 0, ty: 0 };
+      return { slide, img, full: picUrl(entry, entry.full), scale: 1, tx: 0, ty: 0 };
     });
     // full-screen earns full-res: upgrade the current slide and its neighbors
     const warm = () => {
@@ -1847,7 +1865,7 @@
     const r = x.rated;
     const open = () => push(tab, archiveShowPage(x, tab, owner));
     return el('div', { class: 'archive-card', onclick: open },
-      img ? el('img', { src: img, alt: '', loading: 'lazy' }) : el('div', { class: 'ac-noimg' }),
+      img ? el('div', { class: 'ac-pic' }, framed(el('img', { src: img, alt: '', loading: 'lazy' }))) : el('div', { class: 'ac-noimg' }),
       el('div', { class: 'ac-foot' },
         el('div', { class: 'ac-text' },
           el('div', { class: 'ac-artist' }, nameNode(s)),
@@ -2710,7 +2728,7 @@
   // The tab is a library of lists (L1a): today's filtered list is the pinned
   // "All shows in <City>", My Shows appears once something is saved, the
   // user's lists when they have one, and a curated shelf with a See-all page.
-  const showImg = s => s.images && s.images[0] ? s.images[0].src : null;
+  const showImg = s => s.images && s.images[0] ? picUrl(s.images[0]) : null;
   function collage(shows, cls) {
     const srcs = shows.map(showImg).filter(Boolean).slice(0, 4);
     return el('div', { class: 'collage' + (srcs.length && srcs.length < 4 ? ' n' + srcs.length : '') + (cls ? ' ' + cls : '') },
