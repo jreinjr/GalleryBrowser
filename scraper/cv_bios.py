@@ -68,7 +68,32 @@ def main() -> None:
     ap.add_argument("--import", dest="imp", type=Path)
     ap.add_argument("--city")
     ap.add_argument("--report", nargs="*", type=Path, default=[])
+    ap.add_argument("--attrib", type=Path, help="dir of per-show picture attributions (with --city)")
     args = ap.parse_args()
+
+    if args.city and args.attrib:
+        # who made each picture of a multi-artist show -> content/artists/
+        # image_artists/<city>.json (bio_cards.py puts each artist's card before
+        # their pictures); the artists with a picture also count as a report
+        path = CONTENT / "artists" / "image_artists" / f"{args.city}.json"
+        who = json.loads(path.read_text()) if path.exists() else {
+            "_note": "Who made each picture of a multi-artist show: file name -> artist, or "
+                     "installation/unknown (scraper/cv_bios.py --attrib; bio_cards.py orders the cards by it).",
+            "shows": {}}
+        rep: dict[str, list[str]] = {}
+        for f in sorted(args.attrib.glob("*.json")):
+            a = json.loads(f.read_text())
+            if a.get("city") != args.city or a.get("skip"):
+                continue
+            imgs = {k: (v.get("artist") if isinstance(v, dict) else v) for k, v in (a.get("images") or {}).items()}
+            if any(v not in ("installation", "unknown") for v in imgs.values()):
+                who["shows"][a["slug"]] = imgs
+                rep[a["slug"]] = [n for n in a.get("artists") or [] if n not in ("installation", "unknown")]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(who, indent=1, ensure_ascii=False) + "\n")
+        tmp = path.with_suffix(".report.tmp")
+        tmp.write_text(json.dumps({"shows": rep}))
+        args.report = list(args.report) + [tmp]
 
     if args.imp:
         CVS.mkdir(parents=True, exist_ok=True)
@@ -103,6 +128,9 @@ def main() -> None:
                         added.append(slug)
         path.write_text(json.dumps(bios, indent=1, ensure_ascii=False) + "\n")
         print("  bios added for: " + " ".join(added))
+        for r in args.report:
+            if r.suffix == ".tmp":
+                r.unlink()
 
 
 if __name__ == "__main__":

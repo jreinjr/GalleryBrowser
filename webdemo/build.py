@@ -157,7 +157,7 @@ def write_function_bundle(corpora: dict[str, str]) -> None:
 def main() -> None:
     global DIST
     parser = argparse.ArgumentParser()
-    parser.add_argument("--img-cap", type=int, default=60, help="max images per show")
+    parser.add_argument("--img-cap", type=int, default=100, help="max images per show (a group show with a card per artist runs long)")
     parser.add_argument("--max-width", type=int, default=1080)
     parser.add_argument("--quality", type=int, default=78)
     parser.add_argument("--full-side", type=int, default=6000,

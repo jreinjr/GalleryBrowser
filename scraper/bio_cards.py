@@ -125,23 +125,59 @@ def render(a: dict, out: Path) -> None:
         Image.open(f"{tmp}/card.png").convert("RGB").quantize(colors=128).save(out, optimize=True)
 
 
+def place_cards(art: list[str], cards: list[tuple[str, str]], who: dict) -> list[str]:
+    """The bio cards among a show's pictures. One artist, or no record of who
+    made which picture: the cards come second, right after the lead artwork.
+    Several artists with content/artists/image_artists/<city>.json saying who
+    made each picture (file name -> artist, or "installation"/"unknown"): the
+    cards separate the artists, each card right before that artist's pictures
+    (the lead artwork stays first); cards of artists with no picture follow,
+    then installation views and pictures of unknown hand (Carlton, 2026-10-18)."""
+    by_name = {Path(r).name: r for r in art}
+    who = {f: a for f, a in who.items() if f in by_name}
+    if len(cards) < 2 or not who:
+        return art[:1] + [c for _, c in cards] + art[1:]
+    lead, rest = art[:1], art[1:]
+    out = list(lead)
+    placed = set(lead)
+    lead_artist = who.get(Path(lead[0]).name) if lead else None
+    order = [a for a, _ in cards]
+    # artists in the order their first picture appears
+    seen = [who[Path(r).name] for r in art if Path(r).name in who]
+    order = sorted(order, key=lambda a: seen.index(a) if a in seen else len(seen))
+    card_of = dict(cards)
+    for a in order:
+        mine = [r for r in rest if who.get(Path(r).name) == a]
+        if not mine and a != lead_artist:
+            continue
+        out += [card_of[a]] + mine
+        placed.update(mine)
+    out += [card_of[a] for a in order if card_of[a] not in out]
+    out += [r for r in rest if r not in placed]
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--city", required=True)
     ap.add_argument("--slug", nargs="*", default=[])
     ap.add_argument("--bios", type=Path, help="bios file (default content/artists/bios/<city>.json)")
     ap.add_argument("--render-only", type=Path, help="write PNGs under this dir; leave the shows alone")
+    ap.add_argument("--order-only", action="store_true", help="re-place existing cards; render nothing")
     args = ap.parse_args()
 
     bios = json.loads((args.bios or CONTENT / "artists" / "bios" / f"{args.city}.json").read_text())
-    cards: dict[str, list[str]] = {}
+    who_path = CONTENT / "artists" / "image_artists" / f"{args.city}.json"
+    who = json.loads(who_path.read_text())["shows"] if who_path.exists() else {}
+    cards: dict[str, list[tuple[str, str]]] = {}   # slug -> [(artist, card path)]
     for slug, artists in bios["shows"].items():
         if args.slug and slug not in args.slug:
             continue
         for a in artists:
             rel = f"images/{args.city}/{slug}/bio-{slugify(a['artist'])}.png"
-            render(a, (args.render_only or CONTENT) / rel)
-            cards.setdefault(slug, []).append(rel)
+            if not args.order_only:
+                render(a, (args.render_only or CONTENT) / rel)
+            cards.setdefault(slug, []).append((a["artist"], rel))
     if args.render_only:
         return
 
@@ -151,9 +187,8 @@ def main() -> None:
     for s in data["shows"]:
         if s["slug"] in cards:
             found.add(s["slug"])
-            # the bio card is the second picture, right after the lead artwork
-            art = [r for r in s["images"] if not is_bio(r)]
-            s["images"] = art[:1] + cards[s["slug"]] + art[1:]
+            s["images"] = place_cards([r for r in s["images"] if not is_bio(r)], cards[s["slug"]],
+                                      who.get(s["slug"], {}))
     shows_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     for slug, rels in cards.items():
         print(f"  {slug}: {len(rels)} card(s)" + ("" if slug in found else "  (no such show)"))
