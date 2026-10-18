@@ -1011,6 +1011,64 @@
     track.addEventListener('touchend', end, { passive: false });
     track.addEventListener('touchcancel', end, { passive: false });
 
+    // Desktop: a trackpad pinch over a picture lifts it the same way. Chrome and
+    // Firefox send it as ctrl+wheel, Safari as gesture events. A trackpad can't
+    // say when the fingers lift, so the picture stays enlarged until it is
+    // pinched back down, clicked, scrolled, or Escape is pressed.
+    const deskDrop = e => {
+      if (!sess || sess.base.kind !== 'desk') return;
+      if (e.type === 'wheel' && e.ctrlKey) return;  // still pinching
+      if (e.type === 'keydown' && e.key !== 'Escape') return;
+      if (e.type === 'pointerdown') { e.stopPropagation(); e.preventDefault(); pinchEndAt = Date.now(); }
+      off(); teardown();
+    };
+    const on = () => ['pointerdown', 'wheel', 'keydown'].forEach(t => window.addEventListener(t, deskDrop, true));
+    const off = () => ['pointerdown', 'wheel', 'keydown'].forEach(t => window.removeEventListener(t, deskDrop, true));
+    const deskLift = (x, y) => {
+      if (sess) return true;
+      const slide = document.elementFromPoint(x, y)?.closest?.('.carousel-slide');
+      const img = slide && track.contains(slide) && slide.querySelector('img');
+      if (!img) return false;
+      const rect = img.getBoundingClientRect();
+      const clone = el('img', { class: 'pinch-img', src: img.currentSrc || img.src });
+      Object.assign(clone.style, { left: rect.left + 'px', top: rect.top + 'px', width: rect.width + 'px', height: rect.height + 'px' });
+      const backdrop = el('div', { class: 'pinch-backdrop' });
+      document.body.append(backdrop, clone);
+      img.style.visibility = 'hidden';
+      sess = { img, clone, backdrop, cx: rect.left + rect.width / 2, cy: rect.top + rect.height / 2,
+               scale: 1, tx: 0, ty: 0, base: { kind: 'desk' } };
+      activePinchSessions++;
+      upgradeToFull(clone, img.dataset.full);
+      on();
+      return true;
+    };
+    const deskZoom = (factor, x, y) => {
+      const s1 = Math.max(1, Math.min(4, sess.scale * factor));
+      // keep the point under the fingers still
+      sess.tx = x - sess.cx - (x - sess.cx - sess.tx) * (s1 / sess.scale);
+      sess.ty = y - sess.cy - (y - sess.cy - sess.ty) * (s1 / sess.scale);
+      sess.scale = s1;
+      render();
+      if (s1 <= 1.001) { off(); teardown(); }       // pinched all the way back down
+    };
+    track.addEventListener('wheel', e => {
+      if (!e.ctrlKey || pts.size) return;
+      e.preventDefault();                            // the browser must not zoom the page
+      if (deskLift(e.clientX, e.clientY)) deskZoom(Math.exp(-e.deltaY / 100), e.clientX, e.clientY);
+    }, { passive: false });
+    let gScale = 1;
+    track.addEventListener('gesturestart', e => {
+      e.preventDefault();
+      gScale = 1;
+      deskLift(e.clientX, e.clientY);
+    });
+    track.addEventListener('gesturechange', e => {
+      e.preventDefault();
+      if (!sess || sess.base.kind !== 'desk') return;
+      deskZoom(e.scale / gScale, e.clientX, e.clientY);
+      gScale = e.scale;
+    });
+
     // swallow the tap a pinch can synthesize so it doesn't open the detail page
     track.addEventListener('click', e => {
       if (Date.now() - pinchEndAt < 400) { e.stopPropagation(); e.preventDefault(); }
