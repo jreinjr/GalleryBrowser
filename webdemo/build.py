@@ -268,6 +268,22 @@ def main() -> None:
         cv_shipped[slug] = f"cv/{slug}.json?v={hashlib.md5(body.encode()).hexdigest()[:10]}"
         return cv_shipped[slug]
 
+    # Encode whatever the image cache lacks up front, on every core; the loop
+    # below then only copies from the cache.
+    def wanted_images():
+        for cty in cities:
+            for s in cityconfig.load_shows(cty["key"]):
+                for rel in s["images"][: args.img_cap]:
+                    yield cityconfig.CONTENT_DIR / rel
+            if args.venue_photos == "none":
+                continue
+            for rv in cityconfig.load_venues(cty["key"]).values():
+                for ph in rv.get("photos") or []:
+                    if args.venue_photos == "site" and ph.get("provider") != "site":
+                        continue
+                    yield cityconfig.CONTENT_DIR / ph["path"]
+    image_pipe.warm(wanted_images(), args.max_width, args.quality, args.full_side, args.full_quality)
+
     for cty in cities:
         shows = cityconfig.load_shows(cty["key"])
         bios = cityconfig.load_bios(cty["key"])
@@ -381,6 +397,7 @@ def main() -> None:
     shutil.copy(HERE / "template.html", DIST / "index.html")
     for name in STATIC:
         shutil.copy(HERE / name, DIST / name)
+    image_pipe.save_hashes()
     cache_bust()
     write_function_bundle(corpora)
     write_icons()
