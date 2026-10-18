@@ -64,7 +64,7 @@ def save_hashes() -> None:
 # a varied photo reaches the frame are left alone.
 # Gallery photos and artist bio cards are never trimmed. Boxes are memoised by
 # content hash; TRIM_VERSION is part of every trimmed picture's cache key.
-TRIM_VERSION = 2
+TRIM_VERSION = 3
 TRIM_TOL = 12          # a pixel further than this (max channel) from the edge color is art
 TRIM_EDGE_TOL = 20     # an edge counts as margin when TRIM_EDGE_EVEN of its outer
 TRIM_EDGE_EVEN = 0.95  # strip is within TRIM_EDGE_TOL of the strip's median color
@@ -76,6 +76,19 @@ TRIM_MIN_LIGHT = 170   # darkest channel of the edge color
 TRIM_MAX_TINT = 25     # spread between its channels
 TRIM_PALE_LIGHT = 150  # the pale-row walk: a pixel is wall when its darkest channel is
 TRIM_PALE_TINT = 25    # at least this and its channels spread no more than this
+# Last, any edge of what is left that is still mostly near-white (an off-white
+# rim, a soft antialiased border, a sliver of page) is shaved off, cutting a
+# little into the art if needed, so no white shows inside the picture's frame:
+# on a side that was cut (or that ends in a white rim), rows are shaved while
+# TRIM_SHAVE_SHARE of them is near-white, up to TRIM_SHAVE_MAX of the side.
+# Every cut side then loses TRIM_SHAVE_INSET more. Never further: a sparse
+# line drawing on white paper is mostly white too.
+TRIM_SHAVE_LIGHT = 200
+TRIM_SHAVE_TINT = 30
+TRIM_SHAVE_SHARE = 0.6
+TRIM_SHAVE_MAX = 0.025
+TRIM_SHAVE_RIM = 0.85   # an untrimmed side is only shaved when its outer row is this white
+TRIM_SHAVE_INSET = 0.006
 _TRIM_FILE = CACHE_DIR.parent / "img-trim.json"
 _trims: dict[str, list | None] | None = None
 
@@ -159,6 +172,26 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
     for side, n in cut.items():
         if n < TRIM_MIN_SIDE * (w if side in ("left", "right") else h):
             cut[side] = 0
+    # shave near-white rims off what is left
+    white = ImageChops.darker(lo.point(lambda v: 255 if v >= TRIM_SHAVE_LIGHT else 0),
+                              ImageChops.difference(hi, lo).point(lambda v: 255 if v <= TRIM_SHAVE_TINT else 0))
+    kept = white.crop((cut["left"], cut["top"], w - cut["right"], h - cut["bottom"]))
+    kw, kh = kept.size
+    rows = list(kept.resize((1, kh), Image.BOX).getdata())
+    cols = list(kept.resize((kw, 1), Image.BOX).getdata())
+    shaved = dict(cut)
+    for side, prof, size in (("top", rows, h), ("bottom", rows[::-1], h),
+                             ("left", cols, w), ("right", cols[::-1], w)):
+        n = 0
+        # a side already cut, or one whose outer row is a white rim, is shaved a
+        # little further (into the art if need be) while its rows stay mostly white
+        if cut[side] or (prof and prof[0] / 255 >= TRIM_SHAVE_RIM):
+            while n < min(len(prof), TRIM_SHAVE_MAX * size) and prof[n] / 255 >= TRIM_SHAVE_SHARE:
+                n += 1
+        if n or cut[side]:
+            shaved[side] = cut[side] + n + max(1, round(TRIM_SHAVE_INSET * size))
+    if keeps(shaved, 0.3):
+        cut = shaved
     if not any(cut.values()):
         return None
     box = (round(cut["left"] / s), round(cut["top"] / s),
