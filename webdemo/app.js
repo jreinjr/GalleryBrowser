@@ -799,7 +799,7 @@
   // The URL a picture loads from: entry.src stays its stable id (picture
   // ratings are keyed on it); `v` changes whenever the build re-encodes it
   // (a new trim), so no browser keeps showing the old picture from its cache.
-  const picUrl = (entry, url = entry.src) => url && entry.v ? `${url}?v=${entry.v}` : url;
+  const picUrl = (entry, which = 'src') => { const url = entry[which]; return url && entry.v ? `${url}?v=${entry.v}` : url; };
 
   function upgradeToFull(img, full) {
     if (!full || img.dataset.res === 'full') return;
@@ -829,7 +829,7 @@
     const track = el('div', { class: 'carousel-track' });
     images.forEach((entry, i) => {
       const img = el('img', {
-        src: picUrl(entry), 'data-full': picUrl(entry, entry.full) || null,
+        src: picUrl(entry), 'data-full': picUrl(entry, 'full') || null,
         loading: 'lazy', decoding: 'async', alt: '',
       });
       const bio = /\/bio-[^/]*$/.test(entry.src);
@@ -1028,7 +1028,7 @@
       const img = el('img', { src: picUrl(entry), decoding: 'async', alt: '' });
       const slide = el('div', { class: 'viewer-slide' }, img);
       track.appendChild(slide);
-      return { slide, img, full: picUrl(entry, entry.full), scale: 1, tx: 0, ty: 0 };
+      return { slide, img, full: picUrl(entry, 'full'), scale: 1, tx: 0, ty: 0 };
     });
     // full-screen earns full-res: upgrade the current slide and its neighbors
     const warm = () => {
