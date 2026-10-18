@@ -58,10 +58,13 @@ def save_hashes() -> None:
 # or more sides. The app frames every picture in its own thin white border, so a
 # plain band along an edge is cut away first: an edge whose outer strip is one
 # even pale gray or white is trimmed inward until the rows (or columns) stop being that
-# color. Edges where the art or a varied photo reaches the frame are left alone.
+# color, or further while every row is still pale and neutral, which follows
+# wall that fades or picks up a soft shadow toward the floor (the strip left
+# under paintings when only the edge color was matched). Edges where the art or
+# a varied photo reaches the frame are left alone.
 # Gallery photos and artist bio cards are never trimmed. Boxes are memoised by
 # content hash; TRIM_VERSION is part of every trimmed picture's cache key.
-TRIM_VERSION = 1
+TRIM_VERSION = 2
 TRIM_TOL = 12          # a pixel further than this (max channel) from the edge color is art
 TRIM_EDGE_TOL = 20     # an edge counts as margin when TRIM_EDGE_EVEN of its outer
 TRIM_EDGE_EVEN = 0.95  # strip is within TRIM_EDGE_TOL of the strip's median color
@@ -71,6 +74,8 @@ TRIM_MIN_SIDE = 0.005  # ignore trims thinner than this share of the side
 # much more likely the work's own ground (a pink painting, a night photograph)
 TRIM_MIN_LIGHT = 170   # darkest channel of the edge color
 TRIM_MAX_TINT = 25     # spread between its channels
+TRIM_PALE_LIGHT = 150  # the pale-row walk: a pixel is wall when its darkest channel is
+TRIM_PALE_TINT = 25    # at least this and its channels spread no more than this
 _TRIM_FILE = CACHE_DIR.parent / "img-trim.json"
 _trims: dict[str, list | None] | None = None
 
@@ -99,19 +104,25 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
     w, h = a.size
     if w < 40 or h < 40:
         return None
+    # wall-like pixels for the pale-row walk (median-filtered against JPEG noise)
+    r_, g_, b_ = a.filter(ImageFilter.MedianFilter(3)).split()
+    lo = ImageChops.darker(ImageChops.darker(r_, g_), b_)
+    hi = ImageChops.lighter(ImageChops.lighter(r_, g_), b_)
+    art = ImageChops.lighter(lo.point(lambda v: 255 if v < TRIM_PALE_LIGHT else 0),
+                             ImageChops.difference(hi, lo).point(lambda v: 255 if v > TRIM_PALE_TINT else 0))
     k = 3
     strips = {"top": (0, 0, w, k), "bottom": (0, h - k, w, h),
               "left": (0, 0, k, h), "right": (w - k, 0, w, h)}
-    cut = {}
+    cut, edge = {}, {}
     for side, box in strips.items():
         strip = a.crop(box)
         color = _median(strip)
         if min(color) < TRIM_MIN_LIGHT or max(color) - min(color) > TRIM_MAX_TINT:
-            cut[side] = 0
+            cut[side] = edge[side] = 0
             continue
         even = _maxdiff(strip, color).point(lambda v: 255 if v <= TRIM_EDGE_TOL else 0)
         if sum(even.getdata()) / 255 / (strip.width * strip.height) < TRIM_EDGE_EVEN:
-            cut[side] = 0
+            cut[side] = edge[side] = 0
             continue
         mask = _maxdiff(a, color).point(lambda v: 255 if v > TRIM_TOL else 0)
         mask = mask.filter(ImageFilter.MedianFilter(3))
@@ -124,11 +135,27 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
         n = 0
         while n < len(prof) and prof[n] / 255 <= TRIM_ROW_CONTENT:
             n += 1
-        cut[side] = n
-    l, t = cut["left"], cut["top"]
-    r, b = w - cut["right"], h - cut["bottom"]
-    if r - l < 0.25 * w or b - t < 0.25 * h:
-        return None                                   # mostly "margin": a pale or plain work
+        if side in ("top", "bottom"):
+            pale = list(art.resize((1, h), Image.BOX).getdata())
+        else:
+            pale = list(art.resize((w, 1), Image.BOX).getdata())
+        if side in ("bottom", "right"):
+            pale.reverse()
+        m = 0
+        while m < len(pale) and pale[m] / 255 <= TRIM_ROW_CONTENT:
+            m += 1
+        edge[side], cut[side] = n, max(n, m)
+
+    def keeps(c: dict, area: float) -> bool:
+        kw, kh = w - c["left"] - c["right"], h - c["top"] - c["bottom"]
+        return kw >= 0.25 * w and kh >= 0.25 * h and kw * kh >= area * w * h
+    # the pale walk may only follow wall, never swallow most of the picture: an
+    # installation view with a white wall down to the floor, or a pale work,
+    # keeps the edge-color trim alone
+    if not keeps(cut, 0.4):
+        cut = edge
+        if not keeps(cut, 0):
+            return None                               # mostly "margin": a pale or plain work
     for side, n in cut.items():
         if n < TRIM_MIN_SIDE * (w if side in ("left", "right") else h):
             cut[side] = 0
