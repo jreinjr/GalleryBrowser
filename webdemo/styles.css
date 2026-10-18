@@ -175,7 +175,9 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 /* .framed: sized to the picture itself (--r = width / height) so the border
    hugs it evenly on all four sides */
 img.framed { display: block; box-sizing: content-box; border: 2px solid #000; height: auto;
-  aspect-ratio: var(--r, 1); width: min(calc(100cqw - 4px), calc((100cqh - 4px) * var(--r, 1))); }
+  aspect-ratio: var(--r, 1); width: min(calc(100cqw - 4px), calc((100cqh - 4px) * var(--r, 1)));
+  /* never larger than its box, even where container units are unknown */
+  max-width: calc(100% - 4px); max-height: calc(100% - 4px); object-fit: contain; }
 .carousel-dots { position: absolute; display: flex; gap: 5px; z-index: 3; pointer-events: none; }
 .carousel-dots.top-left { top: 12px; left: 12px; }
 .carousel-dots.bottom-center { bottom: 12px; left: 50%; transform: translateX(-50%); }

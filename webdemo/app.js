@@ -1413,11 +1413,10 @@
         el('button', { class: 'nav-textbtn', onclick: openCitySheet }, 'Cities'),
         kindSwitch(false),
         filterButton()),
-      el('div', { class: 'large-title' }, city().displayName),
+      // no city title: the shows start right under the buttons, and no name
+      // slides in over the pictures while scrolling
       ctxSlot, feed, empty);
-    const inline = el('div', { class: 'inline-title' }, city().displayName);
-    largeTitleScroll(scroll, inline);
-    const page = el('div', { class: 'page' }, inline, scroll);
+    const page = el('div', { class: 'page' }, scroll);
     page.refresh = () => {
       const shows = filteredShows();
       const l = currentList();
