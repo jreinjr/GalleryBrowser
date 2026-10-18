@@ -2,7 +2,7 @@
 
 Usage:
     scraper/.venv/bin/python webdemo/build.py [--img-cap 60] [--max-width 1080] [--quality 78]
-                                              [--full-side 3840] [--full-quality 80]
+                                              [--full-side 6000] [--full-quality 80]
 
 Each image ships as a 1080px proxy plus, when the source out-resolves it, an
 @full variant (longest side capped at --full-side) the app swaps in on zoom.
@@ -159,7 +159,7 @@ def main() -> None:
     parser.add_argument("--img-cap", type=int, default=60, help="max images per show")
     parser.add_argument("--max-width", type=int, default=1080)
     parser.add_argument("--quality", type=int, default=78)
-    parser.add_argument("--full-side", type=int, default=3840,
+    parser.add_argument("--full-side", type=int, default=6000,
                         help="longest-side cap for full-res variants (0 disables them)")
     parser.add_argument("--full-quality", type=int, default=80)
     parser.add_argument("--venue-photos", choices=("site", "all", "none"), default="site",

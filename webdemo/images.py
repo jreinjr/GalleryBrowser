@@ -17,9 +17,9 @@ from PIL import Image
 
 CACHE_DIR = Path(__file__).resolve().parent / ".cache" / "img"
 
-# Emit a full-res variant only when the source is at least this much wider than
-# the proxy; below it the "upgrade" would be an imperceptible near-duplicate.
-FULL_MIN_GAIN = 1.25
+# Emit a full-res variant whenever the source is any wider than the proxy, so
+# zooming always reaches the source's own resolution.
+FULL_MIN_GAIN = 1.0
 
 
 # The cache is keyed on the source's bytes, not its mtime: a CI checkout gives
@@ -91,7 +91,7 @@ def _encode_job(job: tuple) -> None:
 
 
 def warm(srcs, max_width: int = 1080, quality: int = 78,
-         full_side: int = 3840, full_quality: int = 80) -> int:
+         full_side: int = 6000, full_quality: int = 80) -> int:
     """Encode every proxy and full-res variant missing from the cache, on all
     cores; the build's own (sequential) pass then only copies. Returns how many
     were encoded."""
@@ -105,7 +105,7 @@ def warm(srcs, max_width: int = 1080, quality: int = 78,
         if full_side:
             with Image.open(src) as im:
                 w = im.width
-            if w >= max_width * FULL_MIN_GAIN:
+            if w > max_width * FULL_MIN_GAIN:
                 cached = _cached_path(src, full_quality, None, full_side)
                 if not cached.exists():
                     jobs.append((src, cached, full_quality, None, full_side))
@@ -132,14 +132,14 @@ def process(src: Path, dest: Path, max_width: int = 1080, quality: int = 78) -> 
 
 
 def process_full(src: Path, dest: Path, proxy_width: int = 1080,
-                 max_side: int = 3840, quality: int = 80) -> bool:
+                 max_side: int = 6000, quality: int = 80) -> bool:
     """Emit a full-res variant at dest if the source out-resolves the proxy.
 
     Returns False (writing nothing) when the proxy already is max-res.
     """
     with Image.open(src) as im:
         w = im.width
-    if w < proxy_width * FULL_MIN_GAIN:
+    if w <= proxy_width * FULL_MIN_GAIN:
         return False
     _convert(src, dest, quality, max_side=max_side)
     return True
