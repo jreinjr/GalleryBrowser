@@ -64,7 +64,7 @@ def save_hashes() -> None:
 # a varied photo reaches the frame are left alone.
 # Gallery photos and artist bio cards are never trimmed. Boxes are memoised by
 # content hash; TRIM_VERSION is part of every trimmed picture's cache key.
-TRIM_VERSION = 3
+TRIM_VERSION = 4
 TRIM_TOL = 12          # a pixel further than this (max channel) from the edge color is art
 TRIM_EDGE_TOL = 20     # an edge counts as margin when TRIM_EDGE_EVEN of its outer
 TRIM_EDGE_EVEN = 0.95  # strip is within TRIM_EDGE_TOL of the strip's median color
@@ -159,8 +159,25 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
             m += 1
         edge[side], cut[side] = n, max(n, m)
 
+    def framed_work(c: dict) -> bool:
+        """Wall on all four sides and a solid straight edge on each: a hung
+        painting or frame, not a sculpture or drawing whose box only touches it."""
+        if not all(c[k] >= TRIM_MIN_SIDE * (w if k in ("left", "right") else h) for k in c):
+            return False
+        l, t, r, b = c["left"], c["top"], w - c["right"], h - c["bottom"]
+        if r - l < 4 or b - t < 4:
+            return False
+        for box in ((l, t, r, t + 2), (l, b - 2, r, b), (l, t, l + 2, b), (r - 2, t, r, b)):
+            band = art.crop(box)
+            if sum(band.getdata()) / 255 / (band.width * band.height) < 0.6:
+                return False
+        return True
+
     def keeps(c: dict, area: float) -> bool:
         kw, kh = w - c["left"] - c["right"], h - c["top"] - c["bottom"]
+        if kw >= 0.12 * w and kh >= 0.12 * h and framed_work(c):
+            # a painting or frame hung on a wall: cropped tight however small it hangs
+            return True
         return kw >= 0.25 * w and kh >= 0.25 * h and kw * kh >= area * w * h
     # the pale walk may only follow wall, never swallow most of the picture: an
     # installation view with a white wall down to the floor, or a pale work,
