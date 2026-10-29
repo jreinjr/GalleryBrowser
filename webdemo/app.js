@@ -540,8 +540,12 @@
     return b;
   }
   const gemToggle = v => el('div', { class: 'gem-wrap' }, markToggle(v, 'gem'), markToggle(v, 'eye'));
-  // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem.
-  const hasSavedShow = v => { const k = venueKey(v); return savedShows().some(s => venueKey(s.venue) === k); };
+  // A gallery with a saved show (My Shows) is drawn red on the Map, dot or gem,
+  // but only while that show is open: one not yet open turns it red only with
+  // Upcoming shows or Opening this week on (Carlton, 2026-10-29).
+  const redSavedShows = (f = state.mapFilter) => savedShows().filter(s => isActiveShow(s)
+    || (f.upcoming && isUpcomingShow(s)) || (f.opening && isOpeningSoon(s)));
+  const hasSavedShow = v => { const k = venueKey(v); return redSavedShows().some(s => venueKey(s.venue) === k); };
   const isFavorite = v => !!venueId(v) && state.favorites.has(favKey(v));
   const favoriteVenues = () => cityVenues().filter(isFavorite)
     .sort((a, b) => (venueRank(a) ?? 1e9) - (venueRank(b) ?? 1e9) || (a.name || '').localeCompare(b.name || ''));
@@ -2492,7 +2496,7 @@
     // full-strength pin: a show matching the Show switches, or on view now when none is on
     const lit = s => showWhenFilter(f) ? passesWhen(s, f) : isActiveShow(s);
     const out = new Map();
-    const savedKeys = new Set(savedShows().map(s => venueKey(s.venue)));
+    const savedKeys = new Set(redSavedShows(f).map(s => venueKey(s.venue)));
     const keep = rankKeeper(f);
     filterShows(cityShows(), f).filter(s => keep(s.venue)).forEach(s => {
       const k = venueKey(s.venue);
@@ -2506,7 +2510,7 @@
       });
     }
     return [...out.values()].flatMap(g => { const on = g.shows.some(lit); return splitSpaces(g).map(p => ({ ...p, galleryOn: on })); })
-      .filter(g => !f.openToday || openToday(g.venue)).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), eye: isEye(g.venue), saved: g.base ? savedAtSpace(g) : savedKeys.has(g.key) }));
+      .filter(g => !f.openToday || openToday(g.venue)).map(g => ({ ...g, active: g.galleryOn || g.shows.some(lit), tier: galleryTier(g.venue), rank: venueRank(g.venue), gem: isGem(g.venue), eye: isEye(g.venue), saved: g.base ? savedAtSpace(g, f) : savedKeys.has(g.key) }));
   }
   // A gallery with more than one space (registry `locations`, build.py) is one
   // venue everywhere but the Map, where each space gets its own pin: the
@@ -2527,8 +2531,8 @@
     return [primary, ...r.locations];
   };
   // Red (saved) only on the space that holds the saved show, not every space of the gallery.
-  function savedAtSpace(g) {
-    const saved = savedShows().filter(s => venueKey(s.venue) === g.base);
+  function savedAtSpace(g, f) {
+    const saved = redSavedShows(f).filter(s => venueKey(s.venue) === g.base);
     if (!saved.length) return false;
     const part = splitSpaces({ key: g.base, venue: g.venue, shows: saved }).find(p => p.key === g.key);
     return !!(part && part.shows.length);
