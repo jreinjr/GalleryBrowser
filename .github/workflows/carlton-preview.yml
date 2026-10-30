@@ -61,6 +61,8 @@ jobs:
           path: webdemo/.cache
           key: webdemo-images-${{ github.sha }}-${{ github.run_attempt }}
 
+      # Upload the site as one archive: file by file, a build that changes many
+      # pictures runs past the Vercel free plan's 5000 uploads a day.
       # Deploy from outside the checkout. Inside it the CLI attaches the head commit's
       # author, and Vercel blocks a Hobby deployment whose author isn't the account
       # owner: the deploy sits at "Building…" until the job times out.
@@ -70,4 +72,4 @@ jobs:
         run: |
           mv webdemo/dist/gallery-browser-demo "$RUNNER_TEMP/site"
           cd "$RUNNER_TEMP/site"
-          npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
+          npx --yes vercel@latest deploy --prod --yes --archive=tgz --token "$VERCEL_TOKEN"
