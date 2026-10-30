@@ -385,6 +385,31 @@ def refresh_venue(fetcher: Fetcher, v: dict, today: date, discover: bool, force:
     return result
 
 
+TOP_DATES_RANK = 150
+
+
+def unconfirmed_top_dates(city: str, reg: dict, today: date) -> dict[str, list[str]]:
+    """venue id -> slugs of its running or upcoming shows whose end_date the
+    last check_show_dates.py run didn't find on the gallery's pages (or that
+    were never checked), for galleries ranked 1-TOP_DATES_RANK."""
+    from check_show_dates import load_ledger
+    ledger = load_ledger(city)
+    top = {v["id"] for v in reg["venues"] if v.get("rank") and v["rank"] <= TOP_DATES_RANK
+           and v.get("kind") not in ("museum", "nonprofit") and not v.get("is_museum")}
+    try:
+        shows = json.loads((tools.CONTENT_DIR / f"{city}.json").read_text())["shows"]
+    except (OSError, ValueError, KeyError):
+        return {}
+    out: dict[str, list[str]] = {}
+    for s in shows:
+        if s.get("venue_id") not in top or (s.get("end_date") and s["end_date"] < today.isoformat()):
+            continue
+        e = ledger.get(s["slug"]) or {}
+        if e.get("verdict") != "ok" or e.get("end_date") != s.get("end_date"):
+            out.setdefault(s["venue_id"], []).append(s["slug"])
+    return out
+
+
 def refresh_city(city: str, zones: list[str] | None = None, workers: int = 8,
                  discover: bool = False, force: bool = False, dry_run: bool = False,
                  limit: int | None = None, today: date | None = None) -> list[dict]:
@@ -432,17 +457,24 @@ def refresh_city(city: str, zones: list[str] | None = None, workers: int = 8,
     # TODO items: due venues (registry scheduling) + anything whose dates changed
     due = venues.due_venues(city, None, today)
     due_ids = {d["id"] for d in due}
+    # Galleries ranked 1-150 whose current show's closing date the gallery's own
+    # pages haven't confirmed (check_show_dates.py's ledger) go back to research
+    # at top priority every pass until they are (Carlton, 2026-10-29).
+    unconfirmed = unconfirmed_top_dates(city, reg, today)
     items = []
     for v in reg["venues"]:
         r = by_id.get(v["id"])
         changed = r and "dates_changed" in r["reasons"]
-        if v["id"] not in due_ids and not changed:
+        if v["id"] not in due_ids and not changed and v["id"] not in unconfirmed:
             continue
         pr = next((d["_priority"] for d in due if d["id"] == v["id"]), 0)
         reasons = next((d["_reasons"] for d in due if d["id"] == v["id"]), [])
         if changed:
             pr += 30
             reasons = list(reasons) + ["dates_changed"]
+        if v["id"] in unconfirmed:
+            pr += 50
+            reasons = list(reasons) + ["closing_date_unconfirmed: " + ", ".join(unconfirmed[v["id"]])]
         show = venues.active_show(v, today)
         items.append({
             "venue_id": v["id"], "name": v["name"], "zone": v.get("neighborhood"),
