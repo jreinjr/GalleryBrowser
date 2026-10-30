@@ -128,6 +128,11 @@ def main() -> None:
             rc = sh([sys.executable, HERE / "check_show_city.py", "--city", c])
             if rc:
                 failures.append(f"check_show_city {c}: shows at another city's space (see FLAG lines)")
+        # a saved closing date the show's own page doesn't carry, or a gallery
+        # show with none, sends people to a closed show (check_show_dates.py)
+        rc = sh([sys.executable, HERE / "check_show_dates.py", "--city", c])
+        if rc:
+            failures.append(f"check_show_dates {c}: dates not on the show's page (see FLAG / NO END lines)")
         try:
             import artists
             if hasattr(artists, "write_report"):

@@ -79,7 +79,19 @@
   DATA.shows.forEach(s => { (showsByCity[s.city] = showsByCity[s.city] || []).push(s); });
 
   const city = () => cityByKey[state.cityKey];
-  const cityShows = () => showsByCity[state.cityKey] || [];
+  // A show whose closing date has passed leaves the app on its own: Shows,
+  // Map, gallery cards and lists only ever see shows still running or not yet
+  // open, judged on this device's date each day (Carlton, 2026-10-29: the app
+  // sent them to a closed show). DATA.shows keeps them, so the Archive and a
+  // list's history can still find a closed show by id.
+  const isClosedShow = s => { const end = parseDate(s.endDate); return !!end && end < startOfToday(); };
+  let liveShows = { day: null, byCity: {} };
+  const cityShows = () => {
+    const day = startOfToday().getTime();
+    if (liveShows.day !== day) liveShows = { day, byCity: {} };
+    const k = state.cityKey;
+    return liveShows.byCity[k] || (liveShows.byCity[k] = (showsByCity[k] || []).filter(s => !isClosedShow(s)));
+  };
   const showId = s => s.city + '/' + s.slug;
   // Shows embed their own venue copy; this key identifies "the same venue"
   // across shows, so several concurrent shows collapse into one map pin and one
@@ -393,8 +405,9 @@
     return api;
   })();
   const showById = id => cityShows().find(s => showId(s) === id) || DATA.shows.find(s => showId(s) === id) || null;
-  // Entries -> { show, note } in list order; ids the payload no longer has drop out.
-  const listShows = l => l.entries.map(e => { const s = showById(e.id); return s ? { show: s, note: e.note || null } : null; }).filter(Boolean);
+  // Entries -> { show, note } in list order; ids the payload no longer has,
+  // and shows that have closed, drop out (the entry stays in the list's data).
+  const listShows = l => l.entries.map(e => { const s = showById(e.id); return s && !isClosedShow(s) ? { show: s, note: e.note || null } : null; }).filter(Boolean);
   const listRunning = l => listShows(l).filter(x => isActiveShow(x.show));
   // A list hides once none of its shows is still running; an empty list of
   // the user's own stays visible so it can be filled from Edit.
@@ -2059,7 +2072,7 @@
     // and the registry ranks in this page's data follow the file at once.
     if (ranking.isPersonal(state.cityKey)) ranking.reset(state.cityKey);
     Object.values(VENUES[state.cityKey] || {}).forEach(rec => { rec.rank = j.ranks[rec.id] ?? null; });
-    cityShows().forEach(s => { if (s.venueId && s.venueId in j.ranks) s.venue.rank = j.ranks[s.venueId]; });
+    (showsByCity[state.cityKey] || []).forEach(s => { if (s.venueId && s.venueId in j.ranks) s.venue.rank = j.ranks[s.venueId]; });
     refreshAll();
     return j;
   }
@@ -2613,6 +2626,14 @@
     MapTab.applyFilter();
     mapList.render();
   }
+  // Left open past midnight, the app drops the shows that closed yesterday
+  // the next time it comes to the front.
+  let shownDay = startOfToday().getTime();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden || startOfToday().getTime() === shownDay) return;
+    shownDay = startOfToday().getTime();
+    refreshAll();
+  });
   // The legend's "Nothing on view" row only means something when faded venues can appear.
   function renderMapLegend() {
     const off = document.getElementById('map-legend-off');
