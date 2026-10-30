@@ -369,11 +369,26 @@
         attributionControl: { compact: true },
       });
       // The person's location: a blue dot that follows them, and a button that
-      // recentres the map on it (asks for permission on first tap).
-      map.addControl(new maplibregl.GeolocateControl({
+      // zooms the map in on it (asks for permission on first tap). The control
+      // alone only fits the accuracy circle, which on a phone indoors can leave
+      // the map at city level, so a tap always lands at street zoom.
+      const geo = new maplibregl.GeolocateControl({
         positionOptions: { enableHighAccuracy: true },
         trackUserLocation: true, showUserLocation: true, showAccuracyCircle: true,
-      }), 'bottom-right');
+        fitBoundsOptions: { maxZoom: 16 },
+      });
+      map.addControl(geo, 'bottom-right');
+      let zoomToMe = false;
+      const flyToMe = pos => map.flyTo({ center: [pos.coords.longitude, pos.coords.latitude], zoom: Math.max(map.getZoom(), 15.5), duration: 900 });
+      geo._container.addEventListener('click', () => {
+        if (geo._watchState === 'ACTIVE_LOCK') return;          // this tap turns tracking off
+        if (geo._watchState === 'BACKGROUND' && geo._lastKnownPosition) {
+          const pos = geo._lastKnownPosition;                    // already tracking: no new fix comes
+          setTimeout(() => flyToMe(pos), 0);
+        } else zoomToMe = true;
+      }, true);
+      geo.on('geolocate', pos => { if (zoomToMe) { zoomToMe = false; flyToMe(pos); } });
+      geo.on('trackuserlocationend', () => { zoomToMe = false; });
       map.on('load', () => {
         showStreetNames();
         boldRoads();
