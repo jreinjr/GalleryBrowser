@@ -84,7 +84,9 @@
   // open, judged on this device's date each day (Carlton, 2026-10-29: the app
   // sent them to a closed show). DATA.shows keeps them, so the Archive and a
   // list's history can still find a closed show by id.
-  const isClosedShow = s => { const end = parseDate(s.endDate); return !!end && end < startOfToday(); };
+  // hideAfter: the build's stand-in for a gallery show saved without a
+  // closing date (90 days from opening), so every show closes on its own.
+  const isClosedShow = s => { const end = parseDate(s.endDate || s.hideAfter); return !!end && end < startOfToday(); };
   let liveShows = { day: null, byCity: {} };
   const cityShows = () => {
     const day = startOfToday().getTime();

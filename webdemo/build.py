@@ -17,6 +17,7 @@ import hashlib
 import json
 import re
 import shutil
+from datetime import date, timedelta
 from pathlib import Path
 
 import cityconfig
@@ -354,9 +355,18 @@ def main() -> None:
             # the top-level `venues` map keyed by venueId (docs/GALLERIES.md)
             if vid and rv and vid not in city_venues:
                 city_venues[vid] = venue_record(rv, s["city"])
+            # A gallery show must close on its own even when its closing date
+            # was never found: it hides 90 days after opening (never shown as a
+            # date), and the build says so (Carlton, 2026-10-29).
+            hide_after = None
+            if not s["end_date"] and kind != "museum":
+                opened = date.fromisoformat(s["start_date"]) if s.get("start_date") else date.today()
+                hide_after = (opened + timedelta(days=90)).isoformat()
+                print(f"  warning: show {s['city']}/{s['slug']} has no closing date — hidden after {hide_after}")
             all_shows.append({
                 "city": s["city"], "slug": s["slug"], "title": s["title"],
                 "artist": s.get("artist"), "startDate": s["start_date"], "endDate": s["end_date"],
+                **({"hideAfter": hide_after} if hide_after else {}),
                 "description": s["description"], "reception": s.get("reception"),
                 "images": out_imgs, "sourceUrls": s.get("source_urls", []),
                 **({"bios": show_bios} if show_bios else {}),
