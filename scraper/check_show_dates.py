@@ -19,7 +19,7 @@ ranked 1-150 whose dates are unconfirmed back to research at top priority
 closing dates"). Run it after adding or refreshing shows; exits 1 when anything
 is flagged or a top-150 gallery's show is unconfirmed (unread counts there).
 --all also checks shows that have already closed. Galleries ranked 1-150 need three
-distinct pages carrying the closing date ("always triple check the top 150");
+distinct pages carrying both the opening and closing dates ("always triple check the top 150");
 `--confirm SLUG URL [URL ...]` adds pages read by hand in a browser (bot walls),
 which hold until the end_date changes.
 """
@@ -97,14 +97,20 @@ def listing_urls(show: dict, reg: dict) -> list[str]:
     return list(dict.fromkeys(out))
 
 
-def near_title(text: str, show: dict, iso: str) -> bool:
+def carries(text: str, show: dict, both: bool) -> bool:
+    # the closing date; for a top-150 gallery the opening date too
+    return shows_date(text, show["end_date"]) and \
+        (not both or not show.get("start_date") or shows_date(text, show["start_date"]))
+
+
+def near_title(text: str, show: dict, both: bool) -> bool:
     # on a listing page the date must sit next to this show's title or artist
     for name in (show.get("title"), show.get("artist")):
         name = (name or "").lower().strip()[:30]
         if len(name) < 4:
             continue
         for m in re.finditer(re.escape(name), text):
-            if shows_date(text[max(0, m.start() - 200):m.end() + 300], iso):
+            if carries(text[max(0, m.start() - 200):m.end() + 300], show, both):
                 return True
     return False
 
@@ -112,17 +118,17 @@ def near_title(text: str, show: dict, iso: str) -> bool:
 NEED_TOP = 3   # pages that must agree on a top-ranked gallery's closing date
 
 
-def confirmations(show: dict, reg: dict, need: int) -> tuple[list[str], bool]:
-    """Distinct pages carrying the saved end_date (the show's own pages, then
+def confirmations(show: dict, reg: dict, need: int, both: bool) -> tuple[list[str], bool]:
+    """Distinct pages carrying the saved dates (the show's own pages, then
     the gallery's listings and home page), up to `need`; and whether any page
     could be read at all."""
-    end, found, read = show["end_date"], [], False
+    found, read = [], False
     for url in show_urls(show):
         text = page_text(url)
         if len(text) < 200:
             continue
         read = True
-        if shows_date(text, end):
+        if carries(text, show, both):
             found.append(url)
             if len(found) >= need:
                 return found, read
@@ -133,7 +139,7 @@ def confirmations(show: dict, reg: dict, need: int) -> tuple[list[str], bool]:
         if len(text) < 200:
             continue
         read = True
-        if near_title(text, show, end):
+        if near_title(text, show, both):
             found.append(url)
             if len(found) >= need:
                 break
@@ -142,13 +148,15 @@ def confirmations(show: dict, reg: dict, need: int) -> tuple[list[str], bool]:
 
 def check(show: dict, reg: dict | None = None, need: int = 1, hand: list[str] | None = None) -> tuple[str, list[str]]:
     """ok when `need` distinct pages carry the saved end_date. Galleries ranked
-    1-150 need three (Carlton, 2026-10-29: "always triple check the top 150");
+    1-150 need three, each carrying the opening date too (Carlton, 2026-10-29:
+    "always triple check the top 150", "for opening and closing");
     `hand` are pages someone read the date on in a browser, which count too."""
     if not show.get("end_date"):
         museum = show["venue"].get("is_museum")
         return ("open-ended" if museum else "NO END"), []
     hand = hand or []
-    auto, read = confirmations(show, reg or {}, need)
+    # the triple check covers opening and closing; a single check, closing only
+    auto, read = confirmations(show, reg or {}, need, need > 1)
     seen, found = set(), []
     for u in auto + hand:   # one page however its URL is spelled
         k = re.sub(r"^https?://(www\.)?|/+$", "", u.lower())
