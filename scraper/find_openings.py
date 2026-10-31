@@ -115,6 +115,19 @@ def sweep(v: dict, window) -> dict:
                     r"(?i)(nov|dec|jan)[a-z]*\.?\s+\d", ctx):
                 if not OLD_YEAR.search(ctx):
                     recs.setdefault(re.sub(r"\W", "", ctx[100:200]).lower(), (u, ctx))
+    # The gallery's own newsletter archive: a Mailchimp signup form on its site
+    # leads to the public campaign archive, where the opening emails often carry
+    # the reception time the website leaves out (Ghebaly, Parker, 2026-10-31).
+    home = render(pages[0]) if pages else ""
+    mc = re.search(r"https?://[a-z0-9-]+\.(us\d+)\.list-manage\.com/subscribe/post\?u=([0-9a-f]+)&(?:amp;)?id=([0-9a-f]+)", home)
+    if mc:
+        archive = f"https://{mc.group(1)}.campaign-archive.com/home/?u={mc.group(2)}&id={mc.group(3)}"
+        for _, url, _ in re.findall(r'(\d\d/\d\d/\d{4})\s*-\s*<a href="([^"]+)"[^>]*>(.*?)</a>', render(archive))[:6]:
+            t = text(render(url))
+            for m in REC.finditer(t):
+                ctx = t[max(0, m.start() - 140): m.end() + 140]
+                if re.search(r"(?i)(nov|dec|jan)[a-z]*\.?\s+\d", ctx) and not OLD_YEAR.search(ctx):
+                    recs.setdefault(re.sub(r"\W", "", ctx[100:200]).lower(), (url, ctx))
     return {"id": v["id"], "name": v["name"], "rank": v.get("rank"), "pages": pages,
             "starts": sorted(starts.items()), "receptions": list(recs.values()),
             "rendered": sum(len(render(u)) for u in pages)}
