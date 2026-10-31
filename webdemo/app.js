@@ -1400,23 +1400,22 @@
       onOpen: rateFromCard,
     });
   }
-  // The Shows tab card's extra lines (Carlton, 2026-10-31): no run dates unless
-  // the show is closing within the week, then its closing date in bright orange;
-  // for any show with a reception still to come, the reception in red.
+  // The Shows tab card's one info line, the same red style either way (Carlton,
+  // 2026-10-31): a reception still to come, else, at a top-150 gallery, the
+  // closing date. Never both.
   // "Saturday, November 7, 2026, 6–10pm" → "Sat, Nov 7, 6–10pm"
   const shortReception = r => r
     .replace(/\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?=[,\s])/gi, (_, d) => d[0].toUpperCase() + d.slice(1).toLowerCase())
     .replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?=\s*\d)/gi, (_, m) => m[0].toUpperCase() + m.slice(1).toLowerCase())
     .replace(/(\d)(?:st|nd|rd|th)\b/g, '$1').replace(/,\s*\d{4}\b/, '');
   function showMeta(s) {
+    if (s.reception && hasUpcomingReception(s))
+      return [el('div', { class: 'cf-info' }, 'Reception ' + shortReception(s.reception))];
     const end = parseDate(s.endDate);
-    const days = end && Math.round((end - startOfToday()) / DAY);
-    const closing = isClosingSoon(s)
-      ? el('div', { class: 'cf-closing' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
-        : 'Closing ' + end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })) : null;
-    const rec = s.reception && hasUpcomingReception(s)
-      ? el('div', { class: 'cf-reception' }, 'Reception ' + shortReception(s.reception)) : null;
-    return [closing, rec];
+    if (!end || !inTop150(s)) return [];
+    const days = Math.round((end - startOfToday()) / DAY);
+    return [el('div', { class: 'cf-info' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
+      : 'Closing ' + end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }))];
   }
   // A show tapped on the Shows tab opens its rating page ("I saw this show":
   // the small picture, the emoji rating, tags, notes and Save to archive) in a

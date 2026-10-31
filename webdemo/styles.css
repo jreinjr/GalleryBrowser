@@ -125,8 +125,7 @@ img { display: block; pointer-events: none; -webkit-user-drag: none; }
 .card-footer .name { color: #000; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-footer .sub { color: rgba(0, 0, 0, 0.65); font-size: 13px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* the bottom row: Map, Directions and Website buttons, the hours in grey, then the red count */
-.card-footer .cf-closing { margin-top: 2px; color: #FF6A00; font-size: 13px; font-weight: 800; }
-.card-footer .cf-reception { margin-top: 2px; color: #E0262B; font-size: 13px; font-weight: 700; line-height: 1.3; }
+.card-footer .cf-info { margin-top: 2px; color: #E0262B; font-size: 13px; font-weight: 700; line-height: 1.3; }
 .card-footer .cf-venue { color: rgba(0, 0, 0, 0.6); font-weight: 700; }
 .card-footer .cf-buttons { display: flex; align-items: center; gap: 10px; margin-top: 2px; }
 .card-footer .cf-hours { flex: 0 1 auto; min-width: 0; margin-left: 4px; color: rgba(0, 0, 0, 0.55); font-size: 14px; line-height: 32px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
