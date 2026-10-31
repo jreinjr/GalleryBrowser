@@ -1396,8 +1396,30 @@
       cls: 'feed-card',
       carousel: { aspect: '1 / 1', dots: 'above-footer' },
       sub: s => venueSub(s.venue),
+      meta: showMeta,
       onOpen: rateFromCard,
     });
+  }
+  // The Shows tab card's third line: the run dates and a globe to the gallery's
+  // website, then, for a show opening this week, its reception (Carlton, 2026-10-31).
+  const runDates = s => {
+    const start = parseDate(s.startDate), end = parseDate(s.endDate);
+    if (start && end) return fmtShort(start) + ' – ' + fmtShort(end);
+    return end ? 'Through ' + fmtShort(end) : start ? 'From ' + fmtShort(start) : '';
+  };
+  // "Saturday, November 7, 2026, 6–10pm" → "Sat, Nov 7, 6–10pm"
+  const shortReception = r => r
+    .replace(/\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?=[,\s])/gi, (_, d) => d[0].toUpperCase() + d.slice(1).toLowerCase())
+    .replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?=\s*\d)/gi, (_, m) => m[0].toUpperCase() + m.slice(1).toLowerCase())
+    .replace(/(\d)(?:st|nd|rd|th)\b/g, '$1').replace(/,\s*\d{4}\b/, '');
+  function showMeta(s) {
+    const site = fullVenue(s.venue).website;
+    const dates = el('div', { class: 'cf-dates' }, el('span', null, runDates(s)),
+      site ? el('a', { class: 'cf-web', href: site, target: '_blank', rel: 'noopener', 'aria-label': 'Gallery website',
+        onclick: e => e.stopPropagation() }, icon('globe')) : null);
+    const rec = s.reception && hasUpcomingReception(s) && isOpeningSoon(s)
+      ? el('div', { class: 'cf-reception' }, 'Reception ' + shortReception(s.reception)) : null;
+    return [dates, rec];
   }
   // A show tapped on the Shows tab opens its rating page ("I saw this show":
   // the small picture, the emoji rating, tags, notes and Save to archive) in a
@@ -2219,7 +2241,7 @@
   const venueSub = v => el('span', null, el('b', { class: 'cf-venue' }, listLine(v)), ` • ${v.address}`);
   const STACK_MAX = 2;            // sheets drawn behind the card, however deep the deck
   function showDeck(shows, opts) {
-    const { cls, carousel, sub, onOpen, nameExtra } = opts;
+    const { cls, carousel, sub, meta, onOpen, nameExtra } = opts;
     let idx = 0;
     let swipedAt = 0;             // a swipe ends over the card: don't let it open a show too
     const card = el('div', { class: 'card ' + cls });
@@ -2257,7 +2279,7 @@
       const s = shows[idx];
       const open = () => { if (Date.now() - swipedAt > 350) (onOpen || pushDetailFromRow)(s); };
       // nameExtra (the flame) sits after the name and sub lines, centered on both.
-      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s))];
+      const lines = [el('div', { class: 'name' }, nameNode(s)), el('div', { class: 'sub' }, sub(s)), ...(meta ? meta(s) : [])];
       const text = nameExtra
         ? el('div', { class: 'cf-text name-line' }, el('div', { class: 'name-col' }, ...lines), nameExtra(s))
         : el('div', { class: 'cf-text' }, ...lines);
