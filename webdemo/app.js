@@ -1400,9 +1400,9 @@
       onOpen: rateFromCard,
     });
   }
-  // The Shows tab card's one info line, the same red style either way (Carlton,
-  // 2026-10-31): a reception still to come, else, at a top-150 gallery, the
-  // closing date. Never both.
+  // The Shows tab card's one info line (Carlton, 2026-10-31): a reception still
+  // to come, else, at a top-150 gallery, the closing date. Never both. Red only
+  // for a reception or Closing today; any other closing date is grey.
   // "Saturday, November 7, 2026, 6–10pm" → "Sat, Nov 7, 6–10pm"
   const shortReception = r => r
     .replace(/\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?=[,\s])/gi, (_, d) => d[0].toUpperCase() + d.slice(1).toLowerCase())
@@ -1414,7 +1414,7 @@
     const end = parseDate(s.endDate);
     if (!end || !inTop150(s)) return [];
     const days = Math.round((end - startOfToday()) / DAY);
-    return [el('div', { class: 'cf-info' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
+    return [el('div', { class: days === 0 ? 'cf-info' : 'cf-info quiet' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
       : 'Closing ' + end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }))];
   }
   // A show tapped on the Shows tab opens its rating page ("I saw this show":
