@@ -73,6 +73,8 @@ def date_patterns(iso: str) -> list[str]:
         # European pages (Paris): 22 novembre, 1er nov., 22.11.2026, 22/11/26
         rf"(?<!\w){fr_day}\s+{fr}(?!\w)",
         rf"\b0?{d.day}\s*[/.\-]\s*0?{m}\s*[/.\-]\s*(?:20)?{yy}\b",
+        # a yearless European range start: 19.10 - 21.11.2026, 11.09 > 07.11.26, 08/10 – 28/11
+        rf"\b0?{d.day}\s*[/.]\s*0?{m}\.?\s*[-–—>→]",
     ]
 
 

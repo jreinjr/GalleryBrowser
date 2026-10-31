@@ -64,7 +64,7 @@ def render(url: str) -> str:
 FR_EN = [(r"janv(?:ier|\.)?", "january"), (r"f[ée]vr(?:ier|\.)?", "february"), (r"\bmars\b", "march"),
          (r"\bavr(?:il|\.)?", "april"), (r"\bmai\b", "may"), (r"\bjuin\b", "june"),
          (r"\bjuil(?:let|\.)?", "july"), (r"\bao[ûu]t\b", "august"), (r"\bseptembre\b", "september"),
-         (r"\boctobre\b", "october"), (r"\bnovembre\b", "november"), (r"\bd[ée]c(?:embre|\.)?", "december"),
+         (r"\boctobre\b", "october"), (r"\bnovembre\b", "november"), (r"\bd[ée]c(?:embre\b|\.|\b)", "december"),
          (r"\b(\d{1,2})er\b", r"\1")]
 
 
