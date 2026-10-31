@@ -1400,26 +1400,23 @@
       onOpen: rateFromCard,
     });
   }
-  // The Shows tab card's third line: the run dates and a globe to the gallery's
-  // website, then, for a show opening this week, its reception (Carlton, 2026-10-31).
-  const runDates = s => {
-    const start = parseDate(s.startDate), end = parseDate(s.endDate);
-    if (start && end) return fmtShort(start) + ' – ' + fmtShort(end);
-    return end ? 'Through ' + fmtShort(end) : start ? 'From ' + fmtShort(start) : '';
-  };
+  // The Shows tab card's extra lines (Carlton, 2026-10-31): no run dates unless
+  // the show is closing within the week, then its closing date in bright orange;
+  // for a show opening this week, its reception in red.
   // "Saturday, November 7, 2026, 6–10pm" → "Sat, Nov 7, 6–10pm"
   const shortReception = r => r
     .replace(/\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?=[,\s])/gi, (_, d) => d[0].toUpperCase() + d.slice(1).toLowerCase())
     .replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?=\s*\d)/gi, (_, m) => m[0].toUpperCase() + m.slice(1).toLowerCase())
     .replace(/(\d)(?:st|nd|rd|th)\b/g, '$1').replace(/,\s*\d{4}\b/, '');
   function showMeta(s) {
-    const site = fullVenue(s.venue).website;
-    const dates = el('div', { class: 'cf-dates' }, el('span', null, runDates(s)),
-      site ? el('a', { class: 'cf-web', href: site, target: '_blank', rel: 'noopener', 'aria-label': 'Gallery website',
-        onclick: e => e.stopPropagation() }, icon('globe')) : null);
+    const end = parseDate(s.endDate);
+    const days = end && Math.round((end - startOfToday()) / DAY);
+    const closing = isClosingSoon(s)
+      ? el('div', { class: 'cf-closing' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
+        : 'Closing ' + end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })) : null;
     const rec = s.reception && hasUpcomingReception(s) && isOpeningSoon(s)
       ? el('div', { class: 'cf-reception' }, 'Reception ' + shortReception(s.reception)) : null;
-    return [dates, rec];
+    return [closing, rec];
   }
   // A show tapped on the Shows tab opens its rating page ("I saw this show":
   // the small picture, the emoji rating, tags, notes and Save to archive) in a
@@ -2223,8 +2220,8 @@
   const cardHours = v => (v.hours || []).join(', ').split(/,\s*/)
     .map(h => h.replace(/\s+or by appointment(?: only)?/i, '').trim())   // "… or by appointment": keep the hours
     .filter(h => h && !/appointment/i.test(h)).join(', ');                 // "Sat by appointment", "By appointment only": drop
-  // Map (the Map on the matching Galleries | Museums side, the pin ringed)
-  // and Directions, icon-only, in the card's button row.
+  // Map (the Map on the matching Galleries | Museums side, the pin ringed),
+  // Directions and the gallery's website, icon-only, in the card's button row.
   function venueActs(venue) {
     const v = fullVenue(venue);
     const mapBtn = v.lat == null ? null : el('button', {
@@ -2234,8 +2231,12 @@
     const dirBtn = v.lat == null ? null : el('a', {
       class: 'cf-act', href: directionsUrl(v), target: '_blank', rel: 'noopener', 'aria-label': 'Directions',
       onclick: e => e.stopPropagation(),
-    }, icon('walk'));
-    return [mapBtn, dirBtn];
+    }, icon('directions'));
+    const webBtn = !v.website ? null : el('a', {
+      class: 'cf-act', href: v.website, target: '_blank', rel: 'noopener', 'aria-label': 'Gallery website',
+      onclick: e => e.stopPropagation(),
+    }, icon('globe'));
+    return [mapBtn, dirBtn, webBtn];
   }
   // "Gallery name • address" with the name in bold
   const venueSub = v => el('span', null, el('b', { class: 'cf-venue' }, listLine(v)), ` • ${v.address}`);
