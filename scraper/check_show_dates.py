@@ -63,12 +63,23 @@ def date_patterns(iso: str) -> list[str]:
     mon = rf"(?:{full}|{abbr}\.?|{abbr[:3]}t\.?)" if d.month == 9 else rf"(?:{full}|{abbr}\.?)"
     day = rf"0?{d.day}(?:st|nd|rd|th)?"
     m, yy = d.month, d.year % 100
+    fr = FR_MONTHS[d.month - 1]
+    fr_day = rf"(?:0?{d.day}|1er)" if d.day == 1 else rf"0?{d.day}"
     return [
         rf"\b{mon}\s+{day}\b",                        # November 22 / Nov. 22nd
         rf"\b{day}\s+{mon}\b",                        # 22 November
         rf"\b0?{m}\s*[/.\-]\s*0?{d.day}\s*[/.\-]\s*(?:20)?{yy}\b",   # 11/22/26, 11.22.2026
         rf"\b{d.year}\s*[\-/.]\s*0?{m}\s*[\-/.]\s*0?{d.day}\b",      # 2026-11-22
+        # European pages (Paris): 22 novembre, 1er nov., 22.11.2026, 22/11/26
+        rf"(?<!\w){fr_day}\s+{fr}(?!\w)",
+        rf"\b0?{d.day}\s*[/.\-]\s*0?{m}\s*[/.\-]\s*(?:20)?{yy}\b",
     ]
+
+
+# French month names as Paris galleries write them, full or abbreviated
+FR_MONTHS = [r"janv(?:ier|\.)?", r"f[ée]vr(?:ier|\.)?", r"mars", r"avr(?:il|\.)?", r"mai",
+             r"juin", r"juil(?:let|\.)?", r"ao[ûu]t", r"sept(?:embre|\.)?", r"oct(?:obre|\.)?",
+             r"nov(?:embre|\.)?", r"d[ée]c(?:embre|\.)?"]
 
 
 def shows_date(text: str, iso: str | None) -> bool:

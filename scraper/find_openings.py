@@ -60,9 +60,20 @@ def render(url: str) -> str:
     return out
 
 
+# French pages (Paris): "du 7 novembre au 19 décembre", "1er déc." -> English month names
+FR_EN = [(r"janv(?:ier|\.)?", "january"), (r"f[ée]vr(?:ier|\.)?", "february"), (r"\bmars\b", "march"),
+         (r"\bavr(?:il|\.)?", "april"), (r"\bmai\b", "may"), (r"\bjuin\b", "june"),
+         (r"\bjuil(?:let|\.)?", "july"), (r"\bao[ûu]t\b", "august"), (r"\bseptembre\b", "september"),
+         (r"\boctobre\b", "october"), (r"\bnovembre\b", "november"), (r"\bd[ée]c(?:embre|\.)?", "december"),
+         (r"\b(\d{1,2})er\b", r"\1")]
+
+
 def text(h: str) -> str:
     h = re.sub(r"(?is)<script.*?</script>|<style.*?</style>", "", h)
-    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", h)))
+    t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", h)))
+    for fr, en in FR_EN:
+        t = re.sub(fr, en, t, flags=re.I)
+    return t
 
 
 def links(base: str, h: str) -> list[str]:
@@ -82,7 +93,7 @@ def start_dates(t: str, window: tuple[date, date]):
     lo, hi = window
     pat = re.compile(r"(?i)\b(?:(?P<m1>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(?P<d1>\d{1,2})"
                      r"|(?P<d2>\d{1,2})\s+(?P<m2>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*)"
-                     r"(?:st|nd|rd|th)?,?\s*(?:\d{4})?\s*(?:–|-|—|to|through)\s*")
+                     r"(?:st|nd|rd|th)?,?\s*(?:\d{4})?\s*(?:–|-|—|to|through|au)\s*")
     for m in pat.finditer(t):
         mon = (m.group("m1") or m.group("m2")).lower()[:3]
         day = int(m.group("d1") or m.group("d2"))
