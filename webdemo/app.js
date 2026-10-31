@@ -2636,11 +2636,12 @@
     }
     const keep = rankKeeper(f);
     // Receptions (the Shows tab's third switch): every show, gallery or museum,
-    // with a reception still to come, soonest first (Carlton, 2026-10-31).
+    // with a reception still to come, soonest first; galleries down to rank 150
+    // whatever the rank buttons say (Carlton, 2026-10-31).
     if (f.receptions) {
       const t = f.q.trim().toLowerCase();
       return sortShows(cityShows().filter(s => hasUpcomingReception(s) && matchesQuery(s, t)
-        && (onMuseumList(s.venue) || keep(s.venue))), 'reception', geo || city().center);
+        && (onMuseumList(s.venue) || keep(s.venue) || inTop150(s))), 'reception', geo || city().center);
     }
     const shows = filterShows(cityShows(), f).filter(s => keep(s.venue) && (!f.openToday || venueOpenToday(fullVenue(s.venue))));
     return sortShows(shows, f.sort, geo || city().center);
