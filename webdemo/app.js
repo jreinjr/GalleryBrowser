@@ -1402,7 +1402,7 @@
   }
   // The Shows tab card's extra lines (Carlton, 2026-10-31): no run dates unless
   // the show is closing within the week, then its closing date in bright orange;
-  // for a show opening this week, its reception in red.
+  // for any show with a reception still to come, the reception in red.
   // "Saturday, November 7, 2026, 6–10pm" → "Sat, Nov 7, 6–10pm"
   const shortReception = r => r
     .replace(/\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?=[,\s])/gi, (_, d) => d[0].toUpperCase() + d.slice(1).toLowerCase())
@@ -1414,7 +1414,7 @@
     const closing = isClosingSoon(s)
       ? el('div', { class: 'cf-closing' }, days === 0 ? 'Closing today' : days === 1 ? 'Closing tomorrow'
         : 'Closing ' + end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })) : null;
-    const rec = s.reception && hasUpcomingReception(s) && isOpeningSoon(s)
+    const rec = s.reception && hasUpcomingReception(s)
       ? el('div', { class: 'cf-reception' }, 'Reception ' + shortReception(s.reception)) : null;
     return [closing, rec];
   }
@@ -2383,7 +2383,7 @@
   // gallery's rank is the only ranking signal (v7 dropped the Show Rank group).
   const FILTER_VERSION = 8;
   const FILTER_DEFAULT = { v: FILTER_VERSION, q: '', hoods: [], kind: 'galleries', galleryRank: '100',
-    active: true, upcoming: false, opening: false, closing: false, openToday: false, list: null, sort: 'rank' };
+    active: true, upcoming: false, opening: false, closing: false, openToday: false, list: null, sort: 'rank', receptions: false };
   // kind is the Galleries | Museums switch at the top of the Shows tab and the
   // Map (each tab its own), split like the Gallery tab's two lists: Museums is
   // museums, nonprofit spaces and university galleries, Galleries everything else.
@@ -2451,6 +2451,8 @@
     // The sheet has no Neighborhoods or Sort group: neither may narrow or reorder unseen.
     f.hoods = [];
     f.sort = 'rank';
+    f.closing = false;   // the Closing soon switch is gone: the card's orange line says it (Carlton, 2026-10-31)
+    f.receptions = !!f.receptions;
     if (!KINDS.some(([k]) => k === f.kind)) f.kind = 'galleries';
     if (!GALLERY_RANKS.some(([k]) => k === f.galleryRank)) f.galleryRank = FILTER_DEFAULT.galleryRank;
     if (typeof f.list !== 'string') f.list = null;
@@ -2459,8 +2461,8 @@
   state.filter = loadFilter('showFilter', 'filter');
   state.mapFilter = loadFilter('filter');
   const persistFilter = () => { store.set('showFilter', JSON.stringify(state.filter)); store.set('filter', JSON.stringify(state.mapFilter)); };
-  // Clear in the sheet leaves the Galleries | Museums switch alone.
-  const resetFilter = f => { Object.assign(f, { ...FILTER_DEFAULT, hoods: [], kind: f.kind }); };
+  // Clear in the sheet leaves the Galleries | Museums | Receptions switch alone.
+  const resetFilter = f => { Object.assign(f, { ...FILTER_DEFAULT, hoods: [], kind: f.kind, receptions: f.receptions }); };
   // A list that no longer exists (a draft from an earlier session) is no context.
   const currentList = (f = state.filter) => { const l = listById(f.list); if (f.list && !l) f.list = null; return l; };
   const mapCtxList = () => currentList(state.mapFilter);
@@ -2634,6 +2636,13 @@
       }, () => { /* keep city-center order */ }, { timeout: 5000 });
     }
     const keep = rankKeeper(f);
+    // Receptions (the Shows tab's third switch): every show, gallery or museum,
+    // with a reception still to come, soonest first (Carlton, 2026-10-31).
+    if (f.receptions) {
+      const t = f.q.trim().toLowerCase();
+      return sortShows(cityShows().filter(s => hasUpcomingReception(s) && matchesQuery(s, t)
+        && (onMuseumList(s.venue) || keep(s.venue))), 'reception', geo || city().center);
+    }
     const shows = filterShows(cityShows(), f).filter(s => keep(s.venue) && (!f.openToday || venueOpenToday(fullVenue(s.venue))));
     return sortShows(shows, f.sort, geo || city().center);
   }
@@ -2732,16 +2741,19 @@
     badge.textContent = String(n);
   }
   // The Galleries | Museums switch at the top of the Shows tab and the Map; each
-  // drives its own tab's filter. refreshAll repaints every copy.
+  // drives its own tab's filter. The Shows tab's adds Receptions, which shows only
+  // shows with a reception to come. refreshAll repaints every copy.
   function kindSwitch(onMap) {
     const f = () => onMap ? state.mapFilter : state.filter;
     const box = el('div', { class: 'seg-row kind-switch' + (onMap ? ' on-map' : ''), 'data-kind-switch': onMap ? 'map' : 'shows' },
-      ...KINDS.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { if (f().kind !== k) { f().kind = k; refreshAll(); } } }, label)));
+      ...KINDS.map(([k, label]) => el('button', { 'data-value': k, onclick: () => { if (f().kind !== k || f().receptions) { f().kind = k; f().receptions = false; refreshAll(); } } }, label)),
+      onMap ? null : el('button', { 'data-value': 'receptions', onclick: () => { if (!f().receptions) { f().receptions = true; refreshAll(); } } }, 'Receptions'));
     paintKindSwitch(box);
     return box;
   }
   function paintKindSwitch(box) {
-    const kind = (box.dataset.kindSwitch === 'map' ? state.mapFilter : state.filter).kind;
+    const f = box.dataset.kindSwitch === 'map' ? state.mapFilter : state.filter;
+    const kind = f.receptions ? 'receptions' : f.kind;
     box.querySelectorAll('button').forEach(b => {
       const on = b.dataset.value === kind;
       b.classList.toggle('on', on);
@@ -2781,7 +2793,7 @@
       el('div', { class: 'search-bar' }, el('div', { class: 'search-field' }, icon('search'), input, clearQ)),
       header('List'), listGroup,
       header('Show'),
-      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening'), switchRow('Closing soon', 'closing')),
+      el('div', { class: 'group' }, switchRow('Active shows', 'active'), switchRow('Upcoming shows', 'upcoming'), switchRow('Opening this week', 'opening')),
       header('Hours'), el('div', { class: 'group' }, switchRow('Open today', 'openToday')),
       // museums hold no gallery rank
       ...(f.kind === 'museums' ? [] : [header('Top galleries by rank'), rankRow]));

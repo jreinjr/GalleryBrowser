@@ -496,7 +496,7 @@ img.framed { display: block; box-sizing: content-box; border: 4px solid #fff; he
 .map-pill svg { width: 16px; height: 16px; }
 /* Galleries | Museums at the top of the Shows tab and the Map */
 .seg-row.kind-switch { margin: 0 10px; flex: 0 1 auto; min-width: 0; }
-.seg-row.kind-switch button { padding: 6px 14px; }
+.seg-row.kind-switch button { padding: 6px 7px; }   /* three buttons on the Shows tab (Receptions) must fit a phone */
 /* on the Map it sits centered under the Cities and Filter pills */
 .seg-row.kind-switch.on-map { position: absolute; top: 48px; left: 50%; transform: translateX(-50%); margin: 0; padding: 3px; border-radius: 999px; background: rgba(40, 40, 44, 0.78); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .seg-row.kind-switch.on-map button { border-radius: 999px; padding: 6px 12px; font-size: 15px; font-weight: 600; color: rgba(255, 255, 255, 0.7); }
