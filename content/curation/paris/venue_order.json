@@ -1,7 +1,7 @@
 {
  "city": "paris",
- "source": "LLM consensus (claude-opus-5 + gpt-5.6-sol), 2026-09-04",
- "generated": "2026-09-04",
+ "source": "Hand ranking 2026-11-01, checked against Art Basel (Basel, Paris, Miami Beach, Hong Kong) and Art Basel directory of Paris-based galleries, Frieze London + Masters, Paris Internationale, Art Paris, Paris Gallery Weekend, Comité professionnel des galeries d art; approved by Carlton 2026-11-01",
+ "generated": "2026-11-01",
  "tiers": {
   "1": 20,
   "2": 50
@@ -12,581 +12,1085 @@
    "name": "Perrotin",
    "id": "galerie-perrotin",
    "neighborhood": "Marais",
-   "note": "claude #1 / openai #2"
+   "note": "Paris-founded global gallery, two Marais spaces"
   },
   {
    "rank": 2,
    "name": "Thaddaeus Ropac",
    "id": "thaddaeus-ropac-paris-pantin",
    "neighborhood": "Belleville/Pantin",
-   "note": "claude #2 / openai #3"
+   "note": "Marais + Pantin, Kiefer, Baselitz, Penn estate"
   },
   {
    "rank": 3,
    "name": "Gagosian",
    "id": "gagosian",
    "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #6 / openai #1"
+   "note": "Three Paris-area spaces incl. Le Bourget"
   },
   {
    "rank": 4,
-   "name": "David Zwirner",
-   "id": "david-zwirner",
-   "neighborhood": "Marais",
-   "note": "claude #7 / openai #5"
+   "name": "Mennour",
+   "id": "mennour",
+   "neighborhood": "Saint-Germain",
+   "note": "Four Paris spaces, Kapoor, Buren, Henrot, Shonibare"
   },
   {
    "rank": 5,
-   "name": "Marian Goodman Gallery",
-   "id": "marian-goodman",
-   "neighborhood": "Marais",
-   "note": "claude #5 / openai #7"
-  },
-  {
-   "rank": 6,
    "name": "Hauser & Wirth",
    "id": "hauser-and-wirth",
    "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #8 / openai #6"
+   "note": "Mega-gallery, Calder show now"
+  },
+  {
+   "rank": 6,
+   "name": "David Zwirner",
+   "id": "david-zwirner",
+   "neighborhood": "Marais",
+   "note": "Mega-gallery, Marais space"
   },
   {
    "rank": 7,
-   "name": "Galerie Chantal Crousel",
-   "id": "galerie-chantal-crousel",
+   "name": "Marian Goodman",
+   "id": "marian-goodman",
    "neighborhood": "Marais",
-   "note": "claude #4 / openai #12"
+   "note": "Historic program, Dean, Nauman, Messager"
   },
   {
    "rank": 8,
-   "name": "White Cube",
-   "id": "white-cube",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #16 / openai #9"
+   "name": "Galerie Chantal Crousel",
+   "id": "galerie-chantal-crousel",
+   "neighborhood": "Marais",
+   "note": "Leading Paris house since 1980"
   },
   {
    "rank": 9,
-   "name": "Galerie Max Hetzler",
-   "id": "galerie-max-hetzler",
-   "neighborhood": "Marais",
-   "note": "claude #12 / openai #15"
+   "name": "White Cube",
+   "id": "white-cube",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Global, avenue Matignon space"
   },
   {
    "rank": 10,
-   "name": "Galerie Lelong & Co.",
-   "id": "galerie-lelong-and-co",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #13 / openai #14"
+   "name": "Templon",
+   "id": "templon",
+   "neighborhood": "Marais",
+   "note": "Paris institution since 1966, Garouste"
   },
   {
    "rank": 11,
-   "name": "Galerie Nathalie Obadia",
-   "id": "galerie-nathalie-obadia",
+   "name": "Almine Rech",
+   "id": "almine-rech",
    "neighborhood": "Marais",
-   "note": "claude #14 / openai #13"
+   "note": "Global, Turenne + Matignon"
   },
   {
    "rank": 12,
-   "name": "Galleria Continua",
-   "id": "galleria-continua",
+   "name": "Galerie Max Hetzler",
+   "id": "galerie-max-hetzler",
    "neighborhood": "Marais",
-   "note": "claude #19 / openai #11"
+   "note": "Global, two rue du Temple spaces"
   },
   {
    "rank": 13,
-   "name": "Esther Schipper",
-   "id": "esther-schipper",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #17 / openai #17"
+   "name": "Galleria Continua",
+   "id": "galleria-continua",
+   "neighborhood": "Marais",
+   "note": "Marais + Faubourg Saint-Honoré"
   },
   {
    "rank": 14,
-   "name": "Balice Hertling",
-   "id": "balice-hertling",
-   "neighborhood": "Marais",
-   "note": "claude #27 / openai #24"
+   "name": "Esther Schipper",
+   "id": "esther-schipper",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Parreno, Huyghe, Place Vendôme"
   },
   {
    "rank": 15,
-   "name": "Massimo De Carlo",
-   "id": "massimo-de-carlo",
-   "neighborhood": "Marais",
-   "note": "claude #38 / openai #16"
+   "name": "Galerie Lelong & Co.",
+   "id": "galerie-lelong-and-co",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Historic house, two 8th-arr. spaces"
   },
   {
    "rank": 16,
-   "name": "Marcelle Alix",
-   "id": "marcelle-alix",
-   "neighborhood": "Marais",
-   "note": "claude #31 / openai #23"
-  },
-  {
-   "rank": 17,
-   "name": "Skarstedt",
-   "id": "skarstedt",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #37 / openai #18"
-  },
-  {
-   "rank": 18,
    "name": "Mendes Wood DM",
    "id": "mendes-wood-dm",
    "neighborhood": "Marais",
-   "note": "claude #39 / openai #19"
+   "note": "Global, Place des Vosges"
+  },
+  {
+   "rank": 17,
+   "name": "Galerie Nathalie Obadia",
+   "id": "galerie-nathalie-obadia",
+   "neighborhood": "Marais",
+   "note": "Three spaces, strong French roster"
+  },
+  {
+   "rank": 18,
+   "name": "Skarstedt",
+   "id": "skarstedt",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Blue-chip secondary market"
   },
   {
    "rank": 19,
-   "name": "Galerie Georges-Philippe & Nathalie Vallois",
-   "id": "galerie-georges-philippe-and-nathalie-vallois",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #22 / openai #40"
+   "name": "MASSIMODECARLO Pièce Unique",
+   "id": "massimo-de-carlo",
+   "neighborhood": "Marais",
+   "note": "Global gallery's Paris window"
   },
   {
    "rank": 20,
-   "name": "Galerie Karsten Greve",
-   "id": "galerie-karsten-greve",
+   "name": "Balice Hertling",
+   "id": "balice-hertling",
    "neighborhood": "Marais",
-   "note": "claude #23 / openai #42"
+   "note": "Influential younger program"
   },
   {
    "rank": 21,
-   "name": "Jeanne Bucher Jaeger",
-   "id": "jeanne-bucher-jaeger",
-   "neighborhood": "Marais",
-   "note": "claude #24 / openai #41"
+   "name": "Galerie Jocelyn Wolff",
+   "id": "galerie-jocelyn-wolff",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Conceptual program; also Frieze London"
   },
   {
    "rank": 22,
-   "name": "mor charpentier",
-   "id": "mor-charpentier",
+   "name": "Crèvecœur",
+   "id": "crevec-ur",
    "neighborhood": "Marais",
-   "note": "claude #35 / openai #32"
+   "note": "Leading younger gallery, two spaces"
   },
   {
    "rank": 23,
-   "name": "Galerie frank elbaz",
-   "id": "galerie-frank-elbaz",
-   "neighborhood": "Marais",
-   "note": "claude #42 / openai #27"
+   "name": "Air de Paris",
+   "id": "air-de-paris",
+   "neighborhood": "Belleville/Pantin",
+   "note": "Historic avant-garde gallery since 1990"
   },
   {
    "rank": 24,
-   "name": "Loevenbruck",
-   "id": "loevenbruck",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #43 / openai #30"
+   "name": "Marcelle Alix",
+   "id": "marcelle-alix",
+   "neighborhood": "Marais",
+   "note": "Strong younger program"
   },
   {
    "rank": 25,
-   "name": "Semiose",
-   "id": "semiose",
+   "name": "Galerie Karsten Greve",
+   "id": "galerie-karsten-greve",
    "neighborhood": "Marais",
-   "note": "claude #45 / openai #31"
+   "note": "Twombly, Bourgeois, modern masters"
   },
   {
    "rank": 26,
-   "name": "Galerie Christophe Gaillard",
-   "id": "galerie-christophe-gaillard",
+   "name": "Jeanne Bucher Jaeger",
+   "id": "jeanne-bucher-jaeger",
    "neighborhood": "Marais",
-   "note": "claude #44 / openai #45"
+   "note": "Historic house since 1925"
   },
   {
    "rank": 27,
-   "name": "Galerie Poggi",
-   "id": "galerie-poggi",
+   "name": "mor charpentier",
+   "id": "mor-charpentier",
    "neighborhood": "Marais",
-   "note": "claude #34 / openai #57"
+   "note": "Political, Latin American roster; also Frieze London"
   },
   {
    "rank": 28,
-   "name": "Galerie Allen",
-   "id": "galerie-allen",
+   "name": "galerie frank elbaz",
+   "id": "galerie-frank-elbaz",
    "neighborhood": "Marais",
-   "note": "claude #53 / openai #53"
+   "note": "Strong US and Japanese roster"
   },
   {
    "rank": 29,
-   "name": "Galerie Suzanne Tarasieve",
-   "id": "galerie-suzanne-tarasieve",
-   "neighborhood": "Marais",
-   "note": "claude #48 / openai #59"
+   "name": "Galerie G.-P. & N. Vallois",
+   "id": "galerie-georges-philippe-and-nathalie-vallois",
+   "neighborhood": "Saint-Germain",
+   "note": "Nouveau Réalisme and younger artists"
   },
   {
    "rank": 30,
-   "name": "Magnin-A",
-   "id": "magnin-a",
+   "name": "Galerie Christophe Gaillard",
+   "id": "galerie-christophe-gaillard",
    "neighborhood": "Marais",
-   "note": "claude #61 / openai #51"
+   "note": "Paris + Brussels"
   },
   {
    "rank": 31,
-   "name": "Tornabuoni Art",
-   "id": "tornabuoni-art",
+   "name": "Modern Art",
+   "id": "modern-art",
    "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #71 / openai #43"
+   "note": "London gallery's Paris space"
   },
   {
    "rank": 32,
-   "name": "Galerie Anne Barrault",
-   "id": "galerie-anne-barrault",
+   "name": "Galerie Peter Kilchmann",
+   "id": "galerie-peter-kilchmann",
    "neighborhood": "Marais",
-   "note": "claude #55 / openai #60"
+   "note": "Zurich gallery, Marais space since 2023"
   },
   {
    "rank": 33,
-   "name": "Galerie Papillon",
-   "id": "galerie-papillon",
+   "name": "Dvir Gallery",
+   "id": "dvir-gallery",
    "neighborhood": "Marais",
-   "note": "claude #54 / openai #62"
+   "note": "Tel Aviv + Brussels + Marais; strong conceptual roster"
   },
   {
    "rank": 34,
-   "name": "Galerie Les Filles du Calvaire",
-   "id": "galerie-les-filles-du-calvaire",
-   "neighborhood": "Marais",
-   "note": "claude #59 / openai #58"
+   "name": "Applicat-Prazan",
+   "id": "applicat-prazan",
+   "neighborhood": "Saint-Germain",
+   "note": "Postwar French painting"
   },
   {
    "rank": 35,
-   "name": "Galerie Eric Dupont",
-   "id": "galerie-eric-dupont",
+   "name": "Galerie Sultana",
+   "id": "galerie-sultana",
    "neighborhood": "Marais",
-   "note": "claude #58 / openai #61"
+   "note": "Strong younger program"
   },
   {
    "rank": 36,
-   "name": "Art : Concept",
-   "id": "art-concept",
-   "neighborhood": "Marais",
-   "note": "claude #- / openai #21"
+   "name": "Loevenbruck",
+   "id": "loevenbruck",
+   "neighborhood": "Saint-Germain",
+   "note": "Two Saint-Germain spaces"
   },
   {
    "rank": 37,
-   "name": "Galerie Anne-Sarah Bénichou",
-   "id": "galerie-anne-sarah-benichou",
+   "name": "Semiose",
+   "id": "semiose",
    "neighborhood": "Marais",
-   "note": "claude #49 / openai #73"
+   "note": "Established Marais program"
   },
   {
    "rank": 38,
-   "name": "Xippas",
-   "id": "xippas",
+   "name": "Galerie Allen",
+   "id": "galerie-allen",
    "neighborhood": "Marais",
-   "note": "claude #25 / openai #-"
+   "note": "Also at Paris Internationale"
   },
   {
    "rank": 39,
-   "name": "Galerie Michel Rein",
-   "id": "galerie-michel-rein",
+   "name": "Galerie Poggi",
+   "id": "galerie-poggi",
    "neighborhood": "Marais",
-   "note": "claude #26 / openai #-"
+   "note": "Kiwanga, Mathieu; also Frieze London"
   },
   {
    "rank": 40,
-   "name": "Campoli Presti",
-   "id": "campoli-presti",
+   "name": "Andréhn-Schiptjenko",
+   "id": "andrehn-schiptjenko",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #28"
+   "note": "Stockholm gallery, rue Chapon space"
   },
   {
    "rank": 41,
-   "name": "Galerie Derouillon",
-   "id": "galerie-derouillon",
-   "neighborhood": "Marais",
-   "note": "claude #75 / openai #56"
+   "name": "Zander Galerie",
+   "id": "zander-galerie-paris",
+   "neighborhood": "Saint-Germain",
+   "note": "Photography; Cologne gallery's Paris space"
   },
   {
    "rank": 42,
-   "name": "In Situ – fabienne leclerc",
-   "id": "in-situ-fabienne-leclerc",
-   "neighborhood": "Belleville/Pantin",
-   "note": "claude #32 / openai #-"
-  },
-  {
-   "rank": 43,
-   "name": "Jousse Entreprise",
-   "id": "jousse-entreprise",
-   "neighborhood": "Marais",
-   "note": "claude #90 / openai #44"
-  },
-  {
-   "rank": 44,
-   "name": "Galerie Anne de Villepoix",
-   "id": "galerie-anne-de-villepoix",
-   "neighborhood": "Marais",
-   "note": "claude #83 / openai #52"
-  },
-  {
-   "rank": 45,
-   "name": "Meyer Riegger",
-   "id": "meyer-riegger",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #- / openai #35"
-  },
-  {
-   "rank": 46,
    "name": "Mariane Ibrahim",
    "id": "mariane-ibrahim",
    "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #36 / openai #-"
+   "note": "Boafo; Chicago + Mexico City + Paris"
+  },
+  {
+   "rank": 43,
+   "name": "Galerie Michel Rein",
+   "id": "galerie-michel-rein",
+   "neighborhood": "Marais",
+   "note": "Established Marais program"
+  },
+  {
+   "rank": 44,
+   "name": "Tornabuoni Art",
+   "id": "tornabuoni-art",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Italian postwar masters"
+  },
+  {
+   "rank": 45,
+   "name": "Galerie 1900-2000",
+   "id": "galerie-1900-2000",
+   "neighborhood": "Saint-Germain",
+   "note": "Dada and Surrealism specialist"
+  },
+  {
+   "rank": 46,
+   "name": "Galerie Le Minotaure",
+   "id": "minotaur",
+   "neighborhood": "Saint-Germain",
+   "note": "Modern masters, Saint-Germain"
   },
   {
    "rank": 47,
-   "name": "Ceysson & Bénétière",
-   "id": "ceysson-and-benetiere",
+   "name": "Sans titre",
+   "id": "sans-titre",
    "neighborhood": "Marais",
-   "note": "claude #72 / openai #68"
+   "note": "Strong younger program"
   },
   {
    "rank": 48,
-   "name": "Peter Freeman, Inc.",
-   "id": "peter-freeman-inc",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #41 / openai #-"
+   "name": "Galerie Lahumière",
+   "id": "galerie-lahumiere",
+   "neighborhood": "Marais",
+   "note": "Geometric abstraction since 1963"
   },
   {
    "rank": 49,
-   "name": "Galerie Alberta Pane",
-   "id": "galerie-alberta-pane",
-   "neighborhood": "Marais",
-   "note": "claude #80 / openai #65"
+   "name": "Salon 94",
+   "id": "salon-94-paris",
+   "neighborhood": "Saint-Germain",
+   "note": "Major New York gallery's Palais-Royal space (See Saw only)"
   },
   {
    "rank": 50,
-   "name": "Galerie Mitterrand",
-   "id": "galerie-mitterrand",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #- / openai #46"
+   "name": "Waddington Custot",
+   "id": "waddington-custot-paris",
+   "neighborhood": "Saint-Germain",
+   "note": "Modern masters, rue de Seine"
   },
   {
    "rank": 51,
-   "name": "Ketabi Bourdet",
-   "id": "ketabi-bourdet",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #- / openai #48"
+   "name": "Galerie Louis Carré & Cie",
+   "id": "galerie-louis-carre-and-cie",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Historic modern house since 1938"
   },
   {
    "rank": 52,
-   "name": "Galerie Imane Farès",
-   "id": "galerie-imane-fares",
+   "name": "Galerie Kaléidoscope",
+   "id": "galerie-kaleidoscope",
    "neighborhood": "Saint-Germain",
-   "note": "claude #- / openai #49"
+   "note": "Modern and postwar, Saint-Germain"
   },
   {
    "rank": 53,
-   "name": "Polka Galerie",
-   "id": "polka-galerie",
-   "neighborhood": "Marais",
-   "note": "claude #60 / openai #90"
+   "name": "Mayoral",
+   "id": "mayoral",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Barcelona gallery, avenue Matignon space"
   },
   {
    "rank": 54,
-   "name": "Ciaccia Levi",
-   "id": "ciaccia-levi",
-   "neighborhood": "Marais",
-   "note": "claude #50 / openai #-"
+   "name": "Galleria d'Arte Maggiore G.A.M.",
+   "id": "galerie-d-art-maggiore-g-a-m-paris",
+   "neighborhood": "Saint-Germain",
+   "note": "Bologna gallery, boulevard Saint-Germain space"
   },
   {
    "rank": 55,
-   "name": "Édouard Montassut",
-   "id": "edouard-montassut",
-   "neighborhood": "Marais",
-   "note": "claude #52 / openai #-"
+   "name": "Peter Freeman, Inc.",
+   "id": "peter-freeman-inc",
+   "neighborhood": "Saint-Germain",
+   "note": "Small Palais-Royal space"
   },
   {
    "rank": 56,
-   "name": "Galerie Hussenot",
-   "id": "galerie-hussenot",
-   "neighborhood": "Marais",
-   "note": "claude #77 / openai #76"
+   "name": "In Situ – fabienne leclerc",
+   "id": "in-situ-fabienne-leclerc",
+   "neighborhood": "Belleville/Pantin",
+   "note": "Nkanga, Hadjithomas & Joreige; Romainville"
   },
   {
    "rank": 57,
-   "name": "Bendana | Pinel Art Contemporain",
-   "id": "bendana-pinel-art-contemporain",
+   "name": "Art : Concept",
+   "id": "art-concept",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #64"
+   "note": "Blazy, Deller, Childress"
   },
   {
    "rank": 58,
-   "name": "Galerie Dix9 Hélène Lacharmoise",
-   "id": "galerie-dix9-helene-lacharmoise",
+   "name": "Jousse Entreprise",
+   "id": "jousse-entreprise",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #66"
+   "note": "Two spaces"
   },
   {
    "rank": 59,
-   "name": "Galerie Maeght",
-   "id": "galerie-maeght",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #66 / openai #-"
+   "name": "Galerie Anne Barrault",
+   "id": "galerie-anne-barrault",
+   "neighborhood": "Marais",
+   "note": "Strong French roster"
   },
   {
    "rank": 60,
-   "name": "Galerie Claude Bernard",
-   "id": "galerie-claude-bernard",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #67 / openai #-"
+   "name": "Emanuela Campoli",
+   "id": "campoli-presti",
+   "neighborhood": "Marais",
+   "note": "Paris + Milan"
   },
   {
    "rank": 61,
-   "name": "Rabouan Moussion",
-   "id": "rabouan-moussion",
+   "name": "Ceysson & Bénétière",
+   "id": "ceysson-and-benetiere",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #69"
+   "note": "Supports/Surfaces, five cities"
   },
   {
    "rank": 62,
-   "name": "Loeve&Co",
-   "id": "loeve-and-co",
-   "neighborhood": "Saint-Germain",
-   "note": "claude #70 / openai #-"
+   "name": "Magnin-A",
+   "id": "magnin-a",
+   "neighborhood": "Marais",
+   "note": "African art since 2009"
   },
   {
    "rank": 63,
-   "name": "Galerie Maubert",
-   "id": "galerie-maubert",
+   "name": "christian berst art brut",
+   "id": "christian-berst-art-brut",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #71"
+   "note": "The art brut reference"
   },
   {
    "rank": 64,
-   "name": "Galerie Dohyang Lee",
-   "id": "galerie-dohyang-lee",
+   "name": "Édouard Montassut",
+   "id": "edouard-montassut",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #72"
+   "note": "Small, influential program"
   },
   {
    "rank": 65,
-   "name": "mfc-michèle didier",
-   "id": "mfc-michele-didier",
-   "neighborhood": "Marais",
-   "note": "claude #81 / openai #92"
+   "name": "Galerie Cécile Fakhoury",
+   "id": "galerie-cecile-fakhoury",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Abidjan, Dakar, Paris"
   },
   {
    "rank": 66,
-   "name": "RX&SLAG",
-   "id": "rx-and-slag",
-   "neighborhood": "Marais",
-   "note": "claude #73 / openai #-"
+   "name": "Salle Principale",
+   "id": "salle-principale",
+   "neighborhood": "Belleville/Pantin",
+   "note": "Young program, Belleville"
   },
   {
    "rank": 67,
-   "name": "Backslash",
-   "id": "backslash",
-   "neighborhood": "Marais",
-   "note": "claude #74 / openai #-"
+   "name": "Galerie Mitterrand",
+   "id": "galerie-mitterrand",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Lalanne, two 8th-arr. spaces"
   },
   {
    "rank": 68,
-   "name": "PACT",
-   "id": "pact",
-   "neighborhood": "Marais",
-   "note": "claude #- / openai #77"
+   "name": "Galerie Louise Leiris",
+   "id": "galerie-louise-leiris",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Kahnweiler's historic gallery, Picasso and Masson"
   },
   {
    "rank": 69,
-   "name": "Galerie Claire Gastaud",
-   "id": "galerie-claire-gastaud",
-   "neighborhood": "Marais",
-   "note": "claude #- / openai #78"
+   "name": "Galerie A&R Fleury",
+   "id": "galerie-a-and-r-fleury",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Modern masters, avenue Matignon"
   },
   {
    "rank": 70,
-   "name": "Double V Gallery",
-   "id": "double-v",
-   "neighborhood": "Marais",
-   "note": "claude #- / openai #79"
+   "name": "Malingue",
+   "id": "malingue",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Impressionist to postwar masters"
   },
   {
    "rank": 71,
-   "name": "193 Gallery",
-   "id": "193",
+   "name": "Galerie Suzanne Tarasieve",
+   "id": "galerie-suzanne-tarasieve",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #82"
+   "note": "Teller, long Paris history"
   },
   {
    "rank": 72,
-   "name": "AFIKARIS",
-   "id": "afikaris",
+   "name": "Xippas",
+   "id": "xippas",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #83"
+   "note": "Paris + Geneva + Punta del Este"
   },
   {
    "rank": 73,
-   "name": "Danysz Gallery",
-   "id": "danysz",
+   "name": "Ciaccia Levi",
+   "id": "ciaccia-levi",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #84"
+   "note": "Young program, two Marais spaces"
   },
   {
    "rank": 74,
-   "name": "Galerie Dominique Fiat",
-   "id": "galerie-dominique-fiat",
+   "name": "Galerie Derouillon",
+   "id": "galerie-derouillon",
    "neighborhood": "Marais",
-   "note": "claude #84 / openai #-"
+   "note": "Young program; also Paris Internationale"
   },
   {
    "rank": 75,
-   "name": "Galerie Binome",
-   "id": "galerie-binome",
+   "name": "Danysz",
+   "id": "danysz",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #86"
+   "note": "Urban art"
   },
   {
    "rank": 76,
-   "name": "DOC!",
-   "id": "doc",
-   "neighborhood": "Belleville/Pantin",
-   "note": "claude #92 / openai #95"
+   "name": "Galerie Christophe Person",
+   "id": "galerie-person",
+   "neighborhood": "Saint-Germain",
+   "note": "Contemporary African art"
   },
   {
    "rank": 77,
-   "name": "Galerie Clémentine de la Féronnière",
-   "id": "galerie-clementine-de-la-feronniere",
+   "name": "Galerie Hussenot",
+   "id": "galerie-hussenot",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #87"
+   "note": "Active younger program"
   },
   {
    "rank": 78,
-   "name": "Galerie VU'",
-   "id": "galerie-vu",
-   "neighborhood": "Avenue Matignon/8th",
-   "note": "claude #88 / openai #-"
+   "name": "Galerie Chez Valentin",
+   "id": "galerie-chez-valentin",
+   "neighborhood": "Marais",
+   "note": "Long-running Marais contemporary program"
   },
   {
    "rank": 79,
-   "name": "Galerie XII",
-   "id": "galerie-xii",
+   "name": "Ruttkowski;68",
+   "id": "ruttkowski-68",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #88"
+   "note": "Cologne gallery's rue Charlot space"
   },
   {
    "rank": 80,
-   "name": "Galerie Natalie Seroussi",
-   "id": "galerie-natalie-seroussi",
+   "name": "Galerie Zlotowski",
+   "id": "galerie-zlotowski",
    "neighborhood": "Saint-Germain",
-   "note": "claude #89 / openai #-"
+   "note": "Russian and European avant-garde"
   },
   {
    "rank": 81,
-   "name": "Les Douches la Galerie",
-   "id": "les-douches-la-galerie",
+   "name": "Pavec",
+   "id": "galeriepaulinepavec",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #89"
+   "note": "Surrealist women"
   },
   {
    "rank": 82,
-   "name": "Florence Loewy",
-   "id": "florence-loewy",
-   "neighborhood": "Marais",
-   "note": "claude #- / openai #91"
+   "name": "Galerie Eric Mouchet",
+   "id": "galerie-eric-mouchet",
+   "neighborhood": "Saint-Germain",
+   "note": "Modern and contemporary"
   },
   {
    "rank": 83,
-   "name": "Romero-Paprocki",
+   "name": "Tramps",
+   "id": "tramps",
+   "neighborhood": "Marais",
+   "note": "London and New York gallery's Paris space (See Saw only)"
+  },
+  {
+   "rank": 84,
+   "name": "Good or Trash",
+   "id": "good-or-trash",
+   "neighborhood": "Marais",
+   "note": "Young program, Canal Saint-Martin"
+  },
+  {
+   "rank": 85,
+   "name": "Goswell Road",
+   "id": "goswell-road",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Artist-run gallery, 10th arr."
+  },
+  {
+   "rank": 86,
+   "name": "After 8 Books",
+   "id": "after-8-books",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Bookshop-gallery, 10th arr."
+  },
+  {
+   "rank": 87,
+   "name": "Traits Libres",
+   "id": "traits-libres",
+   "neighborhood": "Marais",
+   "note": "Young program, Marais"
+  },
+  {
+   "rank": 88,
+   "name": "Exo Exo",
+   "id": "exo-exo",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Young program, 10th arr."
+  },
+  {
+   "rank": 89,
+   "name": "Lo Brutto Stahl",
+   "id": "lo-brutto-stahl",
+   "neighborhood": "Marais",
+   "note": "Young program, Marais"
+  },
+  {
+   "rank": 90,
+   "name": "Petrine",
+   "id": "petrine",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Young program, 10th arr."
+  },
+  {
+   "rank": 91,
+   "name": "The Pill",
+   "id": "pill",
+   "neighborhood": "Saint-Germain",
+   "note": "Istanbul gallery, Place de Valois space"
+  },
+  {
+   "rank": 92,
+   "name": "Isabella Ritter",
+   "id": "isabella-ritter",
+   "neighborhood": "Belleville/Pantin",
+   "note": "Young program, 2nd arr."
+  },
+  {
+   "rank": 93,
+   "name": "Long Story Short",
+   "id": "long-story-short-paris",
+   "neighborhood": "Marais",
+   "note": "Young program, Marais (See Saw only)"
+  },
+  {
+   "rank": 94,
+   "name": "Galerie Marguo",
+   "id": "galerie-marguo",
+   "neighborhood": "Marais",
+   "note": "Active Marais program"
+  },
+  {
+   "rank": 95,
+   "name": "Galerie Les filles du calvaire",
+   "id": "galerie-les-filles-du-calvaire",
+   "neighborhood": "Marais",
+   "note": "Photography, two spaces"
+  },
+  {
+   "rank": 96,
+   "name": "Galerie Papillon",
+   "id": "galerie-papillon",
+   "neighborhood": "Marais",
+   "note": "Drawing and sculpture"
+  },
+  {
+   "rank": 97,
+   "name": "Galerie Claude Bernard",
+   "id": "galerie-claude-bernard",
+   "neighborhood": "Saint-Germain",
+   "note": "Historic figurative house"
+  },
+  {
+   "rank": 98,
+   "name": "Galerie Dina Vierny",
+   "id": "dina-vierny",
+   "neighborhood": "Saint-Germain",
+   "note": "Historic gallery founded by Maillol's model"
+  },
+  {
+   "rank": 99,
+   "name": "Bailly Gallery",
+   "id": "bailly-gallery-paris",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Modern masters, Paris + Geneva"
+  },
+  {
+   "rank": 100,
+   "name": "Durazzo",
+   "id": "durazzo",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Faubourg Saint-Honoré"
+  },
+  {
+   "rank": 101,
+   "name": "Galerie Imane Farès",
+   "id": "galerie-imane-fares",
+   "neighborhood": "Saint-Germain",
+   "note": "Middle East and Africa"
+  },
+  {
+   "rank": 102,
+   "name": "Galerie Anne-Sarah Bénichou",
+   "id": "galerie-anne-sarah-benichou",
+   "neighborhood": "Marais",
+   "note": "Active Marais program"
+  },
+  {
+   "rank": 103,
+   "name": "Galerie Eric Dupont",
+   "id": "galerie-eric-dupont",
+   "neighborhood": "Marais",
+   "note": "Established Marais program"
+  },
+  {
+   "rank": 104,
+   "name": "Galerie Jean-Kenta Gauthier",
+   "id": "galerie-jean-kenta-gauthier",
+   "neighborhood": "Saint-Germain",
+   "note": "Drawing and contemporary, Saint-Germain"
+  },
+  {
+   "rank": 105,
+   "name": "Galerie Martine Aboucaya",
+   "id": "galerie-martine-aboucaya",
+   "neighborhood": "Marais",
+   "note": "Conceptual art, Marais"
+  },
+  {
+   "rank": 106,
+   "name": "Galerie Alain Gutharc",
+   "id": "galerie-alain-gutharc",
+   "neighborhood": "Marais",
+   "note": "Long-running Marais program"
+  },
+  {
+   "rank": 107,
+   "name": "Galerie Carole Kvasnevski",
+   "id": "galerie-carole-kvasnevski",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Contemporary, 17th arr."
+  },
+  {
+   "rank": 108,
+   "name": "Bremond Capela",
+   "id": "bremond-capela",
+   "neighborhood": "Marais",
+   "note": "Young program, Marais (See Saw only)"
+  },
+  {
+   "rank": 109,
+   "name": "Ketabi Bourdet",
+   "id": "ketabi-bourdet",
+   "neighborhood": "Saint-Germain",
+   "note": "Saint-Germain"
+  },
+  {
+   "rank": 110,
+   "name": "Galerie Alberta Pane",
+   "id": "galerie-alberta-pane",
+   "neighborhood": "Marais",
+   "note": "Paris + Venice"
+  },
+  {
+   "rank": 111,
+   "name": "Galerie Maeght",
+   "id": "galerie-maeght",
+   "neighborhood": "Saint-Germain",
+   "note": "Historic name, little current activity"
+  },
+  {
+   "rank": 112,
+   "name": "Polka Galerie",
+   "id": "polka-galerie",
+   "neighborhood": "Marais",
+   "note": "Photography"
+  },
+  {
+   "rank": 113,
+   "name": "Galerie Chenel",
+   "id": "galerie-chenel",
+   "neighborhood": "Saint-Germain",
+   "note": "Antiquities, Quai Voltaire"
+  },
+  {
+   "rank": 114,
+   "name": "Galerie Minsky",
+   "id": "galerie-minsky",
+   "neighborhood": "Saint-Germain",
+   "note": "Modern masters, 7th arr."
+  },
+  {
+   "rank": 115,
+   "name": "Galerie Bernard Bouché",
+   "id": "galerie-bernard-bouche",
+   "neighborhood": "Marais",
+   "note": "Postwar and contemporary, Marais"
+  },
+  {
+   "rank": 116,
+   "name": "Galerie Natalie Seroussi",
+   "id": "galerie-natalie-seroussi",
+   "neighborhood": "Saint-Germain",
+   "note": "Modern and secondary market"
+  },
+  {
+   "rank": 117,
+   "name": "PACT",
+   "id": "pact",
+   "neighborhood": "Marais",
+   "note": "Paris Internationale alumni"
+  },
+  {
+   "rank": 118,
+   "name": "Parliament",
+   "id": "parliament",
+   "neighborhood": "Marais",
+   "note": "Young program"
+  },
+  {
+   "rank": 119,
+   "name": "Galerie Sator",
+   "id": "galerie-sator",
+   "neighborhood": "Marais",
+   "note": "Active program"
+  },
+  {
+   "rank": 120,
+   "name": "Double V Gallery",
+   "id": "double-v",
+   "neighborhood": "Marais",
+   "note": "Paris + Marseille"
+  },
+  {
+   "rank": 121,
+   "name": "Cassandra Bird",
+   "id": "cassandra-bird",
+   "neighborhood": "Marais",
+   "note": "Sydney gallery's Paris space (See Saw only)"
+  },
+  {
+   "rank": 122,
+   "name": "Galerie Maria Lund",
+   "id": "galerie-maria-lund",
+   "neighborhood": "Marais",
+   "note": "Nordic and Asian artists"
+  },
+  {
+   "rank": 123,
+   "name": "Backslash",
+   "id": "backslash",
+   "neighborhood": "Marais",
+   "note": "Active program"
+  },
+  {
+   "rank": 124,
+   "name": "Galerie Dix9",
+   "id": "galerie-dix9-helene-lacharmoise",
+   "neighborhood": "Marais",
+   "note": "Photography and mixed media"
+  },
+  {
+   "rank": 125,
+   "name": "Galerie Catherine Putman",
+   "id": "catherine-putman",
+   "neighborhood": "Marais",
+   "note": "Works on paper and editions"
+  },
+  {
+   "rank": 126,
+   "name": "Brigitte Mulholland",
+   "id": "brigitte-mulholland",
+   "neighborhood": "Marais",
+   "note": "Young painting program, Marais"
+  },
+  {
+   "rank": 127,
+   "name": "Droste Galladé",
+   "id": "droste-gallade",
+   "neighborhood": "Marais",
+   "note": "Young program, Marais (See Saw only)"
+  },
+  {
+   "rank": 128,
+   "name": "Galerie Zidoun-Bossuyt",
+   "id": "galerie-zidoun-bossuyt",
+   "neighborhood": "Saint-Germain",
+   "note": "Luxembourg gallery's rue de Seine space"
+  },
+  {
+   "rank": 129,
+   "name": "Galerie Anne-Laure Buffard",
+   "id": "anne-laure-buffard-inc",
+   "neighborhood": "Marais",
+   "note": "Paris + Arles"
+  },
+  {
+   "rank": 130,
+   "name": "RX&SLAG",
+   "id": "rx-and-slag",
+   "neighborhood": "Marais",
+   "note": "Paris + New York"
+  },
+  {
+   "rank": 131,
+   "name": "Bendana Pinel",
+   "id": "bendana-pinel-art-contemporain",
+   "neighborhood": "Marais",
+   "note": "Latin American artists"
+  },
+  {
+   "rank": 132,
+   "name": "Loeve&Co",
+   "id": "loeve-and-co",
+   "neighborhood": "Saint-Germain",
+   "note": "Lettrism and avant-garde"
+  },
+  {
+   "rank": 133,
+   "name": "Galerie Maubert",
+   "id": "galerie-maubert",
+   "neighborhood": "Marais",
+   "note": "Active program"
+  },
+  {
+   "rank": 134,
+   "name": "Galerie Polaris",
+   "id": "galerie-polaris",
+   "neighborhood": "Marais",
+   "note": "Contemporary, Marais"
+  },
+  {
+   "rank": 135,
+   "name": "Galerie Martel",
+   "id": "galerie-martel",
+   "neighborhood": "Marais",
+   "note": "Comics and illustration art"
+  },
+  {
+   "rank": 136,
+   "name": "mfc-michèle didier",
+   "id": "mfc-michele-didier",
+   "neighborhood": "Marais",
+   "note": "Artists' books and editions"
+  },
+  {
+   "rank": 137,
+   "name": "Galerie Claire Gastaud",
+   "id": "galerie-claire-gastaud",
+   "neighborhood": "Marais",
+   "note": "Paris + Clermont-Ferrand"
+  },
+  {
+   "rank": 138,
+   "name": "193 Gallery",
+   "id": "193",
+   "neighborhood": "Marais",
+   "note": "Global South artists"
+  },
+  {
+   "rank": 139,
+   "name": "AFIKARIS",
+   "id": "afikaris",
+   "neighborhood": "Marais",
+   "note": "African artists"
+  },
+  {
+   "rank": 140,
+   "name": "Galerie Clémentine de la Féronnière",
+   "id": "galerie-clementine-de-la-feronniere",
+   "neighborhood": "Marais",
+   "note": "Photography"
+  },
+  {
+   "rank": 141,
+   "name": "Les Douches la Galerie",
+   "id": "les-douches-la-galerie",
+   "neighborhood": "Marais",
+   "note": "Photography"
+  },
+  {
+   "rank": 142,
+   "name": "Magnum Photos Gallery",
+   "id": "galerie-magnum-photos-and-librairie",
+   "neighborhood": "Marais",
+   "note": "Photography"
+  },
+  {
+   "rank": 143,
+   "name": "Galerie Françoise Paviot",
+   "id": "galerie-francoise-paviot",
+   "neighborhood": "Saint-Germain",
+   "note": "Photography, by appointment"
+  },
+  {
+   "rank": 144,
+   "name": "Galerie VU'",
+   "id": "galerie-vu",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Photography"
+  },
+  {
+   "rank": 145,
+   "name": "Galerie Binome",
+   "id": "galerie-binome",
+   "neighborhood": "Marais",
+   "note": "Photography"
+  },
+  {
+   "rank": 146,
+   "name": "Galerie Dominique Fiat",
+   "id": "galerie-dominique-fiat",
+   "neighborhood": "Marais",
+   "note": "Photography and performance"
+  },
+  {
+   "rank": 147,
+   "name": "Galerie Dohyang Lee",
+   "id": "galerie-dohyang-lee",
+   "neighborhood": "Marais",
+   "note": "Korean and French artists"
+  },
+  {
+   "rank": 148,
+   "name": "Galerie Valérie Delaunay",
+   "id": "galerie-valerie-delaunay",
+   "neighborhood": "Marais",
+   "note": "Contemporary, rue Chapon"
+  },
+  {
+   "rank": 149,
+   "name": "Galerie Nichido",
+   "id": "galerie-nichido",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Tokyo gallery's Paris branch"
+  },
+  {
+   "rank": 150,
+   "name": "313 Art Project",
+   "id": "313-art-project-paris",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Seoul gallery, avenue Franklin Roosevelt"
+  },
+  {
+   "rank": 151,
+   "name": "Galerie Hadjer",
+   "id": "galerie-hadjer",
+   "neighborhood": "Avenue Matignon/8th",
+   "note": "Faubourg Saint-Honoré"
+  },
+  {
+   "rank": 152,
+   "name": "Galerie Traits Noirs",
+   "id": "galerie-traits-noirs",
+   "neighborhood": "Saint-Germain",
+   "note": "Contemporary, Saint-Germain"
+  },
+  {
+   "rank": 153,
+   "name": "Romero Paprocki",
    "id": "romero-paprocki",
    "neighborhood": "Marais",
-   "note": "claude #- / openai #93"
+   "note": "Paris + Milan"
+  },
+  {
+   "rank": 154,
+   "name": "22,48 m²",
+   "id": "22-48-m2",
+   "neighborhood": "Marais",
+   "note": "Romainville project space"
+  },
+  {
+   "rank": 155,
+   "name": "Galerie Anne de Villepoix",
+   "id": "galerie-anne-de-villepoix",
+   "neighborhood": "Marais",
+   "note": "Long-running, quieter program now"
   }
  ],
  "_note": " | 2026-10-16: museums, nonprofits and university galleries moved to the Museums list (museum_order.json); galleries below closed the gaps."
