@@ -64,7 +64,7 @@ def save_hashes() -> None:
 # a varied photo reaches the frame are left alone.
 # Gallery photos and artist bio cards are never trimmed. Boxes are memoised by
 # content hash; TRIM_VERSION is part of every trimmed picture's cache key.
-TRIM_VERSION = 4
+TRIM_VERSION = 5
 TRIM_TOL = 12          # a pixel further than this (max channel) from the edge color is art
 TRIM_EDGE_TOL = 20     # an edge counts as margin when TRIM_EDGE_EVEN of its outer
 TRIM_EDGE_EVEN = 0.95  # strip is within TRIM_EDGE_TOL of the strip's median color
@@ -182,7 +182,12 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
     # the pale walk may only follow wall, never swallow most of the picture: an
     # installation view with a white wall down to the floor, or a pale work,
     # keeps the edge-color trim alone
-    if not keeps(cut, 0.4):
+    # only a work hung on a wall is cut tight (the pale walk and the rim shave
+    # can bite into it); a sculpture, drawing or photo keeps everything inside
+    # its plain edge bands, so the whole artwork reaches the frame uncut
+    hung = framed_work(cut)
+    if not hung or not keeps(cut, 0.4):
+        hung = False
         cut = edge
         if not keeps(cut, 0):
             return None                               # mostly "margin": a pale or plain work
@@ -207,7 +212,7 @@ def find_trim(img: Image.Image) -> tuple[int, int, int, int] | None:
                 n += 1
         if n or cut[side]:
             shaved[side] = cut[side] + n + max(1, round(TRIM_SHAVE_INSET * size))
-    if keeps(shaved, 0.3):
+    if hung and keeps(shaved, 0.3):
         cut = shaved
     if not any(cut.values()):
         return None
