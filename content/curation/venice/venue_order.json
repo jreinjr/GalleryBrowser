@@ -1,172 +1,1019 @@
 {
  "city": "venice",
- "source": "LLM consensus (claude-opus-5 + gpt-5.6-sol), 2026-09-04",
- "generated": "2026-09-04",
+ "source": "Carlton's yes, 2026-11-09: main exhibition, pavilions by critics' mentions, other pavilions, collateral events, commercial galleries",
+ "generated": "2026-11-09",
  "tiers": {
   "1": 20,
   "2": 50
  },
  "entries": [
   {
-   "rank": 1,
+   "name": "Central Pavilion, Giardini",
+   "id": "main-central-pavilion",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: main",
+   "rank": 1
+  },
+  {
+   "name": "Arsenale (Corderie)",
+   "id": "main-arsenale",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: main",
+   "rank": 2
+  },
+  {
+   "name": "Japan Pavilion",
+   "id": "pavilion-japan",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 3
+  },
+  {
+   "name": "United States of America Pavilion",
+   "id": "pavilion-united-states-of-america",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 4
+  },
+  {
+   "name": "Spain Pavilion",
+   "id": "pavilion-spain",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 5
+  },
+  {
+   "name": "Austria Pavilion",
+   "id": "pavilion-austria",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 6
+  },
+  {
+   "name": "Great Britain Pavilion",
+   "id": "pavilion-great-britain",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 7
+  },
+  {
+   "name": "Finland Pavilion",
+   "id": "pavilion-finland",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 8
+  },
+  {
+   "name": "Canada Pavilion",
+   "id": "pavilion-canada",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 9
+  },
+  {
+   "name": "Germany Pavilion",
+   "id": "pavilion-germany",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 10
+  },
+  {
+   "name": "Italy Pavilion",
+   "id": "pavilion-italy",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 11
+  },
+  {
+   "name": "Australia Pavilion",
+   "id": "pavilion-australia",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 12
+  },
+  {
+   "name": "India Pavilion",
+   "id": "pavilion-india",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 13
+  },
+  {
+   "name": "Denmark Pavilion",
+   "id": "pavilion-denmark",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 14
+  },
+  {
+   "name": "Nordic Pavilion",
+   "id": "pavilion-nordic-countries",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 15
+  },
+  {
+   "name": "Greece Pavilion",
+   "id": "pavilion-greece",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 16
+  },
+  {
+   "name": "Albania Pavilion",
+   "id": "pavilion-albania",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 17
+  },
+  {
+   "name": "Argentina Pavilion",
+   "id": "pavilion-argentina",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 18
+  },
+  {
+   "name": "Belgium Pavilion",
+   "id": "pavilion-belgium",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 19
+  },
+  {
+   "name": "Brazil Pavilion",
+   "id": "pavilion-brazil",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 20
+  },
+  {
+   "name": "Chile Pavilion",
+   "id": "pavilion-chile",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 21
+  },
+  {
+   "name": "China Pavilion",
+   "id": "pavilion-china",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 22
+  },
+  {
+   "name": "Czech Pavilion",
+   "id": "pavilion-czech",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 23
+  },
+  {
+   "name": "Egypt Pavilion",
+   "id": "pavilion-egypt",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 24
+  },
+  {
+   "name": "France Pavilion",
+   "id": "pavilion-france",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 25
+  },
+  {
+   "name": "Luxembourg Pavilion",
+   "id": "pavilion-grand-duchy-of-luxembourg",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 26
+  },
+  {
+   "name": "Hungary Pavilion",
+   "id": "pavilion-hungary",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 27
+  },
+  {
+   "name": "Ireland Pavilion",
+   "id": "pavilion-ireland",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 28
+  },
+  {
+   "name": "Israel Pavilion",
+   "id": "pavilion-israel",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 29
+  },
+  {
+   "name": "Korea Pavilion",
+   "id": "pavilion-korea",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 30
+  },
+  {
+   "name": "Latvia Pavilion",
+   "id": "pavilion-latvia",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 31
+  },
+  {
+   "name": "Lebanon Pavilion",
+   "id": "pavilion-lebanon",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 32
+  },
+  {
+   "name": "Malta Pavilion",
+   "id": "pavilion-malta",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 33
+  },
+  {
+   "name": "Mexico Pavilion",
+   "id": "pavilion-mexico",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 34
+  },
+  {
+   "name": "Morocco Pavilion",
+   "id": "pavilion-morocco",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 35
+  },
+  {
+   "name": "Netherlands Pavilion",
+   "id": "pavilion-netherlands",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 36
+  },
+  {
+   "name": "Oman Pavilion",
+   "id": "pavilion-oman",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 37
+  },
+  {
+   "name": "Peru Pavilion",
+   "id": "pavilion-peru",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 38
+  },
+  {
+   "name": "Philippines Pavilion",
+   "id": "pavilion-philippines",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 39
+  },
+  {
+   "name": "Poland Pavilion",
+   "id": "pavilion-poland",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 40
+  },
+  {
+   "name": "Qatar Pavilion",
+   "id": "pavilion-qatar",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 41
+  },
+  {
+   "name": "Romania Pavilion",
+   "id": "pavilion-romania",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 42
+  },
+  {
+   "name": "Russia Pavilion",
+   "id": "pavilion-russia",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 43
+  },
+  {
+   "name": "Saudi Arabia Pavilion",
+   "id": "pavilion-saudi-arabia",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 44
+  },
+  {
+   "name": "Serbia Pavilion",
+   "id": "pavilion-serbia",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 45
+  },
+  {
+   "name": "Singapore Pavilion",
+   "id": "pavilion-singapore",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 46
+  },
+  {
+   "name": "Slovenia Pavilion",
+   "id": "pavilion-slovenia",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 47
+  },
+  {
+   "name": "Switzerland Pavilion",
+   "id": "pavilion-switzerland",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 48
+  },
+  {
+   "name": "Timor-Leste Pavilion",
+   "id": "pavilion-timor-leste",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 49
+  },
+  {
+   "name": "United Arab Emirates Pavilion",
+   "id": "pavilion-united-arab-emirates",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 50
+  },
+  {
+   "name": "Uruguay Pavilion",
+   "id": "pavilion-uruguay",
+   "neighborhood": "Giardini",
+   "note": "Biennale 2026: pav",
+   "rank": 51
+  },
+  {
+   "name": "Uzbekistan Pavilion",
+   "id": "pavilion-uzbekistan",
+   "neighborhood": "Arsenale",
+   "note": "Biennale 2026: pav",
+   "rank": 52
+  },
+  {
+   "name": "Armenia Pavilion",
+   "id": "pavilion-armenia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 53
+  },
+  {
+   "name": "Azerbaijan Pavilion",
+   "id": "pavilion-azerbaijan",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 54
+  },
+  {
+   "name": "Bahamas Pavilion",
+   "id": "pavilion-bahamas",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 55
+  },
+  {
+   "name": "Bosnia and Herzegovina Pavilion",
+   "id": "pavilion-bosnia-and-herzegovina",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: pav",
+   "rank": 56
+  },
+  {
+   "name": "Bulgaria Pavilion",
+   "id": "pavilion-bulgaria",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 57
+  },
+  {
+   "name": "Cameroon Pavilion",
+   "id": "pavilion-cameroon",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 58
+  },
+  {
+   "name": "Congo Pavilion",
+   "id": "pavilion-congo",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 59
+  },
+  {
+   "name": "Croatia Pavilion",
+   "id": "pavilion-croatia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 60
+  },
+  {
+   "name": "Cuba Pavilion",
+   "id": "pavilion-cuba",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 61
+  },
+  {
+   "name": "Cyprus Pavilion",
+   "id": "pavilion-cyprus",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 62
+  },
+  {
+   "name": "Ecuador Pavilion",
+   "id": "pavilion-ecuador",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 63
+  },
+  {
+   "name": "El Salvador Pavilion",
+   "id": "pavilion-el-salvador",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 64
+  },
+  {
+   "name": "Equatorial Guinea Pavilion",
+   "id": "pavilion-equatorial-guinea",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 65
+  },
+  {
+   "name": "Estonia Pavilion",
+   "id": "pavilion-estonia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 66
+  },
+  {
+   "name": "Ethiopia Pavilion",
+   "id": "pavilion-ethiopia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 67
+  },
+  {
+   "name": "Georgia Pavilion",
+   "id": "pavilion-georgia",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 68
+  },
+  {
+   "name": "Grenada Pavilion",
+   "id": "pavilion-grenada",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 69
+  },
+  {
+   "name": "Guatemala Pavilion",
+   "id": "pavilion-guatemala",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 70
+  },
+  {
+   "name": "Guinea Pavilion",
+   "id": "pavilion-guinea",
+   "neighborhood": "Islands",
+   "note": "Biennale 2026: pav",
+   "rank": 71
+  },
+  {
+   "name": "Haiti Pavilion",
+   "id": "pavilion-haiti",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 72
+  },
+  {
+   "name": "Holy See Pavilion",
+   "id": "pavilion-holy-see",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 73
+  },
+  {
+   "name": "Iceland Pavilion",
+   "id": "pavilion-iceland",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 74
+  },
+  {
+   "name": "Indonesia Pavilion",
+   "id": "pavilion-indonesia",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 75
+  },
+  {
+   "name": "Kazakhstan Pavilion",
+   "id": "pavilion-kazakhstan",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 76
+  },
+  {
+   "name": "Kosovo Pavilion",
+   "id": "pavilion-kosovo",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 77
+  },
+  {
+   "name": "Kyrgyz Republic Pavilion",
+   "id": "pavilion-kyrgyz-republic",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 78
+  },
+  {
+   "name": "Lithuania Pavilion",
+   "id": "pavilion-lithuania",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 79
+  },
+  {
+   "name": "Moldova Pavilion",
+   "id": "pavilion-moldova",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 80
+  },
+  {
+   "name": "Mongolia Pavilion",
+   "id": "pavilion-mongolia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 81
+  },
+  {
+   "name": "Montenegro Pavilion",
+   "id": "pavilion-montenegro",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 82
+  },
+  {
+   "name": "Nauru Pavilion",
+   "id": "pavilion-nauru",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 83
+  },
+  {
+   "name": "New Zealand Pavilion",
+   "id": "pavilion-new-zealand",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 84
+  },
+  {
+   "name": "North Macedonia Pavilion",
+   "id": "pavilion-north-macedonia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 85
+  },
+  {
+   "name": "Pakistan Pavilion",
+   "id": "pavilion-pakistan",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 86
+  },
+  {
+   "name": "Panama Pavilion",
+   "id": "pavilion-panama",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 87
+  },
+  {
+   "name": "Portugal Pavilion",
+   "id": "pavilion-portugal",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: pav",
+   "rank": 88
+  },
+  {
+   "name": "San Marino Pavilion",
+   "id": "pavilion-san-marino",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 89
+  },
+  {
+   "name": "Senegal Pavilion",
+   "id": "pavilion-senegal",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 90
+  },
+  {
+   "name": "Seychelles Pavilion",
+   "id": "pavilion-seychelles",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 91
+  },
+  {
+   "name": "Sierra Leone Pavilion",
+   "id": "pavilion-sierra-leone",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 92
+  },
+  {
+   "name": "Somalia Pavilion",
+   "id": "pavilion-somalia",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 93
+  },
+  {
+   "name": "Syrian Arab Republic Pavilion",
+   "id": "pavilion-syrian-arab-republic",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: pav",
+   "rank": 94
+  },
+  {
+   "name": "Tanzania Pavilion",
+   "id": "pavilion-tanzania",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: pav",
+   "rank": 95
+  },
+  {
+   "name": "Uganda Pavilion",
+   "id": "pavilion-uganda",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 96
+  },
+  {
+   "name": "Ukraine Pavilion",
+   "id": "pavilion-ukraine",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 97
+  },
+  {
+   "name": "Viet nam Pavilion",
+   "id": "pavilion-viet-nam",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: pav",
+   "rank": 98
+  },
+  {
+   "name": "Zimbabwe Pavilion",
+   "id": "pavilion-zimbabwe",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: pav",
+   "rank": 99
+  },
+  {
+   "name": "Baile, Botella y Baraja",
+   "id": "collateral-jose-ruiz",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 100
+  },
+  {
+   "name": "Catalonia in Venice",
+   "id": "collateral-claudia-pages-rabal",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 101
+  },
+  {
+   "name": "Wales in Venice",
+   "id": "collateral-manon-awst",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 102
+  },
+  {
+   "name": "Hong Kong in Venice",
+   "id": "collateral-kingsley-ng",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 103
+  },
+  {
+   "name": "Fissures of Light Diaspora",
+   "id": "collateral-fissures-of-light-diaspora-dissonances-in-fa-minor",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: col",
+   "rank": 104
+  },
+  {
+   "name": "Fondazione Bvlgari at the Biblioteca Marciana",
+   "id": "collateral-lara-favaretto",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: col",
+   "rank": 105
+  },
+  {
+   "name": "Leandro Erlich at Negozio Olivetti",
+   "id": "collateral-leandro-erlich",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: col",
+   "rank": 106
+  },
+  {
+   "name": "Infinito Cabinet",
+   "id": "collateral-maria-cristina-crespo",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 107
+  },
+  {
+   "name": "Iván Tovar: Le Retour",
+   "id": "collateral-ivan-tovar",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 108
+  },
+  {
+   "name": "Macao in Venice",
+   "id": "collateral-jacones-polyphony-exhibition-from-macao-china",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 109
+  },
+  {
+   "name": "Kan Yasuda: Isole del Silenzio",
+   "id": "collateral-kan-yasuda",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: col",
+   "rank": 110
+  },
+  {
+   "name": "Lee Ufan at SMAC",
+   "id": "collateral-lee-ufan",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: col",
+   "rank": 111
+  },
+  {
+   "name": "Nalini Malani: Of Woman Born",
+   "id": "collateral-nalini-malani",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: col",
+   "rank": 112
+  },
+  {
+   "name": "Ronald Ventura: Luna",
+   "id": "collateral-ronald-ventura",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 113
+  },
+  {
+   "name": "Scotland in Venice",
+   "id": "collateral-bugarin-castle",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 114
+  },
+  {
+   "name": "Taiwan in Venice",
+   "id": "collateral-li-yi-fan",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 115
+  },
+  {
+   "name": "Song E Yoon: Songs Across Time",
+   "id": "collateral-song-e-yoon",
+   "neighborhood": "Castello",
+   "note": "Biennale 2026: col",
+   "rank": 116
+  },
+  {
+   "name": "Su Xiaobai at Palazzo Soranzo Van Axel",
+   "id": "collateral-su-xiaobai",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: col",
+   "rank": 117
+  },
+  {
+   "name": "Tadeusz Kantor at Procuratie Vecchie",
+   "id": "collateral-tadeusz-kantor",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: col",
+   "rank": 118
+  },
+  {
+   "name": "Vyacheslav Akhunov at Palazzo Franchetti",
+   "id": "collateral-vyacheslav-akhunov",
+   "neighborhood": "San Marco",
+   "note": "Biennale 2026: col",
+   "rank": 119
+  },
+  {
+   "name": "Aghrab Idrāk: Thresholds of Perception",
+   "id": "collateral-aghrab-idrak-thresholds-of-perception",
+   "neighborhood": "Dorsoduro",
+   "note": "Biennale 2026: col",
+   "rank": 120
+  },
+  {
+   "name": "Gaza: No Words",
+   "id": "collateral-ricamatrici-palestinesi",
+   "neighborhood": "Cannaregio",
+   "note": "Biennale 2026: col",
+   "rank": 121
+  },
+  {
    "name": "Victoria Miro Venice",
    "id": "victoria-miro-venice",
    "neighborhood": "San Marco",
-   "note": "claude #1 / openai #1"
+   "note": "claude #1 / openai #1",
+   "rank": 122
   },
   {
-   "rank": 2,
    "name": "Galleria Alberta Pane",
    "id": "galleria-alberta-pane",
    "neighborhood": "Dorsoduro",
-   "note": "claude #3 / openai #3"
+   "note": "claude #3 / openai #3",
+   "rank": 123
   },
   {
-   "rank": 3,
    "name": "Marignana Arte",
    "id": "marignana-arte",
    "neighborhood": "Dorsoduro",
-   "note": "claude #4 / openai #5"
+   "note": "claude #4 / openai #5",
+   "rank": 124
   },
   {
-   "rank": 4,
    "name": "A plus A Gallery",
    "id": "a-plus-a",
    "neighborhood": "Dorsoduro",
-   "note": "claude #8 / openai #7"
+   "note": "claude #8 / openai #7",
+   "rank": 125
   },
   {
-   "rank": 5,
    "name": "Caterina Tognon Arte Contemporanea",
    "id": "caterina-tognon-arte-contemporanea",
    "neighborhood": "San Marco",
-   "note": "claude #11 / openai #9"
+   "note": "claude #11 / openai #9",
+   "rank": 126
   },
   {
-   "rank": 6,
    "name": "Spazio Punch",
    "id": "spazio-punch",
    "neighborhood": "Giudecca",
-   "note": "claude #16 / openai #21"
+   "note": "claude #16 / openai #21",
+   "rank": 127
   },
   {
-   "rank": 7,
    "name": "Ikona Gallery",
    "id": "ikona",
    "neighborhood": "Cannaregio",
-   "note": "claude #17 / openai #20"
+   "note": "claude #17 / openai #20",
+   "rank": 128
   },
   {
-   "rank": 8,
    "name": "Galleria d'Arte Contini",
    "id": "galleria-d-arte-contini",
    "neighborhood": "San Marco",
-   "note": "claude #20 / openai #24"
+   "note": "claude #20 / openai #24",
+   "rank": 129
   },
   {
-   "rank": 9,
    "name": "Bugno Art Gallery",
    "id": "bugno-art",
    "neighborhood": "San Marco",
-   "note": "claude #21 / openai #34"
+   "note": "claude #21 / openai #34",
+   "rank": 130
   },
   {
-   "rank": 10,
    "name": "Spazio Berlendis",
    "id": "spazio-berlendis",
    "neighborhood": "Castello",
-   "note": "claude #29 / openai #27"
+   "note": "claude #29 / openai #27",
+   "rank": 131
   },
   {
-   "rank": 11,
    "name": "Galleria del Cavallino",
    "id": "galleria-ravagnan",
    "neighborhood": "Castello",
-   "note": "claude #22 / openai #40"
+   "note": "claude #22 / openai #40",
+   "rank": 132
   },
   {
-   "rank": 12,
    "name": "Patricia Low Venezia",
    "id": "patricia-low-venezia",
    "neighborhood": "Dorsoduro",
-   "note": "claude #- / openai #12"
+   "note": "claude #- / openai #12",
+   "rank": 133
   },
   {
-   "rank": 13,
    "name": "AKKA Project Venice",
    "id": "akka-project-venice",
    "neighborhood": "Dorsoduro",
-   "note": "claude #- / openai #25"
+   "note": "claude #- / openai #25",
+   "rank": 134
   },
   {
-   "rank": 14,
    "name": "Bel-Air Fine Art Venise",
    "id": "bel-air-fine-art-venise",
    "neighborhood": "San Marco",
-   "note": "claude #43 / openai #38"
+   "note": "claude #43 / openai #38",
+   "rank": 135
   },
   {
-   "rank": 15,
    "name": "Castello 925",
    "id": "castello-925",
    "neighborhood": "Castello",
-   "note": "claude #- / openai #31"
+   "note": "claude #- / openai #31",
+   "rank": 136
   },
   {
-   "rank": 16,
    "name": "Galleria d'Arte Santo Stefano",
    "id": "sparc-spazio-arte-contemporanea",
    "neighborhood": "Dorsoduro",
-   "note": "claude #- / openai #35"
+   "note": "claude #- / openai #35",
+   "rank": 137
   },
   {
-   "rank": 17,
    "name": "Galleria d'Arte L'Occhio",
    "id": "galleria-d-arte-l-occhio",
    "neighborhood": "Dorsoduro",
-   "note": "claude #40 / openai #46"
+   "note": "claude #40 / openai #46",
+   "rank": 138
   },
   {
-   "rank": 18,
    "name": "lineadacqua Gallery",
    "id": "lineadacqua",
    "neighborhood": "San Marco",
-   "note": "claude #- / openai #36"
+   "note": "claude #- / openai #36",
+   "rank": 139
   },
   {
-   "rank": 19,
    "name": "Visioni Altre",
    "id": "visioni-altre",
    "neighborhood": "Cannaregio",
-   "note": "claude #- / openai #44"
+   "note": "claude #- / openai #44",
+   "rank": 140
   },
   {
-   "rank": 20,
    "name": "Galleria La Salizada",
    "id": "galleria-la-salizada",
    "neighborhood": "San Marco",
-   "note": "claude #- / openai #45"
+   "note": "claude #- / openai #45",
+   "rank": 141
   },
   {
-   "rank": 21,
    "name": "Marina Bastianello Gallery",
    "id": "marina-bastianello",
    "neighborhood": "Cannaregio",
-   "note": "claude #46 / openai #-"
+   "note": "claude #46 / openai #-",
+   "rank": 142
   },
   {
-   "rank": 22,
    "name": "Casa Sanlorenzo",
    "id": "casa-sanlorenzo",
    "neighborhood": "Dorsoduro",
-   "note": "claude #48 / openai #-"
+   "note": "claude #48 / openai #-",
+   "rank": 143
   },
   {
-   "rank": 23,
    "name": "San Polo Art Gallery",
    "id": "san-polo-art",
    "neighborhood": "Dorsoduro",
-   "note": "claude #- / openai #54"
+   "note": "claude #- / openai #54",
+   "rank": 144
   }
  ],
  "_note": " | 2026-10-16: museums, nonprofits and university galleries moved to the Museums list (museum_order.json); galleries below closed the gaps."

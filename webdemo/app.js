@@ -32,11 +32,11 @@
   // ---------------- city list ----------------
   // The Cities sheet lists the cities in the person's order and only the ones
   // they show; both live in localStorage['cityOrder'] (versioned). Out of the
-  // box the seven founding cities are shown, in the build's order; every other
+  // box the eight main cities are shown, in the build's order; every other
   // city is there behind Edit. A city the payload no longer has drops out; a
   // new one joins at the end, hidden until shown.
   const CITY_ORDER_VERSION = 1;
-  const DEFAULT_SHOWN_CITIES = ['seattle', 'new-york', 'los-angeles', 'tokyo', 'berlin', 'london', 'paris'];
+  const DEFAULT_SHOWN_CITIES = ['seattle', 'new-york', 'los-angeles', 'tokyo', 'berlin', 'london', 'paris', 'venice'];
   const cityPrefs = (() => {
     let data = null;    // { v, order: [key], shown: [key] } once saved
     try { const o = JSON.parse(store.get('cityOrder', 'null')); if (o && o.v === CITY_ORDER_VERSION && Array.isArray(o.order) && Array.isArray(o.shown)) data = o; } catch (e) { /* defaults */ }

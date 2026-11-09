@@ -482,7 +482,7 @@ CITIES = {
         "metro_tokens": ["Venezia", "Venice"],
         "center": {"latitude": 45.4371, "longitude": 12.3326},
         "span": {"latitudeDelta": 0.12, "longitudeDelta": 0.18},
-        "neighborhoods": ["San Marco", "Dorsoduro", "Cannaregio", "Castello", "Giudecca"],
+        "neighborhoods": ["Giardini", "Arsenale", "San Marco", "Dorsoduro", "Cannaregio", "Castello", "San Polo", "Santa Croce", "Giudecca", "Islands"],
         "guidance": (
             "Focus on current institutional and collateral shows: Palazzo Grassi, Punta della "
             "Dogana, Peggy Guggenheim Collection, Fondazione Prada, Palazzo Fortuny, or "
