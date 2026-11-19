@@ -238,9 +238,13 @@
   // forward when that would land well before the opening.
   const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   const RECEPTION_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?/i;
+  const RECEPTION_DM_RE = /\b(\d{1,2})(?:st|nd|rd|th)?(?:\s+of)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?(?:,?\s+(\d{4}))?/i;
   function receptionDate(s) {
     if (!s.reception) return null;
-    const m = RECEPTION_RE.exec(s.reception);
+    // British order too ("Thursday 19 November, 6–8pm"): whichever comes first
+    let m = RECEPTION_RE.exec(s.reception);
+    const b = RECEPTION_DM_RE.exec(s.reception);
+    if (b && (!m || b.index < m.index)) m = [b[0], b[2], b[1], b[3]];
     if (!m) return null;
     const month = MONTHS.findIndex(name => name.startsWith(m[1].slice(0, 3).toLowerCase()));
     const day = Number(m[2]);
